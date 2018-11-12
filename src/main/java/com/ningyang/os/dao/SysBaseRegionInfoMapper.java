@@ -1,7 +1,10 @@
 package com.ningyang.os.dao;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.ningyang.os.action.output.vo.web.base.SysRegionVo;
 import com.ningyang.os.pojo.SysBaseRegionInfo;
+
+import java.util.List;
 
 /**
  * <p>
@@ -12,5 +15,7 @@ import com.ningyang.os.pojo.SysBaseRegionInfo;
  * @since 2018-11-12
  */
 public interface SysBaseRegionInfoMapper extends BaseMapper<SysBaseRegionInfo> {
+
+    List<SysRegionVo> selectSysRegionVoList();
 
 }
