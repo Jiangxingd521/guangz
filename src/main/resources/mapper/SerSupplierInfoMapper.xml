@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ningyang.os.dao.SerSupplierInfoMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.ningyang.os.pojo.SerSupplierInfo">
+        <id column="id" property="id" />
+        <result column="supplier_name" property="supplierName" />
+        <result column="supplier_mobile" property="supplierMobile" />
+        <result column="supplier_state" property="supplierState" />
+        <result column="supplier_region_id" property="supplierRegionId" />
+        <result column="supplier_address" property="supplierAddress" />
+        <result column="supplier_social_code" property="supplierSocialCode" />
+        <result column="create_time" property="createTime" />
+        <result column="update_time" property="updateTime" />
+    </resultMap>
+
+</mapper>

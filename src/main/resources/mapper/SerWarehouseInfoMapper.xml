@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ningyang.os.dao.SerWarehouseInfoMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.ningyang.os.pojo.SerWarehouseInfo">
+        <id column="id" property="id" />
+        <result column="warehouse_name" property="warehouseName" />
+        <result column="user_id" property="userId" />
+        <result column="warehouse_person" property="warehousePerson" />
+        <result column="warehouse_person_mobile" property="warehousePersonMobile" />
+        <result column="inventory" property="inventory" />
+        <result column="inventory_state" property="inventoryState" />
+        <result column="total_inventory" property="totalInventory" />
+        <result column="warehouse_remark" property="warehouseRemark" />
+        <result column="warehouse_state" property="warehouseState" />
+        <result column="create_time" property="createTime" />
+        <result column="update_time" property="updateTime" />
+    </resultMap>
+
+</mapper>

@@ -11,29 +11,29 @@ import java.util.Date;
 
 /**
  * <p>
- * 上传文件信息
+ * 溯源码类型
  * </p>
  *
  * @author kaider
- * @since 2018-10-18
+ * @since 2018-11-12
  */
-@TableName("t_sys_file_info")
-public class SysFileInfo extends Model<SysFileInfo> {
+@TableName("t_ser_code_type_info")
+public class SerCodeTypeInfo extends Model<SerCodeTypeInfo> {
 
     private static final long serialVersionUID = 1L;
 
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;
     /**
-     * 文件名称
+     * 码类型
      */
-    @TableField("file_name")
-    private String fileName;
+    @TableField("code_type")
+    private String codeType;
     /**
-     * 文件路径
+     * 类型状态（0：未使用，1：使用）
      */
-    @TableField("file_path")
-    private String filePath;
+    @TableField("code_state")
+    private Integer codeState;
     /**
      * 创建时间
      */
@@ -54,20 +54,20 @@ public class SysFileInfo extends Model<SysFileInfo> {
         this.id = id;
     }
 
-    public String getFileName() {
-        return fileName;
+    public String getCodeType() {
+        return codeType;
     }
 
-    public void setFileName(String fileName) {
-        this.fileName = fileName;
+    public void setCodeType(String codeType) {
+        this.codeType = codeType;
     }
 
-    public String getFilePath() {
-        return filePath;
+    public Integer getCodeState() {
+        return codeState;
     }
 
-    public void setFilePath(String filePath) {
-        this.filePath = filePath;
+    public void setCodeState(Integer codeState) {
+        this.codeState = codeState;
     }
 
     public Date getCreateTime() {
@@ -93,12 +93,12 @@ public class SysFileInfo extends Model<SysFileInfo> {
 
     @Override
     public String toString() {
-        return "SysFileInfo{" +
-                "id=" + id +
-                ", fileName=" + fileName +
-                ", filePath=" + filePath +
-                ", createTime=" + createTime +
-                ", updateTime=" + updateTime +
-                "}";
+        return "SerCodeTypeInfo{" +
+        "id=" + id +
+        ", codeType=" + codeType +
+        ", codeState=" + codeState +
+        ", createTime=" + createTime +
+        ", updateTime=" + updateTime +
+        "}";
     }
 }

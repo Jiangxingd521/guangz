@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ningyang.os.dao.SerCodeImportTemplateInfoMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.ningyang.os.pojo.SerCodeImportTemplateInfo">
+        <id column="id" property="id" />
+        <result column="brand_id" property="brandId" />
+        <result column="series_id" property="seriesId" />
+        <result column="product_id" property="productId" />
+        <result column="left_code_type_id" property="leftCodeTypeId" />
+        <result column="right_code_type_id" property="rightCodeTypeId" />
+        <result column="template_remark" property="templateRemark" />
+        <result column="template_state" property="templateState" />
+        <result column="create_time" property="createTime" />
+        <result column="update_time" property="updateTime" />
+    </resultMap>
+
+</mapper>

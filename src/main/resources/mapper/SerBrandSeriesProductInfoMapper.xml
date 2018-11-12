@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ningyang.os.dao.SerBrandSeriesProductInfoMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.ningyang.os.pojo.SerBrandSeriesProductInfo">
+        <id column="id" property="id" />
+        <result column="series_id" property="seriesId" />
+        <result column="series_name" property="seriesName" />
+        <result column="product_name" property="productName" />
+        <result column="short_title" property="shortTitle" />
+        <result column="key_word" property="keyWord" />
+        <result column="code_number" property="codeNumber" />
+        <result column="series_standard" property="seriesStandard" />
+        <result column="market_price" property="marketPrice" />
+        <result column="sales_price" property="salesPrice" />
+        <result column="code_69" property="code69" />
+        <result column="series_remark" property="seriesRemark" />
+        <result column="create_time" property="createTime" />
+        <result column="update_time" property="updateTime" />
+        <result column="product_state" property="productState" />
+    </resultMap>
+
+</mapper>

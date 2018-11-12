@@ -2,8 +2,8 @@ package com.ningyang.os.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.ningyang.os.action.output.dto.web.FileUploadDto;
-import com.ningyang.os.pojo.SysFileInfo;
 import com.ningyang.os.dao.SysFileInfoMapper;
+import com.ningyang.os.pojo.SysFileInfo;
 import com.ningyang.os.service.ISysFileInfoService;
 import org.springframework.stereotype.Service;
 
