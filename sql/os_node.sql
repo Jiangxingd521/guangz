@@ -11,7 +11,7 @@
  Target Server Version : 50721
  File Encoding         : 65001
 
- Date: 12/11/2018 16:51:01
+ Date: 12/11/2018 17:53:00
 */
 
 SET NAMES utf8mb4;
@@ -3526,8 +3526,8 @@ CREATE TABLE `t_sys_navigation_bar_info` (
 -- Records of t_sys_navigation_bar_info
 -- ----------------------------
 BEGIN;
-INSERT INTO `t_sys_navigation_bar_info` VALUES (1, '系统设置', '/sys/bar', 'el-icon-setting', 0, '系统', 0, '2018-09-28 17:14:26', '2018-10-11 15:21:34');
-INSERT INTO `t_sys_navigation_bar_info` VALUES (2, '基础设置', '/sys/icon', 'cs_as', 1, '系统', 0, '2018-10-01 23:16:56', '2018-10-24 14:56:30');
+INSERT INTO `t_sys_navigation_bar_info` VALUES (1, '系统设置', '/sys/bar', 'el-icon-setting', 0, '系统', 0, '2018-09-28 17:14:26', '2018-11-12 17:48:41');
+INSERT INTO `t_sys_navigation_bar_info` VALUES (2, '基础设置', '/sys/icon', 'icon-present', 1, '系统', 0, '2018-10-01 23:16:56', '2018-11-12 17:50:56');
 COMMIT;
 
 -- ----------------------------
@@ -3543,14 +3543,19 @@ CREATE TABLE `t_sys_navigation_bar_menu_info` (
   KEY `menu_id` (`menu_id`) USING BTREE,
   CONSTRAINT `t_sys_navigation_bar_menu_info_ibfk_1` FOREIGN KEY (`bar_id`) REFERENCES `t_sys_navigation_bar_info` (`id`),
   CONSTRAINT `t_sys_navigation_bar_menu_info_ibfk_2` FOREIGN KEY (`menu_id`) REFERENCES `t_sys_menu_info` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='菜单关联导航';
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='菜单关联导航';
 
 -- ----------------------------
 -- Records of t_sys_navigation_bar_menu_info
 -- ----------------------------
 BEGIN;
-INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (1, 1, 1);
-INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (2, 1, 2);
+INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (3, 1, 1);
+INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (4, 1, 2);
+INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (5, 1, 4);
+INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (6, 1, 8);
+INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (7, 1, 9);
+INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (8, 2, 6);
+INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (9, 2, 7);
 COMMIT;
 
 -- ----------------------------
@@ -3571,7 +3576,7 @@ CREATE TABLE `t_sys_role_info` (
 -- Records of t_sys_role_info
 -- ----------------------------
 BEGIN;
-INSERT INTO `t_sys_role_info` VALUES (1, '超级管理员', 0, 1, '2018-09-28 14:37:36', '2018-11-10 00:24:54');
+INSERT INTO `t_sys_role_info` VALUES (1, '超级管理员', 0, 1, '2018-09-28 14:37:36', '2018-11-12 17:49:29');
 INSERT INTO `t_sys_role_info` VALUES (2, '系统管理员', 0, 0, '2018-09-28 14:38:05', '2018-10-16 14:26:40');
 INSERT INTO `t_sys_role_info` VALUES (3, '测试员', 0, 0, '2018-10-04 22:43:38', '2018-10-16 14:26:52');
 COMMIT;
@@ -3604,13 +3609,14 @@ CREATE TABLE `t_sys_role_navigation_bar_info` (
   KEY `bar_id` (`bar_id`) USING BTREE,
   CONSTRAINT `t_sys_role_navigation_bar_info_ibfk_1` FOREIGN KEY (`role_id`) REFERENCES `t_sys_role_info` (`id`),
   CONSTRAINT `t_sys_role_navigation_bar_info_ibfk_2` FOREIGN KEY (`bar_id`) REFERENCES `t_sys_navigation_bar_info` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='角色关联导航栏';
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='角色关联导航栏';
 
 -- ----------------------------
 -- Records of t_sys_role_navigation_bar_info
 -- ----------------------------
 BEGIN;
-INSERT INTO `t_sys_role_navigation_bar_info` VALUES (1, 1, 1);
+INSERT INTO `t_sys_role_navigation_bar_info` VALUES (2, 1, 1);
+INSERT INTO `t_sys_role_navigation_bar_info` VALUES (3, 1, 2);
 COMMIT;
 
 -- ----------------------------
