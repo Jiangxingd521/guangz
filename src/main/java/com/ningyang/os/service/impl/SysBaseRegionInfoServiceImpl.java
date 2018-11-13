@@ -1,6 +1,8 @@
 package com.ningyang.os.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.ningyang.os.action.input.condition.base.QueryRegionCondition;
+import com.ningyang.os.action.output.vo.web.base.RegionVo;
 import com.ningyang.os.action.output.vo.web.base.SysRegionVo;
 import com.ningyang.os.dao.SysBaseRegionInfoMapper;
 import com.ningyang.os.pojo.SysBaseRegionInfo;
@@ -29,4 +31,8 @@ public class SysBaseRegionInfoServiceImpl extends ServiceImpl<SysBaseRegionInfoM
         return regions;
     }
 
+    @Override
+    public List<RegionVo> findRegionVo(QueryRegionCondition condition) {
+        return baseMapper.selectRegionVo(condition);
+    }
 }

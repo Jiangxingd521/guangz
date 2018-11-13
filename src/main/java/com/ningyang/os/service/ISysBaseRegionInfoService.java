@@ -1,9 +1,10 @@
 package com.ningyang.os.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.ningyang.os.action.input.condition.base.QueryRegionCondition;
+import com.ningyang.os.action.output.vo.web.base.RegionVo;
 import com.ningyang.os.action.output.vo.web.base.SysRegionVo;
 import com.ningyang.os.pojo.SysBaseRegionInfo;
-
 import java.util.List;
 
 
@@ -18,5 +19,7 @@ import java.util.List;
 public interface ISysBaseRegionInfoService extends IService<SysBaseRegionInfo> {
 
     List<SysRegionVo> findSysRegionVoList();
+
+    List<RegionVo> findRegionVo(QueryRegionCondition condition);
 
 }

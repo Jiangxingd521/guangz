@@ -22,7 +22,8 @@ public enum SystemErrorEnum {
     LINK_CENTER_ERROR(13, "链接失败,请联系管理员"),
     USER_DATA_ERROR(14, "用户信息错误"),
     USED_MOBILE_ERROR(15, "手机号码已注册"),
-    RELEASE_ERROR(16, "发布失败");
+    RELEASE_ERROR(16, "发布失败"),
+    DATA_ERROR(17, "数据有误");
 
     private Integer code;
     private String info;

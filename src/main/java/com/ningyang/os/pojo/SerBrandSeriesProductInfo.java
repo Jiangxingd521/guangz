@@ -78,8 +78,8 @@ public class SerBrandSeriesProductInfo extends Model<SerBrandSeriesProductInfo> 
     /**
      * 产品备注
      */
-    @TableField("series_remark")
-    private String seriesRemark;
+    @TableField("product_remark")
+    private String productRemark;
     /**
      * 创建时间
      */
@@ -185,12 +185,12 @@ public class SerBrandSeriesProductInfo extends Model<SerBrandSeriesProductInfo> 
         this.code69 = code69;
     }
 
-    public String getSeriesRemark() {
-        return seriesRemark;
+    public String getProductRemark() {
+        return productRemark;
     }
 
-    public void setSeriesRemark(String seriesRemark) {
-        this.seriesRemark = seriesRemark;
+    public void setProductRemark(String productRemark) {
+        this.productRemark = productRemark;
     }
 
     public Date getCreateTime() {
@@ -236,7 +236,7 @@ public class SerBrandSeriesProductInfo extends Model<SerBrandSeriesProductInfo> 
         ", marketPrice=" + marketPrice +
         ", salesPrice=" + salesPrice +
         ", code69=" + code69 +
-        ", seriesRemark=" + seriesRemark +
+        ", productRemark=" + productRemark +
         ", createTime=" + createTime +
         ", updateTime=" + updateTime +
         ", productState=" + productState +

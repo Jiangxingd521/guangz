@@ -16,4 +16,17 @@
         <result column="update_time" property="updateTime" />
     </resultMap>
 
+    <select id="selectBrandVoByCondition"
+            parameterType="com.ningyang.os.action.input.condition.base.QueryBrandSeriesProductCondition"
+            resultType="com.ningyang.os.action.output.vo.web.base.BrandVo"
+    >
+      select a.id as brandId,a.brand_name,a.brand_sort,a.brand_remark,a.brand_state,c.id as logoFileId,c.file_path as logo
+      from t_ser_brand_info a left join t_ser_brand_logo_file b on a.id = b.brand_id left join t_sys_file_info c on b.file_id = c.id
+      where 1=1
+      <if test="brandState!=null">
+          and a.brand_state = #{brandState}
+      </if>
+        order by a.brand_sort
+    </select>
+
 </mapper>

@@ -1,7 +1,12 @@
 package com.ningyang.os.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.ningyang.os.action.input.command.web.base.SeriesCommand;
+import com.ningyang.os.action.input.condition.base.QueryBrandSeriesProductCondition;
+import com.ningyang.os.action.output.vo.web.base.SeriesVo;
 import com.ningyang.os.pojo.SerBrandSeriesInfo;
+
+import java.util.List;
 
 
 /**
@@ -14,4 +19,7 @@ import com.ningyang.os.pojo.SerBrandSeriesInfo;
  */
 public interface ISerBrandSeriesInfoService extends IService<SerBrandSeriesInfo> {
 
+    List<SeriesVo> findSeriesVoByCondition(QueryBrandSeriesProductCondition condition);
+
+    boolean addOrUpdate(SeriesCommand command);
 }
