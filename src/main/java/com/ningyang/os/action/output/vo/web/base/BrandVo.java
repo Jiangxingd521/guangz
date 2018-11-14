@@ -1,5 +1,9 @@
 package com.ningyang.os.action.output.vo.web.base;
 
+import com.ningyang.os.action.output.dto.web.FileUploadDto;
+
+import java.util.List;
+
 /**
  * @Author： kaider
  * @Date：2018/11/13 14:37
@@ -16,10 +20,8 @@ public class BrandVo {
     private String brandRemark;
     //品牌状态
     private int brandState;
-    //logo文件id
-    private Long logoFileId;
-    //logo
-    private String logo;
+    //品牌logo文件
+    private List<FileUploadDto> logoFile;
 
     public Long getBrandId() {
         return brandId;
@@ -61,19 +63,11 @@ public class BrandVo {
         this.brandState = brandState;
     }
 
-    public Long getLogoFileId() {
-        return logoFileId;
+    public List<FileUploadDto> getLogoFile() {
+        return logoFile;
     }
 
-    public void setLogoFileId(Long logoFileId) {
-        this.logoFileId = logoFileId;
-    }
-
-    public String getLogo() {
-        return logo;
-    }
-
-    public void setLogo(String logo) {
-        this.logo = logo;
+    public void setLogoFile(List<FileUploadDto> logoFile) {
+        this.logoFile = logoFile;
     }
 }

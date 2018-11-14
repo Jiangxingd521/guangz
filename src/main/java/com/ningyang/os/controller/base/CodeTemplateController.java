@@ -1,10 +1,10 @@
 package com.ningyang.os.controller.base;
 
-import com.ningyang.os.action.input.command.web.base.CodeTypeCommand;
+import com.ningyang.os.action.input.command.web.base.CodeImportTemplateCommand;
 import com.ningyang.os.action.input.condition.base.QueryCodeCondition;
-import com.ningyang.os.action.output.vo.web.base.CodeTypeVo;
+import com.ningyang.os.action.output.vo.web.base.CodeImportTemplateVo;
 import com.ningyang.os.action.utils.WebResult;
-import com.ningyang.os.service.ISerCodeTypeInfoService;
+import com.ningyang.os.service.ISerCodeImportTemplateInfoService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,24 +18,25 @@ import static com.ningyang.os.action.enums.SystemErrorEnum.OPERATING_ERROR;
 
 /**
  * @Author： kaider
- * @Date：2018/11/14 09:51
- * @描述：码类型
+ * @Date：2018/11/14 14:16
+ * @描述：码模板
  */
 @RestController
-@RequestMapping("base/codeType")
-public class CodeTypeController {
+@RequestMapping("base/codeTemplate")
+public class CodeTemplateController {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(CodeTypeController.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(CodeTemplateController.class);
 
     @Autowired
-    private ISerCodeTypeInfoService infoService;
+    private ISerCodeImportTemplateInfoService infoService;
 
-    @GetMapping("getCodeTypeList")
-    public Map<String,Object> getCodeTypeList(
+
+    @GetMapping("getCodeTemplateList")
+    public Map<String,Object> getCodeTemplateList(
             QueryCodeCondition condition
     ){
         try {
-            List<CodeTypeVo> listVo = infoService.findCodeTypeVoByCondition(condition);
+            List<CodeImportTemplateVo> listVo = infoService.findCodeImportVoByCondition(condition);
             return WebResult.success().put("listVo", listVo).toMap();
         } catch (Exception e) {
             LOGGER.error(e.getMessage(), e);
@@ -45,7 +46,7 @@ public class CodeTypeController {
 
     @PostMapping("addOrUpdate")
     public Map<String,Object> addOrUpdate(
-            @RequestBody CodeTypeCommand command
+            @RequestBody CodeImportTemplateCommand command
     ){
         try {
             boolean flag = infoService.addOrUpdate(command);

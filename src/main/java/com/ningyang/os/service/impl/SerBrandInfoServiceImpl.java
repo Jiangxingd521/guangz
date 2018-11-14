@@ -4,15 +4,19 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.ningyang.os.action.input.command.web.base.BrandCommand;
 import com.ningyang.os.action.input.condition.base.QueryBrandSeriesProductCondition;
+import com.ningyang.os.action.output.dto.web.FileUploadDto;
 import com.ningyang.os.action.output.vo.web.base.BrandVo;
 import com.ningyang.os.dao.SerBrandInfoMapper;
 import com.ningyang.os.pojo.SerBrandInfo;
 import com.ningyang.os.pojo.SerBrandLogoFile;
+import com.ningyang.os.pojo.SysFileInfo;
 import com.ningyang.os.service.ISerBrandInfoService;
 import com.ningyang.os.service.ISerBrandLogoFileService;
+import com.ningyang.os.service.ISysFileInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -29,11 +33,32 @@ public class SerBrandInfoServiceImpl extends ServiceImpl<SerBrandInfoMapper, Ser
 
     @Autowired
     private ISerBrandLogoFileService logoFileService;
+    @Autowired
+    private ISysFileInfoService fileService;
+
 
     @Override
     public List<BrandVo> findBrandVoByCondition(QueryBrandSeriesProductCondition condition) {
-        return baseMapper.selectBrandVoByCondition(condition);
+        List<BrandVo> list = baseMapper.selectBrandVoByCondition(condition);
+        for(BrandVo vo : list){
+            SerBrandLogoFile logoFile = logoFileService.getOne(new QueryWrapper<SerBrandLogoFile>()
+                    .eq("brand_id",vo.getBrandId()));
+            List<FileUploadDto> fileList = new ArrayList<>();
+            if(logoFile!=null){
+                SysFileInfo fileInfo = fileService.getById(logoFile.getFileId());
+                FileUploadDto dto = new FileUploadDto();
+                dto.setId(logoFile.getFileId());
+                dto.setName(fileInfo.getFileName());
+                dto.setStatus("success");
+                dto.setUid(logoFile.getFileId());
+                dto.setUrl(fileInfo.getFilePath());
+                fileList.add(dto);
+            }
+            vo.setLogoFile(fileList);
+        }
+        return list;
     }
+
 
     @Override
     public boolean addOrUpdate(BrandCommand command) {
@@ -58,10 +83,14 @@ public class SerBrandInfoServiceImpl extends ServiceImpl<SerBrandInfoMapper, Ser
         }
 
         logoFileService.remove(new QueryWrapper<SerBrandLogoFile>().eq("brand_id",command.getBrandId()));
-        SerBrandLogoFile logoFile = new SerBrandLogoFile();
-        logoFile.setBrandId(info.getId());
-        logoFile.setFileId(command.getLogoFile().getId());
-        boolean flag2 = logoFileService.save(logoFile);
+        List<SerBrandLogoFile> fileList = new ArrayList<>();
+        for(FileUploadDto dto : command.getLogoFile()){
+            SerBrandLogoFile logoFile = new SerBrandLogoFile();
+            logoFile.setBrandId(info.getId());
+            logoFile.setFileId(dto.getId());
+            fileList.add(logoFile);
+        }
+        boolean flag2 = logoFileService.saveBatch(fileList);
 
         return flag1 && flag2;
     }

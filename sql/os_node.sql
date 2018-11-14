@@ -11,7 +11,7 @@
  Target Server Version : 50721
  File Encoding         : 65001
 
- Date: 14/11/2018 14:09:50
+ Date: 14/11/2018 16:22:06
 */
 
 SET NAMES utf8mb4;
@@ -39,7 +39,7 @@ CREATE TABLE `t_ser_brand_info` (
 -- Records of t_ser_brand_info
 -- ----------------------------
 BEGIN;
-INSERT INTO `t_ser_brand_info` VALUES (1, '第一品牌', NULL, 1, NULL, NULL, '第一个备注', 0, '2018-11-13 16:26:03', '2018-11-13 16:44:00');
+INSERT INTO `t_ser_brand_info` VALUES (1, '第一品牌', NULL, 1, NULL, NULL, '第一个备注', 0, '2018-11-13 16:26:03', '2018-11-14 16:02:22');
 INSERT INTO `t_ser_brand_info` VALUES (2, '第二品牌', NULL, 2, NULL, NULL, '第二个备注', 0, '2018-11-13 16:35:55', '2018-11-13 17:00:57');
 COMMIT;
 
@@ -56,14 +56,14 @@ CREATE TABLE `t_ser_brand_logo_file` (
   KEY `file_id` (`file_id`),
   CONSTRAINT `t_ser_brand_logo_file_ibfk_1` FOREIGN KEY (`brand_id`) REFERENCES `t_ser_brand_info` (`id`),
   CONSTRAINT `t_ser_brand_logo_file_ibfk_2` FOREIGN KEY (`file_id`) REFERENCES `t_sys_file_info` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='品牌logo信息';
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='品牌logo信息';
 
 -- ----------------------------
 -- Records of t_ser_brand_logo_file
 -- ----------------------------
 BEGIN;
-INSERT INTO `t_ser_brand_logo_file` VALUES (8, 1, 1);
 INSERT INTO `t_ser_brand_logo_file` VALUES (14, 2, 4);
+INSERT INTO `t_ser_brand_logo_file` VALUES (18, 1, 22);
 COMMIT;
 
 -- ----------------------------
@@ -177,27 +177,29 @@ COMMIT;
 DROP TABLE IF EXISTS `t_ser_code_import_template_info`;
 CREATE TABLE `t_ser_code_import_template_info` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `brand_id` bigint(20) DEFAULT NULL COMMENT '品牌id',
-  `series_id` bigint(20) DEFAULT NULL COMMENT '系列id',
   `product_id` bigint(20) DEFAULT NULL COMMENT '产品id',
+  `template_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '模板名称',
   `left_code_type_id` bigint(20) DEFAULT NULL COMMENT '左码',
   `right_code_type_id` bigint(20) DEFAULT NULL COMMENT '右码',
   `template_remark` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '模板说明',
-  `template_state` int(255) DEFAULT NULL COMMENT '模板状态（0：未使用，1：使用）',
+  `template_state` int(255) DEFAULT NULL COMMENT '模板状态（0：使用，1：未使用）',
   `create_time` datetime DEFAULT NULL COMMENT '创建时间',
   `update_time` datetime DEFAULT NULL COMMENT '修改时间',
   PRIMARY KEY (`id`),
-  KEY `brand_id` (`brand_id`),
-  KEY `series_id` (`series_id`),
   KEY `product_id` (`product_id`),
   KEY `left_code_type_id` (`left_code_type_id`),
   KEY `right_code_type_id` (`right_code_type_id`),
-  CONSTRAINT `t_ser_code_import_template_info_ibfk_1` FOREIGN KEY (`brand_id`) REFERENCES `t_ser_brand_info` (`id`),
-  CONSTRAINT `t_ser_code_import_template_info_ibfk_2` FOREIGN KEY (`series_id`) REFERENCES `t_ser_brand_series_info` (`id`),
   CONSTRAINT `t_ser_code_import_template_info_ibfk_3` FOREIGN KEY (`product_id`) REFERENCES `t_ser_brand_series_product_info` (`id`),
   CONSTRAINT `t_ser_code_import_template_info_ibfk_4` FOREIGN KEY (`left_code_type_id`) REFERENCES `t_ser_code_type_info` (`id`),
   CONSTRAINT `t_ser_code_import_template_info_ibfk_5` FOREIGN KEY (`right_code_type_id`) REFERENCES `t_ser_code_type_info` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='码导入模板';
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='码导入模板';
+
+-- ----------------------------
+-- Records of t_ser_code_import_template_info
+-- ----------------------------
+BEGIN;
+INSERT INTO `t_ser_code_import_template_info` VALUES (1, 5, '盖内-盖外', 3, 4, '产品1的盖内外模板', 0, '2018-11-14 15:23:55', '2018-11-14 15:26:30');
+COMMIT;
 
 -- ----------------------------
 -- Table structure for t_ser_code_type_info
@@ -3545,7 +3547,7 @@ CREATE TABLE `t_sys_file_info` (
   `create_time` datetime DEFAULT NULL COMMENT '创建时间',
   `update_time` datetime DEFAULT NULL COMMENT '修改时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='上传文件信息';
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='上传文件信息';
 
 -- ----------------------------
 -- Records of t_sys_file_info
@@ -3570,6 +3572,9 @@ INSERT INTO `t_sys_file_info` VALUES (16, '0dcd05de3ef7464caee536bb889bc3f50022.
 INSERT INTO `t_sys_file_info` VALUES (17, 'e881c6885af14afa9f829e04838e0b940011.jpg', 'upload/e881c6885af14afa9f829e04838e0b940011.jpg', '2018-11-14 14:02:19', '2018-11-14 14:02:19');
 INSERT INTO `t_sys_file_info` VALUES (18, '4193ad73a7914a8d90e607c9982bdae80022.jpg', 'upload/4193ad73a7914a8d90e607c9982bdae80022.jpg', '2018-11-14 14:02:19', '2018-11-14 14:02:19');
 INSERT INTO `t_sys_file_info` VALUES (19, '95f562b80ed34877aa83f38f9ba053130022.jpg', 'upload/95f562b80ed34877aa83f38f9ba053130022.jpg', '2018-11-14 14:07:37', '2018-11-14 14:07:37');
+INSERT INTO `t_sys_file_info` VALUES (20, 'bdcada0687874db0a8e38dfff1c88cbd0011.jpg', 'upload/bdcada0687874db0a8e38dfff1c88cbd0011.jpg', '2018-11-14 15:59:26', '2018-11-14 15:59:26');
+INSERT INTO `t_sys_file_info` VALUES (21, '675a2520364d47a6b95636209d43c16d0011.jpg', 'upload/675a2520364d47a6b95636209d43c16d0011.jpg', '2018-11-14 16:00:05', '2018-11-14 16:00:05');
+INSERT INTO `t_sys_file_info` VALUES (22, '5d3fd66040bd4477ba31e6844aca76ab0011.jpg', 'upload/5d3fd66040bd4477ba31e6844aca76ab0011.jpg', '2018-11-14 16:02:11', '2018-11-14 16:02:11');
 COMMIT;
 
 -- ----------------------------
@@ -3590,7 +3595,7 @@ CREATE TABLE `t_sys_menu_info` (
   `create_time` timestamp NULL DEFAULT NULL COMMENT '创建时间',
   `update_time` timestamp NULL DEFAULT NULL COMMENT '修改时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='菜单信息';
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='菜单信息';
 
 -- ----------------------------
 -- Records of t_sys_menu_info
@@ -3610,6 +3615,7 @@ INSERT INTO `t_sys_menu_info` VALUES (11, 6, '品牌库', 0, NULL, '/base/brand'
 INSERT INTO `t_sys_menu_info` VALUES (12, 6, '系列库', 0, NULL, '/base/series', NULL, 2, 0, NULL, '2018-11-13 12:17:18', '2018-11-13 18:05:37');
 INSERT INTO `t_sys_menu_info` VALUES (13, 6, '产品库', 0, NULL, '/base/product', NULL, 3, 0, NULL, '2018-11-13 12:17:41', '2018-11-13 18:05:32');
 INSERT INTO `t_sys_menu_info` VALUES (14, 6, '码类型库', 0, NULL, '/base/codeType', NULL, 5, 0, '码类型库', '2018-11-14 11:14:20', '2018-11-14 11:14:20');
+INSERT INTO `t_sys_menu_info` VALUES (15, 6, '模板库', 0, NULL, '/base/codeTemplate', NULL, 6, 0, NULL, '2018-11-14 15:11:36', '2018-11-14 15:11:36');
 COMMIT;
 
 -- ----------------------------
@@ -3635,7 +3641,7 @@ CREATE TABLE `t_sys_navigation_bar_info` (
 BEGIN;
 INSERT INTO `t_sys_navigation_bar_info` VALUES (1, '系统设置', '/sys/bar', 'el-icon-setting', 0, '系统', 0, '2018-09-28 17:14:26', '2018-11-12 17:48:41');
 INSERT INTO `t_sys_navigation_bar_info` VALUES (2, '系统基础设置', '/sys/icon', 'icon-present', 1, '系统', 0, '2018-10-01 23:16:56', '2018-11-14 11:32:16');
-INSERT INTO `t_sys_navigation_bar_info` VALUES (3, '基础设置', '/base/brand', 'icon-present', 2, '业务基础设置', 0, '2018-11-14 11:30:56', '2018-11-14 11:53:43');
+INSERT INTO `t_sys_navigation_bar_info` VALUES (3, '基础设置', '/base/brand', 'icon-present', 2, '业务基础设置', 0, '2018-11-14 11:30:56', '2018-11-14 15:11:54');
 COMMIT;
 
 -- ----------------------------
@@ -3651,7 +3657,7 @@ CREATE TABLE `t_sys_navigation_bar_menu_info` (
   KEY `menu_id` (`menu_id`) USING BTREE,
   CONSTRAINT `t_sys_navigation_bar_menu_info_ibfk_1` FOREIGN KEY (`bar_id`) REFERENCES `t_sys_navigation_bar_info` (`id`),
   CONSTRAINT `t_sys_navigation_bar_menu_info_ibfk_2` FOREIGN KEY (`menu_id`) REFERENCES `t_sys_menu_info` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='菜单关联导航';
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='菜单关联导航';
 
 -- ----------------------------
 -- Records of t_sys_navigation_bar_menu_info
@@ -3662,14 +3668,15 @@ INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (4, 1, 2);
 INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (5, 1, 4);
 INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (6, 1, 8);
 INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (7, 1, 9);
-INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (10, 3, 11);
-INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (11, 3, 6);
-INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (12, 3, 12);
-INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (13, 3, 13);
-INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (14, 3, 14);
 INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (15, 2, 6);
 INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (16, 2, 10);
 INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (17, 2, 7);
+INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (18, 3, 11);
+INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (19, 3, 6);
+INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (20, 3, 12);
+INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (21, 3, 13);
+INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (22, 3, 14);
+INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (23, 3, 15);
 COMMIT;
 
 -- ----------------------------

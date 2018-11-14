@@ -10,6 +10,8 @@ public class QueryCodeCondition {
     private Integer codeType;
     //码类型状态
     private Integer codeTypeState;
+    //码模板状态
+    private Integer codeImportState;
 
     public Integer getCodeType() {
         return codeType;
@@ -25,5 +27,13 @@ public class QueryCodeCondition {
 
     public void setCodeTypeState(Integer codeTypeState) {
         this.codeTypeState = codeTypeState;
+    }
+
+    public Integer getCodeImportState() {
+        return codeImportState;
+    }
+
+    public void setCodeImportState(Integer codeImportState) {
+        this.codeImportState = codeImportState;
     }
 }

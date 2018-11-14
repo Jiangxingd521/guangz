@@ -2,6 +2,8 @@ package com.ningyang.os.action.input.command.web.base;
 
 import com.ningyang.os.action.output.dto.web.FileUploadDto;
 
+import java.util.List;
+
 /**
  * @Author： kaider
  * @Date：2018/11/13 14:58
@@ -19,7 +21,7 @@ public class BrandCommand {
 
     private int brandState;
 
-    private FileUploadDto logoFile;
+    private List<FileUploadDto> logoFile;
 
     public Long getBrandId() {
         return brandId;
@@ -61,11 +63,11 @@ public class BrandCommand {
         this.brandState = brandState;
     }
 
-    public FileUploadDto getLogoFile() {
+    public List<FileUploadDto> getLogoFile() {
         return logoFile;
     }
 
-    public void setLogoFile(FileUploadDto logoFile) {
+    public void setLogoFile(List<FileUploadDto> logoFile) {
         this.logoFile = logoFile;
     }
 }

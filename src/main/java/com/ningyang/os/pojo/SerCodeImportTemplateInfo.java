@@ -24,20 +24,15 @@ public class SerCodeImportTemplateInfo extends Model<SerCodeImportTemplateInfo> 
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;
     /**
-     * 品牌id
-     */
-    @TableField("brand_id")
-    private Long brandId;
-    /**
-     * 系列id
-     */
-    @TableField("series_id")
-    private Long seriesId;
-    /**
      * 产品id
      */
     @TableField("product_id")
     private Long productId;
+    /**
+     * 模板名称
+     */
+    @TableField("template_name")
+    private String templateName;
     /**
      * 左码
      */
@@ -78,28 +73,20 @@ public class SerCodeImportTemplateInfo extends Model<SerCodeImportTemplateInfo> 
         this.id = id;
     }
 
-    public Long getBrandId() {
-        return brandId;
-    }
-
-    public void setBrandId(Long brandId) {
-        this.brandId = brandId;
-    }
-
-    public Long getSeriesId() {
-        return seriesId;
-    }
-
-    public void setSeriesId(Long seriesId) {
-        this.seriesId = seriesId;
-    }
-
     public Long getProductId() {
         return productId;
     }
 
     public void setProductId(Long productId) {
         this.productId = productId;
+    }
+
+    public String getTemplateName() {
+        return templateName;
+    }
+
+    public void setTemplateName(String templateName) {
+        this.templateName = templateName;
     }
 
     public Long getLeftCodeTypeId() {
@@ -159,9 +146,8 @@ public class SerCodeImportTemplateInfo extends Model<SerCodeImportTemplateInfo> 
     public String toString() {
         return "SerCodeImportTemplateInfo{" +
         "id=" + id +
-        ", brandId=" + brandId +
-        ", seriesId=" + seriesId +
         ", productId=" + productId +
+        ", templateName=" + templateName +
         ", leftCodeTypeId=" + leftCodeTypeId +
         ", rightCodeTypeId=" + rightCodeTypeId +
         ", templateRemark=" + templateRemark +
