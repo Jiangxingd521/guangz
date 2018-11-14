@@ -64,7 +64,7 @@ public class SerWarehouseInfo extends Model<SerWarehouseInfo> {
     @TableField("warehouse_remark")
     private String warehouseRemark;
     /**
-     * 仓库状态（0：未使用，1：使用）
+     * 仓库状态（0：使用，1：未使用）
      */
     @TableField("warehouse_state")
     private Integer warehouseState;

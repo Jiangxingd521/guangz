@@ -55,7 +55,7 @@ public class SerBrandSeriesInfo extends Model<SerBrandSeriesInfo> {
     @TableField("series_remark")
     private String seriesRemark;
     /**
-     * 系列状态（0：未使用，1：使用）
+     * 系列状态（0：使用，1：未使用）
      */
     @TableField("series_state")
     private Integer seriesState;

@@ -1,6 +1,9 @@
 package com.ningyang.os.action.input.command.web.base;
 
+import com.ningyang.os.action.output.dto.web.FileUploadDto;
+
 import java.math.BigDecimal;
+import java.util.List;
 
 /**
  * @Author： kaider
@@ -14,8 +17,8 @@ public class ProductCommand {
     private String productName;
 
     private Long seriesId;
-
-    private int codeNumber;
+    //码类型id
+    private List<Long> codeTypeIds;
 
     private String seriesStandard;
 
@@ -25,11 +28,11 @@ public class ProductCommand {
 
     private String code69;
 
-    private String seriesRemark;
+    private String productRemark;
 
     private int productState;
 
-    private Long[] productFileIds;
+    private List<FileUploadDto> productFileList;
 
     public Long getProductId() {
         return productId;
@@ -55,12 +58,12 @@ public class ProductCommand {
         this.seriesId = seriesId;
     }
 
-    public int getCodeNumber() {
-        return codeNumber;
+    public List<Long> getCodeTypeIds() {
+        return codeTypeIds;
     }
 
-    public void setCodeNumber(int codeNumber) {
-        this.codeNumber = codeNumber;
+    public void setCodeTypeIds(List<Long> codeTypeIds) {
+        this.codeTypeIds = codeTypeIds;
     }
 
     public String getSeriesStandard() {
@@ -95,12 +98,12 @@ public class ProductCommand {
         this.code69 = code69;
     }
 
-    public String getSeriesRemark() {
-        return seriesRemark;
+    public String getProductRemark() {
+        return productRemark;
     }
 
-    public void setSeriesRemark(String seriesRemark) {
-        this.seriesRemark = seriesRemark;
+    public void setProductRemark(String productRemark) {
+        this.productRemark = productRemark;
     }
 
     public int getProductState() {
@@ -111,11 +114,11 @@ public class ProductCommand {
         this.productState = productState;
     }
 
-    public Long[] getProductFileIds() {
-        return productFileIds;
+    public List<FileUploadDto> getProductFileList() {
+        return productFileList;
     }
 
-    public void setProductFileIds(Long[] productFileIds) {
-        this.productFileIds = productFileIds;
+    public void setProductFileList(List<FileUploadDto> productFileList) {
+        this.productFileList = productFileList;
     }
 }

@@ -1,8 +1,12 @@
 package com.ningyang.os.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.ningyang.os.action.input.command.web.base.CodeTypeCommand;
+import com.ningyang.os.action.input.condition.base.QueryCodeCondition;
+import com.ningyang.os.action.output.vo.web.base.CodeTypeVo;
 import com.ningyang.os.pojo.SerCodeTypeInfo;
 
+import java.util.List;
 
 /**
  * <p>
@@ -13,5 +17,9 @@ import com.ningyang.os.pojo.SerCodeTypeInfo;
  * @since 2018-11-12
  */
 public interface ISerCodeTypeInfoService extends IService<SerCodeTypeInfo> {
+
+    List<CodeTypeVo> findCodeTypeVoByCondition(QueryCodeCondition condition);
+
+    boolean addOrUpdate(CodeTypeCommand command);
 
 }

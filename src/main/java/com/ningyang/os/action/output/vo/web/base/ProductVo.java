@@ -32,9 +32,11 @@ public class ProductVo {
 
     private String code69;
 
-    private String seriesRemark;
+    private String productRemark;
 
     private int productState;
+    //码类型id
+    private List<Long> codeTypeIds;
 
     private List<FileUploadDto> productFileList;
 
@@ -118,12 +120,12 @@ public class ProductVo {
         this.code69 = code69;
     }
 
-    public String getSeriesRemark() {
-        return seriesRemark;
+    public String getProductRemark() {
+        return productRemark;
     }
 
-    public void setSeriesRemark(String seriesRemark) {
-        this.seriesRemark = seriesRemark;
+    public void setProductRemark(String productRemark) {
+        this.productRemark = productRemark;
     }
 
     public int getProductState() {
@@ -132,6 +134,14 @@ public class ProductVo {
 
     public void setProductState(int productState) {
         this.productState = productState;
+    }
+
+    public List<Long> getCodeTypeIds() {
+        return codeTypeIds;
+    }
+
+    public void setCodeTypeIds(List<Long> codeTypeIds) {
+        this.codeTypeIds = codeTypeIds;
     }
 
     public List<FileUploadDto> getProductFileList() {

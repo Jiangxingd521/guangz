@@ -25,12 +25,18 @@ public class SerCodeTypeInfo extends Model<SerCodeTypeInfo> {
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;
     /**
-     * 码类型
+     * 类型名称
+     */
+    @TableField("code_name")
+    private String codeName;
+
+    /**
+     * 码类型（0：码模板，1：内外码，2：码类型）
      */
     @TableField("code_type")
-    private String codeType;
+    private Integer codeType;
     /**
-     * 类型状态（0：未使用，1：使用）
+     * 类型状态（0：使用，1：未使用）
      */
     @TableField("code_state")
     private Integer codeState;
@@ -54,11 +60,19 @@ public class SerCodeTypeInfo extends Model<SerCodeTypeInfo> {
         this.id = id;
     }
 
-    public String getCodeType() {
+    public String getCodeName() {
+        return codeName;
+    }
+
+    public void setCodeName(String codeName) {
+        this.codeName = codeName;
+    }
+
+    public Integer getCodeType() {
         return codeType;
     }
 
-    public void setCodeType(String codeType) {
+    public void setCodeType(Integer codeType) {
         this.codeType = codeType;
     }
 
@@ -95,6 +109,7 @@ public class SerCodeTypeInfo extends Model<SerCodeTypeInfo> {
     public String toString() {
         return "SerCodeTypeInfo{" +
         "id=" + id +
+        ", codeName=" + codeName +
         ", codeType=" + codeType +
         ", codeState=" + codeState +
         ", createTime=" + createTime +

@@ -60,7 +60,7 @@ public class SerBrandInfoServiceImpl extends ServiceImpl<SerBrandInfoMapper, Ser
         logoFileService.remove(new QueryWrapper<SerBrandLogoFile>().eq("brand_id",command.getBrandId()));
         SerBrandLogoFile logoFile = new SerBrandLogoFile();
         logoFile.setBrandId(info.getId());
-        logoFile.setFileId(command.getLogoFileId());
+        logoFile.setFileId(command.getLogoFile().getId());
         boolean flag2 = logoFileService.save(logoFile);
 
         return flag1 && flag2;

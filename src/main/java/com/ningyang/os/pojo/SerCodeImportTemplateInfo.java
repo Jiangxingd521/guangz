@@ -54,7 +54,7 @@ public class SerCodeImportTemplateInfo extends Model<SerCodeImportTemplateInfo> 
     @TableField("template_remark")
     private String templateRemark;
     /**
-     * 模板状态（0：未使用，1：使用）
+     * 模板状态（0：使用，1：未使用）
      */
     @TableField("template_state")
     private Integer templateState;

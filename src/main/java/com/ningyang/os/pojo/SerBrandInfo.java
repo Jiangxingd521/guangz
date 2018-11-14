@@ -55,7 +55,7 @@ public class SerBrandInfo extends Model<SerBrandInfo> {
     @TableField("brand_remark")
     private String brandRemark;
     /**
-     * 品牌状态（0：未使用，1：使用）
+     * 品牌状态（0：使用，1：未使用）
      */
     @TableField("brand_state")
     private Integer brandState;

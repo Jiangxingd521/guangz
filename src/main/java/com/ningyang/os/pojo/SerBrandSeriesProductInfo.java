@@ -91,7 +91,7 @@ public class SerBrandSeriesProductInfo extends Model<SerBrandSeriesProductInfo> 
     @TableField("update_time")
     private Date updateTime;
     /**
-     * 产品状态（0：未使用，1：使用）
+     * 产品状态（0：使用，1：未使用）
      */
     @TableField("product_state")
     private Integer productState;

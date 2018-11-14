@@ -1,5 +1,7 @@
 package com.ningyang.os.action.input.command.web.base;
 
+import com.ningyang.os.action.output.dto.web.FileUploadDto;
+
 /**
  * @Author： kaider
  * @Date：2018/11/13 14:58
@@ -17,7 +19,7 @@ public class BrandCommand {
 
     private int brandState;
 
-    private Long logoFileId;
+    private FileUploadDto logoFile;
 
     public Long getBrandId() {
         return brandId;
@@ -59,11 +61,11 @@ public class BrandCommand {
         this.brandState = brandState;
     }
 
-    public Long getLogoFileId() {
-        return logoFileId;
+    public FileUploadDto getLogoFile() {
+        return logoFile;
     }
 
-    public void setLogoFileId(Long logoFileId) {
-        this.logoFileId = logoFileId;
+    public void setLogoFile(FileUploadDto logoFile) {
+        this.logoFile = logoFile;
     }
 }
