@@ -1,0 +1,71 @@
+package com.ningyang.os.service.impl;
+
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.ningyang.os.action.input.command.web.serve.DealerCommand;
+import com.ningyang.os.action.input.condition.serve.QueryDealerCondition;
+import com.ningyang.os.action.output.vo.web.serve.DealerVo;
+import com.ningyang.os.dao.SerDealerInfoMapper;
+import com.ningyang.os.pojo.SerDealerInfo;
+import com.ningyang.os.service.ISerDealerInfoService;
+import org.springframework.stereotype.Service;
+
+import java.util.Date;
+import java.util.List;
+
+/**
+ * <p>
+ * 供应商信息 服务实现类
+ * </p>
+ *
+ * @author kaider
+ * @since 2018-11-12
+ */
+@Service
+public class SerDealerInfoServiceImpl extends ServiceImpl<SerDealerInfoMapper, SerDealerInfo> implements ISerDealerInfoService {
+
+    @Override
+    public Page<DealerVo> findDealerVoPageByCondition(QueryDealerCondition condition) {
+        Page<DealerVo> pageVo = new Page<>();
+        List<DealerVo> listVoTemp = baseMapper.selectDealerVoPageByCondition(condition);
+        int total = baseMapper.selectDealerVoPageCountByCondition(condition);
+        pageVo.setRecords(listVoTemp);
+        pageVo.setTotal(total);
+        pageVo.setSize(condition.getPage());
+        pageVo.setCurrent(condition.getLimit());
+        return pageVo;
+    }
+
+    @Override
+    public boolean addOrUpdate(DealerCommand command) {
+        SerDealerInfo info = getOne(new QueryWrapper<SerDealerInfo>().eq("id",command.getDealerId()));
+        boolean flag;
+        if(info!=null){
+            info.setDealerName(command.getDealerName());
+            info.setPersonName(command.getPersonName());
+            info.setPersonMobile(command.getPersonMobile());
+            info.setSocialCode(command.getSocialCode());
+            info.setRegionId(command.getRegionId());
+            info.setDealerAddress(command.getAddress());
+            info.setDealerRemark(command.getDealerRemark());
+            info.setDealerState(command.getDealerState());
+            info.setUpdateTime(new Date());
+            flag = updateById(info);
+        }else{
+            info = new SerDealerInfo();
+            info.setDealerName(command.getDealerName());
+            info.setPersonName(command.getPersonName());
+            info.setPersonMobile(command.getPersonMobile());
+            info.setSocialCode(command.getSocialCode());
+            info.setRegionId(command.getRegionId());
+            info.setDealerAddress(command.getAddress());
+            info.setDealerRemark(command.getDealerRemark());
+            info.setDealerState(0);
+            info.setCreateTime(new Date());
+            info.setUpdateTime(new Date());
+            flag = save(info);
+        }
+        return flag;
+    }
+}

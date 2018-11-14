@@ -11,7 +11,7 @@
  Target Server Version : 50721
  File Encoding         : 65001
 
- Date: 14/11/2018 16:22:06
+ Date: 14/11/2018 18:32:00
 */
 
 SET NAMES utf8mb4;
@@ -231,21 +231,23 @@ INSERT INTO `t_ser_code_type_info` VALUES (9, '条形码', 2, 0, '2018-11-14 11:
 COMMIT;
 
 -- ----------------------------
--- Table structure for t_ser_supplier_info
+-- Table structure for t_ser_dealer_info
 -- ----------------------------
-DROP TABLE IF EXISTS `t_ser_supplier_info`;
-CREATE TABLE `t_ser_supplier_info` (
+DROP TABLE IF EXISTS `t_ser_dealer_info`;
+CREATE TABLE `t_ser_dealer_info` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `supplier_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '供应商名称',
-  `supplier_mobile` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '供应商电话',
-  `supplier_state` int(255) DEFAULT NULL COMMENT '与供应商合作状态（0：合作，1：不合作）',
-  `supplier_region_id` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '供应商区域id',
-  `supplier_address` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '供应商详细地址',
-  `supplier_social_code` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '供应商社会码',
+  `dealer_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '经销商名称',
+  `person_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '联系人',
+  `person_mobile` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '联系人电话',
+  `dealer_state` int(255) DEFAULT NULL COMMENT '与供应商合作状态（0：合作，1：不合作）',
+  `region_id` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '供应商区域id',
+  `dealer_address` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '供应商详细地址',
+  `social_code` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '供应商社会码',
+  `dealer_remark` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '经销商备注',
   `create_time` datetime DEFAULT NULL COMMENT '创建时间',
   `update_time` datetime DEFAULT NULL COMMENT '修改时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='供应商信息';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='经销商信息';
 
 -- ----------------------------
 -- Table structure for t_ser_warehouse_info
@@ -3595,7 +3597,7 @@ CREATE TABLE `t_sys_menu_info` (
   `create_time` timestamp NULL DEFAULT NULL COMMENT '创建时间',
   `update_time` timestamp NULL DEFAULT NULL COMMENT '修改时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='菜单信息';
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='菜单信息';
 
 -- ----------------------------
 -- Records of t_sys_menu_info
@@ -3616,6 +3618,8 @@ INSERT INTO `t_sys_menu_info` VALUES (12, 6, '系列库', 0, NULL, '/base/series
 INSERT INTO `t_sys_menu_info` VALUES (13, 6, '产品库', 0, NULL, '/base/product', NULL, 3, 0, NULL, '2018-11-13 12:17:41', '2018-11-13 18:05:32');
 INSERT INTO `t_sys_menu_info` VALUES (14, 6, '码类型库', 0, NULL, '/base/codeType', NULL, 5, 0, '码类型库', '2018-11-14 11:14:20', '2018-11-14 11:14:20');
 INSERT INTO `t_sys_menu_info` VALUES (15, 6, '模板库', 0, NULL, '/base/codeTemplate', NULL, 6, 0, NULL, '2018-11-14 15:11:36', '2018-11-14 15:11:36');
+INSERT INTO `t_sys_menu_info` VALUES (16, 0, '业务管理', 0, NULL, NULL, NULL, 3, 0, '业务管理', '2018-11-14 17:42:01', '2018-11-14 17:42:01');
+INSERT INTO `t_sys_menu_info` VALUES (17, 16, '经销商管理', 0, NULL, '/server/dealer', NULL, 1, 0, NULL, '2018-11-14 17:42:35', '2018-11-14 17:42:35');
 COMMIT;
 
 -- ----------------------------
@@ -3633,7 +3637,7 @@ CREATE TABLE `t_sys_navigation_bar_info` (
   `create_time` timestamp NULL DEFAULT NULL COMMENT '创建时间',
   `update_time` timestamp NULL DEFAULT NULL COMMENT '修改时间',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='导航栏信息表';
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='导航栏信息表';
 
 -- ----------------------------
 -- Records of t_sys_navigation_bar_info
@@ -3642,6 +3646,7 @@ BEGIN;
 INSERT INTO `t_sys_navigation_bar_info` VALUES (1, '系统设置', '/sys/bar', 'el-icon-setting', 0, '系统', 0, '2018-09-28 17:14:26', '2018-11-12 17:48:41');
 INSERT INTO `t_sys_navigation_bar_info` VALUES (2, '系统基础设置', '/sys/icon', 'icon-present', 1, '系统', 0, '2018-10-01 23:16:56', '2018-11-14 11:32:16');
 INSERT INTO `t_sys_navigation_bar_info` VALUES (3, '基础设置', '/base/brand', 'icon-present', 2, '业务基础设置', 0, '2018-11-14 11:30:56', '2018-11-14 15:11:54');
+INSERT INTO `t_sys_navigation_bar_info` VALUES (4, '企业业务', '/server/dealer', NULL, 3, '经销商管理', 0, '2018-11-14 17:41:10', '2018-11-14 17:42:57');
 COMMIT;
 
 -- ----------------------------
@@ -3657,7 +3662,7 @@ CREATE TABLE `t_sys_navigation_bar_menu_info` (
   KEY `menu_id` (`menu_id`) USING BTREE,
   CONSTRAINT `t_sys_navigation_bar_menu_info_ibfk_1` FOREIGN KEY (`bar_id`) REFERENCES `t_sys_navigation_bar_info` (`id`),
   CONSTRAINT `t_sys_navigation_bar_menu_info_ibfk_2` FOREIGN KEY (`menu_id`) REFERENCES `t_sys_menu_info` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='菜单关联导航';
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='菜单关联导航';
 
 -- ----------------------------
 -- Records of t_sys_navigation_bar_menu_info
@@ -3677,6 +3682,8 @@ INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (20, 3, 12);
 INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (21, 3, 13);
 INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (22, 3, 14);
 INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (23, 3, 15);
+INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (24, 4, 17);
+INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (25, 4, 16);
 COMMIT;
 
 -- ----------------------------
@@ -3698,7 +3705,7 @@ CREATE TABLE `t_sys_role_info` (
 -- ----------------------------
 BEGIN;
 INSERT INTO `t_sys_role_info` VALUES (1, '超级管理员', 0, 1, '2018-09-28 14:37:36', '2018-11-14 11:54:15');
-INSERT INTO `t_sys_role_info` VALUES (2, '系统管理员', 0, 0, '2018-09-28 14:38:05', '2018-11-14 11:32:48');
+INSERT INTO `t_sys_role_info` VALUES (2, '系统管理员', 0, 0, '2018-09-28 14:38:05', '2018-11-14 17:43:10');
 INSERT INTO `t_sys_role_info` VALUES (3, '测试员', 0, 0, '2018-10-04 22:43:38', '2018-10-16 14:26:52');
 COMMIT;
 
@@ -3730,7 +3737,7 @@ CREATE TABLE `t_sys_role_navigation_bar_info` (
   KEY `bar_id` (`bar_id`) USING BTREE,
   CONSTRAINT `t_sys_role_navigation_bar_info_ibfk_1` FOREIGN KEY (`role_id`) REFERENCES `t_sys_role_info` (`id`),
   CONSTRAINT `t_sys_role_navigation_bar_info_ibfk_2` FOREIGN KEY (`bar_id`) REFERENCES `t_sys_navigation_bar_info` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='角色关联导航栏';
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='角色关联导航栏';
 
 -- ----------------------------
 -- Records of t_sys_role_navigation_bar_info
@@ -3738,7 +3745,8 @@ CREATE TABLE `t_sys_role_navigation_bar_info` (
 BEGIN;
 INSERT INTO `t_sys_role_navigation_bar_info` VALUES (2, 1, 1);
 INSERT INTO `t_sys_role_navigation_bar_info` VALUES (3, 1, 2);
-INSERT INTO `t_sys_role_navigation_bar_info` VALUES (5, 2, 3);
+INSERT INTO `t_sys_role_navigation_bar_info` VALUES (6, 2, 3);
+INSERT INTO `t_sys_role_navigation_bar_info` VALUES (7, 2, 4);
 COMMIT;
 
 -- ----------------------------
