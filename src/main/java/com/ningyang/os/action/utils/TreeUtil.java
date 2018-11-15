@@ -66,4 +66,48 @@ public class TreeUtil {
 
         return childList;
     }
+
+    /**
+     * 解析树行数据，如果没有子数据则不添加children
+     * @param topId
+     * @param entityList
+     * @param <E>
+     * @return
+     */
+    public static <E extends TreeEntity<E>> List<E> getTreeNodeList(String topId, List<E> entityList) {
+        List<E> resultList = new ArrayList<>();
+        String parentId;
+        for (E entity : entityList) {
+            parentId = entity.getParentId();
+            if (parentId == null || topId.equals(parentId)) {
+                resultList.add(entity);
+            }
+        }
+        for (E entity : resultList) {
+            entity.setChildren(getSubNodeList(entity.getId(), entityList));
+        }
+        return resultList;
+    }
+
+    private static <E extends TreeEntity<E>> List<E> getSubNodeList(String id, List<E> entityList) {
+        List<E> childList = new ArrayList<>();
+        String parentId;
+        //子集的直接子对象
+        for (E entity : entityList) {
+            parentId = entity.getParentId();
+            if (id.equals(parentId)) {
+                childList.add(entity);
+            }
+        }
+        //子集的间接子对象
+        for (E entity : childList) {
+            entity.setChildren(getSubNodeList(entity.getId(), entityList));
+        }
+        //递归退出条件
+        if (childList.size() == 0) {
+            return null;
+        }
+        return childList;
+    }
+
 }

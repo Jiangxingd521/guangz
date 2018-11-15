@@ -11,7 +11,7 @@
  Target Server Version : 50721
  File Encoding         : 65001
 
- Date: 14/11/2018 18:32:00
+ Date: 15/11/2018 12:00:49
 */
 
 SET NAMES utf8mb4;
@@ -192,7 +192,7 @@ CREATE TABLE `t_ser_code_import_template_info` (
   CONSTRAINT `t_ser_code_import_template_info_ibfk_3` FOREIGN KEY (`product_id`) REFERENCES `t_ser_brand_series_product_info` (`id`),
   CONSTRAINT `t_ser_code_import_template_info_ibfk_4` FOREIGN KEY (`left_code_type_id`) REFERENCES `t_ser_code_type_info` (`id`),
   CONSTRAINT `t_ser_code_import_template_info_ibfk_5` FOREIGN KEY (`right_code_type_id`) REFERENCES `t_ser_code_type_info` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='码导入模板';
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='码导入模板';
 
 -- ----------------------------
 -- Records of t_ser_code_import_template_info
@@ -247,7 +247,34 @@ CREATE TABLE `t_ser_dealer_info` (
   `create_time` datetime DEFAULT NULL COMMENT '创建时间',
   `update_time` datetime DEFAULT NULL COMMENT '修改时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='经销商信息';
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='经销商信息';
+
+-- ----------------------------
+-- Records of t_ser_dealer_info
+-- ----------------------------
+BEGIN;
+INSERT INTO `t_ser_dealer_info` VALUES (1, '经销商1', '周星星', '9528', 0, NULL, '龙口科技大厦', '123qwe', '备注1', '2018-11-15 11:24:42', '2018-11-15 11:41:19');
+COMMIT;
+
+-- ----------------------------
+-- Table structure for t_ser_dealer_region_info
+-- ----------------------------
+DROP TABLE IF EXISTS `t_ser_dealer_region_info`;
+CREATE TABLE `t_ser_dealer_region_info` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `dealer_id` bigint(20) DEFAULT NULL COMMENT '经销商id',
+  `region_id` bigint(20) DEFAULT NULL COMMENT '区域id',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='经销商区域';
+
+-- ----------------------------
+-- Records of t_ser_dealer_region_info
+-- ----------------------------
+BEGIN;
+INSERT INTO `t_ser_dealer_region_info` VALUES (13, 1, 1930);
+INSERT INTO `t_ser_dealer_region_info` VALUES (14, 1, 1931);
+INSERT INTO `t_ser_dealer_region_info` VALUES (15, 1, 1935);
+COMMIT;
 
 -- ----------------------------
 -- Table structure for t_ser_warehouse_info

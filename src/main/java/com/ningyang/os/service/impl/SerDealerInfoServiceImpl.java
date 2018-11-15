@@ -8,9 +8,13 @@ import com.ningyang.os.action.input.condition.serve.QueryDealerCondition;
 import com.ningyang.os.action.output.vo.web.serve.DealerVo;
 import com.ningyang.os.dao.SerDealerInfoMapper;
 import com.ningyang.os.pojo.SerDealerInfo;
+import com.ningyang.os.pojo.SerDealerRegionInfo;
 import com.ningyang.os.service.ISerDealerInfoService;
+import com.ningyang.os.service.ISerDealerRegionInfoService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -25,11 +29,20 @@ import java.util.List;
 @Service
 public class SerDealerInfoServiceImpl extends ServiceImpl<SerDealerInfoMapper, SerDealerInfo> implements ISerDealerInfoService {
 
+    @Autowired
+    private ISerDealerRegionInfoService dealerRegionInfoService;
+
     @Override
     public Page<DealerVo> findDealerVoPageByCondition(QueryDealerCondition condition) {
         Page<DealerVo> pageVo = new Page<>();
         List<DealerVo> listVoTemp = baseMapper.selectDealerVoPageByCondition(condition);
         int total = baseMapper.selectDealerVoPageCountByCondition(condition);
+        for(DealerVo vo : listVoTemp){
+            List<String> regionList = dealerRegionInfoService.getDealerRegionList(vo.getDealerId());
+            vo.setRegionList(regionList);
+            String regionName = dealerRegionInfoService.getDealerRegionName(vo.getDealerId());
+            vo.setRegionName(regionName);
+        }
         pageVo.setRecords(listVoTemp);
         pageVo.setTotal(total);
         pageVo.setSize(condition.getPage());
@@ -40,32 +53,40 @@ public class SerDealerInfoServiceImpl extends ServiceImpl<SerDealerInfoMapper, S
     @Override
     public boolean addOrUpdate(DealerCommand command) {
         SerDealerInfo info = getOne(new QueryWrapper<SerDealerInfo>().eq("id",command.getDealerId()));
-        boolean flag;
+        boolean flag1;
         if(info!=null){
             info.setDealerName(command.getDealerName());
             info.setPersonName(command.getPersonName());
             info.setPersonMobile(command.getPersonMobile());
             info.setSocialCode(command.getSocialCode());
-            info.setRegionId(command.getRegionId());
             info.setDealerAddress(command.getAddress());
             info.setDealerRemark(command.getDealerRemark());
             info.setDealerState(command.getDealerState());
             info.setUpdateTime(new Date());
-            flag = updateById(info);
+            flag1 = updateById(info);
         }else{
             info = new SerDealerInfo();
             info.setDealerName(command.getDealerName());
             info.setPersonName(command.getPersonName());
             info.setPersonMobile(command.getPersonMobile());
             info.setSocialCode(command.getSocialCode());
-            info.setRegionId(command.getRegionId());
             info.setDealerAddress(command.getAddress());
             info.setDealerRemark(command.getDealerRemark());
             info.setDealerState(0);
             info.setCreateTime(new Date());
             info.setUpdateTime(new Date());
-            flag = save(info);
+            flag1 = save(info);
         }
-        return flag;
+
+        dealerRegionInfoService.remove(new QueryWrapper<SerDealerRegionInfo>().eq("dealer_id",info.getId()));
+        List<SerDealerRegionInfo> dealerRegionInfoList = new ArrayList<>();
+        for(Long regionId : command.getRegionList()){
+            SerDealerRegionInfo regionInfo = new SerDealerRegionInfo();
+            regionInfo.setDealerId(info.getId());
+            regionInfo.setRegionId(regionId);
+            dealerRegionInfoList.add(regionInfo);
+        }
+        boolean flag2 = dealerRegionInfoService.saveBatch(dealerRegionInfoList);
+        return flag1 && flag2;
     }
 }

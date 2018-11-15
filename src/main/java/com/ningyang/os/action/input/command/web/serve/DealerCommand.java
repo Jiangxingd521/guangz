@@ -1,5 +1,7 @@
 package com.ningyang.os.action.input.command.web.serve;
 
+import java.util.List;
+
 /**
  * @Author： kaider
  * @Date：2018/11/14 17:59
@@ -16,7 +18,7 @@ public class DealerCommand {
     //社会码
     private String socialCode;
     //区域
-    private Long regionId;
+    private List<Long> regionList;
     //详细地址
     private String address;
     //经销商状态（0：合作，1：不合作）
@@ -64,12 +66,12 @@ public class DealerCommand {
         this.socialCode = socialCode;
     }
 
-    public Long getRegionId() {
-        return regionId;
+    public List<Long> getRegionList() {
+        return regionList;
     }
 
-    public void setRegionId(Long regionId) {
-        this.regionId = regionId;
+    public void setRegionList(List<Long> regionList) {
+        this.regionList = regionList;
     }
 
     public String getAddress() {

@@ -20,6 +20,8 @@ public interface ISysBaseRegionInfoService extends IService<SysBaseRegionInfo> {
 
     List<SysRegionVo> findSysRegionVoList();
 
+    List<SysRegionVo> findSysRegionList();
+
     List<RegionVo> findRegionVo(QueryRegionCondition condition);
 
 }

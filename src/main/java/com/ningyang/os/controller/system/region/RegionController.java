@@ -29,11 +29,22 @@ public class RegionController extends BaseController {
 
     @Autowired
     private ISysBaseRegionInfoService infoService;
-    
+
     @GetMapping("getRegionTree")
     public Map<String, Object> getRegionTree() {
         try {
             List<SysRegionVo> listVo = infoService.findSysRegionVoList();
+            return WebResult.success().put("listVo", listVo).toMap();
+        } catch (Exception e) {
+            LOGGER.error(e.getMessage(), e);
+            return WebResult.failure(e).toMap();
+        }
+    }
+
+    @GetMapping("getRegionList")
+    public Map<String, Object> getRegionList() {
+        try {
+            List<SysRegionVo> listVo = infoService.findSysRegionList();
             return WebResult.success().put("listVo", listVo).toMap();
         } catch (Exception e) {
             LOGGER.error(e.getMessage(), e);

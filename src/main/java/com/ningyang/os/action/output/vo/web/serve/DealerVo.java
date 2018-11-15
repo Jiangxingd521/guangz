@@ -1,5 +1,7 @@
 package com.ningyang.os.action.output.vo.web.serve;
 
+import java.util.List;
+
 /**
  * @Author： kaider
  * @Date：2018/11/14 16:54
@@ -17,7 +19,7 @@ public class DealerVo {
     //社会码
     private String socialCode;
     //区域
-    private Long regionId;
+    private List<String> regionList;
     //区域名称
     private String regionName;
     //详细地址
@@ -67,12 +69,12 @@ public class DealerVo {
         this.socialCode = socialCode;
     }
 
-    public Long getRegionId() {
-        return regionId;
+    public List<String> getRegionList() {
+        return regionList;
     }
 
-    public void setRegionId(Long regionId) {
-        this.regionId = regionId;
+    public void setRegionList(List<String> regionList) {
+        this.regionList = regionList;
     }
 
     public String getRegionName() {

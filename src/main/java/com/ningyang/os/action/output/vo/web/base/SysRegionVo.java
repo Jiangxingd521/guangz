@@ -18,6 +18,8 @@ public class SysRegionVo implements TreeEntity<SysRegionVo> {
     //名称
     private String label;
 
+    private String value;
+
     //子菜单
     private List<SysRegionVo> children;
 
@@ -46,6 +48,14 @@ public class SysRegionVo implements TreeEntity<SysRegionVo> {
 
     public void setLabel(String label) {
         this.label = label;
+    }
+
+    public String getValue() {
+        return value;
+    }
+
+    public void setValue(String value) {
+        this.value = value;
     }
 
     public List<SysRegionVo> getChildren() {

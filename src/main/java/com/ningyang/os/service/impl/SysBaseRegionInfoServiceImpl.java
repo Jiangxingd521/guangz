@@ -1,5 +1,6 @@
 package com.ningyang.os.service.impl;
 
+import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.ningyang.os.action.input.condition.base.QueryRegionCondition;
 import com.ningyang.os.action.output.vo.web.base.RegionVo;
@@ -12,6 +13,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 import static com.ningyang.os.action.utils.TreeUtil.getTreeList;
+import static com.ningyang.os.action.utils.TreeUtil.getTreeNodeList;
 
 /**
  * <p>
@@ -28,6 +30,13 @@ public class SysBaseRegionInfoServiceImpl extends ServiceImpl<SysBaseRegionInfoM
     public List<SysRegionVo> findSysRegionVoList() {
         List<SysRegionVo> listTemp = baseMapper.selectSysRegionVoList();
         List<SysRegionVo> regions = getTreeList("0", listTemp);
+        return regions;
+    }
+
+    @Override
+    public List<SysRegionVo> findSysRegionList() {
+        List<SysRegionVo> listTemp = baseMapper.selectSysRegionVoList();
+        List<SysRegionVo> regions = getTreeNodeList("0", listTemp);
         return regions;
     }
 
