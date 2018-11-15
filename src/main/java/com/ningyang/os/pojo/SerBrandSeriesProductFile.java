@@ -67,9 +67,9 @@ public class SerBrandSeriesProductFile extends Model<SerBrandSeriesProductFile> 
     @Override
     public String toString() {
         return "SerBrandSeriesProductFile{" +
-        "id=" + id +
-        ", productId=" + productId +
-        ", fileId=" + fileId +
-        "}";
+                "id=" + id +
+                ", productId=" + productId +
+                ", fileId=" + fileId +
+                "}";
     }
 }

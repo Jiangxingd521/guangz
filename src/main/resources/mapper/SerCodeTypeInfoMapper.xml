@@ -4,25 +4,25 @@
 
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.ningyang.os.pojo.SerCodeTypeInfo">
-        <id column="id" property="id" />
-        <result column="code_name" property="codeName" />
-        <result column="code_type" property="codeType" />
-        <result column="code_state" property="codeState" />
-        <result column="create_time" property="createTime" />
-        <result column="update_time" property="updateTime" />
+        <id column="id" property="id"/>
+        <result column="code_name" property="codeName"/>
+        <result column="code_type" property="codeType"/>
+        <result column="code_state" property="codeState"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
     </resultMap>
 
     <select id="selectCodeTypeVoByCondition"
             parameterType="com.ningyang.os.action.input.condition.base.QueryCodeCondition"
             resultType="com.ningyang.os.action.output.vo.web.base.CodeTypeVo"
     >
-      select a.id as codeId,a.code_name,a.code_type,a.code_state from t_ser_code_type_info a where 1=1
-      <if test="codeTypeState!=null">
-        and a.code_state = #{codeTypeState}
-      </if>
-      <if test="codeType!=null">
-        and a.code_type = #{codeType}
-      </if>
+        select a.id as codeId,a.code_name,a.code_type,a.code_state from t_ser_code_type_info a where 1=1
+        <if test="codeTypeState!=null">
+            and a.code_state = #{codeTypeState}
+        </if>
+        <if test="codeType!=null">
+            and a.code_type = #{codeType}
+        </if>
 
     </select>
 

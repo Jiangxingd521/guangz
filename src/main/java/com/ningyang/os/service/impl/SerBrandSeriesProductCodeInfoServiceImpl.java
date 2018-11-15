@@ -2,8 +2,8 @@ package com.ningyang.os.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.ningyang.os.pojo.SerBrandSeriesProductCodeInfo;
 import com.ningyang.os.dao.SerBrandSeriesProductCodeInfoMapper;
+import com.ningyang.os.pojo.SerBrandSeriesProductCodeInfo;
 import com.ningyang.os.service.ISerBrandSeriesProductCodeInfoService;
 import org.springframework.stereotype.Service;
 
@@ -25,9 +25,9 @@ public class SerBrandSeriesProductCodeInfoServiceImpl extends ServiceImpl<SerBra
     public List<Long> getProductCodeIds(Long productId) {
         List<Long> productCodeIdList = new ArrayList<>();
         List<SerBrandSeriesProductCodeInfo> productCodeInfoList = list(new QueryWrapper<SerBrandSeriesProductCodeInfo>()
-                .eq("product_id",productId));
+                .eq("product_id", productId));
 
-        for(SerBrandSeriesProductCodeInfo codeInfo : productCodeInfoList){
+        for (SerBrandSeriesProductCodeInfo codeInfo : productCodeInfoList) {
             Long codeId = codeInfo.getCodeId();
             productCodeIdList.add(codeId);
         }

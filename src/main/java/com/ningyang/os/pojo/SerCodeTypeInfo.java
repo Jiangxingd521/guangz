@@ -108,12 +108,12 @@ public class SerCodeTypeInfo extends Model<SerCodeTypeInfo> {
     @Override
     public String toString() {
         return "SerCodeTypeInfo{" +
-        "id=" + id +
-        ", codeName=" + codeName +
-        ", codeType=" + codeType +
-        ", codeState=" + codeState +
-        ", createTime=" + createTime +
-        ", updateTime=" + updateTime +
-        "}";
+                "id=" + id +
+                ", codeName=" + codeName +
+                ", codeType=" + codeType +
+                ", codeState=" + codeState +
+                ", createTime=" + createTime +
+                ", updateTime=" + updateTime +
+                "}";
     }
 }

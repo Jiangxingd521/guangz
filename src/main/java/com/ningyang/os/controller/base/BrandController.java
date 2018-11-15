@@ -44,12 +44,12 @@ public class BrandController {
     }
 
     @PostMapping("addOrUpdate")
-    public Map<String,Object> addOrUpdate(
+    public Map<String, Object> addOrUpdate(
             @RequestBody BrandCommand command
-    ){
+    ) {
         try {
             boolean flag = infoService.addOrUpdate(command);
-            if(flag){
+            if (flag) {
                 return WebResult.success().toMap();
             }
             return WebResult.failure(OPERATING_ERROR.getInfo()).toMap();

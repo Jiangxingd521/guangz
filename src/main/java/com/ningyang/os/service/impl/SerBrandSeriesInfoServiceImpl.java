@@ -32,16 +32,16 @@ public class SerBrandSeriesInfoServiceImpl extends ServiceImpl<SerBrandSeriesInf
 
     @Override
     public boolean addOrUpdate(SeriesCommand command) {
-        SerBrandSeriesInfo info = getOne(new QueryWrapper<SerBrandSeriesInfo>().eq("id",command.getSeriesId()));
+        SerBrandSeriesInfo info = getOne(new QueryWrapper<SerBrandSeriesInfo>().eq("id", command.getSeriesId()));
         boolean flag;
-        if(info!=null){
+        if (info != null) {
             info.setBrandId(command.getBrandId());
             info.setSeriesName(command.getSeriesName());
             info.setSeriesRemark(command.getSeriesRemark());
             info.setSeriesState(command.getSeriesState());
             info.setUpdateTime(new Date());
             flag = updateById(info);
-        }else{
+        } else {
             info = new SerBrandSeriesInfo();
             info.setBrandId(command.getBrandId());
             info.setSeriesName(command.getSeriesName());

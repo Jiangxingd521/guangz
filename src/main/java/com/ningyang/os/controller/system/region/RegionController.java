@@ -53,9 +53,9 @@ public class RegionController extends BaseController {
     }
 
     @GetMapping("getRegion")
-    public Map<String,Object> getRegion(
+    public Map<String, Object> getRegion(
             QueryRegionCondition condition
-    ){
+    ) {
         try {
             List<RegionVo> listVo = infoService.findRegionVo(condition);
             return WebResult.success().put("listVo", listVo).toMap();

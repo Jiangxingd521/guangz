@@ -32,9 +32,9 @@ public class DealerController {
 
 
     @GetMapping("getDealerPage")
-    public Map<String,Object> getDealerPage(
+    public Map<String, Object> getDealerPage(
             QueryDealerCondition condition
-    ){
+    ) {
         try {
             Page<DealerVo> pageVo = infoService.findDealerVoPageByCondition(condition);
             return WebResult.success().put("pageVo", pageVo).toMap();
@@ -45,12 +45,12 @@ public class DealerController {
     }
 
     @PostMapping("addOrUpdate")
-    public Map<String,Object> addOrUpdate(
+    public Map<String, Object> addOrUpdate(
             @RequestBody DealerCommand command
-    ){
+    ) {
         try {
             boolean flag = infoService.addOrUpdate(command);
-            if(flag){
+            if (flag) {
                 return WebResult.success().toMap();
             }
             return WebResult.failure(OPERATING_ERROR.getInfo()).toMap();

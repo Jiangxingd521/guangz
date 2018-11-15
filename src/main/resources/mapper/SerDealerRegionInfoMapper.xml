@@ -4,9 +4,9 @@
 
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.ningyang.os.pojo.SerDealerRegionInfo">
-        <id column="id" property="id" />
-        <result column="dealer_id" property="dealerId" />
-        <result column="region_id" property="regionId" />
+        <id column="id" property="id"/>
+        <result column="dealer_id" property="dealerId"/>
+        <result column="region_id" property="regionId"/>
     </resultMap>
 
 </mapper>

@@ -31,9 +31,9 @@ public class CodeTypeController {
     private ISerCodeTypeInfoService infoService;
 
     @GetMapping("getCodeTypeList")
-    public Map<String,Object> getCodeTypeList(
+    public Map<String, Object> getCodeTypeList(
             QueryCodeCondition condition
-    ){
+    ) {
         try {
             List<CodeTypeVo> listVo = infoService.findCodeTypeVoByCondition(condition);
             return WebResult.success().put("listVo", listVo).toMap();
@@ -44,12 +44,12 @@ public class CodeTypeController {
     }
 
     @PostMapping("addOrUpdate")
-    public Map<String,Object> addOrUpdate(
+    public Map<String, Object> addOrUpdate(
             @RequestBody CodeTypeCommand command
-    ){
+    ) {
         try {
             boolean flag = infoService.addOrUpdate(command);
-            if(flag){
+            if (flag) {
                 return WebResult.success().toMap();
             }
             return WebResult.failure(OPERATING_ERROR.getInfo()).toMap();

@@ -159,16 +159,16 @@ public class SerWarehouseInfo extends Model<SerWarehouseInfo> {
     @Override
     public String toString() {
         return "SerWarehouseInfo{" +
-        "id=" + id +
-        ", warehouseName=" + warehouseName +
-        ", userId=" + userId +
-        ", warehousePerson=" + warehousePerson +
-        ", warehousePersonMobile=" + warehousePersonMobile +
-        ", totalInventory=" + totalInventory +
-        ", warehouseRemark=" + warehouseRemark +
-        ", warehouseState=" + warehouseState +
-        ", createTime=" + createTime +
-        ", updateTime=" + updateTime +
-        "}";
+                "id=" + id +
+                ", warehouseName=" + warehouseName +
+                ", userId=" + userId +
+                ", warehousePerson=" + warehousePerson +
+                ", warehousePersonMobile=" + warehousePersonMobile +
+                ", totalInventory=" + totalInventory +
+                ", warehouseRemark=" + warehouseRemark +
+                ", warehouseState=" + warehouseState +
+                ", createTime=" + createTime +
+                ", updateTime=" + updateTime +
+                "}";
     }
 }

@@ -4,9 +4,9 @@
 
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.ningyang.os.pojo.SerBrandLogoFile">
-        <id column="id" property="id" />
-        <result column="brand_id" property="brandId" />
-        <result column="file_id" property="fileId" />
+        <id column="id" property="id"/>
+        <result column="brand_id" property="brandId"/>
+        <result column="file_id" property="fileId"/>
     </resultMap>
 
 </mapper>

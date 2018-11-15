@@ -37,7 +37,7 @@ public class SerDealerInfoServiceImpl extends ServiceImpl<SerDealerInfoMapper, S
         Page<DealerVo> pageVo = new Page<>();
         List<DealerVo> listVoTemp = baseMapper.selectDealerVoPageByCondition(condition);
         int total = baseMapper.selectDealerVoPageCountByCondition(condition);
-        for(DealerVo vo : listVoTemp){
+        for (DealerVo vo : listVoTemp) {
             List<String> regionList = dealerRegionInfoService.getDealerRegionList(vo.getDealerId());
             vo.setRegionList(regionList);
             String regionName = dealerRegionInfoService.getDealerRegionName(vo.getDealerId());
@@ -52,9 +52,9 @@ public class SerDealerInfoServiceImpl extends ServiceImpl<SerDealerInfoMapper, S
 
     @Override
     public boolean addOrUpdate(DealerCommand command) {
-        SerDealerInfo info = getOne(new QueryWrapper<SerDealerInfo>().eq("id",command.getDealerId()));
+        SerDealerInfo info = getOne(new QueryWrapper<SerDealerInfo>().eq("id", command.getDealerId()));
         boolean flag1;
-        if(info!=null){
+        if (info != null) {
             info.setDealerName(command.getDealerName());
             info.setPersonName(command.getPersonName());
             info.setPersonMobile(command.getPersonMobile());
@@ -64,7 +64,7 @@ public class SerDealerInfoServiceImpl extends ServiceImpl<SerDealerInfoMapper, S
             info.setDealerState(command.getDealerState());
             info.setUpdateTime(new Date());
             flag1 = updateById(info);
-        }else{
+        } else {
             info = new SerDealerInfo();
             info.setDealerName(command.getDealerName());
             info.setPersonName(command.getPersonName());
@@ -78,9 +78,9 @@ public class SerDealerInfoServiceImpl extends ServiceImpl<SerDealerInfoMapper, S
             flag1 = save(info);
         }
 
-        dealerRegionInfoService.remove(new QueryWrapper<SerDealerRegionInfo>().eq("dealer_id",info.getId()));
+        dealerRegionInfoService.remove(new QueryWrapper<SerDealerRegionInfo>().eq("dealer_id", info.getId()));
         List<SerDealerRegionInfo> dealerRegionInfoList = new ArrayList<>();
-        for(Long regionId : command.getRegionList()){
+        for (Long regionId : command.getRegionList()) {
             SerDealerRegionInfo regionInfo = new SerDealerRegionInfo();
             regionInfo.setDealerId(info.getId());
             regionInfo.setRegionId(regionId);

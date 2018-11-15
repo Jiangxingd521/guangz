@@ -67,9 +67,9 @@ public class SerBrandLogoFile extends Model<SerBrandLogoFile> {
     @Override
     public String toString() {
         return "SerBrandLogoFile{" +
-        "id=" + id +
-        ", brandId=" + brandId +
-        ", fileId=" + fileId +
-        "}";
+                "id=" + id +
+                ", brandId=" + brandId +
+                ", fileId=" + fileId +
+                "}";
     }
 }

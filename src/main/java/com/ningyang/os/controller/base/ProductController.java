@@ -31,9 +31,9 @@ public class ProductController {
     private ISerBrandSeriesProductInfoService infoService;
 
     @GetMapping("getBrandSeriesProductList")
-    public Map<String,Object> getBrandSeriesProductList(
+    public Map<String, Object> getBrandSeriesProductList(
             QueryBrandSeriesProductCondition condition
-    ){
+    ) {
         try {
             List<ProductVo> listVo = infoService.findProductVoByCondition(condition);
             return WebResult.success().put("listVo", listVo).toMap();
@@ -45,12 +45,12 @@ public class ProductController {
 
 
     @PostMapping("addOrUpdate")
-    public Map<String,Object> addOrUpdate(
+    public Map<String, Object> addOrUpdate(
             @RequestBody ProductCommand command
-    ){
+    ) {
         try {
             boolean flag = infoService.addOrUpdate(command);
-            if(flag){
+            if (flag) {
                 return WebResult.success().toMap();
             }
             return WebResult.failure(OPERATING_ERROR.getInfo()).toMap();

@@ -4,9 +4,9 @@
 
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.ningyang.os.pojo.SerBrandSeriesProductCodeInfo">
-        <result column="id" property="id" />
-        <result column="product_id" property="productId" />
-        <result column="code_id" property="codeId" />
+        <result column="id" property="id"/>
+        <result column="product_id" property="productId"/>
+        <result column="code_id" property="codeId"/>
     </resultMap>
 
 </mapper>

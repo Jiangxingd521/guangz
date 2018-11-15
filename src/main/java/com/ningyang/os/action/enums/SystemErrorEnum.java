@@ -23,7 +23,10 @@ public enum SystemErrorEnum {
     USER_DATA_ERROR(14, "用户信息错误"),
     USED_MOBILE_ERROR(15, "手机号码已注册"),
     RELEASE_ERROR(16, "发布失败"),
-    DATA_ERROR(17, "数据有误");
+    DATA_ERROR(17, "数据有误"),
+    API_REQUEST_ERROR(18, "接口请求失败"),
+    SEND_REQUEST_ERROR(19, "申请未通过"),
+    IMPORT_DATA_ERROR(20, "数据导入失败");
 
     private Integer code;
     private String info;

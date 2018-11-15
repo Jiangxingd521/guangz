@@ -1,6 +1,5 @@
 package com.ningyang.os.service.impl;
 
-import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.ningyang.os.action.input.condition.base.QueryRegionCondition;
 import com.ningyang.os.action.output.vo.web.base.RegionVo;

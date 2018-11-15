@@ -32,9 +32,9 @@ public class CodeTemplateController {
 
 
     @GetMapping("getCodeTemplateList")
-    public Map<String,Object> getCodeTemplateList(
+    public Map<String, Object> getCodeTemplateList(
             QueryCodeCondition condition
-    ){
+    ) {
         try {
             List<CodeImportTemplateVo> listVo = infoService.findCodeImportVoByCondition(condition);
             return WebResult.success().put("listVo", listVo).toMap();
@@ -45,12 +45,12 @@ public class CodeTemplateController {
     }
 
     @PostMapping("addOrUpdate")
-    public Map<String,Object> addOrUpdate(
+    public Map<String, Object> addOrUpdate(
             @RequestBody CodeImportTemplateCommand command
-    ){
+    ) {
         try {
             boolean flag = infoService.addOrUpdate(command);
-            if(flag){
+            if (flag) {
                 return WebResult.success().toMap();
             }
             return WebResult.failure(OPERATING_ERROR.getInfo()).toMap();

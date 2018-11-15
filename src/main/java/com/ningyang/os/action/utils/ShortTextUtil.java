@@ -11,22 +11,22 @@ import java.util.Random;
 public class ShortTextUtil {
     public static void main(String[] args) {
         String sLongUrl = "http://www.headingtech.com:8082/chouj/home.html"; // 原始链接
-        System.out.println("长链接:"+sLongUrl);
+        System.out.println("长链接:" + sLongUrl);
         String[] aResult = shortUrl(sLongUrl);//将产生4组6位字符串
         // 打印出结果
         for (int i = 0; i < aResult.length; i++) {
             System.out.println("[" + i + "]:" + aResult[i]);
         }
-        Random random=new Random();
-        int j=random.nextInt(4);//产成4以内随机数
-        System.out.println("短链接:"+aResult[j]);//随机取一个作为短链
+        Random random = new Random();
+        int j = random.nextInt(4);//产成4以内随机数
+        System.out.println("短链接:" + aResult[j]);//随机取一个作为短链
     }
 
     public static String[] shortUrl(String url) {
         // 可以自定义生成 MD5 加密字符传前的混合 KEY
         String key = "test";
         // 要使用生成 URL 的字符
-        String[] chars = new String[] { "a", "b", "c", "d", "e", "f", "g", "h",
+        String[] chars = new String[]{"a", "b", "c", "d", "e", "f", "g", "h",
                 "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t",
                 "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5",
                 "6", "7", "8", "9", "A", "B", "C", "D", "E", "F", "G", "H",
@@ -59,8 +59,10 @@ public class ShortTextUtil {
         }
         return resUrl;
     }
+
     /**
      * MD5加密(32位大写)
+     *
      * @param src
      * @return
      */

@@ -34,9 +34,9 @@ public class WarehouseController {
 
 
     @GetMapping("getWarehousePage")
-    public Map<String,Object> getWarehousePage(
+    public Map<String, Object> getWarehousePage(
             QueryWarehouseCondition condition
-    ){
+    ) {
         try {
             Page<WarehouseVo> pageVo = infoService.findWarehouseVoPageByCondition(condition);
             return WebResult.success().put("pageVo", pageVo).toMap();
@@ -47,12 +47,12 @@ public class WarehouseController {
     }
 
     @PostMapping("addOrUpdate")
-    public Map<String,Object> addOrUpdate(
+    public Map<String, Object> addOrUpdate(
             @RequestBody WarehouseCommand command
-    ){
+    ) {
         try {
             boolean flag = infoService.addOrUpdate(command);
-            if(flag){
+            if (flag) {
                 return WebResult.success().toMap();
             }
             return WebResult.failure(OPERATING_ERROR.getInfo()).toMap();
@@ -63,7 +63,7 @@ public class WarehouseController {
     }
 
     @GetMapping("getWarehouseUserList")
-    public Map<String,Object> getWarehouseUserList(){
+    public Map<String, Object> getWarehouseUserList() {
         try {
             List<WarehousePersonVo> listVo = infoService.findWarehousePersonVoByCondition();
             return WebResult.success().put("listVo", listVo).toMap();

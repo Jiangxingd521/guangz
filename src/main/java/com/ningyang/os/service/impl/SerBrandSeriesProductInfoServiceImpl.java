@@ -43,17 +43,17 @@ public class SerBrandSeriesProductInfoServiceImpl extends ServiceImpl<SerBrandSe
     @Override
     public List<ProductVo> findProductVoByCondition(QueryBrandSeriesProductCondition condition) {
         List<ProductVo> list = baseMapper.selectProductVoByCondition(condition);
-        for(ProductVo vo : list){
+        for (ProductVo vo : list) {
             List<Long> productCodeIdList = codeInfoService.getProductCodeIds(vo.getProductId());
             int codeNumber = productCodeIdList.size();
             vo.setCodeNumber(codeNumber);
             vo.setCodeTypeIds(productCodeIdList);
 
             List<SerBrandSeriesProductFile> productFileList = productFileService.list(new QueryWrapper<SerBrandSeriesProductFile>()
-                    .eq("product_id",vo.getProductId()));
+                    .eq("product_id", vo.getProductId()));
 
             List<FileUploadDto> fileList = new ArrayList<>();
-            for(SerBrandSeriesProductFile productFile : productFileList){
+            for (SerBrandSeriesProductFile productFile : productFileList) {
                 Long fileId = productFile.getFileId();
                 SysFileInfo fileInfo = fileService.getById(fileId);
                 FileUploadDto dto = new FileUploadDto();
@@ -71,9 +71,9 @@ public class SerBrandSeriesProductInfoServiceImpl extends ServiceImpl<SerBrandSe
 
     @Override
     public boolean addOrUpdate(ProductCommand command) {
-        SerBrandSeriesProductInfo info = getOne(new QueryWrapper<SerBrandSeriesProductInfo>().eq("id",command.getProductId()));
+        SerBrandSeriesProductInfo info = getOne(new QueryWrapper<SerBrandSeriesProductInfo>().eq("id", command.getProductId()));
         boolean flag1;
-        if(info!=null){
+        if (info != null) {
             info.setSeriesId(command.getSeriesId());
             info.setProductName(command.getProductName());
             info.setSeriesStandard(command.getSeriesStandard());
@@ -84,7 +84,7 @@ public class SerBrandSeriesProductInfoServiceImpl extends ServiceImpl<SerBrandSe
             info.setProductState(command.getProductState());
             info.setUpdateTime(new Date());
             flag1 = updateById(info);
-        }else{
+        } else {
             info = new SerBrandSeriesProductInfo();
             info.setSeriesId(command.getSeriesId());
             info.setProductName(command.getProductName());
@@ -99,9 +99,9 @@ public class SerBrandSeriesProductInfoServiceImpl extends ServiceImpl<SerBrandSe
             flag1 = save(info);
         }
 
-        codeInfoService.remove(new QueryWrapper<SerBrandSeriesProductCodeInfo>().eq("product_id",info.getId()));
+        codeInfoService.remove(new QueryWrapper<SerBrandSeriesProductCodeInfo>().eq("product_id", info.getId()));
         List<SerBrandSeriesProductCodeInfo> productCodeInfoList = new ArrayList<>();
-        for(Long codeTypeId : command.getCodeTypeIds()){
+        for (Long codeTypeId : command.getCodeTypeIds()) {
             SerBrandSeriesProductCodeInfo productCodeInfo = new SerBrandSeriesProductCodeInfo();
             productCodeInfo.setProductId(info.getId());
             productCodeInfo.setCodeId(codeTypeId);
@@ -109,9 +109,9 @@ public class SerBrandSeriesProductInfoServiceImpl extends ServiceImpl<SerBrandSe
         }
         boolean flag2 = codeInfoService.saveBatch(productCodeInfoList);
 
-        productFileService.remove(new QueryWrapper<SerBrandSeriesProductFile>().eq("product_id",info.getId()));
+        productFileService.remove(new QueryWrapper<SerBrandSeriesProductFile>().eq("product_id", info.getId()));
         List<SerBrandSeriesProductFile> fileList = new ArrayList<>();
-        for(FileUploadDto fileDto : command.getProductFileList()){
+        for (FileUploadDto fileDto : command.getProductFileList()) {
             SerBrandSeriesProductFile productFile = new SerBrandSeriesProductFile();
             productFile.setProductId(info.getId());
             productFile.setFileId(fileDto.getId());

@@ -40,11 +40,11 @@ public class SerBrandInfoServiceImpl extends ServiceImpl<SerBrandInfoMapper, Ser
     @Override
     public List<BrandVo> findBrandVoByCondition(QueryBrandSeriesProductCondition condition) {
         List<BrandVo> list = baseMapper.selectBrandVoByCondition(condition);
-        for(BrandVo vo : list){
+        for (BrandVo vo : list) {
             SerBrandLogoFile logoFile = logoFileService.getOne(new QueryWrapper<SerBrandLogoFile>()
-                    .eq("brand_id",vo.getBrandId()));
+                    .eq("brand_id", vo.getBrandId()));
             List<FileUploadDto> fileList = new ArrayList<>();
-            if(logoFile!=null){
+            if (logoFile != null) {
                 SysFileInfo fileInfo = fileService.getById(logoFile.getFileId());
                 FileUploadDto dto = new FileUploadDto();
                 dto.setId(logoFile.getFileId());
@@ -62,16 +62,16 @@ public class SerBrandInfoServiceImpl extends ServiceImpl<SerBrandInfoMapper, Ser
 
     @Override
     public boolean addOrUpdate(BrandCommand command) {
-        SerBrandInfo info = getOne(new QueryWrapper<SerBrandInfo>().eq("id",command.getBrandId()));
+        SerBrandInfo info = getOne(new QueryWrapper<SerBrandInfo>().eq("id", command.getBrandId()));
         boolean flag1;
-        if(info!=null){
+        if (info != null) {
             info.setBrandName(command.getBrandName());
             info.setBrandSort(command.getBrandSort());
             info.setBrandRemark(command.getBrandRemark());
             info.setBrandState(command.getBrandState());
             info.setUpdateTime(new Date());
             flag1 = updateById(info);
-        }else{
+        } else {
             info = new SerBrandInfo();
             info.setBrandName(command.getBrandName());
             info.setBrandSort(command.getBrandSort());
@@ -82,9 +82,9 @@ public class SerBrandInfoServiceImpl extends ServiceImpl<SerBrandInfoMapper, Ser
             flag1 = save(info);
         }
 
-        logoFileService.remove(new QueryWrapper<SerBrandLogoFile>().eq("brand_id",command.getBrandId()));
+        logoFileService.remove(new QueryWrapper<SerBrandLogoFile>().eq("brand_id", command.getBrandId()));
         List<SerBrandLogoFile> fileList = new ArrayList<>();
-        for(FileUploadDto dto : command.getLogoFile()){
+        for (FileUploadDto dto : command.getLogoFile()) {
             SerBrandLogoFile logoFile = new SerBrandLogoFile();
             logoFile.setBrandId(info.getId());
             logoFile.setFileId(dto.getId());

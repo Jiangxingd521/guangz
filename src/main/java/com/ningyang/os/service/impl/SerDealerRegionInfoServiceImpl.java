@@ -2,8 +2,8 @@ package com.ningyang.os.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.ningyang.os.pojo.SerDealerRegionInfo;
 import com.ningyang.os.dao.SerDealerRegionInfoMapper;
+import com.ningyang.os.pojo.SerDealerRegionInfo;
 import com.ningyang.os.pojo.SysBaseRegionInfo;
 import com.ningyang.os.service.ISerDealerRegionInfoService;
 import com.ningyang.os.service.ISysBaseRegionInfoService;
@@ -30,10 +30,10 @@ public class SerDealerRegionInfoServiceImpl extends ServiceImpl<SerDealerRegionI
     @Override
     public List<String> getDealerRegionList(Long dealerId) {
         List<String> regionList = new ArrayList<>();
-        List<SerDealerRegionInfo> list = list(new QueryWrapper<SerDealerRegionInfo>().eq("dealer_id",dealerId));
-        for(SerDealerRegionInfo regionInfo : list){
+        List<SerDealerRegionInfo> list = list(new QueryWrapper<SerDealerRegionInfo>().eq("dealer_id", dealerId));
+        for (SerDealerRegionInfo regionInfo : list) {
             Long regionId = regionInfo.getRegionId();
-            regionList.add(regionId+"");
+            regionList.add(regionId + "");
         }
         return regionList;
     }
@@ -41,12 +41,12 @@ public class SerDealerRegionInfoServiceImpl extends ServiceImpl<SerDealerRegionI
     @Override
     public String getDealerRegionName(Long dealerId) {
         String regionName = "";
-        List<SerDealerRegionInfo> list = list(new QueryWrapper<SerDealerRegionInfo>().eq("dealer_id",dealerId));
-        for(SerDealerRegionInfo dealerRegionInfo : list){
+        List<SerDealerRegionInfo> list = list(new QueryWrapper<SerDealerRegionInfo>().eq("dealer_id", dealerId));
+        for (SerDealerRegionInfo dealerRegionInfo : list) {
             SysBaseRegionInfo regionInfo = regionInfoService.getById(dealerRegionInfo.getRegionId());
-            if(regionName!=""){
-                regionName = regionName+"/"+regionInfo.getRegionName();
-            }else{
+            if (regionName != "") {
+                regionName = regionName + "/" + regionInfo.getRegionName();
+            } else {
                 regionName = regionInfo.getRegionName();
             }
         }

@@ -32,15 +32,15 @@ public class SerCodeTypeInfoServiceImpl extends ServiceImpl<SerCodeTypeInfoMappe
 
     @Override
     public boolean addOrUpdate(CodeTypeCommand command) {
-        SerCodeTypeInfo info = getOne(new QueryWrapper<SerCodeTypeInfo>().eq("id",command.getCodeId()));
+        SerCodeTypeInfo info = getOne(new QueryWrapper<SerCodeTypeInfo>().eq("id", command.getCodeId()));
         boolean flag;
-        if(info!=null){
+        if (info != null) {
             info.setCodeName(command.getCodeName());
             info.setCodeType(command.getCodeType());
             info.setCodeState(command.getCodeState());
             info.setUpdateTime(new Date());
             flag = updateById(info);
-        }else{
+        } else {
             info = new SerCodeTypeInfo();
             info.setCodeName(command.getCodeName());
             info.setCodeType(command.getCodeType());
@@ -51,5 +51,5 @@ public class SerCodeTypeInfoServiceImpl extends ServiceImpl<SerCodeTypeInfoMappe
         }
         return flag;
     }
-    
+
 }

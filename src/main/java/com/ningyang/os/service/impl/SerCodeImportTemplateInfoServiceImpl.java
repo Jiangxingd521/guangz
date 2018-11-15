@@ -32,9 +32,9 @@ public class SerCodeImportTemplateInfoServiceImpl extends ServiceImpl<SerCodeImp
     @Override
     public boolean addOrUpdate(CodeImportTemplateCommand command) {
         SerCodeImportTemplateInfo info = getOne(new QueryWrapper<SerCodeImportTemplateInfo>()
-                .eq("id",command.getTemplateId()));
+                .eq("id", command.getTemplateId()));
         boolean flag;
-        if(info!=null){
+        if (info != null) {
             info.setProductId(command.getProductId());
             info.setTemplateName(command.getTemplateName());
             info.setLeftCodeTypeId(command.getLeftCodeId());
@@ -43,7 +43,7 @@ public class SerCodeImportTemplateInfoServiceImpl extends ServiceImpl<SerCodeImp
             info.setTemplateState(command.getTemplateState());
             info.setUpdateTime(new Date());
             flag = updateById(info);
-        }else{
+        } else {
             info = new SerCodeImportTemplateInfo();
             info.setProductId(command.getProductId());
             info.setTemplateName(command.getTemplateName());

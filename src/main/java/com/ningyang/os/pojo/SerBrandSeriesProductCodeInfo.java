@@ -3,6 +3,7 @@ package com.ningyang.os.pojo;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
+
 import java.io.Serializable;
 
 /**
@@ -63,9 +64,9 @@ public class SerBrandSeriesProductCodeInfo extends Model<SerBrandSeriesProductCo
     @Override
     public String toString() {
         return "SerBrandSeriesProductCodeInfo{" +
-        "id=" + id +
-        ", productId=" + productId +
-        ", codeId=" + codeId +
-        "}";
+                "id=" + id +
+                ", productId=" + productId +
+                ", codeId=" + codeId +
+                "}";
     }
 }

@@ -4,16 +4,16 @@
 
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.ningyang.os.pojo.SerWarehouseInfo">
-        <id column="id" property="id" />
-        <result column="warehouse_name" property="warehouseName" />
-        <result column="user_id" property="userId" />
-        <result column="warehouse_person" property="warehousePerson" />
-        <result column="warehouse_person_mobile" property="warehousePersonMobile" />
-        <result column="total_inventory" property="totalInventory" />
-        <result column="warehouse_remark" property="warehouseRemark" />
-        <result column="warehouse_state" property="warehouseState" />
-        <result column="create_time" property="createTime" />
-        <result column="update_time" property="updateTime" />
+        <id column="id" property="id"/>
+        <result column="warehouse_name" property="warehouseName"/>
+        <result column="user_id" property="userId"/>
+        <result column="warehouse_person" property="warehousePerson"/>
+        <result column="warehouse_person_mobile" property="warehousePersonMobile"/>
+        <result column="total_inventory" property="totalInventory"/>
+        <result column="warehouse_remark" property="warehouseRemark"/>
+        <result column="warehouse_state" property="warehouseState"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
     </resultMap>
 
     <select id="selectWarehouseVoPageByCondition"

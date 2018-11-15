@@ -17,12 +17,12 @@ public class SystemConfig {
     private String defaultPassword;
     //秘钥
     private String defaultApiKey;
-    //二维码默认基底数
-    private int defaultQRCodeNumber;
     //二维码模板
     private String defaultQRCodeTemplate;
     //企业二维码表模板
     private String defaultQRCodeTemplateTable;
+    //二维码下载文件路径
+    private String defaultQRCodeTemplateFilePath;
 
     public String getDefaultTemplateUrl() {
         return defaultTemplateUrl;
@@ -48,14 +48,6 @@ public class SystemConfig {
         this.defaultApiKey = defaultApiKey;
     }
 
-    public int getDefaultQRCodeNumber() {
-        return defaultQRCodeNumber;
-    }
-
-    public void setDefaultQRCodeNumber(int defaultQRCodeNumber) {
-        this.defaultQRCodeNumber = defaultQRCodeNumber;
-    }
-
     public String getDefaultQRCodeTemplate() {
         return defaultQRCodeTemplate;
     }
@@ -70,6 +62,14 @@ public class SystemConfig {
 
     public void setDefaultQRCodeTemplateTable(String defaultQRCodeTemplateTable) {
         this.defaultQRCodeTemplateTable = defaultQRCodeTemplateTable;
+    }
+
+    public String getDefaultQRCodeTemplateFilePath() {
+        return defaultQRCodeTemplateFilePath;
+    }
+
+    public void setDefaultQRCodeTemplateFilePath(String defaultQRCodeTemplateFilePath) {
+        this.defaultQRCodeTemplateFilePath = defaultQRCodeTemplateFilePath;
     }
 }
 

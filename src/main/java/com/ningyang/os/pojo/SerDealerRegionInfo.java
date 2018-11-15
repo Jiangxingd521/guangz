@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
+
 import java.io.Serializable;
 
 /**
@@ -66,9 +67,9 @@ public class SerDealerRegionInfo extends Model<SerDealerRegionInfo> {
     @Override
     public String toString() {
         return "SerDealerRegionInfo{" +
-        "id=" + id +
-        ", dealerId=" + dealerId +
-        ", regionId=" + regionId +
-        "}";
+                "id=" + id +
+                ", dealerId=" + dealerId +
+                ", regionId=" + regionId +
+                "}";
     }
 }

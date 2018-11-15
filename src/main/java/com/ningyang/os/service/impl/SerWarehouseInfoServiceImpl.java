@@ -40,9 +40,9 @@ public class SerWarehouseInfoServiceImpl extends ServiceImpl<SerWarehouseInfoMap
 
     @Override
     public boolean addOrUpdate(WarehouseCommand command) {
-        SerWarehouseInfo info = getOne(new QueryWrapper<SerWarehouseInfo>().eq("id",command.getWarehouseId()));
+        SerWarehouseInfo info = getOne(new QueryWrapper<SerWarehouseInfo>().eq("id", command.getWarehouseId()));
         boolean flag;
-        if(info!=null){
+        if (info != null) {
             info.setWarehouseName(command.getWarehouseName());
             info.setUserId(command.getWarehouseUserId());
             info.setWarehousePerson(command.getWarehousePerson());
@@ -52,7 +52,7 @@ public class SerWarehouseInfoServiceImpl extends ServiceImpl<SerWarehouseInfoMap
             info.setWarehouseState(command.getWarehouseState());
             info.setUpdateTime(new Date());
             flag = updateById(info);
-        }else{
+        } else {
             info = new SerWarehouseInfo();
             info.setWarehouseName(command.getWarehouseName());
             info.setUserId(command.getWarehouseUserId());

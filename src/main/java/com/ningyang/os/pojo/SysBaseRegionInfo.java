@@ -69,9 +69,9 @@ public class SysBaseRegionInfo extends Model<SysBaseRegionInfo> {
     @Override
     public String toString() {
         return "SysBaseRegionInfo{" +
-        "id=" + id +
-        ", pid=" + pid +
-        ", regionName=" + regionName +
-        "}";
+                "id=" + id +
+                ", pid=" + pid +
+                ", regionName=" + regionName +
+                "}";
     }
 }

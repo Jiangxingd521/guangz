@@ -18,9 +18,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Map;
 
-import static com.ningyang.os.action.enums.SystemErrorEnum.ADD_ERROR;
-import static com.ningyang.os.action.enums.SystemErrorEnum.EDIT_ERROR;
-import static com.ningyang.os.action.enums.SystemErrorEnum.OPERATING_PERMISSION_ERROR;
+import static com.ningyang.os.action.enums.SystemErrorEnum.*;
 
 /**
  * @Author： kaider

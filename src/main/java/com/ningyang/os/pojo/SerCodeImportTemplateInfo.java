@@ -8,6 +8,7 @@ import com.baomidou.mybatisplus.extension.activerecord.Model;
 
 import java.io.Serializable;
 import java.util.Date;
+
 /**
  * <p>
  * 码导入模板
@@ -145,15 +146,15 @@ public class SerCodeImportTemplateInfo extends Model<SerCodeImportTemplateInfo> 
     @Override
     public String toString() {
         return "SerCodeImportTemplateInfo{" +
-        "id=" + id +
-        ", productId=" + productId +
-        ", templateName=" + templateName +
-        ", leftCodeTypeId=" + leftCodeTypeId +
-        ", rightCodeTypeId=" + rightCodeTypeId +
-        ", templateRemark=" + templateRemark +
-        ", templateState=" + templateState +
-        ", createTime=" + createTime +
-        ", updateTime=" + updateTime +
-        "}";
+                "id=" + id +
+                ", productId=" + productId +
+                ", templateName=" + templateName +
+                ", leftCodeTypeId=" + leftCodeTypeId +
+                ", rightCodeTypeId=" + rightCodeTypeId +
+                ", templateRemark=" + templateRemark +
+                ", templateState=" + templateState +
+                ", createTime=" + createTime +
+                ", updateTime=" + updateTime +
+                "}";
     }
 }

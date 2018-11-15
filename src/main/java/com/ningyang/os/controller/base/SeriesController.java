@@ -31,9 +31,9 @@ public class SeriesController {
     private ISerBrandSeriesInfoService infoService;
 
     @GetMapping("getBrandSeriesList")
-    public Map<String,Object> getBrandSeriesList(
+    public Map<String, Object> getBrandSeriesList(
             QueryBrandSeriesProductCondition condition
-    ){
+    ) {
         try {
             List<SeriesVo> listVo = infoService.findSeriesVoByCondition(condition);
             return WebResult.success().put("listVo", listVo).toMap();
@@ -45,12 +45,12 @@ public class SeriesController {
 
 
     @PostMapping("addOrUpdate")
-    public Map<String,Object> addOrUpdate(
+    public Map<String, Object> addOrUpdate(
             @RequestBody SeriesCommand command
-    ){
+    ) {
         try {
             boolean flag = infoService.addOrUpdate(command);
-            if(flag){
+            if (flag) {
                 return WebResult.success().toMap();
             }
             return WebResult.failure(OPERATING_ERROR.getInfo()).toMap();

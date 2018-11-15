@@ -159,16 +159,16 @@ public class SerBrandInfo extends Model<SerBrandInfo> {
     @Override
     public String toString() {
         return "SerBrandInfo{" +
-        "id=" + id +
-        ", brandName=" + brandName +
-        ", shortTitle=" + shortTitle +
-        ", brandSort=" + brandSort +
-        ", regionId=" + regionId +
-        ", brandKeyword=" + brandKeyword +
-        ", brandRemark=" + brandRemark +
-        ", brandState=" + brandState +
-        ", createTime=" + createTime +
-        ", updateTime=" + updateTime +
-        "}";
+                "id=" + id +
+                ", brandName=" + brandName +
+                ", shortTitle=" + shortTitle +
+                ", brandSort=" + brandSort +
+                ", regionId=" + regionId +
+                ", brandKeyword=" + brandKeyword +
+                ", brandRemark=" + brandRemark +
+                ", brandState=" + brandState +
+                ", createTime=" + createTime +
+                ", updateTime=" + updateTime +
+                "}";
     }
 }
