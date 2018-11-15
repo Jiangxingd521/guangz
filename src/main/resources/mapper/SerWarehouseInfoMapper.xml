@@ -9,13 +9,37 @@
         <result column="user_id" property="userId" />
         <result column="warehouse_person" property="warehousePerson" />
         <result column="warehouse_person_mobile" property="warehousePersonMobile" />
-        <result column="inventory" property="inventory" />
-        <result column="inventory_state" property="inventoryState" />
         <result column="total_inventory" property="totalInventory" />
         <result column="warehouse_remark" property="warehouseRemark" />
         <result column="warehouse_state" property="warehouseState" />
         <result column="create_time" property="createTime" />
         <result column="update_time" property="updateTime" />
     </resultMap>
+
+    <select id="selectWarehouseVoPageByCondition"
+            parameterType="com.ningyang.os.action.input.condition.serve.QueryWarehouseCondition"
+            resultType="com.ningyang.os.action.output.vo.web.serve.WarehouseVo"
+    >
+        select a.id as warehouseId,a.warehouse_name,a.warehouse_person,a.warehouse_person_mobile,
+        a.warehouse_remark,a.total_inventory,a.user_id as warehouseUserId,a.warehouse_state from t_ser_warehouse_info a
+        where 1=1
+        limit #{page},#{limit}
+    </select>
+
+    <select id="selectWarehouseVoPageCountByCondition"
+            parameterType="com.ningyang.os.action.input.condition.serve.QueryWarehouseCondition"
+            resultType="int"
+    >
+        select count(1) from t_ser_warehouse_info a where 1=1
+    </select>
+
+    <select id="selectWarehousePersonVoByCondition"
+            resultType="com.ningyang.os.action.output.vo.web.serve.WarehousePersonVo"
+    >
+      select DISTINCT b.user_id,c.user_name as warehousePerson from t_sys_role_info a
+      left join t_sys_user_role_info b on a.id = b.role_id
+      left join t_sys_user_info c on b.user_id = c.id
+      where a.id = 4 and a.role_state=0 and c.user_state=0
+    </select>
 
 </mapper>

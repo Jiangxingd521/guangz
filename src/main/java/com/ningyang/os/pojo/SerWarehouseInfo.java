@@ -45,19 +45,10 @@ public class SerWarehouseInfo extends Model<SerWarehouseInfo> {
     @TableField("warehouse_person_mobile")
     private String warehousePersonMobile;
     /**
-     * 商品库存
-     */
-    private Integer inventory;
-    /**
-     * 库存状态（0：正常，1：异常）
-     */
-    @TableField("inventory_state")
-    private Integer inventoryState;
-    /**
      * 库存总量
      */
     @TableField("total_inventory")
-    private Integer totalInventory;
+    private String totalInventory;
     /**
      * 仓库备注
      */
@@ -120,27 +111,11 @@ public class SerWarehouseInfo extends Model<SerWarehouseInfo> {
         this.warehousePersonMobile = warehousePersonMobile;
     }
 
-    public Integer getInventory() {
-        return inventory;
-    }
-
-    public void setInventory(Integer inventory) {
-        this.inventory = inventory;
-    }
-
-    public Integer getInventoryState() {
-        return inventoryState;
-    }
-
-    public void setInventoryState(Integer inventoryState) {
-        this.inventoryState = inventoryState;
-    }
-
-    public Integer getTotalInventory() {
+    public String getTotalInventory() {
         return totalInventory;
     }
 
-    public void setTotalInventory(Integer totalInventory) {
+    public void setTotalInventory(String totalInventory) {
         this.totalInventory = totalInventory;
     }
 
@@ -189,8 +164,6 @@ public class SerWarehouseInfo extends Model<SerWarehouseInfo> {
         ", userId=" + userId +
         ", warehousePerson=" + warehousePerson +
         ", warehousePersonMobile=" + warehousePersonMobile +
-        ", inventory=" + inventory +
-        ", inventoryState=" + inventoryState +
         ", totalInventory=" + totalInventory +
         ", warehouseRemark=" + warehouseRemark +
         ", warehouseState=" + warehouseState +
