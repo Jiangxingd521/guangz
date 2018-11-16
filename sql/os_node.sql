@@ -11,7 +11,7 @@
  Target Server Version : 50721
  File Encoding         : 65001
 
- Date: 15/11/2018 18:36:40
+ Date: 16/11/2018 17:51:13
 */
 
 SET NAMES utf8mb4;
@@ -209,7 +209,7 @@ CREATE TABLE `t_ser_code_import_template_info` (
   CONSTRAINT `t_ser_code_import_template_info_ibfk_3` FOREIGN KEY (`product_id`) REFERENCES `t_ser_brand_series_product_info` (`id`),
   CONSTRAINT `t_ser_code_import_template_info_ibfk_4` FOREIGN KEY (`left_code_type_id`) REFERENCES `t_ser_code_type_info` (`id`),
   CONSTRAINT `t_ser_code_import_template_info_ibfk_5` FOREIGN KEY (`right_code_type_id`) REFERENCES `t_ser_code_type_info` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='码导入模板';
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='码导入模板';
 
 -- ----------------------------
 -- Records of t_ser_code_import_template_info
@@ -320,6 +320,19 @@ BEGIN;
 INSERT INTO `t_ser_warehouse_info` VALUES (1, '仓库1', 3, '周1', '9999', '1000', '备注1', 0, '2018-11-15 15:04:32', '2018-11-15 15:04:32');
 INSERT INTO `t_ser_warehouse_info` VALUES (2, '仓库2', 3, '周2', '9998', '1000', '备注2', 0, '2018-11-15 15:05:09', '2018-11-15 15:31:11');
 COMMIT;
+
+-- ----------------------------
+-- Table structure for t_sys_api_info
+-- ----------------------------
+DROP TABLE IF EXISTS `t_sys_api_info`;
+CREATE TABLE `t_sys_api_info` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `api_type` int(255) DEFAULT NULL COMMENT '标识类型',
+  `enterprise_web_api_remark` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'api标识内容',
+  `create_time` datetime DEFAULT NULL COMMENT '创建时间',
+  `update_time` datetime DEFAULT NULL COMMENT '修改时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='企业api标识';
 
 -- ----------------------------
 -- Table structure for t_sys_base_region_info

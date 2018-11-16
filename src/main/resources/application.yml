@@ -57,7 +57,7 @@ logging:
 
 os-config:
   default-password: 12345678
-  default-api-key: center
+  default-api-key: 717109d9c9dacd75577528fc05acb644
   default-templateUrl: http://9suyuan.com
   default-qrcode-template: templateUrl/enterprise/mark/batch/uuid
   default-qrcode-template-table: t_qrcode_dateTemplate
