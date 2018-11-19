@@ -25,10 +25,9 @@ public class SysApiInfoServiceImpl extends ServiceImpl<SysApiInfoMapper, SysApiI
 
     @Override
     public boolean registerCode(RegisterCodeCommand command) {
-        // FIXME: 2018/11/19 未注册成功
         List<SysApiInfo> listTemp = list(new QueryWrapper<SysApiInfo>());
 
-        if(listTemp!=null){
+        if(listTemp.size()>0){
             return false;
         }else{
             List<SysApiInfo> apiInfoList = new ArrayList<>();
