@@ -11,7 +11,7 @@
  Target Server Version : 50721
  File Encoding         : 65001
 
- Date: 16/11/2018 17:51:13
+ Date: 19/11/2018 15:20:05
 */
 
 SET NAMES utf8mb4;
@@ -328,7 +328,7 @@ DROP TABLE IF EXISTS `t_sys_api_info`;
 CREATE TABLE `t_sys_api_info` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `api_type` int(255) DEFAULT NULL COMMENT '标识类型',
-  `enterprise_web_api_remark` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'api标识内容',
+  `api_code` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'api标识内容',
   `create_time` datetime DEFAULT NULL COMMENT '创建时间',
   `update_time` datetime DEFAULT NULL COMMENT '修改时间',
   PRIMARY KEY (`id`)
@@ -3660,7 +3660,7 @@ CREATE TABLE `t_sys_menu_info` (
   `create_time` timestamp NULL DEFAULT NULL COMMENT '创建时间',
   `update_time` timestamp NULL DEFAULT NULL COMMENT '修改时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='菜单信息';
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='菜单信息';
 
 -- ----------------------------
 -- Records of t_sys_menu_info
@@ -3686,6 +3686,7 @@ INSERT INTO `t_sys_menu_info` VALUES (17, 16, '经销商管理', 0, NULL, '/serv
 INSERT INTO `t_sys_menu_info` VALUES (18, 16, '仓库管理', 0, NULL, '/server/warehouse', NULL, 2, 0, NULL, '2018-11-15 12:58:58', '2018-11-15 12:58:58');
 INSERT INTO `t_sys_menu_info` VALUES (19, 16, '溯源码申请', 0, NULL, '/center/qrcode/apply', NULL, 3, 0, NULL, '2018-11-15 15:42:57', '2018-11-15 15:42:57');
 INSERT INTO `t_sys_menu_info` VALUES (20, 16, '溯源码导入', 0, NULL, '/center/qrcode/import', NULL, 4, 0, NULL, '2018-11-15 15:44:12', '2018-11-15 15:44:12');
+INSERT INTO `t_sys_menu_info` VALUES (21, 16, '中心注册', 0, 'icon-link', '/center/register', NULL, 5, 0, NULL, '2018-11-19 11:27:09', '2018-11-19 11:28:24');
 COMMIT;
 
 -- ----------------------------

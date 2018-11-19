@@ -1,0 +1,44 @@
+package com.ningyang.os.service.impl;
+
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.ningyang.os.action.input.command.web.serve.RegisterCodeCommand;
+import com.ningyang.os.action.output.dto.serve.RegisterCodeDto;
+import com.ningyang.os.pojo.SysApiInfo;
+import com.ningyang.os.dao.SysApiInfoMapper;
+import com.ningyang.os.service.ISysApiInfoService;
+import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * <p>
+ * 企业api标识 服务实现类
+ * </p>
+ *
+ * @author kaider
+ * @since 2018-11-19
+ */
+@Service
+public class SysApiInfoServiceImpl extends ServiceImpl<SysApiInfoMapper, SysApiInfo> implements ISysApiInfoService {
+
+    @Override
+    public boolean registerCode(RegisterCodeCommand command) {
+        // FIXME: 2018/11/19 未注册成功
+        List<SysApiInfo> listTemp = list(new QueryWrapper<SysApiInfo>());
+
+        if(listTemp!=null){
+            return false;
+        }else{
+            List<SysApiInfo> apiInfoList = new ArrayList<>();
+            for(RegisterCodeDto codeDto : command.getCodeVoList()){
+                SysApiInfo apiInfo = new SysApiInfo();
+                apiInfo.setApiType(codeDto.getCodeType());
+                apiInfo.setApiCode(codeDto.getCodeName());
+                apiInfoList.add(apiInfo);
+            }
+            return saveBatch(apiInfoList);
+        }
+    }
+}
