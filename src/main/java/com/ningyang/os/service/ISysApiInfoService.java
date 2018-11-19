@@ -16,5 +16,6 @@ public interface ISysApiInfoService extends IService<SysApiInfo> {
 
     boolean registerCode(RegisterCodeCommand command);
 
+    boolean checkCode();
 
 }
