@@ -11,6 +11,7 @@
         <result column="code_type_id" property="codeTypeId"/>
         <result column="apply_count" property="applyCount"/>
         <result column="apply_state" property="applyState"/>
+        <result column="code_table_name" property="codeTableName"/>
         <result column="create_time" property="createTime"/>
         <result column="update_time" property="updateTime"/>
     </resultMap>
@@ -19,9 +20,10 @@
             parameterType="com.ningyang.os.action.input.condition.base.QueryCodeCondition"
             resultType="com.ningyang.os.action.output.vo.web.serve.ApplyCodeVo"
     >
-        select a.id as applyId,a.code_position_id as codePosition,c.code_name as codePositionName,a.code_type_id as
-        codeType,
-        d.code_name as codeTypeName,a.apply_count,a.apply_state,a.create_time,b.user_name as applyUserName,a.code_order
+        select a.id as applyId,a.code_position_id as codePosition,c.code_name as codePositionName,
+        a.code_type_id as codeType,a.code_table_name as tableName,d.code_name as
+        codeTypeName,a.apply_count,a.apply_state,
+        a.create_time,b.user_name as applyUserName,a.code_order
         from t_ser_apply_code_info a left join t_sys_user_info b on a.apply_user_id=b.id
         left join t_ser_code_type_info c on a.code_position_id = c.id
         left join t_ser_code_type_info d on a.code_type_id = d.id

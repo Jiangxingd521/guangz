@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 import java.util.Date;
 import java.util.List;
 
+import static com.ningyang.suyuan.node.action.utils.DateUtil.getSimpleYearMonthShort;
 import static com.ningyang.suyuan.node.action.utils.DateUtil.timeToStr;
 
 /**
@@ -68,6 +69,7 @@ public class SerApplyCodeInfoServiceImpl extends ServiceImpl<SerApplyCodeInfoMap
     public boolean updateApplyState(CenterCodeCommand command) {
         SerApplyCodeInfo info = getOne(new QueryWrapper<SerApplyCodeInfo>().eq("code_order", command.getCodeOrder()));
         info.setApplyState(command.getApplyState());
+        info.setCodeTableName(getSimpleYearMonthShort());
         info.setUpdateTime(new Date());
         return updateById(info);
     }

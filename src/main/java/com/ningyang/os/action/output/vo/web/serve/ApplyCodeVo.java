@@ -26,6 +26,8 @@ public class ApplyCodeVo {
     private int applyCount;
     //申请状态
     private int applyState;
+    //溯源码存放表
+    private String tableName;
     //申请时间
     private Date createTime;
 
@@ -101,6 +103,14 @@ public class ApplyCodeVo {
 
     public void setApplyState(int applyState) {
         this.applyState = applyState;
+    }
+
+    public String getTableName() {
+        return tableName;
+    }
+
+    public void setTableName(String tableName) {
+        this.tableName = tableName;
     }
 
     public Date getCreateTime() {

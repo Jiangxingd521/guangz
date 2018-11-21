@@ -2,7 +2,10 @@ package com.ningyang.os.dao;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.ningyang.os.action.input.command.web.serve.TemplateCodeCommand;
+import com.ningyang.os.action.input.condition.serve.QueryApplyCodeCondition;
 import com.ningyang.os.pojo.SerApplyCodeTemplate;
+
+import java.util.List;
 
 /**
  * @Author： kaider
@@ -13,6 +16,6 @@ public interface SerApplyCodeTemplateMapper extends BaseMapper<SerApplyCodeTempl
 
     boolean insertBatch(TemplateCodeCommand command);
 
-//    List<CompanyApplyCodeVo> selectCodeVoList(QueryApplyCodeCondition condition);
+    List<SerApplyCodeTemplate> selectCodeVoList(QueryApplyCodeCondition condition);
 
 }

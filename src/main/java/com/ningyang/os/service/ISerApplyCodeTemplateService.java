@@ -2,7 +2,10 @@ package com.ningyang.os.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.ningyang.os.action.input.command.web.serve.CenterCodeCommand;
+import com.ningyang.os.action.input.condition.serve.QueryApplyCodeCondition;
 import com.ningyang.os.pojo.SerApplyCodeTemplate;
+
+import java.util.List;
 
 /**
  * @Author： kaider
@@ -13,5 +16,5 @@ public interface ISerApplyCodeTemplateService extends IService<SerApplyCodeTempl
 
     boolean addBatch(CenterCodeCommand command);
 
-//    List<CompanyApplyCodeVo> findCodeVoList(Long companyId, String applyOrder);
+    List<SerApplyCodeTemplate> findCodeVoList(QueryApplyCodeCondition condition);
 }

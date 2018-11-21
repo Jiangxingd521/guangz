@@ -6,22 +6,37 @@ import com.ningyang.os.action.config.SystemConfig;
 import com.ningyang.os.action.input.command.web.serve.ApplyCodeCommand;
 import com.ningyang.os.action.input.command.web.serve.CenterCodeCommand;
 import com.ningyang.os.action.input.condition.base.QueryCodeCondition;
+import com.ningyang.os.action.input.condition.serve.QueryApplyCodeCondition;
 import com.ningyang.os.action.output.vo.web.serve.ApplyCodeVo;
 import com.ningyang.os.action.utils.WebResult;
 import com.ningyang.os.controller.system.BaseController;
+import com.ningyang.os.pojo.SerApplyCodeTemplate;
 import com.ningyang.os.pojo.SysUserInfo;
 import com.ningyang.os.service.ISerApplyCodeInfoService;
 import com.ningyang.os.service.ISerApplyCodeTemplateService;
+import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.File;
+import java.io.IOException;
+import java.util.List;
 import java.util.Map;
 
+import static cn.hutool.core.io.FileUtil.exist;
+import static cn.hutool.core.io.FileUtil.mkdir;
+import static cn.hutool.core.util.ZipUtil.zip;
 import static cn.hutool.http.HttpUtil.post;
 import static com.ningyang.os.action.enums.SystemErrorEnum.*;
+import static com.ningyang.os.action.utils.BarcodeUtil.generateFile;
+import static com.ningyang.os.action.utils.QRCodeUtil.encode;
 import static com.ningyang.suyuan.node.action.utils.DateUtil.getOrderNum;
 
 /**
@@ -128,6 +143,69 @@ public class ApplyCodeController extends BaseController {
         } else {
             return WebResult.failure(SEND_ERROR.getInfo()).toMap();
         }
+    }
+
+
+    /**
+     * 生成溯源码压缩包
+     *
+     * @param condition
+     * @return
+     */
+    @GetMapping("downCode")
+    public Map<String, Object> downCode(
+            QueryApplyCodeCondition condition
+    ) {
+        try {
+            String rootFilePath = config.getDefaultQRCodeTemplateFilePath();
+            String zipFileName = condition.getCodeOrder();
+
+            boolean flag = exist(rootFilePath + "/" + zipFileName + ".zip");
+            if (!flag) {
+                //不存在
+                // 文件名(同时也是需要zip的文件)
+                File pFile = mkdir(rootFilePath + zipFileName);
+                //创建父文件夹
+                String pFilePath = pFile.getPath();
+                int codeType = condition.getCodeType();
+
+                List<SerApplyCodeTemplate> codeList = templateService.findCodeVoList(condition);
+
+                if (codeType == 8) {
+                    //二维码
+                    for (SerApplyCodeTemplate code : codeList) {
+                        encode(code.getCodeContent(), pFilePath, false, String.valueOf(code.getCenterId()));
+                    }
+                } else if (codeType == 9) {
+                    //条形码
+                    for (SerApplyCodeTemplate code : codeList) {
+                        generateFile(code.getCodeContent(), pFilePath + "/" + code.getCenterId() + ".png");
+                    }
+                }
+                //创建压缩文件
+                zip(pFile);
+            }
+            return WebResult.success().put("zipFileName", zipFileName).toMap();
+        } catch (Exception e) {
+            LOGGER.error(e.getMessage(), e);
+            return WebResult.failure(e).toMap();
+        }
+    }
+
+    /**
+     * 下载溯源码压缩包
+     *
+     * @param condition
+     * @return
+     * @throws IOException
+     */
+    @GetMapping("downloadZip")
+    public ResponseEntity<byte[]> downloadZip(QueryApplyCodeCondition condition) throws IOException {
+        //下载具体文件
+        File file = new File(config.getDefaultQRCodeTemplateFilePath() + condition.getCodeOrder() + ".zip");
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_OCTET_STREAM);
+        return new ResponseEntity<byte[]>(FileUtils.readFileToByteArray(file), headers, HttpStatus.CREATED);
     }
 
 

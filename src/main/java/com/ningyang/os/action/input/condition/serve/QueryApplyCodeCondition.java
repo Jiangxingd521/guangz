@@ -11,6 +11,8 @@ public class QueryApplyCodeCondition {
     private String tableName;
     //溯源码订单
     private String codeOrder;
+    //码类型
+    private Integer codeType;
 
     public String getTableName() {
         return tableName;
@@ -26,5 +28,13 @@ public class QueryApplyCodeCondition {
 
     public void setCodeOrder(String codeOrder) {
         this.codeOrder = codeOrder;
+    }
+
+    public Integer getCodeType() {
+        return codeType;
+    }
+
+    public void setCodeType(Integer codeType) {
+        this.codeType = codeType;
     }
 }

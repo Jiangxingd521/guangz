@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.ningyang.os.action.config.SystemConfig;
 import com.ningyang.os.action.input.command.web.serve.CenterCodeCommand;
 import com.ningyang.os.action.input.command.web.serve.TemplateCodeCommand;
+import com.ningyang.os.action.input.condition.serve.QueryApplyCodeCondition;
 import com.ningyang.os.action.output.dto.serve.CenterCodeDto;
 import com.ningyang.os.dao.SerApplyCodeTemplateMapper;
 import com.ningyang.os.pojo.SerApplyCodeTemplate;
@@ -43,17 +44,14 @@ public class SerApplyCodeTemplateServiceImpl extends ServiceImpl<SerApplyCodeTem
     }
 
 
-
-
-    /*
     @Override
-    public List<CompanyApplyCodeVo> findCodeVoList(Long companyId, String applyOrder) {
-        QueryApplyCodeCondition condition = new QueryApplyCodeCondition();
-        condition.setTableName(templateTableName());
-        condition.setCompanyId(companyId);
-        condition.setCodeOrder(applyOrder);
+    public List<SerApplyCodeTemplate> findCodeVoList(QueryApplyCodeCondition condition) {
+        String tableName = config.getDefaultQRCodeTemplateTable();
+        tableName = tableName.replace("dateTemplate", condition.getTableName());
+        condition.setTableName(tableName);
         return baseMapper.selectCodeVoList(condition);
-    }*/
+    }
+
 
     /**
      * 生成溯源码表名
