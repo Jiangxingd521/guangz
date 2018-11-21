@@ -11,11 +11,88 @@
  Target Server Version : 50721
  File Encoding         : 65001
 
- Date: 19/11/2018 15:20:05
+ Date: 21/11/2018 11:13:10
 */
 
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
+
+-- ----------------------------
+-- Table structure for t_ser_apply_code_201811
+-- ----------------------------
+DROP TABLE IF EXISTS `t_ser_apply_code_201811`;
+CREATE TABLE `t_ser_apply_code_201811` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '主键',
+  `center_id` bigint(20) DEFAULT NULL COMMENT '中心id',
+  `code_content` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '溯源码内容',
+  `code_order` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '溯源码订单号',
+  `create_time` datetime DEFAULT NULL COMMENT '创建时间',
+  `update_time` datetime DEFAULT NULL COMMENT '修改时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='溯源码';
+
+-- ----------------------------
+-- Records of t_ser_apply_code_201811
+-- ----------------------------
+BEGIN;
+INSERT INTO `t_ser_apply_code_201811` VALUES (1, 1, '5000000122338864', '20181120100517', '2018-11-21 11:03:21', '2018-11-21 11:03:21');
+INSERT INTO `t_ser_apply_code_201811` VALUES (2, 2, '6000001980508028', '20181120100517', '2018-11-21 11:03:21', '2018-11-21 11:03:21');
+INSERT INTO `t_ser_apply_code_201811` VALUES (3, 3, '1000001845845424', '20181120100517', '2018-11-21 11:03:21', '2018-11-21 11:03:21');
+INSERT INTO `t_ser_apply_code_201811` VALUES (4, 4, '5000002029092397', '20181120100517', '2018-11-21 11:03:21', '2018-11-21 11:03:21');
+INSERT INTO `t_ser_apply_code_201811` VALUES (5, 5, '5000001085680186', '20181120100517', '2018-11-21 11:03:21', '2018-11-21 11:03:21');
+INSERT INTO `t_ser_apply_code_201811` VALUES (6, 6, '9000000731255062', '20181120100517', '2018-11-21 11:03:21', '2018-11-21 11:03:21');
+INSERT INTO `t_ser_apply_code_201811` VALUES (7, 7, '5000000577826934', '20181120100517', '2018-11-21 11:03:21', '2018-11-21 11:03:21');
+INSERT INTO `t_ser_apply_code_201811` VALUES (8, 8, '7000001343983512', '20181120100517', '2018-11-21 11:03:21', '2018-11-21 11:03:21');
+INSERT INTO `t_ser_apply_code_201811` VALUES (9, 9, '1000000626439000', '20181120100517', '2018-11-21 11:03:21', '2018-11-21 11:03:21');
+INSERT INTO `t_ser_apply_code_201811` VALUES (10, 10, '5000000138483840', '20181120100517', '2018-11-21 11:03:21', '2018-11-21 11:03:21');
+INSERT INTO `t_ser_apply_code_201811` VALUES (11, 1, '5000000122338864', '20181120100517', '2018-11-21 11:07:19', '2018-11-21 11:07:19');
+INSERT INTO `t_ser_apply_code_201811` VALUES (12, 2, '6000001980508028', '20181120100517', '2018-11-21 11:07:19', '2018-11-21 11:07:19');
+INSERT INTO `t_ser_apply_code_201811` VALUES (13, 3, '1000001845845424', '20181120100517', '2018-11-21 11:07:19', '2018-11-21 11:07:19');
+INSERT INTO `t_ser_apply_code_201811` VALUES (14, 4, '5000002029092397', '20181120100517', '2018-11-21 11:07:19', '2018-11-21 11:07:19');
+INSERT INTO `t_ser_apply_code_201811` VALUES (15, 5, '5000001085680186', '20181120100517', '2018-11-21 11:07:19', '2018-11-21 11:07:19');
+INSERT INTO `t_ser_apply_code_201811` VALUES (16, 6, '9000000731255062', '20181120100517', '2018-11-21 11:07:19', '2018-11-21 11:07:19');
+INSERT INTO `t_ser_apply_code_201811` VALUES (17, 7, '5000000577826934', '20181120100517', '2018-11-21 11:07:19', '2018-11-21 11:07:19');
+INSERT INTO `t_ser_apply_code_201811` VALUES (18, 8, '7000001343983512', '20181120100517', '2018-11-21 11:07:19', '2018-11-21 11:07:19');
+INSERT INTO `t_ser_apply_code_201811` VALUES (19, 9, '1000000626439000', '20181120100517', '2018-11-21 11:07:19', '2018-11-21 11:07:19');
+INSERT INTO `t_ser_apply_code_201811` VALUES (20, 10, '5000000138483840', '20181120100517', '2018-11-21 11:07:19', '2018-11-21 11:07:19');
+INSERT INTO `t_ser_apply_code_201811` VALUES (21, 11, 'http://9suyuan.com/6/4Isd1X9VFi', '20181121110645', '2018-11-21 11:07:19', '2018-11-21 11:07:19');
+INSERT INTO `t_ser_apply_code_201811` VALUES (22, 12, 'http://9suyuan.com/6/gDVdWp8lNF', '20181121110645', '2018-11-21 11:07:19', '2018-11-21 11:07:19');
+INSERT INTO `t_ser_apply_code_201811` VALUES (23, 13, 'http://9suyuan.com/6/mSd8cglyLl', '20181121110645', '2018-11-21 11:07:19', '2018-11-21 11:07:19');
+INSERT INTO `t_ser_apply_code_201811` VALUES (24, 14, 'http://9suyuan.com/6/S1goPf6D71', '20181121110645', '2018-11-21 11:07:19', '2018-11-21 11:07:19');
+INSERT INTO `t_ser_apply_code_201811` VALUES (25, 1, '5000000122338864', '20181120100517', '2018-11-21 11:07:21', '2018-11-21 11:07:21');
+INSERT INTO `t_ser_apply_code_201811` VALUES (26, 2, '6000001980508028', '20181120100517', '2018-11-21 11:07:21', '2018-11-21 11:07:21');
+INSERT INTO `t_ser_apply_code_201811` VALUES (27, 3, '1000001845845424', '20181120100517', '2018-11-21 11:07:21', '2018-11-21 11:07:21');
+INSERT INTO `t_ser_apply_code_201811` VALUES (28, 4, '5000002029092397', '20181120100517', '2018-11-21 11:07:21', '2018-11-21 11:07:21');
+INSERT INTO `t_ser_apply_code_201811` VALUES (29, 5, '5000001085680186', '20181120100517', '2018-11-21 11:07:21', '2018-11-21 11:07:21');
+INSERT INTO `t_ser_apply_code_201811` VALUES (30, 6, '9000000731255062', '20181120100517', '2018-11-21 11:07:21', '2018-11-21 11:07:21');
+INSERT INTO `t_ser_apply_code_201811` VALUES (31, 7, '5000000577826934', '20181120100517', '2018-11-21 11:07:21', '2018-11-21 11:07:21');
+INSERT INTO `t_ser_apply_code_201811` VALUES (32, 8, '7000001343983512', '20181120100517', '2018-11-21 11:07:21', '2018-11-21 11:07:21');
+INSERT INTO `t_ser_apply_code_201811` VALUES (33, 9, '1000000626439000', '20181120100517', '2018-11-21 11:07:21', '2018-11-21 11:07:21');
+INSERT INTO `t_ser_apply_code_201811` VALUES (34, 10, '5000000138483840', '20181120100517', '2018-11-21 11:07:21', '2018-11-21 11:07:21');
+INSERT INTO `t_ser_apply_code_201811` VALUES (35, 11, 'http://9suyuan.com/6/4Isd1X9VFi', '20181121110645', '2018-11-21 11:07:21', '2018-11-21 11:07:21');
+INSERT INTO `t_ser_apply_code_201811` VALUES (36, 12, 'http://9suyuan.com/6/gDVdWp8lNF', '20181121110645', '2018-11-21 11:07:21', '2018-11-21 11:07:21');
+INSERT INTO `t_ser_apply_code_201811` VALUES (37, 13, 'http://9suyuan.com/6/mSd8cglyLl', '20181121110645', '2018-11-21 11:07:21', '2018-11-21 11:07:21');
+INSERT INTO `t_ser_apply_code_201811` VALUES (38, 14, 'http://9suyuan.com/6/S1goPf6D71', '20181121110645', '2018-11-21 11:07:21', '2018-11-21 11:07:21');
+INSERT INTO `t_ser_apply_code_201811` VALUES (39, 15, 'http://9suyuan.com/6/KFeAXUpeFPZd', '20181121110700', '2018-11-21 11:07:21', '2018-11-21 11:07:21');
+INSERT INTO `t_ser_apply_code_201811` VALUES (40, 16, 'http://9suyuan.com/6/5vxuTDqQfWmR', '20181121110700', '2018-11-21 11:07:21', '2018-11-21 11:07:21');
+INSERT INTO `t_ser_apply_code_201811` VALUES (41, 17, 'http://9suyuan.com/6/3O94jfq6Q0me', '20181121110700', '2018-11-21 11:07:21', '2018-11-21 11:07:21');
+INSERT INTO `t_ser_apply_code_201811` VALUES (42, 18, 'http://9suyuan.com/6/WnmokOqjjGQ8', '20181121110700', '2018-11-21 11:07:21', '2018-11-21 11:07:21');
+INSERT INTO `t_ser_apply_code_201811` VALUES (43, 19, 'http://9suyuan.com/6/ezDRSikMXSCo', '20181121110700', '2018-11-21 11:07:21', '2018-11-21 11:07:21');
+COMMIT;
+
+-- ----------------------------
+-- Table structure for t_ser_apply_code_201812
+-- ----------------------------
+DROP TABLE IF EXISTS `t_ser_apply_code_201812`;
+CREATE TABLE `t_ser_apply_code_201812` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '主键',
+  `center_id` bigint(20) DEFAULT NULL COMMENT '中心id',
+  `code_content` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '溯源码内容',
+  `code_order` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '溯源码订单号',
+  `create_time` datetime DEFAULT NULL COMMENT '创建时间',
+  `update_time` datetime DEFAULT NULL COMMENT '修改时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='溯源码';
 
 -- ----------------------------
 -- Table structure for t_ser_apply_code_info
@@ -23,7 +100,7 @@ SET FOREIGN_KEY_CHECKS = 0;
 DROP TABLE IF EXISTS `t_ser_apply_code_info`;
 CREATE TABLE `t_ser_apply_code_info` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `apply_no` varchar(0) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '申请订单号',
+  `code_order` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '申请订单号',
   `apply_user_id` bigint(20) DEFAULT NULL COMMENT '申请人',
   `code_position_id` bigint(20) DEFAULT NULL COMMENT '码位置',
   `code_type_id` bigint(20) DEFAULT NULL COMMENT '码类型',
@@ -32,7 +109,16 @@ CREATE TABLE `t_ser_apply_code_info` (
   `create_time` datetime DEFAULT NULL COMMENT '创建时间',
   `update_time` datetime DEFAULT NULL COMMENT '修改时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='溯源码申请';
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='溯源码申请';
+
+-- ----------------------------
+-- Records of t_ser_apply_code_info
+-- ----------------------------
+BEGIN;
+INSERT INTO `t_ser_apply_code_info` VALUES (1, '20181120100517', 2, 2, 9, 10, 1, '2018-11-20 10:05:18', '2018-11-21 11:03:21');
+INSERT INTO `t_ser_apply_code_info` VALUES (2, '20181121110645', 2, 1, 8, 4, 1, '2018-11-21 11:06:45', '2018-11-21 11:07:19');
+INSERT INTO `t_ser_apply_code_info` VALUES (3, '20181121110700', 2, 2, 8, 5, 1, '2018-11-21 11:07:01', '2018-11-21 11:07:21');
+COMMIT;
 
 -- ----------------------------
 -- Table structure for t_ser_brand_info
@@ -327,12 +413,20 @@ COMMIT;
 DROP TABLE IF EXISTS `t_sys_api_info`;
 CREATE TABLE `t_sys_api_info` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `api_type` int(255) DEFAULT NULL COMMENT '标识类型',
+  `api_type` int(255) DEFAULT NULL COMMENT 'api标识类型(0：用户授权码，1：接口授权码)',
   `api_code` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'api标识内容',
   `create_time` datetime DEFAULT NULL COMMENT '创建时间',
   `update_time` datetime DEFAULT NULL COMMENT '修改时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='企业api标识';
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='企业api标识';
+
+-- ----------------------------
+-- Records of t_sys_api_info
+-- ----------------------------
+BEGIN;
+INSERT INTO `t_sys_api_info` VALUES (1, 0, '8521d755faa736d24f0be5638a6f499c', '2018-11-19 17:17:52', '2018-11-19 17:17:56');
+INSERT INTO `t_sys_api_info` VALUES (2, 1, 'ff80d68c6c8f402f2b31bf0e90155faf', '2018-11-19 17:17:59', '2018-11-19 17:18:03');
+COMMIT;
 
 -- ----------------------------
 -- Table structure for t_sys_base_region_info
@@ -3880,5 +3974,44 @@ INSERT INTO `t_sys_user_role_info` VALUES (3, 2, 2);
 INSERT INTO `t_sys_user_role_info` VALUES (4, 3, 4);
 INSERT INTO `t_sys_user_role_info` VALUES (5, 4, 4);
 COMMIT;
+
+-- ----------------------------
+-- Procedure structure for p_create_qrcode_table
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `p_create_qrcode_table`;
+delimiter ;;
+CREATE DEFINER=`root`@`%` PROCEDURE `p_create_qrcode_table`()
+BEGIN
+  #Routine body goes here...
+	-- 表日期
+	 SET @tableDate = DATE_FORMAT(DATE_SUB(CURRENT_DATE, INTERVAL 1 MONTH),'%Y%m'); -- 上一个月
+	-- SET @tableDate = DATE_FORMAT(DATE_ADD(CURRENT_DATE, INTERVAL 1 MONTH),'%Y%m'); -- 下一月
+	
+	SET @sql = CONCAT('CREATE TABLE t_ser_apply_code_',@tableDate,'(
+	`id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT "主键",
+  `center_id` bigint(20) DEFAULT NULL COMMENT "中心id",
+  `code_content` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT "溯源码内容",
+  `code_order` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT "溯源码订单号",
+  `create_time` datetime DEFAULT NULL COMMENT "创建时间",
+  `update_time` datetime DEFAULT NULL COMMENT "修改时间",
+	PRIMARY KEY (`id`)
+	) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT="溯源码";');
+	-- SELECT @sql;
+	
+	PREPARE exctable FROM @sql;
+	EXECUTE exctable;
+	
+END;
+;;
+delimiter ;
+
+-- ----------------------------
+-- Event structure for create_qrcode_table_event
+-- ----------------------------
+DROP EVENT IF EXISTS `create_qrcode_table_event`;
+delimiter ;;
+CREATE DEFINER=`root`@`localhost` EVENT `create_qrcode_table_event` ON SCHEDULE EVERY 1 MONTH STARTS '2018-10-31 00:00:01' ON COMPLETION NOT PRESERVE ENABLE DO CALL p_create_qrcode_table();
+;;
+delimiter ;
 
 SET FOREIGN_KEY_CHECKS = 1;

@@ -1,21 +1,21 @@
 package com.ningyang.os.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.ningyang.os.action.config.SystemConfig;
 import com.ningyang.os.action.input.command.web.serve.ApplyCodeCommand;
+import com.ningyang.os.action.input.command.web.serve.CenterCodeCommand;
 import com.ningyang.os.action.input.condition.base.QueryCodeCondition;
 import com.ningyang.os.action.output.vo.web.serve.ApplyCodeVo;
 import com.ningyang.os.dao.SerApplyCodeInfoMapper;
 import com.ningyang.os.pojo.SerApplyCodeInfo;
 import com.ningyang.os.service.ISerApplyCodeInfoService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
 import java.util.List;
 
-import static com.ningyang.suyuan.node.action.utils.DateUtil.getOrderNum;
+import static com.ningyang.suyuan.node.action.utils.DateUtil.timeToStr;
 
 /**
  * <p>
@@ -28,14 +28,14 @@ import static com.ningyang.suyuan.node.action.utils.DateUtil.getOrderNum;
 @Service
 public class SerApplyCodeInfoServiceImpl extends ServiceImpl<SerApplyCodeInfoMapper, SerApplyCodeInfo> implements ISerApplyCodeInfoService {
 
-    @Autowired
-    private SystemConfig config;
-
 
     @Override
     public Page<ApplyCodeVo> findApplyCodeVoPageByCondition(QueryCodeCondition condition) {
         Page<ApplyCodeVo> pageVo = new Page<>();
         List<ApplyCodeVo> listVoTemp = baseMapper.selectApplyCodeVoPageByCondition(condition);
+        for (ApplyCodeVo vo : listVoTemp) {
+            vo.setCreateTimeStr(timeToStr(vo.getCreateTime()));
+        }
         int total = baseMapper.selectApplyCodeVoPageCountByCondition(condition);
         pageVo.setRecords(listVoTemp);
         pageVo.setTotal(total);
@@ -44,19 +44,31 @@ public class SerApplyCodeInfoServiceImpl extends ServiceImpl<SerApplyCodeInfoMap
         return pageVo;
     }
 
-    // FIXME: 2018/11/15 企业向中心发送请求
+    /**
+     * 企业向中心发送请求
+     *
+     * @param command
+     * @return
+     */
     @Override
     public boolean add(ApplyCodeCommand command) {
         SerApplyCodeInfo info = new SerApplyCodeInfo();
-        info.setApplyNo(getOrderNum());
+        info.setCodeOrder(command.getCodeOrder());
         info.setApplyUserId(command.getApplyUserId());
-        info.setCodeTypeId(command.getCodeTypeId());
-        info.setCodePositionId(command.getCodePositionId());
+        info.setCodeTypeId(command.getCodeType());
+        info.setCodePositionId(command.getCodePosition());
         info.setApplyCount(command.getApplyCount());
         info.setApplyState(0);
         info.setCreateTime(new Date());
         info.setUpdateTime(new Date());
-        boolean flag1 = save(info);
-        return flag1;
+        return save(info);
+    }
+
+    @Override
+    public boolean updateApplyState(CenterCodeCommand command) {
+        SerApplyCodeInfo info = getOne(new QueryWrapper<SerApplyCodeInfo>().eq("code_order", command.getCodeOrder()));
+        info.setApplyState(command.getApplyState());
+        info.setUpdateTime(new Date());
+        return updateById(info);
     }
 }

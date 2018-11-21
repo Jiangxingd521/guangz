@@ -1,7 +1,10 @@
 package com.ningyang.os.controller.system;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.ningyang.os.action.input.condition.base.QueryUserCondition;
+import com.ningyang.os.pojo.SysApiInfo;
 import com.ningyang.os.pojo.SysUserInfo;
+import com.ningyang.os.service.ISysApiInfoService;
 import com.ningyang.os.service.ISysUserInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -16,6 +19,9 @@ public class BaseController {
 
     @Autowired
     private ISysUserInfoService userInfoService;
+    @Autowired
+    private ISysApiInfoService apiInfoService;
+
 
     /**
      * 通过userToken获取用户信息
@@ -39,6 +45,17 @@ public class BaseController {
         condition.setUserState(0);
         condition.setAuthorizationCode(authorizationCode);
         return userInfoService.findByCondition(condition);
+    }
+
+    /**
+     * 获取授权码
+     *
+     * @param apiType 0：用户授权码，1：接口授权码
+     * @return
+     */
+    public String getAuthorizationCode(int apiType) {
+        SysApiInfo apiInfo = apiInfoService.getOne(new QueryWrapper<SysApiInfo>().eq("api_type", apiType));
+        return apiInfo.getApiCode();
     }
 
 }

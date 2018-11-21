@@ -28,8 +28,8 @@ public class SerApplyCodeInfo extends Model<SerApplyCodeInfo> {
     /**
      * 申请订单号
      */
-    @TableField("apply_no")
-    private String applyNo;
+    @TableField("code_order")
+    private String codeOrder;
     /**
      * 申请人
      */
@@ -76,12 +76,12 @@ public class SerApplyCodeInfo extends Model<SerApplyCodeInfo> {
         this.id = id;
     }
 
-    public String getApplyNo() {
-        return applyNo;
+    public String getCodeOrder() {
+        return codeOrder;
     }
 
-    public void setApplyNo(String applyNo) {
-        this.applyNo = applyNo;
+    public void setCodeOrder(String codeOrder) {
+        this.codeOrder = codeOrder;
     }
 
     public Long getApplyUserId() {
@@ -149,7 +149,7 @@ public class SerApplyCodeInfo extends Model<SerApplyCodeInfo> {
     public String toString() {
         return "SerApplyCodeInfo{" +
                 "id=" + id +
-                ", applyNo=" + applyNo +
+                ", codeOrder=" + codeOrder +
                 ", applyUserId=" + applyUserId +
                 ", codePositionId=" + codePositionId +
                 ", codeTypeId=" + codeTypeId +

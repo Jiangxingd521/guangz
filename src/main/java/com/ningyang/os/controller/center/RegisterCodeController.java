@@ -27,9 +27,9 @@ public class RegisterCodeController {
     private ISysApiInfoService infoService;
 
     @PostMapping("registerCode")
-    public Map<String,Object> registerCode(
+    public Map<String, Object> registerCode(
             @RequestBody RegisterCodeCommand command
-    ){
+    ) {
         try {
             boolean flag = infoService.registerCode(command);
             if (flag) {
@@ -44,10 +44,11 @@ public class RegisterCodeController {
 
     /**
      * 校验是否已经获取授权码（true：有，false：没有）
+     *
      * @return
      */
     @GetMapping("checkCode")
-    public Map<String,Object> checkCode(){
+    public Map<String, Object> checkCode() {
         try {
             boolean flag = infoService.checkCode();
             if (flag) {

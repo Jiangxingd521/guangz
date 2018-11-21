@@ -27,11 +27,11 @@ public class SysApiInfoServiceImpl extends ServiceImpl<SysApiInfoMapper, SysApiI
     public boolean registerCode(RegisterCodeCommand command) {
         List<SysApiInfo> listTemp = list(null);
 
-        if(listTemp.size()>0){
+        if (listTemp.size() > 0) {
             return false;
-        }else{
+        } else {
             List<SysApiInfo> apiInfoList = new ArrayList<>();
-            for(RegisterCodeDto codeDto : command.getCodeVoList()){
+            for (RegisterCodeDto codeDto : command.getCodeVoList()) {
                 SysApiInfo apiInfo = new SysApiInfo();
                 apiInfo.setApiType(codeDto.getCodeType());
                 apiInfo.setApiCode(codeDto.getCodeName());
@@ -45,6 +45,6 @@ public class SysApiInfoServiceImpl extends ServiceImpl<SysApiInfoMapper, SysApiI
 
     @Override
     public boolean checkCode() {
-        return list(null).size()>0?true:false;
+        return list(null).size() > 0 ? true : false;
     }
 }
