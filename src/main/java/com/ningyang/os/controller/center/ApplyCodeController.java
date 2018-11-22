@@ -25,7 +25,9 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
@@ -36,8 +38,8 @@ import static cn.hutool.core.util.ZipUtil.zip;
 import static cn.hutool.http.HttpUtil.post;
 import static com.ningyang.os.action.enums.SystemErrorEnum.*;
 import static com.ningyang.os.action.utils.BarcodeUtil.generateFile;
+import static com.ningyang.os.action.utils.DateUtil.getOrderNum;
 import static com.ningyang.os.action.utils.QRCodeUtil.encode;
-import static com.ningyang.suyuan.node.action.utils.DateUtil.getOrderNum;
 
 /**
  * @Author： kaider
@@ -171,16 +173,27 @@ public class ApplyCodeController extends BaseController {
 
                 List<SerApplyCodeTemplate> codeList = templateService.findCodeVoList(condition);
 
+                BufferedWriter bw;
                 if (codeType == 8) {
                     //二维码
+                    bw = new BufferedWriter(new FileWriter(pFilePath+"/" + zipFileName + ".txt"));
                     for (SerApplyCodeTemplate code : codeList) {
                         encode(code.getCodeContent(), pFilePath, false, String.valueOf(code.getCenterId()));
+                        bw.write(code.getCodeContent()+"\r");
+                        bw.newLine();
+                        bw.flush();
                     }
+                    bw.close();
                 } else if (codeType == 9) {
                     //条形码
+                    bw = new BufferedWriter(new FileWriter(pFilePath+"/" + zipFileName + ".txt"));
                     for (SerApplyCodeTemplate code : codeList) {
                         generateFile(code.getCodeContent(), pFilePath + "/" + code.getCenterId() + ".png");
+                        bw.write(code.getCodeContent()+"\r");
+                        bw.newLine();
+                        bw.flush();
                     }
+                    bw.close();
                 }
                 //创建压缩文件
                 zip(pFile);

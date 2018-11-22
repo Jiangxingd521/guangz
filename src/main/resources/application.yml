@@ -33,6 +33,8 @@ spring:
     check-template-location: true
     servlet:
       content-type: text/html
+  jmx:
+    default-domain: os_node
 
 #mybaits-plus config
 mybatisPlus:
@@ -59,5 +61,6 @@ os-config:
   default-password: 12345678
   default-templateUrl: http://9suyuan.com
   default-centerUrl: http://localhost:8083/center/
+#  default-centerUrl: http://www.headingtech.com:8082/center/
   default-qrcode-template-table: t_ser_apply_code_dateTemplate
   default-qrcode-template-file-path: /Users/kaider/temp/WorkLog/qrcode/
