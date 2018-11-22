@@ -11,6 +11,8 @@ public class ApplyCodeVo {
 
     private Long applyId;
 
+    private String codeOrder;
+
     private Long codeType;
     //码类型
     private String codeTypeName;
@@ -24,8 +26,12 @@ public class ApplyCodeVo {
     private int applyCount;
     //申请状态
     private int applyState;
+    //溯源码存放表
+    private String tableName;
     //申请时间
     private Date createTime;
+
+    private String createTimeStr;
 
     public Long getApplyId() {
         return applyId;
@@ -35,20 +41,12 @@ public class ApplyCodeVo {
         this.applyId = applyId;
     }
 
-    public Long getCodePosition() {
-        return codePosition;
+    public String getCodeOrder() {
+        return codeOrder;
     }
 
-    public void setCodePosition(Long codePosition) {
-        this.codePosition = codePosition;
-    }
-
-    public String getCodePositionName() {
-        return codePositionName;
-    }
-
-    public void setCodePositionName(String codePositionName) {
-        this.codePositionName = codePositionName;
+    public void setCodeOrder(String codeOrder) {
+        this.codeOrder = codeOrder;
     }
 
     public Long getCodeType() {
@@ -65,6 +63,22 @@ public class ApplyCodeVo {
 
     public void setCodeTypeName(String codeTypeName) {
         this.codeTypeName = codeTypeName;
+    }
+
+    public Long getCodePosition() {
+        return codePosition;
+    }
+
+    public void setCodePosition(Long codePosition) {
+        this.codePosition = codePosition;
+    }
+
+    public String getCodePositionName() {
+        return codePositionName;
+    }
+
+    public void setCodePositionName(String codePositionName) {
+        this.codePositionName = codePositionName;
     }
 
     public String getApplyUserName() {
@@ -91,11 +105,27 @@ public class ApplyCodeVo {
         this.applyState = applyState;
     }
 
+    public String getTableName() {
+        return tableName;
+    }
+
+    public void setTableName(String tableName) {
+        this.tableName = tableName;
+    }
+
     public Date getCreateTime() {
         return createTime;
     }
 
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;
+    }
+
+    public String getCreateTimeStr() {
+        return createTimeStr;
+    }
+
+    public void setCreateTimeStr(String createTimeStr) {
+        this.createTimeStr = createTimeStr;
     }
 }

@@ -1,15 +1,15 @@
 package com.ningyang.os.service.impl;
 
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.ningyang.os.action.input.command.web.serve.RegisterCodeCommand;
 import com.ningyang.os.action.output.dto.serve.RegisterCodeDto;
-import com.ningyang.os.pojo.SysApiInfo;
 import com.ningyang.os.dao.SysApiInfoMapper;
+import com.ningyang.os.pojo.SysApiInfo;
 import com.ningyang.os.service.ISysApiInfoService;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -25,19 +25,26 @@ public class SysApiInfoServiceImpl extends ServiceImpl<SysApiInfoMapper, SysApiI
 
     @Override
     public boolean registerCode(RegisterCodeCommand command) {
-        List<SysApiInfo> listTemp = list(new QueryWrapper<SysApiInfo>());
+        List<SysApiInfo> listTemp = list(null);
 
-        if(listTemp.size()>0){
+        if (listTemp.size() > 0) {
             return false;
-        }else{
+        } else {
             List<SysApiInfo> apiInfoList = new ArrayList<>();
-            for(RegisterCodeDto codeDto : command.getCodeVoList()){
+            for (RegisterCodeDto codeDto : command.getCodeVoList()) {
                 SysApiInfo apiInfo = new SysApiInfo();
                 apiInfo.setApiType(codeDto.getCodeType());
                 apiInfo.setApiCode(codeDto.getCodeName());
+                apiInfo.setCreateTime(new Date());
+                apiInfo.setUpdateTime(new Date());
                 apiInfoList.add(apiInfo);
             }
             return saveBatch(apiInfoList);
         }
+    }
+
+    @Override
+    public boolean checkCode() {
+        return list(null).size() > 0 ? true : false;
     }
 }

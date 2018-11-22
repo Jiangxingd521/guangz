@@ -6,10 +6,7 @@ import com.ningyang.os.service.ISysApiInfoService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
@@ -29,12 +26,10 @@ public class RegisterCodeController {
     @Autowired
     private ISysApiInfoService infoService;
 
-
-
     @PostMapping("registerCode")
-    public Map<String,Object> registerCode(
+    public Map<String, Object> registerCode(
             @RequestBody RegisterCodeCommand command
-    ){
+    ) {
         try {
             boolean flag = infoService.registerCode(command);
             if (flag) {
@@ -47,7 +42,23 @@ public class RegisterCodeController {
         }
     }
 
-
-
+    /**
+     * 校验是否已经获取授权码（true：有，false：没有）
+     *
+     * @return
+     */
+    @GetMapping("checkCode")
+    public Map<String, Object> checkCode() {
+        try {
+            boolean flag = infoService.checkCode();
+            if (flag) {
+                return WebResult.success().toMap();
+            }
+            return WebResult.failure(OPERATING_ERROR.getInfo()).toMap();
+        } catch (Exception e) {
+            LOGGER.error(e.getMessage(), e);
+            return WebResult.failure(OPERATING_ERROR.getInfo()).toMap();
+        }
+    }
 
 }

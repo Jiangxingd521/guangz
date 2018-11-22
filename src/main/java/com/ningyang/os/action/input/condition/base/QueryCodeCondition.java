@@ -5,7 +5,7 @@ import com.ningyang.os.action.input.condition.common.BaseCondition;
 /**
  * @Author： kaider
  * @Date：2018/11/14 09:57
- * @描述：码
+ * @描述：溯源码
  */
 public class QueryCodeCondition extends BaseCondition {
     //码类型
@@ -48,4 +48,5 @@ public class QueryCodeCondition extends BaseCondition {
     public void setApplyCodeState(Integer applyCodeState) {
         this.applyCodeState = applyCodeState;
     }
+
 }

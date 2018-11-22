@@ -5,8 +5,9 @@ import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
-import java.util.Date;
+
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * <p>
@@ -93,11 +94,11 @@ public class SysApiInfo extends Model<SysApiInfo> {
     @Override
     public String toString() {
         return "SysApiInfo{" +
-        "id=" + id +
-        ", apiType=" + apiType +
-        ", apiCode=" + apiCode +
-        ", createTime=" + createTime +
-        ", updateTime=" + updateTime +
-        "}";
+                "id=" + id +
+                ", apiType=" + apiType +
+                ", apiCode=" + apiCode +
+                ", createTime=" + createTime +
+                ", updateTime=" + updateTime +
+                "}";
     }
 }

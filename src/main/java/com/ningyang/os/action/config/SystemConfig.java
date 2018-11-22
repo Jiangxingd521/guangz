@@ -23,6 +23,8 @@ public class SystemConfig {
     private String defaultQRCodeTemplateTable;
     //二维码下载文件路径
     private String defaultQRCodeTemplateFilePath;
+    //
+    private String defaultCenterUrl;
 
     public String getDefaultTemplateUrl() {
         return defaultTemplateUrl;
@@ -70,6 +72,14 @@ public class SystemConfig {
 
     public void setDefaultQRCodeTemplateFilePath(String defaultQRCodeTemplateFilePath) {
         this.defaultQRCodeTemplateFilePath = defaultQRCodeTemplateFilePath;
+    }
+
+    public String getDefaultCenterUrl() {
+        return defaultCenterUrl;
+    }
+
+    public void setDefaultCenterUrl(String defaultCenterUrl) {
+        this.defaultCenterUrl = defaultCenterUrl;
     }
 }
 

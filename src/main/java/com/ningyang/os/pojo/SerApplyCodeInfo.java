@@ -5,7 +5,6 @@ import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
-import com.fasterxml.jackson.annotation.JsonFormat;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -28,8 +27,8 @@ public class SerApplyCodeInfo extends Model<SerApplyCodeInfo> {
     /**
      * 申请订单号
      */
-    @TableField("apply_no")
-    private String applyNo;
+    @TableField("code_order")
+    private String codeOrder;
     /**
      * 申请人
      */
@@ -56,10 +55,14 @@ public class SerApplyCodeInfo extends Model<SerApplyCodeInfo> {
     @TableField("apply_state")
     private Integer applyState;
     /**
+     * 溯源码存放表
+     */
+    @TableField("code_table_name")
+    private String codeTableName;
+    /**
      * 创建时间
      */
     @TableField("create_time")
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date createTime;
     /**
      * 修改时间
@@ -76,12 +79,12 @@ public class SerApplyCodeInfo extends Model<SerApplyCodeInfo> {
         this.id = id;
     }
 
-    public String getApplyNo() {
-        return applyNo;
+    public String getCodeOrder() {
+        return codeOrder;
     }
 
-    public void setApplyNo(String applyNo) {
-        this.applyNo = applyNo;
+    public void setCodeOrder(String codeOrder) {
+        this.codeOrder = codeOrder;
     }
 
     public Long getApplyUserId() {
@@ -124,6 +127,14 @@ public class SerApplyCodeInfo extends Model<SerApplyCodeInfo> {
         this.applyState = applyState;
     }
 
+    public String getCodeTableName() {
+        return codeTableName;
+    }
+
+    public void setCodeTableName(String codeTableName) {
+        this.codeTableName = codeTableName;
+    }
+
     public Date getCreateTime() {
         return createTime;
     }
@@ -149,12 +160,13 @@ public class SerApplyCodeInfo extends Model<SerApplyCodeInfo> {
     public String toString() {
         return "SerApplyCodeInfo{" +
                 "id=" + id +
-                ", applyNo=" + applyNo +
+                ", codeOrder=" + codeOrder +
                 ", applyUserId=" + applyUserId +
                 ", codePositionId=" + codePositionId +
                 ", codeTypeId=" + codeTypeId +
                 ", applyCount=" + applyCount +
                 ", applyState=" + applyState +
+                ", codeTableName=" + codeTableName +
                 ", createTime=" + createTime +
                 ", updateTime=" + updateTime +
                 "}";
