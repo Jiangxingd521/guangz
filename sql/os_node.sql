@@ -11,11 +11,36 @@
  Target Server Version : 50721
  File Encoding         : 65001
 
- Date: 21/11/2018 18:01:10
+ Date: 22/11/2018 17:35:36
 */
 
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
+
+-- ----------------------------
+-- Table structure for l_code_import_file_info
+-- ----------------------------
+DROP TABLE IF EXISTS `l_code_import_file_info`;
+CREATE TABLE `l_code_import_file_info` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `file_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '上传的文件名',
+  `file_path` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '文件存放路径',
+  `upload_order` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '上传的订单',
+  `user_id` bigint(20) DEFAULT NULL COMMENT '操作人',
+  `code_count` bigint(255) DEFAULT NULL COMMENT '溯源码个数',
+  `template_id` bigint(20) DEFAULT NULL COMMENT '模板id',
+  `create_time` datetime DEFAULT NULL COMMENT '创建时间',
+  `update_time` datetime DEFAULT NULL COMMENT '修改时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='溯源码文件上传记录';
+
+-- ----------------------------
+-- Records of l_code_import_file_info
+-- ----------------------------
+BEGIN;
+INSERT INTO `l_code_import_file_info` VALUES (1, 'a.txt', NULL, '20181122161138', 2, 6, 1, '2018-11-22 16:11:39', '2018-11-22 16:11:39');
+INSERT INTO `l_code_import_file_info` VALUES (2, 'a.txt', 'upload/c3676f8f92af40c3a3d60405d8ca71dca.txt', '20181122162449', 2, 6, 1, '2018-11-22 16:24:50', '2018-11-22 16:24:50');
+COMMIT;
 
 -- ----------------------------
 -- Table structure for t_ser_apply_code_201811
@@ -278,7 +303,7 @@ CREATE TABLE `t_ser_code_import_template_info` (
 -- Records of t_ser_code_import_template_info
 -- ----------------------------
 BEGIN;
-INSERT INTO `t_ser_code_import_template_info` VALUES (1, 5, '盖内-盖外', 3, 4, '产品1的盖内外模板', 0, '2018-11-14 15:23:55', '2018-11-14 15:26:30');
+INSERT INTO `t_ser_code_import_template_info` VALUES (1, 5, '盖内-盖外', 3, 4, '产品1的盖内外模板', 0, '2018-11-14 15:23:55', '2018-11-22 15:12:21');
 COMMIT;
 
 -- ----------------------------
@@ -3756,7 +3781,7 @@ INSERT INTO `t_sys_menu_info` VALUES (16, 0, '业务管理', 0, NULL, NULL, NULL
 INSERT INTO `t_sys_menu_info` VALUES (17, 16, '经销商管理', 0, NULL, '/server/dealer', NULL, 1, 0, NULL, '2018-11-14 17:42:35', '2018-11-14 17:42:35');
 INSERT INTO `t_sys_menu_info` VALUES (18, 16, '仓库管理', 0, NULL, '/server/warehouse', NULL, 2, 0, NULL, '2018-11-15 12:58:58', '2018-11-15 12:58:58');
 INSERT INTO `t_sys_menu_info` VALUES (19, 16, '溯源码申请', 0, NULL, '/center/qrcode/apply', NULL, 3, 0, NULL, '2018-11-15 15:42:57', '2018-11-15 15:42:57');
-INSERT INTO `t_sys_menu_info` VALUES (20, 16, '溯源码导入', 0, NULL, '/center/qrcode/import', NULL, 4, 0, NULL, '2018-11-15 15:44:12', '2018-11-15 15:44:12');
+INSERT INTO `t_sys_menu_info` VALUES (20, 16, '溯源码导入', 0, NULL, '/server/qrcode/import', NULL, 4, 0, NULL, '2018-11-15 15:44:12', '2018-11-22 14:34:19');
 INSERT INTO `t_sys_menu_info` VALUES (21, 16, '中心注册', 0, 'icon-link', '/center/register', NULL, 5, 0, NULL, '2018-11-19 11:27:09', '2018-11-19 11:28:24');
 COMMIT;
 
