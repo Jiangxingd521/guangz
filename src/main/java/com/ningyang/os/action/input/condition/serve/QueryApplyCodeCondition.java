@@ -1,11 +1,13 @@
 package com.ningyang.os.action.input.condition.serve;
 
+import com.ningyang.os.action.input.condition.common.BaseCondition;
+
 /**
  * @Author： kaider
  * @Date：2018/11/21 10:11
  * @描述：溯源码申请
  */
-public class QueryApplyCodeCondition {
+public class QueryApplyCodeCondition extends BaseCondition {
 
     //模板表名
     private String tableName;

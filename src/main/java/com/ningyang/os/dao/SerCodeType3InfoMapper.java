@@ -7,16 +7,17 @@ import com.ningyang.os.pojo.SerCodeType3Info;
 
 import java.util.List;
 
-
 /**
  * <p>
  * 溯源码类型 Mapper 接口
  * </p>
  *
  * @author kaider
- * @since 2018-11-12
+ * @since 2018-11-23
  */
-public interface SerCodeTypeInfoMapper extends BaseMapper<SerCodeType3Info> {
+public interface SerCodeType3InfoMapper extends BaseMapper<SerCodeType3Info> {
+
+    List<CodeTypeVo> selectCodeTypeVoByCondition(QueryCodeCondition condition);
 
 
 }

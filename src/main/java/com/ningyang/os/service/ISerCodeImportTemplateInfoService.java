@@ -22,4 +22,6 @@ public interface ISerCodeImportTemplateInfoService extends IService<SerCodeImpor
     List<CodeImportTemplateVo> findCodeImportVoByCondition(QueryCodeCondition condition);
 
     boolean addOrUpdate(CodeImportTemplateCommand command);
+
+    CodeImportTemplateVo findCodeImportTemplateVo(Long templateId);
 }

@@ -37,6 +37,7 @@ public class SerCodeImportTemplateInfoServiceImpl extends ServiceImpl<SerCodeImp
         if (info != null) {
             info.setProductId(command.getProductId());
             info.setTemplateName(command.getTemplateName());
+            info.setLeftCodeType(command.getLeftCodeType());
             info.setLeftCodeTypeId(command.getLeftCodeId());
             info.setRightCodeTypeId(command.getRightCodeId());
             info.setTemplateRemark(command.getTemplateRemark());
@@ -47,6 +48,7 @@ public class SerCodeImportTemplateInfoServiceImpl extends ServiceImpl<SerCodeImp
             info = new SerCodeImportTemplateInfo();
             info.setProductId(command.getProductId());
             info.setTemplateName(command.getTemplateName());
+            info.setLeftCodeType(command.getLeftCodeType());
             info.setLeftCodeTypeId(command.getLeftCodeId());
             info.setRightCodeTypeId(command.getRightCodeId());
             info.setTemplateRemark(command.getTemplateRemark());
@@ -56,5 +58,10 @@ public class SerCodeImportTemplateInfoServiceImpl extends ServiceImpl<SerCodeImp
             flag = save(info);
         }
         return flag;
+    }
+
+    @Override
+    public CodeImportTemplateVo findCodeImportTemplateVo(Long templateId) {
+        return baseMapper.selectCodeImportTemplateVo(templateId);
     }
 }

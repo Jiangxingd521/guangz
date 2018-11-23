@@ -11,11 +11,36 @@
  Target Server Version : 50721
  File Encoding         : 65001
 
- Date: 21/11/2018 18:01:10
+ Date: 23/11/2018 15:39:02
 */
 
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
+
+-- ----------------------------
+-- Table structure for l_code_import_file_info
+-- ----------------------------
+DROP TABLE IF EXISTS `l_code_import_file_info`;
+CREATE TABLE `l_code_import_file_info` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `file_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '上传的文件名',
+  `file_path` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '文件存放路径',
+  `upload_order` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '上传的订单',
+  `user_id` bigint(20) DEFAULT NULL COMMENT '操作人',
+  `code_count` bigint(255) DEFAULT NULL COMMENT '溯源码个数',
+  `template_id` bigint(20) DEFAULT NULL COMMENT '模板id',
+  `create_time` datetime DEFAULT NULL COMMENT '创建时间',
+  `update_time` datetime DEFAULT NULL COMMENT '修改时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='溯源码文件上传记录';
+
+-- ----------------------------
+-- Records of l_code_import_file_info
+-- ----------------------------
+BEGIN;
+INSERT INTO `l_code_import_file_info` VALUES (1, 'a.txt', NULL, '20181122161138', 2, 6, 1, '2018-11-22 16:11:39', '2018-11-22 16:11:39');
+INSERT INTO `l_code_import_file_info` VALUES (2, 'a.txt', 'upload/c3676f8f92af40c3a3d60405d8ca71dca.txt', '20181122162449', 2, 6, 1, '2018-11-22 16:24:50', '2018-11-22 16:24:50');
+COMMIT;
 
 -- ----------------------------
 -- Table structure for t_ser_apply_code_201811
@@ -92,9 +117,9 @@ CREATE TABLE `t_ser_apply_code_info` (
 -- Records of t_ser_apply_code_info
 -- ----------------------------
 BEGIN;
-INSERT INTO `t_ser_apply_code_info` VALUES (1, '20181120100517', 2, 2, 9, 10, 1, '201811', '2018-11-20 10:05:18', '2018-11-21 11:35:12');
-INSERT INTO `t_ser_apply_code_info` VALUES (2, '20181121110645', 2, 1, 8, 4, 1, '201811', '2018-11-21 11:06:45', '2018-11-21 11:35:12');
-INSERT INTO `t_ser_apply_code_info` VALUES (3, '20181121110700', 2, 2, 8, 5, 1, '201811', '2018-11-21 11:07:01', '2018-11-21 11:35:08');
+INSERT INTO `t_ser_apply_code_info` VALUES (1, '20181120100517', 2, 2, 1, 10, 1, '201811', '2018-11-20 10:05:18', '2018-11-21 11:35:12');
+INSERT INTO `t_ser_apply_code_info` VALUES (2, '20181121110645', 2, 1, 1, 4, 1, '201811', '2018-11-21 11:06:45', '2018-11-21 11:35:12');
+INSERT INTO `t_ser_apply_code_info` VALUES (3, '20181121110700', 2, 2, 2, 5, 1, '201811', '2018-11-21 11:07:01', '2018-11-21 11:35:08');
 COMMIT;
 
 -- ----------------------------
@@ -252,6 +277,21 @@ INSERT INTO `t_ser_brand_series_product_info` VALUES (5, 1, NULL, '产品1', NUL
 COMMIT;
 
 -- ----------------------------
+-- Table structure for t_ser_code_import_temp_info
+-- ----------------------------
+DROP TABLE IF EXISTS `t_ser_code_import_temp_info`;
+CREATE TABLE `t_ser_code_import_temp_info` (
+  `id` bigint(255) NOT NULL AUTO_INCREMENT,
+  `template_id` bigint(255) DEFAULT NULL COMMENT '模板id',
+  `code_type` int(255) DEFAULT NULL COMMENT '左码码类型（1：内码，2：外码）',
+  `left_code` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '左码',
+  `right_code` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '右码',
+  `left_code_type` bigint(255) DEFAULT NULL COMMENT '左码码类型（盖内外盖之类）',
+  `right_code_type` bigint(255) DEFAULT NULL COMMENT '右码码类型（盖内外盖之类）',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='溯源码导入临时表';
+
+-- ----------------------------
 -- Table structure for t_ser_code_import_template_info
 -- ----------------------------
 DROP TABLE IF EXISTS `t_ser_code_import_template_info`;
@@ -259,6 +299,7 @@ CREATE TABLE `t_ser_code_import_template_info` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `product_id` bigint(20) DEFAULT NULL COMMENT '产品id',
   `template_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '模板名称',
+  `left_code_type` bigint(255) DEFAULT NULL COMMENT '溯源左码类型（1：内码，2：外码）',
   `left_code_type_id` bigint(20) DEFAULT NULL COMMENT '左码',
   `right_code_type_id` bigint(20) DEFAULT NULL COMMENT '右码',
   `template_remark` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '模板说明',
@@ -270,44 +311,79 @@ CREATE TABLE `t_ser_code_import_template_info` (
   KEY `left_code_type_id` (`left_code_type_id`),
   KEY `right_code_type_id` (`right_code_type_id`),
   CONSTRAINT `t_ser_code_import_template_info_ibfk_3` FOREIGN KEY (`product_id`) REFERENCES `t_ser_brand_series_product_info` (`id`),
-  CONSTRAINT `t_ser_code_import_template_info_ibfk_4` FOREIGN KEY (`left_code_type_id`) REFERENCES `t_ser_code_type_info` (`id`),
-  CONSTRAINT `t_ser_code_import_template_info_ibfk_5` FOREIGN KEY (`right_code_type_id`) REFERENCES `t_ser_code_type_info` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='码导入模板';
+  CONSTRAINT `t_ser_code_import_template_info_ibfk_4` FOREIGN KEY (`left_code_type_id`) REFERENCES `t_ser_code_type3_info` (`id`),
+  CONSTRAINT `t_ser_code_import_template_info_ibfk_5` FOREIGN KEY (`right_code_type_id`) REFERENCES `t_ser_code_type3_info` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='溯源码导入模板';
 
 -- ----------------------------
 -- Records of t_ser_code_import_template_info
 -- ----------------------------
 BEGIN;
-INSERT INTO `t_ser_code_import_template_info` VALUES (1, 5, '盖内-盖外', 3, 4, '产品1的盖内外模板', 0, '2018-11-14 15:23:55', '2018-11-14 15:26:30');
+INSERT INTO `t_ser_code_import_template_info` VALUES (1, 5, '盖内-盖外', 1, 1, 2, '产品1的盖内外模板', 0, '2018-11-14 15:23:55', '2018-11-23 13:21:37');
 COMMIT;
 
 -- ----------------------------
--- Table structure for t_ser_code_type_info
+-- Table structure for t_ser_code_type1_info
 -- ----------------------------
-DROP TABLE IF EXISTS `t_ser_code_type_info`;
-CREATE TABLE `t_ser_code_type_info` (
+DROP TABLE IF EXISTS `t_ser_code_type1_info`;
+CREATE TABLE `t_ser_code_type1_info` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `code_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '码名称',
+  `create_time` datetime DEFAULT NULL COMMENT '创建时间',
+  `update_time` datetime DEFAULT NULL COMMENT '修改时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='内外码';
+
+-- ----------------------------
+-- Records of t_ser_code_type1_info
+-- ----------------------------
+BEGIN;
+INSERT INTO `t_ser_code_type1_info` VALUES (1, '内码', '2018-11-23 11:26:29', '2018-11-23 11:26:33');
+INSERT INTO `t_ser_code_type1_info` VALUES (2, '外码', '2018-11-23 11:26:42', '2018-11-23 11:26:45');
+COMMIT;
+
+-- ----------------------------
+-- Table structure for t_ser_code_type2_info
+-- ----------------------------
+DROP TABLE IF EXISTS `t_ser_code_type2_info`;
+CREATE TABLE `t_ser_code_type2_info` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `code_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '码名称',
+  `create_time` datetime DEFAULT NULL COMMENT '创建时间',
+  `update_time` datetime DEFAULT NULL COMMENT '修改时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='条形码二维码';
+
+-- ----------------------------
+-- Records of t_ser_code_type2_info
+-- ----------------------------
+BEGIN;
+INSERT INTO `t_ser_code_type2_info` VALUES (1, '条形码', '2018-11-23 11:27:14', '2018-11-23 11:27:18');
+INSERT INTO `t_ser_code_type2_info` VALUES (2, '二维码', '2018-11-23 11:27:27', '2018-11-23 11:27:31');
+COMMIT;
+
+-- ----------------------------
+-- Table structure for t_ser_code_type3_info
+-- ----------------------------
+DROP TABLE IF EXISTS `t_ser_code_type3_info`;
+CREATE TABLE `t_ser_code_type3_info` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `code_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '码类型名称',
-  `code_type` int(255) DEFAULT NULL COMMENT '码类型（0：码模板，1：内外码，2：码类型）',
   `code_state` int(255) DEFAULT NULL COMMENT '类型状态（0：使用，1：未使用）',
   `create_time` datetime DEFAULT NULL COMMENT '创建时间',
   `update_time` datetime DEFAULT NULL COMMENT '修改时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='溯源码类型';
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='溯源码类型';
 
 -- ----------------------------
--- Records of t_ser_code_type_info
+-- Records of t_ser_code_type3_info
 -- ----------------------------
 BEGIN;
-INSERT INTO `t_ser_code_type_info` VALUES (1, '内码', 1, 0, '2018-11-14 11:38:48', '2018-11-14 11:38:48');
-INSERT INTO `t_ser_code_type_info` VALUES (2, '外码', 1, 0, '2018-11-14 11:39:02', '2018-11-14 11:39:02');
-INSERT INTO `t_ser_code_type_info` VALUES (3, '盖内码', 0, 0, '2018-11-14 11:40:32', '2018-11-14 11:40:32');
-INSERT INTO `t_ser_code_type_info` VALUES (4, '盖外码', 0, 0, '2018-11-14 11:40:45', '2018-11-14 11:40:45');
-INSERT INTO `t_ser_code_type_info` VALUES (5, '瓶码', 0, 0, '2018-11-14 11:40:56', '2018-11-14 11:40:56');
-INSERT INTO `t_ser_code_type_info` VALUES (6, '盒码', 0, 0, '2018-11-14 11:41:09', '2018-11-14 11:41:09');
-INSERT INTO `t_ser_code_type_info` VALUES (7, '箱码', 0, 0, '2018-11-14 11:41:22', '2018-11-14 11:41:22');
-INSERT INTO `t_ser_code_type_info` VALUES (8, '二维码', 2, 0, '2018-11-14 11:45:31', '2018-11-14 11:45:31');
-INSERT INTO `t_ser_code_type_info` VALUES (9, '条形码', 2, 0, '2018-11-14 11:45:37', '2018-11-14 11:45:37');
+INSERT INTO `t_ser_code_type3_info` VALUES (1, '盖内码', 0, '2018-11-14 11:38:48', '2018-11-14 11:38:48');
+INSERT INTO `t_ser_code_type3_info` VALUES (2, '盖外码', 0, '2018-11-14 11:39:02', '2018-11-14 11:39:02');
+INSERT INTO `t_ser_code_type3_info` VALUES (3, '瓶码', 0, '2018-11-14 11:40:32', '2018-11-14 11:40:32');
+INSERT INTO `t_ser_code_type3_info` VALUES (4, '盒码', 0, '2018-11-14 11:40:45', '2018-11-23 10:01:56');
+INSERT INTO `t_ser_code_type3_info` VALUES (5, '箱码', 0, '2018-11-14 11:40:56', '2018-11-14 11:40:56');
 COMMIT;
 
 -- ----------------------------
@@ -355,6 +431,44 @@ INSERT INTO `t_ser_dealer_region_info` VALUES (13, 1, 1930);
 INSERT INTO `t_ser_dealer_region_info` VALUES (14, 1, 1931);
 INSERT INTO `t_ser_dealer_region_info` VALUES (15, 1, 1935);
 COMMIT;
+
+-- ----------------------------
+-- Table structure for t_ser_goods_info
+-- ----------------------------
+DROP TABLE IF EXISTS `t_ser_goods_info`;
+CREATE TABLE `t_ser_goods_info` (
+  `id` bigint(255) NOT NULL AUTO_INCREMENT,
+  `brand_id` bigint(255) NOT NULL COMMENT '品牌',
+  `brand_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '品牌名称',
+  `brand_series_id` bigint(255) NOT NULL COMMENT '系列',
+  `brand_series_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '系列名称',
+  `brand_series_product_id` bigint(255) NOT NULL COMMENT '产品',
+  `brand_series_product_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '产品名称',
+  `M1` varchar(255) COLLATE utf8_unicode_ci NOT NULL COMMENT '内码',
+  `M2` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '外码',
+  `M3` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '外码',
+  `M4` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '外码',
+  `M5` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '外码',
+  `M6` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '外码',
+  `M7` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '外码',
+  `M8` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '外码',
+  `M9` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '外码',
+  `M10` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '外码',
+  `M1_remark` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '码说明',
+  `M2_remark` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '码说明',
+  `M3_remark` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '码说明',
+  `M4_remark` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '码说明',
+  `M5_remark` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '码说明',
+  `M6_remark` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '码说明',
+  `M7_remark` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '码说明',
+  `M8_remark` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '码说明',
+  `M9_remark` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '码说明',
+  `M10_remark` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '码说明',
+  `goods_state` int(255) DEFAULT NULL COMMENT '商品状态',
+  `create_time` datetime DEFAULT NULL COMMENT '创建时间',
+  `update_time` datetime DEFAULT NULL COMMENT '修改时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='商品信息表';
 
 -- ----------------------------
 -- Table structure for t_ser_warehouse_info
@@ -3755,8 +3869,8 @@ INSERT INTO `t_sys_menu_info` VALUES (15, 6, '模板库', 0, NULL, '/base/codeTe
 INSERT INTO `t_sys_menu_info` VALUES (16, 0, '业务管理', 0, NULL, NULL, NULL, 3, 0, '业务管理', '2018-11-14 17:42:01', '2018-11-14 17:42:01');
 INSERT INTO `t_sys_menu_info` VALUES (17, 16, '经销商管理', 0, NULL, '/server/dealer', NULL, 1, 0, NULL, '2018-11-14 17:42:35', '2018-11-14 17:42:35');
 INSERT INTO `t_sys_menu_info` VALUES (18, 16, '仓库管理', 0, NULL, '/server/warehouse', NULL, 2, 0, NULL, '2018-11-15 12:58:58', '2018-11-15 12:58:58');
-INSERT INTO `t_sys_menu_info` VALUES (19, 16, '溯源码申请', 0, NULL, '/center/qrcode/apply', NULL, 3, 0, NULL, '2018-11-15 15:42:57', '2018-11-15 15:42:57');
-INSERT INTO `t_sys_menu_info` VALUES (20, 16, '溯源码导入', 0, NULL, '/center/qrcode/import', NULL, 4, 0, NULL, '2018-11-15 15:44:12', '2018-11-15 15:44:12');
+INSERT INTO `t_sys_menu_info` VALUES (19, 16, '溯源码申请', 0, NULL, '/center/code/apply', NULL, 3, 0, NULL, '2018-11-15 15:42:57', '2018-11-23 09:59:40');
+INSERT INTO `t_sys_menu_info` VALUES (20, 16, '溯源码导入', 0, NULL, '/server/code/import', NULL, 4, 0, NULL, '2018-11-15 15:44:12', '2018-11-23 09:59:50');
 INSERT INTO `t_sys_menu_info` VALUES (21, 16, '中心注册', 0, 'icon-link', '/center/register', NULL, 5, 0, NULL, '2018-11-19 11:27:09', '2018-11-19 11:28:24');
 COMMIT;
 
@@ -3785,7 +3899,7 @@ INSERT INTO `t_sys_navigation_bar_info` VALUES (1, '系统设置', '/sys/bar', '
 INSERT INTO `t_sys_navigation_bar_info` VALUES (2, '系统基础设置', '/sys/icon', 'icon-present', 1, '系统', 0, '2018-10-01 23:16:56', '2018-11-14 11:32:16');
 INSERT INTO `t_sys_navigation_bar_info` VALUES (3, '基础设置', '/base/brand', 'icon-present', 2, '业务基础设置', 0, '2018-11-14 11:30:56', '2018-11-14 15:11:54');
 INSERT INTO `t_sys_navigation_bar_info` VALUES (4, '企业业务', '/server/dealer', 'icon-qi', 4, '经销商管理', 0, '2018-11-14 17:41:10', '2018-11-15 15:40:13');
-INSERT INTO `t_sys_navigation_bar_info` VALUES (5, '中心业务', '/center/qrcode/apply', 'icon-goodsfavor', 3, '溯源业务', 0, '2018-11-15 15:41:01', '2018-11-15 15:44:41');
+INSERT INTO `t_sys_navigation_bar_info` VALUES (5, '中心业务', '/center/code/apply', 'icon-goodsfavor', 3, '溯源业务', 0, '2018-11-15 15:41:01', '2018-11-23 10:00:27');
 COMMIT;
 
 -- ----------------------------

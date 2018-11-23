@@ -5,41 +5,29 @@ import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
-
-import java.io.Serializable;
 import java.util.Date;
+import java.io.Serializable;
 
 /**
  * <p>
- * 溯源码类型
+ * 内外码
  * </p>
  *
  * @author kaider
- * @since 2018-11-12
+ * @since 2018-11-23
  */
-@TableName("t_ser_code_type_info")
-public class SerCodeTypeInfo extends Model<SerCodeTypeInfo> {
+@TableName("t_ser_code_type1_info")
+public class SerCodeType1Info extends Model<SerCodeType1Info> {
 
     private static final long serialVersionUID = 1L;
 
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;
     /**
-     * 类型名称
+     * 码名称
      */
     @TableField("code_name")
     private String codeName;
-
-    /**
-     * 码类型（0：码模板，1：内外码，2：码类型）
-     */
-    @TableField("code_type")
-    private Integer codeType;
-    /**
-     * 类型状态（0：使用，1：未使用）
-     */
-    @TableField("code_state")
-    private Integer codeState;
     /**
      * 创建时间
      */
@@ -68,22 +56,6 @@ public class SerCodeTypeInfo extends Model<SerCodeTypeInfo> {
         this.codeName = codeName;
     }
 
-    public Integer getCodeType() {
-        return codeType;
-    }
-
-    public void setCodeType(Integer codeType) {
-        this.codeType = codeType;
-    }
-
-    public Integer getCodeState() {
-        return codeState;
-    }
-
-    public void setCodeState(Integer codeState) {
-        this.codeState = codeState;
-    }
-
     public Date getCreateTime() {
         return createTime;
     }
@@ -107,13 +79,11 @@ public class SerCodeTypeInfo extends Model<SerCodeTypeInfo> {
 
     @Override
     public String toString() {
-        return "SerCodeTypeInfo{" +
-                "id=" + id +
-                ", codeName=" + codeName +
-                ", codeType=" + codeType +
-                ", codeState=" + codeState +
-                ", createTime=" + createTime +
-                ", updateTime=" + updateTime +
-                "}";
+        return "SerCodeType1Info{" +
+        "id=" + id +
+        ", codeName=" + codeName +
+        ", createTime=" + createTime +
+        ", updateTime=" + updateTime +
+        "}";
     }
 }

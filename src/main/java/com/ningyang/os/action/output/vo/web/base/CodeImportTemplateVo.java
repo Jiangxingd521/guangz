@@ -19,6 +19,8 @@ public class CodeImportTemplateVo {
 
     private String brandName;
 
+    private Long leftCodeType;
+
     private Long leftCodeId;
 
     private String leftCodeName;
@@ -77,6 +79,14 @@ public class CodeImportTemplateVo {
 
     public void setBrandName(String brandName) {
         this.brandName = brandName;
+    }
+
+    public Long getLeftCodeType() {
+        return leftCodeType;
+    }
+
+    public void setLeftCodeType(Long leftCodeType) {
+        this.leftCodeType = leftCodeType;
     }
 
     public Long getLeftCodeId() {

@@ -47,10 +47,10 @@ import static com.ningyang.os.action.utils.QRCodeUtil.encode;
  * @描述：溯源码申请
  */
 @RestController
-@RequestMapping("center/qrcode/apply")
-public class ApplyCodeController extends BaseController {
+@RequestMapping("center/code/apply")
+public class CodeApplyController extends BaseController {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(ApplyCodeController.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(CodeApplyController.class);
 
     @Autowired
     private ISerApplyCodeInfoService infoService;
@@ -59,8 +59,8 @@ public class ApplyCodeController extends BaseController {
     @Autowired
     private SystemConfig config;
 
-    @GetMapping("getApplyCodePage")
-    public Map<String, Object> getApplyCodePage(
+    @GetMapping("getCodeApplyPage")
+    public Map<String, Object> getCodeApplyPage(
             QueryCodeCondition condition
     ) {
         try {
@@ -220,6 +220,5 @@ public class ApplyCodeController extends BaseController {
         headers.setContentType(MediaType.APPLICATION_OCTET_STREAM);
         return new ResponseEntity<byte[]>(FileUtils.readFileToByteArray(file), headers, HttpStatus.CREATED);
     }
-
 
 }

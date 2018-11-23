@@ -8,22 +8,12 @@ import com.ningyang.os.action.input.condition.common.BaseCondition;
  * @描述：溯源码
  */
 public class QueryCodeCondition extends BaseCondition {
-    //码类型
-    private Integer codeType;
     //码类型状态
     private Integer codeTypeState;
     //码模板状态
     private Integer codeImportState;
     //码申请状态
     private Integer applyCodeState;
-
-    public Integer getCodeType() {
-        return codeType;
-    }
-
-    public void setCodeType(Integer codeType) {
-        this.codeType = codeType;
-    }
 
     public Integer getCodeTypeState() {
         return codeTypeState;
