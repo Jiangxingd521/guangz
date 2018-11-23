@@ -25,8 +25,8 @@
         codeTypeName,a.apply_count,a.apply_state,
         a.create_time,b.user_name as applyUserName,a.code_order
         from t_ser_apply_code_info a left join t_sys_user_info b on a.apply_user_id=b.id
-        left join t_ser_code_type_info c on a.code_position_id = c.id
-        left join t_ser_code_type_info d on a.code_type_id = d.id
+        left join t_ser_code_type1_info c on a.code_position_id = c.id
+        left join t_ser_code_type2_info d on a.code_type_id = d.id
         where 1=1
         <if test="applyCodeState!=null">
             and a.apply_state = #{applyCodeState}

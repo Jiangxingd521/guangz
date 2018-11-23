@@ -7,7 +7,10 @@ import com.ningyang.os.action.output.vo.web.serve.ImportCodeVo;
 import com.ningyang.os.action.utils.ReadFileBackData;
 import com.ningyang.os.action.utils.WebResult;
 import com.ningyang.os.controller.system.BaseController;
+import com.ningyang.os.pojo.SerCodeImportTemplateInfo;
 import com.ningyang.os.service.ILCodeImportFileInfoService;
+import com.ningyang.os.service.ISerCodeImportTempInfoService;
+import com.ningyang.os.service.ISerCodeImportTemplateInfoService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,6 +42,10 @@ public class CodeImportController extends BaseController {
 
     @Autowired
     private ILCodeImportFileInfoService infoService;
+    @Autowired
+    private ISerCodeImportTemplateInfoService templateInfoService;
+    @Autowired
+    private ISerCodeImportTempInfoService tempInfoService;
 
 
     /**
@@ -94,6 +101,10 @@ public class CodeImportController extends BaseController {
             out.close();
             //获取导入文件左右数据
             List<ReadFileBackData> fileList = returnReadFileData(file);
+            //溯源码导入临时表
+            boolean codeTempFlag = tempInfoService.add(fileList,templateId);
+
+
             //处理溯源码数据
             //使用的模板（模板里面的左码是否为内码）
             //如果不为内码则加入临时表

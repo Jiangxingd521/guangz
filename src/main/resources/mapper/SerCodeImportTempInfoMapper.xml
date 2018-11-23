@@ -7,8 +7,8 @@
         <id column="id" property="id" />
         <result column="template_id" property="templateId" />
         <result column="code_type" property="codeType" />
-        <result column="left_code_id" property="leftCodeId" />
-        <result column="right_code_id" property="rightCodeId" />
+        <result column="left_code" property="leftCode" />
+        <result column="right_code" property="rightCode" />
         <result column="left_code_type" property="leftCodeType" />
         <result column="right_code_type" property="rightCodeType" />
     </resultMap>

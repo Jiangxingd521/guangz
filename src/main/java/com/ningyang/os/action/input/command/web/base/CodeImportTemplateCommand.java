@@ -13,6 +13,8 @@ public class CodeImportTemplateCommand {
 
     private String templateName;
 
+    private Long leftCodeType;
+
     private Long leftCodeId;
 
     private Long rightCodeId;
@@ -43,6 +45,14 @@ public class CodeImportTemplateCommand {
 
     public void setTemplateName(String templateName) {
         this.templateName = templateName;
+    }
+
+    public Long getLeftCodeType() {
+        return leftCodeType;
+    }
+
+    public void setLeftCodeType(Long leftCodeType) {
+        this.leftCodeType = leftCodeType;
     }
 
     public Long getLeftCodeId() {

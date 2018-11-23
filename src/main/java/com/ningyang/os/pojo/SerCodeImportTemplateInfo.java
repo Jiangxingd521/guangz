@@ -35,6 +35,11 @@ public class SerCodeImportTemplateInfo extends Model<SerCodeImportTemplateInfo> 
     @TableField("template_name")
     private String templateName;
     /**
+     * 溯源左码类型（1：内码，2：外码）
+     */
+    @TableField("left_code_type")
+    private Long leftCodeType;
+    /**
      * 左码
      */
     @TableField("left_code_type_id")
@@ -88,6 +93,14 @@ public class SerCodeImportTemplateInfo extends Model<SerCodeImportTemplateInfo> 
 
     public void setTemplateName(String templateName) {
         this.templateName = templateName;
+    }
+
+    public Long getLeftCodeType() {
+        return leftCodeType;
+    }
+
+    public void setLeftCodeType(Long leftCodeType) {
+        this.leftCodeType = leftCodeType;
     }
 
     public Long getLeftCodeTypeId() {
@@ -149,6 +162,7 @@ public class SerCodeImportTemplateInfo extends Model<SerCodeImportTemplateInfo> 
                 "id=" + id +
                 ", productId=" + productId +
                 ", templateName=" + templateName +
+                ", leftCodeType=" + leftCodeType +
                 ", leftCodeTypeId=" + leftCodeTypeId +
                 ", rightCodeTypeId=" + rightCodeTypeId +
                 ", templateRemark=" + templateRemark +

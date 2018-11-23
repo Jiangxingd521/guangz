@@ -35,13 +35,13 @@ public class SerCodeImportTempInfo extends Model<SerCodeImportTempInfo> {
     /**
      * 左码
      */
-    @TableField("left_code_id")
-    private Long leftCodeId;
+    @TableField("left_code")
+    private String leftCode;
     /**
      * 右码
      */
-    @TableField("right_code_id")
-    private Long rightCodeId;
+    @TableField("right_code")
+    private String rightCode;
     /**
      * 左码码类型（盖内外盖之类）
      */
@@ -78,20 +78,20 @@ public class SerCodeImportTempInfo extends Model<SerCodeImportTempInfo> {
         this.codeType = codeType;
     }
 
-    public Long getLeftCodeId() {
-        return leftCodeId;
+    public String getLeftCode() {
+        return leftCode;
     }
 
-    public void setLeftCodeId(Long leftCodeId) {
-        this.leftCodeId = leftCodeId;
+    public void setLeftCode(String leftCode) {
+        this.leftCode = leftCode;
     }
 
-    public Long getRightCodeId() {
-        return rightCodeId;
+    public String getRightCode() {
+        return rightCode;
     }
 
-    public void setRightCodeId(Long rightCodeId) {
-        this.rightCodeId = rightCodeId;
+    public void setRightCode(String rightCode) {
+        this.rightCode = rightCode;
     }
 
     public Long getLeftCodeType() {
@@ -121,8 +121,8 @@ public class SerCodeImportTempInfo extends Model<SerCodeImportTempInfo> {
         "id=" + id +
         ", templateId=" + templateId +
         ", codeType=" + codeType +
-        ", leftCodeId=" + leftCodeId +
-        ", rightCodeId=" + rightCodeId +
+        ", leftCode=" + leftCode +
+        ", rightCode=" + rightCode +
         ", leftCodeType=" + leftCodeType +
         ", rightCodeType=" + rightCodeType +
         "}";

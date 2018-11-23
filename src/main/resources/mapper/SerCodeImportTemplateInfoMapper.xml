@@ -7,6 +7,7 @@
         <id column="id" property="id"/>
         <result column="product_id" property="productId"/>
         <result column="template_name" property="templateName"/>
+        <result column="left_code_type" property="leftCodeType"/>
         <result column="left_code_type_id" property="leftCodeTypeId"/>
         <result column="right_code_type_id" property="rightCodeTypeId"/>
         <result column="template_remark" property="templateRemark"/>
@@ -21,18 +22,20 @@
     >
         select a.id as templateId,a.template_name,a.template_remark,a.template_state,a.product_id,
         a.left_code_type_id as leftCodeId,a.right_code_type_id as rightCodeId,
-        e.code_name as leftCodeName,f.code_name as rightCodeName,
+        e.code_name as leftCodeName,f.code_name as rightCodeName,a.left_code_type,
         b.product_name,c.series_name,d.brand_name
         from t_ser_code_import_template_info a
         left join t_ser_brand_series_product_info b on a.product_id=b.id
         left join t_ser_brand_series_info c on b.series_id=c.id
         left join t_ser_brand_info d on c.brand_id=d.id
-        left join t_ser_code_type_info e on a.left_code_type_id=e.id
-        left join t_ser_code_type_info f on a.right_code_type_id=f.id
+        left join t_ser_code_type3_info e on a.left_code_type_id=e.id
+        left join t_ser_code_type3_info f on a.right_code_type_id=f.id
+        left join t_ser_code_type3_info g on a.left_code_type=g.id
         where 1=1
         <if test="codeImportState!=null">
             and a.template_state = #{codeImportState}
         </if>
+
     </select>
 
 </mapper>

@@ -10,8 +10,6 @@ public class CodeTypeVo {
     private Long codeId;
 
     private String codeName;
-    //码类型（0：码模板，1：内外码，2：码类型）
-    private int codeType;
 
     private int codeState;
 
@@ -29,14 +27,6 @@ public class CodeTypeVo {
 
     public void setCodeName(String codeName) {
         this.codeName = codeName;
-    }
-
-    public int getCodeType() {
-        return codeType;
-    }
-
-    public void setCodeType(int codeType) {
-        this.codeType = codeType;
     }
 
     public int getCodeState() {

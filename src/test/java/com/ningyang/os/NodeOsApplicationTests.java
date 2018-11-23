@@ -42,6 +42,16 @@ public class NodeOsApplicationTests {
 
         System.out.println(JSONObject.toJSONString(listTemp));
 
+
+
+
+        String a1 = "http://9suyuan.com/6/xTo6eIdRtF";
+        String a2 = "http://9suyuan.com/6/jOU2ybq01EDc";
+        String a3 = "6000001929016127";
+
+
+
+/*
         try {
             BufferedWriter bw = new BufferedWriter(new FileWriter("/Users/kaider/temp/WorkLog/qrcode/a.txt"));
             for (SerApplyCodeTemplate s : listTemp) {
@@ -53,6 +63,7 @@ public class NodeOsApplicationTests {
         } catch (IOException e) {
             e.printStackTrace();
         }
+*/
 
 
         /*String contents="6901236341292";

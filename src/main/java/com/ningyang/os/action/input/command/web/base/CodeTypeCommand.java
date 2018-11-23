@@ -10,7 +10,8 @@ public class CodeTypeCommand {
     private Long codeId;
 
     private String codeName;
-    //码类型（0：码模板，1：内外码，2：码类型）
+
+    //码类型（1：内外码，2：码类型（条形码、二维码），3：码模板（盒内外））
     private int codeType;
 
     private int codeState;

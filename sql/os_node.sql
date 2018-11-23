@@ -11,7 +11,7 @@
  Target Server Version : 50721
  File Encoding         : 65001
 
- Date: 23/11/2018 10:03:29
+ Date: 23/11/2018 13:24:27
 */
 
 SET NAMES utf8mb4;
@@ -117,9 +117,9 @@ CREATE TABLE `t_ser_apply_code_info` (
 -- Records of t_ser_apply_code_info
 -- ----------------------------
 BEGIN;
-INSERT INTO `t_ser_apply_code_info` VALUES (1, '20181120100517', 2, 2, 9, 10, 1, '201811', '2018-11-20 10:05:18', '2018-11-21 11:35:12');
-INSERT INTO `t_ser_apply_code_info` VALUES (2, '20181121110645', 2, 1, 8, 4, 1, '201811', '2018-11-21 11:06:45', '2018-11-21 11:35:12');
-INSERT INTO `t_ser_apply_code_info` VALUES (3, '20181121110700', 2, 2, 8, 5, 1, '201811', '2018-11-21 11:07:01', '2018-11-21 11:35:08');
+INSERT INTO `t_ser_apply_code_info` VALUES (1, '20181120100517', 2, 2, 1, 10, 1, '201811', '2018-11-20 10:05:18', '2018-11-21 11:35:12');
+INSERT INTO `t_ser_apply_code_info` VALUES (2, '20181121110645', 2, 1, 1, 4, 1, '201811', '2018-11-21 11:06:45', '2018-11-21 11:35:12');
+INSERT INTO `t_ser_apply_code_info` VALUES (3, '20181121110700', 2, 2, 2, 5, 1, '201811', '2018-11-21 11:07:01', '2018-11-21 11:35:08');
 COMMIT;
 
 -- ----------------------------
@@ -284,8 +284,8 @@ CREATE TABLE `t_ser_code_import_temp_info` (
   `id` bigint(255) NOT NULL AUTO_INCREMENT,
   `template_id` bigint(255) DEFAULT NULL COMMENT '模板id',
   `code_type` int(255) DEFAULT NULL COMMENT '左码码类型（1：内码，2：外码）',
-  `left_code_id` bigint(255) DEFAULT NULL COMMENT '左码',
-  `right_code_id` bigint(255) DEFAULT NULL COMMENT '右码',
+  `left_code` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '左码',
+  `right_code` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '右码',
   `left_code_type` bigint(255) DEFAULT NULL COMMENT '左码码类型（盖内外盖之类）',
   `right_code_type` bigint(255) DEFAULT NULL COMMENT '右码码类型（盖内外盖之类）',
   PRIMARY KEY (`id`)
@@ -299,6 +299,7 @@ CREATE TABLE `t_ser_code_import_template_info` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `product_id` bigint(20) DEFAULT NULL COMMENT '产品id',
   `template_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '模板名称',
+  `left_code_type` bigint(255) DEFAULT NULL COMMENT '溯源左码类型（1：内码，2：外码）',
   `left_code_type_id` bigint(20) DEFAULT NULL COMMENT '左码',
   `right_code_type_id` bigint(20) DEFAULT NULL COMMENT '右码',
   `template_remark` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '模板说明',
@@ -310,44 +311,79 @@ CREATE TABLE `t_ser_code_import_template_info` (
   KEY `left_code_type_id` (`left_code_type_id`),
   KEY `right_code_type_id` (`right_code_type_id`),
   CONSTRAINT `t_ser_code_import_template_info_ibfk_3` FOREIGN KEY (`product_id`) REFERENCES `t_ser_brand_series_product_info` (`id`),
-  CONSTRAINT `t_ser_code_import_template_info_ibfk_4` FOREIGN KEY (`left_code_type_id`) REFERENCES `t_ser_code_type_info` (`id`),
-  CONSTRAINT `t_ser_code_import_template_info_ibfk_5` FOREIGN KEY (`right_code_type_id`) REFERENCES `t_ser_code_type_info` (`id`)
+  CONSTRAINT `t_ser_code_import_template_info_ibfk_4` FOREIGN KEY (`left_code_type_id`) REFERENCES `t_ser_code_type3_info` (`id`),
+  CONSTRAINT `t_ser_code_import_template_info_ibfk_5` FOREIGN KEY (`right_code_type_id`) REFERENCES `t_ser_code_type3_info` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='溯源码导入模板';
 
 -- ----------------------------
 -- Records of t_ser_code_import_template_info
 -- ----------------------------
 BEGIN;
-INSERT INTO `t_ser_code_import_template_info` VALUES (1, 5, '盖内-盖外', 3, 4, '产品1的盖内外模板', 0, '2018-11-14 15:23:55', '2018-11-22 15:12:21');
+INSERT INTO `t_ser_code_import_template_info` VALUES (1, 5, '盖内-盖外', 1, 1, 2, '产品1的盖内外模板', 0, '2018-11-14 15:23:55', '2018-11-23 13:21:37');
 COMMIT;
 
 -- ----------------------------
--- Table structure for t_ser_code_type_info
+-- Table structure for t_ser_code_type1_info
 -- ----------------------------
-DROP TABLE IF EXISTS `t_ser_code_type_info`;
-CREATE TABLE `t_ser_code_type_info` (
+DROP TABLE IF EXISTS `t_ser_code_type1_info`;
+CREATE TABLE `t_ser_code_type1_info` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `code_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '码名称',
+  `create_time` datetime DEFAULT NULL COMMENT '创建时间',
+  `update_time` datetime DEFAULT NULL COMMENT '修改时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='内外码';
+
+-- ----------------------------
+-- Records of t_ser_code_type1_info
+-- ----------------------------
+BEGIN;
+INSERT INTO `t_ser_code_type1_info` VALUES (1, '内码', '2018-11-23 11:26:29', '2018-11-23 11:26:33');
+INSERT INTO `t_ser_code_type1_info` VALUES (2, '外码', '2018-11-23 11:26:42', '2018-11-23 11:26:45');
+COMMIT;
+
+-- ----------------------------
+-- Table structure for t_ser_code_type2_info
+-- ----------------------------
+DROP TABLE IF EXISTS `t_ser_code_type2_info`;
+CREATE TABLE `t_ser_code_type2_info` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `code_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '码名称',
+  `create_time` datetime DEFAULT NULL COMMENT '创建时间',
+  `update_time` datetime DEFAULT NULL COMMENT '修改时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='条形码二维码';
+
+-- ----------------------------
+-- Records of t_ser_code_type2_info
+-- ----------------------------
+BEGIN;
+INSERT INTO `t_ser_code_type2_info` VALUES (1, '条形码', '2018-11-23 11:27:14', '2018-11-23 11:27:18');
+INSERT INTO `t_ser_code_type2_info` VALUES (2, '二维码', '2018-11-23 11:27:27', '2018-11-23 11:27:31');
+COMMIT;
+
+-- ----------------------------
+-- Table structure for t_ser_code_type3_info
+-- ----------------------------
+DROP TABLE IF EXISTS `t_ser_code_type3_info`;
+CREATE TABLE `t_ser_code_type3_info` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `code_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '码类型名称',
-  `code_type` int(255) DEFAULT NULL COMMENT '码类型（0：码模板，1：内外码，2：码类型）',
   `code_state` int(255) DEFAULT NULL COMMENT '类型状态（0：使用，1：未使用）',
   `create_time` datetime DEFAULT NULL COMMENT '创建时间',
   `update_time` datetime DEFAULT NULL COMMENT '修改时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='溯源码类型';
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='溯源码类型';
 
 -- ----------------------------
--- Records of t_ser_code_type_info
+-- Records of t_ser_code_type3_info
 -- ----------------------------
 BEGIN;
-INSERT INTO `t_ser_code_type_info` VALUES (1, '内码', 1, 0, '2018-11-14 11:38:48', '2018-11-14 11:38:48');
-INSERT INTO `t_ser_code_type_info` VALUES (2, '外码', 1, 0, '2018-11-14 11:39:02', '2018-11-14 11:39:02');
-INSERT INTO `t_ser_code_type_info` VALUES (3, '盖内码', 0, 0, '2018-11-14 11:40:32', '2018-11-14 11:40:32');
-INSERT INTO `t_ser_code_type_info` VALUES (4, '盖外码', 0, 0, '2018-11-14 11:40:45', '2018-11-23 10:01:56');
-INSERT INTO `t_ser_code_type_info` VALUES (5, '瓶码', 0, 0, '2018-11-14 11:40:56', '2018-11-14 11:40:56');
-INSERT INTO `t_ser_code_type_info` VALUES (6, '盒码', 0, 0, '2018-11-14 11:41:09', '2018-11-14 11:41:09');
-INSERT INTO `t_ser_code_type_info` VALUES (7, '箱码', 0, 0, '2018-11-14 11:41:22', '2018-11-14 11:41:22');
-INSERT INTO `t_ser_code_type_info` VALUES (8, '二维码', 2, 0, '2018-11-14 11:45:31', '2018-11-14 11:45:31');
-INSERT INTO `t_ser_code_type_info` VALUES (9, '条形码', 2, 0, '2018-11-14 11:45:37', '2018-11-14 11:45:37');
+INSERT INTO `t_ser_code_type3_info` VALUES (1, '盖内码', 0, '2018-11-14 11:38:48', '2018-11-14 11:38:48');
+INSERT INTO `t_ser_code_type3_info` VALUES (2, '盖外码', 0, '2018-11-14 11:39:02', '2018-11-14 11:39:02');
+INSERT INTO `t_ser_code_type3_info` VALUES (3, '瓶码', 0, '2018-11-14 11:40:32', '2018-11-14 11:40:32');
+INSERT INTO `t_ser_code_type3_info` VALUES (4, '盒码', 0, '2018-11-14 11:40:45', '2018-11-23 10:01:56');
+INSERT INTO `t_ser_code_type3_info` VALUES (5, '箱码', 0, '2018-11-14 11:40:56', '2018-11-14 11:40:56');
 COMMIT;
 
 -- ----------------------------
