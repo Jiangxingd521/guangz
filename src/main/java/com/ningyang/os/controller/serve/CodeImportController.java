@@ -7,10 +7,8 @@ import com.ningyang.os.action.output.vo.web.serve.ImportCodeVo;
 import com.ningyang.os.action.utils.ReadFileBackData;
 import com.ningyang.os.action.utils.WebResult;
 import com.ningyang.os.controller.system.BaseController;
-import com.ningyang.os.pojo.SerCodeImportTemplateInfo;
 import com.ningyang.os.service.ILCodeImportFileInfoService;
 import com.ningyang.os.service.ISerCodeImportTempInfoService;
-import com.ningyang.os.service.ISerCodeImportTemplateInfoService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,8 +41,6 @@ public class CodeImportController extends BaseController {
     @Autowired
     private ILCodeImportFileInfoService infoService;
     @Autowired
-    private ISerCodeImportTemplateInfoService templateInfoService;
-    @Autowired
     private ISerCodeImportTempInfoService tempInfoService;
 
 
@@ -68,7 +64,7 @@ public class CodeImportController extends BaseController {
 
 
     /**
-     * fixme 文件数据处理
+     *
      * 导入机器溯源码文件
      * @param userToken
      * @param file
@@ -99,36 +95,25 @@ public class CodeImportController extends BaseController {
             out.write(file.getBytes());
             out.flush();
             out.close();
-            //获取导入文件左右数据
+            //获取导入文件左右码
             List<ReadFileBackData> fileList = returnReadFileData(file);
             //溯源码导入临时表
             boolean codeTempFlag = tempInfoService.add(fileList,templateId);
-
-
-            //处理溯源码数据
-            //使用的模板（模板里面的左码是否为内码）
-            //如果不为内码则加入临时表
-            //否则加入商品表
-            //临时表 左码  右码 批次号
-            //撤回操作： 依据批次号将临时表中数据清除（）
-
-
-
-
-            //加入导入日志
-            ImportCodeCommand command = new ImportCodeCommand();
-            command.setImportFileName(fileName);
-            command.setSaveFilePath(saveFilePath);
-            command.setCodeCount(Long.valueOf(fileList.size()*2));
-            command.setUserId(uploadUserId);
-            command.setTemplateId(templateId);
-            boolean logFlag = infoService.add(command);
-
-
-
-            //接入数据到临时表
-            return WebResult.success().toMap();
-
+            if(codeTempFlag){
+                //加入导入日志
+                ImportCodeCommand command = new ImportCodeCommand();
+                command.setImportFileName(fileName);
+                command.setSaveFilePath(saveFilePath);
+                command.setCodeCount(Long.valueOf(fileList.size()*2));
+                command.setUserId(uploadUserId);
+                command.setTemplateId(templateId);
+                boolean logFlag = infoService.add(command);
+                if(logFlag){
+                    return WebResult.success().toMap();
+                }
+                return WebResult.failure(IMPORT_DATA_ERROR.getInfo()).toMap();
+            }
+            return WebResult.failure(IMPORT_DATA_ERROR.getInfo()).toMap();
         } catch (Exception e) {
             LOGGER.error(e.getMessage(), e);
             return WebResult.failure(IMPORT_DATA_ERROR.getInfo()).toMap();

@@ -92,7 +92,9 @@ public class CodeApplyController extends BaseController {
                 String userCode = getAuthorizationCode(0);
                 if (StringUtils.isNotBlank(userCode)) {
                     command.setUserCode(userCode);
-                    if (command.getCodeType() == 9) {
+
+                    if (command.getCodeType() == 1) {
+                        //条形码
                         command.setCodePosition(2L);
                     }
                     command.setCodeOrder(getOrderNum());
@@ -174,7 +176,7 @@ public class CodeApplyController extends BaseController {
                 List<SerApplyCodeTemplate> codeList = templateService.findCodeVoList(condition);
 
                 BufferedWriter bw;
-                if (codeType == 8) {
+                if (codeType == 2) {
                     //二维码
                     bw = new BufferedWriter(new FileWriter(pFilePath+"/" + zipFileName + ".txt"));
                     for (SerApplyCodeTemplate code : codeList) {
@@ -184,7 +186,7 @@ public class CodeApplyController extends BaseController {
                         bw.flush();
                     }
                     bw.close();
-                } else if (codeType == 9) {
+                } else if (codeType == 1) {
                     //条形码
                     bw = new BufferedWriter(new FileWriter(pFilePath+"/" + zipFileName + ".txt"));
                     for (SerApplyCodeTemplate code : codeList) {

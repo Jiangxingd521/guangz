@@ -15,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -59,6 +60,9 @@ public class SerCodeImportTempInfoServiceImpl extends ServiceImpl<SerCodeImportT
                 info.setM2(data.getRData());
                 info.setM1Remark(templateVo.getLeftCodeName());
                 info.setM2Remark(templateVo.getRightCodeName());
+                info.setCreateTime(new Date());
+                info.setUpdateTime(new Date());
+                info.setGoodsState(0);
                 listTemp.add(info);
             }
             flag = goodsInfoService.saveBatch(listTemp);
