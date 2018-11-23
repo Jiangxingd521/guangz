@@ -36,4 +36,15 @@
         order by a.series_id asc
     </select>
 
+    <select id="selectBrandSeriesProductVo"
+            parameterType="Long"
+            resultType="com.ningyang.os.action.output.vo.web.base.BrandSeriesProductVo"
+    >
+        select a.series_id,a.id as productId,b.brand_id
+        from t_ser_brand_series_product_info a left join t_ser_brand_series_info b on a.series_id = b.id
+        where 1=1 and a.id = #{productId}
+    </select>
+
+
+
 </mapper>

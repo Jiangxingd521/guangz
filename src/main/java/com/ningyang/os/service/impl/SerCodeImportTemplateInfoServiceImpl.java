@@ -59,4 +59,9 @@ public class SerCodeImportTemplateInfoServiceImpl extends ServiceImpl<SerCodeImp
         }
         return flag;
     }
+
+    @Override
+    public CodeImportTemplateVo findCodeImportTemplateVo(Long templateId) {
+        return baseMapper.selectCodeImportTemplateVo(templateId);
+    }
 }

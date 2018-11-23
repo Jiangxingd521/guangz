@@ -11,7 +11,7 @@
  Target Server Version : 50721
  File Encoding         : 65001
 
- Date: 23/11/2018 13:24:27
+ Date: 23/11/2018 15:39:02
 */
 
 SET NAMES utf8mb4;
@@ -431,6 +431,44 @@ INSERT INTO `t_ser_dealer_region_info` VALUES (13, 1, 1930);
 INSERT INTO `t_ser_dealer_region_info` VALUES (14, 1, 1931);
 INSERT INTO `t_ser_dealer_region_info` VALUES (15, 1, 1935);
 COMMIT;
+
+-- ----------------------------
+-- Table structure for t_ser_goods_info
+-- ----------------------------
+DROP TABLE IF EXISTS `t_ser_goods_info`;
+CREATE TABLE `t_ser_goods_info` (
+  `id` bigint(255) NOT NULL AUTO_INCREMENT,
+  `brand_id` bigint(255) NOT NULL COMMENT '品牌',
+  `brand_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '品牌名称',
+  `brand_series_id` bigint(255) NOT NULL COMMENT '系列',
+  `brand_series_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '系列名称',
+  `brand_series_product_id` bigint(255) NOT NULL COMMENT '产品',
+  `brand_series_product_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '产品名称',
+  `M1` varchar(255) COLLATE utf8_unicode_ci NOT NULL COMMENT '内码',
+  `M2` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '外码',
+  `M3` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '外码',
+  `M4` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '外码',
+  `M5` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '外码',
+  `M6` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '外码',
+  `M7` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '外码',
+  `M8` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '外码',
+  `M9` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '外码',
+  `M10` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '外码',
+  `M1_remark` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '码说明',
+  `M2_remark` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '码说明',
+  `M3_remark` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '码说明',
+  `M4_remark` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '码说明',
+  `M5_remark` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '码说明',
+  `M6_remark` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '码说明',
+  `M7_remark` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '码说明',
+  `M8_remark` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '码说明',
+  `M9_remark` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '码说明',
+  `M10_remark` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '码说明',
+  `goods_state` int(255) DEFAULT NULL COMMENT '商品状态',
+  `create_time` datetime DEFAULT NULL COMMENT '创建时间',
+  `update_time` datetime DEFAULT NULL COMMENT '修改时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='商品信息表';
 
 -- ----------------------------
 -- Table structure for t_ser_warehouse_info

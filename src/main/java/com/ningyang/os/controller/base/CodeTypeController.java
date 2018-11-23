@@ -84,6 +84,11 @@ public class CodeTypeController {
         }
     }
 
+    /**
+     *
+     * @param command
+     * @return
+     */
     @PostMapping("addOrUpdate")
     public Map<String, Object> addOrUpdate(
             @RequestBody CodeTypeCommand command

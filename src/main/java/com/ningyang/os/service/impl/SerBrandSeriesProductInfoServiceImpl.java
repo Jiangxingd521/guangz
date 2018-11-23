@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.ningyang.os.action.input.command.web.base.ProductCommand;
 import com.ningyang.os.action.input.condition.base.QueryBrandSeriesProductCondition;
 import com.ningyang.os.action.output.dto.web.FileUploadDto;
+import com.ningyang.os.action.output.vo.web.base.BrandSeriesProductVo;
 import com.ningyang.os.action.output.vo.web.base.ProductVo;
 import com.ningyang.os.dao.SerBrandSeriesProductInfoMapper;
 import com.ningyang.os.pojo.SerBrandSeriesProductCodeInfo;
@@ -120,5 +121,10 @@ public class SerBrandSeriesProductInfoServiceImpl extends ServiceImpl<SerBrandSe
         boolean flag3 = productFileService.saveBatch(fileList);
 
         return flag1 && flag2 && flag3;
+    }
+
+    @Override
+    public BrandSeriesProductVo findBrandSeriesProductVo(Long productId) {
+        return baseMapper.selectBrandSeriesProductVo(productId);
     }
 }
