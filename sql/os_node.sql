@@ -11,7 +11,7 @@
  Target Server Version : 50721
  File Encoding         : 65001
 
- Date: 22/11/2018 17:35:36
+ Date: 23/11/2018 10:03:29
 */
 
 SET NAMES utf8mb4;
@@ -277,6 +277,21 @@ INSERT INTO `t_ser_brand_series_product_info` VALUES (5, 1, NULL, '产品1', NUL
 COMMIT;
 
 -- ----------------------------
+-- Table structure for t_ser_code_import_temp_info
+-- ----------------------------
+DROP TABLE IF EXISTS `t_ser_code_import_temp_info`;
+CREATE TABLE `t_ser_code_import_temp_info` (
+  `id` bigint(255) NOT NULL AUTO_INCREMENT,
+  `template_id` bigint(255) DEFAULT NULL COMMENT '模板id',
+  `code_type` int(255) DEFAULT NULL COMMENT '左码码类型（1：内码，2：外码）',
+  `left_code_id` bigint(255) DEFAULT NULL COMMENT '左码',
+  `right_code_id` bigint(255) DEFAULT NULL COMMENT '右码',
+  `left_code_type` bigint(255) DEFAULT NULL COMMENT '左码码类型（盖内外盖之类）',
+  `right_code_type` bigint(255) DEFAULT NULL COMMENT '右码码类型（盖内外盖之类）',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='溯源码导入临时表';
+
+-- ----------------------------
 -- Table structure for t_ser_code_import_template_info
 -- ----------------------------
 DROP TABLE IF EXISTS `t_ser_code_import_template_info`;
@@ -297,7 +312,7 @@ CREATE TABLE `t_ser_code_import_template_info` (
   CONSTRAINT `t_ser_code_import_template_info_ibfk_3` FOREIGN KEY (`product_id`) REFERENCES `t_ser_brand_series_product_info` (`id`),
   CONSTRAINT `t_ser_code_import_template_info_ibfk_4` FOREIGN KEY (`left_code_type_id`) REFERENCES `t_ser_code_type_info` (`id`),
   CONSTRAINT `t_ser_code_import_template_info_ibfk_5` FOREIGN KEY (`right_code_type_id`) REFERENCES `t_ser_code_type_info` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='码导入模板';
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='溯源码导入模板';
 
 -- ----------------------------
 -- Records of t_ser_code_import_template_info
@@ -327,7 +342,7 @@ BEGIN;
 INSERT INTO `t_ser_code_type_info` VALUES (1, '内码', 1, 0, '2018-11-14 11:38:48', '2018-11-14 11:38:48');
 INSERT INTO `t_ser_code_type_info` VALUES (2, '外码', 1, 0, '2018-11-14 11:39:02', '2018-11-14 11:39:02');
 INSERT INTO `t_ser_code_type_info` VALUES (3, '盖内码', 0, 0, '2018-11-14 11:40:32', '2018-11-14 11:40:32');
-INSERT INTO `t_ser_code_type_info` VALUES (4, '盖外码', 0, 0, '2018-11-14 11:40:45', '2018-11-14 11:40:45');
+INSERT INTO `t_ser_code_type_info` VALUES (4, '盖外码', 0, 0, '2018-11-14 11:40:45', '2018-11-23 10:01:56');
 INSERT INTO `t_ser_code_type_info` VALUES (5, '瓶码', 0, 0, '2018-11-14 11:40:56', '2018-11-14 11:40:56');
 INSERT INTO `t_ser_code_type_info` VALUES (6, '盒码', 0, 0, '2018-11-14 11:41:09', '2018-11-14 11:41:09');
 INSERT INTO `t_ser_code_type_info` VALUES (7, '箱码', 0, 0, '2018-11-14 11:41:22', '2018-11-14 11:41:22');
@@ -3780,8 +3795,8 @@ INSERT INTO `t_sys_menu_info` VALUES (15, 6, '模板库', 0, NULL, '/base/codeTe
 INSERT INTO `t_sys_menu_info` VALUES (16, 0, '业务管理', 0, NULL, NULL, NULL, 3, 0, '业务管理', '2018-11-14 17:42:01', '2018-11-14 17:42:01');
 INSERT INTO `t_sys_menu_info` VALUES (17, 16, '经销商管理', 0, NULL, '/server/dealer', NULL, 1, 0, NULL, '2018-11-14 17:42:35', '2018-11-14 17:42:35');
 INSERT INTO `t_sys_menu_info` VALUES (18, 16, '仓库管理', 0, NULL, '/server/warehouse', NULL, 2, 0, NULL, '2018-11-15 12:58:58', '2018-11-15 12:58:58');
-INSERT INTO `t_sys_menu_info` VALUES (19, 16, '溯源码申请', 0, NULL, '/center/qrcode/apply', NULL, 3, 0, NULL, '2018-11-15 15:42:57', '2018-11-15 15:42:57');
-INSERT INTO `t_sys_menu_info` VALUES (20, 16, '溯源码导入', 0, NULL, '/server/qrcode/import', NULL, 4, 0, NULL, '2018-11-15 15:44:12', '2018-11-22 14:34:19');
+INSERT INTO `t_sys_menu_info` VALUES (19, 16, '溯源码申请', 0, NULL, '/center/code/apply', NULL, 3, 0, NULL, '2018-11-15 15:42:57', '2018-11-23 09:59:40');
+INSERT INTO `t_sys_menu_info` VALUES (20, 16, '溯源码导入', 0, NULL, '/server/code/import', NULL, 4, 0, NULL, '2018-11-15 15:44:12', '2018-11-23 09:59:50');
 INSERT INTO `t_sys_menu_info` VALUES (21, 16, '中心注册', 0, 'icon-link', '/center/register', NULL, 5, 0, NULL, '2018-11-19 11:27:09', '2018-11-19 11:28:24');
 COMMIT;
 
@@ -3810,7 +3825,7 @@ INSERT INTO `t_sys_navigation_bar_info` VALUES (1, '系统设置', '/sys/bar', '
 INSERT INTO `t_sys_navigation_bar_info` VALUES (2, '系统基础设置', '/sys/icon', 'icon-present', 1, '系统', 0, '2018-10-01 23:16:56', '2018-11-14 11:32:16');
 INSERT INTO `t_sys_navigation_bar_info` VALUES (3, '基础设置', '/base/brand', 'icon-present', 2, '业务基础设置', 0, '2018-11-14 11:30:56', '2018-11-14 15:11:54');
 INSERT INTO `t_sys_navigation_bar_info` VALUES (4, '企业业务', '/server/dealer', 'icon-qi', 4, '经销商管理', 0, '2018-11-14 17:41:10', '2018-11-15 15:40:13');
-INSERT INTO `t_sys_navigation_bar_info` VALUES (5, '中心业务', '/center/qrcode/apply', 'icon-goodsfavor', 3, '溯源业务', 0, '2018-11-15 15:41:01', '2018-11-15 15:44:41');
+INSERT INTO `t_sys_navigation_bar_info` VALUES (5, '中心业务', '/center/code/apply', 'icon-goodsfavor', 3, '溯源业务', 0, '2018-11-15 15:41:01', '2018-11-23 10:00:27');
 COMMIT;
 
 -- ----------------------------

@@ -32,21 +32,22 @@ import static com.ningyang.os.action.utils.UuidUtil.generateUUID;
  * @描述：机器导入溯源码
  */
 @RestController
-@RequestMapping("center/qrcode")
-public class ImportCodeController extends BaseController {
+@RequestMapping("center/code")
+public class CodeImportController extends BaseController {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(ImportCodeController.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(CodeImportController.class);
 
     @Autowired
     private ILCodeImportFileInfoService infoService;
+
 
     /**
      *
      * @param condition
      * @return
      */
-    @GetMapping("getImportCodePage")
-    public Map<String, Object> getImportCodePage(
+    @GetMapping("getCodeImportPage")
+    public Map<String, Object> getCodeImportPage(
             QueryApplyCodeCondition condition
     ) {
         try {
@@ -67,7 +68,7 @@ public class ImportCodeController extends BaseController {
      * @param templateId
      * @return
      */
-    @PostMapping("importFile")
+    @PostMapping("codeImportFile")
     public Map<String,Object> importFile(
             @RequestHeader("Authorization") String userToken,
             @RequestParam(value = "file", required = false) MultipartFile file,
@@ -80,7 +81,7 @@ public class ImportCodeController extends BaseController {
         try {
             String fileName = file.getOriginalFilename();
             Long uploadUserId = getBaseUserInfo(userToken).getId();
-
+            //存储上传的文件
             String saveFileName = generateUUID() + fileName;
             File saveFile = new File(request.getSession().getServletContext().getRealPath("/upload/") + saveFileName);
             String saveFilePath = "upload/" + saveFileName;
@@ -91,9 +92,18 @@ public class ImportCodeController extends BaseController {
             out.write(file.getBytes());
             out.flush();
             out.close();
-
             //获取导入文件左右数据
             List<ReadFileBackData> fileList = returnReadFileData(file);
+            //处理溯源码数据
+            //使用的模板（模板里面的左码是否为内码）
+            //如果不为内码则加入临时表
+            //否则加入商品表
+            //临时表 左码  右码 批次号
+            //撤回操作： 依据批次号将临时表中数据清除（）
+
+
+
+
             //加入导入日志
             ImportCodeCommand command = new ImportCodeCommand();
             command.setImportFileName(fileName);
@@ -102,6 +112,9 @@ public class ImportCodeController extends BaseController {
             command.setUserId(uploadUserId);
             command.setTemplateId(templateId);
             boolean logFlag = infoService.add(command);
+
+
+
             //接入数据到临时表
             return WebResult.success().toMap();
 

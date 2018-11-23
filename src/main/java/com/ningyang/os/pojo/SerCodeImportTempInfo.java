@@ -1,0 +1,130 @@
+package com.ningyang.os.pojo;
+
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.extension.activerecord.Model;
+import java.io.Serializable;
+
+/**
+ * <p>
+ * 溯源码导入临时表
+ * </p>
+ *
+ * @author kaider
+ * @since 2018-11-23
+ */
+@TableName("t_ser_code_import_temp_info")
+public class SerCodeImportTempInfo extends Model<SerCodeImportTempInfo> {
+
+    private static final long serialVersionUID = 1L;
+
+    @TableId(value = "id", type = IdType.AUTO)
+    private Long id;
+    /**
+     * 模板id
+     */
+    @TableField("template_id")
+    private Long templateId;
+    /**
+     * 左码码类型（1：内码，2：外码）
+     */
+    @TableField("code_type")
+    private Integer codeType;
+    /**
+     * 左码
+     */
+    @TableField("left_code_id")
+    private Long leftCodeId;
+    /**
+     * 右码
+     */
+    @TableField("right_code_id")
+    private Long rightCodeId;
+    /**
+     * 左码码类型（盖内外盖之类）
+     */
+    @TableField("left_code_type")
+    private Long leftCodeType;
+    /**
+     * 右码码类型（盖内外盖之类）
+     */
+    @TableField("right_code_type")
+    private Long rightCodeType;
+
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Long getTemplateId() {
+        return templateId;
+    }
+
+    public void setTemplateId(Long templateId) {
+        this.templateId = templateId;
+    }
+
+    public Integer getCodeType() {
+        return codeType;
+    }
+
+    public void setCodeType(Integer codeType) {
+        this.codeType = codeType;
+    }
+
+    public Long getLeftCodeId() {
+        return leftCodeId;
+    }
+
+    public void setLeftCodeId(Long leftCodeId) {
+        this.leftCodeId = leftCodeId;
+    }
+
+    public Long getRightCodeId() {
+        return rightCodeId;
+    }
+
+    public void setRightCodeId(Long rightCodeId) {
+        this.rightCodeId = rightCodeId;
+    }
+
+    public Long getLeftCodeType() {
+        return leftCodeType;
+    }
+
+    public void setLeftCodeType(Long leftCodeType) {
+        this.leftCodeType = leftCodeType;
+    }
+
+    public Long getRightCodeType() {
+        return rightCodeType;
+    }
+
+    public void setRightCodeType(Long rightCodeType) {
+        this.rightCodeType = rightCodeType;
+    }
+
+    @Override
+    protected Serializable pkVal() {
+        return this.id;
+    }
+
+    @Override
+    public String toString() {
+        return "SerCodeImportTempInfo{" +
+        "id=" + id +
+        ", templateId=" + templateId +
+        ", codeType=" + codeType +
+        ", leftCodeId=" + leftCodeId +
+        ", rightCodeId=" + rightCodeId +
+        ", leftCodeType=" + leftCodeType +
+        ", rightCodeType=" + rightCodeType +
+        "}";
+    }
+}
