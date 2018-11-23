@@ -33,6 +33,8 @@
         <zxing-version>3.3.3</zxing-version>
         <barcode4j-version>2.1</barcode4j-version>
         <apache-commons-io-version>1.3.2</apache-commons-io-version>
+        <commons-codec-version>1.9</commons-codec-version>
+        <easypoi-version>3.2.0</easypoi-version>
     </properties>
 
     <dependencies>
@@ -61,6 +63,13 @@
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <scope>runtime</scope>
+        </dependency>
+
+        <!--base64 加解密-->
+        <dependency>
+            <groupId>commons-codec</groupId>
+            <artifactId>commons-codec</artifactId>
+            <version>${commons-codec-version}</version>
         </dependency>
 
         <!-- Druid -->
@@ -159,6 +168,23 @@
             <version>${mybatis-plus-boot-starter-version}</version>
         </dependency>
         <!-- mybatis-plus end -->
+
+        <!-- easypoi-version -->
+        <dependency>
+            <groupId>cn.afterturn</groupId>
+            <artifactId>easypoi-base</artifactId>
+            <version>${easypoi-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>cn.afterturn</groupId>
+            <artifactId>easypoi-web</artifactId>
+            <version>${easypoi-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>cn.afterturn</groupId>
+            <artifactId>easypoi-annotation</artifactId>
+            <version>${easypoi-version}</version>
+        </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
