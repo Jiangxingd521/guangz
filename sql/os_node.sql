@@ -11,7 +11,7 @@
  Target Server Version : 50721
  File Encoding         : 65001
 
- Date: 23/11/2018 15:39:02
+ Date: 23/11/2018 18:12:40
 */
 
 SET NAMES utf8mb4;
@@ -32,7 +32,7 @@ CREATE TABLE `l_code_import_file_info` (
   `create_time` datetime DEFAULT NULL COMMENT '创建时间',
   `update_time` datetime DEFAULT NULL COMMENT '修改时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='溯源码文件上传记录';
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='溯源码文件上传记录';
 
 -- ----------------------------
 -- Records of l_code_import_file_info
@@ -40,6 +40,9 @@ CREATE TABLE `l_code_import_file_info` (
 BEGIN;
 INSERT INTO `l_code_import_file_info` VALUES (1, 'a.txt', NULL, '20181122161138', 2, 6, 1, '2018-11-22 16:11:39', '2018-11-22 16:11:39');
 INSERT INTO `l_code_import_file_info` VALUES (2, 'a.txt', 'upload/c3676f8f92af40c3a3d60405d8ca71dca.txt', '20181122162449', 2, 6, 1, '2018-11-22 16:24:50', '2018-11-22 16:24:50');
+INSERT INTO `l_code_import_file_info` VALUES (3, 'b.txt', 'upload/36f37d571fc74e3fab76d225c6771c30b.txt', '20181123164800', 2, 10, 1, '2018-11-23 16:48:01', '2018-11-23 16:48:01');
+INSERT INTO `l_code_import_file_info` VALUES (4, 'b.txt', 'upload/1742be67935f41ef8a22fb1bcc22b3c9b.txt', '20181123165519', 2, 10, 1, '2018-11-23 16:55:19', '2018-11-23 16:55:19');
+INSERT INTO `l_code_import_file_info` VALUES (5, 'c.txt', 'upload/a34a366aafb342c284091151c6ad37adc.txt', '20181123172530', 2, 10, 2, '2018-11-23 17:25:30', '2018-11-23 17:25:30');
 COMMIT;
 
 -- ----------------------------
@@ -54,7 +57,7 @@ CREATE TABLE `t_ser_apply_code_201811` (
   `create_time` datetime DEFAULT NULL COMMENT '创建时间',
   `update_time` datetime DEFAULT NULL COMMENT '修改时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=63 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='溯源码';
+) ENGINE=InnoDB AUTO_INCREMENT=102 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='溯源码';
 
 -- ----------------------------
 -- Records of t_ser_apply_code_201811
@@ -79,6 +82,45 @@ INSERT INTO `t_ser_apply_code_201811` VALUES (59, 35, '2000000401991534', '20181
 INSERT INTO `t_ser_apply_code_201811` VALUES (60, 36, '4000001245892427', '20181120100517', '2018-11-21 11:35:12', '2018-11-21 11:35:12');
 INSERT INTO `t_ser_apply_code_201811` VALUES (61, 37, '3000000431841250', '20181120100517', '2018-11-21 11:35:12', '2018-11-21 11:35:12');
 INSERT INTO `t_ser_apply_code_201811` VALUES (62, 38, '6000000321204969', '20181120100517', '2018-11-21 11:35:12', '2018-11-21 11:35:12');
+INSERT INTO `t_ser_apply_code_201811` VALUES (63, 39, '6000001037470788', '20181123161225', '2018-11-23 16:16:11', '2018-11-23 16:16:11');
+INSERT INTO `t_ser_apply_code_201811` VALUES (64, 40, '6000001429346203', '20181123161225', '2018-11-23 16:16:11', '2018-11-23 16:16:11');
+INSERT INTO `t_ser_apply_code_201811` VALUES (65, 41, '9000001742276072', '20181123161225', '2018-11-23 16:16:11', '2018-11-23 16:16:11');
+INSERT INTO `t_ser_apply_code_201811` VALUES (66, 42, '6000000657113875', '20181123161225', '2018-11-23 16:16:11', '2018-11-23 16:16:11');
+INSERT INTO `t_ser_apply_code_201811` VALUES (67, 43, '5000001966752315', '20181123161225', '2018-11-23 16:16:11', '2018-11-23 16:16:11');
+INSERT INTO `t_ser_apply_code_201811` VALUES (68, 44, '5000000549008159', '20181123161225', '2018-11-23 16:16:11', '2018-11-23 16:16:11');
+INSERT INTO `t_ser_apply_code_201811` VALUES (69, 45, '9000000500346384', '20181123161225', '2018-11-23 16:16:11', '2018-11-23 16:16:11');
+INSERT INTO `t_ser_apply_code_201811` VALUES (70, 46, '2000001787347658', '20181123161225', '2018-11-23 16:16:11', '2018-11-23 16:16:11');
+INSERT INTO `t_ser_apply_code_201811` VALUES (71, 47, '7000001122571966', '20181123161225', '2018-11-23 16:16:11', '2018-11-23 16:16:11');
+INSERT INTO `t_ser_apply_code_201811` VALUES (72, 48, '6000001783802593', '20181123161225', '2018-11-23 16:16:11', '2018-11-23 16:16:11');
+INSERT INTO `t_ser_apply_code_201811` VALUES (73, 49, '9000001543556160', '20181123161626', '2018-11-23 16:16:33', '2018-11-23 16:16:33');
+INSERT INTO `t_ser_apply_code_201811` VALUES (74, 50, '4000000574601595', '20181123161626', '2018-11-23 16:16:33', '2018-11-23 16:16:33');
+INSERT INTO `t_ser_apply_code_201811` VALUES (75, 51, '6000001874172883', '20181123161626', '2018-11-23 16:16:33', '2018-11-23 16:16:33');
+INSERT INTO `t_ser_apply_code_201811` VALUES (76, 52, '5000001321454006', '20181123161626', '2018-11-23 16:16:33', '2018-11-23 16:16:33');
+INSERT INTO `t_ser_apply_code_201811` VALUES (77, 53, '8000001306043586', '20181123161626', '2018-11-23 16:16:33', '2018-11-23 16:16:33');
+INSERT INTO `t_ser_apply_code_201811` VALUES (78, 54, 'http://9suyuan.com/6/Uq3xmtQNs2', '20181123163800', '2018-11-23 16:38:08', '2018-11-23 16:38:08');
+INSERT INTO `t_ser_apply_code_201811` VALUES (79, 55, 'http://9suyuan.com/6/dMvWSYX2DB', '20181123163800', '2018-11-23 16:38:08', '2018-11-23 16:38:08');
+INSERT INTO `t_ser_apply_code_201811` VALUES (80, 56, 'http://9suyuan.com/6/cQ5JXkMtZL', '20181123163800', '2018-11-23 16:38:08', '2018-11-23 16:38:08');
+INSERT INTO `t_ser_apply_code_201811` VALUES (81, 57, 'http://9suyuan.com/6/bwzEOGGSQn', '20181123163800', '2018-11-23 16:38:08', '2018-11-23 16:38:08');
+INSERT INTO `t_ser_apply_code_201811` VALUES (82, 58, 'http://9suyuan.com/6/x10LKdnEV8', '20181123163800', '2018-11-23 16:38:08', '2018-11-23 16:38:08');
+INSERT INTO `t_ser_apply_code_201811` VALUES (83, 59, 'http://9suyuan.com/6/OMpc6Qj7P016', '20181123163856', '2018-11-23 16:39:02', '2018-11-23 16:39:02');
+INSERT INTO `t_ser_apply_code_201811` VALUES (84, 60, 'http://9suyuan.com/6/tQK5NhfWd0w7', '20181123163856', '2018-11-23 16:39:02', '2018-11-23 16:39:02');
+INSERT INTO `t_ser_apply_code_201811` VALUES (85, 61, 'http://9suyuan.com/6/zBvT5bd54Ltg', '20181123163856', '2018-11-23 16:39:02', '2018-11-23 16:39:02');
+INSERT INTO `t_ser_apply_code_201811` VALUES (86, 62, 'http://9suyuan.com/6/MXl524ptIwje', '20181123163856', '2018-11-23 16:39:02', '2018-11-23 16:39:02');
+INSERT INTO `t_ser_apply_code_201811` VALUES (87, 63, 'http://9suyuan.com/6/bxgkgSgvTC76', '20181123163856', '2018-11-23 16:39:02', '2018-11-23 16:39:02');
+INSERT INTO `t_ser_apply_code_201811` VALUES (88, 64, '5000001388046048', '20181123163943', '2018-11-23 16:39:49', '2018-11-23 16:39:49');
+INSERT INTO `t_ser_apply_code_201811` VALUES (89, 65, '8000000992532229', '20181123163943', '2018-11-23 16:39:49', '2018-11-23 16:39:49');
+INSERT INTO `t_ser_apply_code_201811` VALUES (90, 66, '7000001711808407', '20181123163943', '2018-11-23 16:39:49', '2018-11-23 16:39:49');
+INSERT INTO `t_ser_apply_code_201811` VALUES (91, 67, '1000000688344122', '20181123163943', '2018-11-23 16:39:49', '2018-11-23 16:39:49');
+INSERT INTO `t_ser_apply_code_201811` VALUES (92, 68, 'http://9suyuan.com/6/l6t3KviMJs2p', '20181123171946', '2018-11-23 17:19:52', '2018-11-23 17:19:52');
+INSERT INTO `t_ser_apply_code_201811` VALUES (93, 69, 'http://9suyuan.com/6/KYcjbMr4Gcuq', '20181123171946', '2018-11-23 17:19:52', '2018-11-23 17:19:52');
+INSERT INTO `t_ser_apply_code_201811` VALUES (94, 70, 'http://9suyuan.com/6/rwD60EkHvqKA', '20181123171946', '2018-11-23 17:19:52', '2018-11-23 17:19:52');
+INSERT INTO `t_ser_apply_code_201811` VALUES (95, 71, 'http://9suyuan.com/6/18z3Wbm70prX', '20181123171946', '2018-11-23 17:19:52', '2018-11-23 17:19:52');
+INSERT INTO `t_ser_apply_code_201811` VALUES (96, 72, 'http://9suyuan.com/6/rovLc6miij4V', '20181123171946', '2018-11-23 17:19:52', '2018-11-23 17:19:52');
+INSERT INTO `t_ser_apply_code_201811` VALUES (97, 73, 'http://9suyuan.com/6/Pur5LSfflzNm', '20181123171939', '2018-11-23 17:19:54', '2018-11-23 17:19:54');
+INSERT INTO `t_ser_apply_code_201811` VALUES (98, 74, 'http://9suyuan.com/6/e6N0oTcd9CS2', '20181123171939', '2018-11-23 17:19:54', '2018-11-23 17:19:54');
+INSERT INTO `t_ser_apply_code_201811` VALUES (99, 75, 'http://9suyuan.com/6/nhuRejhbIjFn', '20181123171939', '2018-11-23 17:19:54', '2018-11-23 17:19:54');
+INSERT INTO `t_ser_apply_code_201811` VALUES (100, 76, 'http://9suyuan.com/6/bDHd92oeyMUg', '20181123171939', '2018-11-23 17:19:54', '2018-11-23 17:19:54');
+INSERT INTO `t_ser_apply_code_201811` VALUES (101, 77, 'http://9suyuan.com/6/4tdiiwl2tRnq', '20181123171939', '2018-11-23 17:19:54', '2018-11-23 17:19:54');
 COMMIT;
 
 -- ----------------------------
@@ -111,7 +153,7 @@ CREATE TABLE `t_ser_apply_code_info` (
   `create_time` datetime DEFAULT NULL COMMENT '创建时间',
   `update_time` datetime DEFAULT NULL COMMENT '修改时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='溯源码申请';
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='溯源码申请';
 
 -- ----------------------------
 -- Records of t_ser_apply_code_info
@@ -120,6 +162,13 @@ BEGIN;
 INSERT INTO `t_ser_apply_code_info` VALUES (1, '20181120100517', 2, 2, 1, 10, 1, '201811', '2018-11-20 10:05:18', '2018-11-21 11:35:12');
 INSERT INTO `t_ser_apply_code_info` VALUES (2, '20181121110645', 2, 1, 1, 4, 1, '201811', '2018-11-21 11:06:45', '2018-11-21 11:35:12');
 INSERT INTO `t_ser_apply_code_info` VALUES (3, '20181121110700', 2, 2, 2, 5, 1, '201811', '2018-11-21 11:07:01', '2018-11-21 11:35:08');
+INSERT INTO `t_ser_apply_code_info` VALUES (4, '20181123161225', 2, 1, 2, 5, 1, '201811', '2018-11-23 16:12:25', '2018-11-23 16:16:11');
+INSERT INTO `t_ser_apply_code_info` VALUES (5, '20181123161626', 2, 2, 2, 5, 1, '201811', '2018-11-23 16:16:26', '2018-11-23 16:16:33');
+INSERT INTO `t_ser_apply_code_info` VALUES (6, '20181123163800', 2, 1, 2, 5, 1, '201811', '2018-11-23 16:38:00', '2018-11-23 16:38:08');
+INSERT INTO `t_ser_apply_code_info` VALUES (7, '20181123163856', 2, 2, 2, 5, 1, '201811', '2018-11-23 16:38:56', '2018-11-23 16:39:02');
+INSERT INTO `t_ser_apply_code_info` VALUES (8, '20181123163943', 2, 2, 1, 4, 1, '201811', '2018-11-23 16:39:43', '2018-11-23 16:39:49');
+INSERT INTO `t_ser_apply_code_info` VALUES (9, '20181123171939', 2, 2, 2, 5, 1, '201811', '2018-11-23 17:19:40', '2018-11-23 17:19:54');
+INSERT INTO `t_ser_apply_code_info` VALUES (10, '20181123171946', 2, 2, 2, 5, 1, '201811', '2018-11-23 17:19:47', '2018-11-23 17:19:52');
 COMMIT;
 
 -- ----------------------------
@@ -289,7 +338,18 @@ CREATE TABLE `t_ser_code_import_temp_info` (
   `left_code_type` bigint(255) DEFAULT NULL COMMENT '左码码类型（盖内外盖之类）',
   `right_code_type` bigint(255) DEFAULT NULL COMMENT '右码码类型（盖内外盖之类）',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='溯源码导入临时表';
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='溯源码导入临时表';
+
+-- ----------------------------
+-- Records of t_ser_code_import_temp_info
+-- ----------------------------
+BEGIN;
+INSERT INTO `t_ser_code_import_temp_info` VALUES (1, 2, NULL, 'http://9suyuan.com/6/Pur5LSfflzNm', 'http://9suyuan.com/6/l6t3KviMJs2p', 4, 5);
+INSERT INTO `t_ser_code_import_temp_info` VALUES (2, 2, NULL, 'http://9suyuan.com/6/e6N0oTcd9CS2', 'http://9suyuan.com/6/KYcjbMr4Gcuq', 4, 5);
+INSERT INTO `t_ser_code_import_temp_info` VALUES (3, 2, NULL, 'http://9suyuan.com/6/nhuRejhbIjFn', 'http://9suyuan.com/6/rwD60EkHvqKA', 4, 5);
+INSERT INTO `t_ser_code_import_temp_info` VALUES (4, 2, NULL, 'http://9suyuan.com/6/bDHd92oeyMUg', 'http://9suyuan.com/6/18z3Wbm70prX', 4, 5);
+INSERT INTO `t_ser_code_import_temp_info` VALUES (5, 2, NULL, 'http://9suyuan.com/6/4tdiiwl2tRnq', 'http://9suyuan.com/6/rovLc6miij4V', 4, 5);
+COMMIT;
 
 -- ----------------------------
 -- Table structure for t_ser_code_import_template_info
@@ -313,13 +373,14 @@ CREATE TABLE `t_ser_code_import_template_info` (
   CONSTRAINT `t_ser_code_import_template_info_ibfk_3` FOREIGN KEY (`product_id`) REFERENCES `t_ser_brand_series_product_info` (`id`),
   CONSTRAINT `t_ser_code_import_template_info_ibfk_4` FOREIGN KEY (`left_code_type_id`) REFERENCES `t_ser_code_type3_info` (`id`),
   CONSTRAINT `t_ser_code_import_template_info_ibfk_5` FOREIGN KEY (`right_code_type_id`) REFERENCES `t_ser_code_type3_info` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='溯源码导入模板';
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='溯源码导入模板';
 
 -- ----------------------------
 -- Records of t_ser_code_import_template_info
 -- ----------------------------
 BEGIN;
 INSERT INTO `t_ser_code_import_template_info` VALUES (1, 5, '盖内-盖外', 1, 1, 2, '产品1的盖内外模板', 0, '2018-11-14 15:23:55', '2018-11-23 13:21:37');
+INSERT INTO `t_ser_code_import_template_info` VALUES (2, 5, '盒子-箱子', 2, 4, 5, '吧啦啦啦', 0, '2018-11-23 17:22:56', '2018-11-23 17:22:56');
 COMMIT;
 
 -- ----------------------------
