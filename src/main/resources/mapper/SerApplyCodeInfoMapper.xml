@@ -8,6 +8,7 @@
         <result column="code_order" property="codeOrder"/>
         <result column="apply_user_id" property="applyUserId"/>
         <result column="code_position_id" property="codePositionId"/>
+        <result column="code_position_type_id" property="codePositionTypeId"/>
         <result column="code_type_id" property="codeTypeId"/>
         <result column="apply_count" property="applyCount"/>
         <result column="apply_state" property="applyState"/>
@@ -21,12 +22,13 @@
             resultType="com.ningyang.os.action.output.vo.web.serve.ApplyCodeVo"
     >
         select a.id as applyId,a.code_position_id as codePosition,c.code_name as codePositionName,
-        a.code_type_id as codeType,a.code_table_name as tableName,d.code_name as
-        codeTypeName,a.apply_count,a.apply_state,
-        a.create_time,b.user_name as applyUserName,a.code_order
+        a.code_type_id as codeType,a.code_table_name as tableName,d.code_name as codeTypeName,
+        a.code_position_type_id as codePositionType,e.code_name as codePositionTypeName,
+        a.apply_count,a.apply_state,a.create_time,b.user_name as applyUserName,a.code_order
         from t_ser_apply_code_info a left join t_sys_user_info b on a.apply_user_id=b.id
         left join t_ser_code_type1_info c on a.code_position_id = c.id
         left join t_ser_code_type2_info d on a.code_type_id = d.id
+        left join t_ser_code_type3_info e on a.code_position_type_id = e.id
         where 1=1
         <if test="applyCodeState!=null">
             and a.apply_state = #{applyCodeState}

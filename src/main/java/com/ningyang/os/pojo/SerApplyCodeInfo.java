@@ -35,15 +35,20 @@ public class SerApplyCodeInfo extends Model<SerApplyCodeInfo> {
     @TableField("apply_user_id")
     private Long applyUserId;
     /**
+     * 码类型
+     */
+    @TableField("code_type_id")
+    private Long codeTypeId;
+    /**
      * 码位置
      */
     @TableField("code_position_id")
     private Long codePositionId;
     /**
-     * 码类型
+     *
      */
-    @TableField("code_type_id")
-    private Long codeTypeId;
+    @TableField("code_position_type_id")
+    private Long codePositionTypeId;
     /**
      * 申请数量
      */
@@ -70,7 +75,6 @@ public class SerApplyCodeInfo extends Model<SerApplyCodeInfo> {
     @TableField("update_time")
     private Date updateTime;
 
-
     public Long getId() {
         return id;
     }
@@ -95,6 +99,14 @@ public class SerApplyCodeInfo extends Model<SerApplyCodeInfo> {
         this.applyUserId = applyUserId;
     }
 
+    public Long getCodeTypeId() {
+        return codeTypeId;
+    }
+
+    public void setCodeTypeId(Long codeTypeId) {
+        this.codeTypeId = codeTypeId;
+    }
+
     public Long getCodePositionId() {
         return codePositionId;
     }
@@ -103,12 +115,12 @@ public class SerApplyCodeInfo extends Model<SerApplyCodeInfo> {
         this.codePositionId = codePositionId;
     }
 
-    public Long getCodeTypeId() {
-        return codeTypeId;
+    public Long getCodePositionTypeId() {
+        return codePositionTypeId;
     }
 
-    public void setCodeTypeId(Long codeTypeId) {
-        this.codeTypeId = codeTypeId;
+    public void setCodePositionTypeId(Long codePositionTypeId) {
+        this.codePositionTypeId = codePositionTypeId;
     }
 
     public Integer getApplyCount() {
@@ -160,15 +172,16 @@ public class SerApplyCodeInfo extends Model<SerApplyCodeInfo> {
     public String toString() {
         return "SerApplyCodeInfo{" +
                 "id=" + id +
-                ", codeOrder=" + codeOrder +
+                ", codeOrder='" + codeOrder +
                 ", applyUserId=" + applyUserId +
-                ", codePositionId=" + codePositionId +
                 ", codeTypeId=" + codeTypeId +
+                ", codePositionId=" + codePositionId +
+                ", codePositionTypeId=" + codePositionTypeId +
                 ", applyCount=" + applyCount +
                 ", applyState=" + applyState +
-                ", codeTableName=" + codeTableName +
+                ", codeTableName='" + codeTableName +
                 ", createTime=" + createTime +
                 ", updateTime=" + updateTime +
-                "}";
+                '}';
     }
 }

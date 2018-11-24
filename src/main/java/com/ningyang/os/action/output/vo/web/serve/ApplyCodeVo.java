@@ -20,6 +20,10 @@ public class ApplyCodeVo {
     private Long codePosition;
     //码位置
     private String codePositionName;
+
+    private Long codePositionType;
+    //码位置
+    private String codePositionTypeName;
     //申请人
     private String applyUserName;
     //数量
@@ -79,6 +83,22 @@ public class ApplyCodeVo {
 
     public void setCodePositionName(String codePositionName) {
         this.codePositionName = codePositionName;
+    }
+
+    public Long getCodePositionType() {
+        return codePositionType;
+    }
+
+    public void setCodePositionType(Long codePositionType) {
+        this.codePositionType = codePositionType;
+    }
+
+    public String getCodePositionTypeName() {
+        return codePositionTypeName;
+    }
+
+    public void setCodePositionTypeName(String codePositionTypeName) {
+        this.codePositionTypeName = codePositionTypeName;
     }
 
     public String getApplyUserName() {

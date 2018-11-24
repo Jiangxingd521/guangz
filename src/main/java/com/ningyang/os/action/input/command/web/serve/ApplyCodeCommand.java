@@ -12,10 +12,12 @@ public class ApplyCodeCommand extends ApiCommand {
     private Long applyId;
     //申请人
     private Long applyUserId;
-    //码类型
+    //溯源码种类
     private Long codeType;
-    //码位置
+    //溯源码类型codePositionType
     private Long codePosition;
+    //溯源码位置类型
+    private Long codePositionType;
     //码数量
     private Integer applyCount;
     //申请订单
@@ -51,6 +53,14 @@ public class ApplyCodeCommand extends ApiCommand {
 
     public void setCodePosition(Long codePosition) {
         this.codePosition = codePosition;
+    }
+
+    public Long getCodePositionType() {
+        return codePositionType;
+    }
+
+    public void setCodePositionType(Long codePositionType) {
+        this.codePositionType = codePositionType;
     }
 
     public Integer getApplyCount() {

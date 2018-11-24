@@ -59,6 +59,7 @@ public class SerApplyCodeInfoServiceImpl extends ServiceImpl<SerApplyCodeInfoMap
         info.setApplyUserId(command.getApplyUserId());
         info.setCodeTypeId(command.getCodeType());
         info.setCodePositionId(command.getCodePosition());
+        info.setCodePositionTypeId(command.getCodePositionType());
         info.setApplyCount(command.getApplyCount());
         info.setApplyState(0);
         info.setCreateTime(new Date());
