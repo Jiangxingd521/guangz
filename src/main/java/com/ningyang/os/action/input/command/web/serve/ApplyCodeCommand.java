@@ -14,7 +14,7 @@ public class ApplyCodeCommand extends ApiCommand {
     private Long applyUserId;
     //溯源码种类
     private Long codeType;
-    //溯源码类型codePositionType
+    //溯源码类型
     private Long codePosition;
     //溯源码位置类型
     private Long codePositionType;
