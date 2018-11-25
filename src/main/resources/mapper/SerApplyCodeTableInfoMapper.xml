@@ -5,10 +5,17 @@
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.ningyang.os.pojo.SerApplyCodeTableInfo">
         <id column="id" property="id" />
-        <result column="code_order" property="codeOrder" />
+        <result column="code_flag" property="codeFlag" />
         <result column="code_table_name" property="codeTableName" />
         <result column="create_time" property="createTime" />
         <result column="update_time" property="updateTime" />
     </resultMap>
+
+    <select id="selectCodeTableList"
+            parameterType="String"
+            resultType="String"
+    >
+        select DISTINCT a.code_table_name from t_ser_apply_code_table_info a where a.code_flag =#{leftCodeFlag}
+    </select>
 
 </mapper>

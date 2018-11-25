@@ -13,6 +13,7 @@ import com.ningyang.os.controller.system.BaseController;
 import com.ningyang.os.pojo.SerApplyCodeTemplate;
 import com.ningyang.os.pojo.SysUserInfo;
 import com.ningyang.os.service.ISerApplyCodeInfoService;
+import com.ningyang.os.service.ISerApplyCodeTableInfoService;
 import com.ningyang.os.service.ISerApplyCodeTemplateService;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang.StringUtils;
@@ -58,6 +59,8 @@ public class CodeApplyController extends BaseController {
     private ISerApplyCodeTemplateService templateService;
     @Autowired
     private SystemConfig config;
+    @Autowired
+    private ISerApplyCodeTableInfoService tableInfoService;
 
     @GetMapping("getCodeApplyPage")
     public Map<String, Object> getCodeApplyPage(
@@ -133,12 +136,13 @@ public class CodeApplyController extends BaseController {
     ) {
         String centerCode = command.getApiCode();
         String nodeCode = getAuthorizationCode(1);
-
+        System.out.println(JSONObject.toJSONString(command));
         if (centerCode.equals(nodeCode)) {
             boolean codeFlag = templateService.addBatch(command);
             if (codeFlag) {
                 boolean applyFlag = infoService.updateApplyState(command);
                 if (applyFlag) {
+                    tableInfoService.addCodeFlag(command.getCodeFlag());
                     return WebResult.success().toMap();
                 }
                 return WebResult.failure(EDIT_ERROR.getInfo()).toMap();

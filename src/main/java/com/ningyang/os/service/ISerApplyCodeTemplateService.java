@@ -17,4 +17,6 @@ public interface ISerApplyCodeTemplateService extends IService<SerApplyCodeTempl
     boolean addBatch(CenterCodeCommand command);
 
     List<SerApplyCodeTemplate> findCodeVoList(QueryApplyCodeCondition condition);
+
+    SerApplyCodeTemplate findCodeByTables(String codeTables, String codeContent);
 }

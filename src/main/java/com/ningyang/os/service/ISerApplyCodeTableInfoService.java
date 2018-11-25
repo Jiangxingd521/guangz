@@ -13,4 +13,8 @@ import com.ningyang.os.pojo.SerApplyCodeTableInfo;
  */
 public interface ISerApplyCodeTableInfoService extends IService<SerApplyCodeTableInfo> {
 
+    boolean addCodeFlag(String codeFlag);
+
+    String findCodeTableList(String leftCodeFlag);
+
 }

@@ -18,4 +18,6 @@ public interface SerApplyCodeTemplateMapper extends BaseMapper<SerApplyCodeTempl
 
     List<SerApplyCodeTemplate> selectCodeVoList(QueryApplyCodeCondition condition);
 
+    SerApplyCodeTemplate selectCodeByTables(QueryApplyCodeCondition condition);
+
 }

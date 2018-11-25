@@ -15,6 +15,12 @@ public class CenterCodeCommand extends ApiCommand {
     private int applyState;
     //码订单
     private String codeOrder;
+    //溯源码标识
+    private String codeFlag;
+    //溯源码位置
+    private int codePositionId;
+    //溯源码位置类型
+    private int codePositionTypeId;
     //溯源码
     private List<CenterCodeDto> codeVoList;
 
@@ -32,6 +38,30 @@ public class CenterCodeCommand extends ApiCommand {
 
     public void setCodeOrder(String codeOrder) {
         this.codeOrder = codeOrder;
+    }
+
+    public String getCodeFlag() {
+        return codeFlag;
+    }
+
+    public void setCodeFlag(String codeFlag) {
+        this.codeFlag = codeFlag;
+    }
+
+    public int getCodePositionId() {
+        return codePositionId;
+    }
+
+    public void setCodePositionId(int codePositionId) {
+        this.codePositionId = codePositionId;
+    }
+
+    public int getCodePositionTypeId() {
+        return codePositionTypeId;
+    }
+
+    public void setCodePositionTypeId(int codePositionTypeId) {
+        this.codePositionTypeId = codePositionTypeId;
     }
 
     public List<CenterCodeDto> getCodeVoList() {

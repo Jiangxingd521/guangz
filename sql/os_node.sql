@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50715
 File Encoding         : 65001
 
-Date: 2018-11-25 00:57:03
+Date: 2018-11-25 13:31:13
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -45,37 +45,36 @@ CREATE TABLE `t_ser_apply_code_201811` (
   `center_id` bigint(20) DEFAULT NULL COMMENT '中心id',
   `code_content` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '溯源码内容',
   `code_order` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '溯源码订单号',
+  `code_position` bigint(255) DEFAULT NULL COMMENT '溯源码位置',
+  `code_position_type` bigint(255) DEFAULT NULL COMMENT '溯源码位置类型',
   `create_time` datetime DEFAULT NULL COMMENT '创建时间',
   `update_time` datetime DEFAULT NULL COMMENT '修改时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='溯源码';
+) ENGINE=InnoDB AUTO_INCREMENT=97 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='溯源码';
 
 -- ----------------------------
 -- Records of t_ser_apply_code_201811
 -- ----------------------------
-INSERT INTO `t_ser_apply_code_201811` VALUES ('1', '1', 'http://9suyuan.com/6/0EX0X8dyDh', '20181125003220', '2018-11-25 00:44:52', '2018-11-25 00:44:52');
-INSERT INTO `t_ser_apply_code_201811` VALUES ('2', '2', 'http://9suyuan.com/6/4brV05RKug', '20181125003220', '2018-11-25 00:44:52', '2018-11-25 00:44:52');
-INSERT INTO `t_ser_apply_code_201811` VALUES ('3', '3', 'http://9suyuan.com/6/ZWKVvQ41oy', '20181125003220', '2018-11-25 00:44:52', '2018-11-25 00:44:52');
-INSERT INTO `t_ser_apply_code_201811` VALUES ('4', '4', 'http://9suyuan.com/6/aYfA36EHFU', '20181125003220', '2018-11-25 00:44:52', '2018-11-25 00:44:52');
-INSERT INTO `t_ser_apply_code_201811` VALUES ('5', '5', 'http://9suyuan.com/6/SuDSRod5OX', '20181125003220', '2018-11-25 00:44:52', '2018-11-25 00:44:52');
-
--- ----------------------------
--- Table structure for t_ser_apply_code_201812
--- ----------------------------
-DROP TABLE IF EXISTS `t_ser_apply_code_201812`;
-CREATE TABLE `t_ser_apply_code_201812` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '主键',
-  `center_id` bigint(20) DEFAULT NULL COMMENT '中心id',
-  `code_content` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '溯源码内容',
-  `code_order` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '溯源码订单号',
-  `create_time` datetime DEFAULT NULL COMMENT '创建时间',
-  `update_time` datetime DEFAULT NULL COMMENT '修改时间',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='溯源码';
-
--- ----------------------------
--- Records of t_ser_apply_code_201812
--- ----------------------------
+INSERT INTO `t_ser_apply_code_201811` VALUES ('77', '62', 'http://9suyuan.com/6/cQzbhFFg52/11', '20181125123952', '0', '0', '2018-11-25 12:39:57', '2018-11-25 12:39:57');
+INSERT INTO `t_ser_apply_code_201811` VALUES ('78', '63', 'http://9suyuan.com/6/KS8yKSI7Xy/11', '20181125123952', '0', '0', '2018-11-25 12:39:57', '2018-11-25 12:39:57');
+INSERT INTO `t_ser_apply_code_201811` VALUES ('79', '64', 'http://9suyuan.com/6/ougZHZFwrn/11', '20181125123952', '0', '0', '2018-11-25 12:39:57', '2018-11-25 12:39:57');
+INSERT INTO `t_ser_apply_code_201811` VALUES ('80', '65', 'http://9suyuan.com/6/KPkDQFhR6v/11', '20181125123952', '0', '0', '2018-11-25 12:39:57', '2018-11-25 12:39:57');
+INSERT INTO `t_ser_apply_code_201811` VALUES ('81', '66', 'http://9suyuan.com/6/WY9BKhTUre/11', '20181125123952', '0', '0', '2018-11-25 12:39:57', '2018-11-25 12:39:57');
+INSERT INTO `t_ser_apply_code_201811` VALUES ('82', '67', 'http://9suyuan.com/6/p2Vp4UeRMYlx/11', '20181125124200', '2', '2', '2018-11-25 12:42:26', '2018-11-25 12:42:26');
+INSERT INTO `t_ser_apply_code_201811` VALUES ('83', '68', 'http://9suyuan.com/6/aksCLdcAsghf/11', '20181125124200', '2', '2', '2018-11-25 12:42:26', '2018-11-25 12:42:26');
+INSERT INTO `t_ser_apply_code_201811` VALUES ('84', '69', 'http://9suyuan.com/6/HOcFZwe5VPfp/11', '20181125124200', '2', '2', '2018-11-25 12:42:26', '2018-11-25 12:42:26');
+INSERT INTO `t_ser_apply_code_201811` VALUES ('85', '70', 'http://9suyuan.com/6/1H7n9Ypxgb7h/11', '20181125124200', '2', '2', '2018-11-25 12:42:26', '2018-11-25 12:42:26');
+INSERT INTO `t_ser_apply_code_201811` VALUES ('86', '71', 'http://9suyuan.com/6/hr7lqVkC1yBP/11', '20181125124200', '2', '2', '2018-11-25 12:42:26', '2018-11-25 12:42:26');
+INSERT INTO `t_ser_apply_code_201811` VALUES ('87', '72', 'http://9suyuan.com/6/Ngc3CZbe7L/11', '20181125124500', '1', '1', '2018-11-25 12:45:05', '2018-11-25 12:45:05');
+INSERT INTO `t_ser_apply_code_201811` VALUES ('88', '73', 'http://9suyuan.com/6/yR4kMMaSU0/11', '20181125124500', '1', '1', '2018-11-25 12:45:05', '2018-11-25 12:45:05');
+INSERT INTO `t_ser_apply_code_201811` VALUES ('89', '74', 'http://9suyuan.com/6/5XKBhLNQ7X/11', '20181125124500', '1', '1', '2018-11-25 12:45:05', '2018-11-25 12:45:05');
+INSERT INTO `t_ser_apply_code_201811` VALUES ('90', '75', 'http://9suyuan.com/6/pzTuoHh9od/11', '20181125124500', '1', '1', '2018-11-25 12:45:05', '2018-11-25 12:45:05');
+INSERT INTO `t_ser_apply_code_201811` VALUES ('91', '76', 'http://9suyuan.com/6/fNtEDOXM9V/11', '20181125124500', '1', '1', '2018-11-25 12:45:05', '2018-11-25 12:45:05');
+INSERT INTO `t_ser_apply_code_201811` VALUES ('92', '77', 'http://9suyuan.com/6/Qpqbiep5xCJ8/11', '20181125125209', '2', '4', '2018-11-25 12:52:22', '2018-11-25 12:52:22');
+INSERT INTO `t_ser_apply_code_201811` VALUES ('93', '78', 'http://9suyuan.com/6/PosaqtmVu8WC/11', '20181125125209', '2', '4', '2018-11-25 12:52:22', '2018-11-25 12:52:22');
+INSERT INTO `t_ser_apply_code_201811` VALUES ('94', '79', 'http://9suyuan.com/6/wT7PxlpLeUEB/11', '20181125125209', '2', '4', '2018-11-25 12:52:22', '2018-11-25 12:52:22');
+INSERT INTO `t_ser_apply_code_201811` VALUES ('95', '80', 'http://9suyuan.com/6/aUuRBHcgfmON/11', '20181125125209', '2', '4', '2018-11-25 12:52:22', '2018-11-25 12:52:22');
+INSERT INTO `t_ser_apply_code_201811` VALUES ('96', '81', 'http://9suyuan.com/6/IYxSaKgzxrDo/11', '20181125125209', '2', '4', '2018-11-25 12:52:22', '2018-11-25 12:52:22');
 
 -- ----------------------------
 -- Table structure for t_ser_apply_code_info
@@ -94,12 +93,15 @@ CREATE TABLE `t_ser_apply_code_info` (
   `create_time` datetime DEFAULT NULL COMMENT '创建时间',
   `update_time` datetime DEFAULT NULL COMMENT '修改时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='溯源码申请';
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='溯源码申请';
 
 -- ----------------------------
 -- Records of t_ser_apply_code_info
 -- ----------------------------
-INSERT INTO `t_ser_apply_code_info` VALUES ('1', '20181125003220', '2', '2', '1', '1', '5', '1', '201811', '2018-11-25 00:32:21', '2018-11-25 00:44:52');
+INSERT INTO `t_ser_apply_code_info` VALUES ('12', '20181125123952', '2', '2', '1', '1', '5', '1', '201811', '2018-11-25 12:39:52', '2018-11-25 12:39:57');
+INSERT INTO `t_ser_apply_code_info` VALUES ('13', '20181125124200', '2', '2', '2', '2', '5', '1', '201811', '2018-11-25 12:42:01', '2018-11-25 12:42:26');
+INSERT INTO `t_ser_apply_code_info` VALUES ('14', '20181125124500', '2', '2', '1', '1', '5', '1', '201811', '2018-11-25 12:45:01', '2018-11-25 12:45:05');
+INSERT INTO `t_ser_apply_code_info` VALUES ('15', '20181125125209', '2', '2', '2', '4', '5', '1', '201811', '2018-11-25 12:52:10', '2018-11-25 12:52:22');
 
 -- ----------------------------
 -- Table structure for t_ser_apply_code_table_info
@@ -107,16 +109,20 @@ INSERT INTO `t_ser_apply_code_info` VALUES ('1', '20181125003220', '2', '2', '1'
 DROP TABLE IF EXISTS `t_ser_apply_code_table_info`;
 CREATE TABLE `t_ser_apply_code_table_info` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `code_order` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '溯源码申请订单号',
+  `code_flag` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '溯源码标识',
   `code_table_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '溯源码存在的表',
   `create_time` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
   `update_time` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='溯源码申请对应的存放表';
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='溯源码申请对应的存放表';
 
 -- ----------------------------
 -- Records of t_ser_apply_code_table_info
 -- ----------------------------
+INSERT INTO `t_ser_apply_code_table_info` VALUES ('11', '11', 't_ser_apply_code_201811', '2018-11-25 12:39:57', '2018-11-25 12:39:57');
+INSERT INTO `t_ser_apply_code_table_info` VALUES ('12', '11', 't_ser_apply_code_201811', '2018-11-25 12:42:26', '2018-11-25 12:42:26');
+INSERT INTO `t_ser_apply_code_table_info` VALUES ('13', '11', 't_ser_apply_code_201811', '2018-11-25 12:45:05', '2018-11-25 12:45:05');
+INSERT INTO `t_ser_apply_code_table_info` VALUES ('14', '11', 't_ser_apply_code_201811', '2018-11-25 12:52:22', '2018-11-25 12:52:22');
 
 -- ----------------------------
 -- Table structure for t_ser_brand_info
@@ -287,8 +293,8 @@ CREATE TABLE `t_ser_code_import_template_info` (
 -- ----------------------------
 -- Records of t_ser_code_import_template_info
 -- ----------------------------
-INSERT INTO `t_ser_code_import_template_info` VALUES ('1', '5', '盖内-盖外', '1', '1', '2', '产品1的盖内外模板', '0', '2018-11-14 15:23:55', '2018-11-23 13:21:37');
-INSERT INTO `t_ser_code_import_template_info` VALUES ('2', '5', '盒子-箱子', '2', '4', '5', '吧啦啦啦', '0', '2018-11-23 17:22:56', '2018-11-23 17:22:56');
+INSERT INTO `t_ser_code_import_template_info` VALUES ('1', '5', '盖内-盖外', '1', '1', '2', '产品1的盖内外模板', '0', '2018-11-14 15:23:55', '2018-11-25 12:57:18');
+INSERT INTO `t_ser_code_import_template_info` VALUES ('2', '5', '盒子-箱子', '2', '4', '5', '吧啦啦啦', '0', '2018-11-23 17:22:56', '2018-11-25 12:57:04');
 
 -- ----------------------------
 -- Table structure for t_ser_code_import_temp_info
@@ -4051,6 +4057,8 @@ BEGIN
   `center_id` bigint(20) DEFAULT NULL COMMENT "中心id",
   `code_content` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT "溯源码内容",
   `code_order` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT "溯源码订单号",
+	`code_position` bigint(255) DEFAULT NULL COMMENT "溯源码位置",
+	`code_position_type` bigint(255) DEFAULT NULL COMMENT "溯源码位置类型",
   `create_time` datetime DEFAULT NULL COMMENT "创建时间",
   `update_time` datetime DEFAULT NULL COMMENT "修改时间",
 	PRIMARY KEY (`id`)

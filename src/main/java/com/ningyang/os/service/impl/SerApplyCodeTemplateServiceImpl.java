@@ -34,7 +34,7 @@ public class SerApplyCodeTemplateServiceImpl extends ServiceImpl<SerApplyCodeTem
     public boolean addBatch(CenterCodeCommand command) {
         List<SerApplyCodeTemplate> list = new ArrayList<>();
         for (CenterCodeDto dto : command.getCodeVoList()) {
-            SerApplyCodeTemplate code = setQRCode(dto.getCenterCodeId(), dto.getCodeContent(), dto.getCodeOrder());
+            SerApplyCodeTemplate code = setQRCode(dto.getCenterCodeId(), dto.getCodeContent(), dto.getCodeOrder(),command.getCodePositionId(),command.getCodePositionTypeId());
             list.add(code);
         }
         TemplateCodeCommand codeCommand = new TemplateCodeCommand();
@@ -52,6 +52,14 @@ public class SerApplyCodeTemplateServiceImpl extends ServiceImpl<SerApplyCodeTem
         return baseMapper.selectCodeVoList(condition);
     }
 
+
+    @Override
+    public SerApplyCodeTemplate findCodeByTables(String codeTables, String codeContent) {
+        QueryApplyCodeCondition condition = new QueryApplyCodeCondition();
+        condition.setTableName(codeTables);
+        condition.setCodeContent(codeContent);
+        return baseMapper.selectCodeByTables(condition);
+    }
 
     /**
      * 生成溯源码表名
@@ -73,15 +81,16 @@ public class SerApplyCodeTemplateServiceImpl extends ServiceImpl<SerApplyCodeTem
      * @param codeOrder
      * @return
      */
-    private SerApplyCodeTemplate setQRCode(Long centerId, String codeContent, String codeOrder) {
+    private SerApplyCodeTemplate setQRCode(Long centerId, String codeContent, String codeOrder, int codePosition, int codePositionType) {
         SerApplyCodeTemplate code = new SerApplyCodeTemplate();
         code.setCenterId(centerId);
         code.setCodeOrder(codeOrder);
         code.setCodeContent(codeContent);
+        code.setCodePosition(codePosition);
+        code.setCodePositionType(codePositionType);
         code.setCreateTime(new Date());
         code.setUpdateTime(new Date());
         return code;
     }
-
 
 }

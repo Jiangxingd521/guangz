@@ -25,10 +25,10 @@ public class SerApplyCodeTableInfo extends Model<SerApplyCodeTableInfo> {
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;
     /**
-     * 溯源码申请订单号
+     * 溯源码标识
      */
-    @TableField("code_order")
-    private String codeOrder;
+    @TableField("code_flag")
+    private String codeFlag;
     /**
      * 溯源码存在的表
      */
@@ -48,12 +48,12 @@ public class SerApplyCodeTableInfo extends Model<SerApplyCodeTableInfo> {
         this.id = id;
     }
 
-    public String getCodeOrder() {
-        return codeOrder;
+    public String getCodeFlag() {
+        return codeFlag;
     }
 
-    public void setCodeOrder(String codeOrder) {
-        this.codeOrder = codeOrder;
+    public void setCodeFlag(String codeFlag) {
+        this.codeFlag = codeFlag;
     }
 
     public String getCodeTableName() {
@@ -89,7 +89,7 @@ public class SerApplyCodeTableInfo extends Model<SerApplyCodeTableInfo> {
     public String toString() {
         return "SerApplyCodeTableInfo{" +
         "id=" + id +
-        ", codeOrder=" + codeOrder +
+        ", codeFlag=" + codeFlag +
         ", codeTableName=" + codeTableName +
         ", createTime=" + createTime +
         ", updateTime=" + updateTime +

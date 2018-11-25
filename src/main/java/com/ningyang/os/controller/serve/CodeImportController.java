@@ -1,14 +1,16 @@
 package com.ningyang.os.controller.serve;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.ningyang.os.action.input.command.web.serve.ImportCodeCommand;
 import com.ningyang.os.action.input.condition.serve.QueryApplyCodeCondition;
+import com.ningyang.os.action.output.vo.web.base.CodeImportTemplateVo;
 import com.ningyang.os.action.output.vo.web.serve.ImportCodeVo;
 import com.ningyang.os.action.utils.ReadFileBackData;
 import com.ningyang.os.action.utils.WebResult;
 import com.ningyang.os.controller.system.BaseController;
-import com.ningyang.os.service.ILCodeImportFileInfoService;
-import com.ningyang.os.service.ISerCodeImportTempInfoService;
+import com.ningyang.os.pojo.SerApplyCodeTemplate;
+import com.ningyang.os.service.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,7 +44,12 @@ public class CodeImportController extends BaseController {
     private ILCodeImportFileInfoService infoService;
     @Autowired
     private ISerCodeImportTempInfoService tempInfoService;
-
+    @Autowired
+    private ISerApplyCodeTableInfoService tableInfoService;
+    @Autowired
+    private ISerCodeImportTemplateInfoService templateInfoService;
+    @Autowired
+    private ISerApplyCodeTemplateService codeTemplateService;
 
     /**
      *
@@ -97,6 +104,26 @@ public class CodeImportController extends BaseController {
             out.close();
             //获取导入文件左右码
             List<ReadFileBackData> fileList = returnReadFileData(file);
+
+            CodeImportTemplateVo templateVo = templateInfoService.findCodeImportTemplateVo(templateId);
+            //溯源码位置
+            Long codePosition = templateVo.getLeftCodeType();
+            //溯源码位置类型
+            Long codePositionType = templateVo.getLeftCodeId();
+            //校验左码是否符合
+            for(ReadFileBackData data : fileList){
+                String leftCodeFlag = data.getLData().split("/")[5];
+                //查询溯源码所在表
+                String codeTables = tableInfoService.findCodeTableList(leftCodeFlag);
+                //溯源码内容
+                String codeContent = data.getLData();
+                //溯源码
+                SerApplyCodeTemplate code = codeTemplateService.findCodeByTables(codeTables, codeContent);
+                if(code.getCodePosition()!=codePosition && code.getCodePositionType()!=codePositionType){
+                    return WebResult.failure("导入数据与使用模板有误！").toMap();
+                }
+            }
+
             //溯源码导入临时表
             boolean codeTempFlag = tempInfoService.add(fileList,templateId);
             if(codeTempFlag){
@@ -119,8 +146,5 @@ public class CodeImportController extends BaseController {
             return WebResult.failure(IMPORT_DATA_ERROR.getInfo()).toMap();
         }
     }
-
-
-
 
 }

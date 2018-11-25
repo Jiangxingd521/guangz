@@ -15,6 +15,8 @@ public class QueryApplyCodeCondition extends BaseCondition {
     private String codeOrder;
     //码类型
     private Integer codeType;
+    //溯源码内容
+    private String codeContent;
 
     public String getTableName() {
         return tableName;
@@ -38,5 +40,13 @@ public class QueryApplyCodeCondition extends BaseCondition {
 
     public void setCodeType(Integer codeType) {
         this.codeType = codeType;
+    }
+
+    public String getCodeContent() {
+        return codeContent;
+    }
+
+    public void setCodeContent(String codeContent) {
+        this.codeContent = codeContent;
     }
 }
