@@ -2,9 +2,8 @@ package com.ningyang.os.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.ningyang.os.action.output.vo.web.base.CodeTypeVo;
-import com.ningyang.os.pojo.SerCodeType1Info;
-import com.ningyang.os.pojo.SerCodeType2Info;
 import com.ningyang.os.dao.SerCodeType2InfoMapper;
+import com.ningyang.os.pojo.SerCodeType2Info;
 import com.ningyang.os.service.ISerCodeType2InfoService;
 import org.springframework.stereotype.Service;
 

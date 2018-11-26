@@ -1,11 +1,7 @@
 package com.ningyang.os.dao;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.ningyang.os.action.input.condition.base.QueryCodeCondition;
-import com.ningyang.os.action.output.vo.web.base.CodeTypeVo;
 import com.ningyang.os.pojo.SerCodeType3Info;
-
-import java.util.List;
 
 
 /**

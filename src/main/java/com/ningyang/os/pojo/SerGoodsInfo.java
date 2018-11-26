@@ -14,7 +14,7 @@ import java.io.Serializable;
  * </p>
  *
  * @author kaider
- * @since 2018-11-23
+ * @since 2018-11-26
  */
 @TableName("t_ser_goods_info")
 public class SerGoodsInfo extends Model<SerGoodsInfo> {

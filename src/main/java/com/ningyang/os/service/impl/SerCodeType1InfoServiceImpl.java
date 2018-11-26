@@ -1,10 +1,9 @@
 package com.ningyang.os.service.impl;
 
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.ningyang.os.action.output.vo.web.base.CodeTypeVo;
-import com.ningyang.os.pojo.SerCodeType1Info;
 import com.ningyang.os.dao.SerCodeType1InfoMapper;
+import com.ningyang.os.pojo.SerCodeType1Info;
 import com.ningyang.os.service.ISerCodeType1InfoService;
 import org.springframework.stereotype.Service;
 

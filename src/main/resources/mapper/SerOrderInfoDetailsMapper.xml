@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ningyang.os.dao.SerOrderInfoDetailsMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.ningyang.os.pojo.SerOrderInfoDetails">
+        <id column="id" property="id" />
+        <result column="order_id" property="orderId" />
+        <result column="product_id" property="productId" />
+        <result column="goods_id" property="goodsId" />
+        <result column="iData1" property="iData1" />
+        <result column="iData2" property="iData2" />
+        <result column="iData3" property="iData3" />
+        <result column="iData4" property="iData4" />
+        <result column="sData1" property="sData1" />
+        <result column="sData2" property="sData2" />
+        <result column="sData3" property="sData3" />
+        <result column="sData4" property="sData4" />
+        <result column="create_time" property="createTime" />
+        <result column="update_time" property="updateTime" />
+    </resultMap>
+
+</mapper>

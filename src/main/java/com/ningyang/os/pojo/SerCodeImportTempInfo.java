@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
+
 import java.io.Serializable;
 
 /**
@@ -27,11 +28,6 @@ public class SerCodeImportTempInfo extends Model<SerCodeImportTempInfo> {
      */
     @TableField("template_id")
     private Long templateId;
-    /**
-     * 左码码类型（1：内码，2：外码）
-     */
-    @TableField("code_type")
-    private Integer codeType;
     /**
      * 左码
      */
@@ -68,14 +64,6 @@ public class SerCodeImportTempInfo extends Model<SerCodeImportTempInfo> {
 
     public void setTemplateId(Long templateId) {
         this.templateId = templateId;
-    }
-
-    public Integer getCodeType() {
-        return codeType;
-    }
-
-    public void setCodeType(Integer codeType) {
-        this.codeType = codeType;
     }
 
     public String getLeftCode() {
@@ -120,7 +108,6 @@ public class SerCodeImportTempInfo extends Model<SerCodeImportTempInfo> {
         return "SerCodeImportTempInfo{" +
         "id=" + id +
         ", templateId=" + templateId +
-        ", codeType=" + codeType +
         ", leftCode=" + leftCode +
         ", rightCode=" + rightCode +
         ", leftCodeType=" + leftCodeType +

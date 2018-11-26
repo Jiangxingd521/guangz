@@ -55,6 +55,4 @@
         where 1=1 and a.id = #{templateId}
     </select>
 
-
-
 </mapper>

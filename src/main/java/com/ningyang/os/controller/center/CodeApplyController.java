@@ -58,9 +58,9 @@ public class CodeApplyController extends BaseController {
     @Autowired
     private ISerApplyCodeTemplateService templateService;
     @Autowired
-    private SystemConfig config;
-    @Autowired
     private ISerApplyCodeTableInfoService tableInfoService;
+    @Autowired
+    private SystemConfig config;
 
     @GetMapping("getCodeApplyPage")
     public Map<String, Object> getCodeApplyPage(
@@ -95,7 +95,6 @@ public class CodeApplyController extends BaseController {
                 String userCode = getAuthorizationCode(0);
                 if (StringUtils.isNotBlank(userCode)) {
                     command.setUserCode(userCode);
-
                     if (command.getCodeType() == 1) {
                         //条形码
                         command.setCodePosition(2L);
@@ -136,7 +135,7 @@ public class CodeApplyController extends BaseController {
     ) {
         String centerCode = command.getApiCode();
         String nodeCode = getAuthorizationCode(1);
-        System.out.println(JSONObject.toJSONString(command));
+//        System.out.println(JSONObject.toJSONString(command));
         if (centerCode.equals(nodeCode)) {
             boolean codeFlag = templateService.addBatch(command);
             if (codeFlag) {

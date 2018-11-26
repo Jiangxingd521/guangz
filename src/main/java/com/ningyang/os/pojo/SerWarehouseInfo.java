@@ -5,17 +5,15 @@ import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
-
-import java.io.Serializable;
 import java.util.Date;
-
+import java.io.Serializable;
 /**
  * <p>
  * 仓库信息
  * </p>
  *
  * @author kaider
- * @since 2018-11-12
+ * @since 2018-11-26
  */
 @TableName("t_ser_warehouse_info")
 public class SerWarehouseInfo extends Model<SerWarehouseInfo> {
@@ -55,10 +53,23 @@ public class SerWarehouseInfo extends Model<SerWarehouseInfo> {
     @TableField("warehouse_remark")
     private String warehouseRemark;
     /**
-     * 仓库状态（0：使用，1：未使用）
+     * 仓库状态（0：未使用，1：使用）
      */
     @TableField("warehouse_state")
     private Integer warehouseState;
+    /**
+     * 经度
+     */
+    private Double longitude;
+    /**
+     * 维度
+     */
+    private Double latitude;
+    /**
+     * 清点库存（0：不清点，1：清点）
+     */
+    @TableField("is_inventory")
+    private Integer isInventory;
     /**
      * 创建时间
      */
@@ -135,6 +146,30 @@ public class SerWarehouseInfo extends Model<SerWarehouseInfo> {
         this.warehouseState = warehouseState;
     }
 
+    public Double getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(Double longitude) {
+        this.longitude = longitude;
+    }
+
+    public Double getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(Double latitude) {
+        this.latitude = latitude;
+    }
+
+    public Integer getIsInventory() {
+        return isInventory;
+    }
+
+    public void setIsInventory(Integer isInventory) {
+        this.isInventory = isInventory;
+    }
+
     public Date getCreateTime() {
         return createTime;
     }
@@ -159,16 +194,19 @@ public class SerWarehouseInfo extends Model<SerWarehouseInfo> {
     @Override
     public String toString() {
         return "SerWarehouseInfo{" +
-                "id=" + id +
-                ", warehouseName=" + warehouseName +
-                ", userId=" + userId +
-                ", warehousePerson=" + warehousePerson +
-                ", warehousePersonMobile=" + warehousePersonMobile +
-                ", totalInventory=" + totalInventory +
-                ", warehouseRemark=" + warehouseRemark +
-                ", warehouseState=" + warehouseState +
-                ", createTime=" + createTime +
-                ", updateTime=" + updateTime +
-                "}";
+        "id=" + id +
+        ", warehouseName=" + warehouseName +
+        ", userId=" + userId +
+        ", warehousePerson=" + warehousePerson +
+        ", warehousePersonMobile=" + warehousePersonMobile +
+        ", totalInventory=" + totalInventory +
+        ", warehouseRemark=" + warehouseRemark +
+        ", warehouseState=" + warehouseState +
+        ", longitude=" + longitude +
+        ", latitude=" + latitude +
+        ", isInventory=" + isInventory +
+        ", createTime=" + createTime +
+        ", updateTime=" + updateTime +
+        "}";
     }
 }

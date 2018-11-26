@@ -1,8 +1,8 @@
 package com.ningyang.os.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.ningyang.os.pojo.SerGoodsInfo;
 import com.ningyang.os.dao.SerGoodsInfoMapper;
+import com.ningyang.os.pojo.SerGoodsInfo;
 import com.ningyang.os.service.ISerGoodsInfoService;
 import org.springframework.stereotype.Service;
 
