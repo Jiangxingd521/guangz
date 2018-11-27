@@ -5,6 +5,7 @@
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.ningyang.os.pojo.SerWarehouseGoodsInfo">
         <id column="id" property="id" />
+        <result column="source_type" property="sourceType" />
         <result column="warehouse_id" property="warehouseId" />
         <result column="goods_id" property="goodsId" />
         <result column="box_no" property="boxNo" />

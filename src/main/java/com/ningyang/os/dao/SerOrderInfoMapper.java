@@ -1,7 +1,11 @@
 package com.ningyang.os.dao;
 
+import com.ningyang.os.action.input.condition.serve.QueryOrderCondition;
+import com.ningyang.os.action.output.vo.web.serve.SaleOrderVo;
 import com.ningyang.os.pojo.SerOrderInfo;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+
+import java.util.List;
 
 /**
  * <p>
@@ -12,5 +16,9 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * @since 2018-11-26
  */
 public interface SerOrderInfoMapper extends BaseMapper<SerOrderInfo> {
+
+    List<SaleOrderVo> selectSaleOrderVoPageByCondition(QueryOrderCondition condition);
+
+    int selectSaleOrderVoPageCountByCondition(QueryOrderCondition condition);
 
 }

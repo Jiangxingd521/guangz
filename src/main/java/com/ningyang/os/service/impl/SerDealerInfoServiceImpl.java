@@ -89,4 +89,9 @@ public class SerDealerInfoServiceImpl extends ServiceImpl<SerDealerInfoMapper, S
         boolean flag2 = dealerRegionInfoService.saveBatch(dealerRegionInfoList);
         return flag1 && flag2;
     }
+
+    @Override
+    public List<DealerVo> findDealerVoListByCondition() {
+        return baseMapper.selectDealerVoListByCondition();
+    }
 }

@@ -50,6 +50,20 @@ public class Swagger2Config {
 
     private List<Parameter> setHeaderToken() {
         ParameterBuilder tokenPar = new ParameterBuilder();
+        List<Parameter> parameters = new ArrayList<>();
+        tokenPar.name("Authorization")
+                .description("token令牌")
+                .modelRef(new ModelRef("String"))
+                .parameterType("header")
+                .required(false)
+                .build();
+
+        parameters.add(tokenPar.build());
+        return parameters;
+    }
+
+    /*private List<Parameter> setHeaderTokenBack() {
+        ParameterBuilder tokenPar = new ParameterBuilder();
         ParameterBuilder authorizationCodePar = new ParameterBuilder();
 
         List<Parameter> parameters = new ArrayList<>();
@@ -72,6 +86,6 @@ public class Swagger2Config {
         parameters.add(authorizationCodePar.build());
 
         return parameters;
-    }
+    }*/
 
 }

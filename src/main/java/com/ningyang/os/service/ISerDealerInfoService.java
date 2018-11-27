@@ -7,6 +7,8 @@ import com.ningyang.os.action.input.condition.serve.QueryDealerCondition;
 import com.ningyang.os.action.output.vo.web.serve.DealerVo;
 import com.ningyang.os.pojo.SerDealerInfo;
 
+import java.util.List;
+
 
 /**
  * <p>
@@ -21,4 +23,6 @@ public interface ISerDealerInfoService extends IService<SerDealerInfo> {
     Page<DealerVo> findDealerVoPageByCondition(QueryDealerCondition condition);
 
     boolean addOrUpdate(DealerCommand command);
+
+    List<DealerVo> findDealerVoListByCondition();
 }

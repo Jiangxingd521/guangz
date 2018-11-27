@@ -11,7 +11,7 @@
  Target Server Version : 50721
  File Encoding         : 65001
 
- Date: 26/11/2018 20:10:23
+ Date: 27/11/2018 18:25:53
 */
 
 SET NAMES utf8mb4;
@@ -260,6 +260,7 @@ COMMIT;
 DROP TABLE IF EXISTS `l_ser_warehouse_goods_info`;
 CREATE TABLE `l_ser_warehouse_goods_info` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `source_type` int(255) DEFAULT NULL COMMENT '入库来源（0：生产入库，1：换货入库，2：退货入库，3：换仓入库）',
   `warehouse_id` bigint(20) DEFAULT NULL COMMENT '仓库id',
   `goods_id` bigint(20) DEFAULT NULL COMMENT '商品id',
   `box_no` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '箱码',
@@ -268,8 +269,21 @@ CREATE TABLE `l_ser_warehouse_goods_info` (
   `warehouse_in_time` datetime DEFAULT NULL COMMENT '入库时间',
   `create_time` datetime DEFAULT NULL COMMENT '创建时间',
   `update_time` datetime DEFAULT NULL COMMENT '修改时间',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='商品入库记录日志';
+  PRIMARY KEY (`id`) USING BTREE,
+  KEY `warehouse_id` (`warehouse_id`),
+  KEY `goods_id` (`goods_id`),
+  CONSTRAINT `l_ser_warehouse_goods_info_ibfk_1` FOREIGN KEY (`warehouse_id`) REFERENCES `t_ser_warehouse_info` (`id`),
+  CONSTRAINT `l_ser_warehouse_goods_info_ibfk_2` FOREIGN KEY (`goods_id`) REFERENCES `t_ser_goods_info` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='商品入库记录日志';
+
+-- ----------------------------
+-- Records of l_ser_warehouse_goods_info
+-- ----------------------------
+BEGIN;
+INSERT INTO `l_ser_warehouse_goods_info` VALUES (1, 0, 1, 1, '8000001631823255', '20181127111616', 3, '2018-11-27 11:16:17', '2018-11-27 11:16:17', '2018-11-27 11:16:17');
+INSERT INTO `l_ser_warehouse_goods_info` VALUES (2, 0, 1, 2, '8000001631823255', '20181127111616', 3, '2018-11-27 11:16:17', '2018-11-27 11:16:17', '2018-11-27 11:16:17');
+INSERT INTO `l_ser_warehouse_goods_info` VALUES (3, 0, 1, 3, '9000001005795865', '20181127111616', 3, '2018-11-27 11:16:17', '2018-11-27 11:16:17', '2018-11-27 11:16:17');
+COMMIT;
 
 -- ----------------------------
 -- Table structure for l_ser_warehouse_goods_out_info
@@ -508,7 +522,7 @@ CREATE TABLE `t_ser_brand_series_product_code_info` (
   `product_id` bigint(255) DEFAULT NULL COMMENT '产品id',
   `code_id` bigint(20) DEFAULT NULL COMMENT '码类型id',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=79 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='产品组成码信息';
+) ENGINE=InnoDB AUTO_INCREMENT=82 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='产品组成码信息';
 
 -- ----------------------------
 -- Records of t_ser_brand_series_product_code_info
@@ -518,6 +532,9 @@ INSERT INTO `t_ser_brand_series_product_code_info` VALUES (75, 5, 1);
 INSERT INTO `t_ser_brand_series_product_code_info` VALUES (76, 5, 5);
 INSERT INTO `t_ser_brand_series_product_code_info` VALUES (77, 5, 3);
 INSERT INTO `t_ser_brand_series_product_code_info` VALUES (78, 5, 4);
+INSERT INTO `t_ser_brand_series_product_code_info` VALUES (79, 6, 1);
+INSERT INTO `t_ser_brand_series_product_code_info` VALUES (80, 6, 5);
+INSERT INTO `t_ser_brand_series_product_code_info` VALUES (81, 6, 4);
 COMMIT;
 
 -- ----------------------------
@@ -567,13 +584,14 @@ CREATE TABLE `t_ser_brand_series_product_info` (
   PRIMARY KEY (`id`),
   KEY `series_id` (`series_id`),
   CONSTRAINT `t_ser_brand_series_product_info_ibfk_2` FOREIGN KEY (`series_id`) REFERENCES `t_ser_brand_series_info` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='品牌系列产品信息';
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='品牌系列产品信息';
 
 -- ----------------------------
 -- Records of t_ser_brand_series_product_info
 -- ----------------------------
 BEGIN;
 INSERT INTO `t_ser_brand_series_product_info` VALUES (5, 1, NULL, '产品1', NULL, NULL, NULL, '600ml', 56.00, 45.00, '1234asdf', '备注1', '2018-11-14 13:58:01', '2018-11-26 19:53:41', 0);
+INSERT INTO `t_ser_brand_series_product_info` VALUES (6, 2, NULL, '产品2', NULL, NULL, NULL, '600ml', 76.00, 70.00, '2345trew', '测试', '2018-11-27 13:37:07', '2018-11-27 13:37:07', 0);
 COMMIT;
 
 -- ----------------------------
@@ -717,13 +735,14 @@ CREATE TABLE `t_ser_dealer_info` (
   `create_time` datetime DEFAULT NULL COMMENT '创建时间',
   `update_time` datetime DEFAULT NULL COMMENT '修改时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='经销商信息';
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='经销商信息';
 
 -- ----------------------------
 -- Records of t_ser_dealer_info
 -- ----------------------------
 BEGIN;
 INSERT INTO `t_ser_dealer_info` VALUES (1, '经销商1', '周星星', '9528', 0, NULL, '龙口科技大厦', '123qwe', '备注1', '2018-11-15 11:24:42', '2018-11-15 11:41:19');
+INSERT INTO `t_ser_dealer_info` VALUES (2, '经销商2', '周素素', '9528', 0, NULL, '科技大厦', 'WERS', '备注2', '2018-11-27 13:13:07', '2018-11-27 13:13:07');
 COMMIT;
 
 -- ----------------------------
@@ -735,7 +754,7 @@ CREATE TABLE `t_ser_dealer_region_info` (
   `dealer_id` bigint(20) DEFAULT NULL COMMENT '经销商id',
   `region_id` bigint(20) DEFAULT NULL COMMENT '区域id',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='经销商区域';
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='经销商区域';
 
 -- ----------------------------
 -- Records of t_ser_dealer_region_info
@@ -744,6 +763,9 @@ BEGIN;
 INSERT INTO `t_ser_dealer_region_info` VALUES (13, 1, 1930);
 INSERT INTO `t_ser_dealer_region_info` VALUES (14, 1, 1931);
 INSERT INTO `t_ser_dealer_region_info` VALUES (15, 1, 1935);
+INSERT INTO `t_ser_dealer_region_info` VALUES (16, 2, 1930);
+INSERT INTO `t_ser_dealer_region_info` VALUES (17, 2, 1931);
+INSERT INTO `t_ser_dealer_region_info` VALUES (18, 2, 1935);
 COMMIT;
 
 -- ----------------------------
@@ -788,9 +810,9 @@ CREATE TABLE `t_ser_goods_info` (
 -- Records of t_ser_goods_info
 -- ----------------------------
 BEGIN;
-INSERT INTO `t_ser_goods_info` VALUES (1, 1, '第一品牌', 1, '系列1', 5, '产品1', 'http://9suyuan.com/6/C7lQnKEEvt/11', 'http://9suyuan.com/6/bHVx0aqq77zd/11', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2018-11-26 15:14:15', '2018-11-26 15:14:15');
-INSERT INTO `t_ser_goods_info` VALUES (2, 1, '第一品牌', 1, '系列1', 5, '产品1', 'http://9suyuan.com/6/yHtxbXxVfb/11', 'http://9suyuan.com/6/0Vk83Mk4Pv0p/11', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2018-11-26 15:14:15', '2018-11-26 15:14:15');
-INSERT INTO `t_ser_goods_info` VALUES (3, 1, '第一品牌', 1, '系列1', 5, '产品1', 'http://9suyuan.com/6/CbRxMRoXQf/11', 'http://9suyuan.com/6/G8FdIJif8Ir8/11', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2018-11-26 15:14:15', '2018-11-26 15:14:15');
+INSERT INTO `t_ser_goods_info` VALUES (1, 1, '第一品牌', 1, '系列1', 5, '产品1', 'http://9suyuan.com/6/C7lQnKEEvt/11', 'http://9suyuan.com/6/bHVx0aqq77zd/11', NULL, NULL, '8000001631823255', NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2018-11-26 15:14:15', '2018-11-26 15:14:15');
+INSERT INTO `t_ser_goods_info` VALUES (2, 1, '第一品牌', 1, '系列1', 5, '产品1', 'http://9suyuan.com/6/yHtxbXxVfb/11', 'http://9suyuan.com/6/0Vk83Mk4Pv0p/11', NULL, NULL, '8000001631823255', NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2018-11-26 15:14:15', '2018-11-26 15:14:15');
+INSERT INTO `t_ser_goods_info` VALUES (3, 1, '第一品牌', 1, '系列1', 5, '产品1', 'http://9suyuan.com/6/CbRxMRoXQf/11', 'http://9suyuan.com/6/G8FdIJif8Ir8/11', NULL, NULL, '9000001005795865', NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2018-11-26 15:14:15', '2018-11-26 15:14:15');
 COMMIT;
 
 -- ----------------------------
@@ -808,7 +830,8 @@ CREATE TABLE `t_ser_order_info` (
   `product_number` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '数量',
   `order_state` int(11) DEFAULT NULL COMMENT '订单状态（0：备单，1：确认订单，2：发货）',
   `order_remark` varchar(1024) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '备注',
-  `user_id` bigint(20) DEFAULT NULL COMMENT '操作人',
+  `user_id` bigint(20) DEFAULT NULL COMMENT '创建人',
+  `financial_id` bigint(20) DEFAULT NULL COMMENT '财务',
   `iData1` int(11) DEFAULT NULL,
   `iData2` int(11) DEFAULT NULL,
   `iData3` int(11) DEFAULT NULL,
@@ -820,7 +843,16 @@ CREATE TABLE `t_ser_order_info` (
   `create_time` datetime DEFAULT NULL,
   `update_time` datetime DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='销售订单表';
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='销售订单表';
+
+-- ----------------------------
+-- Records of t_ser_order_info
+-- ----------------------------
+BEGIN;
+INSERT INTO `t_ser_order_info` VALUES (2, '20181127161724', 2, NULL, NULL, NULL, 5, '20', 2, '备注1', 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-11-27 16:17:24', '2018-11-27 18:12:28');
+INSERT INTO `t_ser_order_info` VALUES (3, '20181127174041', 1, NULL, NULL, NULL, 6, '18', 2, '备注2', 2, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-11-27 17:40:42', '2018-11-27 18:23:50');
+INSERT INTO `t_ser_order_info` VALUES (6, '20181127182326', 2, NULL, NULL, NULL, 6, '2', 1, '333', 2, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-11-27 18:23:27', '2018-11-27 18:24:07');
+COMMIT;
 
 -- ----------------------------
 -- Table structure for t_ser_order_info_details
@@ -830,7 +862,7 @@ CREATE TABLE `t_ser_order_info_details` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `order_id` bigint(255) DEFAULT NULL COMMENT '订单id',
   `product_id` bigint(255) DEFAULT NULL COMMENT '产品id',
-  `goods_id` bigint(255) DEFAULT NULL,
+  `goods_id` bigint(255) DEFAULT NULL COMMENT '商品id',
   `iData1` int(11) DEFAULT NULL,
   `iData2` int(11) DEFAULT NULL,
   `iData3` int(11) DEFAULT NULL,
@@ -851,17 +883,31 @@ CREATE TABLE `t_ser_order_info_details` (
 DROP TABLE IF EXISTS `t_ser_warehouse_goods_info`;
 CREATE TABLE `t_ser_warehouse_goods_info` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `source_type` int(255) DEFAULT NULL COMMENT '入库来源（0：生产入库，1：换货入库，2：退货入库，3：换仓入库）',
   `warehouse_id` bigint(20) DEFAULT NULL COMMENT '仓库id',
   `goods_id` bigint(20) DEFAULT NULL COMMENT '商品id',
   `box_no` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '箱码',
-  `goods_state` int(255) DEFAULT NULL COMMENT '商品状态（0：未入库，1：入库，2：出库，3：丢失，4：已扫描）',
+  `goods_state` int(255) DEFAULT NULL COMMENT '商品状态（0：未入库，1：入库，2：出库，3：丢失，4：已扫描兑奖）',
   `warehouse_in_no` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '入库编号',
   `user_id` bigint(20) DEFAULT NULL COMMENT '入库人',
   `remark` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '入库备注',
   `create_time` datetime DEFAULT NULL COMMENT '入库时间',
   `update_time` datetime DEFAULT NULL COMMENT '修改时间',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='商品入库';
+  PRIMARY KEY (`id`),
+  KEY `warehouse_id` (`warehouse_id`),
+  KEY `goods_id` (`goods_id`),
+  CONSTRAINT `t_ser_warehouse_goods_info_ibfk_1` FOREIGN KEY (`warehouse_id`) REFERENCES `t_ser_warehouse_info` (`id`),
+  CONSTRAINT `t_ser_warehouse_goods_info_ibfk_2` FOREIGN KEY (`goods_id`) REFERENCES `t_ser_goods_info` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='商品入库';
+
+-- ----------------------------
+-- Records of t_ser_warehouse_goods_info
+-- ----------------------------
+BEGIN;
+INSERT INTO `t_ser_warehouse_goods_info` VALUES (1, 0, 1, 1, '8000001631823255', 1, '20181127111616', 3, '放在了xxx位置', '2018-11-27 11:16:17', '2018-11-27 11:16:17');
+INSERT INTO `t_ser_warehouse_goods_info` VALUES (2, 0, 1, 2, '8000001631823255', 1, '20181127111616', 3, '放在了xxx位置', '2018-11-27 11:16:17', '2018-11-27 11:16:17');
+INSERT INTO `t_ser_warehouse_goods_info` VALUES (3, 0, 1, 3, '9000001005795865', 1, '20181127111616', 3, '放在了xxx位置', '2018-11-27 11:16:17', '2018-11-27 11:16:17');
+COMMIT;
 
 -- ----------------------------
 -- Table structure for t_ser_warehouse_info
@@ -4241,7 +4287,7 @@ CREATE TABLE `t_sys_menu_info` (
   `create_time` timestamp NULL DEFAULT NULL COMMENT '创建时间',
   `update_time` timestamp NULL DEFAULT NULL COMMENT '修改时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='菜单信息';
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='菜单信息';
 
 -- ----------------------------
 -- Records of t_sys_menu_info
@@ -4268,6 +4314,11 @@ INSERT INTO `t_sys_menu_info` VALUES (18, 16, '仓库管理', 0, NULL, '/server/
 INSERT INTO `t_sys_menu_info` VALUES (19, 16, '溯源码申请', 0, NULL, '/center/code/apply', NULL, 3, 0, NULL, '2018-11-15 15:42:57', '2018-11-23 09:59:40');
 INSERT INTO `t_sys_menu_info` VALUES (20, 16, '溯源码导入', 0, NULL, '/server/code/import', NULL, 4, 0, NULL, '2018-11-15 15:44:12', '2018-11-23 09:59:50');
 INSERT INTO `t_sys_menu_info` VALUES (21, 16, '中心注册', 0, 'icon-link', '/center/register', NULL, 5, 0, NULL, '2018-11-19 11:27:09', '2018-11-19 11:28:24');
+INSERT INTO `t_sys_menu_info` VALUES (22, 16, '销售订单管理', 0, NULL, '/server/order/sale', NULL, 6, 0, '', '2018-11-27 11:45:23', '2018-11-27 11:59:00');
+INSERT INTO `t_sys_menu_info` VALUES (23, 16, '退换货订单管理', 0, NULL, '/server/order/return', NULL, 7, 0, NULL, '2018-11-27 11:57:46', '2018-11-27 11:59:05');
+INSERT INTO `t_sys_menu_info` VALUES (24, 22, '退回-销售订单', 1, NULL, NULL, 'sale_order_return', 2, 0, NULL, '2018-11-27 16:37:42', '2018-11-27 16:42:46');
+INSERT INTO `t_sys_menu_info` VALUES (25, 22, '同意-销售订单', 1, NULL, NULL, 'sale_order_agree', 1, 0, NULL, '2018-11-27 16:39:17', '2018-11-27 16:42:40');
+INSERT INTO `t_sys_menu_info` VALUES (26, 22, '新建-销售订单', 1, NULL, NULL, 'sale_order_add', 0, 0, NULL, '2018-11-27 16:42:35', '2018-11-27 16:42:35');
 COMMIT;
 
 -- ----------------------------
@@ -4294,7 +4345,7 @@ BEGIN;
 INSERT INTO `t_sys_navigation_bar_info` VALUES (1, '系统设置', '/sys/bar', 'el-icon-setting', 0, '系统', 0, '2018-09-28 17:14:26', '2018-11-12 17:48:41');
 INSERT INTO `t_sys_navigation_bar_info` VALUES (2, '系统基础设置', '/sys/icon', 'icon-present', 1, '系统', 0, '2018-10-01 23:16:56', '2018-11-14 11:32:16');
 INSERT INTO `t_sys_navigation_bar_info` VALUES (3, '基础设置', '/base/brand', 'icon-present', 2, '业务基础设置', 0, '2018-11-14 11:30:56', '2018-11-14 15:11:54');
-INSERT INTO `t_sys_navigation_bar_info` VALUES (4, '企业业务', '/server/dealer', 'icon-qi', 4, '经销商管理', 0, '2018-11-14 17:41:10', '2018-11-15 15:40:13');
+INSERT INTO `t_sys_navigation_bar_info` VALUES (4, '企业业务', '/server/dealer', 'icon-qi', 4, '经销商管理', 0, '2018-11-14 17:41:10', '2018-11-27 11:58:02');
 INSERT INTO `t_sys_navigation_bar_info` VALUES (5, '中心业务', '/center/code/apply', 'icon-goodsfavor', 3, '溯源业务', 0, '2018-11-15 15:41:01', '2018-11-23 10:00:27');
 COMMIT;
 
@@ -4311,7 +4362,7 @@ CREATE TABLE `t_sys_navigation_bar_menu_info` (
   KEY `menu_id` (`menu_id`) USING BTREE,
   CONSTRAINT `t_sys_navigation_bar_menu_info_ibfk_1` FOREIGN KEY (`bar_id`) REFERENCES `t_sys_navigation_bar_info` (`id`),
   CONSTRAINT `t_sys_navigation_bar_menu_info_ibfk_2` FOREIGN KEY (`menu_id`) REFERENCES `t_sys_menu_info` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='菜单关联导航';
+) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='菜单关联导航';
 
 -- ----------------------------
 -- Records of t_sys_navigation_bar_menu_info
@@ -4331,12 +4382,14 @@ INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (20, 3, 12);
 INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (21, 3, 13);
 INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (22, 3, 14);
 INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (23, 3, 15);
-INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (26, 4, 17);
-INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (27, 4, 18);
-INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (28, 4, 16);
 INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (29, 5, 16);
 INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (30, 5, 19);
 INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (31, 5, 20);
+INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (32, 4, 17);
+INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (33, 4, 18);
+INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (34, 4, 16);
+INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (35, 4, 22);
+INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (36, 4, 23);
 COMMIT;
 
 -- ----------------------------
@@ -4357,12 +4410,12 @@ CREATE TABLE `t_sys_role_info` (
 -- Records of t_sys_role_info
 -- ----------------------------
 BEGIN;
-INSERT INTO `t_sys_role_info` VALUES (1, '超级管理员', 0, 1, '2018-09-28 14:37:36', '2018-11-14 11:54:15');
-INSERT INTO `t_sys_role_info` VALUES (2, '系统管理员', 0, 0, '2018-09-28 14:38:05', '2018-11-15 15:45:04');
+INSERT INTO `t_sys_role_info` VALUES (1, '超级管理员', 0, 1, '2018-09-28 14:37:36', '2018-11-27 17:38:58');
+INSERT INTO `t_sys_role_info` VALUES (2, '系统管理员', 0, 0, '2018-09-28 14:38:05', '2018-11-27 17:39:06');
 INSERT INTO `t_sys_role_info` VALUES (3, '测试员', 0, 0, '2018-10-04 22:43:38', '2018-11-15 12:49:37');
 INSERT INTO `t_sys_role_info` VALUES (4, '仓库管理员', 0, 0, '2018-11-15 12:51:54', '2018-11-15 12:55:05');
 INSERT INTO `t_sys_role_info` VALUES (5, '销售人员', 0, 0, '2018-11-15 12:52:07', '2018-11-15 12:52:07');
-INSERT INTO `t_sys_role_info` VALUES (6, '财务人员', 0, 0, '2018-11-15 12:52:14', '2018-11-15 12:52:14');
+INSERT INTO `t_sys_role_info` VALUES (6, '财务人员', 0, 0, '2018-11-15 12:52:14', '2018-11-27 16:40:58');
 COMMIT;
 
 -- ----------------------------
@@ -4378,7 +4431,16 @@ CREATE TABLE `t_sys_role_menu_info` (
   KEY `menu_id` (`menu_id`) USING BTREE,
   CONSTRAINT `t_sys_role_menu_info_ibfk_1` FOREIGN KEY (`role_id`) REFERENCES `t_sys_role_info` (`id`),
   CONSTRAINT `t_sys_role_menu_info_ibfk_2` FOREIGN KEY (`menu_id`) REFERENCES `t_sys_menu_info` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='角色关联菜单';
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='角色关联菜单';
+
+-- ----------------------------
+-- Records of t_sys_role_menu_info
+-- ----------------------------
+BEGIN;
+INSERT INTO `t_sys_role_menu_info` VALUES (3, 6, 25);
+INSERT INTO `t_sys_role_menu_info` VALUES (4, 6, 24);
+INSERT INTO `t_sys_role_menu_info` VALUES (5, 2, 26);
+COMMIT;
 
 -- ----------------------------
 -- Table structure for t_sys_role_navigation_bar_info
@@ -4393,7 +4455,7 @@ CREATE TABLE `t_sys_role_navigation_bar_info` (
   KEY `bar_id` (`bar_id`) USING BTREE,
   CONSTRAINT `t_sys_role_navigation_bar_info_ibfk_1` FOREIGN KEY (`role_id`) REFERENCES `t_sys_role_info` (`id`),
   CONSTRAINT `t_sys_role_navigation_bar_info_ibfk_2` FOREIGN KEY (`bar_id`) REFERENCES `t_sys_navigation_bar_info` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='角色关联导航栏';
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='角色关联导航栏';
 
 -- ----------------------------
 -- Records of t_sys_role_navigation_bar_info
@@ -4404,6 +4466,7 @@ INSERT INTO `t_sys_role_navigation_bar_info` VALUES (3, 1, 2);
 INSERT INTO `t_sys_role_navigation_bar_info` VALUES (8, 2, 3);
 INSERT INTO `t_sys_role_navigation_bar_info` VALUES (9, 2, 4);
 INSERT INTO `t_sys_role_navigation_bar_info` VALUES (10, 2, 5);
+INSERT INTO `t_sys_role_navigation_bar_info` VALUES (11, 6, 4);
 COMMIT;
 
 -- ----------------------------
@@ -4424,7 +4487,7 @@ CREATE TABLE `t_sys_user_info` (
   `create_time` timestamp NULL DEFAULT NULL COMMENT '创建时间',
   `update_time` timestamp NULL DEFAULT NULL COMMENT '修改时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='用户信息表';
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='用户信息表';
 
 -- ----------------------------
 -- Records of t_sys_user_info
@@ -4434,6 +4497,7 @@ INSERT INTO `t_sys_user_info` VALUES (1, 0, '管理员', 'sadmin', '25d55ad283aa
 INSERT INTO `t_sys_user_info` VALUES (2, 1, '系统管理员', 'admin', '25d55ad283aa400af464c76d713c07ad', '12345678', 0, 0, NULL, 1, '2018-10-04 21:54:27', '2018-10-21 16:16:30');
 INSERT INTO `t_sys_user_info` VALUES (3, 1, '仓库员1', 'ck1', '25d55ad283aa400af464c76d713c07ad', '12345678', 0, 0, NULL, 1, '2018-11-15 12:53:35', '2018-11-15 12:53:35');
 INSERT INTO `t_sys_user_info` VALUES (4, 1, '仓库员2', 'ck2', '25d55ad283aa400af464c76d713c07ad', '12345678', 0, 0, NULL, 1, '2018-11-15 12:53:50', '2018-11-15 12:53:50');
+INSERT INTO `t_sys_user_info` VALUES (5, 1, '财务1', 'cw1', '25d55ad283aa400af464c76d713c07ad', '12345678', 0, 0, NULL, 1, '2018-11-27 16:41:12', '2018-11-27 16:41:12');
 COMMIT;
 
 -- ----------------------------
@@ -4449,7 +4513,7 @@ CREATE TABLE `t_sys_user_role_info` (
   KEY `role_id` (`role_id`) USING BTREE,
   CONSTRAINT `t_sys_user_role_info_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `t_sys_user_info` (`id`),
   CONSTRAINT `t_sys_user_role_info_ibfk_2` FOREIGN KEY (`role_id`) REFERENCES `t_sys_role_info` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='用户关联角色';
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='用户关联角色';
 
 -- ----------------------------
 -- Records of t_sys_user_role_info
@@ -4460,6 +4524,7 @@ INSERT INTO `t_sys_user_role_info` VALUES (2, 1, 2);
 INSERT INTO `t_sys_user_role_info` VALUES (3, 2, 2);
 INSERT INTO `t_sys_user_role_info` VALUES (4, 3, 4);
 INSERT INTO `t_sys_user_role_info` VALUES (5, 4, 4);
+INSERT INTO `t_sys_user_role_info` VALUES (6, 5, 6);
 COMMIT;
 
 -- ----------------------------

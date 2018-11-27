@@ -24,6 +24,11 @@ public class LSerWarehouseGoodsInfo extends Model<LSerWarehouseGoodsInfo> {
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;
     /**
+     * 入库来源（0：生产入库，1：换货入库，2：退货入库，3：换仓入库）
+     */
+    @TableField("source_type")
+    private Integer SourceType;
+    /**
      * 仓库id
      */
     @TableField("warehouse_id")
@@ -71,6 +76,14 @@ public class LSerWarehouseGoodsInfo extends Model<LSerWarehouseGoodsInfo> {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Integer getSourceType() {
+        return SourceType;
+    }
+
+    public void setSourceType(Integer sourceType) {
+        SourceType = sourceType;
     }
 
     public Long getWarehouseId() {

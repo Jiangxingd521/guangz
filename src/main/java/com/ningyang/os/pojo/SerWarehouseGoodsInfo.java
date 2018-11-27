@@ -23,6 +23,11 @@ public class SerWarehouseGoodsInfo extends Model<SerWarehouseGoodsInfo> {
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;
     /**
+     * 入库来源（0：生产入库，1：换货入库，2：退货入库，3：换仓入库）
+     */
+    @TableField("source_type")
+    private Integer sourceType;
+    /**
      * 仓库id
      */
     @TableField("warehouse_id")
@@ -38,7 +43,7 @@ public class SerWarehouseGoodsInfo extends Model<SerWarehouseGoodsInfo> {
     @TableField("box_no")
     private String boxNo;
     /**
-     * 商品状态（0：未入库，1：入库，2：出库，3：丢失，4：已扫描）
+     * 商品状态（0：未入库，1：入库，2：出库，3：丢失，4：已扫描兑奖）
      */
     @TableField("goods_state")
     private Integer goodsState;
@@ -74,6 +79,14 @@ public class SerWarehouseGoodsInfo extends Model<SerWarehouseGoodsInfo> {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Integer getSourceType() {
+        return sourceType;
+    }
+
+    public void setSourceType(Integer sourceType) {
+        this.sourceType = sourceType;
     }
 
     public Long getWarehouseId() {

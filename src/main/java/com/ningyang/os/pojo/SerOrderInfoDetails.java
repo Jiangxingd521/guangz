@@ -34,14 +34,6 @@ public class SerOrderInfoDetails extends Model<SerOrderInfoDetails> {
     private Long productId;
     @TableField("goods_id")
     private Long goodsId;
-    private Integer iData1;
-    private Integer iData2;
-    private Integer iData3;
-    private Integer iData4;
-    private String sData1;
-    private String sData2;
-    private String sData3;
-    private String sData4;
     @TableField("create_time")
     private Date createTime;
     @TableField("update_time")
@@ -80,70 +72,6 @@ public class SerOrderInfoDetails extends Model<SerOrderInfoDetails> {
         this.goodsId = goodsId;
     }
 
-    public Integer getiData1() {
-        return iData1;
-    }
-
-    public void setiData1(Integer iData1) {
-        this.iData1 = iData1;
-    }
-
-    public Integer getiData2() {
-        return iData2;
-    }
-
-    public void setiData2(Integer iData2) {
-        this.iData2 = iData2;
-    }
-
-    public Integer getiData3() {
-        return iData3;
-    }
-
-    public void setiData3(Integer iData3) {
-        this.iData3 = iData3;
-    }
-
-    public Integer getiData4() {
-        return iData4;
-    }
-
-    public void setiData4(Integer iData4) {
-        this.iData4 = iData4;
-    }
-
-    public String getsData1() {
-        return sData1;
-    }
-
-    public void setsData1(String sData1) {
-        this.sData1 = sData1;
-    }
-
-    public String getsData2() {
-        return sData2;
-    }
-
-    public void setsData2(String sData2) {
-        this.sData2 = sData2;
-    }
-
-    public String getsData3() {
-        return sData3;
-    }
-
-    public void setsData3(String sData3) {
-        this.sData3 = sData3;
-    }
-
-    public String getsData4() {
-        return sData4;
-    }
-
-    public void setsData4(String sData4) {
-        this.sData4 = sData4;
-    }
-
     public Date getCreateTime() {
         return createTime;
     }
@@ -172,14 +100,6 @@ public class SerOrderInfoDetails extends Model<SerOrderInfoDetails> {
         ", orderId=" + orderId +
         ", productId=" + productId +
         ", goodsId=" + goodsId +
-        ", iData1=" + iData1 +
-        ", iData2=" + iData2 +
-        ", iData3=" + iData3 +
-        ", iData4=" + iData4 +
-        ", sData1=" + sData1 +
-        ", sData2=" + sData2 +
-        ", sData3=" + sData3 +
-        ", sData4=" + sData4 +
         ", createTime=" + createTime +
         ", updateTime=" + updateTime +
         "}";

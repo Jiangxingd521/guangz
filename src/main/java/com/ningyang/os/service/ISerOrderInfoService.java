@@ -1,7 +1,11 @@
 package com.ningyang.os.service;
 
-import com.ningyang.os.pojo.SerOrderInfo;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.ningyang.os.action.input.command.web.serve.OrderSaleCommand;
+import com.ningyang.os.action.input.condition.serve.QueryOrderCondition;
+import com.ningyang.os.action.output.vo.web.serve.SaleOrderVo;
+import com.ningyang.os.pojo.SerOrderInfo;
 
 /**
  * <p>
@@ -12,5 +16,9 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @since 2018-11-26
  */
 public interface ISerOrderInfoService extends IService<SerOrderInfo> {
+
+    Page<SaleOrderVo> findSaleOrderVoPageByCondition(QueryOrderCondition condition);
+
+    boolean addOrUpdate(OrderSaleCommand command, Long operateUserId);
 
 }
