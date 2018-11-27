@@ -11,7 +11,7 @@
  Target Server Version : 50721
  File Encoding         : 65001
 
- Date: 27/11/2018 19:33:58
+ Date: 27/11/2018 19:38:02
 */
 
 SET NAMES utf8mb4;
@@ -4704,6 +4704,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `P_UPD_CommonM`(
 #in  v_imno varchar(32),
 #in  updatetype int, #´ú±íÒª¸üÐÂµÄÂëÎ»ÖÃ M3,M4£¬M5
 #in  codetype int
+# 程序执行此函数
 )
 BEGIN
 		declare flag int default true;#ÉùÃ÷Ò»¸ö¿ª¹Ø±äÁ¿flagÓÃÓÚÑ­»·½áÊøÅÐ¶ÏÄ¬ÈÏÊÇtrue;
@@ -4726,6 +4727,8 @@ BEGIN
 						until flag = false
 				end repeat;
 			close cur_param;
+			
+			call P_DELTEMPS();
 	
 END;
 ;;
