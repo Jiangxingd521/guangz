@@ -21,4 +21,5 @@ public interface SerOrderInfoMapper extends BaseMapper<SerOrderInfo> {
 
     int selectSaleOrderVoPageCountByCondition(QueryOrderCondition condition);
 
+    List<SaleOrderVo> selectSaleOrderVoListByCondition(QueryOrderCondition condition);
 }

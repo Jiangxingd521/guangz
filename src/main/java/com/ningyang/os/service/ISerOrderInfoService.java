@@ -7,6 +7,8 @@ import com.ningyang.os.action.input.condition.serve.QueryOrderCondition;
 import com.ningyang.os.action.output.vo.web.serve.SaleOrderVo;
 import com.ningyang.os.pojo.SerOrderInfo;
 
+import java.util.List;
+
 /**
  * <p>
  * 销售订单表 服务类
@@ -21,4 +23,5 @@ public interface ISerOrderInfoService extends IService<SerOrderInfo> {
 
     boolean addOrUpdate(OrderSaleCommand command, Long operateUserId);
 
+    List<SaleOrderVo> findSaleOrderVoListByCondition(QueryOrderCondition condition);
 }

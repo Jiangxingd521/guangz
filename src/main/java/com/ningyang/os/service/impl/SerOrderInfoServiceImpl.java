@@ -71,4 +71,9 @@ public class SerOrderInfoServiceImpl extends ServiceImpl<SerOrderInfoMapper, Ser
         }
         return flag;
     }
+
+    @Override
+    public List<SaleOrderVo> findSaleOrderVoListByCondition(QueryOrderCondition condition) {
+        return baseMapper.selectSaleOrderVoListByCondition(condition);
+    }
 }

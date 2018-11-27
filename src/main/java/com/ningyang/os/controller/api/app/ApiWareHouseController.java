@@ -2,11 +2,15 @@ package com.ningyang.os.controller.api.app;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.ningyang.os.action.input.command.api.ApiWarehousePutInCommand;
+import com.ningyang.os.action.input.condition.serve.QueryOrderCondition;
+import com.ningyang.os.action.output.vo.web.serve.SaleOrderVo;
 import com.ningyang.os.action.utils.WebResult;
 import com.ningyang.os.controller.system.BaseController;
 import com.ningyang.os.pojo.SerGoodsInfo;
+import com.ningyang.os.pojo.SerOrderInfo;
 import com.ningyang.os.pojo.SysUserInfo;
 import com.ningyang.os.service.ISerGoodsInfoService;
+import com.ningyang.os.service.ISerOrderInfoService;
 import com.ningyang.os.service.ISerWarehouseGoodsInfoService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
@@ -15,10 +19,7 @@ import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestHeader;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,6 +42,8 @@ public class ApiWareHouseController extends BaseController {
     private ISerGoodsInfoService goodsInfoService;
     @Autowired
     private ISerWarehouseGoodsInfoService putInService;
+    @Autowired
+    private ISerOrderInfoService orderInfoService;
 
 
     @ApiOperation(value = "入库")
@@ -77,6 +80,27 @@ public class ApiWareHouseController extends BaseController {
                     return WebResult.success().toMap();
                 }
                 return WebResult.failure(PUTIN_WAREHOUSE_ERROR.getInfo()).toMap();
+            }
+            return WebResult.failure(PERMISSION_ERROR.getInfo()).toMap();
+        } catch (Exception e) {
+            LOGGER.error(e.getMessage(), e);
+            return WebResult.failure(API_REQUEST_ERROR.getInfo()).toMap();
+        }
+    }
+
+
+    @ApiOperation(value = "销售订单列表")
+    @GetMapping("getOrderSaleList")
+    public Map<String,Object> getOrderSaleList(
+            @RequestHeader("Authorization") String userToken
+    ){
+        try {
+            SysUserInfo loginUser = getBaseUserInfo(userToken);
+            if (loginUser != null) {
+                QueryOrderCondition condition = new QueryOrderCondition();
+                condition.setOrderState(2);
+                List<SaleOrderVo> listVo = orderInfoService.findSaleOrderVoListByCondition(condition);
+                return WebResult.success().put("listVo",listVo).toMap();
             }
             return WebResult.failure(PERMISSION_ERROR.getInfo()).toMap();
         } catch (Exception e) {
