@@ -11,7 +11,7 @@
  Target Server Version : 50721
  File Encoding         : 65001
 
- Date: 27/11/2018 18:25:53
+ Date: 27/11/2018 19:33:58
 */
 
 SET NAMES utf8mb4;
@@ -606,6 +606,9 @@ CREATE TABLE `t_ser_code_import_temp_info` (
   `right_code` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '右码',
   `left_code_type` bigint(255) DEFAULT NULL COMMENT '左码码类型（盖内外盖之类）',
   `right_code_type` bigint(255) DEFAULT NULL COMMENT '右码码类型（盖内外盖之类）',
+  `import_no` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '导入的订单号',
+  `creat_time` datetime DEFAULT NULL COMMENT '创建时间',
+  `orderno` int(11) DEFAULT NULL COMMENT '排序用',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='溯源码导入临时表';
 
@@ -613,12 +616,12 @@ CREATE TABLE `t_ser_code_import_temp_info` (
 -- Records of t_ser_code_import_temp_info
 -- ----------------------------
 BEGIN;
-INSERT INTO `t_ser_code_import_temp_info` VALUES (9, 3, NULL, 'http://9suyuan.com/6/bHVx0aqq77zd/11', 'http://9suyuan.com/6/E8eUbVrgUb98/11', 2, 4);
-INSERT INTO `t_ser_code_import_temp_info` VALUES (10, 3, NULL, 'http://9suyuan.com/6/0Vk83Mk4Pv0p/11', 'http://9suyuan.com/6/s2ONd1ppxJqq/11', 2, 4);
-INSERT INTO `t_ser_code_import_temp_info` VALUES (11, 3, NULL, 'http://9suyuan.com/6/G8FdIJif8Ir8/11', 'http://9suyuan.com/6/EF8SgfrlvE5Z/11', 2, 4);
-INSERT INTO `t_ser_code_import_temp_info` VALUES (12, 2, NULL, 'http://9suyuan.com/6/E8eUbVrgUb98/11', '9000001005795865', 4, 5);
-INSERT INTO `t_ser_code_import_temp_info` VALUES (13, 2, NULL, 'http://9suyuan.com/6/s2ONd1ppxJqq/11', '9000001005795865', 4, 5);
-INSERT INTO `t_ser_code_import_temp_info` VALUES (14, 2, NULL, 'http://9suyuan.com/6/EF8SgfrlvE5Z/11', '9000001005795865', 4, 5);
+INSERT INTO `t_ser_code_import_temp_info` VALUES (9, 3, NULL, 'http://9suyuan.com/6/bHVx0aqq77zd/11', 'http://9suyuan.com/6/E8eUbVrgUb98/11', 2, 4, NULL, NULL, NULL);
+INSERT INTO `t_ser_code_import_temp_info` VALUES (10, 3, NULL, 'http://9suyuan.com/6/0Vk83Mk4Pv0p/11', 'http://9suyuan.com/6/s2ONd1ppxJqq/11', 2, 4, NULL, NULL, NULL);
+INSERT INTO `t_ser_code_import_temp_info` VALUES (11, 3, NULL, 'http://9suyuan.com/6/G8FdIJif8Ir8/11', 'http://9suyuan.com/6/EF8SgfrlvE5Z/11', 2, 4, NULL, NULL, NULL);
+INSERT INTO `t_ser_code_import_temp_info` VALUES (12, 2, NULL, 'http://9suyuan.com/6/E8eUbVrgUb98/11', '9000001005795865', 4, 5, NULL, NULL, NULL);
+INSERT INTO `t_ser_code_import_temp_info` VALUES (13, 2, NULL, 'http://9suyuan.com/6/s2ONd1ppxJqq/11', '9000001005795865', 4, 5, NULL, NULL, NULL);
+INSERT INTO `t_ser_code_import_temp_info` VALUES (14, 2, NULL, 'http://9suyuan.com/6/EF8SgfrlvE5Z/11', '9000001005795865', 4, 5, NULL, NULL, NULL);
 COMMIT;
 
 -- ----------------------------
@@ -4560,11 +4563,196 @@ END;
 delimiter ;
 
 -- ----------------------------
+-- Procedure structure for P_DELTEMPS
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `P_DELTEMPS`;
+delimiter ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `P_DELTEMPS`(
+
+)
+BEGIN
+		#2,3
+			delete a.* from t_ser_code_import_temp_info a  LEFT JOIN t_ser_goods_info b  
+			ON b.m2 = a.left_code  and b.M3=a.right_code  where a.left_code_type=2 and a.right_code_type=3;	
+		
+		#2,4
+			delete a.* from t_ser_code_import_temp_info a  LEFT JOIN t_ser_goods_info b  
+			ON b.m2 = a.left_code  and b.M4=a.right_code  where a.left_code_type=2 and a.right_code_type=4;	
+		#2,5
+			delete a.* from t_ser_code_import_temp_info a  LEFT JOIN t_ser_goods_info b  
+			ON b.m2 = a.left_code  and b.M5=a.right_code  where a.left_code_type=2 and a.right_code_type=5;	
+			
+		#3,2
+			delete a.* from t_ser_code_import_temp_info a  LEFT JOIN t_ser_goods_info b  
+			ON b.m3 = a.left_code  and b.M2=a.right_code  where a.left_code_type=3 and a.right_code_type=2;	
+		#3,4
+			delete a.* from t_ser_code_import_temp_info a  LEFT JOIN t_ser_goods_info b  
+			ON b.m3 = a.left_code  and b.M4=a.right_code  where a.left_code_type=3 and a.right_code_type=4;	
+		#3,5
+			delete a.* from t_ser_code_import_temp_info a  LEFT JOIN t_ser_goods_info b  
+			ON b.m3 = a.left_code  and b.M5=a.right_code  where a.left_code_type=3 and a.right_code_type=5;	
+			
+		#4,2
+			delete a.* from t_ser_code_import_temp_info a  LEFT JOIN t_ser_goods_info b  
+			ON b.m4 = a.left_code  and b.M2=a.right_code  where a.left_code_type=4 and a.right_code_type=2;	
+		#4,3
+			delete a.* from t_ser_code_import_temp_info a  LEFT JOIN t_ser_goods_info b  
+			ON b.m4 = a.left_code  and b.M3=a.right_code  where a.left_code_type=4 and a.right_code_type=3;	
+		#4,5
+			delete a.* from t_ser_code_import_temp_info a  LEFT JOIN t_ser_goods_info b  
+			ON b.m4 = a.left_code  and b.M5=a.right_code  where a.left_code_type=4 and a.right_code_type=5;	
+			
+		#5,2
+			delete a.* from t_ser_code_import_temp_info a  LEFT JOIN t_ser_goods_info b  
+			ON b.m5 = a.left_code  and b.M2=a.right_code  where a.left_code_type=5 and a.right_code_type=2;	
+		#5,3
+			delete a.* from t_ser_code_import_temp_info a  LEFT JOIN t_ser_goods_info b  
+			ON b.m5 = a.left_code  and b.M3=a.right_code  where a.left_code_type=5 and a.right_code_type=3;	
+		#5,4
+			delete a.* from t_ser_code_import_temp_info a  LEFT JOIN t_ser_goods_info b  
+			ON b.m5 = a.left_code  and b.M4=a.right_code  where a.left_code_type=5 and a.right_code_type=4;	
+END;
+;;
+delimiter ;
+
+-- ----------------------------
+-- Procedure structure for P_UPDAEGOODS2
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `P_UPDAEGOODS2`;
+delimiter ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `P_UPDAEGOODS2`(
+in  v_improtno varchar(32),
+in v_left_code_type int,
+in v_right_code_type int
+)
+BEGIN
+		declare v_imno varchar(255);
+		declare  updatetype int; #´ú±íÒª¸üÐÂµÄÂëÎ»ÖÃ M3,M4£¬M5
+		declare  wheretype int;  #´ú±íÌí¼ÓÂðÎ»ÖÃm2,m3,m4
+		declare  codetype int ; #0 ¸üÐÂ×óÂë  1Î»¸üÐÂÓÒÂë
+	
+			if v_left_code_type>v_right_code_type then 
+					set 	updatetype=v_left_code_type;
+					set 	wheretype=v_right_code_type;
+			else 
+					set 	updatetype=v_right_code_type;
+					set 	wheretype=v_left_code_type;
+			end if;					
+			  set codetype= v_left_code_type<v_right_code_type;
+	
+		if wheretype=2 then 
+				if updatetype=3 then 
+						 if  codetype =0 then 
+						   update t_ser_goods_info s set m3 =(select left_code  from t_ser_code_import_temp_info b  where b.import_no = v_improtno and  b.right_code = s.m2);		
+							 elseif codetype =1 then 
+								update t_ser_goods_info s set m3 =(select right_code  from t_ser_code_import_temp_info b  where   b.import_no = v_improtno and b.left_code = s.m2);		
+							end if;
+					elseif updatetype=4 then 
+						 if  codetype =0 then 
+								update t_ser_goods_info s set m4 =(select left_code  from t_ser_code_import_temp_info b  where  b.importno = v_improtno and  b.right_code = s.m2);		
+						 elseif codetype =1 then 
+								update t_ser_goods_info s set m4 =(select right_code  from t_ser_code_import_temp_info b  where  b.importno = v_improtno and b.left_code = s.m2);		
+							end if;
+				 elseif updatetype=5 then 
+					 if  codetype =0 then 
+							update t_ser_goods_info s set m5 =(select left_code  from t_ser_code_import_temp_info b  where  b.importno = v_improtno and b.right_code = s.m2);		
+					 elseif codetype =1 then 
+							update t_ser_goods_info s set m5 =(select right_code  from t_ser_code_import_temp_info b  where   b.importno = v_improtno and b.left_code = s.m2);		
+						end if;
+				end if;
+			
+		elseif 	wheretype=3 then 
+					if updatetype=4 then 
+						 if  codetype =0 then 
+								update t_ser_goods_info s set m4 =(select left_code  from t_ser_code_import_temp_info b  where  b.importno = v_improtno and  b.right_code = s.m3);		
+						 elseif codetype =1 then 
+								update t_ser_goods_info s set m4 =(select right_code  from t_ser_code_import_temp_info b  where  b.importno = v_improtno and b.left_code = s.m3);		
+							end if;
+				 elseif updatetype=5 then 
+					 if  codetype =0 then 
+							update t_ser_goods_info s set m5 =(select left_code  from t_ser_code_import_temp_info b  where   b.importno = v_improtno and b.right_code = s.m3);		
+	
+					elseif codetype =1 then 
+							update t_ser_goods_info s set m5 =(select right_code  from t_ser_code_import_temp_info b  where   b.importno = v_improtno and b.left_code = s.m3);		
+
+						end if;
+				end if;
+		elseif 	wheretype=4 then 
+			  if updatetype=5 then 
+					 if  codetype =0 then 
+							update t_ser_goods_info s set m5 =(select left_code  from t_ser_code_import_temp_info b  where  b.importno = v_improtno and b.right_code = s.m4);		
+	
+					elseif codetype =1 then 
+							update t_ser_goods_info s set m5 =(select right_code  from t_ser_code_import_temp_info b  where   b.importno = v_improtno and b.left_code = s.m4);		
+
+						end if;
+				end if;
+			
+		end if;
+		
+
+END;
+;;
+delimiter ;
+
+-- ----------------------------
+-- Procedure structure for P_UPD_CommonM
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `P_UPD_CommonM`;
+delimiter ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `P_UPD_CommonM`(
+#in  v_imno varchar(32),
+#in  updatetype int, #´ú±íÒª¸üÐÂµÄÂëÎ»ÖÃ M3,M4£¬M5
+#in  codetype int
+)
+BEGIN
+		declare flag int default true;#ÉùÃ÷Ò»¸ö¿ª¹Ø±äÁ¿flagÓÃÓÚÑ­»·½áÊøÅÐ¶ÏÄ¬ÈÏÊÇtrue;
+		declare v_imortno VARCHAR(255);
+		declare v_left_code_type int;
+		declare v_right_code_type int;
+
+		declare cur_param cursor for  select   DISTINCT a.import_no,a.left_code_type,a.right_code_type  from t_ser_code_import_temp_info a   order by orderno;
+		
+				
+		#declare cur_param1 cursor for  select   DISTINCT a.importno,a.left_code_type,a.right_code_type  from t_ser_code_import_temp_info a,t_ser_code_import_temp_info b  
+		#	where  b.importno =v_imno and ( (a.left_code =b.right_code  and  a.right_code_type>updatetype) or 
+		#		(a.right_code =b.right_code  and a.left_code_type>updatetype ));
+		
+		declare continue handler for not found set flag = false;	
+			open cur_param;#´ò¿ªÓÎ±ê
+				repeat
+						fetch cur_param into v_imortno,v_left_code_type,v_right_code_type;#°ÑÓÎ±êµÄÄÚÈÝ¸³Öµµ½±äÁ¿ÖÐ¡£						
+								CALL P_UPDAEGOODS2(v_imortno,v_left_code_type, v_right_code_type);
+						until flag = false
+				end repeat;
+			close cur_param;
+	
+END;
+;;
+delimiter ;
+
+-- ----------------------------
 -- Event structure for create_qrcode_table_event
 -- ----------------------------
 DROP EVENT IF EXISTS `create_qrcode_table_event`;
 delimiter ;;
 CREATE DEFINER=`root`@`localhost` EVENT `create_qrcode_table_event` ON SCHEDULE EVERY 1 MONTH STARTS '2018-10-31 00:00:01' ON COMPLETION NOT PRESERVE ENABLE DO CALL p_create_qrcode_table();
+;;
+delimiter ;
+
+-- ----------------------------
+-- Triggers structure for table t_ser_code_import_temp_info
+-- ----------------------------
+DROP TRIGGER IF EXISTS `t_bftint_codetempinfo`;
+delimiter ;;
+CREATE TRIGGER `t_bftint_codetempinfo` BEFORE INSERT ON `t_ser_code_import_temp_info` FOR EACH ROW BEGIN
+	if new.left_code_type<new.right_code_type then 
+		set new.orderno=new.left_code_type;
+	else 
+		set 	new.orderno=new.right_code_type;
+	end if;
+
+END
 ;;
 delimiter ;
 
