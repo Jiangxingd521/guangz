@@ -16,8 +16,10 @@ public class WarehouseVo {
     private String warehousePerson;
 
     private String warehousePersonMobile;
-
+    //仓库总容量
     private String totalInventory;
+    //当前容量
+    private int usedTotalInventory;
 
     private String warehouseRemark;
 
@@ -69,6 +71,14 @@ public class WarehouseVo {
 
     public void setTotalInventory(String totalInventory) {
         this.totalInventory = totalInventory;
+    }
+
+    public int getUsedTotalInventory() {
+        return usedTotalInventory;
+    }
+
+    public void setUsedTotalInventory(int usedTotalInventory) {
+        this.usedTotalInventory = usedTotalInventory;
     }
 
     public String getWarehouseRemark() {

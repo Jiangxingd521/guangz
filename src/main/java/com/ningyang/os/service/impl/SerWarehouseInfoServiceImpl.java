@@ -8,8 +8,11 @@ import com.ningyang.os.action.input.condition.serve.QueryWarehouseCondition;
 import com.ningyang.os.action.output.vo.web.serve.WarehousePersonVo;
 import com.ningyang.os.action.output.vo.web.serve.WarehouseVo;
 import com.ningyang.os.dao.SerWarehouseInfoMapper;
+import com.ningyang.os.pojo.SerWarehouseGoodsInfo;
 import com.ningyang.os.pojo.SerWarehouseInfo;
+import com.ningyang.os.service.ISerWarehouseGoodsInfoService;
 import com.ningyang.os.service.ISerWarehouseInfoService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
@@ -25,6 +28,9 @@ import java.util.List;
  */
 @Service
 public class SerWarehouseInfoServiceImpl extends ServiceImpl<SerWarehouseInfoMapper, SerWarehouseInfo> implements ISerWarehouseInfoService {
+
+    @Autowired
+    private ISerWarehouseGoodsInfoService warehouseGoodsInfoService;
 
     @Override
     public Page<WarehouseVo> findWarehouseVoPageByCondition(QueryWarehouseCondition condition) {
