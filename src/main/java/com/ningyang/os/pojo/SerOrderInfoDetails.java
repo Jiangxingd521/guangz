@@ -32,13 +32,20 @@ public class SerOrderInfoDetails extends Model<SerOrderInfoDetails> {
      */
     @TableField("product_id")
     private Long productId;
+    /**
+     * 商品id
+     */
     @TableField("goods_id")
     private Long goodsId;
+    /**
+     * 操作人
+     */
+    @TableField("user_id")
+    private Long userId;
     @TableField("create_time")
     private Date createTime;
     @TableField("update_time")
     private Date updateTime;
-
 
     public Long getId() {
         return id;
@@ -70,6 +77,14 @@ public class SerOrderInfoDetails extends Model<SerOrderInfoDetails> {
 
     public void setGoodsId(Long goodsId) {
         this.goodsId = goodsId;
+    }
+
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
 
     public Date getCreateTime() {

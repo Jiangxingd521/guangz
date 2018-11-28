@@ -8,7 +8,6 @@ import com.ningyang.os.action.output.vo.web.serve.SaleOrderVo;
 import com.ningyang.os.action.utils.WebResult;
 import com.ningyang.os.controller.system.BaseController;
 import com.ningyang.os.pojo.SerGoodsInfo;
-import com.ningyang.os.pojo.SerOrderInfo;
 import com.ningyang.os.pojo.SysUserInfo;
 import com.ningyang.os.service.ISerGoodsInfoService;
 import com.ningyang.os.service.ISerOrderInfoDetailsService;
@@ -136,7 +135,7 @@ public class ApiWareHouseController extends BaseController {
                     command.setGoodsInfoList(goodsInfoList);
                     goodsPutOutList.add(command);
                 }
-                boolean flag = orderInfoDetailsService.add(loginUser.getId(),orderId, goodsPutOutList, boxCode);
+                boolean flag = orderInfoDetailsService.add(orderId, goodsPutOutList);
                 if (flag) {
                     return WebResult.success().toMap();
                 }

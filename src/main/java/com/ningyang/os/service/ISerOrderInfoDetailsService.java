@@ -16,6 +16,6 @@ import java.util.List;
  */
 public interface ISerOrderInfoDetailsService extends IService<SerOrderInfoDetails> {
 
-    boolean add(Long userId, Long orderId, List<ApiWarehousePutOutCommand> goodsPutOutList, String[] boxCode);
+    boolean add(Long orderId, List<ApiWarehousePutOutCommand> goodsPutOutList);
 
 }
