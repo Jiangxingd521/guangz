@@ -33,10 +33,10 @@ public class SerOrderInfoDetails extends Model<SerOrderInfoDetails> {
     @TableField("product_id")
     private Long productId;
     /**
-     * 商品id
+     * 箱数
      */
-    @TableField("goods_id")
-    private Long goodsId;
+    @TableField("box_number")
+    private int boxNumber;
     /**
      * 操作人
      */
@@ -71,12 +71,12 @@ public class SerOrderInfoDetails extends Model<SerOrderInfoDetails> {
         this.productId = productId;
     }
 
-    public Long getGoodsId() {
-        return goodsId;
+    public int getBoxNumber() {
+        return boxNumber;
     }
 
-    public void setGoodsId(Long goodsId) {
-        this.goodsId = goodsId;
+    public void setBoxNumber(int boxNumber) {
+        this.boxNumber = boxNumber;
     }
 
     public Long getUserId() {
@@ -114,7 +114,7 @@ public class SerOrderInfoDetails extends Model<SerOrderInfoDetails> {
         "id=" + id +
         ", orderId=" + orderId +
         ", productId=" + productId +
-        ", goodsId=" + goodsId +
+        ", boxNumber=" + boxNumber +
         ", createTime=" + createTime +
         ", updateTime=" + updateTime +
         "}";

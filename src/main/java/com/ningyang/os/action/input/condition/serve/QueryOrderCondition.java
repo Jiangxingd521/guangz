@@ -10,6 +10,8 @@ import com.ningyang.os.action.input.condition.common.BaseCondition;
 public class QueryOrderCondition extends BaseCondition {
     //订单状态
     private Integer orderState;
+    //订单id
+    private Long orderId = -1L;
 
     public Integer getOrderState() {
         return orderState;
@@ -17,5 +19,13 @@ public class QueryOrderCondition extends BaseCondition {
 
     public void setOrderState(Integer orderState) {
         this.orderState = orderState;
+    }
+
+    public Long getOrderId() {
+        return orderId;
+    }
+
+    public void setOrderId(Long orderId) {
+        this.orderId = orderId;
     }
 }

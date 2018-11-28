@@ -1,14 +1,14 @@
 package com.ningyang.os.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.ningyang.os.action.input.command.api.ApiWarehousePutOutCommand;
+import com.ningyang.os.action.input.command.web.serve.OrderDetailsCommand;
+import com.ningyang.os.action.input.condition.serve.QueryOrderCondition;
+import com.ningyang.os.action.output.vo.web.serve.OrderDetailVo;
 import com.ningyang.os.dao.SerOrderInfoDetailsMapper;
-import com.ningyang.os.pojo.SerGoodsInfo;
 import com.ningyang.os.pojo.SerOrderInfoDetails;
 import com.ningyang.os.service.ISerOrderInfoDetailsService;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -24,24 +24,24 @@ import java.util.List;
 public class SerOrderInfoDetailsServiceImpl extends ServiceImpl<SerOrderInfoDetailsMapper, SerOrderInfoDetails> implements ISerOrderInfoDetailsService {
 
     @Override
-    public boolean add(Long orderId, List<ApiWarehousePutOutCommand> goodsPutOutList) {
-        //已扫描到的相关商品明细
-        List<SerOrderInfoDetails> detailsList = new ArrayList<>();
-        for (ApiWarehousePutOutCommand command : goodsPutOutList) {
-            //获取出库的所有商品
-            for (SerGoodsInfo info : command.getGoodsInfoList()) {
-                //商品放到出货明细里面
-                SerOrderInfoDetails details = new SerOrderInfoDetails();
-                details.setOrderId(orderId);
-                details.setProductId(info.getBrandSeriesProductId());
-                details.setGoodsId(info.getId());
-                details.setCreateTime(new Date());
-                details.setUpdateTime(new Date());
-                detailsList.add(details);
-            }
-        }
-
-        return saveBatch(detailsList);
+    public boolean add(OrderDetailsCommand command, Long operateUserId) {
+        SerOrderInfoDetails details = new SerOrderInfoDetails();
+        details.setProductId(command.getProductId());
+        details.setBoxNumber(command.getBoxNumber());
+        details.setUserId(operateUserId);
+        details.setOrderId(command.getOrderId());
+        details.setCreateTime(new Date());
+        details.setUpdateTime(new Date());
+        return save(details);
     }
 
+    @Override
+    public List<OrderDetailVo> findOrderDetailVoList(QueryOrderCondition condition) {
+        return baseMapper.selectOrderDetailVoList(condition);
+    }
+
+    @Override
+    public boolean delete() {
+        return baseMapper.deleteOrderByNull();
+    }
 }

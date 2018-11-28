@@ -1,5 +1,9 @@
 package com.ningyang.os.action.input.command.web.serve;
 
+import com.ningyang.os.action.output.vo.web.serve.OrderDetailVo;
+
+import java.util.List;
+
 /**
  * @Author： kaider
  * @Date：2018/11/27 15:39
@@ -24,6 +28,8 @@ public class OrderSaleCommand {
     private Long createUserId;
     //财务
     private Long financialId;
+    //明细
+    private List<OrderDetailVo> detailList;
 
     public Long getOrderId() {
         return orderId;
@@ -95,5 +101,13 @@ public class OrderSaleCommand {
 
     public void setFinancialId(Long financialId) {
         this.financialId = financialId;
+    }
+
+    public List<OrderDetailVo> getDetailList() {
+        return detailList;
+    }
+
+    public void setDetailList(List<OrderDetailVo> detailList) {
+        this.detailList = detailList;
     }
 }

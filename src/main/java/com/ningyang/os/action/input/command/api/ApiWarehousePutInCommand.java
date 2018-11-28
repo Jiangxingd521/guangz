@@ -1,9 +1,5 @@
 package com.ningyang.os.action.input.command.api;
 
-import com.ningyang.os.pojo.SerGoodsInfo;
-
-import java.util.List;
-
 /**
  * @Author： kaider
  * @Date：2018/11/27 10:39
@@ -13,13 +9,13 @@ public class ApiWarehousePutInCommand {
     //入库来源
     private int sourceType;
     //仓库
-    private Long warehouseId;
+    private Long warehouse;
     //操作人
     private Long userId;
     //备注
     private String remark;
-    //商品列表
-    private List<SerGoodsInfo> goodsInfoList;
+    //箱码
+    private String[] boxCode;
 
     public int getSourceType() {
         return sourceType;
@@ -29,12 +25,12 @@ public class ApiWarehousePutInCommand {
         this.sourceType = sourceType;
     }
 
-    public Long getWarehouseId() {
-        return warehouseId;
+    public Long getWarehouse() {
+        return warehouse;
     }
 
-    public void setWarehouseId(Long warehouseId) {
-        this.warehouseId = warehouseId;
+    public void setWarehouse(Long warehouse) {
+        this.warehouse = warehouse;
     }
 
     public Long getUserId() {
@@ -53,11 +49,11 @@ public class ApiWarehousePutInCommand {
         this.remark = remark;
     }
 
-    public List<SerGoodsInfo> getGoodsInfoList() {
-        return goodsInfoList;
+    public String[] getBoxCode() {
+        return boxCode;
     }
 
-    public void setGoodsInfoList(List<SerGoodsInfo> goodsInfoList) {
-        this.goodsInfoList = goodsInfoList;
+    public void setBoxCode(String[] boxCode) {
+        this.boxCode = boxCode;
     }
 }

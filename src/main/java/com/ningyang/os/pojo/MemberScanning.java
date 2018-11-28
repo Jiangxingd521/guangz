@@ -25,19 +25,18 @@ public class MemberScanning extends Model<MemberScanning> {
     private String openId;
     @TableField("pr_code")
     private String prCode;
-    private Integer iData1;
-    private Integer iData2;
-    private Integer iData3;
-    private Integer iData4;
-    private String sData1;
-    private String sData2;
-    private String sData3;
-    private String sData4;
+    private Integer idata1;
+    private Integer idata2;
+    private Integer idata3;
+    private Integer idata4;
+    private String sdata1;
+    private String sdata2;
+    private String sdata3;
+    private String sdata4;
     @TableField("create_time")
     private Date createTime;
     @TableField("update_time")
     private Date updateTime;
-
 
     public Long getScanId() {
         return scanId;
@@ -63,68 +62,68 @@ public class MemberScanning extends Model<MemberScanning> {
         this.prCode = prCode;
     }
 
-    public Integer getiData1() {
-        return iData1;
+    public Integer getIdata1() {
+        return idata1;
     }
 
-    public void setiData1(Integer iData1) {
-        this.iData1 = iData1;
+    public void setIdata1(Integer idata1) {
+        this.idata1 = idata1;
     }
 
-    public Integer getiData2() {
-        return iData2;
+    public Integer getIdata2() {
+        return idata2;
     }
 
-    public void setiData2(Integer iData2) {
-        this.iData2 = iData2;
+    public void setIdata2(Integer idata2) {
+        this.idata2 = idata2;
     }
 
-    public Integer getiData3() {
-        return iData3;
+    public Integer getIdata3() {
+        return idata3;
     }
 
-    public void setiData3(Integer iData3) {
-        this.iData3 = iData3;
+    public void setIdata3(Integer idata3) {
+        this.idata3 = idata3;
     }
 
-    public Integer getiData4() {
-        return iData4;
+    public Integer getIdata4() {
+        return idata4;
     }
 
-    public void setiData4(Integer iData4) {
-        this.iData4 = iData4;
+    public void setIdata4(Integer idata4) {
+        this.idata4 = idata4;
     }
 
-    public String getsData1() {
-        return sData1;
+    public String getSdata1() {
+        return sdata1;
     }
 
-    public void setsData1(String sData1) {
-        this.sData1 = sData1;
+    public void setSdata1(String sdata1) {
+        this.sdata1 = sdata1;
     }
 
-    public String getsData2() {
-        return sData2;
+    public String getSdata2() {
+        return sdata2;
     }
 
-    public void setsData2(String sData2) {
-        this.sData2 = sData2;
+    public void setSdata2(String sdata2) {
+        this.sdata2 = sdata2;
     }
 
-    public String getsData3() {
-        return sData3;
+    public String getSdata3() {
+        return sdata3;
     }
 
-    public void setsData3(String sData3) {
-        this.sData3 = sData3;
+    public void setSdata3(String sdata3) {
+        this.sdata3 = sdata3;
     }
 
-    public String getsData4() {
-        return sData4;
+    public String getSdata4() {
+        return sdata4;
     }
 
-    public void setsData4(String sData4) {
-        this.sData4 = sData4;
+    public void setSdata4(String sdata4) {
+        this.sdata4 = sdata4;
     }
 
     public Date getCreateTime() {
@@ -148,22 +147,5 @@ public class MemberScanning extends Model<MemberScanning> {
         return this.scanId;
     }
 
-    @Override
-    public String toString() {
-        return "MemberScanning{" +
-        "scanId=" + scanId +
-        ", openId=" + openId +
-        ", prCode=" + prCode +
-        ", iData1=" + iData1 +
-        ", iData2=" + iData2 +
-        ", iData3=" + iData3 +
-        ", iData4=" + iData4 +
-        ", sData1=" + sData1 +
-        ", sData2=" + sData2 +
-        ", sData3=" + sData3 +
-        ", sData4=" + sData4 +
-        ", createTime=" + createTime +
-        ", updateTime=" + updateTime +
-        "}";
-    }
+
 }

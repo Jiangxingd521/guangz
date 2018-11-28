@@ -16,6 +16,6 @@ import java.util.List;
  */
 public interface ISerWarehouseGoodsInfoService extends IService<SerWarehouseGoodsInfo> {
 
-    boolean add(List<ApiWarehousePutInCommand> goodsPutInList);
+    boolean add(ApiWarehousePutInCommand command);
 
 }

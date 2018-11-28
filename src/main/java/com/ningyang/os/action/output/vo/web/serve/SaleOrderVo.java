@@ -1,5 +1,7 @@
 package com.ningyang.os.action.output.vo.web.serve;
 
+import java.util.List;
+
 /**
  * @Author： kaider
  * @Date：2018/11/27 14:59
@@ -32,6 +34,8 @@ public class SaleOrderVo {
     private int orderState;
     //备注
     private String remark;
+
+    private List<OrderDetailVo> detailList;
 
     public Long getOrderId() {
         return orderId;
@@ -135,5 +139,13 @@ public class SaleOrderVo {
 
     public void setRemark(String remark) {
         this.remark = remark;
+    }
+
+    public List<OrderDetailVo> getDetailList() {
+        return detailList;
+    }
+
+    public void setDetailList(List<OrderDetailVo> detailList) {
+        this.detailList = detailList;
     }
 }

@@ -1,8 +1,10 @@
 package com.ningyang.os.service;
 
-import com.ningyang.os.action.input.command.api.ApiWarehousePutOutCommand;
-import com.ningyang.os.pojo.SerOrderInfoDetails;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.ningyang.os.action.input.command.web.serve.OrderDetailsCommand;
+import com.ningyang.os.action.input.condition.serve.QueryOrderCondition;
+import com.ningyang.os.action.output.vo.web.serve.OrderDetailVo;
+import com.ningyang.os.pojo.SerOrderInfoDetails;
 
 import java.util.List;
 
@@ -16,6 +18,9 @@ import java.util.List;
  */
 public interface ISerOrderInfoDetailsService extends IService<SerOrderInfoDetails> {
 
-    boolean add(Long orderId, List<ApiWarehousePutOutCommand> goodsPutOutList);
+    boolean add(OrderDetailsCommand command, Long operateUserId);
 
+    List<OrderDetailVo> findOrderDetailVoList(QueryOrderCondition condition);
+
+    boolean delete();
 }

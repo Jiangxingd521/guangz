@@ -1,5 +1,6 @@
 package com.ningyang.os.service;
 
+import com.ningyang.os.action.input.command.api.ApiWarehousePutOutCommand;
 import com.ningyang.os.pojo.LSerWarehouseGoodsOutInfo;
 import com.baomidou.mybatisplus.extension.service.IService;
 
@@ -12,5 +13,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @since 2018-11-26
  */
 public interface ILSerWarehouseGoodsOutInfoService extends IService<LSerWarehouseGoodsOutInfo> {
+
+    boolean add(ApiWarehousePutOutCommand command);
 
 }

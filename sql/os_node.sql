@@ -11,7 +11,7 @@
  Target Server Version : 50721
  File Encoding         : 65001
 
- Date: 27/11/2018 19:38:02
+ Date: 28/11/2018 19:27:40
 */
 
 SET NAMES utf8mb4;
@@ -44,14 +44,14 @@ CREATE TABLE `T_MEMBER_INFO` (
   `member_account` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
   `member_password` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
   `user_id` bigint(20) DEFAULT NULL,
-  `iData1` int(11) DEFAULT NULL,
-  `iData2` int(11) DEFAULT NULL,
-  `iData3` int(11) DEFAULT NULL,
-  `iData4` int(11) DEFAULT NULL,
-  `sData1` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `sData2` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `sData3` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `sData4` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `idata1` int(11) DEFAULT NULL,
+  `idata2` int(11) DEFAULT NULL,
+  `idata3` int(11) DEFAULT NULL,
+  `idata4` int(11) DEFAULT NULL,
+  `sdata1` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `sdata2` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `sdata3` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `sdata4` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `create_time` datetime DEFAULT NULL,
   `update_time` datetime DEFAULT NULL,
   PRIMARY KEY (`open_id`) USING BTREE
@@ -66,14 +66,14 @@ CREATE TABLE `T_MEMBER_POINT_RULE` (
   `member_pot_rule_type` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '1£ºµÇÂ¼»ý·Ö  2ÎªÉ¨Âë»ý·Ö 3ÎªµÚÒ»´ÎÉ¨Âë»ý·Ö    4.»î¶¯»ý·Ö\n            ',
   `member_pot_value` int(11) DEFAULT NULL,
   `user_id` bigint(20) DEFAULT NULL,
-  `iData1` int(11) DEFAULT NULL,
-  `iData2` int(11) DEFAULT NULL,
-  `iData3` int(11) DEFAULT NULL,
-  `iData4` int(11) DEFAULT NULL,
-  `sData1` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `sData2` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `sData3` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `sData4` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `idata1` int(11) DEFAULT NULL,
+  `idata2` int(11) DEFAULT NULL,
+  `idata3` int(11) DEFAULT NULL,
+  `idata4` int(11) DEFAULT NULL,
+  `sdata1` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `sdata2` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `sdata3` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `sdata4` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `create_time` datetime DEFAULT NULL,
   `update_time` datetime DEFAULT NULL,
   PRIMARY KEY (`member_pot_rule_id`) USING BTREE
@@ -87,14 +87,14 @@ CREATE TABLE `T_MEMBER_SCANNING` (
   `scanId` bigint(20) NOT NULL,
   `open_id` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL,
   `pr_code` varchar(1024) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `iData1` int(11) DEFAULT NULL,
-  `iData2` int(11) DEFAULT NULL,
-  `iData3` int(11) DEFAULT NULL,
-  `iData4` int(11) DEFAULT NULL,
-  `sData1` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `sData2` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `sData3` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `sData4` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `idata1` int(11) DEFAULT NULL,
+  `idata2` int(11) DEFAULT NULL,
+  `idata3` int(11) DEFAULT NULL,
+  `idata4` int(11) DEFAULT NULL,
+  `sdata1` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `sdata2` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `sdata3` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `sdata4` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `create_time` datetime DEFAULT NULL,
   `update_time` datetime DEFAULT NULL,
   PRIMARY KEY (`scanId`) USING BTREE
@@ -111,14 +111,14 @@ CREATE TABLE `T_PRIZE_MANAGER` (
   `prize_content` varchar(1024) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '奖项内容',
   `prize_remark` varchar(5000) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '奖项备注',
   `user_id` bigint(20) DEFAULT NULL,
-  `iData1` int(11) DEFAULT NULL,
-  `iData2` int(11) DEFAULT NULL,
-  `iData3` int(11) DEFAULT NULL,
-  `iData4` int(11) DEFAULT NULL,
-  `sData1` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `sData2` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `sData3` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `sData4` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `idata1` int(11) DEFAULT NULL,
+  `idata2` int(11) DEFAULT NULL,
+  `idata3` int(11) DEFAULT NULL,
+  `idata4` int(11) DEFAULT NULL,
+  `sdata1` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `sdata2` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `sdata3` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `sdata4` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `create_time` datetime DEFAULT NULL,
   `update_time` datetime DEFAULT NULL,
   PRIMARY KEY (`prize_manage_id`) USING BTREE,
@@ -142,8 +142,6 @@ CREATE TABLE `T_PRIZE_RECODE` (
   `prize_quantity` int(11) DEFAULT NULL,
   `money` decimal(5,2) DEFAULT NULL,
   `ponit` int(11) DEFAULT NULL,
-  `prize_start_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `prize_end_date` datetime NOT NULL,
   `prize_set_type` int(11) DEFAULT NULL,
   `prize_mode_type` int(11) DEFAULT NULL COMMENT '1Î»Ëæ»ú²¼ 2Î»Æ½¾ù²¼',
   `card_money` int(11) DEFAULT NULL,
@@ -153,16 +151,18 @@ CREATE TABLE `T_PRIZE_RECODE` (
   `cash_time` char(10) COLLATE utf8_unicode_ci DEFAULT NULL,
   `open_id` varchar(32) COLLATE utf8_unicode_ci NOT NULL,
   `user_id` bigint(20) DEFAULT NULL,
-  `iData1` int(11) NOT NULL,
-  `iData2` int(11) DEFAULT NULL,
-  `iData3` int(11) DEFAULT NULL,
-  `iData4` int(11) DEFAULT NULL,
-  `sData1` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `sData2` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `sData3` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `sData4` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `idata1` int(11) NOT NULL,
+  `idata2` int(11) DEFAULT NULL,
+  `idata3` int(11) DEFAULT NULL,
+  `idata4` int(11) DEFAULT NULL,
+  `sdata1` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `sata2` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `sdata3` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `sdata4` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `create_time` datetime DEFAULT NULL,
   `update_time` datetime DEFAULT NULL,
+  `prize_start_date` datetime DEFAULT NULL,
+  `prize_end_date` datetime DEFAULT NULL,
   PRIMARY KEY (`prize_recor_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -182,21 +182,21 @@ CREATE TABLE `T_PRIZE_SET` (
   `money_end` decimal(5,2) DEFAULT NULL,
   `ponit` int(11) DEFAULT NULL,
   `point_end` int(11) DEFAULT NULL,
-  `prize_start_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `prize_end_date` datetime NOT NULL,
   `prize_set_type` int(11) DEFAULT NULL,
-  `prize_mode_type` int(11) DEFAULT NULL COMMENT '1Î»Ëæ»ú²¼ 2Î»Æ½¾ù²¼',
+  `prize_mode_type` int(11) DEFAULT NULL,
   `card_money` int(11) DEFAULT NULL,
   `card_coupon_money` int(11) DEFAULT NULL,
   `user_id` bigint(20) DEFAULT NULL,
-  `iData1` int(11) DEFAULT NULL,
-  `iData2` int(11) DEFAULT NULL,
-  `iData3` int(11) DEFAULT NULL,
-  `iData4` int(11) DEFAULT NULL,
-  `sData1` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `sData2` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `sData3` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `sData4` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `prize_start_date` datetime DEFAULT NULL,
+  `prize_end_date` datetime DEFAULT NULL,
+  `idata1` int(11) DEFAULT NULL,
+  `idata2` int(11) DEFAULT NULL,
+  `idata3` int(11) DEFAULT NULL,
+  `idata4` int(11) DEFAULT NULL,
+  `sdata1` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `sdata2` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `sdata3` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `sdata4` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `create_time` datetime DEFAULT NULL,
   `update_time` datetime DEFAULT NULL,
   PRIMARY KEY (`prize_set_id`) USING BTREE,
@@ -214,14 +214,14 @@ CREATE TABLE `T_PRIZE_TYPE` (
   `prize_type_name` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
   `prize_type_content` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `user_id` bigint(20) DEFAULT NULL,
-  `iData1` int(11) DEFAULT NULL,
-  `iData2` int(11) DEFAULT NULL,
-  `iData3` int(11) DEFAULT NULL,
-  `iData4` int(11) DEFAULT NULL,
-  `sData1` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `sData2` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `sData3` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `sData4` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `idata1` int(11) DEFAULT NULL,
+  `idata2` int(11) DEFAULT NULL,
+  `idata3` int(11) DEFAULT NULL,
+  `idata4` int(11) DEFAULT NULL,
+  `sdata1` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `sdata2` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `sdata3` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `sdata4` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `create_time` datetime DEFAULT NULL,
   `update_time` datetime DEFAULT NULL,
   PRIMARY KEY (`prize_type_id`) USING BTREE
@@ -846,15 +846,13 @@ CREATE TABLE `t_ser_order_info` (
   `create_time` datetime DEFAULT NULL,
   `update_time` datetime DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='销售订单表';
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='销售订单表';
 
 -- ----------------------------
 -- Records of t_ser_order_info
 -- ----------------------------
 BEGIN;
-INSERT INTO `t_ser_order_info` VALUES (2, '20181127161724', 2, NULL, NULL, NULL, 5, '20', 2, '备注1', 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-11-27 16:17:24', '2018-11-27 18:12:28');
-INSERT INTO `t_ser_order_info` VALUES (3, '20181127174041', 1, NULL, NULL, NULL, 6, '18', 2, '备注2', 2, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-11-27 17:40:42', '2018-11-27 18:23:50');
-INSERT INTO `t_ser_order_info` VALUES (6, '20181127182326', 2, NULL, NULL, NULL, 6, '2', 1, '333', 2, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-11-27 18:23:27', '2018-11-27 18:24:07');
+INSERT INTO `t_ser_order_info` VALUES (16, '20181128173024', 1, NULL, NULL, NULL, NULL, '7', 0, '1233sd', 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-11-28 17:30:24', '2018-11-28 18:03:21');
 COMMIT;
 
 -- ----------------------------
@@ -865,20 +863,36 @@ CREATE TABLE `t_ser_order_info_details` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `order_id` bigint(255) DEFAULT NULL COMMENT '订单id',
   `product_id` bigint(255) DEFAULT NULL COMMENT '产品id',
-  `goods_id` bigint(255) DEFAULT NULL COMMENT '商品id',
-  `iData1` int(11) DEFAULT NULL,
-  `iData2` int(11) DEFAULT NULL,
-  `iData3` int(11) DEFAULT NULL,
-  `iData4` int(11) DEFAULT NULL,
-  `sData1` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `sData2` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `sData3` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `sData4` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `create_time` datetime DEFAULT NULL,
-  `update_time` datetime DEFAULT NULL,
+  `box_number` int(255) DEFAULT NULL COMMENT '箱数',
+  `user_id` bigint(255) DEFAULT NULL COMMENT '操作人',
+  `create_time` datetime DEFAULT NULL COMMENT '创建时间',
+  `update_time` datetime DEFAULT NULL COMMENT '修改时间',
   PRIMARY KEY (`id`) USING BTREE,
   KEY `FK_FK_SERV_ORDER_IDEALS` (`order_id`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='销售订单详情';
+) ENGINE=InnoDB AUTO_INCREMENT=94 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='销售订单详情';
+
+-- ----------------------------
+-- Records of t_ser_order_info_details
+-- ----------------------------
+BEGIN;
+INSERT INTO `t_ser_order_info_details` VALUES (61, 16, 5, 3, 2, '2018-11-28 17:55:34', '2018-11-28 17:55:34');
+INSERT INTO `t_ser_order_info_details` VALUES (77, 16, 6, 6, 2, '2018-11-28 17:58:00', '2018-11-28 17:58:00');
+INSERT INTO `t_ser_order_info_details` VALUES (79, 16, 6, 11, 2, '2018-11-28 17:58:00', '2018-11-28 17:58:00');
+INSERT INTO `t_ser_order_info_details` VALUES (80, 16, 5, 3, 2, '2018-11-28 18:03:21', '2018-11-28 18:03:21');
+INSERT INTO `t_ser_order_info_details` VALUES (81, 16, 5, 3, 2, '2018-11-28 18:03:21', '2018-11-28 18:03:21');
+INSERT INTO `t_ser_order_info_details` VALUES (82, 16, 5, 3, 2, '2018-11-28 18:03:21', '2018-11-28 18:03:21');
+INSERT INTO `t_ser_order_info_details` VALUES (83, 16, 6, 7, 2, '2018-11-28 18:03:21', '2018-11-28 18:03:21');
+INSERT INTO `t_ser_order_info_details` VALUES (84, 16, 6, 11, 2, '2018-11-28 18:03:21', '2018-11-28 18:03:21');
+INSERT INTO `t_ser_order_info_details` VALUES (85, 16, 6, 6, 2, '2018-11-28 18:03:21', '2018-11-28 18:03:21');
+INSERT INTO `t_ser_order_info_details` VALUES (86, 16, 6, 7, 2, '2018-11-28 18:03:21', '2018-11-28 18:03:21');
+INSERT INTO `t_ser_order_info_details` VALUES (87, 16, 6, 11, 2, '2018-11-28 18:03:21', '2018-11-28 18:03:21');
+INSERT INTO `t_ser_order_info_details` VALUES (88, 16, 6, 7, 2, '2018-11-28 18:03:21', '2018-11-28 18:03:21');
+INSERT INTO `t_ser_order_info_details` VALUES (89, 16, 6, 11, 2, '2018-11-28 18:03:21', '2018-11-28 18:03:21');
+INSERT INTO `t_ser_order_info_details` VALUES (90, 16, 6, 4, 2, '2018-11-28 18:03:21', '2018-11-28 18:03:21');
+INSERT INTO `t_ser_order_info_details` VALUES (91, 16, 6, 6, 2, '2018-11-28 18:03:21', '2018-11-28 18:03:21');
+INSERT INTO `t_ser_order_info_details` VALUES (92, 16, 6, 7, 2, '2018-11-28 18:03:21', '2018-11-28 18:03:21');
+INSERT INTO `t_ser_order_info_details` VALUES (93, 16, 6, 11, 2, '2018-11-28 18:03:21', '2018-11-28 18:03:21');
+COMMIT;
 
 -- ----------------------------
 -- Table structure for t_ser_warehouse_goods_info
@@ -899,17 +913,15 @@ CREATE TABLE `t_ser_warehouse_goods_info` (
   PRIMARY KEY (`id`),
   KEY `warehouse_id` (`warehouse_id`),
   KEY `goods_id` (`goods_id`),
-  CONSTRAINT `t_ser_warehouse_goods_info_ibfk_1` FOREIGN KEY (`warehouse_id`) REFERENCES `t_ser_warehouse_info` (`id`),
-  CONSTRAINT `t_ser_warehouse_goods_info_ibfk_2` FOREIGN KEY (`goods_id`) REFERENCES `t_ser_goods_info` (`id`)
+  CONSTRAINT `t_ser_warehouse_goods_info_ibfk_1` FOREIGN KEY (`warehouse_id`) REFERENCES `t_ser_warehouse_info` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='商品入库';
 
 -- ----------------------------
 -- Records of t_ser_warehouse_goods_info
 -- ----------------------------
 BEGIN;
-INSERT INTO `t_ser_warehouse_goods_info` VALUES (1, 0, 1, 1, '8000001631823255', 1, '20181127111616', 3, '放在了xxx位置', '2018-11-27 11:16:17', '2018-11-27 11:16:17');
-INSERT INTO `t_ser_warehouse_goods_info` VALUES (2, 0, 1, 2, '8000001631823255', 1, '20181127111616', 3, '放在了xxx位置', '2018-11-27 11:16:17', '2018-11-27 11:16:17');
-INSERT INTO `t_ser_warehouse_goods_info` VALUES (3, 0, 1, 3, '9000001005795865', 1, '20181127111616', 3, '放在了xxx位置', '2018-11-27 11:16:17', '2018-11-27 11:16:17');
+INSERT INTO `t_ser_warehouse_goods_info` VALUES (1, 0, 1, NULL, '8000001631823255', 1, '20181127111616', 3, '放在了xxx位置', '2018-11-27 11:16:17', '2018-11-27 11:16:17');
+INSERT INTO `t_ser_warehouse_goods_info` VALUES (3, 0, 1, NULL, '9000001005795865', 1, '20181127111616', 3, '放在了xxx位置', '2018-11-27 11:16:17', '2018-11-27 11:16:17');
 COMMIT;
 
 -- ----------------------------
@@ -4290,7 +4302,7 @@ CREATE TABLE `t_sys_menu_info` (
   `create_time` timestamp NULL DEFAULT NULL COMMENT '创建时间',
   `update_time` timestamp NULL DEFAULT NULL COMMENT '修改时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='菜单信息';
+) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='菜单信息';
 
 -- ----------------------------
 -- Records of t_sys_menu_info
@@ -4318,10 +4330,21 @@ INSERT INTO `t_sys_menu_info` VALUES (19, 16, '溯源码申请', 0, NULL, '/cent
 INSERT INTO `t_sys_menu_info` VALUES (20, 16, '溯源码导入', 0, NULL, '/server/code/import', NULL, 4, 0, NULL, '2018-11-15 15:44:12', '2018-11-23 09:59:50');
 INSERT INTO `t_sys_menu_info` VALUES (21, 16, '中心注册', 0, 'icon-link', '/center/register', NULL, 5, 0, NULL, '2018-11-19 11:27:09', '2018-11-19 11:28:24');
 INSERT INTO `t_sys_menu_info` VALUES (22, 16, '销售订单管理', 0, NULL, '/server/order/sale', NULL, 6, 0, '', '2018-11-27 11:45:23', '2018-11-27 11:59:00');
-INSERT INTO `t_sys_menu_info` VALUES (23, 16, '退换货订单管理', 0, NULL, '/server/order/return', NULL, 7, 0, NULL, '2018-11-27 11:57:46', '2018-11-27 11:59:05');
+INSERT INTO `t_sys_menu_info` VALUES (23, 16, '退货订单管理', 0, NULL, '/server/order/return', NULL, 7, 0, NULL, '2018-11-27 11:57:46', '2018-11-28 18:16:12');
 INSERT INTO `t_sys_menu_info` VALUES (24, 22, '退回-销售订单', 1, NULL, NULL, 'sale_order_return', 2, 0, NULL, '2018-11-27 16:37:42', '2018-11-27 16:42:46');
 INSERT INTO `t_sys_menu_info` VALUES (25, 22, '同意-销售订单', 1, NULL, NULL, 'sale_order_agree', 1, 0, NULL, '2018-11-27 16:39:17', '2018-11-27 16:42:40');
 INSERT INTO `t_sys_menu_info` VALUES (26, 22, '新建-销售订单', 1, NULL, NULL, 'sale_order_add', 0, 0, NULL, '2018-11-27 16:42:35', '2018-11-27 16:42:35');
+INSERT INTO `t_sys_menu_info` VALUES (27, 16, '入库管理', 0, NULL, '/server/warehouse/putIn', NULL, 8, 0, NULL, '2018-11-28 18:34:52', '2018-11-28 18:34:52');
+INSERT INTO `t_sys_menu_info` VALUES (28, 16, '出库管理', 0, NULL, '/server/warehouse/putOut', NULL, 9, 0, NULL, '2018-11-28 18:35:10', '2018-11-28 18:35:10');
+INSERT INTO `t_sys_menu_info` VALUES (29, 16, '布奖兑奖', 0, NULL, '', NULL, 10, 0, NULL, '2018-11-28 18:35:43', '2018-11-28 18:35:43');
+INSERT INTO `t_sys_menu_info` VALUES (30, 29, '奖项管理', 0, NULL, '/server/prize/award', NULL, 1, 0, NULL, '2018-11-28 18:36:35', '2018-11-28 18:36:35');
+INSERT INTO `t_sys_menu_info` VALUES (31, 29, '布奖设定', 0, NULL, '/server/prize/set', NULL, 2, 0, NULL, '2018-11-28 18:36:48', '2018-11-28 18:36:48');
+INSERT INTO `t_sys_menu_info` VALUES (32, 29, '布奖记录', 0, NULL, '/server/prize/setLog', NULL, 3, 0, NULL, '2018-11-28 18:36:59', '2018-11-28 18:36:59');
+INSERT INTO `t_sys_menu_info` VALUES (33, 29, '兑奖记录', 0, NULL, '/server/prize/ticketLog', NULL, 4, 0, NULL, '2018-11-28 18:37:12', '2018-11-28 18:37:26');
+INSERT INTO `t_sys_menu_info` VALUES (34, 16, '会员管理', 0, NULL, NULL, NULL, 11, 0, NULL, '2018-11-28 18:37:45', '2018-11-28 18:37:45');
+INSERT INTO `t_sys_menu_info` VALUES (35, 34, '会员列表', 0, NULL, '/server/member/list', NULL, 1, 0, NULL, '2018-11-28 18:38:06', '2018-11-28 18:38:06');
+INSERT INTO `t_sys_menu_info` VALUES (36, 34, '等级管理', 0, NULL, '/server/member/level', NULL, 2, 0, NULL, '2018-11-28 18:38:22', '2018-11-28 18:38:22');
+INSERT INTO `t_sys_menu_info` VALUES (37, 34, '积分管理', 0, NULL, '/server/member/integral', NULL, 3, 0, NULL, '2018-11-28 18:38:38', '2018-11-28 18:38:38');
 COMMIT;
 
 -- ----------------------------
@@ -4348,7 +4371,7 @@ BEGIN;
 INSERT INTO `t_sys_navigation_bar_info` VALUES (1, '系统设置', '/sys/bar', 'el-icon-setting', 0, '系统', 0, '2018-09-28 17:14:26', '2018-11-12 17:48:41');
 INSERT INTO `t_sys_navigation_bar_info` VALUES (2, '系统基础设置', '/sys/icon', 'icon-present', 1, '系统', 0, '2018-10-01 23:16:56', '2018-11-14 11:32:16');
 INSERT INTO `t_sys_navigation_bar_info` VALUES (3, '基础设置', '/base/brand', 'icon-present', 2, '业务基础设置', 0, '2018-11-14 11:30:56', '2018-11-14 15:11:54');
-INSERT INTO `t_sys_navigation_bar_info` VALUES (4, '企业业务', '/server/dealer', 'icon-qi', 4, '经销商管理', 0, '2018-11-14 17:41:10', '2018-11-27 11:58:02');
+INSERT INTO `t_sys_navigation_bar_info` VALUES (4, '企业业务', '/server/dealer', 'icon-qi', 4, '经销商管理', 0, '2018-11-14 17:41:10', '2018-11-28 18:46:20');
 INSERT INTO `t_sys_navigation_bar_info` VALUES (5, '中心业务', '/center/code/apply', 'icon-goodsfavor', 3, '溯源业务', 0, '2018-11-15 15:41:01', '2018-11-23 10:00:27');
 COMMIT;
 
@@ -4365,7 +4388,7 @@ CREATE TABLE `t_sys_navigation_bar_menu_info` (
   KEY `menu_id` (`menu_id`) USING BTREE,
   CONSTRAINT `t_sys_navigation_bar_menu_info_ibfk_1` FOREIGN KEY (`bar_id`) REFERENCES `t_sys_navigation_bar_info` (`id`),
   CONSTRAINT `t_sys_navigation_bar_menu_info_ibfk_2` FOREIGN KEY (`menu_id`) REFERENCES `t_sys_menu_info` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='菜单关联导航';
+) ENGINE=InnoDB AUTO_INCREMENT=102 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='菜单关联导航';
 
 -- ----------------------------
 -- Records of t_sys_navigation_bar_menu_info
@@ -4388,11 +4411,23 @@ INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (23, 3, 15);
 INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (29, 5, 16);
 INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (30, 5, 19);
 INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (31, 5, 20);
-INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (32, 4, 17);
-INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (33, 4, 18);
-INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (34, 4, 16);
-INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (35, 4, 22);
-INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (36, 4, 23);
+INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (85, 4, 17);
+INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (86, 4, 30);
+INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (87, 4, 35);
+INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (88, 4, 18);
+INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (89, 4, 31);
+INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (90, 4, 36);
+INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (91, 4, 16);
+INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (92, 4, 32);
+INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (93, 4, 37);
+INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (94, 4, 9);
+INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (95, 4, 33);
+INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (96, 4, 22);
+INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (97, 4, 23);
+INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (98, 4, 27);
+INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (99, 4, 28);
+INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (100, 4, 29);
+INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (101, 4, 34);
 COMMIT;
 
 -- ----------------------------

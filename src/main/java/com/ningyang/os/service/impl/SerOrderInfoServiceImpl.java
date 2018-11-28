@@ -1,16 +1,20 @@
 package com.ningyang.os.service.impl;
 
-import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.ningyang.os.action.input.command.web.serve.OrderSaleCommand;
 import com.ningyang.os.action.input.condition.serve.QueryOrderCondition;
+import com.ningyang.os.action.output.vo.web.serve.OrderDetailVo;
 import com.ningyang.os.action.output.vo.web.serve.SaleOrderVo;
 import com.ningyang.os.dao.SerOrderInfoMapper;
 import com.ningyang.os.pojo.SerOrderInfo;
+import com.ningyang.os.pojo.SerOrderInfoDetails;
+import com.ningyang.os.service.ISerOrderInfoDetailsService;
 import com.ningyang.os.service.ISerOrderInfoService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -27,11 +31,20 @@ import static com.ningyang.os.action.utils.DateUtil.getOrderNum;
 @Service
 public class SerOrderInfoServiceImpl extends ServiceImpl<SerOrderInfoMapper, SerOrderInfo> implements ISerOrderInfoService {
 
+    @Autowired
+    private ISerOrderInfoDetailsService detailsService;
 
     @Override
     public Page<SaleOrderVo> findSaleOrderVoPageByCondition(QueryOrderCondition condition) {
         Page<SaleOrderVo> pageVo = new Page<>();
         List<SaleOrderVo> listVoTemp = baseMapper.selectSaleOrderVoPageByCondition(condition);
+
+        for(SaleOrderVo vo : listVoTemp){
+            condition.setOrderId(vo.getOrderId());
+            List<OrderDetailVo> detailList = detailsService.findOrderDetailVoList(condition);
+            vo.setDetailList(detailList);
+        }
+
         int total = baseMapper.selectSaleOrderVoPageCountByCondition(condition);
         pageVo.setRecords(listVoTemp);
         pageVo.setTotal(total);
@@ -42,7 +55,7 @@ public class SerOrderInfoServiceImpl extends ServiceImpl<SerOrderInfoMapper, Ser
 
     @Override
     public boolean addOrUpdate(OrderSaleCommand command, Long operateUserId) {
-        System.out.println(JSONObject.toJSON(command));
+//        System.out.println(JSONObject.toJSON(command));
         SerOrderInfo info = getById(command.getOrderId());
         boolean flag;
         if (info != null) {
@@ -57,11 +70,15 @@ public class SerOrderInfoServiceImpl extends ServiceImpl<SerOrderInfoMapper, Ser
             info.setUpdateTime(new Date());
             flag = updateById(info);
         } else {
+            int productNumber = 0;
+            for(OrderDetailVo vo : command.getDetailList()){
+                productNumber = productNumber + vo.getBoxNumber();
+            }
             info = new SerOrderInfo();
             info.setOrderNo(getOrderNum());
             info.setDealerId(command.getDealerId());
             info.setProductId(command.getProductId());
-            info.setProductNumber(command.getProductNumber());
+            info.setProductNumber(String.valueOf(productNumber));
             info.setOrderState(0);
             info.setOrderRemark(command.getRemark());
             info.setUserId(operateUserId);
@@ -69,6 +86,20 @@ public class SerOrderInfoServiceImpl extends ServiceImpl<SerOrderInfoMapper, Ser
             info.setUpdateTime(new Date());
             flag = save(info);
         }
+        List<SerOrderInfoDetails> detailsList = new ArrayList<>();
+        detailsService.delete();
+        for(OrderDetailVo vo : command.getDetailList()){
+            SerOrderInfoDetails details = new SerOrderInfoDetails();
+            details.setOrderId(info.getId());
+            details.setBoxNumber(vo.getBoxNumber());
+            details.setProductId(vo.getProductId());
+            details.setUserId(operateUserId);
+            details.setCreateTime(new Date());
+            details.setUpdateTime(new Date());
+            detailsList.add(details);
+        }
+        detailsService.saveBatch(detailsList);
+
         return flag;
     }
 
