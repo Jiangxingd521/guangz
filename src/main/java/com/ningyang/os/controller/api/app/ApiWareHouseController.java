@@ -2,6 +2,7 @@ package com.ningyang.os.controller.api.app;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.ningyang.os.action.input.command.api.ApiWarehousePutInCommand;
+import com.ningyang.os.action.input.command.api.ApiWarehousePutOutCommand;
 import com.ningyang.os.action.input.condition.serve.QueryOrderCondition;
 import com.ningyang.os.action.output.vo.web.serve.SaleOrderVo;
 import com.ningyang.os.action.utils.WebResult;
@@ -10,6 +11,7 @@ import com.ningyang.os.pojo.SerGoodsInfo;
 import com.ningyang.os.pojo.SerOrderInfo;
 import com.ningyang.os.pojo.SysUserInfo;
 import com.ningyang.os.service.ISerGoodsInfoService;
+import com.ningyang.os.service.ISerOrderInfoDetailsService;
 import com.ningyang.os.service.ISerOrderInfoService;
 import com.ningyang.os.service.ISerWarehouseGoodsInfoService;
 import io.swagger.annotations.Api;
@@ -44,7 +46,8 @@ public class ApiWareHouseController extends BaseController {
     private ISerWarehouseGoodsInfoService putInService;
     @Autowired
     private ISerOrderInfoService orderInfoService;
-
+    @Autowired
+    private ISerOrderInfoDetailsService orderInfoDetailsService;
 
     @ApiOperation(value = "入库")
     @ApiImplicitParams({
@@ -76,7 +79,7 @@ public class ApiWareHouseController extends BaseController {
                     goodsPutInList.add(command);
                 }
                 boolean flag = putInService.add(goodsPutInList);
-                if(flag){
+                if (flag) {
                     return WebResult.success().toMap();
                 }
                 return WebResult.failure(PUTIN_WAREHOUSE_ERROR.getInfo()).toMap();
@@ -91,16 +94,53 @@ public class ApiWareHouseController extends BaseController {
 
     @ApiOperation(value = "销售订单列表")
     @GetMapping("getOrderSaleList")
-    public Map<String,Object> getOrderSaleList(
+    public Map<String, Object> getOrderSaleList(
             @RequestHeader("Authorization") String userToken
-    ){
+    ) {
         try {
             SysUserInfo loginUser = getBaseUserInfo(userToken);
             if (loginUser != null) {
                 QueryOrderCondition condition = new QueryOrderCondition();
                 condition.setOrderState(2);
                 List<SaleOrderVo> listVo = orderInfoService.findSaleOrderVoListByCondition(condition);
-                return WebResult.success().put("listVo",listVo).toMap();
+                return WebResult.success().put("listVo", listVo).toMap();
+            }
+            return WebResult.failure(PERMISSION_ERROR.getInfo()).toMap();
+        } catch (Exception e) {
+            LOGGER.error(e.getMessage(), e);
+            return WebResult.failure(API_REQUEST_ERROR.getInfo()).toMap();
+        }
+    }
+
+    @ApiOperation(value = "出库")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "orderId", value = "订单号Id", required = true, paramType = "query"),
+            @ApiImplicitParam(name = "boxCode", value = "箱码", required = true, paramType = "query", allowMultiple = true),
+            @ApiImplicitParam(name = "remark", value = "出库备注", paramType = "query")
+    })
+    @PostMapping("putOut")
+    public Map<String, Object> putOut(
+            @RequestHeader("Authorization") String userToken,
+            String[] boxCode,
+            Long orderId,
+            String remark
+    ) {
+        try {
+            SysUserInfo loginUser = getBaseUserInfo(userToken);
+            if (loginUser != null) {
+                List<ApiWarehousePutOutCommand> goodsPutOutList = new ArrayList<>();
+                for (String boxCodeStr : boxCode) {
+                    ApiWarehousePutOutCommand command = new ApiWarehousePutOutCommand();
+                    command.setRemark(remark);
+                    List<SerGoodsInfo> goodsInfoList = goodsInfoService.list(new QueryWrapper<SerGoodsInfo>().eq("M5", boxCodeStr));
+                    command.setGoodsInfoList(goodsInfoList);
+                    goodsPutOutList.add(command);
+                }
+                boolean flag = orderInfoDetailsService.add(loginUser.getId(),orderId, goodsPutOutList, boxCode);
+                if (flag) {
+                    return WebResult.success().toMap();
+                }
+                return WebResult.failure(PUTOUT_WAREHOUSE_ERROR.getInfo()).toMap();
             }
             return WebResult.failure(PERMISSION_ERROR.getInfo()).toMap();
         } catch (Exception e) {
