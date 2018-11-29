@@ -2,9 +2,7 @@ package com.ningyang.os.controller.serve;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.ningyang.os.action.input.condition.serve.QueryGoodsPutCondition;
-import com.ningyang.os.action.input.condition.serve.QueryOrderCondition;
 import com.ningyang.os.action.output.vo.web.serve.GoodsPutOutVo;
-import com.ningyang.os.action.output.vo.web.serve.SaleOrderVo;
 import com.ningyang.os.action.utils.WebResult;
 import com.ningyang.os.service.ILSerWarehouseGoodsOutInfoService;
 import org.slf4j.Logger;
@@ -44,7 +42,5 @@ public class GoodsPutOutController {
             return WebResult.failure(DATA_ERROR.getInfo()).toMap();
         }
     }
-
-
 
 }

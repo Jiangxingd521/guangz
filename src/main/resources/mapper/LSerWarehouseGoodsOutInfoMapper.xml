@@ -33,4 +33,11 @@
         limit #{page},#{limit}
     </select>
 
+    <select id="selectGoodsPutInVoPageCountByCondition"
+            parameterType="com.ningyang.os.action.input.condition.serve.QueryGoodsPutCondition"
+            resultType="int"
+    >
+        SELECT count(1) FROM l_ser_warehouse_goods_out_info a
+    </select>
+
 </mapper>

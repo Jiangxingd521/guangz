@@ -57,13 +57,11 @@ public class SerOrderInfoServiceImpl extends ServiceImpl<SerOrderInfoMapper, Ser
 
     @Override
     public boolean addOrUpdate(OrderSaleCommand command, Long operateUserId) {
-//        System.out.println(JSONObject.toJSON(command));
         SerOrderInfo info = getById(command.getOrderId());
         boolean flag;
         if (info != null) {
             info.setDealerId(command.getDealerId());
             info.setProductId(command.getProductId());
-            info.setProductNumber(command.getProductNumber());
             info.setOrderState(command.getOrderState());
             info.setOrderRemark(command.getRemark());
             if(command.getOperateType()==1){
@@ -72,15 +70,10 @@ public class SerOrderInfoServiceImpl extends ServiceImpl<SerOrderInfoMapper, Ser
             info.setUpdateTime(new Date());
             flag = updateById(info);
         } else {
-            int productNumber = 0;
-            for(OrderDetailVo vo : command.getDetailList()){
-                productNumber = productNumber + vo.getBoxNumber();
-            }
             info = new SerOrderInfo();
             info.setOrderNo(getOrderNum());
             info.setDealerId(command.getDealerId());
             info.setProductId(command.getProductId());
-            info.setProductNumber(String.valueOf(productNumber));
             info.setOrderState(0);
             info.setOrderRemark(command.getRemark());
             info.setUserId(operateUserId);
