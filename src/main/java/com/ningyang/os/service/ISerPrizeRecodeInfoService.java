@@ -1,16 +1,16 @@
 package com.ningyang.os.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.ningyang.os.pojo.MemberInfo;
+import com.ningyang.os.pojo.SerPrizeRecodeInfo;
 
 /**
  * <p>
- * 会员数据 服务类
+ * 布奖记录 服务类
  * </p>
  *
  * @author kaider
  * @since 2018-11-29
  */
-public interface IMemberInfoService extends IService<MemberInfo> {
+public interface ISerPrizeRecodeInfoService extends IService<SerPrizeRecodeInfo> {
 
 }

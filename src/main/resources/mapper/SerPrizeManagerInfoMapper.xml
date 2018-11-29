@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.ningyang.os.dao.MemberScanningMapper">
+<mapper namespace="com.ningyang.os.dao.SerPrizeManagerInfoMapper">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="com.ningyang.os.pojo.MemberScanning">
-        <id column="id" property="id" />
-        <result column="open_id" property="openId" />
-        <result column="pr_code" property="prCode" />
+    <resultMap id="BaseResultMap" type="com.ningyang.os.pojo.SerPrizeManagerInfo">
+        <id column="prize_manage_id" property="prizeManageId" />
+        <result column="prize_type_id" property="prizeTypeId" />
+        <result column="prize_name" property="prizeName" />
+        <result column="prize_content" property="prizeContent" />
+        <result column="prize_remark" property="prizeRemark" />
+        <result column="user_id" property="userId" />
         <result column="idata1" property="idata1" />
         <result column="idata2" property="idata2" />
         <result column="idata3" property="idata3" />

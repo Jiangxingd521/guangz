@@ -4,9 +4,9 @@
 
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.ningyang.os.pojo.MemberPointRule">
-        <id column="member_pot_rule_id" property="memberPotRuleId" />
-        <result column="member_pot_rule_type" property="memberPotRuleType" />
-        <result column="member_pot_value" property="memberPotValue" />
+        <id column="id" property="id" />
+        <result column="rule_type" property="ruleType" />
+        <result column="rule_value" property="ruleValue" />
         <result column="user_id" property="userId" />
         <result column="idata1" property="idata1" />
         <result column="idata2" property="idata2" />

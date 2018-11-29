@@ -5,43 +5,43 @@ import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
+
 import java.util.Date;
 import java.io.Serializable;
+
 /**
  * <p>
- * 奖项管理
+ * 会员类型
  * </p>
  *
  * @author kaider
- * @since 2018-11-26
+ * @since 2018-11-29
  */
-@TableName("T_PRIZE_MANAGER")
-public class PrizeManager extends Model<PrizeManager> {
+@TableName("t_member_type_info")
+public class MemberTypeInfo extends Model<MemberTypeInfo> {
 
     private static final long serialVersionUID = 1L;
 
-    @TableId("prize_manage_id")
-    private Long prizeManageId;
+    @TableId(value = "id", type = IdType.AUTO)
+    private Long id;
     /**
-     * 奖项类型
+     * 会员类型名称
      */
-    @TableField("prize_type_id")
-    private Long prizeTypeId;
+    @TableField("type_name")
+    private String typeName;
     /**
-     * 奖项名称
+     * 升级规则
      */
-    @TableField("prize_name")
-    private String prizeName;
+    @TableField("type_rule_id")
+    private Long typeRuleId;
     /**
-     * 奖项内容
+     * 升级数据量
      */
-    @TableField("prize_content")
-    private String prizeContent;
+    @TableField("type_quanty")
+    private Integer typeQuanty;
     /**
-     * 奖项备注
+     * 操作人
      */
-    @TableField("prize_remark")
-    private String prizeRemark;
     @TableField("user_id")
     private Long userId;
     private Integer idata1;
@@ -57,44 +57,37 @@ public class PrizeManager extends Model<PrizeManager> {
     @TableField("update_time")
     private Date updateTime;
 
-    public Long getPrizeManageId() {
-        return prizeManageId;
+
+    public Long getId() {
+        return id;
     }
 
-    public void setPrizeManageId(Long prizeManageId) {
-        this.prizeManageId = prizeManageId;
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public Long getPrizeTypeId() {
-        return prizeTypeId;
+    public String getTypeName() {
+        return typeName;
     }
 
-    public void setPrizeTypeId(Long prizeTypeId) {
-        this.prizeTypeId = prizeTypeId;
+    public void setTypeName(String typeName) {
+        this.typeName = typeName;
     }
 
-    public String getPrizeName() {
-        return prizeName;
+    public Long getTypeRuleId() {
+        return typeRuleId;
     }
 
-    public void setPrizeName(String prizeName) {
-        this.prizeName = prizeName;
+    public void setTypeRuleId(Long typeRuleId) {
+        this.typeRuleId = typeRuleId;
     }
 
-    public String getPrizeContent() {
-        return prizeContent;
+    public Integer getTypeQuanty() {
+        return typeQuanty;
     }
 
-    public void setPrizeContent(String prizeContent) {
-        this.prizeContent = prizeContent;
-    }
-
-    public String getPrizeRemark() {
-        return prizeRemark;
-    }
-
-    public void setPrizeRemark(String prizeRemark) {
-        this.prizeRemark = prizeRemark;
+    public void setTypeQuanty(Integer typeQuanty) {
+        this.typeQuanty = typeQuanty;
     }
 
     public Long getUserId() {
@@ -187,7 +180,27 @@ public class PrizeManager extends Model<PrizeManager> {
 
     @Override
     protected Serializable pkVal() {
-        return this.prizeManageId;
+        return this.id;
     }
 
+    @Override
+    public String toString() {
+        return "MemberTypeInfo{" +
+        "id=" + id +
+        ", typeName=" + typeName +
+        ", typeRuleId=" + typeRuleId +
+        ", typeQuanty=" + typeQuanty +
+        ", userId=" + userId +
+        ", idata1=" + idata1 +
+        ", idata2=" + idata2 +
+        ", idata3=" + idata3 +
+        ", idata4=" + idata4 +
+        ", sdata1=" + sdata1 +
+        ", sdata2=" + sdata2 +
+        ", sdata3=" + sdata3 +
+        ", sdata4=" + sdata4 +
+        ", createTime=" + createTime +
+        ", updateTime=" + updateTime +
+        "}";
+    }
 }

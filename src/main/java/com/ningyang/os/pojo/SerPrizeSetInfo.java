@@ -1,73 +1,111 @@
 package com.ningyang.os.pojo;
 
-import com.baomidou.mybatisplus.annotation.IdType;
+import java.math.BigDecimal;
+import java.util.Date;
+
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
 
-import java.math.BigDecimal;
-import java.util.Date;
 import java.io.Serializable;
 /**
  * <p>
- *
+ * 奖项设定
  * </p>
  *
  * @author kaider
- * @since 2018-11-26
+ * @since 2018-11-29
  */
-@TableName("T_PRIZE_RECODE")
-public class PrizeRecode extends Model<PrizeRecode> {
+@TableName("t_ser_prize_set_info")
+public class SerPrizeSetInfo extends Model<SerPrizeSetInfo> {
 
     private static final long serialVersionUID = 1L;
 
-    @TableId("prize_recor_id")
-    private Long prizeRecorId;
-    @TableField("order_no")
-    private String orderNo;
-    @TableField("pr_code")
-    private String prCode;
-    @TableField("prize_set_id")
+    @TableId("prize_set_id")
     private Long prizeSetId;
+    /**
+     * 奖项管理id
+     */
+    @TableField("prize_manager_id")
+    private Long prizeManagerId;
+
+    /**
+     * 布奖名称
+     */
     @TableField("prize_set_name")
     private Long prizeSetName;
+    /**
+     * 产品id
+     */
     @TableField("prod_id")
     private Long prodId;
+    /**
+     * 会员类型
+     */
     @TableField("member_type")
     private Integer memberType;
+    /**
+     * 布奖区域
+     */
     @TableField("region_id")
     private Long regionId;
+    /**
+     * 布奖数量
+     */
     @TableField("prize_quantity")
     private Integer prizeQuantity;
+    /**
+     * 红包额度
+     */
     private BigDecimal money;
+    /**
+     * 红包额度结束
+     */
+    @TableField("money_end")
+    private BigDecimal moneyEnd;
+    /**
+     * 积分额度
+     */
     private Integer ponit;
-    @TableField("prize_start_date")
-    private Date prizeStartDate;
-    @TableField("prize_end_date")
-    private Date prizeEndDate;
+    /**
+     * 积分额度结束
+     */
+    @TableField("point_end")
+    private Integer pointEnd;
+    /**
+     * 布奖类型
+     */
     @TableField("prize_set_type")
     private Integer prizeSetType;
     /**
-     *
+     * 布奖模式
      */
     @TableField("prize_mode_type")
     private Integer prizeModeType;
+    /**
+     * 卡券消费额度
+     */
     @TableField("card_money")
     private Integer cardMoney;
+    /**
+     * 卡券优惠额度
+     */
     @TableField("card_coupon_money")
     private Integer cardCouponMoney;
     /**
-     *
+     * 布奖开始日期
      */
-    @TableField("prize_state")
-    private Integer prizeState;
-    @TableField("track_no")
-    private String trackNo;
-    @TableField("cash_time")
-    private String cashTime;
-    @TableField("open_id")
-    private String openId;
+    @TableField("prize_start_date")
+    private Date prizeStartDate;
+    /**
+     * 布奖结束日期
+     */
+    @TableField("prize_end_date")
+    private Date prizeEndDate;
+    /**
+     * 操作人
+     */
     @TableField("user_id")
     private Long userId;
     private Integer idata1;
@@ -78,34 +116,17 @@ public class PrizeRecode extends Model<PrizeRecode> {
     private String sdata2;
     private String sdata3;
     private String sdata4;
+    /**
+     * 创建时间
+     */
     @TableField("create_time")
     private Date createTime;
+    /**
+     * 修改时间
+     */
     @TableField("update_time")
     private Date updateTime;
 
-    public Long getPrizeRecorId() {
-        return prizeRecorId;
-    }
-
-    public void setPrizeRecorId(Long prizeRecorId) {
-        this.prizeRecorId = prizeRecorId;
-    }
-
-    public String getOrderNo() {
-        return orderNo;
-    }
-
-    public void setOrderNo(String orderNo) {
-        this.orderNo = orderNo;
-    }
-
-    public String getPrCode() {
-        return prCode;
-    }
-
-    public void setPrCode(String prCode) {
-        this.prCode = prCode;
-    }
 
     public Long getPrizeSetId() {
         return prizeSetId;
@@ -113,6 +134,14 @@ public class PrizeRecode extends Model<PrizeRecode> {
 
     public void setPrizeSetId(Long prizeSetId) {
         this.prizeSetId = prizeSetId;
+    }
+
+    public Long getPrizeManagerId() {
+        return prizeManagerId;
+    }
+
+    public void setPrizeManagerId(Long prizeManagerId) {
+        this.prizeManagerId = prizeManagerId;
     }
 
     public Long getPrizeSetName() {
@@ -163,6 +192,14 @@ public class PrizeRecode extends Model<PrizeRecode> {
         this.money = money;
     }
 
+    public BigDecimal getMoneyEnd() {
+        return moneyEnd;
+    }
+
+    public void setMoneyEnd(BigDecimal moneyEnd) {
+        this.moneyEnd = moneyEnd;
+    }
+
     public Integer getPonit() {
         return ponit;
     }
@@ -171,20 +208,12 @@ public class PrizeRecode extends Model<PrizeRecode> {
         this.ponit = ponit;
     }
 
-    public Date getPrizeStartDate() {
-        return prizeStartDate;
+    public Integer getPointEnd() {
+        return pointEnd;
     }
 
-    public void setPrizeStartDate(Date prizeStartDate) {
-        this.prizeStartDate = prizeStartDate;
-    }
-
-    public Date getPrizeEndDate() {
-        return prizeEndDate;
-    }
-
-    public void setPrizeEndDate(Date prizeEndDate) {
-        this.prizeEndDate = prizeEndDate;
+    public void setPointEnd(Integer pointEnd) {
+        this.pointEnd = pointEnd;
     }
 
     public Integer getPrizeSetType() {
@@ -219,36 +248,20 @@ public class PrizeRecode extends Model<PrizeRecode> {
         this.cardCouponMoney = cardCouponMoney;
     }
 
-    public Integer getPrizeState() {
-        return prizeState;
+    public Date getPrizeStartDate() {
+        return prizeStartDate;
     }
 
-    public void setPrizeState(Integer prizeState) {
-        this.prizeState = prizeState;
+    public void setPrizeStartDate(Date prizeStartDate) {
+        this.prizeStartDate = prizeStartDate;
     }
 
-    public String getTrackNo() {
-        return trackNo;
+    public Date getPrizeEndDate() {
+        return prizeEndDate;
     }
 
-    public void setTrackNo(String trackNo) {
-        this.trackNo = trackNo;
-    }
-
-    public String getCashTime() {
-        return cashTime;
-    }
-
-    public void setCashTime(String cashTime) {
-        this.cashTime = cashTime;
-    }
-
-    public String getOpenId() {
-        return openId;
-    }
-
-    public void setOpenId(String openId) {
-        this.openId = openId;
+    public void setPrizeEndDate(Date prizeEndDate) {
+        this.prizeEndDate = prizeEndDate;
     }
 
     public Long getUserId() {
@@ -341,8 +354,39 @@ public class PrizeRecode extends Model<PrizeRecode> {
 
     @Override
     protected Serializable pkVal() {
-        return this.prizeRecorId;
+        return this.prizeSetId;
     }
 
-
+    @Override
+    public String toString() {
+        return "SerPrizeSetInfo{" +
+        "prizeSetId=" + prizeSetId +
+        ", prizeSetName=" + prizeSetName +
+        ", prodId=" + prodId +
+        ", memberType=" + memberType +
+        ", regionId=" + regionId +
+        ", prizeQuantity=" + prizeQuantity +
+        ", money=" + money +
+        ", moneyEnd=" + moneyEnd +
+        ", ponit=" + ponit +
+        ", pointEnd=" + pointEnd +
+        ", prizeSetType=" + prizeSetType +
+        ", prizeModeType=" + prizeModeType +
+        ", cardMoney=" + cardMoney +
+        ", cardCouponMoney=" + cardCouponMoney +
+        ", prizeStartDate=" + prizeStartDate +
+        ", prizeEndDate=" + prizeEndDate +
+        ", userId=" + userId +
+        ", idata1=" + idata1 +
+        ", idata2=" + idata2 +
+        ", idata3=" + idata3 +
+        ", idata4=" + idata4 +
+        ", sdata1=" + sdata1 +
+        ", sdata2=" + sdata2 +
+        ", sdata3=" + sdata3 +
+        ", sdata4=" + sdata4 +
+        ", createTime=" + createTime +
+        ", updateTime=" + updateTime +
+        "}";
+    }
 }

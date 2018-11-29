@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.ningyang.os.dao.PrizeRecodeMapper">
+<mapper namespace="com.ningyang.os.dao.SerPrizeRecodeInfoMapper">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="com.ningyang.os.pojo.PrizeRecode">
+    <resultMap id="BaseResultMap" type="com.ningyang.os.pojo.SerPrizeRecodeInfo">
         <id column="prize_recor_id" property="prizeRecorId" />
         <result column="order_no" property="orderNo" />
         <result column="pr_code" property="prCode" />
@@ -23,6 +23,8 @@
         <result column="track_no" property="trackNo" />
         <result column="cash_time" property="cashTime" />
         <result column="open_id" property="openId" />
+        <result column="prize_start_date" property="prizeStartDate" />
+        <result column="prize_end_date" property="prizeEndDate" />
         <result column="user_id" property="userId" />
         <result column="idata1" property="idata1" />
         <result column="idata2" property="idata2" />
@@ -34,8 +36,6 @@
         <result column="sdata4" property="sdata4" />
         <result column="create_time" property="createTime" />
         <result column="update_time" property="updateTime" />
-        <result column="prize_start_date" property="prizeStartDate" />
-        <result column="prize_end_date" property="prizeEndDate" />
     </resultMap>
 
 </mapper>

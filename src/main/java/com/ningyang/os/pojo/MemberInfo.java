@@ -1,59 +1,119 @@
 package com.ningyang.os.pojo;
 
-import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
+
 import java.util.Date;
 import java.io.Serializable;
 
 /**
  * <p>
- *
+ * 会员数据
  * </p>
  *
  * @author kaider
- * @since 2018-11-26
+ * @since 2018-11-29
  */
-@TableName("T_MEMBER_INFO")
+@TableName("t_member_info")
 public class MemberInfo extends Model<MemberInfo> {
 
     private static final long serialVersionUID = 1L;
 
     @TableId("open_id")
     private String openId;
-    @TableField("memer_type_id")
-    private Long memerTypeId;
+    /**
+     * 会员类型
+     */
+    @TableField("member_type_id")
+    private Long memberTypeId;
+    /**
+     * 支付id
+     */
     @TableField("ali_pay_id")
     private String aliPayId;
+    /**
+     * 是否订阅微信号
+     */
     private Integer subscribe;
+    /**
+     * 昵称
+     */
     @TableField("nick_name")
     private String nickName;
+    /**
+     * 性别
+     */
     private Integer sex;
+    /**
+     * 城市
+     */
     private String city;
+    /**
+     * 国家
+     */
     private String country;
+    /**
+     * 省份
+     */
     private String province;
+    /**
+     * 语言
+     */
     private String language;
+    /**
+     * 头像
+     */
     @TableField("head_img_url")
     private String headImgUrl;
+    /**
+     * 关注时间
+     */
     @TableField("subscribe_time")
     private Date subscribeTime;
+    /**
+     * 微信唯一编码
+     */
     @TableField("union_id")
     private String unionId;
+    /**
+     * 备注
+     */
     private String remark;
+    /**
+     * 分组id
+     */
     @TableField("group_id")
     private String groupId;
+    /**
+     * 标签id
+     */
     @TableField("tagid_list")
     private String tagidList;
+    /**
+     * 对应微信数据id
+     */
     @TableField("wechat_app_id")
     private String wechatAppId;
+    /**
+     * 会员姓名
+     */
     @TableField("member_name")
     private String memberName;
+    /**
+     * 会员手机号
+     */
     @TableField("member_mobile")
     private String memberMobile;
+    /**
+     * 会员登录账号
+     */
     @TableField("member_account")
     private String memberAccount;
+    /**
+     * 登录密码
+     */
     @TableField("member_password")
     private String memberPassword;
     @TableField("user_id")
@@ -80,12 +140,12 @@ public class MemberInfo extends Model<MemberInfo> {
         this.openId = openId;
     }
 
-    public Long getMemerTypeId() {
-        return memerTypeId;
+    public Long getMemberTypeId() {
+        return memberTypeId;
     }
 
-    public void setMemerTypeId(Long memerTypeId) {
-        this.memerTypeId = memerTypeId;
+    public void setMemberTypeId(Long memberTypeId) {
+        this.memberTypeId = memberTypeId;
     }
 
     public String getAliPayId() {
@@ -333,5 +393,41 @@ public class MemberInfo extends Model<MemberInfo> {
         return this.openId;
     }
 
-
+    @Override
+    public String toString() {
+        return "MemberInfo{" +
+        "openId=" + openId +
+        ", memberTypeId=" + memberTypeId +
+        ", aliPayId=" + aliPayId +
+        ", subscribe=" + subscribe +
+        ", nickName=" + nickName +
+        ", sex=" + sex +
+        ", city=" + city +
+        ", country=" + country +
+        ", province=" + province +
+        ", language=" + language +
+        ", headImgUrl=" + headImgUrl +
+        ", subscribeTime=" + subscribeTime +
+        ", unionId=" + unionId +
+        ", remark=" + remark +
+        ", groupId=" + groupId +
+        ", tagidList=" + tagidList +
+        ", wechatAppId=" + wechatAppId +
+        ", memberName=" + memberName +
+        ", memberMobile=" + memberMobile +
+        ", memberAccount=" + memberAccount +
+        ", memberPassword=" + memberPassword +
+        ", userId=" + userId +
+        ", idata1=" + idata1 +
+        ", idata2=" + idata2 +
+        ", idata3=" + idata3 +
+        ", idata4=" + idata4 +
+        ", sdata1=" + sdata1 +
+        ", sdata2=" + sdata2 +
+        ", sdata3=" + sdata3 +
+        ", sdata4=" + sdata4 +
+        ", createTime=" + createTime +
+        ", updateTime=" + updateTime +
+        "}";
+    }
 }

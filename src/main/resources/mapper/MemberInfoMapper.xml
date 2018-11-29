@@ -5,7 +5,7 @@
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.ningyang.os.pojo.MemberInfo">
         <id column="open_id" property="openId" />
-        <result column="memer_type_id" property="memerTypeId" />
+        <result column="member_type_id" property="memberTypeId" />
         <result column="ali_pay_id" property="aliPayId" />
         <result column="subscribe" property="subscribe" />
         <result column="nick_name" property="nickName" />

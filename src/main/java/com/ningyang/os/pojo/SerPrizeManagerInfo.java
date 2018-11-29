@@ -1,33 +1,51 @@
 package com.ningyang.os.pojo;
 
-import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
+
 import java.util.Date;
 import java.io.Serializable;
+
 /**
  * <p>
- *
+ * 奖项管理
  * </p>
  *
  * @author kaider
- * @since 2018-11-26
+ * @since 2018-11-29
  */
-@TableName("T_PRIZE_TYPE")
-public class PrizeType extends Model<PrizeType> {
+@TableName("t_ser_prize_manager_info")
+public class SerPrizeManagerInfo extends Model<SerPrizeManagerInfo> {
 
     private static final long serialVersionUID = 1L;
 
-    @TableId("prize_type_id")
+    @TableId("prize_manage_id")
+    private Long prizeManageId;
+    /**
+     * 奖项类型
+     */
+    @TableField("prize_type_id")
     private Long prizeTypeId;
-    @TableField("prize_type_code")
-    private String prizeTypeCode;
-    @TableField("prize_type_name")
-    private String prizeTypeName;
-    @TableField("prize_type_content")
-    private String prizeTypeContent;
+    /**
+     * 奖项名称
+     */
+    @TableField("prize_name")
+    private String prizeName;
+    /**
+     * 奖项内容
+     */
+    @TableField("prize_content")
+    private String prizeContent;
+    /**
+     * 奖项备注
+     */
+    @TableField("prize_remark")
+    private String prizeRemark;
+    /**
+     * 操作人
+     */
     @TableField("user_id")
     private Long userId;
     private Integer idata1;
@@ -38,11 +56,25 @@ public class PrizeType extends Model<PrizeType> {
     private String sdata2;
     private String sdata3;
     private String sdata4;
+    /**
+     * 创建时间
+     */
     @TableField("create_time")
     private Date createTime;
+    /**
+     * 修改时间
+     */
     @TableField("update_time")
     private Date updateTime;
 
+
+    public Long getPrizeManageId() {
+        return prizeManageId;
+    }
+
+    public void setPrizeManageId(Long prizeManageId) {
+        this.prizeManageId = prizeManageId;
+    }
 
     public Long getPrizeTypeId() {
         return prizeTypeId;
@@ -52,28 +84,28 @@ public class PrizeType extends Model<PrizeType> {
         this.prizeTypeId = prizeTypeId;
     }
 
-    public String getPrizeTypeCode() {
-        return prizeTypeCode;
+    public String getPrizeName() {
+        return prizeName;
     }
 
-    public void setPrizeTypeCode(String prizeTypeCode) {
-        this.prizeTypeCode = prizeTypeCode;
+    public void setPrizeName(String prizeName) {
+        this.prizeName = prizeName;
     }
 
-    public String getPrizeTypeName() {
-        return prizeTypeName;
+    public String getPrizeContent() {
+        return prizeContent;
     }
 
-    public void setPrizeTypeName(String prizeTypeName) {
-        this.prizeTypeName = prizeTypeName;
+    public void setPrizeContent(String prizeContent) {
+        this.prizeContent = prizeContent;
     }
 
-    public String getPrizeTypeContent() {
-        return prizeTypeContent;
+    public String getPrizeRemark() {
+        return prizeRemark;
     }
 
-    public void setPrizeTypeContent(String prizeTypeContent) {
-        this.prizeTypeContent = prizeTypeContent;
+    public void setPrizeRemark(String prizeRemark) {
+        this.prizeRemark = prizeRemark;
     }
 
     public Long getUserId() {
@@ -166,8 +198,28 @@ public class PrizeType extends Model<PrizeType> {
 
     @Override
     protected Serializable pkVal() {
-        return this.prizeTypeId;
+        return this.prizeManageId;
     }
 
-
+    @Override
+    public String toString() {
+        return "SerPrizeManagerInfo{" +
+        "prizeManageId=" + prizeManageId +
+        ", prizeTypeId=" + prizeTypeId +
+        ", prizeName=" + prizeName +
+        ", prizeContent=" + prizeContent +
+        ", prizeRemark=" + prizeRemark +
+        ", userId=" + userId +
+        ", idata1=" + idata1 +
+        ", idata2=" + idata2 +
+        ", idata3=" + idata3 +
+        ", idata4=" + idata4 +
+        ", sdata1=" + sdata1 +
+        ", sdata2=" + sdata2 +
+        ", sdata3=" + sdata3 +
+        ", sdata4=" + sdata4 +
+        ", createTime=" + createTime +
+        ", updateTime=" + updateTime +
+        "}";
+    }
 }

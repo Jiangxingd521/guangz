@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.ningyang.os.dao.PrizeSetMapper">
+<mapper namespace="com.ningyang.os.dao.SerPrizeSetInfoMapper">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="com.ningyang.os.pojo.PrizeSet">
+    <resultMap id="BaseResultMap" type="com.ningyang.os.pojo.SerPrizeSetInfo">
         <id column="prize_set_id" property="prizeSetId" />
-        <result column="prize_manage_id" property="prizeManageId" />
+        <result column="prize_manager_id" property="prizeManagerId" />
         <result column="prize_set_name" property="prizeSetName" />
         <result column="prod_id" property="prodId" />
         <result column="member_type" property="memberType" />
@@ -19,9 +19,9 @@
         <result column="prize_mode_type" property="prizeModeType" />
         <result column="card_money" property="cardMoney" />
         <result column="card_coupon_money" property="cardCouponMoney" />
-        <result column="user_id" property="userId" />
         <result column="prize_start_date" property="prizeStartDate" />
         <result column="prize_end_date" property="prizeEndDate" />
+        <result column="user_id" property="userId" />
         <result column="idata1" property="idata1" />
         <result column="idata2" property="idata2" />
         <result column="idata3" property="idata3" />

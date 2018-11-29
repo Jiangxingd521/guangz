@@ -11,221 +11,11 @@
  Target Server Version : 50721
  File Encoding         : 65001
 
- Date: 29/11/2018 15:51:17
+ Date: 29/11/2018 17:45:04
 */
 
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
-
--- ----------------------------
--- Table structure for T_MEMBER_INFO
--- ----------------------------
-DROP TABLE IF EXISTS `T_MEMBER_INFO`;
-CREATE TABLE `T_MEMBER_INFO` (
-  `open_id` varchar(32) COLLATE utf8_unicode_ci NOT NULL,
-  `memer_type_id` bigint(20) DEFAULT NULL,
-  `ali_pay_id` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `subscribe` int(11) NOT NULL,
-  `nick_name` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `sex` int(11) NOT NULL,
-  `city` varchar(32) COLLATE utf8_unicode_ci NOT NULL,
-  `country` varchar(32) COLLATE utf8_unicode_ci NOT NULL,
-  `province` varchar(32) COLLATE utf8_unicode_ci NOT NULL,
-  `language` varchar(8) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `head_img_url` varchar(500) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `subscribe_time` datetime NOT NULL,
-  `union_id` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `remark` varchar(1024) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `group_id` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `tagid_list` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `wechat_app_id` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `member_name` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `member_mobile` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `member_account` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `member_password` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `user_id` bigint(20) DEFAULT NULL,
-  `idata1` int(11) DEFAULT NULL,
-  `idata2` int(11) DEFAULT NULL,
-  `idata3` int(11) DEFAULT NULL,
-  `idata4` int(11) DEFAULT NULL,
-  `sdata1` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `sdata2` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `sdata3` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `sdata4` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `create_time` datetime DEFAULT NULL,
-  `update_time` datetime DEFAULT NULL,
-  PRIMARY KEY (`open_id`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
--- ----------------------------
--- Table structure for T_MEMBER_POINT_RULE
--- ----------------------------
-DROP TABLE IF EXISTS `T_MEMBER_POINT_RULE`;
-CREATE TABLE `T_MEMBER_POINT_RULE` (
-  `member_pot_rule_id` bigint(20) NOT NULL,
-  `member_pot_rule_type` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '1£ºµÇÂ¼»ý·Ö  2ÎªÉ¨Âë»ý·Ö 3ÎªµÚÒ»´ÎÉ¨Âë»ý·Ö    4.»î¶¯»ý·Ö\n            ',
-  `member_pot_value` int(11) DEFAULT NULL,
-  `user_id` bigint(20) DEFAULT NULL,
-  `idata1` int(11) DEFAULT NULL,
-  `idata2` int(11) DEFAULT NULL,
-  `idata3` int(11) DEFAULT NULL,
-  `idata4` int(11) DEFAULT NULL,
-  `sdata1` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `sdata2` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `sdata3` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `sdata4` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `create_time` datetime DEFAULT NULL,
-  `update_time` datetime DEFAULT NULL,
-  PRIMARY KEY (`member_pot_rule_id`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
--- ----------------------------
--- Table structure for T_MEMBER_SCANNING
--- ----------------------------
-DROP TABLE IF EXISTS `T_MEMBER_SCANNING`;
-CREATE TABLE `T_MEMBER_SCANNING` (
-  `scanId` bigint(20) NOT NULL,
-  `open_id` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `pr_code` varchar(1024) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `idata1` int(11) DEFAULT NULL,
-  `idata2` int(11) DEFAULT NULL,
-  `idata3` int(11) DEFAULT NULL,
-  `idata4` int(11) DEFAULT NULL,
-  `sdata1` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `sdata2` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `sdata3` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `sdata4` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `create_time` datetime DEFAULT NULL,
-  `update_time` datetime DEFAULT NULL,
-  PRIMARY KEY (`scanId`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
--- ----------------------------
--- Table structure for T_PRIZE_MANAGER
--- ----------------------------
-DROP TABLE IF EXISTS `T_PRIZE_MANAGER`;
-CREATE TABLE `T_PRIZE_MANAGER` (
-  `prize_manage_id` bigint(20) NOT NULL,
-  `prize_type_id` bigint(20) DEFAULT NULL COMMENT '奖项类型',
-  `prize_name` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '奖项名称',
-  `prize_content` varchar(1024) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '奖项内容',
-  `prize_remark` varchar(5000) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '奖项备注',
-  `user_id` bigint(20) DEFAULT NULL,
-  `idata1` int(11) DEFAULT NULL,
-  `idata2` int(11) DEFAULT NULL,
-  `idata3` int(11) DEFAULT NULL,
-  `idata4` int(11) DEFAULT NULL,
-  `sdata1` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `sdata2` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `sdata3` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `sdata4` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `create_time` datetime DEFAULT NULL,
-  `update_time` datetime DEFAULT NULL,
-  PRIMARY KEY (`prize_manage_id`) USING BTREE,
-  KEY `FK_PK_PRIZE_MANAGER` (`prize_type_id`) USING BTREE,
-  CONSTRAINT `t_prize_manager_ibfk_1` FOREIGN KEY (`prize_type_id`) REFERENCES `T_PRIZE_TYPE` (`prize_type_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='奖项管理';
-
--- ----------------------------
--- Table structure for T_PRIZE_RECODE
--- ----------------------------
-DROP TABLE IF EXISTS `T_PRIZE_RECODE`;
-CREATE TABLE `T_PRIZE_RECODE` (
-  `prize_recor_id` bigint(20) NOT NULL,
-  `order_no` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `pr_code` varchar(1024) COLLATE utf8_unicode_ci NOT NULL,
-  `prize_set_id` bigint(20) NOT NULL,
-  `prize_set_name` bigint(20) DEFAULT NULL,
-  `prod_id` bigint(20) DEFAULT NULL,
-  `member_type` int(11) DEFAULT NULL,
-  `region_id` bigint(20) DEFAULT NULL,
-  `prize_quantity` int(11) DEFAULT NULL,
-  `money` decimal(5,2) DEFAULT NULL,
-  `ponit` int(11) DEFAULT NULL,
-  `prize_set_type` int(11) DEFAULT NULL,
-  `prize_mode_type` int(11) DEFAULT NULL COMMENT '1Î»Ëæ»ú²¼ 2Î»Æ½¾ù²¼',
-  `card_money` int(11) DEFAULT NULL,
-  `card_coupon_money` int(11) DEFAULT NULL,
-  `prize_state` int(11) DEFAULT NULL COMMENT '0Î´Î´¼¤»î×´Ì¬ 1Îª¼¤»î×´Ì¬',
-  `track_no` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `cash_time` char(10) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `open_id` varchar(32) COLLATE utf8_unicode_ci NOT NULL,
-  `user_id` bigint(20) DEFAULT NULL,
-  `idata1` int(11) NOT NULL,
-  `idata2` int(11) DEFAULT NULL,
-  `idata3` int(11) DEFAULT NULL,
-  `idata4` int(11) DEFAULT NULL,
-  `sdata1` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `sata2` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `sdata3` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `sdata4` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `create_time` datetime DEFAULT NULL,
-  `update_time` datetime DEFAULT NULL,
-  `prize_start_date` datetime DEFAULT NULL,
-  `prize_end_date` datetime DEFAULT NULL,
-  PRIMARY KEY (`prize_recor_id`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
--- ----------------------------
--- Table structure for T_PRIZE_SET
--- ----------------------------
-DROP TABLE IF EXISTS `T_PRIZE_SET`;
-CREATE TABLE `T_PRIZE_SET` (
-  `prize_set_id` bigint(20) NOT NULL,
-  `prize_manage_id` bigint(20) DEFAULT NULL,
-  `prize_set_name` bigint(20) DEFAULT NULL,
-  `prod_id` bigint(20) DEFAULT NULL,
-  `member_type` int(11) DEFAULT NULL,
-  `region_id` bigint(20) DEFAULT NULL,
-  `prize_quantity` int(11) DEFAULT NULL,
-  `money` decimal(5,2) DEFAULT NULL,
-  `money_end` decimal(5,2) DEFAULT NULL,
-  `ponit` int(11) DEFAULT NULL,
-  `point_end` int(11) DEFAULT NULL,
-  `prize_set_type` int(11) DEFAULT NULL,
-  `prize_mode_type` int(11) DEFAULT NULL,
-  `card_money` int(11) DEFAULT NULL,
-  `card_coupon_money` int(11) DEFAULT NULL,
-  `user_id` bigint(20) DEFAULT NULL,
-  `prize_start_date` datetime DEFAULT NULL,
-  `prize_end_date` datetime DEFAULT NULL,
-  `idata1` int(11) DEFAULT NULL,
-  `idata2` int(11) DEFAULT NULL,
-  `idata3` int(11) DEFAULT NULL,
-  `idata4` int(11) DEFAULT NULL,
-  `sdata1` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `sdata2` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `sdata3` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `sdata4` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `create_time` datetime DEFAULT NULL,
-  `update_time` datetime DEFAULT NULL,
-  PRIMARY KEY (`prize_set_id`) USING BTREE,
-  KEY `FK_Relationship_7` (`prize_manage_id`) USING BTREE,
-  CONSTRAINT `t_prize_set_ibfk_1` FOREIGN KEY (`prize_manage_id`) REFERENCES `T_PRIZE_MANAGER` (`prize_manage_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
--- ----------------------------
--- Table structure for T_PRIZE_TYPE
--- ----------------------------
-DROP TABLE IF EXISTS `T_PRIZE_TYPE`;
-CREATE TABLE `T_PRIZE_TYPE` (
-  `prize_type_id` bigint(20) NOT NULL,
-  `prize_type_code` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
-  `prize_type_name` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `prize_type_content` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `user_id` bigint(20) DEFAULT NULL,
-  `idata1` int(11) DEFAULT NULL,
-  `idata2` int(11) DEFAULT NULL,
-  `idata3` int(11) DEFAULT NULL,
-  `idata4` int(11) DEFAULT NULL,
-  `sdata1` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `sdata2` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `sdata3` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `sdata4` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `create_time` datetime DEFAULT NULL,
-  `update_time` datetime DEFAULT NULL,
-  PRIMARY KEY (`prize_type_id`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Table structure for l_code_import_file_info
@@ -309,6 +99,112 @@ BEGIN;
 INSERT INTO `l_ser_warehouse_goods_out_info` VALUES (1, 20181129125419, 1, '8000001631823255', NULL, NULL, 3, '2018-11-29 14:59:11', '2018-11-29 14:59:11', '2018-11-29 14:59:11');
 INSERT INTO `l_ser_warehouse_goods_out_info` VALUES (2, 20181129125419, 1, '9000001005795865', NULL, NULL, 3, '2018-11-29 14:59:11', '2018-11-29 14:59:11', '2018-11-29 14:59:11');
 COMMIT;
+
+-- ----------------------------
+-- Table structure for t_member_info
+-- ----------------------------
+DROP TABLE IF EXISTS `t_member_info`;
+CREATE TABLE `t_member_info` (
+  `open_id` varchar(32) COLLATE utf8_unicode_ci NOT NULL,
+  `member_type_id` bigint(20) DEFAULT NULL COMMENT '会员类型',
+  `ali_pay_id` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '支付id',
+  `subscribe` int(11) NOT NULL COMMENT '是否订阅微信号',
+  `nick_name` varchar(50) COLLATE utf8_unicode_ci NOT NULL COMMENT '昵称',
+  `sex` int(11) NOT NULL COMMENT '性别',
+  `city` varchar(32) COLLATE utf8_unicode_ci NOT NULL COMMENT '城市',
+  `country` varchar(32) COLLATE utf8_unicode_ci NOT NULL COMMENT '国家',
+  `province` varchar(32) COLLATE utf8_unicode_ci NOT NULL COMMENT '省份',
+  `language` varchar(8) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '语言',
+  `head_img_url` varchar(500) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '头像',
+  `subscribe_time` datetime NOT NULL COMMENT '关注时间',
+  `union_id` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '微信唯一编码',
+  `remark` varchar(1024) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '备注',
+  `group_id` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '分组id',
+  `tagid_list` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '标签id',
+  `wechat_app_id` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '对应微信数据id',
+  `member_name` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '会员姓名',
+  `member_mobile` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '会员手机号',
+  `member_account` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '会员登录账号',
+  `member_password` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '登录密码',
+  `user_id` bigint(20) DEFAULT NULL,
+  `idata1` int(11) DEFAULT NULL,
+  `idata2` int(11) DEFAULT NULL,
+  `idata3` int(11) DEFAULT NULL,
+  `idata4` int(11) DEFAULT NULL,
+  `sdata1` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `sdata2` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `sdata3` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `sdata4` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `create_time` datetime DEFAULT NULL,
+  `update_time` datetime DEFAULT NULL,
+  PRIMARY KEY (`open_id`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='会员数据';
+
+-- ----------------------------
+-- Table structure for t_member_point_rule
+-- ----------------------------
+DROP TABLE IF EXISTS `t_member_point_rule`;
+CREATE TABLE `t_member_point_rule` (
+  `id` bigint(20) NOT NULL,
+  `rule_type` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '积分类型',
+  `rule_value` int(11) DEFAULT NULL COMMENT '积分分值',
+  `user_id` bigint(20) DEFAULT NULL,
+  `idata1` int(11) DEFAULT NULL,
+  `idata2` int(11) DEFAULT NULL,
+  `idata3` int(11) DEFAULT NULL,
+  `idata4` int(11) DEFAULT NULL,
+  `sdata1` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `sdata2` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `sdata3` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `sdata4` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `create_time` datetime DEFAULT NULL,
+  `update_time` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='会员积分规则';
+
+-- ----------------------------
+-- Table structure for t_member_scanning
+-- ----------------------------
+DROP TABLE IF EXISTS `t_member_scanning`;
+CREATE TABLE `t_member_scanning` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `open_id` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '微信openid',
+  `pr_code` varchar(1024) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '内码',
+  `idata1` int(11) DEFAULT NULL,
+  `idata2` int(11) DEFAULT NULL,
+  `idata3` int(11) DEFAULT NULL,
+  `idata4` int(11) DEFAULT NULL,
+  `sdata1` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `sdata2` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `sdata3` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `sdata4` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `create_time` datetime DEFAULT NULL COMMENT '创建时间',
+  `update_time` datetime DEFAULT NULL COMMENT '修改时间',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='会员扫码记录';
+
+-- ----------------------------
+-- Table structure for t_member_type_info
+-- ----------------------------
+DROP TABLE IF EXISTS `t_member_type_info`;
+CREATE TABLE `t_member_type_info` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `type_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '会员类型名称',
+  `type_rule_id` bigint(255) DEFAULT NULL COMMENT '升级规则',
+  `type_quanty` int(255) DEFAULT NULL COMMENT '升级数据量',
+  `user_id` bigint(20) DEFAULT NULL COMMENT '操作人',
+  `idata1` int(255) DEFAULT NULL,
+  `idata2` int(255) DEFAULT NULL,
+  `idata3` int(255) DEFAULT NULL,
+  `idata4` int(255) DEFAULT NULL,
+  `sdata1` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `sdata2` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `sdata3` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `sdata4` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `create_time` datetime DEFAULT NULL,
+  `update_time` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='会员类型';
 
 -- ----------------------------
 -- Table structure for t_ser_apply_code_201811
@@ -890,6 +786,131 @@ INSERT INTO `t_ser_order_info_details` VALUES (134, 2, 6, 4, 2, '2018-11-29 14:2
 COMMIT;
 
 -- ----------------------------
+-- Table structure for t_ser_prize_manager_info
+-- ----------------------------
+DROP TABLE IF EXISTS `t_ser_prize_manager_info`;
+CREATE TABLE `t_ser_prize_manager_info` (
+  `prize_manage_id` bigint(20) NOT NULL,
+  `prize_type_id` bigint(20) DEFAULT NULL COMMENT '奖项类型',
+  `prize_name` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '奖项名称',
+  `prize_content` varchar(1024) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '奖项内容',
+  `prize_remark` varchar(5000) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '奖项备注',
+  `user_id` bigint(20) DEFAULT NULL COMMENT '操作人',
+  `idata1` int(11) DEFAULT NULL,
+  `idata2` int(11) DEFAULT NULL,
+  `idata3` int(11) DEFAULT NULL,
+  `idata4` int(11) DEFAULT NULL,
+  `sdata1` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `sdata2` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `sdata3` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `sdata4` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `create_time` datetime DEFAULT NULL COMMENT '创建时间',
+  `update_time` datetime DEFAULT NULL COMMENT '修改时间',
+  PRIMARY KEY (`prize_manage_id`) USING BTREE,
+  KEY `FK_PK_PRIZE_MANAGER` (`prize_type_id`) USING BTREE,
+  CONSTRAINT `t_ser_prize_manager_info_ibfk_1` FOREIGN KEY (`prize_type_id`) REFERENCES `t_ser_prize_type_info` (`prize_type_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='奖项管理';
+
+-- ----------------------------
+-- Table structure for t_ser_prize_recode_info
+-- ----------------------------
+DROP TABLE IF EXISTS `t_ser_prize_recode_info`;
+CREATE TABLE `t_ser_prize_recode_info` (
+  `prize_recor_id` bigint(20) NOT NULL,
+  `order_no` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '订单编号',
+  `pr_code` varchar(1024) COLLATE utf8_unicode_ci NOT NULL COMMENT '产品编码',
+  `prize_set_id` bigint(20) NOT NULL COMMENT '奖项设定id',
+  `prize_set_name` bigint(20) DEFAULT NULL COMMENT '布奖名称',
+  `prod_id` bigint(20) DEFAULT NULL COMMENT '产品id',
+  `member_type` int(11) DEFAULT NULL COMMENT '会员类型',
+  `region_id` bigint(20) DEFAULT NULL COMMENT '布奖区域',
+  `prize_quantity` int(11) DEFAULT NULL COMMENT '布奖数量',
+  `money` decimal(5,2) DEFAULT NULL COMMENT '红包额度',
+  `ponit` int(11) DEFAULT NULL COMMENT '积分额度',
+  `prize_set_type` int(11) DEFAULT NULL COMMENT '布奖类型',
+  `prize_mode_type` int(11) DEFAULT NULL COMMENT '布奖模式（1：随机部署，2：平均部署）',
+  `card_money` int(11) DEFAULT NULL COMMENT '卡券消费额度',
+  `card_coupon_money` int(11) DEFAULT NULL COMMENT '卡券优惠额度',
+  `prize_state` int(11) DEFAULT NULL COMMENT '布奖状态（0：未激活，1：已激活）',
+  `track_no` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '快递单号',
+  `cash_time` char(10) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '兑奖时间',
+  `open_id` varchar(32) COLLATE utf8_unicode_ci NOT NULL COMMENT '中奖人id',
+  `prize_start_date` datetime DEFAULT NULL COMMENT '布奖开始日期',
+  `prize_end_date` datetime DEFAULT NULL COMMENT '布奖结束日期',
+  `user_id` bigint(20) DEFAULT NULL COMMENT '创建人',
+  `idata1` int(11) NOT NULL,
+  `idata2` int(11) DEFAULT NULL,
+  `idata3` int(11) DEFAULT NULL,
+  `idata4` int(11) DEFAULT NULL,
+  `sdata1` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `sata2` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `sdata3` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `sdata4` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `create_time` datetime DEFAULT NULL COMMENT '创建时间',
+  `update_time` datetime DEFAULT NULL COMMENT '修改时间',
+  PRIMARY KEY (`prize_recor_id`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='布奖记录';
+
+-- ----------------------------
+-- Table structure for t_ser_prize_set_info
+-- ----------------------------
+DROP TABLE IF EXISTS `t_ser_prize_set_info`;
+CREATE TABLE `t_ser_prize_set_info` (
+  `prize_set_id` bigint(20) NOT NULL,
+  `prize_manager_id` bigint(20) DEFAULT NULL COMMENT '奖项管理id',
+  `prize_set_name` bigint(20) DEFAULT NULL COMMENT '布奖名称',
+  `prod_id` bigint(20) DEFAULT NULL COMMENT '产品id',
+  `member_type` int(11) DEFAULT NULL COMMENT '会员类型',
+  `region_id` bigint(20) DEFAULT NULL COMMENT '布奖区域',
+  `prize_quantity` int(11) DEFAULT NULL COMMENT '布奖数量',
+  `money` decimal(5,2) DEFAULT NULL COMMENT '红包额度',
+  `money_end` decimal(5,2) DEFAULT NULL COMMENT '红包额度结束',
+  `ponit` int(11) DEFAULT NULL COMMENT '积分额度',
+  `point_end` int(11) DEFAULT NULL COMMENT '积分额度结束',
+  `prize_set_type` int(11) DEFAULT NULL COMMENT '布奖类型',
+  `prize_mode_type` int(11) DEFAULT NULL COMMENT '布奖模式',
+  `card_money` int(11) DEFAULT NULL COMMENT '卡券消费额度',
+  `card_coupon_money` int(11) DEFAULT NULL COMMENT '卡券优惠额度',
+  `prize_start_date` datetime DEFAULT NULL COMMENT '布奖开始日期',
+  `prize_end_date` datetime DEFAULT NULL COMMENT '布奖结束日期',
+  `user_id` bigint(20) DEFAULT NULL COMMENT '操作人',
+  `idata1` int(11) DEFAULT NULL,
+  `idata2` int(11) DEFAULT NULL,
+  `idata3` int(11) DEFAULT NULL,
+  `idata4` int(11) DEFAULT NULL,
+  `sdata1` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `sdata2` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `sdata3` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `sdata4` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `create_time` datetime DEFAULT NULL COMMENT '创建时间',
+  `update_time` datetime DEFAULT NULL COMMENT '修改时间',
+  PRIMARY KEY (`prize_set_id`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='奖项设定';
+
+-- ----------------------------
+-- Table structure for t_ser_prize_type_info
+-- ----------------------------
+DROP TABLE IF EXISTS `t_ser_prize_type_info`;
+CREATE TABLE `t_ser_prize_type_info` (
+  `prize_type_id` bigint(20) NOT NULL,
+  `prize_type_code` varchar(10) COLLATE utf8_unicode_ci NOT NULL COMMENT '奖项类型编码',
+  `prize_type_name` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '奖项类型名称',
+  `prize_type_content` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '奖项类型内容',
+  `user_id` bigint(20) DEFAULT NULL COMMENT '操作人',
+  `idata1` int(11) DEFAULT NULL,
+  `idata2` int(11) DEFAULT NULL,
+  `idata3` int(11) DEFAULT NULL,
+  `idata4` int(11) DEFAULT NULL,
+  `sdata1` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `sdata2` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `sdata3` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `sdata4` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `create_time` datetime DEFAULT NULL COMMENT '创建时间',
+  `update_time` datetime DEFAULT NULL COMMENT '修改时间',
+  PRIMARY KEY (`prize_type_id`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='奖项类型';
+
+-- ----------------------------
 -- Table structure for t_ser_purchase_order_info
 -- ----------------------------
 DROP TABLE IF EXISTS `t_ser_purchase_order_info`;
@@ -920,8 +941,8 @@ CREATE TABLE `t_ser_purchase_order_info_details` (
   `purchase_id` bigint(20) DEFAULT NULL COMMENT '退货订单id',
   `product_id` bigint(20) DEFAULT NULL COMMENT '产品系列id',
   `box_no` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '箱号',
-  `is_no` int(11) DEFAULT NULL,
-  `purchase_state` int(255) DEFAULT NULL,
+  `is_no` int(11) DEFAULT NULL COMMENT '是否直接入库（0：是，1：否）',
+  `purchase_state` int(255) DEFAULT NULL COMMENT '退货状态（0：供应商发起，1：仓管员发起）',
   `idata1` int(255) DEFAULT NULL,
   `idata2` int(255) DEFAULT NULL,
   `idata3` int(255) DEFAULT NULL,

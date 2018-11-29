@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.ningyang.os.dao.PrizeTypeMapper">
+<mapper namespace="com.ningyang.os.dao.MemberTypeInfoMapper">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="com.ningyang.os.pojo.PrizeType">
-        <id column="prize_type_id" property="prizeTypeId" />
-        <result column="prize_type_code" property="prizeTypeCode" />
-        <result column="prize_type_name" property="prizeTypeName" />
-        <result column="prize_type_content" property="prizeTypeContent" />
+    <resultMap id="BaseResultMap" type="com.ningyang.os.pojo.MemberTypeInfo">
+        <id column="id" property="id" />
+        <result column="type_name" property="typeName" />
+        <result column="type_rule_id" property="typeRuleId" />
+        <result column="type_quanty" property="typeQuanty" />
         <result column="user_id" property="userId" />
         <result column="idata1" property="idata1" />
         <result column="idata2" property="idata2" />

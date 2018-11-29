@@ -5,24 +5,34 @@ import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
+
 import java.util.Date;
+
 import java.io.Serializable;
+
 /**
  * <p>
- *
+ * 会员扫码记录
  * </p>
  *
  * @author kaider
- * @since 2018-11-26
+ * @since 2018-11-29
  */
-@TableName("T_MEMBER_SCANNING")
+@TableName("t_member_scanning")
 public class MemberScanning extends Model<MemberScanning> {
 
     private static final long serialVersionUID = 1L;
 
-    private Long scanId;
+    @TableId(value = "id", type = IdType.AUTO)
+    private Long id;
+    /**
+     * 微信openid
+     */
     @TableField("open_id")
     private String openId;
+    /**
+     * 内码
+     */
     @TableField("pr_code")
     private String prCode;
     private Integer idata1;
@@ -33,17 +43,24 @@ public class MemberScanning extends Model<MemberScanning> {
     private String sdata2;
     private String sdata3;
     private String sdata4;
+    /**
+     * 创建时间
+     */
     @TableField("create_time")
     private Date createTime;
+    /**
+     * 修改时间
+     */
     @TableField("update_time")
     private Date updateTime;
 
-    public Long getScanId() {
-        return scanId;
+
+    public Long getId() {
+        return id;
     }
 
-    public void setScanId(Long scanId) {
-        this.scanId = scanId;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getOpenId() {
@@ -144,8 +161,25 @@ public class MemberScanning extends Model<MemberScanning> {
 
     @Override
     protected Serializable pkVal() {
-        return this.scanId;
+        return this.id;
     }
 
-
+    @Override
+    public String toString() {
+        return "MemberScanning{" +
+        "id=" + id +
+        ", openId=" + openId +
+        ", prCode=" + prCode +
+        ", idata1=" + idata1 +
+        ", idata2=" + idata2 +
+        ", idata3=" + idata3 +
+        ", idata4=" + idata4 +
+        ", sdata1=" + sdata1 +
+        ", sdata2=" + sdata2 +
+        ", sdata3=" + sdata3 +
+        ", sdata4=" + sdata4 +
+        ", createTime=" + createTime +
+        ", updateTime=" + updateTime +
+        "}";
+    }
 }

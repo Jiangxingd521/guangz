@@ -1,16 +1,16 @@
 package com.ningyang.os.dao;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.ningyang.os.pojo.MemberScanning;
+import com.ningyang.os.pojo.MemberTypeInfo;
 
 /**
  * <p>
- * 会员扫码记录 Mapper 接口
+ * 会员类型 Mapper 接口
  * </p>
  *
  * @author kaider
  * @since 2018-11-29
  */
-public interface MemberScanningMapper extends BaseMapper<MemberScanning> {
+public interface MemberTypeInfoMapper extends BaseMapper<MemberTypeInfo> {
 
 }

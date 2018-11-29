@@ -1,7 +1,7 @@
 package com.ningyang.os.service;
 
-import com.ningyang.os.pojo.PrizeManager;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.ningyang.os.pojo.SerPrizeManagerInfo;
 
 /**
  * <p>
@@ -9,8 +9,8 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * </p>
  *
  * @author kaider
- * @since 2018-11-26
+ * @since 2018-11-29
  */
-public interface IPrizeManagerService extends IService<PrizeManager> {
+public interface ISerPrizeManagerInfoService extends IService<SerPrizeManagerInfo> {
 
 }

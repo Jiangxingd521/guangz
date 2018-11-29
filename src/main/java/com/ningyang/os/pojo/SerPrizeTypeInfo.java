@@ -1,6 +1,7 @@
 package com.ningyang.os.pojo;
 
 import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
 
@@ -9,28 +10,37 @@ import java.io.Serializable;
 
 /**
  * <p>
- * 会员积分规则
+ * 奖项类型
  * </p>
  *
  * @author kaider
  * @since 2018-11-29
  */
-@TableName("t_member_point_rule")
-public class MemberPointRule extends Model<MemberPointRule> {
+@TableName("t_ser_prize_type_info")
+public class SerPrizeTypeInfo extends Model<SerPrizeTypeInfo> {
 
     private static final long serialVersionUID = 1L;
 
-    private Long id;
+    @TableId("prize_type_id")
+    private Long prizeTypeId;
     /**
-     * 积分类型
+     * 奖项类型编码
      */
-    @TableField("rule_type")
-    private String ruleType;
+    @TableField("prize_type_code")
+    private String prizeTypeCode;
     /**
-     * 积分分值
+     * 奖项类型名称
      */
-    @TableField("rule_value")
-    private Integer ruleValue;
+    @TableField("prize_type_name")
+    private String prizeTypeName;
+    /**
+     * 奖项类型内容
+     */
+    @TableField("prize_type_content")
+    private String prizeTypeContent;
+    /**
+     * 操作人
+     */
     @TableField("user_id")
     private Long userId;
     private Integer idata1;
@@ -41,34 +51,48 @@ public class MemberPointRule extends Model<MemberPointRule> {
     private String sdata2;
     private String sdata3;
     private String sdata4;
+    /**
+     * 创建时间
+     */
     @TableField("create_time")
     private Date createTime;
+    /**
+     * 修改时间
+     */
     @TableField("update_time")
     private Date updateTime;
 
 
-    public Long getId() {
-        return id;
+    public Long getPrizeTypeId() {
+        return prizeTypeId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setPrizeTypeId(Long prizeTypeId) {
+        this.prizeTypeId = prizeTypeId;
     }
 
-    public String getRuleType() {
-        return ruleType;
+    public String getPrizeTypeCode() {
+        return prizeTypeCode;
     }
 
-    public void setRuleType(String ruleType) {
-        this.ruleType = ruleType;
+    public void setPrizeTypeCode(String prizeTypeCode) {
+        this.prizeTypeCode = prizeTypeCode;
     }
 
-    public Integer getRuleValue() {
-        return ruleValue;
+    public String getPrizeTypeName() {
+        return prizeTypeName;
     }
 
-    public void setRuleValue(Integer ruleValue) {
-        this.ruleValue = ruleValue;
+    public void setPrizeTypeName(String prizeTypeName) {
+        this.prizeTypeName = prizeTypeName;
+    }
+
+    public String getPrizeTypeContent() {
+        return prizeTypeContent;
+    }
+
+    public void setPrizeTypeContent(String prizeTypeContent) {
+        this.prizeTypeContent = prizeTypeContent;
     }
 
     public Long getUserId() {
@@ -161,15 +185,16 @@ public class MemberPointRule extends Model<MemberPointRule> {
 
     @Override
     protected Serializable pkVal() {
-        return this.id;
+        return this.prizeTypeId;
     }
 
     @Override
     public String toString() {
-        return "MemberPointRule{" +
-        "id=" + id +
-        ", ruleType=" + ruleType +
-        ", ruleValue=" + ruleValue +
+        return "SerPrizeTypeInfo{" +
+        "prizeTypeId=" + prizeTypeId +
+        ", prizeTypeCode=" + prizeTypeCode +
+        ", prizeTypeName=" + prizeTypeName +
+        ", prizeTypeContent=" + prizeTypeContent +
         ", userId=" + userId +
         ", idata1=" + idata1 +
         ", idata2=" + idata2 +
