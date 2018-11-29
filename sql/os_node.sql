@@ -11,7 +11,7 @@
  Target Server Version : 50721
  File Encoding         : 65001
 
- Date: 29/11/2018 17:45:04
+ Date: 29/11/2018 17:54:39
 */
 
 SET NAMES utf8mb4;
@@ -884,7 +884,9 @@ CREATE TABLE `t_ser_prize_set_info` (
   `sdata4` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `create_time` datetime DEFAULT NULL COMMENT '创建时间',
   `update_time` datetime DEFAULT NULL COMMENT '修改时间',
-  PRIMARY KEY (`prize_set_id`) USING BTREE
+  PRIMARY KEY (`prize_set_id`) USING BTREE,
+  KEY `prize_manager_id` (`prize_manager_id`),
+  CONSTRAINT `t_ser_prize_set_info_ibfk_1` FOREIGN KEY (`prize_manager_id`) REFERENCES `t_ser_prize_manager_info` (`prize_manage_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='奖项设定';
 
 -- ----------------------------
