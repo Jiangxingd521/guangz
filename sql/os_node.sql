@@ -11,7 +11,7 @@
  Target Server Version : 50721
  File Encoding         : 65001
 
- Date: 28/11/2018 19:27:40
+ Date: 29/11/2018 15:51:17
 */
 
 SET NAMES utf8mb4;
@@ -274,15 +274,14 @@ CREATE TABLE `l_ser_warehouse_goods_info` (
   KEY `goods_id` (`goods_id`),
   CONSTRAINT `l_ser_warehouse_goods_info_ibfk_1` FOREIGN KEY (`warehouse_id`) REFERENCES `t_ser_warehouse_info` (`id`),
   CONSTRAINT `l_ser_warehouse_goods_info_ibfk_2` FOREIGN KEY (`goods_id`) REFERENCES `t_ser_goods_info` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='商品入库记录日志';
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='商品入库记录日志';
 
 -- ----------------------------
 -- Records of l_ser_warehouse_goods_info
 -- ----------------------------
 BEGIN;
-INSERT INTO `l_ser_warehouse_goods_info` VALUES (1, 0, 1, 1, '8000001631823255', '20181127111616', 3, '2018-11-27 11:16:17', '2018-11-27 11:16:17', '2018-11-27 11:16:17');
-INSERT INTO `l_ser_warehouse_goods_info` VALUES (2, 0, 1, 2, '8000001631823255', '20181127111616', 3, '2018-11-27 11:16:17', '2018-11-27 11:16:17', '2018-11-27 11:16:17');
-INSERT INTO `l_ser_warehouse_goods_info` VALUES (3, 0, 1, 3, '9000001005795865', '20181127111616', 3, '2018-11-27 11:16:17', '2018-11-27 11:16:17', '2018-11-27 11:16:17');
+INSERT INTO `l_ser_warehouse_goods_info` VALUES (1, 0, 1, NULL, '9000001005795865', '20181129112854', 3, '2018-11-29 11:28:54', '2018-11-29 11:28:54', '2018-11-29 11:28:54');
+INSERT INTO `l_ser_warehouse_goods_info` VALUES (2, 0, 1, NULL, '8000001631823255', '20181129112854', 3, '2018-11-29 11:28:54', '2018-11-29 11:28:54', '2018-11-29 11:28:54');
 COMMIT;
 
 -- ----------------------------
@@ -301,7 +300,15 @@ CREATE TABLE `l_ser_warehouse_goods_out_info` (
   `create_time` datetime DEFAULT NULL COMMENT '创建时间',
   `update_time` datetime DEFAULT NULL COMMENT '修改时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='商品出库记录日志';
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='商品出库记录日志';
+
+-- ----------------------------
+-- Records of l_ser_warehouse_goods_out_info
+-- ----------------------------
+BEGIN;
+INSERT INTO `l_ser_warehouse_goods_out_info` VALUES (1, 20181129125419, 1, '8000001631823255', NULL, NULL, 3, '2018-11-29 14:59:11', '2018-11-29 14:59:11', '2018-11-29 14:59:11');
+INSERT INTO `l_ser_warehouse_goods_out_info` VALUES (2, 20181129125419, 1, '9000001005795865', NULL, NULL, 3, '2018-11-29 14:59:11', '2018-11-29 14:59:11', '2018-11-29 14:59:11');
+COMMIT;
 
 -- ----------------------------
 -- Table structure for t_ser_apply_code_201811
@@ -415,8 +422,8 @@ CREATE TABLE `t_ser_apply_code_table_info` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `code_flag` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '溯源码标识',
   `code_table_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '溯源码存在的表',
-  `create_time` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
-  `update_time` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  `create_time` datetime DEFAULT NULL,
+  `update_time` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='溯源码申请对应的存放表';
 
@@ -846,13 +853,14 @@ CREATE TABLE `t_ser_order_info` (
   `create_time` datetime DEFAULT NULL,
   `update_time` datetime DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='销售订单表';
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='销售订单表';
 
 -- ----------------------------
 -- Records of t_ser_order_info
 -- ----------------------------
 BEGIN;
-INSERT INTO `t_ser_order_info` VALUES (16, '20181128173024', 1, NULL, NULL, NULL, NULL, '7', 0, '1233sd', 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-11-28 17:30:24', '2018-11-28 18:03:21');
+INSERT INTO `t_ser_order_info` VALUES (1, '20181129125419', 1, NULL, NULL, NULL, NULL, '7', 2, '备注1', 2, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-11-29 12:54:19', '2018-11-29 12:55:08');
+INSERT INTO `t_ser_order_info` VALUES (2, '20181129132946', 1, NULL, NULL, NULL, NULL, '7', 2, '214sad', 2, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-11-29 13:29:47', '2018-11-29 14:34:59');
 COMMIT;
 
 -- ----------------------------
@@ -869,30 +877,63 @@ CREATE TABLE `t_ser_order_info_details` (
   `update_time` datetime DEFAULT NULL COMMENT '修改时间',
   PRIMARY KEY (`id`) USING BTREE,
   KEY `FK_FK_SERV_ORDER_IDEALS` (`order_id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=94 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='销售订单详情';
+) ENGINE=InnoDB AUTO_INCREMENT=137 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='销售订单详情';
 
 -- ----------------------------
 -- Records of t_ser_order_info_details
 -- ----------------------------
 BEGIN;
-INSERT INTO `t_ser_order_info_details` VALUES (61, 16, 5, 3, 2, '2018-11-28 17:55:34', '2018-11-28 17:55:34');
-INSERT INTO `t_ser_order_info_details` VALUES (77, 16, 6, 6, 2, '2018-11-28 17:58:00', '2018-11-28 17:58:00');
-INSERT INTO `t_ser_order_info_details` VALUES (79, 16, 6, 11, 2, '2018-11-28 17:58:00', '2018-11-28 17:58:00');
-INSERT INTO `t_ser_order_info_details` VALUES (80, 16, 5, 3, 2, '2018-11-28 18:03:21', '2018-11-28 18:03:21');
-INSERT INTO `t_ser_order_info_details` VALUES (81, 16, 5, 3, 2, '2018-11-28 18:03:21', '2018-11-28 18:03:21');
-INSERT INTO `t_ser_order_info_details` VALUES (82, 16, 5, 3, 2, '2018-11-28 18:03:21', '2018-11-28 18:03:21');
-INSERT INTO `t_ser_order_info_details` VALUES (83, 16, 6, 7, 2, '2018-11-28 18:03:21', '2018-11-28 18:03:21');
-INSERT INTO `t_ser_order_info_details` VALUES (84, 16, 6, 11, 2, '2018-11-28 18:03:21', '2018-11-28 18:03:21');
-INSERT INTO `t_ser_order_info_details` VALUES (85, 16, 6, 6, 2, '2018-11-28 18:03:21', '2018-11-28 18:03:21');
-INSERT INTO `t_ser_order_info_details` VALUES (86, 16, 6, 7, 2, '2018-11-28 18:03:21', '2018-11-28 18:03:21');
-INSERT INTO `t_ser_order_info_details` VALUES (87, 16, 6, 11, 2, '2018-11-28 18:03:21', '2018-11-28 18:03:21');
-INSERT INTO `t_ser_order_info_details` VALUES (88, 16, 6, 7, 2, '2018-11-28 18:03:21', '2018-11-28 18:03:21');
-INSERT INTO `t_ser_order_info_details` VALUES (89, 16, 6, 11, 2, '2018-11-28 18:03:21', '2018-11-28 18:03:21');
-INSERT INTO `t_ser_order_info_details` VALUES (90, 16, 6, 4, 2, '2018-11-28 18:03:21', '2018-11-28 18:03:21');
-INSERT INTO `t_ser_order_info_details` VALUES (91, 16, 6, 6, 2, '2018-11-28 18:03:21', '2018-11-28 18:03:21');
-INSERT INTO `t_ser_order_info_details` VALUES (92, 16, 6, 7, 2, '2018-11-28 18:03:21', '2018-11-28 18:03:21');
-INSERT INTO `t_ser_order_info_details` VALUES (93, 16, 6, 11, 2, '2018-11-28 18:03:21', '2018-11-28 18:03:21');
+INSERT INTO `t_ser_order_info_details` VALUES (96, 1, 5, 3, 2, '2018-11-29 12:54:20', '2018-11-29 12:54:20');
+INSERT INTO `t_ser_order_info_details` VALUES (97, 1, 6, 4, 2, '2018-11-29 12:54:20', '2018-11-29 12:54:20');
+INSERT INTO `t_ser_order_info_details` VALUES (133, 2, 5, 3, 2, '2018-11-29 14:29:18', '2018-11-29 14:29:18');
+INSERT INTO `t_ser_order_info_details` VALUES (134, 2, 6, 4, 2, '2018-11-29 14:29:25', '2018-11-29 14:29:25');
 COMMIT;
+
+-- ----------------------------
+-- Table structure for t_ser_purchase_order_info
+-- ----------------------------
+DROP TABLE IF EXISTS `t_ser_purchase_order_info`;
+CREATE TABLE `t_ser_purchase_order_info` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `dealer_id` bigint(255) DEFAULT NULL COMMENT '经销商id',
+  `order_no` int(11) DEFAULT NULL COMMENT '退货订单号',
+  `order_remark` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '退货原因',
+  `idata1` int(255) DEFAULT NULL,
+  `idata2` int(255) DEFAULT NULL,
+  `idata3` int(255) DEFAULT NULL,
+  `idata4` int(255) DEFAULT NULL,
+  `sdata1` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `sdata2` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `sdata3` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `sdata4` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `create_time` datetime DEFAULT NULL COMMENT '创建时间',
+  `update_time` datetime DEFAULT NULL COMMENT '修改时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='商品退货订单';
+
+-- ----------------------------
+-- Table structure for t_ser_purchase_order_info_details
+-- ----------------------------
+DROP TABLE IF EXISTS `t_ser_purchase_order_info_details`;
+CREATE TABLE `t_ser_purchase_order_info_details` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `purchase_id` bigint(20) DEFAULT NULL COMMENT '退货订单id',
+  `product_id` bigint(20) DEFAULT NULL COMMENT '产品系列id',
+  `box_no` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '箱号',
+  `is_no` int(11) DEFAULT NULL,
+  `purchase_state` int(255) DEFAULT NULL,
+  `idata1` int(255) DEFAULT NULL,
+  `idata2` int(255) DEFAULT NULL,
+  `idata3` int(255) DEFAULT NULL,
+  `idata4` int(255) DEFAULT NULL,
+  `sdata1` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `sdata2` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `sdata3` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `sdata4` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `create_time` datetime DEFAULT NULL,
+  `update_time` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='退货订单商品明细';
 
 -- ----------------------------
 -- Table structure for t_ser_warehouse_goods_info

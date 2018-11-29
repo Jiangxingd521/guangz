@@ -24,4 +24,6 @@ public interface ISerOrderInfoService extends IService<SerOrderInfo> {
     boolean addOrUpdate(OrderSaleCommand command, Long operateUserId);
 
     List<SaleOrderVo> findSaleOrderVoListByCondition(QueryOrderCondition condition);
+
+    int getOrderBoxCount(String orderNo);
 }

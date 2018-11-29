@@ -1,5 +1,6 @@
 package com.ningyang.os.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.ningyang.os.action.input.command.web.serve.OrderSaleCommand;
@@ -112,5 +113,18 @@ public class SerOrderInfoServiceImpl extends ServiceImpl<SerOrderInfoMapper, Ser
             vo.setProductNumber(boxCount);
         }
         return listTemp;
+    }
+
+    /**
+     * 获取订单箱数
+     * @param orderNo
+     * @return
+     */
+    @Override
+    public int getOrderBoxCount(String orderNo) {
+        Long orderId = getOne(new QueryWrapper<SerOrderInfo>().eq("order_no",orderNo)).getId();
+        QueryOrderCondition condition = new QueryOrderCondition();
+        condition.setOrderId(orderId);
+        return detailsService.boxCount(condition);
     }
 }

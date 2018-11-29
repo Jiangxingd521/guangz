@@ -18,14 +18,18 @@ public class GoodsPutOutVo {
     private String seriesName;
     //系列
     private String productName;
-    //箱数
-    private String boxCount;
+    //订单箱数
+    private int orderBoxCount;
+    //已出箱数
+    private int outBoxCount;
     //操作人
     private String userName;
     //
     private Date goodsOutTime;
     //出库时间
     private String goodsOutTimeStr;
+    //完成状态（0：未完成，1：已完成）
+    private int finishFlag;
 
     public String getDealerName() {
         return dealerName;
@@ -67,12 +71,20 @@ public class GoodsPutOutVo {
         this.productName = productName;
     }
 
-    public String getBoxCount() {
-        return boxCount;
+    public int getOrderBoxCount() {
+        return orderBoxCount;
     }
 
-    public void setBoxCount(String boxCount) {
-        this.boxCount = boxCount;
+    public void setOrderBoxCount(int orderBoxCount) {
+        this.orderBoxCount = orderBoxCount;
+    }
+
+    public int getOutBoxCount() {
+        return outBoxCount;
+    }
+
+    public void setOutBoxCount(int outBoxCount) {
+        this.outBoxCount = outBoxCount;
     }
 
     public String getUserName() {
@@ -97,5 +109,13 @@ public class GoodsPutOutVo {
 
     public void setGoodsOutTimeStr(String goodsOutTimeStr) {
         this.goodsOutTimeStr = goodsOutTimeStr;
+    }
+
+    public int getFinishFlag() {
+        return finishFlag;
+    }
+
+    public void setFinishFlag(int finishFlag) {
+        this.finishFlag = finishFlag;
     }
 }

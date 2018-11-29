@@ -8,6 +8,9 @@ import com.ningyang.os.action.output.vo.web.serve.GoodsPutOutVo;
 import com.ningyang.os.dao.LSerWarehouseGoodsOutInfoMapper;
 import com.ningyang.os.pojo.LSerWarehouseGoodsOutInfo;
 import com.ningyang.os.service.ILSerWarehouseGoodsOutInfoService;
+import com.ningyang.os.service.ISerOrderInfoDetailsService;
+import com.ningyang.os.service.ISerOrderInfoService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -26,6 +29,9 @@ import static com.ningyang.os.action.utils.DateUtil.timeToStr;
  */
 @Service
 public class LSerWarehouseGoodsOutInfoServiceImpl extends ServiceImpl<LSerWarehouseGoodsOutInfoMapper, LSerWarehouseGoodsOutInfo> implements ILSerWarehouseGoodsOutInfoService {
+
+    @Autowired
+    private ISerOrderInfoService orderInfoService;
 
     @Override
     public boolean add(ApiWarehousePutOutCommand command) {
@@ -50,6 +56,8 @@ public class LSerWarehouseGoodsOutInfoServiceImpl extends ServiceImpl<LSerWareho
         List<GoodsPutOutVo> listVoTemp = baseMapper.selectGoodsPutOutVoPageByCondition(condition);
         for(GoodsPutOutVo vo : listVoTemp){
             vo.setGoodsOutTimeStr(timeToStr(vo.getGoodsOutTime()));
+            int orderBoxCount = orderInfoService.getOrderBoxCount(vo.getOrderNo());
+            vo.setOrderBoxCount(orderBoxCount);
         }
         int total = baseMapper.selectGoodsPutOutVoPageCountByCondition(condition);
         pageVo.setRecords(listVoTemp);
