@@ -51,7 +51,6 @@ public class ApiWareHouseController extends BaseController {
             @ApiImplicitParam(name = "sourceType", value = "入库来源（0：生产入库，1：换货入库，2：退货入库，3：换仓入库）", paramType = "query"),
             @ApiImplicitParam(name = "warehouse", value = "仓库", required = true, paramType = "query"),
             @ApiImplicitParam(name = "boxCode", value = "箱码", required = true, paramType = "query", allowMultiple = true),
-            @ApiImplicitParam(name = "userId", value = "操作人", required = true, paramType = "query"),
             @ApiImplicitParam(name = "remark", value = "入库备注", paramType = "query")
 
     })
@@ -97,6 +96,7 @@ public class ApiWareHouseController extends BaseController {
             return WebResult.failure(API_REQUEST_ERROR.getInfo()).toMap();
         }
     }
+
 
     @ApiOperation(value = "出库")
     @ApiImplicitParams({

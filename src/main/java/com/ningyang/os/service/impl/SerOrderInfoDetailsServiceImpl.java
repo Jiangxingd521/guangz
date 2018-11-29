@@ -41,6 +41,16 @@ public class SerOrderInfoDetailsServiceImpl extends ServiceImpl<SerOrderInfoDeta
     }
 
     @Override
+    public int boxCount(QueryOrderCondition condition) {
+        List<OrderDetailVo> listTemp = findOrderDetailVoList(condition);
+        int boxCount = 0;
+        for(OrderDetailVo vo : listTemp){
+            boxCount = boxCount + vo.getBoxNumber();
+        }
+        return boxCount;
+    }
+
+    @Override
     public boolean delete() {
         return baseMapper.deleteOrderByNull();
     }

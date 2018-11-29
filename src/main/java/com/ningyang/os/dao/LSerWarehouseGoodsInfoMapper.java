@@ -1,7 +1,11 @@
 package com.ningyang.os.dao;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.ningyang.os.action.input.condition.serve.QueryGoodsPutCondition;
+import com.ningyang.os.action.output.vo.web.serve.GoodsPutInVo;
 import com.ningyang.os.pojo.LSerWarehouseGoodsInfo;
+
+import java.util.List;
 
 /**
  * <p>
@@ -12,5 +16,7 @@ import com.ningyang.os.pojo.LSerWarehouseGoodsInfo;
  * @since 2018-11-26
  */
 public interface LSerWarehouseGoodsInfoMapper extends BaseMapper<LSerWarehouseGoodsInfo> {
+
+    List<GoodsPutInVo> selectGoodsPutInVoPageByCondition(QueryGoodsPutCondition condition);
 
 }

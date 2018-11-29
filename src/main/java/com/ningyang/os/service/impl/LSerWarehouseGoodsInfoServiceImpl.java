@@ -1,7 +1,10 @@
 package com.ningyang.os.service.impl;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.ningyang.os.action.input.command.api.ApiWarehousePutInCommand;
+import com.ningyang.os.action.input.condition.serve.QueryGoodsPutCondition;
+import com.ningyang.os.action.output.vo.web.serve.GoodsPutInVo;
 import com.ningyang.os.dao.LSerWarehouseGoodsInfoMapper;
 import com.ningyang.os.pojo.LSerWarehouseGoodsInfo;
 import com.ningyang.os.service.ILSerWarehouseGoodsInfoService;
@@ -11,7 +14,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import static com.ningyang.os.action.utils.DateUtil.getOrderNum;
+import static com.ningyang.os.action.utils.DateUtil.*;
 
 /**
  * <p>
@@ -42,7 +45,17 @@ public class LSerWarehouseGoodsInfoServiceImpl extends ServiceImpl<LSerWarehouse
         return saveBatch(infoList);
     }
 
-
-
-
+    @Override
+    public Page<GoodsPutInVo> findGoodsPutInVoPageByCondition(QueryGoodsPutCondition condition) {
+        Page<GoodsPutInVo> pageVo = new Page<>();
+        List<GoodsPutInVo> listVoTemp = baseMapper.selectGoodsPutInVoPageByCondition(condition);
+        for(GoodsPutInVo vo : listVoTemp){
+            vo.setCreateTimeStr(timeToStr(vo.getCreateTime()));
+        }
+        pageVo.setRecords(listVoTemp);
+        pageVo.setTotal(listVoTemp.size());
+        pageVo.setSize(condition.getPage());
+        pageVo.setCurrent(condition.getLimit());
+        return pageVo;
+    }
 }

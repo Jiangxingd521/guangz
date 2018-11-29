@@ -1,15 +1,20 @@
 package com.ningyang.os.service.impl;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.ningyang.os.action.input.command.api.ApiWarehousePutOutCommand;
-import com.ningyang.os.pojo.LSerWarehouseGoodsOutInfo;
+import com.ningyang.os.action.input.condition.serve.QueryGoodsPutCondition;
+import com.ningyang.os.action.output.vo.web.serve.GoodsPutOutVo;
 import com.ningyang.os.dao.LSerWarehouseGoodsOutInfoMapper;
+import com.ningyang.os.pojo.LSerWarehouseGoodsOutInfo;
 import com.ningyang.os.service.ILSerWarehouseGoodsOutInfoService;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+
+import static com.ningyang.os.action.utils.DateUtil.timeToStr;
 
 /**
  * <p>
@@ -37,5 +42,19 @@ public class LSerWarehouseGoodsOutInfoServiceImpl extends ServiceImpl<LSerWareho
             infoList.add(info);
         }
         return saveBatch(infoList);
+    }
+
+    @Override
+    public Page<GoodsPutOutVo> findGoodsPutOutVoPageByCondition(QueryGoodsPutCondition condition) {
+        Page<GoodsPutOutVo> pageVo = new Page<>();
+        List<GoodsPutOutVo> listVoTemp = baseMapper.selectGoodsPutOutVoPageByCondition(condition);
+        for(GoodsPutOutVo vo : listVoTemp){
+            vo.setGoodsOutTimeStr(timeToStr(vo.getGoodsOutTime()));
+        }
+        pageVo.setRecords(listVoTemp);
+        pageVo.setTotal(listVoTemp.size());
+        pageVo.setSize(condition.getPage());
+        pageVo.setCurrent(condition.getLimit());
+        return pageVo;
     }
 }

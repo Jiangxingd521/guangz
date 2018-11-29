@@ -16,4 +16,21 @@
         <result column="update_time" property="updateTime" />
     </resultMap>
 
+    <select id="selectGoodsPutInVoPageByCondition"
+            parameterType="com.ningyang.os.action.input.condition.serve.QueryGoodsPutCondition"
+            resultType="com.ningyang.os.action.output.vo.web.serve.GoodsPutInVo"
+    >
+        select b.warehouse_name,d.brand_name,d.brand_series_name as series_name,
+        d.brand_series_product_name as product_name,c.user_name,a.create_time,
+        count(DISTINCT a.box_no) as boxCount
+        from l_ser_warehouse_goods_info a
+        left join t_ser_warehouse_info b on a.warehouse_id = b.id
+        left join t_sys_user_info c on a.user_id = c.id
+        left join t_ser_goods_info d on a.box_no = d.m5
+        where 1=1
+        GROUP BY b.warehouse_name,d.brand_name,d.brand_series_name,d.brand_series_product_name,
+                 c.user_name,a.create_time
+        limit #{page},#{limit}
+    </select>
+
 </mapper>

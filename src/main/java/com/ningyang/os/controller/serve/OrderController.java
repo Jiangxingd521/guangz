@@ -1,5 +1,6 @@
 package com.ningyang.os.controller.serve;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.ningyang.os.action.input.command.web.serve.OrderDetailsCommand;
 import com.ningyang.os.action.input.command.web.serve.OrderDetailsDelCommand;
@@ -9,6 +10,7 @@ import com.ningyang.os.action.output.vo.web.serve.OrderDetailVo;
 import com.ningyang.os.action.output.vo.web.serve.SaleOrderVo;
 import com.ningyang.os.action.utils.WebResult;
 import com.ningyang.os.controller.system.BaseController;
+import com.ningyang.os.pojo.SerOrderInfoDetails;
 import com.ningyang.os.service.ISerOrderInfoDetailsService;
 import com.ningyang.os.service.ISerOrderInfoService;
 import org.slf4j.Logger;
@@ -46,9 +48,12 @@ public class OrderController extends BaseController {
      */
     @GetMapping("getSalePage")
     public Map<String, Object> getSalePage(
+            @RequestHeader("Authorization") String userToken,
             QueryOrderCondition condition
     ) {
         try {
+            Long operateUserId = getBaseUserInfo(userToken).getId();
+            condition.setUserId(operateUserId);
             Page<SaleOrderVo> pageVo = infoService.findSaleOrderVoPageByCondition(condition);
             return WebResult.success().put("pageVo", pageVo).toMap();
         } catch (Exception e) {
@@ -94,9 +99,12 @@ public class OrderController extends BaseController {
 
     @GetMapping("getOrderDetailList")
     public Map<String,Object> getOrderDetailList(
+            @RequestHeader("Authorization") String userToken,
             QueryOrderCondition condition
     ){
         try {
+            Long operateUserId = getBaseUserInfo(userToken).getId();
+            condition.setUserId(operateUserId);
             List<OrderDetailVo> listVo = detailsService.findOrderDetailVoList(condition);
             return WebResult.success().put("listVo",listVo).toMap();
         } catch (Exception e) {
@@ -126,10 +134,19 @@ public class OrderController extends BaseController {
 
     @DeleteMapping("deleteDetails")
     public Map<String,Object> deleteDetails(
+            @RequestHeader("Authorization") String userToken,
            @RequestBody OrderDetailsDelCommand command
     ){
         try {
-            boolean flag = detailsService.removeById(command.getDetailId());
+            Long operateUserId = getBaseUserInfo(userToken).getId();
+            boolean flag;
+            if(command.getType()==1){
+                flag = detailsService.remove(new QueryWrapper<SerOrderInfoDetails>()
+                        .eq("order_id",-1)
+                        .eq("user_id",operateUserId));
+            }else{
+                flag = detailsService.removeById(command.getDetailId());
+            }
             if (flag) {
                 return WebResult.success().toMap();
             }

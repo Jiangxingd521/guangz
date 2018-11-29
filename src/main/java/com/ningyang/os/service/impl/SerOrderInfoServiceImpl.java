@@ -43,6 +43,8 @@ public class SerOrderInfoServiceImpl extends ServiceImpl<SerOrderInfoMapper, Ser
             condition.setOrderId(vo.getOrderId());
             List<OrderDetailVo> detailList = detailsService.findOrderDetailVoList(condition);
             vo.setDetailList(detailList);
+            int boxCount = detailsService.boxCount(condition);
+            vo.setProductNumber(boxCount);
         }
 
         int total = baseMapper.selectSaleOrderVoPageCountByCondition(condition);
@@ -86,25 +88,36 @@ public class SerOrderInfoServiceImpl extends ServiceImpl<SerOrderInfoMapper, Ser
             info.setUpdateTime(new Date());
             flag = save(info);
         }
-        List<SerOrderInfoDetails> detailsList = new ArrayList<>();
-        detailsService.delete();
-        for(OrderDetailVo vo : command.getDetailList()){
-            SerOrderInfoDetails details = new SerOrderInfoDetails();
-            details.setOrderId(info.getId());
-            details.setBoxNumber(vo.getBoxNumber());
-            details.setProductId(vo.getProductId());
-            details.setUserId(operateUserId);
-            details.setCreateTime(new Date());
-            details.setUpdateTime(new Date());
-            detailsList.add(details);
-        }
-        detailsService.saveBatch(detailsList);
 
+        if(command.getDetailList().size()>0){
+            List<SerOrderInfoDetails> detailsList = new ArrayList<>();
+            detailsService.delete();
+            for(OrderDetailVo vo : command.getDetailList()){
+                SerOrderInfoDetails details = new SerOrderInfoDetails();
+                details.setOrderId(info.getId());
+                details.setBoxNumber(vo.getBoxNumber());
+                details.setProductId(vo.getProductId());
+                details.setUserId(operateUserId);
+                details.setCreateTime(new Date());
+                details.setUpdateTime(new Date());
+                detailsList.add(details);
+            }
+            detailsService.saveBatch(detailsList);
+        }
         return flag;
     }
 
     @Override
     public List<SaleOrderVo> findSaleOrderVoListByCondition(QueryOrderCondition condition) {
-        return baseMapper.selectSaleOrderVoListByCondition(condition);
+        List<SaleOrderVo> listTemp = baseMapper.selectSaleOrderVoListByCondition(condition);
+        for(SaleOrderVo vo : listTemp){
+            //查询具体订单内容
+            condition.setOrderId(vo.getOrderId());
+            List<OrderDetailVo> detailList = detailsService.findOrderDetailVoList(condition);
+            vo.setDetailList(detailList);
+            int boxCount = detailsService.boxCount(condition);
+            vo.setProductNumber(boxCount);
+        }
+        return listTemp;
     }
 }

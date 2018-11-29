@@ -12,6 +12,10 @@ public class QueryOrderCondition extends BaseCondition {
     private Integer orderState;
     //订单id
     private Long orderId = -1L;
+    //操作用户
+    private Long userId;
+
+    private Integer orderSaleFlag = 0;
 
     public Integer getOrderState() {
         return orderState;
@@ -27,5 +31,21 @@ public class QueryOrderCondition extends BaseCondition {
 
     public void setOrderId(Long orderId) {
         this.orderId = orderId;
+    }
+
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
+    }
+
+    public Integer getOrderSaleFlag() {
+        return orderSaleFlag;
+    }
+
+    public void setOrderSaleFlag(Integer orderSaleFlag) {
+        this.orderSaleFlag = orderSaleFlag;
     }
 }

@@ -1,8 +1,11 @@
 package com.ningyang.os.service;
 
-import com.ningyang.os.action.input.command.api.ApiWarehousePutOutCommand;
-import com.ningyang.os.pojo.LSerWarehouseGoodsOutInfo;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.ningyang.os.action.input.command.api.ApiWarehousePutOutCommand;
+import com.ningyang.os.action.input.condition.serve.QueryGoodsPutCondition;
+import com.ningyang.os.action.output.vo.web.serve.GoodsPutOutVo;
+import com.ningyang.os.pojo.LSerWarehouseGoodsOutInfo;
 
 /**
  * <p>
@@ -15,5 +18,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 public interface ILSerWarehouseGoodsOutInfoService extends IService<LSerWarehouseGoodsOutInfo> {
 
     boolean add(ApiWarehousePutOutCommand command);
+
+    Page<GoodsPutOutVo> findGoodsPutOutVoPageByCondition(QueryGoodsPutCondition condition);
 
 }

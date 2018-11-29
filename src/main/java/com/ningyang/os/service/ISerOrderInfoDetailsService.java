@@ -22,5 +22,7 @@ public interface ISerOrderInfoDetailsService extends IService<SerOrderInfoDetail
 
     List<OrderDetailVo> findOrderDetailVoList(QueryOrderCondition condition);
 
+    int boxCount(QueryOrderCondition condition);
+
     boolean delete();
 }

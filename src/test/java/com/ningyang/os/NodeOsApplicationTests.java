@@ -89,7 +89,7 @@ public class NodeOsApplicationTests {
         //溯源码位置类型
         Long codePositionType = 1L;
 
-        List<ReadFileBackData> fileList = new ArrayList<>();
+        /*List<ReadFileBackData> fileList = new ArrayList<>();
         ReadFileBackData data1 = new ReadFileBackData();
         data1.setLData("http://9suyuan.com/6/p2Vp4UeRMYlx/11");
         ReadFileBackData data2 = new ReadFileBackData();
@@ -104,11 +104,11 @@ public class NodeOsApplicationTests {
         fileList.add(data2);
         fileList.add(data3);
         fileList.add(data4);
-        fileList.add(data5);
+        fileList.add(data5);*/
 
 
         //校验左码是否符合
-        for(ReadFileBackData data : fileList){
+        /*for(ReadFileBackData data : fileList){
             String leftCodeFlag = data.getLData().split("/")[5];
             //查询溯源码所在表
             String codeTables = tableInfoService.findCodeTableList(leftCodeFlag);
@@ -125,9 +125,17 @@ public class NodeOsApplicationTests {
                 System.out.println("继续运行：yes");
             }
 
+        }*/
+
+        List<String> tableList = new ArrayList<>();
+        for(int i =0;i<4;i++){
+            String a = i+"AAA";
+            tableList.add(a);
         }
 
-
+        System.out.println(JSONObject.toJSONString(tableList));
+        String aa = StringUtils.join(tableList, "-->");
+        System.out.println(aa);
 
 
 
