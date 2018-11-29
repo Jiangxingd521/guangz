@@ -1,7 +1,11 @@
 package com.ningyang.os.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.ningyang.os.action.input.condition.serve.QueryPrizeCondition;
+import com.ningyang.os.action.output.vo.web.serve.PrizeTypeVo;
 import com.ningyang.os.pojo.SerPrizeTypeInfo;
+
+import java.util.List;
 
 /**
  * <p>
@@ -12,5 +16,8 @@ import com.ningyang.os.pojo.SerPrizeTypeInfo;
  * @since 2018-11-29
  */
 public interface ISerPrizeTypeInfoService extends IService<SerPrizeTypeInfo> {
+
+    List<PrizeTypeVo> findPrizeTypeVoListByCondition(QueryPrizeCondition condition);
+
 
 }

@@ -21,4 +21,17 @@
         <result column="update_time" property="updateTime" />
     </resultMap>
 
+    <select id="selectPrizeTypeVoListByCondition"
+            parameterType="com.ningyang.os.action.input.condition.serve.QueryPrizeCondition"
+            resultType="com.ningyang.os.action.output.vo.web.serve.PrizeTypeVo"
+    >
+        select a.prize_type_id as typeId,a.prize_type_code as typeCode,a.prize_type_name as typeName,
+               a.prize_type_content as typeContent,a.idata1 as typeState from t_ser_prize_type_info a
+        where 1=1
+      <if test="typeState!=null">
+          and a.idata1 = #{typeState}
+      </if>
+    </select>
+
+
 </mapper>
