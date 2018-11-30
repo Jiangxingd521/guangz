@@ -26,9 +26,15 @@
             parameterType="com.ningyang.os.action.input.condition.serve.QueryPrizeCondition"
             resultType="com.ningyang.os.action.output.vo.web.serve.PrizeManagerVo"
     >
-      select * from t_ser_prize_manager_info
-
-
+        select a.prize_manage_id as managerId,b.prize_type_name as typeName,a.prize_type_id as typeId,
+               a.prize_name,a.prize_content,a.prize_remark,a.idata1 as prizeState,c.user_name
+        from t_ser_prize_manager_info a
+        left join t_ser_prize_type_info b on a.prize_type_id = b.prize_type_id
+        left join t_sys_user_info c on a.user_id=c.id
+        where 1=1
+        <if test="typeState!=null">
+            and a.idata1 = #{typeState}
+        </if>
     </select>
 
 </mapper>
