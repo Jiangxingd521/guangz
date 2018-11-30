@@ -1,11 +1,11 @@
-package com.ningyang.os.action.output.vo.web.serve;
+package com.ningyang.os.action.input.command.web.serve;
 
 /**
  * @Author： kaider
- * @Date：2018/11/29 18:28
+ * @Date：2018/11/30 09:23
  * @描述：奖项类型
  */
-public class PrizeTypeVo {
+public class PrizeTypeCommand {
 
     private Long typeId;
 
@@ -15,9 +15,7 @@ public class PrizeTypeVo {
 
     private String typeContent;
 
-    private int typeState;
-
-    private String userName;
+    private int typeState=0;
 
     public Long getTypeId() {
         return typeId;
@@ -57,13 +55,5 @@ public class PrizeTypeVo {
 
     public void setTypeState(int typeState) {
         this.typeState = typeState;
-    }
-
-    public String getUserName() {
-        return userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
     }
 }

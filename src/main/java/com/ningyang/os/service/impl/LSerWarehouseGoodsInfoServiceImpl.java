@@ -27,6 +27,7 @@ import static com.ningyang.os.action.utils.DateUtil.*;
 @Service
 public class LSerWarehouseGoodsInfoServiceImpl extends ServiceImpl<LSerWarehouseGoodsInfoMapper, LSerWarehouseGoodsInfo> implements ILSerWarehouseGoodsInfoService {
 
+    //fixme 添加备注
     @Override
     public boolean add(ApiWarehousePutInCommand command) {
         List<LSerWarehouseGoodsInfo> infoList = new ArrayList<>();

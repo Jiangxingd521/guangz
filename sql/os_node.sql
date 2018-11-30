@@ -11,7 +11,7 @@
  Target Server Version : 50721
  File Encoding         : 65001
 
- Date: 29/11/2018 17:54:39
+ Date: 30/11/2018 09:52:40
 */
 
 SET NAMES utf8mb4;
@@ -516,18 +516,6 @@ CREATE TABLE `t_ser_code_import_temp_info` (
 ) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='溯源码导入临时表';
 
 -- ----------------------------
--- Records of t_ser_code_import_temp_info
--- ----------------------------
-BEGIN;
-INSERT INTO `t_ser_code_import_temp_info` VALUES (9, 3, NULL, 'http://9suyuan.com/6/bHVx0aqq77zd/11', 'http://9suyuan.com/6/E8eUbVrgUb98/11', 2, 4, NULL, NULL, NULL);
-INSERT INTO `t_ser_code_import_temp_info` VALUES (10, 3, NULL, 'http://9suyuan.com/6/0Vk83Mk4Pv0p/11', 'http://9suyuan.com/6/s2ONd1ppxJqq/11', 2, 4, NULL, NULL, NULL);
-INSERT INTO `t_ser_code_import_temp_info` VALUES (11, 3, NULL, 'http://9suyuan.com/6/G8FdIJif8Ir8/11', 'http://9suyuan.com/6/EF8SgfrlvE5Z/11', 2, 4, NULL, NULL, NULL);
-INSERT INTO `t_ser_code_import_temp_info` VALUES (12, 2, NULL, 'http://9suyuan.com/6/E8eUbVrgUb98/11', '9000001005795865', 4, 5, NULL, NULL, NULL);
-INSERT INTO `t_ser_code_import_temp_info` VALUES (13, 2, NULL, 'http://9suyuan.com/6/s2ONd1ppxJqq/11', '9000001005795865', 4, 5, NULL, NULL, NULL);
-INSERT INTO `t_ser_code_import_temp_info` VALUES (14, 2, NULL, 'http://9suyuan.com/6/EF8SgfrlvE5Z/11', '9000001005795865', 4, 5, NULL, NULL, NULL);
-COMMIT;
-
--- ----------------------------
 -- Table structure for t_ser_code_import_template_info
 -- ----------------------------
 DROP TABLE IF EXISTS `t_ser_code_import_template_info`;
@@ -894,12 +882,12 @@ CREATE TABLE `t_ser_prize_set_info` (
 -- ----------------------------
 DROP TABLE IF EXISTS `t_ser_prize_type_info`;
 CREATE TABLE `t_ser_prize_type_info` (
-  `prize_type_id` bigint(20) NOT NULL,
+  `prize_type_id` bigint(20) NOT NULL AUTO_INCREMENT,
   `prize_type_code` varchar(10) COLLATE utf8_unicode_ci NOT NULL COMMENT '奖项类型编码',
   `prize_type_name` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '奖项类型名称',
   `prize_type_content` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '奖项类型内容',
   `user_id` bigint(20) DEFAULT NULL COMMENT '操作人',
-  `idata1` int(11) DEFAULT NULL,
+  `idata1` int(11) DEFAULT NULL COMMENT '奖项类型状态（0：启用，1：停用）',
   `idata2` int(11) DEFAULT NULL,
   `idata3` int(11) DEFAULT NULL,
   `idata4` int(11) DEFAULT NULL,
@@ -910,7 +898,14 @@ CREATE TABLE `t_ser_prize_type_info` (
   `create_time` datetime DEFAULT NULL COMMENT '创建时间',
   `update_time` datetime DEFAULT NULL COMMENT '修改时间',
   PRIMARY KEY (`prize_type_id`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='奖项类型';
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='奖项类型';
+
+-- ----------------------------
+-- Records of t_ser_prize_type_info
+-- ----------------------------
+BEGIN;
+INSERT INTO `t_ser_prize_type_info` VALUES (1, 'TEXT', '测试1', '这是第一个测试', 2, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-11-30 09:50:48', '2018-11-30 09:50:48');
+COMMIT;
 
 -- ----------------------------
 -- Table structure for t_ser_purchase_order_info
@@ -4366,7 +4361,7 @@ CREATE TABLE `t_sys_menu_info` (
   `create_time` timestamp NULL DEFAULT NULL COMMENT '创建时间',
   `update_time` timestamp NULL DEFAULT NULL COMMENT '修改时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='菜单信息';
+) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='菜单信息';
 
 -- ----------------------------
 -- Records of t_sys_menu_info
@@ -4401,14 +4396,15 @@ INSERT INTO `t_sys_menu_info` VALUES (26, 22, '新建-销售订单', 1, NULL, NU
 INSERT INTO `t_sys_menu_info` VALUES (27, 16, '入库管理', 0, NULL, '/server/warehouse/putIn', NULL, 8, 0, NULL, '2018-11-28 18:34:52', '2018-11-28 18:34:52');
 INSERT INTO `t_sys_menu_info` VALUES (28, 16, '出库管理', 0, NULL, '/server/warehouse/putOut', NULL, 9, 0, NULL, '2018-11-28 18:35:10', '2018-11-28 18:35:10');
 INSERT INTO `t_sys_menu_info` VALUES (29, 16, '布奖兑奖', 0, NULL, '', NULL, 10, 0, NULL, '2018-11-28 18:35:43', '2018-11-28 18:35:43');
-INSERT INTO `t_sys_menu_info` VALUES (30, 29, '奖项管理', 0, NULL, '/server/prize/award', NULL, 1, 0, NULL, '2018-11-28 18:36:35', '2018-11-28 18:36:35');
-INSERT INTO `t_sys_menu_info` VALUES (31, 29, '布奖设定', 0, NULL, '/server/prize/set', NULL, 2, 0, NULL, '2018-11-28 18:36:48', '2018-11-28 18:36:48');
-INSERT INTO `t_sys_menu_info` VALUES (32, 29, '布奖记录', 0, NULL, '/server/prize/setLog', NULL, 3, 0, NULL, '2018-11-28 18:36:59', '2018-11-28 18:36:59');
-INSERT INTO `t_sys_menu_info` VALUES (33, 29, '兑奖记录', 0, NULL, '/server/prize/ticketLog', NULL, 4, 0, NULL, '2018-11-28 18:37:12', '2018-11-28 18:37:26');
+INSERT INTO `t_sys_menu_info` VALUES (30, 29, '奖项管理', 0, NULL, '/server/prize/manager', NULL, 1, 0, NULL, '2018-11-28 18:36:35', '2018-11-29 18:11:41');
+INSERT INTO `t_sys_menu_info` VALUES (31, 29, '奖项设定', 0, NULL, '/server/prize/set', NULL, 2, 0, NULL, '2018-11-28 18:36:48', '2018-11-28 18:36:48');
+INSERT INTO `t_sys_menu_info` VALUES (32, 29, '奖项类型', 0, NULL, '/server/prize/type', NULL, 3, 0, NULL, '2018-11-28 18:36:59', '2018-11-29 18:13:03');
+INSERT INTO `t_sys_menu_info` VALUES (33, 29, '布奖记录', 0, NULL, '/server/prize/log/set', NULL, 4, 0, NULL, '2018-11-28 18:37:12', '2018-11-29 18:13:14');
 INSERT INTO `t_sys_menu_info` VALUES (34, 16, '会员管理', 0, NULL, NULL, NULL, 11, 0, NULL, '2018-11-28 18:37:45', '2018-11-28 18:37:45');
 INSERT INTO `t_sys_menu_info` VALUES (35, 34, '会员列表', 0, NULL, '/server/member/list', NULL, 1, 0, NULL, '2018-11-28 18:38:06', '2018-11-28 18:38:06');
 INSERT INTO `t_sys_menu_info` VALUES (36, 34, '等级管理', 0, NULL, '/server/member/level', NULL, 2, 0, NULL, '2018-11-28 18:38:22', '2018-11-28 18:38:22');
 INSERT INTO `t_sys_menu_info` VALUES (37, 34, '积分管理', 0, NULL, '/server/member/integral', NULL, 3, 0, NULL, '2018-11-28 18:38:38', '2018-11-28 18:38:38');
+INSERT INTO `t_sys_menu_info` VALUES (38, 29, '兑奖记录', 0, NULL, '/server/prize/log/ticket', NULL, 5, 0, NULL, '2018-11-29 18:12:11', '2018-11-29 18:12:48');
 COMMIT;
 
 -- ----------------------------
@@ -4435,7 +4431,7 @@ BEGIN;
 INSERT INTO `t_sys_navigation_bar_info` VALUES (1, '系统设置', '/sys/bar', 'el-icon-setting', 0, '系统', 0, '2018-09-28 17:14:26', '2018-11-12 17:48:41');
 INSERT INTO `t_sys_navigation_bar_info` VALUES (2, '系统基础设置', '/sys/icon', 'icon-present', 1, '系统', 0, '2018-10-01 23:16:56', '2018-11-14 11:32:16');
 INSERT INTO `t_sys_navigation_bar_info` VALUES (3, '基础设置', '/base/brand', 'icon-present', 2, '业务基础设置', 0, '2018-11-14 11:30:56', '2018-11-14 15:11:54');
-INSERT INTO `t_sys_navigation_bar_info` VALUES (4, '企业业务', '/server/dealer', 'icon-qi', 4, '经销商管理', 0, '2018-11-14 17:41:10', '2018-11-28 18:46:20');
+INSERT INTO `t_sys_navigation_bar_info` VALUES (4, '企业业务', '/server/dealer', 'icon-qi', 4, '经销商管理', 0, '2018-11-14 17:41:10', '2018-11-29 18:13:55');
 INSERT INTO `t_sys_navigation_bar_info` VALUES (5, '中心业务', '/center/code/apply', 'icon-goodsfavor', 3, '溯源业务', 0, '2018-11-15 15:41:01', '2018-11-23 10:00:27');
 COMMIT;
 
@@ -4452,7 +4448,7 @@ CREATE TABLE `t_sys_navigation_bar_menu_info` (
   KEY `menu_id` (`menu_id`) USING BTREE,
   CONSTRAINT `t_sys_navigation_bar_menu_info_ibfk_1` FOREIGN KEY (`bar_id`) REFERENCES `t_sys_navigation_bar_info` (`id`),
   CONSTRAINT `t_sys_navigation_bar_menu_info_ibfk_2` FOREIGN KEY (`menu_id`) REFERENCES `t_sys_menu_info` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=102 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='菜单关联导航';
+) ENGINE=InnoDB AUTO_INCREMENT=120 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='菜单关联导航';
 
 -- ----------------------------
 -- Records of t_sys_navigation_bar_menu_info
@@ -4475,23 +4471,24 @@ INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (23, 3, 15);
 INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (29, 5, 16);
 INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (30, 5, 19);
 INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (31, 5, 20);
-INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (85, 4, 17);
-INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (86, 4, 30);
-INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (87, 4, 35);
-INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (88, 4, 18);
-INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (89, 4, 31);
-INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (90, 4, 36);
-INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (91, 4, 16);
-INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (92, 4, 32);
-INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (93, 4, 37);
-INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (94, 4, 9);
-INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (95, 4, 33);
-INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (96, 4, 22);
-INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (97, 4, 23);
-INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (98, 4, 27);
-INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (99, 4, 28);
-INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (100, 4, 29);
-INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (101, 4, 34);
+INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (102, 4, 17);
+INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (103, 4, 30);
+INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (104, 4, 35);
+INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (105, 4, 18);
+INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (106, 4, 31);
+INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (107, 4, 36);
+INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (108, 4, 16);
+INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (109, 4, 37);
+INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (110, 4, 38);
+INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (111, 4, 9);
+INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (112, 4, 32);
+INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (113, 4, 33);
+INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (114, 4, 22);
+INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (115, 4, 23);
+INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (116, 4, 27);
+INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (117, 4, 28);
+INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (118, 4, 29);
+INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (119, 4, 34);
 COMMIT;
 
 -- ----------------------------
@@ -4666,7 +4663,7 @@ delimiter ;
 -- ----------------------------
 DROP PROCEDURE IF EXISTS `P_DELTEMPS`;
 delimiter ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `P_DELTEMPS`(
+CREATE DEFINER=`root`@`%` PROCEDURE `P_DELTEMPS`(
 
 )
 BEGIN
@@ -4719,7 +4716,7 @@ delimiter ;
 -- ----------------------------
 DROP PROCEDURE IF EXISTS `P_UPDAEGOODS2`;
 delimiter ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `P_UPDAEGOODS2`(
+CREATE DEFINER=`root`@`%` PROCEDURE `P_UPDAEGOODS2`(
 in  v_improtno varchar(32),
 in v_left_code_type int,
 in v_right_code_type int
@@ -4799,7 +4796,7 @@ delimiter ;
 -- ----------------------------
 DROP PROCEDURE IF EXISTS `P_UPD_CommonM`;
 delimiter ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `P_UPD_CommonM`(
+CREATE DEFINER=`root`@`%` PROCEDURE `P_UPD_CommonM`(
 #in  v_imno varchar(32),
 #in  updatetype int, #´ú±íÒª¸üÐÂµÄÂëÎ»ÖÃ M3,M4£¬M5
 #in  codetype int
