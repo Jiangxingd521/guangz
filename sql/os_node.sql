@@ -11,7 +11,7 @@
  Target Server Version : 50721
  File Encoding         : 65001
 
- Date: 30/11/2018 11:54:51
+ Date: 30/11/2018 17:56:44
 */
 
 SET NAMES utf8mb4;
@@ -145,7 +145,7 @@ CREATE TABLE `t_member_info` (
 -- ----------------------------
 DROP TABLE IF EXISTS `t_member_point_rule`;
 CREATE TABLE `t_member_point_rule` (
-  `id` bigint(20) NOT NULL,
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `rule_type` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '积分类型',
   `rule_value` int(11) DEFAULT NULL COMMENT '积分分值',
   `user_id` bigint(20) DEFAULT NULL,
@@ -160,7 +160,15 @@ CREATE TABLE `t_member_point_rule` (
   `create_time` datetime DEFAULT NULL,
   `update_time` datetime DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='会员积分规则';
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='会员积分规则';
+
+-- ----------------------------
+-- Records of t_member_point_rule
+-- ----------------------------
+BEGIN;
+INSERT INTO `t_member_point_rule` VALUES (1, 'AAAA', 1234, 2, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-11-30 14:11:58', '2018-11-30 14:13:51');
+INSERT INTO `t_member_point_rule` VALUES (2, 'BBB', 112, 2, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-11-30 14:12:06', '2018-11-30 14:12:35');
+COMMIT;
 
 -- ----------------------------
 -- Table structure for t_member_scanning
@@ -204,7 +212,15 @@ CREATE TABLE `t_member_type_info` (
   `create_time` datetime DEFAULT NULL,
   `update_time` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='会员类型';
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='会员类型';
+
+-- ----------------------------
+-- Records of t_member_type_info
+-- ----------------------------
+BEGIN;
+INSERT INTO `t_member_type_info` VALUES (1, 'AA66', 1, 1267, 2, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-11-30 14:27:33', '2018-11-30 14:30:13');
+INSERT INTO `t_member_type_info` VALUES (2, 'AAA', 2, 13, 2, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-11-30 14:27:50', '2018-11-30 14:27:50');
+COMMIT;
 
 -- ----------------------------
 -- Table structure for t_ser_apply_code_201811
@@ -761,7 +777,7 @@ CREATE TABLE `t_ser_order_info_details` (
   `update_time` datetime DEFAULT NULL COMMENT '修改时间',
   PRIMARY KEY (`id`) USING BTREE,
   KEY `FK_FK_SERV_ORDER_IDEALS` (`order_id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=137 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='销售订单详情';
+) ENGINE=InnoDB AUTO_INCREMENT=138 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='销售订单详情';
 
 -- ----------------------------
 -- Records of t_ser_order_info_details
@@ -771,6 +787,7 @@ INSERT INTO `t_ser_order_info_details` VALUES (96, 1, 5, 3, 2, '2018-11-29 12:54
 INSERT INTO `t_ser_order_info_details` VALUES (97, 1, 6, 4, 2, '2018-11-29 12:54:20', '2018-11-29 12:54:20');
 INSERT INTO `t_ser_order_info_details` VALUES (133, 2, 5, 3, 2, '2018-11-29 14:29:18', '2018-11-29 14:29:18');
 INSERT INTO `t_ser_order_info_details` VALUES (134, 2, 6, 4, 2, '2018-11-29 14:29:25', '2018-11-29 14:29:25');
+INSERT INTO `t_ser_order_info_details` VALUES (137, NULL, 5, 22, 2, '2018-11-30 17:50:06', '2018-11-30 17:50:06');
 COMMIT;
 
 -- ----------------------------
@@ -859,19 +876,19 @@ COMMIT;
 -- ----------------------------
 DROP TABLE IF EXISTS `t_ser_prize_set_info`;
 CREATE TABLE `t_ser_prize_set_info` (
-  `prize_set_id` bigint(20) NOT NULL,
+  `prize_set_id` bigint(20) NOT NULL AUTO_INCREMENT,
   `prize_manager_id` bigint(20) DEFAULT NULL COMMENT '奖项管理id',
-  `prize_set_name` bigint(20) DEFAULT NULL COMMENT '布奖名称',
+  `prize_set_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '布奖名称',
   `prod_id` bigint(20) DEFAULT NULL COMMENT '产品id',
-  `member_type` int(11) DEFAULT NULL COMMENT '会员类型',
+  `member_type` bigint(11) DEFAULT NULL COMMENT '会员类型',
   `region_id` bigint(20) DEFAULT NULL COMMENT '布奖区域',
   `prize_quantity` int(11) DEFAULT NULL COMMENT '布奖数量',
   `money` decimal(5,2) DEFAULT NULL COMMENT '红包额度',
   `money_end` decimal(5,2) DEFAULT NULL COMMENT '红包额度结束',
   `ponit` int(11) DEFAULT NULL COMMENT '积分额度',
   `point_end` int(11) DEFAULT NULL COMMENT '积分额度结束',
-  `prize_set_type` int(11) DEFAULT NULL COMMENT '布奖类型',
-  `prize_mode_type` int(11) DEFAULT NULL COMMENT '布奖模式',
+  `prize_set_type` int(11) DEFAULT NULL COMMENT '布奖类型(1：限制数量，2：不限制数量)',
+  `prize_mode_type` int(11) DEFAULT NULL COMMENT '布奖模式(1：随机，2：平均)',
   `card_money` int(11) DEFAULT NULL COMMENT '卡券消费额度',
   `card_coupon_money` int(11) DEFAULT NULL COMMENT '卡券优惠额度',
   `prize_start_date` datetime DEFAULT NULL COMMENT '布奖开始日期',
@@ -890,7 +907,25 @@ CREATE TABLE `t_ser_prize_set_info` (
   PRIMARY KEY (`prize_set_id`) USING BTREE,
   KEY `prize_manager_id` (`prize_manager_id`),
   CONSTRAINT `t_ser_prize_set_info_ibfk_1` FOREIGN KEY (`prize_manager_id`) REFERENCES `t_ser_prize_manager_info` (`prize_manage_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='奖项设定';
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='奖项设定';
+
+-- ----------------------------
+-- Records of t_ser_prize_set_info
+-- ----------------------------
+BEGIN;
+INSERT INTO `t_ser_prize_set_info` VALUES (1, 1, 'ASD', 5, 1, 19, 123, 2.00, 20.00, 5, 30, 1, 2, 100, 200, '2018-11-30 00:00:00', '2018-12-03 00:00:00', 2, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+COMMIT;
+
+-- ----------------------------
+-- Table structure for t_ser_prize_set_region_info
+-- ----------------------------
+DROP TABLE IF EXISTS `t_ser_prize_set_region_info`;
+CREATE TABLE `t_ser_prize_set_region_info` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `prize_set_id` bigint(20) DEFAULT NULL COMMENT '奖项id',
+  `region_id` bigint(20) DEFAULT NULL COMMENT '区域id',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='奖项区域';
 
 -- ----------------------------
 -- Table structure for t_ser_prize_type_info
@@ -4378,7 +4413,7 @@ CREATE TABLE `t_sys_menu_info` (
   `create_time` timestamp NULL DEFAULT NULL COMMENT '创建时间',
   `update_time` timestamp NULL DEFAULT NULL COMMENT '修改时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='菜单信息';
+) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='菜单信息';
 
 -- ----------------------------
 -- Records of t_sys_menu_info
@@ -4422,6 +4457,8 @@ INSERT INTO `t_sys_menu_info` VALUES (35, 34, '会员列表', 0, NULL, '/server/
 INSERT INTO `t_sys_menu_info` VALUES (36, 34, '等级管理', 0, NULL, '/server/member/level', NULL, 2, 0, NULL, '2018-11-28 18:38:22', '2018-11-28 18:38:22');
 INSERT INTO `t_sys_menu_info` VALUES (37, 34, '积分管理', 0, NULL, '/server/member/integral', NULL, 3, 0, NULL, '2018-11-28 18:38:38', '2018-11-28 18:38:38');
 INSERT INTO `t_sys_menu_info` VALUES (38, 29, '兑奖记录', 0, NULL, '/server/prize/log/ticket', NULL, 5, 0, NULL, '2018-11-29 18:12:11', '2018-11-29 18:12:48');
+INSERT INTO `t_sys_menu_info` VALUES (39, 34, '会员类型', 0, NULL, '/server/member/type', NULL, 4, 0, NULL, '2018-11-30 14:08:33', '2018-11-30 14:09:31');
+INSERT INTO `t_sys_menu_info` VALUES (40, 34, '积分规则', 0, NULL, '/server/member/rule', NULL, 5, 0, NULL, '2018-11-30 14:08:55', '2018-11-30 14:09:48');
 COMMIT;
 
 -- ----------------------------
@@ -4448,7 +4485,7 @@ BEGIN;
 INSERT INTO `t_sys_navigation_bar_info` VALUES (1, '系统设置', '/sys/bar', 'el-icon-setting', 0, '系统', 0, '2018-09-28 17:14:26', '2018-11-12 17:48:41');
 INSERT INTO `t_sys_navigation_bar_info` VALUES (2, '系统基础设置', '/sys/icon', 'icon-present', 1, '系统', 0, '2018-10-01 23:16:56', '2018-11-14 11:32:16');
 INSERT INTO `t_sys_navigation_bar_info` VALUES (3, '基础设置', '/base/brand', 'icon-present', 2, '业务基础设置', 0, '2018-11-14 11:30:56', '2018-11-14 15:11:54');
-INSERT INTO `t_sys_navigation_bar_info` VALUES (4, '企业业务', '/server/dealer', 'icon-qi', 4, '经销商管理', 0, '2018-11-14 17:41:10', '2018-11-29 18:13:55');
+INSERT INTO `t_sys_navigation_bar_info` VALUES (4, '企业业务', '/server/dealer', 'icon-qi', 4, '经销商管理', 0, '2018-11-14 17:41:10', '2018-11-30 14:10:29');
 INSERT INTO `t_sys_navigation_bar_info` VALUES (5, '中心业务', '/center/code/apply', 'icon-goodsfavor', 3, '溯源业务', 0, '2018-11-15 15:41:01', '2018-11-23 10:00:27');
 COMMIT;
 
@@ -4465,7 +4502,7 @@ CREATE TABLE `t_sys_navigation_bar_menu_info` (
   KEY `menu_id` (`menu_id`) USING BTREE,
   CONSTRAINT `t_sys_navigation_bar_menu_info_ibfk_1` FOREIGN KEY (`bar_id`) REFERENCES `t_sys_navigation_bar_info` (`id`),
   CONSTRAINT `t_sys_navigation_bar_menu_info_ibfk_2` FOREIGN KEY (`menu_id`) REFERENCES `t_sys_menu_info` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=120 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='菜单关联导航';
+) ENGINE=InnoDB AUTO_INCREMENT=140 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='菜单关联导航';
 
 -- ----------------------------
 -- Records of t_sys_navigation_bar_menu_info
@@ -4488,24 +4525,26 @@ INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (23, 3, 15);
 INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (29, 5, 16);
 INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (30, 5, 19);
 INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (31, 5, 20);
-INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (102, 4, 17);
-INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (103, 4, 30);
-INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (104, 4, 35);
-INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (105, 4, 18);
-INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (106, 4, 31);
-INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (107, 4, 36);
-INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (108, 4, 16);
-INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (109, 4, 37);
-INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (110, 4, 38);
-INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (111, 4, 9);
-INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (112, 4, 32);
-INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (113, 4, 33);
-INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (114, 4, 22);
-INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (115, 4, 23);
-INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (116, 4, 27);
-INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (117, 4, 28);
-INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (118, 4, 29);
-INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (119, 4, 34);
+INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (120, 4, 17);
+INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (121, 4, 30);
+INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (122, 4, 35);
+INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (123, 4, 18);
+INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (124, 4, 31);
+INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (125, 4, 36);
+INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (126, 4, 16);
+INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (127, 4, 32);
+INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (128, 4, 37);
+INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (129, 4, 9);
+INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (130, 4, 33);
+INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (131, 4, 39);
+INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (132, 4, 38);
+INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (133, 4, 40);
+INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (134, 4, 22);
+INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (135, 4, 23);
+INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (136, 4, 27);
+INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (137, 4, 28);
+INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (138, 4, 29);
+INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (139, 4, 34);
 COMMIT;
 
 -- ----------------------------
@@ -4654,7 +4693,7 @@ BEGIN
 	-- 表日期
 	 SET @tableDate = DATE_FORMAT(DATE_SUB(CURRENT_DATE, INTERVAL 1 MONTH),'%Y%m'); -- 上一个月
 	-- SET @tableDate = DATE_FORMAT(DATE_ADD(CURRENT_DATE, INTERVAL 1 MONTH),'%Y%m'); -- 下一月
-
+	
 	SET @sql = CONCAT('CREATE TABLE t_ser_apply_code_',@tableDate,'(
 	`id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT "主键",
   `center_id` bigint(20) DEFAULT NULL COMMENT "中心id",
@@ -4667,10 +4706,10 @@ BEGIN
 	PRIMARY KEY (`id`)
 	) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT="溯源码";');
 	-- SELECT @sql;
-
+	
 	PREPARE exctable FROM @sql;
 	EXECUTE exctable;
-
+	
 END;
 ;;
 delimiter ;
@@ -4685,45 +4724,45 @@ CREATE DEFINER=`root`@`%` PROCEDURE `P_DELTEMPS`(
 )
 BEGIN
 		#2,3
-			delete a.* from t_ser_code_import_temp_info a  LEFT JOIN t_ser_goods_info b
-			ON b.m2 = a.left_code  and b.M3=a.right_code  where a.left_code_type=2 and a.right_code_type=3;
-
+			delete a.* from t_ser_code_import_temp_info a  LEFT JOIN t_ser_goods_info b  
+			ON b.m2 = a.left_code  and b.M3=a.right_code  where a.left_code_type=2 and a.right_code_type=3;	
+		
 		#2,4
-			delete a.* from t_ser_code_import_temp_info a  LEFT JOIN t_ser_goods_info b
-			ON b.m2 = a.left_code  and b.M4=a.right_code  where a.left_code_type=2 and a.right_code_type=4;
+			delete a.* from t_ser_code_import_temp_info a  LEFT JOIN t_ser_goods_info b  
+			ON b.m2 = a.left_code  and b.M4=a.right_code  where a.left_code_type=2 and a.right_code_type=4;	
 		#2,5
-			delete a.* from t_ser_code_import_temp_info a  LEFT JOIN t_ser_goods_info b
-			ON b.m2 = a.left_code  and b.M5=a.right_code  where a.left_code_type=2 and a.right_code_type=5;
-
+			delete a.* from t_ser_code_import_temp_info a  LEFT JOIN t_ser_goods_info b  
+			ON b.m2 = a.left_code  and b.M5=a.right_code  where a.left_code_type=2 and a.right_code_type=5;	
+			
 		#3,2
-			delete a.* from t_ser_code_import_temp_info a  LEFT JOIN t_ser_goods_info b
-			ON b.m3 = a.left_code  and b.M2=a.right_code  where a.left_code_type=3 and a.right_code_type=2;
+			delete a.* from t_ser_code_import_temp_info a  LEFT JOIN t_ser_goods_info b  
+			ON b.m3 = a.left_code  and b.M2=a.right_code  where a.left_code_type=3 and a.right_code_type=2;	
 		#3,4
-			delete a.* from t_ser_code_import_temp_info a  LEFT JOIN t_ser_goods_info b
-			ON b.m3 = a.left_code  and b.M4=a.right_code  where a.left_code_type=3 and a.right_code_type=4;
+			delete a.* from t_ser_code_import_temp_info a  LEFT JOIN t_ser_goods_info b  
+			ON b.m3 = a.left_code  and b.M4=a.right_code  where a.left_code_type=3 and a.right_code_type=4;	
 		#3,5
-			delete a.* from t_ser_code_import_temp_info a  LEFT JOIN t_ser_goods_info b
-			ON b.m3 = a.left_code  and b.M5=a.right_code  where a.left_code_type=3 and a.right_code_type=5;
-
+			delete a.* from t_ser_code_import_temp_info a  LEFT JOIN t_ser_goods_info b  
+			ON b.m3 = a.left_code  and b.M5=a.right_code  where a.left_code_type=3 and a.right_code_type=5;	
+			
 		#4,2
-			delete a.* from t_ser_code_import_temp_info a  LEFT JOIN t_ser_goods_info b
-			ON b.m4 = a.left_code  and b.M2=a.right_code  where a.left_code_type=4 and a.right_code_type=2;
+			delete a.* from t_ser_code_import_temp_info a  LEFT JOIN t_ser_goods_info b  
+			ON b.m4 = a.left_code  and b.M2=a.right_code  where a.left_code_type=4 and a.right_code_type=2;	
 		#4,3
-			delete a.* from t_ser_code_import_temp_info a  LEFT JOIN t_ser_goods_info b
-			ON b.m4 = a.left_code  and b.M3=a.right_code  where a.left_code_type=4 and a.right_code_type=3;
+			delete a.* from t_ser_code_import_temp_info a  LEFT JOIN t_ser_goods_info b  
+			ON b.m4 = a.left_code  and b.M3=a.right_code  where a.left_code_type=4 and a.right_code_type=3;	
 		#4,5
-			delete a.* from t_ser_code_import_temp_info a  LEFT JOIN t_ser_goods_info b
-			ON b.m4 = a.left_code  and b.M5=a.right_code  where a.left_code_type=4 and a.right_code_type=5;
-
+			delete a.* from t_ser_code_import_temp_info a  LEFT JOIN t_ser_goods_info b  
+			ON b.m4 = a.left_code  and b.M5=a.right_code  where a.left_code_type=4 and a.right_code_type=5;	
+			
 		#5,2
-			delete a.* from t_ser_code_import_temp_info a  LEFT JOIN t_ser_goods_info b
-			ON b.m5 = a.left_code  and b.M2=a.right_code  where a.left_code_type=5 and a.right_code_type=2;
+			delete a.* from t_ser_code_import_temp_info a  LEFT JOIN t_ser_goods_info b  
+			ON b.m5 = a.left_code  and b.M2=a.right_code  where a.left_code_type=5 and a.right_code_type=2;	
 		#5,3
-			delete a.* from t_ser_code_import_temp_info a  LEFT JOIN t_ser_goods_info b
-			ON b.m5 = a.left_code  and b.M3=a.right_code  where a.left_code_type=5 and a.right_code_type=3;
+			delete a.* from t_ser_code_import_temp_info a  LEFT JOIN t_ser_goods_info b  
+			ON b.m5 = a.left_code  and b.M3=a.right_code  where a.left_code_type=5 and a.right_code_type=3;	
 		#5,4
-			delete a.* from t_ser_code_import_temp_info a  LEFT JOIN t_ser_goods_info b
-			ON b.m5 = a.left_code  and b.M4=a.right_code  where a.left_code_type=5 and a.right_code_type=4;
+			delete a.* from t_ser_code_import_temp_info a  LEFT JOIN t_ser_goods_info b  
+			ON b.m5 = a.left_code  and b.M4=a.right_code  where a.left_code_type=5 and a.right_code_type=4;	
 END;
 ;;
 delimiter ;
@@ -4740,69 +4779,69 @@ in v_right_code_type int
 )
 BEGIN
 		declare v_imno varchar(255);
-		declare  updatetype int; #代表要更新的码位置 M3,M4,M5
+		declare  updatetype int; #代表要更新的码位置 M3,M4，M5
 		declare  wheretype int;  #代表添加吗位置m2,m3,m4
 		declare  codetype int ; #0 更新左码  1位更新右码
-
-			if v_left_code_type>v_right_code_type then
+	
+			if v_left_code_type>v_right_code_type then 
 					set 	updatetype=v_left_code_type;
 					set 	wheretype=v_right_code_type;
-			else
+			else 
 					set 	updatetype=v_right_code_type;
 					set 	wheretype=v_left_code_type;
-			end if;
+			end if;					
 			  set codetype= v_left_code_type<v_right_code_type;
-
-		if wheretype=2 then
-				if updatetype=3 then
-						 if  codetype =0 then
-						   update t_ser_goods_info s set m3 =(select left_code  from t_ser_code_import_temp_info b  where b.importno = v_improtno and  b.right_code = s.m2);
-							 elseif codetype =1 then
-								update t_ser_goods_info s set m3 =(select right_code  from t_ser_code_import_temp_info b  where   b.importno = v_improtno and b.left_code = s.m2);
+	
+		if wheretype=2 then 
+				if updatetype=3 then 
+						 if  codetype =0 then 
+						   update t_ser_goods_info s set m3 =(select left_code  from t_ser_code_import_temp_info b  where b.importno = v_improtno and  b.right_code = s.m2);		
+							 elseif codetype =1 then 
+								update t_ser_goods_info s set m3 =(select right_code  from t_ser_code_import_temp_info b  where   b.importno = v_improtno and b.left_code = s.m2);		
 							end if;
-					elseif updatetype=4 then
-						 if  codetype =0 then
-								update t_ser_goods_info s set m4 =(select left_code  from t_ser_code_import_temp_info b  where  b.importno = v_improtno and  b.right_code = s.m2);
-						 elseif codetype =1 then
-								update t_ser_goods_info s set m4 =(select right_code  from t_ser_code_import_temp_info b  where  b.importno = v_improtno and b.left_code = s.m2);
+					elseif updatetype=4 then 
+						 if  codetype =0 then 
+								update t_ser_goods_info s set m4 =(select left_code  from t_ser_code_import_temp_info b  where  b.importno = v_improtno and  b.right_code = s.m2);		
+						 elseif codetype =1 then 
+								update t_ser_goods_info s set m4 =(select right_code  from t_ser_code_import_temp_info b  where  b.importno = v_improtno and b.left_code = s.m2);		
 							end if;
-				 elseif updatetype=5 then
-					 if  codetype =0 then
-							update t_ser_goods_info s set m5 =(select left_code  from t_ser_code_import_temp_info b  where  b.importno = v_improtno and b.right_code = s.m2);
-					 elseif codetype =1 then
-							update t_ser_goods_info s set m5 =(select right_code  from t_ser_code_import_temp_info b  where   b.importno = v_improtno and b.left_code = s.m2);
+				 elseif updatetype=5 then 
+					 if  codetype =0 then 
+							update t_ser_goods_info s set m5 =(select left_code  from t_ser_code_import_temp_info b  where  b.importno = v_improtno and b.right_code = s.m2);		
+					 elseif codetype =1 then 
+							update t_ser_goods_info s set m5 =(select right_code  from t_ser_code_import_temp_info b  where   b.importno = v_improtno and b.left_code = s.m2);		
 						end if;
 				end if;
-
-		elseif 	wheretype=3 then
-					if updatetype=4 then
-						 if  codetype =0 then
-								update t_ser_goods_info s set m4 =(select left_code  from t_ser_code_import_temp_info b  where  b.importno = v_improtno and  b.right_code = s.m3);
-						 elseif codetype =1 then
-								update t_ser_goods_info s set m4 =(select right_code  from t_ser_code_import_temp_info b  where  b.importno = v_improtno and b.left_code = s.m3);
+			
+		elseif 	wheretype=3 then 
+					if updatetype=4 then 
+						 if  codetype =0 then 
+								update t_ser_goods_info s set m4 =(select left_code  from t_ser_code_import_temp_info b  where  b.importno = v_improtno and  b.right_code = s.m3);		
+						 elseif codetype =1 then 
+								update t_ser_goods_info s set m4 =(select right_code  from t_ser_code_import_temp_info b  where  b.importno = v_improtno and b.left_code = s.m3);		
 							end if;
-				 elseif updatetype=5 then
-					 if  codetype =0 then
-							update t_ser_goods_info s set m5 =(select left_code  from t_ser_code_import_temp_info b  where   b.importno = v_improtno and b.right_code = s.m3);
-
-					elseif codetype =1 then
-							update t_ser_goods_info s set m5 =(select right_code  from t_ser_code_import_temp_info b  where   b.importno = v_improtno and b.left_code = s.m3);
-
-						end if;
-				end if;
-		elseif 	wheretype=4 then
-			  if updatetype=5 then
-					 if  codetype =0 then
-							update t_ser_goods_info s set m5 =(select left_code  from t_ser_code_import_temp_info b  where  b.importno = v_improtno and b.right_code = s.m4);
-
-					elseif codetype =1 then
-							update t_ser_goods_info s set m5 =(select right_code  from t_ser_code_import_temp_info b  where   b.importno = v_improtno and b.left_code = s.m4);
+				 elseif updatetype=5 then 
+					 if  codetype =0 then 
+							update t_ser_goods_info s set m5 =(select left_code  from t_ser_code_import_temp_info b  where   b.importno = v_improtno and b.right_code = s.m3);		
+	
+					elseif codetype =1 then 
+							update t_ser_goods_info s set m5 =(select right_code  from t_ser_code_import_temp_info b  where   b.importno = v_improtno and b.left_code = s.m3);		
 
 						end if;
 				end if;
+		elseif 	wheretype=4 then 
+			  if updatetype=5 then 
+					 if  codetype =0 then 
+							update t_ser_goods_info s set m5 =(select left_code  from t_ser_code_import_temp_info b  where  b.importno = v_improtno and b.right_code = s.m4);		
+	
+					elseif codetype =1 then 
+							update t_ser_goods_info s set m5 =(select right_code  from t_ser_code_import_temp_info b  where   b.importno = v_improtno and b.left_code = s.m4);		
 
+						end if;
+				end if;
+			
 		end if;
-
+		
 
 END;
 ;;
@@ -4815,7 +4854,7 @@ DROP PROCEDURE IF EXISTS `P_UPD_CommonM`;
 delimiter ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `P_UPD_CommonM`(
 #in  v_imno varchar(32),
-#in  updatetype int, #代表要更新的码位置 M3,M4,M5
+#in  updatetype int, #代表要更新的码位置 M3,M4，M5
 #in  codetype int
 )
 BEGIN
@@ -4825,21 +4864,21 @@ BEGIN
 		declare v_right_code_type int;
 
 		declare cur_param cursor for  select   DISTINCT a.importno,a.left_code_type,a.right_code_type  from t_ser_code_import_temp_info a   order by orderno;
-
-
-		#declare cur_param1 cursor for  select   DISTINCT a.importno,a.left_code_type,a.right_code_type  from t_ser_code_import_temp_info a,t_ser_code_import_temp_info b
-		#	where  b.importno =v_imno and ( (a.left_code =b.right_code  and  a.right_code_type>updatetype) or
+		
+				
+		#declare cur_param1 cursor for  select   DISTINCT a.importno,a.left_code_type,a.right_code_type  from t_ser_code_import_temp_info a,t_ser_code_import_temp_info b  
+		#	where  b.importno =v_imno and ( (a.left_code =b.right_code  and  a.right_code_type>updatetype) or 
 		#		(a.right_code =b.right_code  and a.left_code_type>updatetype ));
-
-		declare continue handler for not found set flag = false;
+		
+		declare continue handler for not found set flag = false;	
 			open cur_param;#打开游标
 				repeat
-						fetch cur_param into v_imortno,v_left_code_type,v_right_code_type;#把游标的内容赋值到变量中。
+						fetch cur_param into v_imortno,v_left_code_type,v_right_code_type;#把游标的内容赋值到变量中。						
 								CALL P_UPDAEGOODS2(v_imortno,v_left_code_type, v_right_code_type);
 						until flag = false
 				end repeat;
 			close cur_param;
-
+	
 END;
 ;;
 delimiter ;
@@ -4858,17 +4897,17 @@ delimiter ;
 -- ----------------------------
 DROP TRIGGER IF EXISTS `t_aftint_warehousegoogsin`;
 delimiter ;;
-CREATE TRIGGER `t_aftint_warehousegoogsin` AFTER INSERT ON `l_ser_warehouse_goods_info` FOR EACH ROW BEGIN
+CREATE TRIGGER `t_aftint_warehousegoogsin` AFTER INSERT ON `l_ser_warehouse_goods_info` FOR EACH ROW BEGIN		 
 
 DECLARE BOXNONUMS INT DEFAULT 0;
 #查询是否存在商品
 select  count(*) into BOXNONUMS from t_ser_warehouse_goods_info where box_no=new.box_no;
-if BOXNONUMS=0 then
+if BOXNONUMS=0 then 
 #插入库存表
-	INSERT INTO t_ser_warehouse_goods_info ( source_type, warehouse_id, goods_id, box_no, goods_state,
+	INSERT INTO t_ser_warehouse_goods_info ( source_type, warehouse_id, goods_id, box_no, goods_state, 
 	warehouse_in_no, user_id, remark, create_time, update_time)
 	 VALUES ( '0', new.warehouse_id, NULL, new.box_no, 1, new.warehouse_in_no, new.user_id, null, SYSDATE(), new.update_time);
-
+	
 end if;
 
  #通过箱码 更新码状态  更新码状态为未激活
@@ -4883,7 +4922,7 @@ delimiter ;
 -- ----------------------------
 DROP TRIGGER IF EXISTS `t_aftint_warehousegoogsout`;
 delimiter ;;
-CREATE TRIGGER `t_aftint_warehousegoogsout` BEFORE INSERT ON `l_ser_warehouse_goods_out_info` FOR EACH ROW BEGIN
+CREATE TRIGGER `t_aftint_warehousegoogsout` BEFORE INSERT ON `l_ser_warehouse_goods_out_info` FOR EACH ROW BEGIN		 
 #更新出入库状态
 update t_ser_warehouse_goods_info set goods_state=2,update_time=new.goods_out_time where box_no=new.box_no;
 
@@ -4892,9 +4931,9 @@ update t_ser_warehouse_goods_info set goods_state=2,update_time=new.goods_out_ti
 update  t_ser_goods_info set goods_state=2 where  m5=new.box_no;
 #更新布奖状态
 #如果是通过订单表布奖
-if new.order_id is not null then
+if new.order_id is not null then 
 	update   t_ser_prize_recode_info set  prize_state=2   where pr_code  in  (select  m1 from t_ser_goods_info a,	  l_ser_warehouse_goods_out_info b where a.M5=b.box_no and b.order_id= new.order_id);
-elseif new.product_id is not null then
+elseif new.product_id is not null then 
 	#产品2不为空
 	update   t_ser_prize_recode_info set  prize_state=2   where pr_code  in (select  m1 froM t_ser_goods_info where brand_series_product_id =new.product_id);
 end if;
@@ -4910,15 +4949,15 @@ delimiter ;
 DROP TRIGGER IF EXISTS `t_bftint_codetempinfo`;
 delimiter ;;
 CREATE TRIGGER `t_bftint_codetempinfo` BEFORE INSERT ON `t_ser_code_import_temp_info` FOR EACH ROW BEGIN
-	if new.left_code_type<new.right_code_type then
+	if new.left_code_type<new.right_code_type then 
 		set new.orderno=new.left_code_type;
-	else
+	else 
 		set 	new.orderno=new.right_code_type;
 	end if;
+		 
 
-
-
-
+		 
+		
 END
 ;;
 delimiter ;
@@ -4928,13 +4967,13 @@ delimiter ;
 -- ----------------------------
 DROP TRIGGER IF EXISTS `T_AFTUPD_PRIZERECORD`;
 delimiter ;;
-CREATE TRIGGER `T_AFTUPD_PRIZERECORD` BEFORE UPDATE ON `t_ser_prize_recode_info` FOR EACH ROW BEGIN
-#通过中奖的码 更新码状态为失效 4
-if new.cash_time is not null then
+CREATE TRIGGER `T_AFTUPD_PRIZERECORD` BEFORE UPDATE ON `t_ser_prize_recode_info` FOR EACH ROW BEGIN		 
+#通过中奖的码 更新码状态为失效 4 
+if new.cash_time is not null then 
 	update  t_ser_goods_info set goods_state=4 where  m1=new.pr_code;
 end if;
 
-
+		
 END
 ;;
 delimiter ;
