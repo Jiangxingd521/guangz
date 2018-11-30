@@ -34,7 +34,7 @@ public class SerPrizeSetInfo extends Model<SerPrizeSetInfo> {
      * 布奖名称
      */
     @TableField("prize_set_name")
-    private Long prizeSetName;
+    private String prizeSetName;
     /**
      * 产品id
      */
@@ -44,7 +44,7 @@ public class SerPrizeSetInfo extends Model<SerPrizeSetInfo> {
      * 会员类型
      */
     @TableField("member_type")
-    private Integer memberType;
+    private Long memberType;
     /**
      * 布奖区域
      */
@@ -79,7 +79,7 @@ public class SerPrizeSetInfo extends Model<SerPrizeSetInfo> {
     @TableField("prize_set_type")
     private Integer prizeSetType;
     /**
-     * 布奖模式
+     * 布奖模式(1：随机，2：平均)
      */
     @TableField("prize_mode_type")
     private Integer prizeModeType;
@@ -144,11 +144,11 @@ public class SerPrizeSetInfo extends Model<SerPrizeSetInfo> {
         this.prizeManagerId = prizeManagerId;
     }
 
-    public Long getPrizeSetName() {
+    public String getPrizeSetName() {
         return prizeSetName;
     }
 
-    public void setPrizeSetName(Long prizeSetName) {
+    public void setPrizeSetName(String prizeSetName) {
         this.prizeSetName = prizeSetName;
     }
 
@@ -160,11 +160,11 @@ public class SerPrizeSetInfo extends Model<SerPrizeSetInfo> {
         this.prodId = prodId;
     }
 
-    public Integer getMemberType() {
+    public Long getMemberType() {
         return memberType;
     }
 
-    public void setMemberType(Integer memberType) {
+    public void setMemberType(Long memberType) {
         this.memberType = memberType;
     }
 

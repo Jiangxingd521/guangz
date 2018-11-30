@@ -99,6 +99,12 @@ public class CodeApplyController extends BaseController {
                         //条形码
                         command.setCodePosition(2L);
                     }
+                    //设定内外码
+                    if(command.getCodePositionType()==1){
+                        command.setCodePosition(1L);
+                    }else{
+                        command.setCodePosition(2L);
+                    }
                     command.setCodeOrder(getOrderNum());
                     String result = post(config.getDefaultCenterUrl() + "company/web/api/makeCodeOrder", JSONObject.toJSONString(command));
                     JSONObject object = JSONObject.parseObject(result);
