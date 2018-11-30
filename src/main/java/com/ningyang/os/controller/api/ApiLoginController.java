@@ -37,16 +37,16 @@ public class ApiLoginController {
     @Autowired
     private ISysUserInfoService userInfoService;
 
-    @ApiOperation(value="用户登录")
+    @ApiOperation(value = "用户登录")
     @ApiImplicitParams({
-            @ApiImplicitParam(name = "username",value = "用户名",required = true,paramType = "query"),
-            @ApiImplicitParam(name = "password",value = "密码",required = true,paramType = "query")
+            @ApiImplicitParam(name = "username", value = "用户名", required = true, paramType = "query"),
+            @ApiImplicitParam(name = "password", value = "密码", required = true, paramType = "query")
     })
     @PostMapping("login")
-    public Map<String,Object> login(
+    public Map<String, Object> login(
             String username,
             String password
-    ){
+    ) {
         try {
             String encodePassword = DigestUtils.md5DigestAsHex((password).getBytes());
             QueryUserCondition condition = new QueryUserCondition();
@@ -54,13 +54,13 @@ public class ApiLoginController {
             condition.setPassword(encodePassword);
             condition.setUserType(0);
             SysUserInfo userInfo = userInfoService.findByCondition(condition);
-            if(userInfo!=null){
+            if (userInfo != null) {
                 String token = buildJWT(String.valueOf(userInfo.getId()));
-                return WebResult.success().put("token",token).toMap();
+                return WebResult.success().put("token", token).toMap();
             }
             return WebResult.failure(PASSWORD_ERROR.getInfo()).toMap();
         } catch (Exception e) {
-            LOGGER.error(e.getMessage(),e);
+            LOGGER.error(e.getMessage(), e);
             return WebResult.failure(API_REQUEST_ERROR.getInfo()).toMap();
         }
     }

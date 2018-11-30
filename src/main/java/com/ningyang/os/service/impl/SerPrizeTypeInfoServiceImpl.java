@@ -32,7 +32,7 @@ public class SerPrizeTypeInfoServiceImpl extends ServiceImpl<SerPrizeTypeInfoMap
     public boolean addOrUpdate(PrizeTypeCommand command, Long userId) {
         SerPrizeTypeInfo info = getById(command.getTypeId());
         boolean flag;
-        if(info!=null){
+        if (info != null) {
             info.setPrizeTypeCode(command.getTypeCode());
             info.setPrizeTypeName(command.getTypeName());
             info.setPrizeTypeContent(command.getTypeContent());
@@ -40,7 +40,7 @@ public class SerPrizeTypeInfoServiceImpl extends ServiceImpl<SerPrizeTypeInfoMap
             info.setIdata1(command.getTypeState());
             info.setUpdateTime(new Date());
             flag = updateById(info);
-        }else{
+        } else {
             info = new SerPrizeTypeInfo();
             info.setPrizeTypeCode(command.getTypeCode());
             info.setPrizeTypeName(command.getTypeName());

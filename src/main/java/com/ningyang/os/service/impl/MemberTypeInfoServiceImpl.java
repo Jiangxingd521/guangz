@@ -32,7 +32,7 @@ public class MemberTypeInfoServiceImpl extends ServiceImpl<MemberTypeInfoMapper,
     public boolean addOrUpdate(MemberTypeCommand command, Long userId) {
         MemberTypeInfo info = getById(command.getTypeId());
         boolean flag;
-        if(info!=null){
+        if (info != null) {
             info.setTypeName(command.getTypeName());
             info.setTypeRuleId(command.getRuleId());
             info.setTypeQuanty(command.getTypeQuanty());
@@ -40,7 +40,7 @@ public class MemberTypeInfoServiceImpl extends ServiceImpl<MemberTypeInfoMapper,
             info.setIdata1(command.getTypeState());
             info.setUpdateTime(new Date());
             flag = updateById(info);
-        }else{
+        } else {
             info = new MemberTypeInfo();
             info.setTypeName(command.getTypeName());
             info.setTypeRuleId(command.getRuleId());

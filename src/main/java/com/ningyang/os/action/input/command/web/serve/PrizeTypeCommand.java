@@ -15,7 +15,7 @@ public class PrizeTypeCommand {
 
     private String typeContent;
 
-    private int typeState=0;
+    private int typeState = 0;
 
     public Long getTypeId() {
         return typeId;

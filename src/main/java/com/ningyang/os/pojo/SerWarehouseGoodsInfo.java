@@ -8,6 +8,7 @@ import com.baomidou.mybatisplus.extension.activerecord.Model;
 
 import java.io.Serializable;
 import java.util.Date;
+
 /**
  * <p>
  * 商品入库
@@ -170,16 +171,16 @@ public class SerWarehouseGoodsInfo extends Model<SerWarehouseGoodsInfo> {
     @Override
     public String toString() {
         return "SerWarehouseGoodsInfo{" +
-        "id=" + id +
-        ", warehouseId=" + warehouseId +
-        ", goodsId=" + goodsId +
-        ", boxNo=" + boxNo +
-        ", goodsState=" + goodsState +
-        ", warehouseInNo=" + warehouseInNo +
-        ", userId=" + userId +
-        ", remark=" + remark +
-        ", createTime=" + createTime +
-        ", updateTime=" + updateTime +
-        "}";
+                "id=" + id +
+                ", warehouseId=" + warehouseId +
+                ", goodsId=" + goodsId +
+                ", boxNo=" + boxNo +
+                ", goodsState=" + goodsState +
+                ", warehouseInNo=" + warehouseInNo +
+                ", userId=" + userId +
+                ", remark=" + remark +
+                ", createTime=" + createTime +
+                ", updateTime=" + updateTime +
+                "}";
     }
 }

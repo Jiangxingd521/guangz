@@ -22,9 +22,13 @@
             parameterType="String"
             resultType="String"
     >
-      SELECT DISTINCT a.menu_permission FROM t_sys_menu_info a LEFT JOIN t_sys_role_menu_info b ON a.id = b.menu_id
-      WHERE a.menu_type = 1 and a.menu_state = 0 and b.role_id in
-      (select c.role_id from t_sys_user_role_info c where c.user_id= #{userId})
+        SELECT DISTINCT a.menu_permission
+        FROM t_sys_menu_info a
+                 LEFT JOIN t_sys_role_menu_info b ON a.id = b.menu_id
+        WHERE a.menu_type = 1
+          and a.menu_state = 0
+          and b.role_id in
+              (select c.role_id from t_sys_user_role_info c where c.user_id = #{userId})
     </select>
 
     <select id="selectUserBarMenuVoList"

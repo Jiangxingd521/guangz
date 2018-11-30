@@ -4,27 +4,28 @@
 
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.ningyang.os.pojo.SerOrderInfo">
-        <id column="id" property="id" />
-        <result column="order_no" property="orderNo" />
-        <result column="dealer_id" property="dealerId" />
-        <result column="dealer_code" property="dealerCode" />
-        <result column="brand_id" property="brandId" />
-        <result column="series_id" property="seriesId" />
-        <result column="product_id" property="productId" />
-        <result column="product_number" property="productNumber" />
-        <result column="order_state" property="orderState" />
-        <result column="order_remark" property="orderRemark" />
-        <result column="user_id" property="userId" />
-        <result column="financial_id" property="financialId" />
-        <result column="create_time" property="createTime" />
-        <result column="update_time" property="updateTime" />
+        <id column="id" property="id"/>
+        <result column="order_no" property="orderNo"/>
+        <result column="dealer_id" property="dealerId"/>
+        <result column="dealer_code" property="dealerCode"/>
+        <result column="brand_id" property="brandId"/>
+        <result column="series_id" property="seriesId"/>
+        <result column="product_id" property="productId"/>
+        <result column="product_number" property="productNumber"/>
+        <result column="order_state" property="orderState"/>
+        <result column="order_remark" property="orderRemark"/>
+        <result column="user_id" property="userId"/>
+        <result column="financial_id" property="financialId"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
     </resultMap>
 
     <select id="selectSaleOrderVoPageByCondition"
             parameterType="com.ningyang.os.action.input.condition.serve.QueryOrderCondition"
             resultType="com.ningyang.os.action.output.vo.web.serve.SaleOrderVo"
     >
-        SELECT a.id as orderId,a.order_no,a.dealer_id,e.dealer_name,d.brand_name,c.series_name,b.product_name,a.product_id,
+        SELECT a.id as
+        orderId,a.order_no,a.dealer_id,e.dealer_name,d.brand_name,c.series_name,b.product_name,a.product_id,
         a.order_state,f.user_name as createUserName,g.user_name as financialUserName,a.order_remark as remark
         FROM t_ser_order_info a
         LEFT JOIN t_ser_brand_series_product_info b ON a.product_id = b.id
@@ -56,14 +57,22 @@
             parameterType="com.ningyang.os.action.input.condition.serve.QueryOrderCondition"
             resultType="com.ningyang.os.action.output.vo.web.serve.SaleOrderVo"
     >
-        SELECT a.id as orderId,a.order_no,a.dealer_id,e.dealer_name,d.brand_name,c.series_name,b.product_name,a.product_id,
-        a.order_remark as remark
+        SELECT a.id           as orderId,
+               a.order_no,
+               a.dealer_id,
+               e.dealer_name,
+               d.brand_name,
+               c.series_name,
+               b.product_name,
+               a.product_id,
+               a.order_remark as remark
         FROM t_ser_order_info a
-        LEFT JOIN t_ser_brand_series_product_info b ON a.product_id = b.id
-        LEFT JOIN t_ser_brand_series_info c ON b.series_id = c.id
-        LEFT JOIN t_ser_brand_info d on c.brand_id = d.id
-        LEFT JOIN t_ser_dealer_info e on a.dealer_id = e.id
-        WHERE 1=1 and a.order_state = 2
+                 LEFT JOIN t_ser_brand_series_product_info b ON a.product_id = b.id
+                 LEFT JOIN t_ser_brand_series_info c ON b.series_id = c.id
+                 LEFT JOIN t_ser_brand_info d on c.brand_id = d.id
+                 LEFT JOIN t_ser_dealer_info e on a.dealer_id = e.id
+        WHERE 1 = 1
+          and a.order_state = 2
     </select>
 
 </mapper>

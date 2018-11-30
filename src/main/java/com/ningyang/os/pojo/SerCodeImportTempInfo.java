@@ -106,12 +106,12 @@ public class SerCodeImportTempInfo extends Model<SerCodeImportTempInfo> {
     @Override
     public String toString() {
         return "SerCodeImportTempInfo{" +
-        "id=" + id +
-        ", templateId=" + templateId +
-        ", leftCode=" + leftCode +
-        ", rightCode=" + rightCode +
-        ", leftCodeType=" + leftCodeType +
-        ", rightCodeType=" + rightCodeType +
-        "}";
+                "id=" + id +
+                ", templateId=" + templateId +
+                ", leftCode=" + leftCode +
+                ", rightCode=" + rightCode +
+                ", leftCodeType=" + leftCodeType +
+                ", rightCodeType=" + rightCodeType +
+                "}";
     }
 }

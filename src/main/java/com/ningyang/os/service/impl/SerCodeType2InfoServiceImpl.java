@@ -25,7 +25,7 @@ public class SerCodeType2InfoServiceImpl extends ServiceImpl<SerCodeType2InfoMap
     public List<CodeTypeVo> findCodeTypeVoByCondition() {
         List<CodeTypeVo> voList = new ArrayList<>();
         List<SerCodeType2Info> listTemp = list(null);
-        for(SerCodeType2Info info : listTemp){
+        for (SerCodeType2Info info : listTemp) {
             CodeTypeVo vo = new CodeTypeVo();
             vo.setCodeId(info.getId());
             vo.setCodeName(info.getCodeName());

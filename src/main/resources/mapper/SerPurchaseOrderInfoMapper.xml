@@ -4,20 +4,20 @@
 
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.ningyang.os.pojo.SerPurchaseOrderInfo">
-        <id column="id" property="id" />
-        <result column="dealer_id" property="dealerId" />
-        <result column="order_no" property="orderNo" />
-        <result column="order_remark" property="orderRemark" />
-        <result column="idata1" property="idata1" />
-        <result column="idata2" property="idata2" />
-        <result column="idata3" property="idata3" />
-        <result column="idata4" property="idata4" />
-        <result column="sdata1" property="sdata1" />
-        <result column="sdata2" property="sdata2" />
-        <result column="sdata3" property="sdata3" />
-        <result column="sdata4" property="sdata4" />
-        <result column="create_time" property="createTime" />
-        <result column="update_time" property="updateTime" />
+        <id column="id" property="id"/>
+        <result column="dealer_id" property="dealerId"/>
+        <result column="order_no" property="orderNo"/>
+        <result column="order_remark" property="orderRemark"/>
+        <result column="idata1" property="idata1"/>
+        <result column="idata2" property="idata2"/>
+        <result column="idata3" property="idata3"/>
+        <result column="idata4" property="idata4"/>
+        <result column="sdata1" property="sdata1"/>
+        <result column="sdata2" property="sdata2"/>
+        <result column="sdata3" property="sdata3"/>
+        <result column="sdata4" property="sdata4"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
     </resultMap>
 
 </mapper>

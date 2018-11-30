@@ -166,19 +166,19 @@ public class MemberScanning extends Model<MemberScanning> {
     @Override
     public String toString() {
         return "MemberScanning{" +
-        "id=" + id +
-        ", openId=" + openId +
-        ", prCode=" + prCode +
-        ", idata1=" + idata1 +
-        ", idata2=" + idata2 +
-        ", idata3=" + idata3 +
-        ", idata4=" + idata4 +
-        ", sdata1=" + sdata1 +
-        ", sdata2=" + sdata2 +
-        ", sdata3=" + sdata3 +
-        ", sdata4=" + sdata4 +
-        ", createTime=" + createTime +
-        ", updateTime=" + updateTime +
-        "}";
+                "id=" + id +
+                ", openId=" + openId +
+                ", prCode=" + prCode +
+                ", idata1=" + idata1 +
+                ", idata2=" + idata2 +
+                ", idata3=" + idata3 +
+                ", idata4=" + idata4 +
+                ", sdata1=" + sdata1 +
+                ", sdata2=" + sdata2 +
+                ", sdata3=" + sdata3 +
+                ", sdata4=" + sdata4 +
+                ", createTime=" + createTime +
+                ", updateTime=" + updateTime +
+                "}";
     }
 }

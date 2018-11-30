@@ -191,21 +191,21 @@ public class SerPrizeTypeInfo extends Model<SerPrizeTypeInfo> {
     @Override
     public String toString() {
         return "SerPrizeTypeInfo{" +
-        "prizeTypeId=" + prizeTypeId +
-        ", prizeTypeCode=" + prizeTypeCode +
-        ", prizeTypeName=" + prizeTypeName +
-        ", prizeTypeContent=" + prizeTypeContent +
-        ", userId=" + userId +
-        ", idata1=" + idata1 +
-        ", idata2=" + idata2 +
-        ", idata3=" + idata3 +
-        ", idata4=" + idata4 +
-        ", sdata1=" + sdata1 +
-        ", sdata2=" + sdata2 +
-        ", sdata3=" + sdata3 +
-        ", sdata4=" + sdata4 +
-        ", createTime=" + createTime +
-        ", updateTime=" + updateTime +
-        "}";
+                "prizeTypeId=" + prizeTypeId +
+                ", prizeTypeCode=" + prizeTypeCode +
+                ", prizeTypeName=" + prizeTypeName +
+                ", prizeTypeContent=" + prizeTypeContent +
+                ", userId=" + userId +
+                ", idata1=" + idata1 +
+                ", idata2=" + idata2 +
+                ", idata3=" + idata3 +
+                ", idata4=" + idata4 +
+                ", sdata1=" + sdata1 +
+                ", sdata2=" + sdata2 +
+                ", sdata3=" + sdata3 +
+                ", sdata4=" + sdata4 +
+                ", createTime=" + createTime +
+                ", updateTime=" + updateTime +
+                "}";
     }
 }

@@ -186,21 +186,21 @@ public class MemberTypeInfo extends Model<MemberTypeInfo> {
     @Override
     public String toString() {
         return "MemberTypeInfo{" +
-        "id=" + id +
-        ", typeName=" + typeName +
-        ", typeRuleId=" + typeRuleId +
-        ", typeQuanty=" + typeQuanty +
-        ", userId=" + userId +
-        ", idata1=" + idata1 +
-        ", idata2=" + idata2 +
-        ", idata3=" + idata3 +
-        ", idata4=" + idata4 +
-        ", sdata1=" + sdata1 +
-        ", sdata2=" + sdata2 +
-        ", sdata3=" + sdata3 +
-        ", sdata4=" + sdata4 +
-        ", createTime=" + createTime +
-        ", updateTime=" + updateTime +
-        "}";
+                "id=" + id +
+                ", typeName=" + typeName +
+                ", typeRuleId=" + typeRuleId +
+                ", typeQuanty=" + typeQuanty +
+                ", userId=" + userId +
+                ", idata1=" + idata1 +
+                ", idata2=" + idata2 +
+                ", idata3=" + idata3 +
+                ", idata4=" + idata4 +
+                ", sdata1=" + sdata1 +
+                ", sdata2=" + sdata2 +
+                ", sdata3=" + sdata3 +
+                ", sdata4=" + sdata4 +
+                ", createTime=" + createTime +
+                ", updateTime=" + updateTime +
+                "}";
     }
 }

@@ -8,6 +8,7 @@ import com.baomidou.mybatisplus.extension.activerecord.Model;
 
 import java.io.Serializable;
 import java.util.Date;
+
 /**
  * <p>
  * 销售订单详情
@@ -112,12 +113,12 @@ public class SerOrderInfoDetails extends Model<SerOrderInfoDetails> {
     @Override
     public String toString() {
         return "SerOrderInfoDetails{" +
-        "id=" + id +
-        ", orderId=" + orderId +
-        ", productId=" + productId +
-        ", boxNumber=" + boxNumber +
-        ", createTime=" + createTime +
-        ", updateTime=" + updateTime +
-        "}";
+                "id=" + id +
+                ", orderId=" + orderId +
+                ", productId=" + productId +
+                ", boxNumber=" + boxNumber +
+                ", createTime=" + createTime +
+                ", updateTime=" + updateTime +
+                "}";
     }
 }

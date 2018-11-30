@@ -193,22 +193,22 @@ public class SerPurchaseOrderInfoDetails extends Model<SerPurchaseOrderInfoDetai
     @Override
     public String toString() {
         return "SerPurchaseOrderInfoDetails{" +
-        "id=" + id +
-        ", purchaseId=" + purchaseId +
-        ", productId=" + productId +
-        ", boxNo=" + boxNo +
-        ", isNo=" + isNo +
-        ", purchaseState=" + purchaseState +
-        ", idata1=" + idata1 +
-        ", idata2=" + idata2 +
-        ", idata3=" + idata3 +
-        ", idata4=" + idata4 +
-        ", sdata1=" + sdata1 +
-        ", sdata2=" + sdata2 +
-        ", sdata3=" + sdata3 +
-        ", sdata4=" + sdata4 +
-        ", createTime=" + createTime +
-        ", updateTime=" + updateTime +
-        "}";
+                "id=" + id +
+                ", purchaseId=" + purchaseId +
+                ", productId=" + productId +
+                ", boxNo=" + boxNo +
+                ", isNo=" + isNo +
+                ", purchaseState=" + purchaseState +
+                ", idata1=" + idata1 +
+                ", idata2=" + idata2 +
+                ", idata3=" + idata3 +
+                ", idata4=" + idata4 +
+                ", sdata1=" + sdata1 +
+                ", sdata2=" + sdata2 +
+                ", sdata3=" + sdata3 +
+                ", sdata4=" + sdata4 +
+                ", createTime=" + createTime +
+                ", updateTime=" + updateTime +
+                "}";
     }
 }

@@ -29,7 +29,8 @@
             parameterType="com.ningyang.os.action.input.condition.serve.QueryApplyCodeCondition"
             resultMap="BaseResultMap"
     >
-        select a.id,a.center_id,a.code_order,a.code_content,a.code_position,a.code_position_type from ${tableName} a where 1=1
+        select a.id,a.center_id,a.code_order,a.code_content,a.code_position,a.code_position_type from ${tableName} a
+        where 1=1
         <if test="codeOrder!=null and codeOrder!=''">
             and a.code_order = #{codeOrder}
         </if>
@@ -39,8 +40,10 @@
             parameterType="com.ningyang.os.action.input.condition.serve.QueryApplyCodeCondition"
             resultMap="BaseResultMap"
     >
-        select DISTINCT code_content,code_position,code_position_type from ${tableName} where 1=1
-        and code_content = #{codeContent}
+        select DISTINCT code_content,code_position,code_position_type
+        from ${tableName}
+        where 1 = 1
+          and code_content = #{codeContent}
     </select>
 
 </mapper>

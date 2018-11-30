@@ -10,5 +10,4 @@ import com.ningyang.os.action.input.condition.common.BaseCondition;
 public class QueryGoodsPutCondition extends BaseCondition {
 
 
-
 }

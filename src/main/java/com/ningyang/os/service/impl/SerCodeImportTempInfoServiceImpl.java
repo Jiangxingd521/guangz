@@ -43,12 +43,12 @@ public class SerCodeImportTempInfoServiceImpl extends ServiceImpl<SerCodeImportT
         CodeImportTemplateVo templateVo = templateInfoService.findCodeImportTemplateVo(templateId);
         boolean flag;
         Long leftCodeType = templateVo.getLeftCodeType();
-        if(leftCodeType==1){
+        if (leftCodeType == 1) {
             //模板对应的品牌系列产品
             BrandSeriesProductVo vo = productInfoService.findBrandSeriesProductVo(templateVo.getProductId());
             //内码
             List<SerGoodsInfo> listTemp = new ArrayList<>();
-            for(ReadFileBackData data : listData){
+            for (ReadFileBackData data : listData) {
                 SerGoodsInfo info = new SerGoodsInfo();
                 info.setBrandId(vo.getBrandId());
                 info.setBrandName(templateVo.getBrandName());
@@ -66,10 +66,10 @@ public class SerCodeImportTempInfoServiceImpl extends ServiceImpl<SerCodeImportT
                 listTemp.add(info);
             }
             flag = goodsInfoService.saveBatch(listTemp);
-        }else{
+        } else {
             //外码
             List<SerCodeImportTempInfo> listTemp = new ArrayList<>();
-            for(ReadFileBackData data : listData){
+            for (ReadFileBackData data : listData) {
                 SerCodeImportTempInfo info = new SerCodeImportTempInfo();
                 info.setTemplateId(templateId);
                 info.setLeftCode(data.getLData());

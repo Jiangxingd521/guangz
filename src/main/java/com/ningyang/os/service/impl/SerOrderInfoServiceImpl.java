@@ -40,7 +40,7 @@ public class SerOrderInfoServiceImpl extends ServiceImpl<SerOrderInfoMapper, Ser
         Page<SaleOrderVo> pageVo = new Page<>();
         List<SaleOrderVo> listVoTemp = baseMapper.selectSaleOrderVoPageByCondition(condition);
 
-        for(SaleOrderVo vo : listVoTemp){
+        for (SaleOrderVo vo : listVoTemp) {
             condition.setOrderId(vo.getOrderId());
             List<OrderDetailVo> detailList = detailsService.findOrderDetailVoList(condition);
             vo.setDetailList(detailList);
@@ -65,7 +65,7 @@ public class SerOrderInfoServiceImpl extends ServiceImpl<SerOrderInfoMapper, Ser
             info.setProductId(command.getProductId());
             info.setOrderState(command.getOrderState());
             info.setOrderRemark(command.getRemark());
-            if(command.getOperateType()==1){
+            if (command.getOperateType() == 1) {
                 info.setFinancialId(operateUserId);
             }
             info.setUpdateTime(new Date());
@@ -83,10 +83,10 @@ public class SerOrderInfoServiceImpl extends ServiceImpl<SerOrderInfoMapper, Ser
             flag = save(info);
         }
 
-        if(command.getDetailList().size()>0){
+        if (command.getDetailList().size() > 0) {
             List<SerOrderInfoDetails> detailsList = new ArrayList<>();
             detailsService.delete();
-            for(OrderDetailVo vo : command.getDetailList()){
+            for (OrderDetailVo vo : command.getDetailList()) {
                 SerOrderInfoDetails details = new SerOrderInfoDetails();
                 details.setOrderId(info.getId());
                 details.setBoxNumber(vo.getBoxNumber());
@@ -104,7 +104,7 @@ public class SerOrderInfoServiceImpl extends ServiceImpl<SerOrderInfoMapper, Ser
     @Override
     public List<SaleOrderVo> findSaleOrderVoListByCondition(QueryOrderCondition condition) {
         List<SaleOrderVo> listTemp = baseMapper.selectSaleOrderVoListByCondition(condition);
-        for(SaleOrderVo vo : listTemp){
+        for (SaleOrderVo vo : listTemp) {
             //查询具体订单内容
             condition.setOrderId(vo.getOrderId());
             List<OrderDetailVo> detailList = detailsService.findOrderDetailVoList(condition);
@@ -117,12 +117,13 @@ public class SerOrderInfoServiceImpl extends ServiceImpl<SerOrderInfoMapper, Ser
 
     /**
      * 获取订单箱数
+     *
      * @param orderNo
      * @return
      */
     @Override
     public int getOrderBoxCount(String orderNo) {
-        Long orderId = getOne(new QueryWrapper<SerOrderInfo>().eq("order_no",orderNo)).getId();
+        Long orderId = getOne(new QueryWrapper<SerOrderInfo>().eq("order_no", orderNo)).getId();
         QueryOrderCondition condition = new QueryOrderCondition();
         condition.setOrderId(orderId);
         return detailsService.boxCount(condition);

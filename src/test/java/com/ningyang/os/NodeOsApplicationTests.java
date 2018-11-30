@@ -128,8 +128,8 @@ public class NodeOsApplicationTests {
         }*/
 
         List<String> tableList = new ArrayList<>();
-        for(int i =0;i<4;i++){
-            String a = i+"AAA";
+        for (int i = 0; i < 4; i++) {
+            String a = i + "AAA";
             tableList.add(a);
         }
 

@@ -98,15 +98,15 @@ public class OrderController extends BaseController {
 
 
     @GetMapping("getOrderDetailList")
-    public Map<String,Object> getOrderDetailList(
+    public Map<String, Object> getOrderDetailList(
             @RequestHeader("Authorization") String userToken,
             QueryOrderCondition condition
-    ){
+    ) {
         try {
             Long operateUserId = getBaseUserInfo(userToken).getId();
             condition.setUserId(operateUserId);
             List<OrderDetailVo> listVo = detailsService.findOrderDetailVoList(condition);
-            return WebResult.success().put("listVo",listVo).toMap();
+            return WebResult.success().put("listVo", listVo).toMap();
         } catch (Exception e) {
             LOGGER.error(e.getMessage(), e);
             return WebResult.failure(DELETE_ERROR.getInfo()).toMap();
@@ -115,10 +115,10 @@ public class OrderController extends BaseController {
 
 
     @PostMapping("addDetails")
-    public Map<String,Object> addDetails(
+    public Map<String, Object> addDetails(
             @RequestHeader("Authorization") String userToken,
             @RequestBody OrderDetailsCommand command
-    ){
+    ) {
         try {
             Long operateUserId = getBaseUserInfo(userToken).getId();
             boolean flag = detailsService.add(command, operateUserId);
@@ -133,18 +133,18 @@ public class OrderController extends BaseController {
     }
 
     @DeleteMapping("deleteDetails")
-    public Map<String,Object> deleteDetails(
+    public Map<String, Object> deleteDetails(
             @RequestHeader("Authorization") String userToken,
-           @RequestBody OrderDetailsDelCommand command
-    ){
+            @RequestBody OrderDetailsDelCommand command
+    ) {
         try {
             Long operateUserId = getBaseUserInfo(userToken).getId();
             boolean flag;
-            if(command.getType()==1){
+            if (command.getType() == 1) {
                 flag = detailsService.remove(new QueryWrapper<SerOrderInfoDetails>()
-                        .eq("order_id",-1)
-                        .eq("user_id",operateUserId));
-            }else{
+                        .eq("order_id", -1)
+                        .eq("user_id", operateUserId));
+            } else {
                 flag = detailsService.removeById(command.getDetailId());
             }
             if (flag) {

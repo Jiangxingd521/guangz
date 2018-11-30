@@ -88,11 +88,11 @@ public class SerApplyCodeTableInfo extends Model<SerApplyCodeTableInfo> {
     @Override
     public String toString() {
         return "SerApplyCodeTableInfo{" +
-        "id=" + id +
-        ", codeFlag=" + codeFlag +
-        ", codeTableName=" + codeTableName +
-        ", createTime=" + createTime +
-        ", updateTime=" + updateTime +
-        "}";
+                "id=" + id +
+                ", codeFlag=" + codeFlag +
+                ", codeTableName=" + codeTableName +
+                ", createTime=" + createTime +
+                ", updateTime=" + updateTime +
+                "}";
     }
 }

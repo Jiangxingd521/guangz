@@ -159,15 +159,15 @@ public class LSerWarehouseGoodsInfo extends Model<LSerWarehouseGoodsInfo> {
     @Override
     public String toString() {
         return "LSerWarehouseGoodsInfo{" +
-        "id=" + id +
-        ", warehouseId=" + warehouseId +
-        ", goodsId=" + goodsId +
-        ", boxNo=" + boxNo +
-        ", warehouseInNo=" + warehouseInNo +
-        ", userId=" + userId +
-        ", warehouseInTime=" + warehouseInTime +
-        ", createTime=" + createTime +
-        ", updateTime=" + updateTime +
-        "}";
+                "id=" + id +
+                ", warehouseId=" + warehouseId +
+                ", goodsId=" + goodsId +
+                ", boxNo=" + boxNo +
+                ", warehouseInNo=" + warehouseInNo +
+                ", userId=" + userId +
+                ", warehouseInTime=" + warehouseInTime +
+                ", createTime=" + createTime +
+                ", updateTime=" + updateTime +
+                "}";
     }
 }

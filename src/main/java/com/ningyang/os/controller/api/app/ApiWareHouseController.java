@@ -44,8 +44,6 @@ public class ApiWareHouseController extends BaseController {
     private ISerOrderInfoService orderInfoService;
 
 
-
-
     @ApiOperation(value = "入库")
     @ApiImplicitParams({
             @ApiImplicitParam(name = "sourceType", value = "入库来源（0：生产入库，1：换货入库，2：退货入库，3：换仓入库）", paramType = "query"),

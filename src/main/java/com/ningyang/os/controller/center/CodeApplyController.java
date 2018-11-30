@@ -181,20 +181,20 @@ public class CodeApplyController extends BaseController {
                 BufferedWriter bw;
                 if (codeType == 2) {
                     //二维码
-                    bw = new BufferedWriter(new FileWriter(pFilePath+"/" + zipFileName + ".txt"));
+                    bw = new BufferedWriter(new FileWriter(pFilePath + "/" + zipFileName + ".txt"));
                     for (SerApplyCodeTemplate code : codeList) {
                         encode(code.getCodeContent(), pFilePath, false, String.valueOf(code.getCenterId()));
-                        bw.write(code.getCodeContent()+"\r");
+                        bw.write(code.getCodeContent() + "\r");
                         bw.newLine();
                         bw.flush();
                     }
                     bw.close();
                 } else if (codeType == 1) {
                     //条形码
-                    bw = new BufferedWriter(new FileWriter(pFilePath+"/" + zipFileName + ".txt"));
+                    bw = new BufferedWriter(new FileWriter(pFilePath + "/" + zipFileName + ".txt"));
                     for (SerApplyCodeTemplate code : codeList) {
                         generateFile(code.getCodeContent(), pFilePath + "/" + code.getCenterId() + ".png");
-                        bw.write(code.getCodeContent()+"\r");
+                        bw.write(code.getCodeContent() + "\r");
                         bw.newLine();
                         bw.flush();
                     }

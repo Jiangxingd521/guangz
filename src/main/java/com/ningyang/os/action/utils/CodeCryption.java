@@ -15,51 +15,47 @@ import java.security.SecureRandom;
 
 /**
  * 加解密工具
- * 
- * @author dennies yang
  *
+ * @author dennies yang
  */
 public class CodeCryption {
-    private static final Logger log  = LoggerFactory.getLogger(CodeCryption.class);
+    private static final Logger log = LoggerFactory.getLogger(CodeCryption.class);
     private static final char[] HEX_DIGITS = {'0',
-                                              '1',
-                                              '2',
-                                              '3',
-                                              '4',
-                                              '5',
-                                              '6',
-                                              '7',
-                                              '8',
-                                              '9',
-                                              'a',
-                                              'b',
-                                              'c',
-                                              'd',
-                                              'e',
-                                              'f'};
+            '1',
+            '2',
+            '3',
+            '4',
+            '5',
+            '6',
+            '7',
+            '8',
+            '9',
+            'a',
+            'b',
+            'c',
+            'd',
+            'e',
+            'f'};
 
     public String encryptedData(String data) {
 
         try {
-            String encodedStr =DesUtils.encrypt(CommucationConstants.COMM_SIGNED, data);
+            String encodedStr = DesUtils.encrypt(CommucationConstants.COMM_SIGNED, data);
 //            String urlEncodeData = java.net.URLEncoder.encode(encodedStr);
             return encodedStr;
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
             log.error("Encryp Data Error. Detail:" + e.getMessage());
         }
         return null;
     }
+
     /**
      * 生成MD5数据签名方法
-     * 
-     * @param action
-     *            请求的action接口
-     * @param data
-     *            已使用DES加密的JSON数据字符串
-     * @param dt
-     *            时间，格式SimpleDateFormat("yyyyMMddHHmmss");
+     *
+     * @param action 请求的action接口
+     * @param data   已使用DES加密的JSON数据字符串
+     * @param dt     时间，格式SimpleDateFormat("yyyyMMddHHmmss");
      * @return
      */
     public String sign(String action, String data, String dt) {
@@ -71,26 +67,26 @@ public class CodeCryption {
         action = action.toLowerCase();
         // 构造请求字符串
         String str = "&action="
-                     + action
-                     + "&data="
-                     + data
-                     + "&dt="
-                     + dt
-                     + "&key="
-                     + key;
+                + action
+                + "&data="
+                + data
+                + "&dt="
+                + dt
+                + "&key="
+                + key;
 
-        System.out.println("str="+str);
-        
+        System.out.println("str=" + str);
+
         signed = getMD5Str(str);
-        
-        System.out.println("signed="+signed);
+
+        System.out.println("signed=" + signed);
 
         return signed.toUpperCase();// 返回32位大写的MD5数字签名串
     }
 
     /**
      * MD5加密
-     * 
+     *
      * @param str
      * @return
      */
@@ -103,12 +99,10 @@ public class CodeCryption {
             messageDigest.reset();
 
             messageDigest.update(str.getBytes("UTF-8"));
-        }
-        catch (NoSuchAlgorithmException e) {
+        } catch (NoSuchAlgorithmException e) {
             System.out.println("NoSuchAlgorithmException caught!");
             System.exit(-1);
-        }
-        catch (UnsupportedEncodingException e) {
+        } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
 
@@ -119,7 +113,7 @@ public class CodeCryption {
         for (int i = 0; i < byteArray.length; i++) {
             if (Integer.toHexString(0xFF & byteArray[i]).length() == 1)
                 md5StrBuff.append("0")
-                          .append(Integer.toHexString(0xFF & byteArray[i]));
+                        .append(Integer.toHexString(0xFF & byteArray[i]));
             else
                 md5StrBuff.append(Integer.toHexString(0xFF & byteArray[i]));
         }
@@ -129,9 +123,8 @@ public class CodeCryption {
 
     /**
      * 加密字符串
-     * 
-     * @param algorithm
-     *            BASE64 MD5 SHA1
+     *
+     * @param algorithm BASE64 MD5 SHA1
      * @param str
      */
     public static String encode(String algorithm, String str) {
@@ -143,8 +136,7 @@ public class CodeCryption {
             MessageDigest messageDigest = MessageDigest.getInstance(algorithm);
             messageDigest.update(str.getBytes());
             return getFormattedText(messageDigest.digest());
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             throw new RuntimeException(e);
         }
 
@@ -152,9 +144,8 @@ public class CodeCryption {
 
     /**
      * Takes the raw bytes from the digest and formats them correct.
-     * 
-     * @param bytes
-     *            the raw bytes from the digest.
+     *
+     * @param bytes the raw bytes from the digest.
      * @return the formatted bytes.
      */
     private static String getFormattedText(byte[] bytes) {
@@ -172,7 +163,7 @@ public class CodeCryption {
 
     /**
      * BASE64编码
-     * 
+     *
      * @param str
      * @return
      */
@@ -181,19 +172,19 @@ public class CodeCryption {
             return null;
         try {
             return new String(org.apache.commons.codec.binary.Base64.encodeBase64(str.getBytes("UTF-8"))).replaceAll("\r",
-                                                                                                                     "")
-                                                                                                         .replaceAll("\n",
-                                                                                                                     "");
-        }
-        catch (UnsupportedEncodingException e) {
+                    "")
+                    .replaceAll("\n",
+                            "");
+        } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
             return null;
         }
 
     }
+
     /**
      * BASE64解码
-     * 
+     *
      * @param str
      * @return
      */
@@ -202,8 +193,7 @@ public class CodeCryption {
             return null;
         try {
             return new String(org.apache.commons.codec.binary.Base64.decodeBase64(str.getBytes("UTF-8")));
-        }
-        catch (UnsupportedEncodingException e) {
+        } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
             return null;
         }
@@ -211,9 +201,8 @@ public class CodeCryption {
 
     /**
      * 解密字符串
-     * 
-     * @param algorithm
-     *            BASE64
+     *
+     * @param algorithm BASE64
      * @param str
      * @return
      */
@@ -242,8 +231,7 @@ public class CodeCryption {
             // 现在，获取数据并加密
             // 正式执行加密操作
             return cipher.doFinal(datasource);
-        }
-        catch (Throwable e) {
+        } catch (Throwable e) {
             e.printStackTrace();
         }
         return null;
@@ -286,8 +274,7 @@ public class CodeCryption {
         try {
             byte[] decryResult = desDecrypt(result, password);
             System.out.println("加密后内容为：" + new String(decryResult));
-        }
-        catch (Exception e1) {
+        } catch (Exception e1) {
             e1.printStackTrace();
         }
     }

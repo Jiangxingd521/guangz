@@ -51,7 +51,6 @@ public class CodeImportController extends BaseController {
     private ISerApplyCodeTemplateService codeTemplateService;
 
     /**
-     *
      * @param condition
      * @return
      */
@@ -70,21 +69,21 @@ public class CodeImportController extends BaseController {
 
 
     /**
-     *
      * 导入机器溯源码文件
+     *
      * @param userToken
      * @param file
      * @param templateId
      * @return
      */
     @PostMapping("codeImportFile")
-    public Map<String,Object> importFile(
+    public Map<String, Object> importFile(
             @RequestHeader("Authorization") String userToken,
             @RequestParam(value = "file", required = false) MultipartFile file,
             Long templateId,
             HttpServletRequest request
-    ){
-        if(file==null){
+    ) {
+        if (file == null) {
             return WebResult.failure("请上传文件!").toMap();
         }
         try {
@@ -110,7 +109,7 @@ public class CodeImportController extends BaseController {
             //溯源码位置类型
             Long codePositionType = templateVo.getLeftCodeId();
             //校验左码是否符合
-            for(ReadFileBackData data : fileList){
+            for (ReadFileBackData data : fileList) {
                 String leftCodeFlag = data.getLData().split("/")[5];
                 //查询溯源码所在表
                 String codeTables = tableInfoService.findCodeTableList(leftCodeFlag);
@@ -118,23 +117,23 @@ public class CodeImportController extends BaseController {
                 String codeContent = data.getLData();
                 //溯源码
                 SerApplyCodeTemplate code = codeTemplateService.findCodeByTables(codeTables, codeContent);
-                if(code.getCodePosition()!=codePosition && code.getCodePositionType()!=codePositionType){
+                if (code.getCodePosition() != codePosition && code.getCodePositionType() != codePositionType) {
                     return WebResult.failure("导入数据与使用模板有误！").toMap();
                 }
             }
 
             //溯源码导入临时表
-            boolean codeTempFlag = tempInfoService.add(fileList,templateId);
-            if(codeTempFlag){
+            boolean codeTempFlag = tempInfoService.add(fileList, templateId);
+            if (codeTempFlag) {
                 //加入导入日志
                 ImportCodeCommand command = new ImportCodeCommand();
                 command.setImportFileName(fileName);
                 command.setSaveFilePath(saveFilePath);
-                command.setCodeCount(Long.valueOf(fileList.size()*2));
+                command.setCodeCount(Long.valueOf(fileList.size() * 2));
                 command.setUserId(uploadUserId);
                 command.setTemplateId(templateId);
                 boolean logFlag = infoService.add(command);
-                if(logFlag){
+                if (logFlag) {
                     return WebResult.success().toMap();
                 }
                 return WebResult.failure(IMPORT_DATA_ERROR.getInfo()).toMap();

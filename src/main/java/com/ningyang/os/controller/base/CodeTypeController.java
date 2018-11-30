@@ -38,6 +38,7 @@ public class CodeTypeController {
 
     /**
      * 内外码
+     *
      * @return
      */
     @GetMapping("getBaseCodeType1List")
@@ -53,6 +54,7 @@ public class CodeTypeController {
 
     /**
      * 条形码、二维码
+     *
      * @return
      */
     @GetMapping("getBaseCodeType2List")
@@ -68,6 +70,7 @@ public class CodeTypeController {
 
     /**
      * 盒内外码
+     *
      * @param condition
      * @return
      */
@@ -85,7 +88,6 @@ public class CodeTypeController {
     }
 
     /**
-     *
      * @param command
      * @return
      */

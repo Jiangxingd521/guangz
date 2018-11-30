@@ -4,38 +4,38 @@
 
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.ningyang.os.pojo.SerPrizeRecodeInfo">
-        <id column="prize_recor_id" property="prizeRecorId" />
-        <result column="order_no" property="orderNo" />
-        <result column="pr_code" property="prCode" />
-        <result column="prize_set_id" property="prizeSetId" />
-        <result column="prize_set_name" property="prizeSetName" />
-        <result column="prod_id" property="prodId" />
-        <result column="member_type" property="memberType" />
-        <result column="region_id" property="regionId" />
-        <result column="prize_quantity" property="prizeQuantity" />
-        <result column="money" property="money" />
-        <result column="ponit" property="ponit" />
-        <result column="prize_set_type" property="prizeSetType" />
-        <result column="prize_mode_type" property="prizeModeType" />
-        <result column="card_money" property="cardMoney" />
-        <result column="card_coupon_money" property="cardCouponMoney" />
-        <result column="prize_state" property="prizeState" />
-        <result column="track_no" property="trackNo" />
-        <result column="cash_time" property="cashTime" />
-        <result column="open_id" property="openId" />
-        <result column="prize_start_date" property="prizeStartDate" />
-        <result column="prize_end_date" property="prizeEndDate" />
-        <result column="user_id" property="userId" />
-        <result column="idata1" property="idata1" />
-        <result column="idata2" property="idata2" />
-        <result column="idata3" property="idata3" />
-        <result column="idata4" property="idata4" />
-        <result column="sdata1" property="sdata1" />
-        <result column="sata2" property="sata2" />
-        <result column="sdata3" property="sdata3" />
-        <result column="sdata4" property="sdata4" />
-        <result column="create_time" property="createTime" />
-        <result column="update_time" property="updateTime" />
+        <id column="prize_recor_id" property="prizeRecorId"/>
+        <result column="order_no" property="orderNo"/>
+        <result column="pr_code" property="prCode"/>
+        <result column="prize_set_id" property="prizeSetId"/>
+        <result column="prize_set_name" property="prizeSetName"/>
+        <result column="prod_id" property="prodId"/>
+        <result column="member_type" property="memberType"/>
+        <result column="region_id" property="regionId"/>
+        <result column="prize_quantity" property="prizeQuantity"/>
+        <result column="money" property="money"/>
+        <result column="ponit" property="ponit"/>
+        <result column="prize_set_type" property="prizeSetType"/>
+        <result column="prize_mode_type" property="prizeModeType"/>
+        <result column="card_money" property="cardMoney"/>
+        <result column="card_coupon_money" property="cardCouponMoney"/>
+        <result column="prize_state" property="prizeState"/>
+        <result column="track_no" property="trackNo"/>
+        <result column="cash_time" property="cashTime"/>
+        <result column="open_id" property="openId"/>
+        <result column="prize_start_date" property="prizeStartDate"/>
+        <result column="prize_end_date" property="prizeEndDate"/>
+        <result column="user_id" property="userId"/>
+        <result column="idata1" property="idata1"/>
+        <result column="idata2" property="idata2"/>
+        <result column="idata3" property="idata3"/>
+        <result column="idata4" property="idata4"/>
+        <result column="sdata1" property="sdata1"/>
+        <result column="sata2" property="sata2"/>
+        <result column="sdata3" property="sdata3"/>
+        <result column="sdata4" property="sdata4"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
     </resultMap>
 
 </mapper>

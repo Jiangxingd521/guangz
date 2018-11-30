@@ -25,17 +25,18 @@ public class ReadFileUtil {
 
     /**
      * 读取文件返回对应数据
+     *
      * @param file
      * @return
      */
-    public static List<ReadFileBackData> returnReadFileData(MultipartFile file){
+    public static List<ReadFileBackData> returnReadFileData(MultipartFile file) {
         List<ReadFileBackData> list = new ArrayList<>();
         String fileName = file.getOriginalFilename();
         String fileType = fileName.substring(fileName.lastIndexOf(".") + 1);
 
-        if(fileType.equals("txt") || fileType.equals("csv")){
+        if (fileType.equals("txt") || fileType.equals("csv")) {
             list = readTXTOrCSVFile(file);
-        }else if(fileType.equals("xls") || fileType.equals("xlsx")){
+        } else if (fileType.equals("xls") || fileType.equals("xlsx")) {
             list = readXlsFile(file);
         }
         return list;
@@ -43,17 +44,18 @@ public class ReadFileUtil {
 
     /**
      * 读取txt或csv文件返回 ReadFileBackData 对象
+     *
      * @param file
      * @return
      */
-    public static List<ReadFileBackData> readTXTOrCSVFile(MultipartFile file){
+    public static List<ReadFileBackData> readTXTOrCSVFile(MultipartFile file) {
         List<ReadFileBackData> entityList = new ArrayList<>();
         List<String> groupList = new ArrayList<>();
         try {
             InputStreamReader read = new InputStreamReader(file.getInputStream(), "utf-8");
             BufferedReader bufferedReader = new BufferedReader(read);
             String lineTxt;
-            while((lineTxt = bufferedReader.readLine()) != null){
+            while ((lineTxt = bufferedReader.readLine()) != null) {
                 groupList.add(lineTxt);
             }
             read.close();
@@ -61,7 +63,7 @@ public class ReadFileUtil {
             e.printStackTrace();
         }
 
-        for(String lineTxt : groupList){
+        for (String lineTxt : groupList) {
             ReadFileBackData dto = new ReadFileBackData();
             String[] group = lineTxt.split(",");
             dto.setLData(group[0]);
@@ -73,10 +75,11 @@ public class ReadFileUtil {
 
     /**
      * 处理excel
+     *
      * @param file
      * @return
      */
-    public static List<ReadFileBackData> readXlsFile(MultipartFile file){
+    public static List<ReadFileBackData> readXlsFile(MultipartFile file) {
         List<ReadFileBackData> list = new ArrayList<>();
         try {
             list = importExcel(file.getInputStream(), ReadFileBackData.class, new ImportParams());
@@ -88,10 +91,11 @@ public class ReadFileUtil {
 
     /**
      * 处理excel文件
+     *
      * @param file
      * @return
      */
-    public static List<ReadFileBackData> readXlsFileToPio(MultipartFile file){
+    public static List<ReadFileBackData> readXlsFileToPio(MultipartFile file) {
         List<ReadFileBackData> entityList = new ArrayList<>();
         try {
             List<List<String>> list = new ArrayList<>();
@@ -100,32 +104,32 @@ public class ReadFileUtil {
             // 获得工作表个数
             int sheetCount = workbook.getNumberOfSheets();
             // 遍历工作表
-            for(int i=0;i<sheetCount;i++){
+            for (int i = 0; i < sheetCount; i++) {
                 Sheet sheet = workbook.getSheetAt(i);
                 int rows = sheet.getPhysicalNumberOfRows();
                 Row row = sheet.getRow(0);
-                if(row==null){
+                if (row == null) {
                     continue;
                 }
                 int cols = row.getPhysicalNumberOfCells();
 
-                for(int j=0;j<rows;j++){
+                for (int j = 0; j < rows; j++) {
                     List<String> listTemp = new ArrayList<>();
                     String cellData;
                     row = sheet.getRow(j);
-                    if(row !=null){
-                        for(int k=0;k<cols;k++){
+                    if (row != null) {
+                        for (int k = 0; k < cols; k++) {
                             cellData = row.getCell(k).getStringCellValue();
                             listTemp.add(cellData);
                         }
-                    }else{
+                    } else {
                         break;
                     }
                     list.add(listTemp);
                 }
             }
 
-            for(List<String> lineTxt : list){
+            for (List<String> lineTxt : list) {
                 ReadFileBackData dto = new ReadFileBackData();
                 dto.setLData(lineTxt.get(0));
                 dto.setRData(lineTxt.get(1));

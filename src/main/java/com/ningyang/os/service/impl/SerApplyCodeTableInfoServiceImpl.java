@@ -27,7 +27,7 @@ public class SerApplyCodeTableInfoServiceImpl extends ServiceImpl<SerApplyCodeTa
     public boolean addCodeFlag(String codeFlag) {
         SerApplyCodeTableInfo info = new SerApplyCodeTableInfo();
         info.setCodeFlag(codeFlag);
-        info.setCodeTableName("t_ser_apply_code_"+getSimpleYearShort()+codeFlag);
+        info.setCodeTableName("t_ser_apply_code_" + getSimpleYearShort() + codeFlag);
         info.setCreateTime(new Date());
         info.setUpdateTime(new Date());
         return save(info);

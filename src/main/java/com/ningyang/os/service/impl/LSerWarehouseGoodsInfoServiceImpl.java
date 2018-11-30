@@ -32,7 +32,7 @@ public class LSerWarehouseGoodsInfoServiceImpl extends ServiceImpl<LSerWarehouse
     @Override
     public boolean add(ApiWarehousePutInCommand command) {
         List<LSerWarehouseGoodsInfo> infoList = new ArrayList<>();
-        for(String boxNo : command.getBoxCode()){
+        for (String boxNo : command.getBoxCode()) {
             LSerWarehouseGoodsInfo info = new LSerWarehouseGoodsInfo();
             info.setSourceType(command.getSourceType());
             info.setWarehouseId(command.getWarehouse());
@@ -51,7 +51,7 @@ public class LSerWarehouseGoodsInfoServiceImpl extends ServiceImpl<LSerWarehouse
     public Page<GoodsPutInVo> findGoodsPutInVoPageByCondition(QueryGoodsPutCondition condition) {
         Page<GoodsPutInVo> pageVo = new Page<>();
         List<GoodsPutInVo> listVoTemp = baseMapper.selectGoodsPutInVoPageByCondition(condition);
-        for(GoodsPutInVo vo : listVoTemp){
+        for (GoodsPutInVo vo : listVoTemp) {
             vo.setCreateTimeStr(timeToStr(vo.getCreateTime()));
         }
         int total = baseMapper.selectGoodsPutInVoPageCountByCondition(condition);

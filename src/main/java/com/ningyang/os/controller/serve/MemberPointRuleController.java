@@ -32,9 +32,9 @@ public class MemberPointRuleController extends BaseController {
     private IMemberPointRuleService infoService;
 
     @GetMapping("getList")
-    public Map<String,Object> getList(
+    public Map<String, Object> getList(
             QueryMemberCondition condition
-    ){
+    ) {
         try {
             List<MemberPointRuleVo> listVo = infoService.findMemberPointRuleVoListByCondition(condition);
             return WebResult.success().put("listVo", listVo).toMap();
@@ -45,10 +45,10 @@ public class MemberPointRuleController extends BaseController {
     }
 
     @PostMapping("addOrUpdate")
-    public Map<String,Object> addOrUpdate(
+    public Map<String, Object> addOrUpdate(
             @RequestHeader("Authorization") String userToken,
             @RequestBody MemberPointRuleCommand command
-    ){
+    ) {
         try {
             Long operateUserId = getBaseUserInfo(userToken).getId();
             boolean flag = infoService.addOrUpdate(command, operateUserId);

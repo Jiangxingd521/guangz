@@ -8,6 +8,7 @@ import com.baomidou.mybatisplus.extension.activerecord.Model;
 
 import java.io.Serializable;
 import java.util.Date;
+
 /**
  * <p>
  * 仓库信息
@@ -195,19 +196,19 @@ public class SerWarehouseInfo extends Model<SerWarehouseInfo> {
     @Override
     public String toString() {
         return "SerWarehouseInfo{" +
-        "id=" + id +
-        ", warehouseName=" + warehouseName +
-        ", userId=" + userId +
-        ", warehousePerson=" + warehousePerson +
-        ", warehousePersonMobile=" + warehousePersonMobile +
-        ", totalInventory=" + totalInventory +
-        ", warehouseRemark=" + warehouseRemark +
-        ", warehouseState=" + warehouseState +
-        ", longitude=" + longitude +
-        ", latitude=" + latitude +
-        ", isInventory=" + isInventory +
-        ", createTime=" + createTime +
-        ", updateTime=" + updateTime +
-        "}";
+                "id=" + id +
+                ", warehouseName=" + warehouseName +
+                ", userId=" + userId +
+                ", warehousePerson=" + warehousePerson +
+                ", warehousePersonMobile=" + warehousePersonMobile +
+                ", totalInventory=" + totalInventory +
+                ", warehouseRemark=" + warehouseRemark +
+                ", warehouseState=" + warehouseState +
+                ", longitude=" + longitude +
+                ", latitude=" + latitude +
+                ", isInventory=" + isInventory +
+                ", createTime=" + createTime +
+                ", updateTime=" + updateTime +
+                "}";
     }
 }

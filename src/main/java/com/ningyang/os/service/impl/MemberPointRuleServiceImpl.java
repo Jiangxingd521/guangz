@@ -32,14 +32,14 @@ public class MemberPointRuleServiceImpl extends ServiceImpl<MemberPointRuleMappe
     public boolean addOrUpdate(MemberPointRuleCommand command, Long userId) {
         MemberPointRule info = getById(command.getRuleId());
         boolean flag;
-        if(info!=null){
+        if (info != null) {
             info.setRuleType(command.getRuleName());
             info.setRuleValue(command.getRuleValue());
             info.setIdata1(command.getRuleState());
             info.setUserId(userId);
             info.setUpdateTime(new Date());
             flag = updateById(info);
-        }else{
+        } else {
             info = new MemberPointRule();
             info.setRuleType(command.getRuleName());
             info.setRuleValue(command.getRuleValue());

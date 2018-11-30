@@ -396,38 +396,38 @@ public class MemberInfo extends Model<MemberInfo> {
     @Override
     public String toString() {
         return "MemberInfo{" +
-        "openId=" + openId +
-        ", memberTypeId=" + memberTypeId +
-        ", aliPayId=" + aliPayId +
-        ", subscribe=" + subscribe +
-        ", nickName=" + nickName +
-        ", sex=" + sex +
-        ", city=" + city +
-        ", country=" + country +
-        ", province=" + province +
-        ", language=" + language +
-        ", headImgUrl=" + headImgUrl +
-        ", subscribeTime=" + subscribeTime +
-        ", unionId=" + unionId +
-        ", remark=" + remark +
-        ", groupId=" + groupId +
-        ", tagidList=" + tagidList +
-        ", wechatAppId=" + wechatAppId +
-        ", memberName=" + memberName +
-        ", memberMobile=" + memberMobile +
-        ", memberAccount=" + memberAccount +
-        ", memberPassword=" + memberPassword +
-        ", userId=" + userId +
-        ", idata1=" + idata1 +
-        ", idata2=" + idata2 +
-        ", idata3=" + idata3 +
-        ", idata4=" + idata4 +
-        ", sdata1=" + sdata1 +
-        ", sdata2=" + sdata2 +
-        ", sdata3=" + sdata3 +
-        ", sdata4=" + sdata4 +
-        ", createTime=" + createTime +
-        ", updateTime=" + updateTime +
-        "}";
+                "openId=" + openId +
+                ", memberTypeId=" + memberTypeId +
+                ", aliPayId=" + aliPayId +
+                ", subscribe=" + subscribe +
+                ", nickName=" + nickName +
+                ", sex=" + sex +
+                ", city=" + city +
+                ", country=" + country +
+                ", province=" + province +
+                ", language=" + language +
+                ", headImgUrl=" + headImgUrl +
+                ", subscribeTime=" + subscribeTime +
+                ", unionId=" + unionId +
+                ", remark=" + remark +
+                ", groupId=" + groupId +
+                ", tagidList=" + tagidList +
+                ", wechatAppId=" + wechatAppId +
+                ", memberName=" + memberName +
+                ", memberMobile=" + memberMobile +
+                ", memberAccount=" + memberAccount +
+                ", memberPassword=" + memberPassword +
+                ", userId=" + userId +
+                ", idata1=" + idata1 +
+                ", idata2=" + idata2 +
+                ", idata3=" + idata3 +
+                ", idata4=" + idata4 +
+                ", sdata1=" + sdata1 +
+                ", sdata2=" + sdata2 +
+                ", sdata3=" + sdata3 +
+                ", sdata4=" + sdata4 +
+                ", createTime=" + createTime +
+                ", updateTime=" + updateTime +
+                "}";
     }
 }

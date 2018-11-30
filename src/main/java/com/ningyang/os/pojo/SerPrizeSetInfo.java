@@ -8,6 +8,7 @@ import com.baomidou.mybatisplus.extension.activerecord.Model;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
+
 /**
  * <p>
  * 奖项设定
@@ -359,33 +360,33 @@ public class SerPrizeSetInfo extends Model<SerPrizeSetInfo> {
     @Override
     public String toString() {
         return "SerPrizeSetInfo{" +
-        "prizeSetId=" + prizeSetId +
-        ", prizeSetName=" + prizeSetName +
-        ", prodId=" + prodId +
-        ", memberType=" + memberType +
-        ", regionId=" + regionId +
-        ", prizeQuantity=" + prizeQuantity +
-        ", money=" + money +
-        ", moneyEnd=" + moneyEnd +
-        ", ponit=" + ponit +
-        ", pointEnd=" + pointEnd +
-        ", prizeSetType=" + prizeSetType +
-        ", prizeModeType=" + prizeModeType +
-        ", cardMoney=" + cardMoney +
-        ", cardCouponMoney=" + cardCouponMoney +
-        ", prizeStartDate=" + prizeStartDate +
-        ", prizeEndDate=" + prizeEndDate +
-        ", userId=" + userId +
-        ", idata1=" + idata1 +
-        ", idata2=" + idata2 +
-        ", idata3=" + idata3 +
-        ", idata4=" + idata4 +
-        ", sdata1=" + sdata1 +
-        ", sdata2=" + sdata2 +
-        ", sdata3=" + sdata3 +
-        ", sdata4=" + sdata4 +
-        ", createTime=" + createTime +
-        ", updateTime=" + updateTime +
-        "}";
+                "prizeSetId=" + prizeSetId +
+                ", prizeSetName=" + prizeSetName +
+                ", prodId=" + prodId +
+                ", memberType=" + memberType +
+                ", regionId=" + regionId +
+                ", prizeQuantity=" + prizeQuantity +
+                ", money=" + money +
+                ", moneyEnd=" + moneyEnd +
+                ", ponit=" + ponit +
+                ", pointEnd=" + pointEnd +
+                ", prizeSetType=" + prizeSetType +
+                ", prizeModeType=" + prizeModeType +
+                ", cardMoney=" + cardMoney +
+                ", cardCouponMoney=" + cardCouponMoney +
+                ", prizeStartDate=" + prizeStartDate +
+                ", prizeEndDate=" + prizeEndDate +
+                ", userId=" + userId +
+                ", idata1=" + idata1 +
+                ", idata2=" + idata2 +
+                ", idata3=" + idata3 +
+                ", idata4=" + idata4 +
+                ", sdata1=" + sdata1 +
+                ", sdata2=" + sdata2 +
+                ", sdata3=" + sdata3 +
+                ", sdata4=" + sdata4 +
+                ", createTime=" + createTime +
+                ", updateTime=" + updateTime +
+                "}";
     }
 }

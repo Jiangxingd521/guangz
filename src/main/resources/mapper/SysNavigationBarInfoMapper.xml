@@ -45,14 +45,17 @@
             parameterType="Long"
             resultType="String"
     >
-        SELECT DISTINCT c.bar_path FROM t_sys_role_navigation_bar_info a
-	    LEFT JOIN t_sys_user_role_info b ON a.role_id = b.role_id
-	    LEFT JOIN t_sys_navigation_bar_info c ON a.bar_id = c.id
-        WHERE c.bar_sort = ( SELECT max( d.bar_sort ) FROM t_sys_navigation_bar_info d
-        left join t_sys_role_navigation_bar_info e on d.id = e.bar_id
-        where e.role_id in(select f.role_id from t_sys_user_role_info f where f.user_id = #{userId}))
-	    AND c.bar_state = 0
-	    AND b.user_id = #{userId}
+        SELECT DISTINCT c.bar_path
+        FROM t_sys_role_navigation_bar_info a
+                 LEFT JOIN t_sys_user_role_info b ON a.role_id = b.role_id
+                 LEFT JOIN t_sys_navigation_bar_info c ON a.bar_id = c.id
+        WHERE c.bar_sort = (SELECT max(d.bar_sort)
+                            FROM t_sys_navigation_bar_info d
+                                     left join t_sys_role_navigation_bar_info e on d.id = e.bar_id
+                            where e.role_id in
+                                  (select f.role_id from t_sys_user_role_info f where f.user_id = #{userId}))
+          AND c.bar_state = 0
+          AND b.user_id = #{userId}
     </select>
 
 </mapper>

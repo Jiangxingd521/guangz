@@ -34,7 +34,7 @@ public class SerApplyCodeTemplateServiceImpl extends ServiceImpl<SerApplyCodeTem
     public boolean addBatch(CenterCodeCommand command) {
         List<SerApplyCodeTemplate> list = new ArrayList<>();
         for (CenterCodeDto dto : command.getCodeVoList()) {
-            SerApplyCodeTemplate code = setQRCode(dto.getCenterCodeId(), dto.getCodeContent(), dto.getCodeOrder(),command.getCodePositionId(),command.getCodePositionTypeId());
+            SerApplyCodeTemplate code = setQRCode(dto.getCenterCodeId(), dto.getCodeContent(), dto.getCodeOrder(), command.getCodePositionId(), command.getCodePositionTypeId());
             list.add(code);
         }
         TemplateCodeCommand codeCommand = new TemplateCodeCommand();

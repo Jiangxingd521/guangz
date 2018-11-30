@@ -31,9 +31,9 @@ public class PrizeSetController extends BaseController {
 
 
     @GetMapping("getList")
-    public Map<String,Object> getList(
+    public Map<String, Object> getList(
             QueryPrizeCondition condition
-    ){
+    ) {
         try {
 //            List<PrizeTypeVo> listVo = infoService.findPrizeTypeVoListByCondition(condition);
             return WebResult.success().put("listVo", null).toMap();
@@ -44,10 +44,10 @@ public class PrizeSetController extends BaseController {
     }
 
     @PostMapping("addOrUpdate")
-    public Map<String,Object> addOrUpdate(
+    public Map<String, Object> addOrUpdate(
             @RequestHeader("Authorization") String userToken,
             @RequestBody PrizeTypeCommand command
-    ){
+    ) {
         try {
             Long operateUserId = getBaseUserInfo(userToken).getId();
 //            boolean flag = infoService.addOrUpdate(command, operateUserId);

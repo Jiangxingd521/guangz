@@ -15,7 +15,7 @@ public class MemberPointRuleCommand {
 
     private Long userId;
 
-    private int ruleState=0;
+    private int ruleState = 0;
 
     public Long getRuleId() {
         return ruleId;

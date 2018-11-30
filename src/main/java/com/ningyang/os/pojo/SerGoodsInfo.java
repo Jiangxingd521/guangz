@@ -419,36 +419,36 @@ public class SerGoodsInfo extends Model<SerGoodsInfo> {
     @Override
     public String toString() {
         return "SerGoodsInfo{" +
-        "id=" + id +
-        ", brandId=" + brandId +
-        ", brandName=" + brandName +
-        ", brandSeriesId=" + brandSeriesId +
-        ", brandSeriesName=" + brandSeriesName +
-        ", brandSeriesProductId=" + brandSeriesProductId +
-        ", brandSeriesProductName=" + brandSeriesProductName +
-        ", m1=" + m1 +
-        ", m2=" + m2 +
-        ", m3=" + m3 +
-        ", m4=" + m4 +
-        ", m5=" + m5 +
-        ", m6=" + m6 +
-        ", m7=" + m7 +
-        ", m8=" + m8 +
-        ", m9=" + m9 +
-        ", m10=" + m10 +
-        ", m1Remark=" + m1Remark +
-        ", m2Remark=" + m2Remark +
-        ", m3Remark=" + m3Remark +
-        ", m4Remark=" + m4Remark +
-        ", m5Remark=" + m5Remark +
-        ", m6Remark=" + m6Remark +
-        ", m7Remark=" + m7Remark +
-        ", m8Remark=" + m8Remark +
-        ", m9Remark=" + m9Remark +
-        ", m10Remark=" + m10Remark +
-        ", goodsState=" + goodsState +
-        ", createTime=" + createTime +
-        ", updateTime=" + updateTime +
-        "}";
+                "id=" + id +
+                ", brandId=" + brandId +
+                ", brandName=" + brandName +
+                ", brandSeriesId=" + brandSeriesId +
+                ", brandSeriesName=" + brandSeriesName +
+                ", brandSeriesProductId=" + brandSeriesProductId +
+                ", brandSeriesProductName=" + brandSeriesProductName +
+                ", m1=" + m1 +
+                ", m2=" + m2 +
+                ", m3=" + m3 +
+                ", m4=" + m4 +
+                ", m5=" + m5 +
+                ", m6=" + m6 +
+                ", m7=" + m7 +
+                ", m8=" + m8 +
+                ", m9=" + m9 +
+                ", m10=" + m10 +
+                ", m1Remark=" + m1Remark +
+                ", m2Remark=" + m2Remark +
+                ", m3Remark=" + m3Remark +
+                ", m4Remark=" + m4Remark +
+                ", m5Remark=" + m5Remark +
+                ", m6Remark=" + m6Remark +
+                ", m7Remark=" + m7Remark +
+                ", m8Remark=" + m8Remark +
+                ", m9Remark=" + m9Remark +
+                ", m10Remark=" + m10Remark +
+                ", goodsState=" + goodsState +
+                ", createTime=" + createTime +
+                ", updateTime=" + updateTime +
+                "}";
     }
 }

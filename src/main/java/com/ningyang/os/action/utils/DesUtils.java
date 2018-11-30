@@ -9,32 +9,27 @@ import javax.crypto.spec.DESKeySpec;
 import java.util.Random;
 
 /**
- * @author  dennies yang
+ * @author dennies yang
  * DES  加解密工具
  */
-public class DesUtils
-{
+public class DesUtils {
     private static String DES_FORMAT = "DES/ECB/NoPadding";
 
     private static String DES_ENCODING = "UTF-8";
 
     public static String encrypt(String key, String data)
-            throws Exception
-    {
-        if ((key == null) || (key.length() == 0))
-        {
+            throws Exception {
+        if ((key == null) || (key.length() == 0)) {
             System.out.println("key is null.");
             return null;
         }
 
-        if ((data == null) || (data.length() == 0))
-        {
+        if ((data == null) || (data.length() == 0)) {
             System.out.println("data is null.");
             return null;
         }
 
-        if ((key.length() % 8 != 0) || (key.length() > 64))
-        {
+        if ((key.length() % 8 != 0) || (key.length() > 64)) {
             System.out.println("invalid key.");
             throw null;
         }
@@ -59,21 +54,17 @@ public class DesUtils
     }
 
     public static String decode(String key, String encryptedStr)
-            throws Exception
-    {
-        if ((key == null) || (key.length() == 0))
-        {
+            throws Exception {
+        if ((key == null) || (key.length() == 0)) {
             System.out.println("key is null.");
             return null;
         }
 
-        if ((encryptedStr == null) || (encryptedStr.length() == 0))
-        {
+        if ((encryptedStr == null) || (encryptedStr.length() == 0)) {
             return null;
         }
 
-        if ((key.length() % 8 != 0) || (key.length() > 64))
-        {
+        if ((key.length() % 8 != 0) || (key.length() > 64)) {
             System.out.println("invalid key.");
             throw null;
         }
@@ -94,23 +85,18 @@ public class DesUtils
         return decryptedStr;
     }
 
-    private static byte[] handleDesData(byte[] data)
-    {
+    private static byte[] handleDesData(byte[] data) {
         int length = data.length;
 
         int mod = length % 8;
         byte[] nData;
-        if (mod != 0)
-        {
+        if (mod != 0) {
             nData = new byte[length + 8 - mod];
-        }
-        else
-        {
+        } else {
             nData = new byte[length];
         }
 
-        for (int i = 0; i < nData.length; i++)
-        {
+        for (int i = 0; i < nData.length; i++) {
             if (i >= length)
                 continue;
             nData[i] = data[i];
@@ -119,24 +105,20 @@ public class DesUtils
         return nData;
     }
 
-    public static String generateKey(int length)
-    {
-        if ((length <= 0) || (length % 8 != 0) || (length > 64))
-        {
+    public static String generateKey(int length) {
+        if ((length <= 0) || (length % 8 != 0) || (length > 64)) {
             return null;
         }
 
         String val = "";
 
         Random random = new Random();
-        for (int i = 0; i < length; i++)
-        {
+        for (int i = 0; i < length; i++) {
             String charOrNum = random.nextInt(2) % 2 == 0 ? "char" : "num";
 
-            if ("char".equalsIgnoreCase(charOrNum))
-            {
+            if ("char".equalsIgnoreCase(charOrNum)) {
                 int choice = random.nextInt(2) % 2 == 0 ? 65 : 97;
-                val = val + (char)(choice + random.nextInt(26));
+                val = val + (char) (choice + random.nextInt(26));
             } else {
                 if (!"num".equalsIgnoreCase(charOrNum))
                     continue;
@@ -149,8 +131,7 @@ public class DesUtils
     }
 
     public static void main(String[] args)
-            throws Exception
-    {
+            throws Exception {
         String key = generateKey(8);
 
         String encodedStr = encrypt(key, "加密测试数据test");

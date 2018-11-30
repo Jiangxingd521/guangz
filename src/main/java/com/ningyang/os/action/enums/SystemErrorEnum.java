@@ -27,9 +27,9 @@ public enum SystemErrorEnum {
     API_REQUEST_ERROR(18, "接口请求失败"),
     SEND_REQUEST_ERROR(19, "申请未通过"),
     IMPORT_DATA_ERROR(20, "数据导入失败"),
-    PUTIN_WAREHOUSE_ERROR(21,"入库失败"),
-    PUTOUT_WAREHOUSE_ERROR(22,"出库失败"),
-    SALES_RETURN_WAREHOUSE_ERROR(23,"退货失败");
+    PUTIN_WAREHOUSE_ERROR(21, "入库失败"),
+    PUTOUT_WAREHOUSE_ERROR(22, "出库失败"),
+    SALES_RETURN_WAREHOUSE_ERROR(23, "退货失败");
 
     private Integer code;
     private String info;

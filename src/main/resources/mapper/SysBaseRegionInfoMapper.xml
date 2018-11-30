@@ -12,14 +12,30 @@
     <select id="selectSysRegionVoList"
             resultType="com.ningyang.os.action.output.vo.web.base.SysRegionVo"
     >
-        select a.id, a.id as value, a.pid as parentid, a.region_name as label from t_sys_base_region_info a
+        select a.id,
+               a.id
+               as
+               value,
+               a
+               .
+               pid as
+               parentid,
+               a
+               .
+               region_name as
+               label
+        from t_sys_base_region_info
+             a
     </select>
 
     <select id="selectRegionVo"
             parameterType="com.ningyang.os.action.input.condition.base.QueryRegionCondition"
             resultType="com.ningyang.os.action.output.vo.web.base.RegionVo"
     >
-        select a.id, a.pid as parentid, a.region_name as label from t_sys_base_region_info a where 1=1 and a.pid = #{pid}
+        select a.id, a.pid as parentid, a.region_name as label
+        from t_sys_base_region_info a
+        where 1 = 1
+          and a.pid = #{pid}
     </select>
 
 </mapper>

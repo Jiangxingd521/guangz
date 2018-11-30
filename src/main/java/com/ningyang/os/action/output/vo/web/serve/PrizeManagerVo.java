@@ -21,7 +21,7 @@ public class PrizeManagerVo {
 
     private String userName;
 
-    private int prizeState=0;
+    private int prizeState = 0;
 
     public Long getManagerId() {
         return managerId;

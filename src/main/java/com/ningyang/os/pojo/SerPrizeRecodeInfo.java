@@ -411,38 +411,38 @@ public class SerPrizeRecodeInfo extends Model<SerPrizeRecodeInfo> {
     @Override
     public String toString() {
         return "SerPrizeRecodeInfo{" +
-        "prizeRecorId=" + prizeRecorId +
-        ", orderNo=" + orderNo +
-        ", prCode=" + prCode +
-        ", prizeSetId=" + prizeSetId +
-        ", prizeSetName=" + prizeSetName +
-        ", prodId=" + prodId +
-        ", memberType=" + memberType +
-        ", regionId=" + regionId +
-        ", prizeQuantity=" + prizeQuantity +
-        ", money=" + money +
-        ", ponit=" + ponit +
-        ", prizeSetType=" + prizeSetType +
-        ", prizeModeType=" + prizeModeType +
-        ", cardMoney=" + cardMoney +
-        ", cardCouponMoney=" + cardCouponMoney +
-        ", prizeState=" + prizeState +
-        ", trackNo=" + trackNo +
-        ", cashTime=" + cashTime +
-        ", openId=" + openId +
-        ", prizeStartDate=" + prizeStartDate +
-        ", prizeEndDate=" + prizeEndDate +
-        ", userId=" + userId +
-        ", idata1=" + idata1 +
-        ", idata2=" + idata2 +
-        ", idata3=" + idata3 +
-        ", idata4=" + idata4 +
-        ", sdata1=" + sdata1 +
-        ", sata2=" + sata2 +
-        ", sdata3=" + sdata3 +
-        ", sdata4=" + sdata4 +
-        ", createTime=" + createTime +
-        ", updateTime=" + updateTime +
-        "}";
+                "prizeRecorId=" + prizeRecorId +
+                ", orderNo=" + orderNo +
+                ", prCode=" + prCode +
+                ", prizeSetId=" + prizeSetId +
+                ", prizeSetName=" + prizeSetName +
+                ", prodId=" + prodId +
+                ", memberType=" + memberType +
+                ", regionId=" + regionId +
+                ", prizeQuantity=" + prizeQuantity +
+                ", money=" + money +
+                ", ponit=" + ponit +
+                ", prizeSetType=" + prizeSetType +
+                ", prizeModeType=" + prizeModeType +
+                ", cardMoney=" + cardMoney +
+                ", cardCouponMoney=" + cardCouponMoney +
+                ", prizeState=" + prizeState +
+                ", trackNo=" + trackNo +
+                ", cashTime=" + cashTime +
+                ", openId=" + openId +
+                ", prizeStartDate=" + prizeStartDate +
+                ", prizeEndDate=" + prizeEndDate +
+                ", userId=" + userId +
+                ", idata1=" + idata1 +
+                ", idata2=" + idata2 +
+                ", idata3=" + idata3 +
+                ", idata4=" + idata4 +
+                ", sdata1=" + sdata1 +
+                ", sata2=" + sata2 +
+                ", sdata3=" + sdata3 +
+                ", sdata4=" + sdata4 +
+                ", createTime=" + createTime +
+                ", updateTime=" + updateTime +
+                "}";
     }
 }

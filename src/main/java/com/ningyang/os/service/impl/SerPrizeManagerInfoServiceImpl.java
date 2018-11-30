@@ -32,7 +32,7 @@ public class SerPrizeManagerInfoServiceImpl extends ServiceImpl<SerPrizeManagerI
     public boolean addOrUpdate(PrizeManagerCommand command, Long userId) {
         SerPrizeManagerInfo info = getById(command.getManagerId());
         boolean flag;
-        if(info!=null){
+        if (info != null) {
             info.setPrizeTypeId(command.getTypeId());
             info.setPrizeName(command.getPrizeName());
             info.setPrizeContent(command.getPrizeContent());
@@ -41,7 +41,7 @@ public class SerPrizeManagerInfoServiceImpl extends ServiceImpl<SerPrizeManagerI
             info.setIdata1(command.getPrizeState());
             info.setUpdateTime(new Date());
             flag = updateById(info);
-        }else{
+        } else {
             info = new SerPrizeManagerInfo();
             info.setPrizeTypeId(command.getTypeId());
             info.setPrizeName(command.getPrizeName());

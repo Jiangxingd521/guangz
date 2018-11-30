@@ -4,40 +4,45 @@
 
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.ningyang.os.pojo.LSerWarehouseGoodsInfo">
-        <id column="id" property="id" />
-        <result column="source_type" property="sourceType" />
-        <result column="warehouse_id" property="warehouseId" />
-        <result column="goods_id" property="goodsId" />
-        <result column="box_no" property="boxNo" />
-        <result column="warehouse_in_no" property="warehouseInNo" />
-        <result column="user_id" property="userId" />
-        <result column="warehouse_in_time" property="warehouseInTime" />
-        <result column="create_time" property="createTime" />
-        <result column="update_time" property="updateTime" />
+        <id column="id" property="id"/>
+        <result column="source_type" property="sourceType"/>
+        <result column="warehouse_id" property="warehouseId"/>
+        <result column="goods_id" property="goodsId"/>
+        <result column="box_no" property="boxNo"/>
+        <result column="warehouse_in_no" property="warehouseInNo"/>
+        <result column="user_id" property="userId"/>
+        <result column="warehouse_in_time" property="warehouseInTime"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
     </resultMap>
 
     <select id="selectGoodsPutInVoPageByCondition"
             parameterType="com.ningyang.os.action.input.condition.serve.QueryGoodsPutCondition"
             resultType="com.ningyang.os.action.output.vo.web.serve.GoodsPutInVo"
     >
-        select b.warehouse_name,d.brand_name,d.brand_series_name as series_name,
-        d.brand_series_product_name as product_name,c.user_name,a.create_time,
-        count(DISTINCT a.box_no) as boxCount
+        select b.warehouse_name,
+               d.brand_name,
+               d.brand_series_name         as series_name,
+               d.brand_series_product_name as product_name,
+               c.user_name,
+               a.create_time,
+               count(DISTINCT a.box_no)    as boxCount
         from l_ser_warehouse_goods_info a
-        left join t_ser_warehouse_info b on a.warehouse_id = b.id
-        left join t_sys_user_info c on a.user_id = c.id
-        left join t_ser_goods_info d on a.box_no = d.m5
-        where 1=1
+                 left join t_ser_warehouse_info b on a.warehouse_id = b.id
+                 left join t_sys_user_info c on a.user_id = c.id
+                 left join t_ser_goods_info d on a.box_no = d.m5
+        where 1 = 1
         GROUP BY b.warehouse_name,d.brand_name,d.brand_series_name,d.brand_series_product_name,
                  c.user_name,a.create_time
-        limit #{page},#{limit}
+                 limit #{page},#{limit}
     </select>
 
     <select id="selectGoodsPutInVoPageCountByCondition"
             parameterType="com.ningyang.os.action.input.condition.serve.QueryGoodsPutCondition"
             resultType="int"
     >
-        select count(DISTINCT(a.warehouse_in_no)) from l_ser_warehouse_goods_info a
+        select count(DISTINCT (a.warehouse_in_no))
+        from l_ser_warehouse_goods_info a
     </select>
 
 </mapper>

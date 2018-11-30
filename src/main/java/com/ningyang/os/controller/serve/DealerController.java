@@ -62,7 +62,7 @@ public class DealerController {
     }
 
     @GetMapping("getDealerList")
-    public Map<String,Object> getDealerList(){
+    public Map<String, Object> getDealerList() {
         try {
             List<DealerVo> listVo = infoService.findDealerVoListByCondition();
             return WebResult.success().put("listVo", listVo).toMap();

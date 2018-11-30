@@ -44,7 +44,7 @@ public class SerOrderInfoDetailsServiceImpl extends ServiceImpl<SerOrderInfoDeta
     public int boxCount(QueryOrderCondition condition) {
         List<OrderDetailVo> listTemp = findOrderDetailVoList(condition);
         int boxCount = 0;
-        for(OrderDetailVo vo : listTemp){
+        for (OrderDetailVo vo : listTemp) {
             boxCount = boxCount + vo.getBoxNumber();
         }
         return boxCount;

@@ -27,7 +27,7 @@ public class SerWarehouseGoodsInfoServiceImpl extends ServiceImpl<SerWarehouseGo
     @Override
     public boolean add(ApiWarehousePutInCommand command) {
         List<SerWarehouseGoodsInfo> infoList = new ArrayList<>();
-        for(String boxNo : command.getBoxCode()){
+        for (String boxNo : command.getBoxCode()) {
             SerWarehouseGoodsInfo info = new SerWarehouseGoodsInfo();
             info.setSourceType(command.getSourceType());
             info.setWarehouseId(command.getWarehouse());

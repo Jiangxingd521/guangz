@@ -17,7 +17,7 @@ public class MemberTypeCommand {
 
     private Long userId;
 
-    private int typeState=0;
+    private int typeState = 0;
 
     public Long getTypeId() {
         return typeId;
