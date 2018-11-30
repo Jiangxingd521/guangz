@@ -1,9 +1,9 @@
 package com.ningyang.os.dao;
 
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.ningyang.os.action.input.condition.serve.QueryGoodsPutCondition;
 import com.ningyang.os.action.output.vo.web.serve.GoodsPutOutVo;
 import com.ningyang.os.pojo.LSerWarehouseGoodsOutInfo;
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 import java.util.List;
 

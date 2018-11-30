@@ -1,8 +1,8 @@
 package com.ningyang.os.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.ningyang.os.pojo.MemberInfo;
 import com.ningyang.os.dao.MemberInfoMapper;
+import com.ningyang.os.pojo.MemberInfo;
 import com.ningyang.os.service.IMemberInfoService;
 import org.springframework.stereotype.Service;
 

@@ -21,4 +21,19 @@
         <result column="update_time" property="updateTime" />
     </resultMap>
 
+    <select id="selectMemberTypeVoListByCondition"
+            parameterType="com.ningyang.os.action.input.condition.serve.QueryMemberCondition"
+            resultType="com.ningyang.os.action.output.vo.web.serve.MemberTypeVo"
+    >
+        select a.id as typeId,a.type_rule_id as ruleId,b.rule_type as ruleName,a.type_name,a.type_quanty,
+               c.user_name,a.idata1 as typeState
+        from t_member_type_info a
+        left join t_member_point_rule b on a.type_rule_id=b.id
+        left join t_sys_user_info c on a.user_id=c.id
+        where 1=1
+        <if test="typeState!=null">
+            and a.idata1 = #{typeState}
+        </if>
+    </select>
+
 </mapper>

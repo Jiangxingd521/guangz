@@ -4,8 +4,8 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.ningyang.os.action.input.command.web.serve.PrizeManagerCommand;
 import com.ningyang.os.action.input.condition.serve.QueryPrizeCondition;
 import com.ningyang.os.action.output.vo.web.serve.PrizeManagerVo;
-import com.ningyang.os.pojo.SerPrizeManagerInfo;
 import com.ningyang.os.dao.SerPrizeManagerInfoMapper;
+import com.ningyang.os.pojo.SerPrizeManagerInfo;
 import com.ningyang.os.service.ISerPrizeManagerInfoService;
 import org.springframework.stereotype.Service;
 

@@ -20,4 +20,16 @@
         <result column="update_time" property="updateTime" />
     </resultMap>
 
+    <select id="selectMemberPointRuleVoListByCondition"
+            parameterType="com.ningyang.os.action.input.condition.serve.QueryMemberCondition"
+            resultType="com.ningyang.os.action.output.vo.web.serve.MemberPointRuleVo"
+    >
+        select a.id as ruleId,a.rule_type as ruleName,a.rule_value,b.user_name,a.iData1 as ruleState
+        from t_member_point_rule a left join t_sys_user_info b on a.user_id = b.id
+        where 1=1
+        <if test="ruleState!=null">
+            and a.iData1 = #{ruleState}
+        </if>
+    </select>
+
 </mapper>

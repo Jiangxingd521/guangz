@@ -14,7 +14,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import static com.ningyang.os.action.utils.DateUtil.*;
+import static com.ningyang.os.action.utils.DateUtil.getOrderNum;
+import static com.ningyang.os.action.utils.DateUtil.timeToStr;
 
 /**
  * <p>

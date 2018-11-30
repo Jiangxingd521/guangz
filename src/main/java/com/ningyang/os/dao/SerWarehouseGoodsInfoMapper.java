@@ -1,7 +1,7 @@
 package com.ningyang.os.dao;
 
-import com.ningyang.os.pojo.SerWarehouseGoodsInfo;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.ningyang.os.pojo.SerWarehouseGoodsInfo;
 
 /**
  * <p>

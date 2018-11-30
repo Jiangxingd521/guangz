@@ -1,10 +1,8 @@
 package com.ningyang.os.service;
 
+import com.baomidou.mybatisplus.extension.service.IService;
 import com.ningyang.os.action.input.command.api.ApiWarehousePutInCommand;
 import com.ningyang.os.pojo.SerWarehouseGoodsInfo;
-import com.baomidou.mybatisplus.extension.service.IService;
-
-import java.util.List;
 
 /**
  * <p>

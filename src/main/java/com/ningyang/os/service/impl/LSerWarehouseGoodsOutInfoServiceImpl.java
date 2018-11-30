@@ -8,7 +8,6 @@ import com.ningyang.os.action.output.vo.web.serve.GoodsPutOutVo;
 import com.ningyang.os.dao.LSerWarehouseGoodsOutInfoMapper;
 import com.ningyang.os.pojo.LSerWarehouseGoodsOutInfo;
 import com.ningyang.os.service.ILSerWarehouseGoodsOutInfoService;
-import com.ningyang.os.service.ISerOrderInfoDetailsService;
 import com.ningyang.os.service.ISerOrderInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
