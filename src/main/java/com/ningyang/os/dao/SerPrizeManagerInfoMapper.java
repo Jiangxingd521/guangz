@@ -1,7 +1,11 @@
 package com.ningyang.os.dao;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.ningyang.os.action.input.condition.serve.QueryPrizeCondition;
+import com.ningyang.os.action.output.vo.web.serve.PrizeManagerVo;
 import com.ningyang.os.pojo.SerPrizeManagerInfo;
+
+import java.util.List;
 
 /**
  * <p>
@@ -12,5 +16,7 @@ import com.ningyang.os.pojo.SerPrizeManagerInfo;
  * @since 2018-11-29
  */
 public interface SerPrizeManagerInfoMapper extends BaseMapper<SerPrizeManagerInfo> {
+
+    List<PrizeManagerVo> selectPrizeManagerVoListByCondition(QueryPrizeCondition condition);
 
 }

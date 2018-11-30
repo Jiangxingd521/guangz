@@ -22,4 +22,13 @@
         <result column="update_time" property="updateTime" />
     </resultMap>
 
+    <select id="selectPrizeManagerVoListByCondition"
+            parameterType="com.ningyang.os.action.input.condition.serve.QueryPrizeCondition"
+            resultType="com.ningyang.os.action.output.vo.web.serve.PrizeManagerVo"
+    >
+      select * from t_ser_prize_manager_info
+
+
+    </select>
+
 </mapper>

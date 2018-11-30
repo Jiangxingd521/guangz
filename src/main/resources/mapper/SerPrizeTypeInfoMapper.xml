@@ -26,7 +26,8 @@
             resultType="com.ningyang.os.action.output.vo.web.serve.PrizeTypeVo"
     >
         select a.prize_type_id as typeId,a.prize_type_code as typeCode,a.prize_type_name as typeName,
-               a.prize_type_content as typeContent,a.idata1 as typeState from t_ser_prize_type_info a
+               a.prize_type_content as typeContent,a.idata1 as typeState,b.user_name
+        from t_ser_prize_type_info a left join t_sys_user_info b on a.user_id=b.id
         where 1=1
       <if test="typeState!=null">
           and a.idata1 = #{typeState}

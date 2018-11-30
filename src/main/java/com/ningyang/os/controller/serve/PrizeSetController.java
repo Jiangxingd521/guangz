@@ -5,6 +5,7 @@ import com.ningyang.os.action.input.condition.serve.QueryPrizeCondition;
 import com.ningyang.os.action.output.vo.web.serve.PrizeTypeVo;
 import com.ningyang.os.action.utils.WebResult;
 import com.ningyang.os.controller.system.BaseController;
+import com.ningyang.os.service.ISerPrizeSetInfoService;
 import com.ningyang.os.service.ISerPrizeTypeInfoService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,16 +21,16 @@ import static com.ningyang.os.action.enums.SystemErrorEnum.OPERATING_ERROR;
 /**
  * @Author： kaider
  * @Date：2018/11/29 18:24
- * @描述：奖项类型
+ * @描述：奖项设定
  */
 @RestController
-@RequestMapping("serve/prize/type")
-public class PrizeTypeController extends BaseController {
+@RequestMapping("serve/prize/set")
+public class PrizeSetController extends BaseController {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(PrizeTypeController.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(PrizeSetController.class);
 
     @Autowired
-    private ISerPrizeTypeInfoService infoService;
+    private ISerPrizeSetInfoService infoService;
 
 
     @GetMapping("getList")
@@ -37,8 +38,8 @@ public class PrizeTypeController extends BaseController {
             QueryPrizeCondition condition
     ){
         try {
-            List<PrizeTypeVo> listVo = infoService.findPrizeTypeVoListByCondition(condition);
-            return WebResult.success().put("listVo", listVo).toMap();
+//            List<PrizeTypeVo> listVo = infoService.findPrizeTypeVoListByCondition(condition);
+            return WebResult.success().put("listVo", null).toMap();
         } catch (Exception e) {
             LOGGER.error(e.getMessage(), e);
             return WebResult.failure(DATA_ERROR.getInfo()).toMap();
@@ -52,7 +53,8 @@ public class PrizeTypeController extends BaseController {
     ){
         try {
             Long operateUserId = getBaseUserInfo(userToken).getId();
-            boolean flag = infoService.addOrUpdate(command, operateUserId);
+//            boolean flag = infoService.addOrUpdate(command, operateUserId);
+            boolean flag = false;
             if (flag) {
                 return WebResult.success().toMap();
             }

@@ -11,7 +11,7 @@
  Target Server Version : 50721
  File Encoding         : 65001
 
- Date: 30/11/2018 09:52:40
+ Date: 30/11/2018 11:12:58
 */
 
 SET NAMES utf8mb4;
@@ -804,7 +804,7 @@ CREATE TABLE `t_ser_prize_manager_info` (
 -- ----------------------------
 DROP TABLE IF EXISTS `t_ser_prize_recode_info`;
 CREATE TABLE `t_ser_prize_recode_info` (
-  `prize_recor_id` bigint(20) NOT NULL,
+  `prize_recor_id` bigint(20) NOT NULL AUTO_INCREMENT,
   `order_no` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '订单编号',
   `pr_code` varchar(1024) COLLATE utf8_unicode_ci NOT NULL COMMENT '产品编码',
   `prize_set_id` bigint(20) NOT NULL COMMENT '奖项设定id',
@@ -816,28 +816,35 @@ CREATE TABLE `t_ser_prize_recode_info` (
   `money` decimal(5,2) DEFAULT NULL COMMENT '红包额度',
   `ponit` int(11) DEFAULT NULL COMMENT '积分额度',
   `prize_set_type` int(11) DEFAULT NULL COMMENT '布奖类型',
-  `prize_mode_type` int(11) DEFAULT NULL COMMENT '布奖模式（1：随机部署，2：平均部署）',
+  `prize_mode_type` int(11) DEFAULT NULL COMMENT '布奖模式（1：随机，2：平均）',
   `card_money` int(11) DEFAULT NULL COMMENT '卡券消费额度',
   `card_coupon_money` int(11) DEFAULT NULL COMMENT '卡券优惠额度',
-  `prize_state` int(11) DEFAULT NULL COMMENT '布奖状态（0：未激活，1：已激活）',
+  `prize_state` int(11) DEFAULT NULL COMMENT '布奖状态（0：未激活，1：激活）',
   `track_no` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '快递单号',
-  `cash_time` char(10) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '兑奖时间',
-  `open_id` varchar(32) COLLATE utf8_unicode_ci NOT NULL COMMENT '中奖人id',
+  `cash_time` datetime DEFAULT NULL COMMENT '兑奖时间',
+  `open_id` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '中奖人id',
   `prize_start_date` datetime DEFAULT NULL COMMENT '布奖开始日期',
   `prize_end_date` datetime DEFAULT NULL COMMENT '布奖结束日期',
   `user_id` bigint(20) DEFAULT NULL COMMENT '创建人',
-  `idata1` int(11) NOT NULL,
+  `idata1` int(11) DEFAULT NULL,
   `idata2` int(11) DEFAULT NULL,
   `idata3` int(11) DEFAULT NULL,
   `idata4` int(11) DEFAULT NULL,
   `sdata1` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `sata2` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `sdata2` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `sdata3` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `sdata4` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `create_time` datetime DEFAULT NULL COMMENT '创建时间',
   `update_time` datetime DEFAULT NULL COMMENT '修改时间',
   PRIMARY KEY (`prize_recor_id`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='布奖记录';
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT;
+
+-- ----------------------------
+-- Records of t_ser_prize_recode_info
+-- ----------------------------
+BEGIN;
+INSERT INTO `t_ser_prize_recode_info` VALUES (1, '1', 'http://9suyuan.com/6/CbRxMRoXQf/11', 1, 1, 1, 1, 1, 1, 1.00, 1, 1, 1, 1, 1, 1, '1', '2018-11-30 10:29:06', '1', NULL, NULL, 1, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+COMMIT;
 
 -- ----------------------------
 -- Table structure for t_ser_prize_set_info
@@ -898,13 +905,15 @@ CREATE TABLE `t_ser_prize_type_info` (
   `create_time` datetime DEFAULT NULL COMMENT '创建时间',
   `update_time` datetime DEFAULT NULL COMMENT '修改时间',
   PRIMARY KEY (`prize_type_id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='奖项类型';
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='奖项类型';
 
 -- ----------------------------
 -- Records of t_ser_prize_type_info
 -- ----------------------------
 BEGIN;
-INSERT INTO `t_ser_prize_type_info` VALUES (1, 'TEXT', '测试1', '这是第一个测试', 2, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-11-30 09:50:48', '2018-11-30 09:50:48');
+INSERT INTO `t_ser_prize_type_info` VALUES (1, 'TEXT', '测试', '这是第一个测试', 2, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-11-30 09:50:48', '2018-11-30 09:58:57');
+INSERT INTO `t_ser_prize_type_info` VALUES (2, 'TEXT2', '测试2', '内荣', 2, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-11-30 09:56:26', '2018-11-30 09:56:26');
+INSERT INTO `t_ser_prize_type_info` VALUES (3, 'TXTE3', '测试3', '阿萨德', 2, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-11-30 09:56:42', '2018-11-30 09:56:42');
 COMMIT;
 
 -- ----------------------------
@@ -4840,6 +4849,57 @@ CREATE DEFINER=`root`@`localhost` EVENT `create_qrcode_table_event` ON SCHEDULE 
 delimiter ;
 
 -- ----------------------------
+-- Triggers structure for table l_ser_warehouse_goods_info
+-- ----------------------------
+DROP TRIGGER IF EXISTS `t_aftint_warehousegoogsin`;
+delimiter ;;
+CREATE TRIGGER `t_aftint_warehousegoogsin` AFTER INSERT ON `l_ser_warehouse_goods_info` FOR EACH ROW BEGIN		 
+
+DECLARE BOXNONUMS INT DEFAULT 0;
+#查询是否存在商品
+select  count(*) into BOXNONUMS from t_ser_warehouse_goods_info where box_no=new.box_no;
+if BOXNONUMS=0 then 
+#插入库存表
+	INSERT INTO t_ser_warehouse_goods_info ( source_type, warehouse_id, goods_id, box_no, goods_state, 
+	warehouse_in_no, user_id, remark, create_time, update_time)
+	 VALUES ( '0', new.warehouse_id, NULL, new.box_no, 1, new.warehouse_in_no, new.user_id, null, SYSDATE(), new.update_time);
+	
+end if;
+
+ #通过箱码 更新码状态  更新码状态为未激活
+update  t_ser_goods_info set goods_state=1 where  m5=new.box_no;
+
+END
+;;
+delimiter ;
+
+-- ----------------------------
+-- Triggers structure for table l_ser_warehouse_goods_out_info
+-- ----------------------------
+DROP TRIGGER IF EXISTS `t_aftint_warehousegoogsout`;
+delimiter ;;
+CREATE TRIGGER `t_aftint_warehousegoogsout` BEFORE INSERT ON `l_ser_warehouse_goods_out_info` FOR EACH ROW BEGIN		 
+#更新出入库状态
+update t_ser_warehouse_goods_info set goods_state=2,update_time=new.goods_out_time where box_no=new.box_no;
+
+
+#通过箱码更新商品吗状态  更新码状态为激活
+update  t_ser_goods_info set goods_state=2 where  m5=new.box_no;
+#更新布奖状态
+#如果是通过订单表布奖
+if new.order_id is not null then 
+	update   t_ser_prize_recode_info set  prize_state=2   where pr_code  in  (select  m1 from t_ser_goods_info a,	  l_ser_warehouse_goods_out_info b where a.M5=b.box_no and b.order_id= new.order_id);
+elseif new.product_id is not null then 
+	#产品2不为空
+	update   t_ser_prize_recode_info set  prize_state=2   where pr_code  in (select  m1 froM t_ser_goods_info where brand_series_product_id =new.product_id);
+end if;
+
+
+END
+;;
+delimiter ;
+
+-- ----------------------------
 -- Triggers structure for table t_ser_code_import_temp_info
 -- ----------------------------
 DROP TRIGGER IF EXISTS `t_bftint_codetempinfo`;
@@ -4850,7 +4910,26 @@ CREATE TRIGGER `t_bftint_codetempinfo` BEFORE INSERT ON `t_ser_code_import_temp_
 	else 
 		set 	new.orderno=new.right_code_type;
 	end if;
+		 
 
+		 
+		
+END
+;;
+delimiter ;
+
+-- ----------------------------
+-- Triggers structure for table t_ser_prize_recode_info
+-- ----------------------------
+DROP TRIGGER IF EXISTS `T_AFTUPD_PRIZERECORD`;
+delimiter ;;
+CREATE TRIGGER `T_AFTUPD_PRIZERECORD` BEFORE UPDATE ON `t_ser_prize_recode_info` FOR EACH ROW BEGIN		 
+#通过中奖的码 更新码状态为失效 4 
+if new.cash_time is not null then 
+	update  t_ser_goods_info set goods_state=4 where  m1=new.pr_code;
+end if;
+
+		
 END
 ;;
 delimiter ;

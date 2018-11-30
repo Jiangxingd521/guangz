@@ -1,11 +1,11 @@
 package com.ningyang.os.controller.serve;
 
-import com.ningyang.os.action.input.command.web.serve.PrizeTypeCommand;
+import com.ningyang.os.action.input.command.web.serve.PrizeManagerCommand;
 import com.ningyang.os.action.input.condition.serve.QueryPrizeCondition;
-import com.ningyang.os.action.output.vo.web.serve.PrizeTypeVo;
+import com.ningyang.os.action.output.vo.web.serve.PrizeManagerVo;
 import com.ningyang.os.action.utils.WebResult;
 import com.ningyang.os.controller.system.BaseController;
-import com.ningyang.os.service.ISerPrizeTypeInfoService;
+import com.ningyang.os.service.ISerPrizeManagerInfoService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,17 +19,17 @@ import static com.ningyang.os.action.enums.SystemErrorEnum.OPERATING_ERROR;
 
 /**
  * @Author： kaider
- * @Date：2018/11/29 18:24
- * @描述：奖项类型
+ * @Date：2018/11/30 10:07
+ * @描述：奖项管理
  */
 @RestController
-@RequestMapping("serve/prize/type")
-public class PrizeTypeController extends BaseController {
+@RequestMapping("serve/prize/manager")
+public class PrizeManagerController extends BaseController {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(PrizeTypeController.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(PrizeManagerController.class);
 
     @Autowired
-    private ISerPrizeTypeInfoService infoService;
+    private ISerPrizeManagerInfoService infoService;
 
 
     @GetMapping("getList")
@@ -37,7 +37,7 @@ public class PrizeTypeController extends BaseController {
             QueryPrizeCondition condition
     ){
         try {
-            List<PrizeTypeVo> listVo = infoService.findPrizeTypeVoListByCondition(condition);
+            List<PrizeManagerVo> listVo = infoService.findPrizeManagerVoListByCondition(condition);
             return WebResult.success().put("listVo", listVo).toMap();
         } catch (Exception e) {
             LOGGER.error(e.getMessage(), e);
@@ -45,10 +45,11 @@ public class PrizeTypeController extends BaseController {
         }
     }
 
+
     @PostMapping("addOrUpdate")
     public Map<String,Object> addOrUpdate(
             @RequestHeader("Authorization") String userToken,
-            @RequestBody PrizeTypeCommand command
+            @RequestBody PrizeManagerCommand command
     ){
         try {
             Long operateUserId = getBaseUserInfo(userToken).getId();
