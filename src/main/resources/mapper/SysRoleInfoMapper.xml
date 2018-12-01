@@ -25,8 +25,7 @@
             parameterType="com.ningyang.os.action.input.condition.base.QueryRoleCondition"
             resultType="int"
     >
-        SELECT COUNT(1)
-        FROM t_sys_role_info
+        SELECT COUNT(1) FROM t_sys_role_info
     </select>
 
     <select id="selectRoleVoByCondition"

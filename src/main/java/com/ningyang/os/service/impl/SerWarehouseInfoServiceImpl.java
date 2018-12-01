@@ -31,6 +31,7 @@ public class SerWarehouseInfoServiceImpl extends ServiceImpl<SerWarehouseInfoMap
     @Autowired
     private ISerWarehouseGoodsInfoService warehouseGoodsInfoService;
 
+    // FIXME: 2018/12/1 仓库库存量变化
     @Override
     public Page<WarehouseVo> findWarehouseVoPageByCondition(QueryWarehouseCondition condition) {
         Page<WarehouseVo> pageVo = new Page<>();

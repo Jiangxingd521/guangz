@@ -7,8 +7,11 @@ import com.ningyang.os.action.output.vo.web.serve.PrizeSetVo;
 import com.ningyang.os.dao.SerPrizeSetInfoMapper;
 import com.ningyang.os.pojo.SerPrizeSetInfo;
 import com.ningyang.os.service.ISerPrizeSetInfoService;
+import com.ningyang.os.service.ISysBaseRegionInfoService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -22,9 +25,19 @@ import java.util.List;
 @Service
 public class SerPrizeSetInfoServiceImpl extends ServiceImpl<SerPrizeSetInfoMapper, SerPrizeSetInfo> implements ISerPrizeSetInfoService {
 
+    @Autowired
+    private ISysBaseRegionInfoService regionInfoService;
+
     @Override
     public List<PrizeSetVo> findPrizeSetVoListByCondition(QueryPrizeCondition condition) {
-        return baseMapper.selectPrizeSetVoListByCondition(condition);
+        List<PrizeSetVo> listTemp = baseMapper.selectPrizeSetVoListByCondition(condition);
+        for(PrizeSetVo vo : listTemp){
+            Date[] prizeDate = {vo.getPrizeStartDate(),vo.getPrizeEndDate()};
+            vo.setPrizeDate(prizeDate);
+            List<String> regionList = regionInfoService.findRegionThreeList(String.valueOf(vo.getRegionId()));
+            vo.setRegionList(regionList);
+        }
+        return listTemp;
     }
 
     @Override
@@ -50,6 +63,7 @@ public class SerPrizeSetInfoServiceImpl extends ServiceImpl<SerPrizeSetInfoMappe
             info.setPrizeEndDate(command.getPrizeDate()[1]);
             info.setIdata1(command.getSetState());
             info.setUserId(userId);
+            info.setUpdateTime(new Date());
             flag = updateById(info);
         }else{
             info = new SerPrizeSetInfo();
@@ -71,6 +85,8 @@ public class SerPrizeSetInfoServiceImpl extends ServiceImpl<SerPrizeSetInfoMappe
             info.setPrizeEndDate(command.getPrizeDate()[1]);
             info.setIdata1(0);
             info.setUserId(userId);
+            info.setCreateTime(new Date());
+            info.setUpdateTime(new Date());
             flag = save(info);
         }
         return flag;

@@ -17,11 +17,13 @@
             parameterType="com.ningyang.os.action.input.condition.serve.QueryOrderCondition"
             resultType="com.ningyang.os.action.output.vo.web.serve.OrderDetailVo"
     >
-        select a.id as
-        detailId,a.order_id,a.product_id,a.box_number,a.user_id,d.brand_name,c.series_name,b.product_name,b.sales_price
-        from t_ser_order_info_details a left join t_ser_brand_series_product_info b on a.product_id=b.id
-        left join t_ser_brand_series_info c on b.series_id=c.id left join t_ser_brand_info d on c.brand_id=d.id where
-        1=1
+        select a.id as detailId,a.order_id,a.product_id,a.box_number,a.user_id,d.brand_name,
+               c.series_name,b.product_name,b.sales_price
+        from t_ser_order_info_details a
+          left join t_ser_brand_series_product_info b on a.product_id=b.id
+          left join t_ser_brand_series_info c on b.series_id=c.id
+          left join t_ser_brand_info d on c.brand_id=d.id
+        where 1=1
         <if test="orderId!=null">
             and a.order_id = #{orderId}
             <if test="orderSaleFlag!=0">
@@ -31,9 +33,7 @@
     </select>
 
     <delete id="deleteOrderByNull">
-        DELETE
-        FROM t_ser_order_info_details
-        where order_id = -1
+        DELETE FROM t_ser_order_info_details WHERE order_id = -1
     </delete>
 
 </mapper>

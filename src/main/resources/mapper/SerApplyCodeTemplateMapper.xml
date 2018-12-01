@@ -19,8 +19,9 @@
         (center_id, code_order, code_content, code_position, code_position_type, create_time, update_time)
         values
         <foreach collection="list" item="code" index="index" separator=",">
-            (#{code.centerId,jdbcType=BIGINT},#{code.codeOrder,jdbcType=VARCHAR},#{code.codeContent,jdbcType=VARCHAR},
-            #{code.codePosition,jdbcType=BIGINT},#{code.codePositionType,jdbcType=BIGINT},
+            (#{code.centerId,jdbcType=BIGINT},#{code.codeOrder,jdbcType=VARCHAR},
+             #{code.codeContent,jdbcType=VARCHAR},#{code.codePosition,jdbcType=BIGINT},
+             #{code.codePositionType,jdbcType=BIGINT},
             #{code.createTime,jdbcType=TIMESTAMP}, #{code.updateTime,jdbcType=TIMESTAMP})
         </foreach>
     </insert>
@@ -29,7 +30,8 @@
             parameterType="com.ningyang.os.action.input.condition.serve.QueryApplyCodeCondition"
             resultMap="BaseResultMap"
     >
-        select a.id,a.center_id,a.code_order,a.code_content,a.code_position,a.code_position_type from ${tableName} a
+        select a.id,a.center_id,a.code_order,a.code_content,a.code_position,a.code_position_type
+        from ${tableName} a
         where 1=1
         <if test="codeOrder!=null and codeOrder!=''">
             and a.code_order = #{codeOrder}

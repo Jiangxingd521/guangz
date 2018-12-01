@@ -15,8 +15,7 @@
             parameterType="String"
             resultType="String"
     >
-        select DISTINCT a.code_table_name
-        from t_ser_apply_code_table_info a
+        select DISTINCT a.code_table_name from t_ser_apply_code_table_info a
         where a.code_flag = #{leftCodeFlag}
     </select>
 

@@ -1,6 +1,7 @@
 package com.ningyang.os.action.output.vo.web.serve;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * @Author： kaider
@@ -25,6 +26,8 @@ public class PrizeSetVo {
 
     private Long regionId;
 
+    private List<String> regionList;
+
     private int prizeQuantity;
 
     private String money;
@@ -44,6 +47,10 @@ public class PrizeSetVo {
     private int cardCouponMoney;
 
     private Date[] prizeDate;
+
+    private Date prizeStartDate;
+
+    private Date prizeEndDate;
 
     private int setState;
 
@@ -111,6 +118,14 @@ public class PrizeSetVo {
 
     public void setRegionId(Long regionId) {
         this.regionId = regionId;
+    }
+
+    public List<String> getRegionList() {
+        return regionList;
+    }
+
+    public void setRegionList(List<String> regionList) {
+        this.regionList = regionList;
     }
 
     public int getPrizeQuantity() {
@@ -191,6 +206,22 @@ public class PrizeSetVo {
 
     public void setPrizeDate(Date[] prizeDate) {
         this.prizeDate = prizeDate;
+    }
+
+    public Date getPrizeStartDate() {
+        return prizeStartDate;
+    }
+
+    public void setPrizeStartDate(Date prizeStartDate) {
+        this.prizeStartDate = prizeStartDate;
+    }
+
+    public Date getPrizeEndDate() {
+        return prizeEndDate;
+    }
+
+    public void setPrizeEndDate(Date prizeEndDate) {
+        this.prizeEndDate = prizeEndDate;
     }
 
     public int getSetState() {

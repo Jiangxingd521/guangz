@@ -3,6 +3,7 @@ package com.ningyang.os.dao;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.ningyang.os.action.input.condition.base.QueryRegionCondition;
 import com.ningyang.os.action.output.vo.web.base.RegionVo;
+import com.ningyang.os.action.output.vo.web.base.SysRegionThreeVo;
 import com.ningyang.os.action.output.vo.web.base.SysRegionVo;
 import com.ningyang.os.pojo.SysBaseRegionInfo;
 
@@ -22,4 +23,5 @@ public interface SysBaseRegionInfoMapper extends BaseMapper<SysBaseRegionInfo> {
 
     List<RegionVo> selectRegionVo(QueryRegionCondition condition);
 
+    SysRegionThreeVo selectRegionThreeList(String childId);
 }

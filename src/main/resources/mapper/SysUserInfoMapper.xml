@@ -44,7 +44,8 @@
             parameterType="com.ningyang.os.action.input.condition.base.QueryUserCondition"
             resultType="com.ningyang.os.action.output.vo.web.base.SysUserVo"
     >
-        SELECT a.id as userId,a.user_name,a.login_name,a.user_type,a.user_state,a.pid FROM t_sys_user_info a WHERE 1=1
+        SELECT a.id as userId,a.user_name,a.login_name,a.user_type,a.user_state,a.pid
+        FROM t_sys_user_info a WHERE 1=1
         <if test="username!=null">
             AND a.user_name LIKE CONCAT('%',#{username},'%')
         </if>

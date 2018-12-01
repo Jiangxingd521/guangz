@@ -19,16 +19,8 @@
             parameterType="com.ningyang.os.action.input.condition.serve.QueryApplyCodeCondition"
             resultType="com.ningyang.os.action.output.vo.web.serve.ImportCodeVo"
     >
-        select a.id as logId,
-               a.file_name,
-               a.code_count,
-               a.create_time,
-               a.upload_order,
-               b.user_name,
-               f.brand_name,
-               e.series_name,
-               d.product_name,
-               c.template_name
+        select a.id as logId,a.file_name,a.code_count,a.create_time,a.upload_order, b.user_name,
+               f.brand_name,e.series_name,d.product_name,c.template_name
         from l_code_import_file_info a
                  left join t_sys_user_info b on a.user_id = b.id
                  left join t_ser_code_import_template_info c on a.template_id = c.id
@@ -44,8 +36,7 @@
             parameterType="com.ningyang.os.action.input.condition.serve.QueryApplyCodeCondition"
             resultType="int"
     >
-        select count(1)
-        from l_code_import_file_info a
+        select count(1) from l_code_import_file_info a
         where 1 = 1
         order by a.create_time desc
     </select>

@@ -19,8 +19,9 @@
             parameterType="com.ningyang.os.action.input.condition.base.QueryMenuCondition"
             resultType="com.ningyang.os.action.output.vo.web.base.BarVo"
     >
-        SELECT a.id as barId,a.bar_name,a.bar_path,a.bar_icon,a.bar_state,a.bar_sort,a.remark FROM
-        t_sys_navigation_bar_info a WHERE 1=1
+        SELECT a.id as barId,a.bar_name,a.bar_path,a.bar_icon,a.bar_state,a.bar_sort,a.remark
+        FROM t_sys_navigation_bar_info a
+        WHERE 1=1
         <if test="barState!=null">
             AND a.bar_state = #{barState}
         </if>
@@ -31,10 +32,11 @@
             parameterType="com.ningyang.os.action.input.condition.base.QueryMenuCondition"
             resultType="com.ningyang.os.action.output.vo.web.base.BarVo"
     >
-        SELECT distinct a.id as barId,a.bar_name,a.bar_path,a.bar_icon,a.bar_state,a.bar_sort FROM
-        t_sys_navigation_bar_info a
-        LEFT JOIN t_sys_role_navigation_bar_info b ON a.id=b.bar_id
-        LEFT JOIN t_sys_user_role_info c ON b.role_id=c.role_id WHERE a.bar_state=0
+        SELECT distinct a.id as barId,a.bar_name,a.bar_path,a.bar_icon,a.bar_state,a.bar_sort
+        FROM t_sys_navigation_bar_info a
+          LEFT JOIN t_sys_role_navigation_bar_info b ON a.id=b.bar_id
+          LEFT JOIN t_sys_user_role_info c ON b.role_id=c.role_id
+        WHERE a.bar_state=0
         <if test="userId!=null and userId!=''">
             AND c.user_id = #{userId}
         </if>
@@ -47,8 +49,8 @@
     >
         SELECT DISTINCT c.bar_path
         FROM t_sys_role_navigation_bar_info a
-                 LEFT JOIN t_sys_user_role_info b ON a.role_id = b.role_id
-                 LEFT JOIN t_sys_navigation_bar_info c ON a.bar_id = c.id
+             LEFT JOIN t_sys_user_role_info b ON a.role_id = b.role_id
+             LEFT JOIN t_sys_navigation_bar_info c ON a.bar_id = c.id
         WHERE c.bar_sort = (SELECT max(d.bar_sort)
                             FROM t_sys_navigation_bar_info d
                                      left join t_sys_role_navigation_bar_info e on d.id = e.bar_id

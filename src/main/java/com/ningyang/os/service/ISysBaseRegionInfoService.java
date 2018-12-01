@@ -25,4 +25,5 @@ public interface ISysBaseRegionInfoService extends IService<SysBaseRegionInfo> {
 
     List<RegionVo> findRegionVo(QueryRegionCondition condition);
 
+    List<String> findRegionThreeList(String childId);
 }
