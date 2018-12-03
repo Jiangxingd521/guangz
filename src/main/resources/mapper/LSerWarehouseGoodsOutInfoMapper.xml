@@ -41,4 +41,22 @@
         SELECT COUNT(DISTINCT a.order_id) FROM l_ser_warehouse_goods_out_info a
     </select>
 
+
+    <select id="selectGoodsPutOutVoByCondition"
+            parameterType="com.ningyang.os.action.input.condition.serve.QueryGoodsPutCondition"
+            resultType="com.ningyang.os.action.output.vo.web.serve.GoodsPutOutVo"
+    >
+        SELECT e.dealer_name,d.order_no,c.brand_name,c.brand_series_name AS series_name,
+        c.brand_series_product_name AS product_name,c.brand_series_product_id as prodId,
+        c.id as goodsId
+        FROM l_ser_warehouse_goods_out_info a
+        LEFT JOIN t_ser_goods_info c ON a.box_no = c.m5
+        LEFT JOIN t_ser_order_info d ON a.order_id = d.order_no
+        LEFT JOIN t_ser_dealer_info e ON d.dealer_id = e.id
+        WHERE 1 = 1
+        <if test="orderNo!=null and orderNo!=''">
+            and a.order_id = #{orderNo}
+        </if>
+    </select>
+
 </mapper>

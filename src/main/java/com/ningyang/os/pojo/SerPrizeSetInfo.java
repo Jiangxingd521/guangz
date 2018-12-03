@@ -74,7 +74,7 @@ public class SerPrizeSetInfo extends Model<SerPrizeSetInfo> {
     @TableField("point_end")
     private Integer pointEnd;
     /**
-     * 布奖类型
+     * 布奖类型(1:限制，2：不限制)
      */
     @TableField("prize_set_type")
     private Integer prizeSetType;
