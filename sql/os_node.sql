@@ -11,7 +11,7 @@
  Target Server Version : 50721
  File Encoding         : 65001
 
- Date: 30/11/2018 17:56:44
+ Date: 03/12/2018 16:43:01
 */
 
 SET NAMES utf8mb4;
@@ -166,8 +166,8 @@ CREATE TABLE `t_member_point_rule` (
 -- Records of t_member_point_rule
 -- ----------------------------
 BEGIN;
-INSERT INTO `t_member_point_rule` VALUES (1, 'AAAA', 1234, 2, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-11-30 14:11:58', '2018-11-30 14:13:51');
-INSERT INTO `t_member_point_rule` VALUES (2, 'BBB', 112, 2, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-11-30 14:12:06', '2018-11-30 14:12:35');
+INSERT INTO `t_member_point_rule` VALUES (1, '一阶段', 10, 2, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-11-30 14:11:58', '2018-12-03 10:16:45');
+INSERT INTO `t_member_point_rule` VALUES (2, '二阶段', 21, 2, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-11-30 14:12:06', '2018-12-03 10:16:45');
 COMMIT;
 
 -- ----------------------------
@@ -218,8 +218,8 @@ CREATE TABLE `t_member_type_info` (
 -- Records of t_member_type_info
 -- ----------------------------
 BEGIN;
-INSERT INTO `t_member_type_info` VALUES (1, 'AA66', 1, 1267, 2, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-11-30 14:27:33', '2018-11-30 14:30:13');
-INSERT INTO `t_member_type_info` VALUES (2, 'AAA', 2, 13, 2, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-11-30 14:27:50', '2018-11-30 14:27:50');
+INSERT INTO `t_member_type_info` VALUES (1, '普通会员', 1, 10, 2, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-11-30 14:27:33', '2018-12-03 10:17:42');
+INSERT INTO `t_member_type_info` VALUES (2, '普通二段会员', 2, 21, 2, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-11-30 14:27:50', '2018-12-03 10:17:42');
 COMMIT;
 
 -- ----------------------------
@@ -287,6 +287,8 @@ CREATE TABLE `t_ser_apply_code_201812` (
   `center_id` bigint(20) DEFAULT NULL COMMENT '中心id',
   `code_content` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '溯源码内容',
   `code_order` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '溯源码订单号',
+  `code_position` bigint(255) DEFAULT NULL COMMENT '溯源码位置',
+  `code_position_type` bigint(255) DEFAULT NULL COMMENT '溯源码位置类型',
   `create_time` datetime DEFAULT NULL COMMENT '创建时间',
   `update_time` datetime DEFAULT NULL COMMENT '修改时间',
   PRIMARY KEY (`id`)
@@ -309,7 +311,7 @@ CREATE TABLE `t_ser_apply_code_info` (
   `create_time` datetime DEFAULT NULL COMMENT '创建时间',
   `update_time` datetime DEFAULT NULL COMMENT '修改时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='溯源码申请';
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='溯源码申请';
 
 -- ----------------------------
 -- Records of t_ser_apply_code_info
@@ -324,6 +326,7 @@ INSERT INTO `t_ser_apply_code_info` VALUES (17, '20181126150503', 2, 2, 2, 2, 3,
 INSERT INTO `t_ser_apply_code_info` VALUES (18, '20181126150515', 2, 2, 2, 3, 3, 1, '201811', '2018-11-26 15:05:16', '2018-11-26 15:06:13');
 INSERT INTO `t_ser_apply_code_info` VALUES (19, '20181126150538', 2, 2, 2, 4, 3, 1, '201811', '2018-11-26 15:05:39', '2018-11-26 15:06:14');
 INSERT INTO `t_ser_apply_code_info` VALUES (20, '20181126150555', 2, 1, 2, 5, 2, 1, '201811', '2018-11-26 15:05:55', '2018-11-26 15:06:15');
+INSERT INTO `t_ser_apply_code_info` VALUES (21, '20181203100009', 2, 2, 2, 2, 4, 0, NULL, '2018-12-03 10:00:10', '2018-12-03 10:00:10');
 COMMIT;
 
 -- ----------------------------
@@ -529,7 +532,7 @@ CREATE TABLE `t_ser_code_import_temp_info` (
   `creat_time` datetime DEFAULT NULL COMMENT '创建时间',
   `orderno` int(11) DEFAULT NULL COMMENT '排序用',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='溯源码导入临时表';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='溯源码导入临时表';
 
 -- ----------------------------
 -- Table structure for t_ser_code_import_template_info
@@ -787,7 +790,6 @@ INSERT INTO `t_ser_order_info_details` VALUES (96, 1, 5, 3, 2, '2018-11-29 12:54
 INSERT INTO `t_ser_order_info_details` VALUES (97, 1, 6, 4, 2, '2018-11-29 12:54:20', '2018-11-29 12:54:20');
 INSERT INTO `t_ser_order_info_details` VALUES (133, 2, 5, 3, 2, '2018-11-29 14:29:18', '2018-11-29 14:29:18');
 INSERT INTO `t_ser_order_info_details` VALUES (134, 2, 6, 4, 2, '2018-11-29 14:29:25', '2018-11-29 14:29:25');
-INSERT INTO `t_ser_order_info_details` VALUES (137, NULL, 5, 22, 2, '2018-11-30 17:50:06', '2018-11-30 17:50:06');
 COMMIT;
 
 -- ----------------------------
@@ -820,8 +822,8 @@ CREATE TABLE `t_ser_prize_manager_info` (
 -- Records of t_ser_prize_manager_info
 -- ----------------------------
 BEGIN;
-INSERT INTO `t_ser_prize_manager_info` VALUES (1, 1, '测试奖项1', '水电费水电费', '432', 2, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-11-30 11:25:59', '2018-11-30 11:25:59');
-INSERT INTO `t_ser_prize_manager_info` VALUES (2, 2, '测试奖项2', '水电费水电费3', '43244', 2, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-11-30 11:26:09', '2018-11-30 11:32:36');
+INSERT INTO `t_ser_prize_manager_info` VALUES (1, 1, '现金红包', '现金红包', '扫码获取现金红包', 2, 0, NULL, NULL, NULL, 'HB', NULL, NULL, NULL, '2018-11-30 11:25:59', '2018-12-03 10:14:45');
+INSERT INTO `t_ser_prize_manager_info` VALUES (2, 2, '获得积分', '扫码获得积分', '扫码获得积分', 2, 0, NULL, NULL, NULL, 'PT', NULL, NULL, NULL, '2018-11-30 11:26:09', '2018-12-03 10:14:45');
 COMMIT;
 
 -- ----------------------------
@@ -833,9 +835,9 @@ CREATE TABLE `t_ser_prize_recode_info` (
   `order_no` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '订单编号',
   `pr_code` varchar(1024) COLLATE utf8_unicode_ci NOT NULL COMMENT '产品编码',
   `prize_set_id` bigint(20) NOT NULL COMMENT '奖项设定id',
-  `prize_set_name` bigint(20) DEFAULT NULL COMMENT '布奖名称',
+  `prize_set_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '布奖名称',
   `prod_id` bigint(20) DEFAULT NULL COMMENT '产品id',
-  `member_type` int(11) DEFAULT NULL COMMENT '会员类型',
+  `member_type` bigint(11) DEFAULT NULL COMMENT '会员类型',
   `region_id` bigint(20) DEFAULT NULL COMMENT '布奖区域',
   `prize_quantity` int(11) DEFAULT NULL COMMENT '布奖数量',
   `money` decimal(5,2) DEFAULT NULL COMMENT '红包额度',
@@ -868,7 +870,7 @@ CREATE TABLE `t_ser_prize_recode_info` (
 -- Records of t_ser_prize_recode_info
 -- ----------------------------
 BEGIN;
-INSERT INTO `t_ser_prize_recode_info` VALUES (1, '1', 'http://9suyuan.com/6/CbRxMRoXQf/11', 1, 1, 1, 1, 1, 1, 1.00, 1, 1, 1, 1, 1, 1, '1', '2018-11-30 10:29:06', '1', NULL, NULL, 1, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `t_ser_prize_recode_info` VALUES (1, '1', 'http://9suyuan.com/6/CbRxMRoXQf/11', 1, NULL, 1, 1, 1, 1, 1.00, 1, 1, 1, 1, 1, 1, '1', '2018-11-30 10:29:06', '1', NULL, NULL, 1, 1, NULL, NULL, NULL, 'HB', NULL, NULL, NULL, NULL, NULL);
 COMMIT;
 
 -- ----------------------------
@@ -913,19 +915,8 @@ CREATE TABLE `t_ser_prize_set_info` (
 -- Records of t_ser_prize_set_info
 -- ----------------------------
 BEGIN;
-INSERT INTO `t_ser_prize_set_info` VALUES (1, 1, 'ASD', 5, 1, 19, 123, 2.00, 20.00, 5, 30, 1, 2, 100, 200, '2018-11-30 00:00:00', '2018-12-03 00:00:00', 2, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `t_ser_prize_set_info` VALUES (1, 1, '扫码获得现金红包', 5, 1, 19, 2, 2.00, 20.00, 5, 30, 1, 2, 100, 200, '2018-11-30 00:00:00', '2018-12-03 00:00:00', 2, 0, NULL, NULL, NULL, 'HB', NULL, NULL, NULL, NULL, '2018-12-03 11:41:14');
 COMMIT;
-
--- ----------------------------
--- Table structure for t_ser_prize_set_region_info
--- ----------------------------
-DROP TABLE IF EXISTS `t_ser_prize_set_region_info`;
-CREATE TABLE `t_ser_prize_set_region_info` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `prize_set_id` bigint(20) DEFAULT NULL COMMENT '奖项id',
-  `region_id` bigint(20) DEFAULT NULL COMMENT '区域id',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='奖项区域';
 
 -- ----------------------------
 -- Table structure for t_ser_prize_type_info
@@ -948,15 +939,18 @@ CREATE TABLE `t_ser_prize_type_info` (
   `create_time` datetime DEFAULT NULL COMMENT '创建时间',
   `update_time` datetime DEFAULT NULL COMMENT '修改时间',
   PRIMARY KEY (`prize_type_id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='奖项类型';
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='奖项类型';
 
 -- ----------------------------
 -- Records of t_ser_prize_type_info
 -- ----------------------------
 BEGIN;
-INSERT INTO `t_ser_prize_type_info` VALUES (1, 'TEXT', '测试', '这是第一个测试', 2, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-11-30 09:50:48', '2018-11-30 09:58:57');
-INSERT INTO `t_ser_prize_type_info` VALUES (2, 'TEXT2', '测试2', '内荣', 2, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-11-30 09:56:26', '2018-11-30 09:56:26');
-INSERT INTO `t_ser_prize_type_info` VALUES (3, 'TXTE3', '测试3', '阿萨德', 2, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-11-30 09:56:42', '2018-11-30 09:56:42');
+INSERT INTO `t_ser_prize_type_info` VALUES (1, 'HB', '红包', '红包', 2, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-11-30 09:50:48', '2018-12-03 10:12:44');
+INSERT INTO `t_ser_prize_type_info` VALUES (2, 'PT', '积分', '积分', 2, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-11-30 09:56:26', '2018-12-03 10:12:44');
+INSERT INTO `t_ser_prize_type_info` VALUES (3, 'CP', '卡券', '卡券', 2, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-11-30 09:56:42', '2018-12-03 10:12:45');
+INSERT INTO `t_ser_prize_type_info` VALUES (4, 'GD', '实物', '实物', 2, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-12-03 10:10:51', '2018-12-03 10:12:45');
+INSERT INTO `t_ser_prize_type_info` VALUES (5, 'CM', '大转盘', '大转盘', 2, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-12-03 10:11:04', '2018-12-03 10:13:03');
+INSERT INTO `t_ser_prize_type_info` VALUES (6, 'CP@', '卡券@', '卡券#', 2, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-12-03 10:11:19', '2018-12-03 10:13:28');
 COMMIT;
 
 -- ----------------------------
@@ -4691,8 +4685,8 @@ CREATE DEFINER=`root`@`%` PROCEDURE `p_create_qrcode_table`()
 BEGIN
   #Routine body goes here...
 	-- 表日期
-	 SET @tableDate = DATE_FORMAT(DATE_SUB(CURRENT_DATE, INTERVAL 1 MONTH),'%Y%m'); -- 上一个月
-	-- SET @tableDate = DATE_FORMAT(DATE_ADD(CURRENT_DATE, INTERVAL 1 MONTH),'%Y%m'); -- 下一月
+	-- SET @tableDate = DATE_FORMAT(DATE_SUB(CURRENT_DATE, INTERVAL 1 MONTH),'%Y%m'); -- 上一个月
+	SET @tableDate = DATE_FORMAT(DATE_ADD(CURRENT_DATE, INTERVAL 1 MONTH),'%Y%m'); -- 下一月
 	
 	SET @sql = CONCAT('CREATE TABLE t_ser_apply_code_',@tableDate,'(
 	`id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT "主键",
@@ -4957,22 +4951,6 @@ CREATE TRIGGER `t_bftint_codetempinfo` BEFORE INSERT ON `t_ser_code_import_temp_
 		 
 
 		 
-		
-END
-;;
-delimiter ;
-
--- ----------------------------
--- Triggers structure for table t_ser_prize_recode_info
--- ----------------------------
-DROP TRIGGER IF EXISTS `T_AFTUPD_PRIZERECORD`;
-delimiter ;;
-CREATE TRIGGER `T_AFTUPD_PRIZERECORD` BEFORE UPDATE ON `t_ser_prize_recode_info` FOR EACH ROW BEGIN		 
-#通过中奖的码 更新码状态为失效 4 
-if new.cash_time is not null then 
-	update  t_ser_goods_info set goods_state=4 where  m1=new.pr_code;
-end if;
-
 		
 END
 ;;
