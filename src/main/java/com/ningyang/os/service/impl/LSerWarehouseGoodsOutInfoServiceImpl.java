@@ -65,4 +65,9 @@ public class LSerWarehouseGoodsOutInfoServiceImpl extends ServiceImpl<LSerWareho
         pageVo.setCurrent(condition.getLimit());
         return pageVo;
     }
+
+    @Override
+    public List<GoodsPutOutVo> findGoodsPutOutVoByCondition(QueryGoodsPutCondition condition) {
+        return baseMapper.selectGoodsPutOutVoByCondition(condition);
+    }
 }

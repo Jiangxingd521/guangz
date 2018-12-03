@@ -43,7 +43,7 @@ public class SerPrizeRecodeInfo extends Model<SerPrizeRecodeInfo> {
      * 布奖名称
      */
     @TableField("prize_set_name")
-    private Long prizeSetName;
+    private String prizeSetName;
     /**
      * 产品id
      */
@@ -53,7 +53,7 @@ public class SerPrizeRecodeInfo extends Model<SerPrizeRecodeInfo> {
      * 会员类型
      */
     @TableField("member_type")
-    private Integer memberType;
+    private Long memberType;
     /**
      * 布奖区域
      */
@@ -73,7 +73,7 @@ public class SerPrizeRecodeInfo extends Model<SerPrizeRecodeInfo> {
      */
     private Integer ponit;
     /**
-     * 布奖类型
+     * 布奖类型（1：限制，2：不限制）
      */
     @TableField("prize_set_type")
     private Integer prizeSetType;
@@ -132,7 +132,7 @@ public class SerPrizeRecodeInfo extends Model<SerPrizeRecodeInfo> {
     private Integer idata3;
     private Integer idata4;
     private String sdata1;
-    private String sata2;
+    private String sdata2;
     private String sdata3;
     private String sdata4;
     /**
@@ -179,11 +179,11 @@ public class SerPrizeRecodeInfo extends Model<SerPrizeRecodeInfo> {
         this.prizeSetId = prizeSetId;
     }
 
-    public Long getPrizeSetName() {
+    public String getPrizeSetName() {
         return prizeSetName;
     }
 
-    public void setPrizeSetName(Long prizeSetName) {
+    public void setPrizeSetName(String prizeSetName) {
         this.prizeSetName = prizeSetName;
     }
 
@@ -195,11 +195,11 @@ public class SerPrizeRecodeInfo extends Model<SerPrizeRecodeInfo> {
         this.prodId = prodId;
     }
 
-    public Integer getMemberType() {
+    public Long getMemberType() {
         return memberType;
     }
 
-    public void setMemberType(Integer memberType) {
+    public void setMemberType(Long memberType) {
         this.memberType = memberType;
     }
 
@@ -363,12 +363,12 @@ public class SerPrizeRecodeInfo extends Model<SerPrizeRecodeInfo> {
         this.sdata1 = sdata1;
     }
 
-    public String getSata2() {
-        return sata2;
+    public String getSdata2() {
+        return sdata2;
     }
 
-    public void setSata2(String sata2) {
-        this.sata2 = sata2;
+    public void setSdata2(String sdata2) {
+        this.sdata2 = sdata2;
     }
 
     public String getSdata3() {
@@ -438,7 +438,7 @@ public class SerPrizeRecodeInfo extends Model<SerPrizeRecodeInfo> {
                 ", idata3=" + idata3 +
                 ", idata4=" + idata4 +
                 ", sdata1=" + sdata1 +
-                ", sata2=" + sata2 +
+                ", sdata2=" + sdata2 +
                 ", sdata3=" + sdata3 +
                 ", sdata4=" + sdata4 +
                 ", createTime=" + createTime +

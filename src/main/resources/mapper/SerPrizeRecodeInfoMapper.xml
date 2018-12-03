@@ -31,7 +31,7 @@
         <result column="idata3" property="idata3"/>
         <result column="idata4" property="idata4"/>
         <result column="sdata1" property="sdata1"/>
-        <result column="sata2" property="sata2"/>
+        <result column="sdata2" property="sdata2"/>
         <result column="sdata3" property="sdata3"/>
         <result column="sdata4" property="sdata4"/>
         <result column="create_time" property="createTime"/>

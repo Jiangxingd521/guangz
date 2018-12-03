@@ -30,6 +30,12 @@ public class GoodsPutOutVo {
     private String goodsOutTimeStr;
     //完成状态（0：未完成，1：已完成）
     private int finishFlag;
+    //产品系列id
+    private Long prodId;
+    //商品id
+    private Long goodsId;
+    //唯一码
+    private String prCode;
 
     public String getDealerName() {
         return dealerName;
@@ -117,5 +123,29 @@ public class GoodsPutOutVo {
 
     public void setFinishFlag(int finishFlag) {
         this.finishFlag = finishFlag;
+    }
+
+    public Long getProdId() {
+        return prodId;
+    }
+
+    public void setProdId(Long prodId) {
+        this.prodId = prodId;
+    }
+
+    public Long getGoodsId() {
+        return goodsId;
+    }
+
+    public void setGoodsId(Long goodsId) {
+        this.goodsId = goodsId;
+    }
+
+    public String getPrCode() {
+        return prCode;
+    }
+
+    public void setPrCode(String prCode) {
+        this.prCode = prCode;
     }
 }
