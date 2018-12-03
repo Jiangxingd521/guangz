@@ -1,9 +1,9 @@
 package com.ningyang.os.wechat.data;
 
 public class ＷechatConfig {
-    public static final String appid = "wxd66746c90dac4e8e";
+    public static final String appid = "wxe6e07a2c36dcd25a";
     //	public static final String appid = "wx3606cfc594074349";//test
-    public static final String appsecret = "a1191f224dd0739d5a6da7b6012b7eba";
+    public static final String appsecret = "ae7fabdf943fe82f1f62070abf48fce7";
 //	public static final String appsecret = "35628f4c5f9393b62df7f2f5d7513429";//test
 
     public static final String partner = "1264701701";

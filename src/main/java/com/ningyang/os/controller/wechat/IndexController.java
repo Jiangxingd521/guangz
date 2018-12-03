@@ -102,7 +102,7 @@ public class IndexController {
     @GetMapping("prize")
     public String suyuanPrize(@RequestHeader("User-Agent") String userAgent,
                               String code, HttpServletRequest request,
-                              HttpServletResponse reponse, ModelMap model, HttpSession session){
+                              HttpServletResponse reponse, ModelMap model, Long   prizeRecorId,HttpSession session){
         //,@SessionAttribute("source")String source ,@SessionAttribute("openid") String openid ,
         String source=session.getAttribute("source")==null?"":session.getAttribute("source").toString();
         String openid=session.getAttribute("openid")==null?"":session.getAttribute("openid").toString();;
@@ -124,6 +124,15 @@ public class IndexController {
                 }
 
             }
+        }
+        /**抽奖*/
+        if(/*StringUtils.isNotEmpty(openid)&&*/prizeRecorId!=null){
+            SerPrizeRecodeInfo prizeRecodeInfo=serPrizeRecodeInfoService.getById(prizeRecorId);
+            prizeRecodeInfo.setPrizeRecorId(prizeRecorId);
+            prizeRecodeInfo.setCashTime(new Date());
+            prizeRecodeInfo.setOpenId(openid);
+            serPrizeRecodeInfoService.updateById(prizeRecodeInfo);
+
         }
 
 
