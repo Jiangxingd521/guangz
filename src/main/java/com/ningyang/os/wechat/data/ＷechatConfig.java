@@ -35,7 +35,7 @@ public class ＷechatConfig {
     //网页授权获取OpenID
     public static final String  WECHAT_OAUTH="https://api.weixin.qq.com/sns/oauth2/access_token?appid=APPID&secret=SECRET&code=CODE&grant_type=authorization_code ";
     //网页授权界面
-    public static final String  WECHAT_OAUTHVIEW="https://open.weixin.qq.com/connect/oauth2/authorize?appid=APPID&redirect_uri=REDIRECT_URI&response_type=code&scope=snsapi_base&state=STATE#wechat_redirect";
+    public static final String  WECHAT_OAUTHVIEW="https://open.weixin.qq.com/connect/oauth2/authorize?appid=APPID&redirect_uri=REDIRECT_URI&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect";
 
     //微信同意下单界面
     public static final String  WECHAT_UNIFIEORDER="https://api.mch.weixin.qq.com/pay/unifiedorder";

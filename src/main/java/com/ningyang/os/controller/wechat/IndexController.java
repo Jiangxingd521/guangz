@@ -86,8 +86,10 @@ public class IndexController {
         session.setAttribute("source",source);
         String openid="";
        // 如果微信浏览器则使用微信网页授权模型
-        String url="http://" + request.getServerName() +":"+request.getServerPort()+ request.getContextPath()+"/wechat/prize";
+        String url="http://" + request.getServerName() +/*":"+request.getServerPort()+*/ request.getContextPath()+"/wechat/prize";
         if(isWechatBrower&& StringUtils.isEmpty(code)){
+            System.out.println(url.toString());
+            System.out.println(wechatService.getWechatRedirectUrl(url.toString()));
             return "redirect:" + wechatService.getWechatRedirectUrl(url.toString());
         }else {
             return "redirect:" +url;
@@ -119,6 +121,7 @@ public class IndexController {
                 if(memberInfo==null){
                     memberInfo=this.getUserInfo(message.getContent().getOpenid());
                     if(memberInfo!=null){
+                        System.out.println(memberInfo.getOpenId());
                         iMemberInfoService.save(memberInfo);
                     }
                 }
@@ -255,6 +258,7 @@ public class IndexController {
             String AccessToken = messageAccess.getContent().getAccess_token();
             String userInfoStr = wechatService.getWXUserInfo(AccessToken, openId);
             wxUserInfo = JSON.parseObject(userInfoStr, MemberInfo.class);
+            wxUserInfo.setOpenId(openId);
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -65,6 +65,7 @@ public class WechatServiceImpl implements WechatService {
 	public Message<AccessToken> getWechatAccessToken() {
 		String  accessTokenURL=ＷechatConfig.WECHAT_ACCESS_TOKEN.replace("APPID", ＷechatConfig.appid).replaceAll("APPSECRET", ＷechatConfig.appsecret);
 		String result = HttpUtil.get(accessTokenURL, null);
+		System.out.println("code===="+result);
 		LOGGER.error(result);
 		return Message.wechatMessage(result, AccessToken.class);	}
 

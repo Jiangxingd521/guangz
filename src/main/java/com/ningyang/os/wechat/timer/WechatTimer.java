@@ -55,8 +55,9 @@ public class WechatTimer {
 				JS_TIKET=jsm.getContent().getTicket();
 			}
 		}
-		LOGGER.info("token === " +ASSCEE_TOKEN);
-		LOGGER.info("JS_TIKET === " +JS_TIKET);
+
+		LOGGER.info("suyuan token === " +ASSCEE_TOKEN);
+		LOGGER.info("suyuan JS_TIKET === " +JS_TIKET);
 	}
 
 

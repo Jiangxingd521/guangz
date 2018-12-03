@@ -110,7 +110,7 @@ public class CodeImportController extends BaseController {
             Long codePositionType = templateVo.getLeftCodeId();
             //校验左码是否符合
             for (ReadFileBackData data : fileList) {
-                String leftCodeFlag = data.getLData().split("/")[5];
+                String leftCodeFlag = data.getLData().split("/")[7];
                 //查询溯源码所在表
                 String codeTables = tableInfoService.findCodeTableList(leftCodeFlag);
                 //溯源码内容
