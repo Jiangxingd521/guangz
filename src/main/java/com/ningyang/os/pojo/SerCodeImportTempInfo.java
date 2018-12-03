@@ -48,6 +48,8 @@ public class SerCodeImportTempInfo extends Model<SerCodeImportTempInfo> {
      */
     @TableField("right_code_type")
     private Long rightCodeType;
+    @TableField("import_no")
+    private String importNo;
 
 
     public Long getId() {
@@ -96,6 +98,14 @@ public class SerCodeImportTempInfo extends Model<SerCodeImportTempInfo> {
 
     public void setRightCodeType(Long rightCodeType) {
         this.rightCodeType = rightCodeType;
+    }
+
+    public String getImportNo() {
+        return importNo;
+    }
+
+    public void setImportNo(String importNo) {
+        this.importNo = importNo;
     }
 
     @Override

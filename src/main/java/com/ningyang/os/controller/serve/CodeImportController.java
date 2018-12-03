@@ -110,7 +110,8 @@ public class CodeImportController extends BaseController {
             Long codePositionType = templateVo.getLeftCodeId();
             //校验左码是否符合
             for (ReadFileBackData data : fileList) {
-                String leftCodeFlag = data.getLData().split("/")[5];
+//                String leftCodeFlag = data.getLData().split("/")[5];
+                String leftCodeFlag = data.getLData().split("/")[7];
                 //查询溯源码所在表
                 String codeTables = tableInfoService.findCodeTableList(leftCodeFlag);
                 //溯源码内容
@@ -134,6 +135,9 @@ public class CodeImportController extends BaseController {
                 command.setTemplateId(templateId);
                 boolean logFlag = infoService.add(command);
                 if (logFlag) {
+                    //调用插入码的存储过程
+                    tempInfoService.callSetCode();
+
                     return WebResult.success().toMap();
                 }
                 return WebResult.failure(IMPORT_DATA_ERROR.getInfo()).toMap();
@@ -144,5 +148,6 @@ public class CodeImportController extends BaseController {
             return WebResult.failure(IMPORT_DATA_ERROR.getInfo()).toMap();
         }
     }
+
 
 }
