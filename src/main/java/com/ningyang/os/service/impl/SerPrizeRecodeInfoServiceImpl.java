@@ -1,11 +1,13 @@
 package com.ningyang.os.service.impl;
 
-import com.alibaba.fastjson.JSONObject;
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.ningyang.os.action.input.command.web.serve.PrizeSetLogCommand;
 import com.ningyang.os.action.input.condition.serve.QueryGoodsPutCondition;
+import com.ningyang.os.action.input.condition.serve.QueryPrizeCondition;
 import com.ningyang.os.action.output.vo.web.serve.GoodsPutOutVo;
+import com.ningyang.os.action.output.vo.web.serve.PrizeSetLogVo;
+import com.ningyang.os.action.output.vo.web.serve.WarehouseVo;
 import com.ningyang.os.dao.SerPrizeRecodeInfoMapper;
 import com.ningyang.os.pojo.SerPrizeRecodeInfo;
 import com.ningyang.os.pojo.SerPrizeSetInfo;
@@ -39,30 +41,41 @@ public class SerPrizeRecodeInfoServiceImpl extends ServiceImpl<SerPrizeRecodeInf
     @Autowired
     private ILSerWarehouseGoodsOutInfoService outInfoService;
 
+
+
     @Override
-    public boolean addOrUpdate(PrizeSetLogCommand command, Long userId) {
-        List<SerPrizeRecodeInfo> listData;
+    public Page<PrizeSetLogVo> findPrizeSetLogVoPageByCondition(QueryPrizeCondition condition) {
+        Page<PrizeSetLogVo> pageVo = new Page<>();
+        List<PrizeSetLogVo> listVoTemp = baseMapper.selectPrizeSetLogVoPageByCondition(condition);
+        int total = baseMapper.selectPrizeSetLogVoPageCountByCondition(condition);
+        pageVo.setRecords(listVoTemp);
+        pageVo.setTotal(total);
+        pageVo.setSize(condition.getPage());
+        pageVo.setCurrent(condition.getLimit());
+        return pageVo;
+    }
+
+    @Override
+    public boolean add(PrizeSetLogCommand command, Long userId) {
+        List<SerPrizeRecodeInfo> listData = new ArrayList<>();
         List<GoodsPutOutVo> goodsPutOutVoList;
         //奖项设定内容
         SerPrizeSetInfo info = infoService.getById(command.getPrizeSetId());
-
         //布奖数量
         int prizeSetNumber = info.getPrizeQuantity();
         //选中的商品
         List<GoodsPutOutVo> listData1 = new ArrayList<>();
         //未选中的商品
-        List<GoodsPutOutVo> listData2 = new ArrayList<>();
-
+        List<GoodsPutOutVo> listData2;
+        //1：订单，2：产品系列
         if(command.getPrizeSpecies()==1){
-            //订单
-            listData = list(new QueryWrapper<SerPrizeRecodeInfo>().eq("order_no",command.getOrderNo()));
+            //布奖记录
             //获取订单商品
             goodsPutOutVoList = getGoodsList(1,command.getOrderNo());
-
             //限制数量
             if(info.getPrizeSetType()==1){
                 //获取随机不重复数
-                int[] count = randomArray(0,goodsPutOutVoList.size(),prizeSetNumber);
+                int[] count = randomArray(0,goodsPutOutVoList.size()-1,prizeSetNumber);
                 //依据总数随机选出来的商品
                 for(int i=0;i<count.length;i++){
                     int j = count[i];
@@ -79,81 +92,205 @@ public class SerPrizeRecodeInfoServiceImpl extends ServiceImpl<SerPrizeRecodeInf
                 }
                 listData2 = goodsPutOutVoList;
 
-            }else{
-                //不限量
-                listData2 = goodsPutOutVoList;
-            }
-
-
-            /*for(GoodsPutOutVo vo : goodsPutOutVoList){
-
-                SerPrizeRecodeInfo recodeInfo = new SerPrizeRecodeInfo();
-                recodeInfo.setOrderNo(vo.getOrderNo());
-                recodeInfo.setPrCode(vo.getPrCode());
-                recodeInfo.setPrizeSetId(command.getPrizeSetId());
-                recodeInfo.setPrizeSetName(info.getPrizeSetName());
-                recodeInfo.setProdId(vo.getProdId());
-                recodeInfo.setMemberType(info.getMemberType());
-                recodeInfo.setRegionId(info.getRegionId());
-                //奖项类型
-                String setTypeStr = info.getSdata1();
-                if(setTypeStr.equalsIgnoreCase("HB")){
-                    //红包
-                    if(info.getPrizeSetType()==1){
-                        //限制数量
-                        if(info.getPrizeModeType()==1){
-                            //随机布奖
-                            *//*if(randomFlag<=prizeSetNumber){
-                                BigDecimal randomMoney = getRandomMoney(info.getMoney(),info.getMoneyEnd());
-                                recodeInfo.setMoney(randomMoney);
-                            }*//*
-                        }else{
-                            //平均布奖
-
-                        }
-                    }else{
-                        //不限制数量
-                        if(info.getPrizeModeType()==1){
-                            //随机布奖
-
-                        }else{
-                            //平均布奖
-
-                        }
+                for (GoodsPutOutVo vo : listData1) {
+                    SerPrizeRecodeInfo recodeInfo = new SerPrizeRecodeInfo();
+                    recodeInfo.setOrderNo(vo.getOrderNo());
+                    recodeInfo.setPrCode(vo.getPrCode());
+                    recodeInfo.setPrizeSetId(info.getPrizeSetId());
+                    recodeInfo.setPrizeSetName(info.getPrizeSetName());
+                    recodeInfo.setProdId(vo.getProdId());
+                    recodeInfo.setMemberType(info.getMemberType());
+                    recodeInfo.setRegionId(info.getRegionId());
+                    //奖项类型
+                    String setTypeStr = info.getSdata1();
+                    recodeInfo.setSdata1(setTypeStr);
+                    if(setTypeStr.equalsIgnoreCase("HB")){//红包
+                        BigDecimal randomMoney = getRandomMoney(info.getMoney(),info.getMoneyEnd());
+                        recodeInfo.setMoney(randomMoney);
+                    }else if(setTypeStr.equalsIgnoreCase("TP")){//积分
+                        int point = getRandomPoint(info.getPonit(),info.getPointEnd());
+                        recodeInfo.setPonit(point);
                     }
-                    recodeInfo.setSdata1("HB");
-                }else if(setTypeStr.equalsIgnoreCase("TP")){
-                    //积分
-                    recodeInfo.setPonit(21);
-                    recodeInfo.setSdata1("TP");
+                    recodeInfo.setPrizeSetType(info.getPrizeSetType());
+                    recodeInfo.setPrizeModeType(info.getPrizeModeType());
+                    recodeInfo.setPrizeState(1);
+                    recodeInfo.setPrizeStartDate(info.getPrizeStartDate());
+                    recodeInfo.setPrizeEndDate(info.getPrizeEndDate());
+                    recodeInfo.setUserId(userId);
+                    recodeInfo.setCreateTime(new Date());
+                    recodeInfo.setUpdateTime(new Date());
+                    listData.add(recodeInfo);
                 }
-                recodeInfo.setPrizeSetType(info.getPrizeSetType());
-                recodeInfo.setPrizeModeType(info.getPrizeModeType());
-                recodeInfo.setPrizeState(1);
-                recodeInfo.setPrizeStartDate(info.getPrizeStartDate());
-                recodeInfo.setPrizeEndDate(info.getPrizeEndDate());
-                recodeInfo.setUserId(userId);
-                recodeInfo.setCreateTime(new Date());
-                recodeInfo.setUpdateTime(new Date());
-                listData.add(recodeInfo);
-            }*/
+
+                for(GoodsPutOutVo vo : listData2){
+                    SerPrizeRecodeInfo recodeInfo = new SerPrizeRecodeInfo();
+                    recodeInfo.setOrderNo(vo.getOrderNo());
+                    recodeInfo.setPrCode(vo.getPrCode());
+                    recodeInfo.setPrizeSetId(info.getPrizeSetId());
+                    recodeInfo.setPrizeSetName(info.getPrizeSetName());
+                    recodeInfo.setProdId(vo.getProdId());
+                    recodeInfo.setMemberType(info.getMemberType());
+                    recodeInfo.setRegionId(info.getRegionId());
+                    //奖项类型
+                    String setTypeStr = info.getSdata1();
+                    recodeInfo.setSdata1(setTypeStr);
+                    if(setTypeStr.equalsIgnoreCase("HB")){//红包
+                        recodeInfo.setMoney(new BigDecimal(0));
+                    }else if(setTypeStr.equalsIgnoreCase("TP")){//积分
+                        recodeInfo.setPonit(0);
+                    }
+                    recodeInfo.setPrizeSetType(info.getPrizeSetType());
+                    recodeInfo.setPrizeModeType(info.getPrizeModeType());
+                    recodeInfo.setPrizeState(1);
+                    recodeInfo.setPrizeStartDate(info.getPrizeStartDate());
+                    recodeInfo.setPrizeEndDate(info.getPrizeEndDate());
+                    recodeInfo.setUserId(userId);
+                    recodeInfo.setCreateTime(new Date());
+                    recodeInfo.setUpdateTime(new Date());
+                    listData.add(recodeInfo);
+                }
+            }else{//不限量
+                listData1 = goodsPutOutVoList;
+                for(GoodsPutOutVo vo : listData1){
+                    SerPrizeRecodeInfo recodeInfo = new SerPrizeRecodeInfo();
+                    recodeInfo.setOrderNo(vo.getOrderNo());
+                    recodeInfo.setPrCode(vo.getPrCode());
+                    recodeInfo.setPrizeSetId(info.getPrizeSetId());
+                    recodeInfo.setPrizeSetName(info.getPrizeSetName());
+                    recodeInfo.setProdId(vo.getProdId());
+                    recodeInfo.setMemberType(info.getMemberType());
+                    recodeInfo.setRegionId(info.getRegionId());
+                    //奖项类型
+                    String setTypeStr = info.getSdata1();
+                    recodeInfo.setSdata1(setTypeStr);
+                    if(setTypeStr.equalsIgnoreCase("HB")){//红包
+                        recodeInfo.setMoney(info.getMoney());
+                    }else if(setTypeStr.equalsIgnoreCase("TP")){//积分
+                        recodeInfo.setPonit(info.getPonit());
+                    }
+                    recodeInfo.setPrizeSetType(info.getPrizeSetType());
+                    recodeInfo.setPrizeModeType(info.getPrizeModeType());
+                    recodeInfo.setPrizeState(1);
+                    recodeInfo.setPrizeStartDate(info.getPrizeStartDate());
+                    recodeInfo.setPrizeEndDate(info.getPrizeEndDate());
+                    recodeInfo.setUserId(userId);
+                    recodeInfo.setCreateTime(new Date());
+                    recodeInfo.setUpdateTime(new Date());
+                    listData.add(recodeInfo);
+                }
+            }
         }else{
             //产品系列
-            listData = list(new QueryWrapper<SerPrizeRecodeInfo>().eq("prod_id",command.getProdId()));
-            goodsPutOutVoList = null;
+            goodsPutOutVoList = getGoodsList(2,String.valueOf(command.getProdId()));
+            //限制数量
+            if(info.getPrizeSetType()==1){
+                //获取随机不重复数
+                int[] count = randomArray(0,goodsPutOutVoList.size()-1,prizeSetNumber);
+                //依据总数随机选出来的商品
+                for(int i=0;i<count.length;i++){
+                    int j = count[i];
+                    listData1.add(goodsPutOutVoList.get(j));
+                }
+                //剩余的商品
+                for (int i=0;i<goodsPutOutVoList.size();i++){
+                    for(int j=0;j<listData1.size();j++){
+                        GoodsPutOutVo vo1 = goodsPutOutVoList.get(i);
+                        if(vo1.getGoodsId() == listData1.get(j).getGoodsId()){
+                            goodsPutOutVoList.remove(vo1);
+                        }
+                    }
+                }
+                listData2 = goodsPutOutVoList;
+
+                for (GoodsPutOutVo vo : listData1) {
+                    SerPrizeRecodeInfo recodeInfo = new SerPrizeRecodeInfo();
+                    recodeInfo.setOrderNo(vo.getOrderNo());
+                    recodeInfo.setPrCode(vo.getPrCode());
+                    recodeInfo.setPrizeSetId(info.getPrizeSetId());
+                    recodeInfo.setPrizeSetName(info.getPrizeSetName());
+                    recodeInfo.setProdId(vo.getProdId());
+                    recodeInfo.setMemberType(info.getMemberType());
+                    recodeInfo.setRegionId(info.getRegionId());
+                    //奖项类型
+                    String setTypeStr = info.getSdata1();
+                    recodeInfo.setSdata1(setTypeStr);
+                    if(setTypeStr.equalsIgnoreCase("HB")){//红包
+                        BigDecimal randomMoney = getRandomMoney(info.getMoney(),info.getMoneyEnd());
+                        recodeInfo.setMoney(randomMoney);
+                    }else if(setTypeStr.equalsIgnoreCase("TP")){//积分
+                        int point = getRandomPoint(info.getPonit(),info.getPointEnd());
+                        recodeInfo.setPonit(point);
+                    }
+                    recodeInfo.setPrizeSetType(info.getPrizeSetType());
+                    recodeInfo.setPrizeModeType(info.getPrizeModeType());
+                    recodeInfo.setPrizeState(1);
+                    recodeInfo.setPrizeStartDate(info.getPrizeStartDate());
+                    recodeInfo.setPrizeEndDate(info.getPrizeEndDate());
+                    recodeInfo.setUserId(userId);
+                    recodeInfo.setCreateTime(new Date());
+                    recodeInfo.setUpdateTime(new Date());
+                    listData.add(recodeInfo);
+                }
+
+                for(GoodsPutOutVo vo : listData2){
+                    SerPrizeRecodeInfo recodeInfo = new SerPrizeRecodeInfo();
+                    recodeInfo.setOrderNo(vo.getOrderNo());
+                    recodeInfo.setPrCode(vo.getPrCode());
+                    recodeInfo.setPrizeSetId(info.getPrizeSetId());
+                    recodeInfo.setPrizeSetName(info.getPrizeSetName());
+                    recodeInfo.setProdId(vo.getProdId());
+                    recodeInfo.setMemberType(info.getMemberType());
+                    recodeInfo.setRegionId(info.getRegionId());
+                    //奖项类型
+                    String setTypeStr = info.getSdata1();
+                    recodeInfo.setSdata1(setTypeStr);
+                    if(setTypeStr.equalsIgnoreCase("HB")){//红包
+                        recodeInfo.setMoney(new BigDecimal(0));
+                    }else if(setTypeStr.equalsIgnoreCase("TP")){//积分
+                        recodeInfo.setPonit(0);
+                    }
+                    recodeInfo.setPrizeSetType(info.getPrizeSetType());
+                    recodeInfo.setPrizeModeType(info.getPrizeModeType());
+                    recodeInfo.setPrizeState(1);
+                    recodeInfo.setPrizeStartDate(info.getPrizeStartDate());
+                    recodeInfo.setPrizeEndDate(info.getPrizeEndDate());
+                    recodeInfo.setUserId(userId);
+                    recodeInfo.setCreateTime(new Date());
+                    recodeInfo.setUpdateTime(new Date());
+                    listData.add(recodeInfo);
+                }
+            }else{//不限量
+                listData1 = goodsPutOutVoList;
+                for(GoodsPutOutVo vo : listData1){
+                    SerPrizeRecodeInfo recodeInfo = new SerPrizeRecodeInfo();
+                    recodeInfo.setOrderNo(vo.getOrderNo());
+                    recodeInfo.setPrCode(vo.getPrCode());
+                    recodeInfo.setPrizeSetId(info.getPrizeSetId());
+                    recodeInfo.setPrizeSetName(info.getPrizeSetName());
+                    recodeInfo.setProdId(vo.getProdId());
+                    recodeInfo.setMemberType(info.getMemberType());
+                    recodeInfo.setRegionId(info.getRegionId());
+                    //奖项类型
+                    String setTypeStr = info.getSdata1();
+                    recodeInfo.setSdata1(setTypeStr);
+                    if(setTypeStr.equalsIgnoreCase("HB")){//红包
+                        recodeInfo.setMoney(info.getMoney());
+                    }else if(setTypeStr.equalsIgnoreCase("TP")){//积分
+                        recodeInfo.setPonit(info.getPonit());
+                    }
+                    recodeInfo.setPrizeSetType(info.getPrizeSetType());
+                    recodeInfo.setPrizeModeType(info.getPrizeModeType());
+                    recodeInfo.setPrizeState(1);
+                    recodeInfo.setPrizeStartDate(info.getPrizeStartDate());
+                    recodeInfo.setPrizeEndDate(info.getPrizeEndDate());
+                    recodeInfo.setUserId(userId);
+                    recodeInfo.setCreateTime(new Date());
+                    recodeInfo.setUpdateTime(new Date());
+                    listData.add(recodeInfo);
+                }
+            }
         }
-
-
-
-
-
-
-
-
-
-        System.out.println(JSONObject.toJSONString(goodsPutOutVoList));
-//        return saveOrUpdateBatch(listData);
-        return false;
+        return baseMapper.insertBatch(listData);
     }
 
 
@@ -191,45 +328,17 @@ public class SerPrizeRecodeInfoServiceImpl extends ServiceImpl<SerPrizeRecodeInf
     }
 
     /**
-     *
-     * @param userId
-     * @param info
-     * @param type
-     * @param type2
-     * @param listData
-     * @param listDataTemp
+     * 获取某个范围内随机积分
+     * @param minVal
+     * @param maxVal
      * @return
      */
-    private List<SerPrizeRecodeInfo> getSerPrizeRecodeInfoList(
-            Long userId,
-            SerPrizeSetInfo info,
-            int type,
-            int type2,
-            List<GoodsPutOutVo> listData,
-            List<SerPrizeRecodeInfo> listDataTemp) {
-        for (GoodsPutOutVo vo : listData) {
-            SerPrizeRecodeInfo recodeInfo = new SerPrizeRecodeInfo();
-            recodeInfo.setOrderNo(vo.getOrderNo());
-            recodeInfo.setPrCode(vo.getPrCode());
-            recodeInfo.setPrizeSetId(info.getPrizeSetId());
-            recodeInfo.setPrizeSetName(info.getPrizeSetName());
-            recodeInfo.setProdId(vo.getProdId());
-            recodeInfo.setMemberType(info.getMemberType());
-            recodeInfo.setRegionId(info.getRegionId());
-            //奖项类型
-            String setTypeStr = info.getSdata1();
-            recodeInfo.setSdata1(setTypeStr);
-            recodeInfo.setPrizeSetType(info.getPrizeSetType());
-            recodeInfo.setPrizeModeType(info.getPrizeModeType());
-            recodeInfo.setPrizeState(1);
-            recodeInfo.setPrizeStartDate(info.getPrizeStartDate());
-            recodeInfo.setPrizeEndDate(info.getPrizeEndDate());
-            recodeInfo.setUserId(userId);
-            recodeInfo.setCreateTime(new Date());
-            recodeInfo.setUpdateTime(new Date());
-            listDataTemp.add(recodeInfo);
-        }
-        return listDataTemp;
+    private int getRandomPoint(int minVal, int maxVal){
+        int max = maxVal;
+        int min = minVal;
+        Random random = new Random();
+        int randomMoneyVal = random.nextInt(max)%(max-min+1) + min;
+        return randomMoneyVal;
     }
 
 }

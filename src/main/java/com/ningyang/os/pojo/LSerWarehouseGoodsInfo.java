@@ -60,6 +60,11 @@ public class LSerWarehouseGoodsInfo extends Model<LSerWarehouseGoodsInfo> {
     @TableField("warehouse_in_time")
     private Date warehouseInTime;
     /**
+     * 备注
+     */
+    @TableField("remark")
+    private String remark;
+    /**
      * 创建时间
      */
     @TableField("create_time")
@@ -133,6 +138,14 @@ public class LSerWarehouseGoodsInfo extends Model<LSerWarehouseGoodsInfo> {
 
     public void setWarehouseInTime(Date warehouseInTime) {
         this.warehouseInTime = warehouseInTime;
+    }
+
+    public String getRemark() {
+        return remark;
+    }
+
+    public void setRemark(String remark) {
+        this.remark = remark;
     }
 
     public Date getCreateTime() {

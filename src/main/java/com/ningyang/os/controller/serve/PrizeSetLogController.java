@@ -1,7 +1,9 @@
 package com.ningyang.os.controller.serve;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.ningyang.os.action.input.command.web.serve.PrizeSetLogCommand;
 import com.ningyang.os.action.input.condition.serve.QueryPrizeCondition;
+import com.ningyang.os.action.output.vo.web.serve.PrizeSetLogVo;
 import com.ningyang.os.action.utils.WebResult;
 import com.ningyang.os.controller.system.BaseController;
 import com.ningyang.os.service.ISerPrizeRecodeInfoService;
@@ -34,22 +36,22 @@ public class PrizeSetLogController extends BaseController {
             QueryPrizeCondition condition
     ){
         try {
-//            Page<WarehouseVo> pageVo = infoService.findWarehouseVoPageByCondition(condition);
-            return WebResult.success().put("pageVo", null).toMap();
+            Page<PrizeSetLogVo> pageVo = infoService.findPrizeSetLogVoPageByCondition(condition);
+            return WebResult.success().put("pageVo", pageVo).toMap();
         } catch (Exception e) {
             LOGGER.error(e.getMessage(), e);
             return WebResult.failure(DATA_ERROR.getInfo()).toMap();
         }
     }
 
-    @PostMapping("addOrUpdate")
-    public Map<String,Object> addOrUpdate(
+    @PostMapping("add")
+    public Map<String,Object> add(
             @RequestHeader("Authorization") String userToken,
             @RequestBody PrizeSetLogCommand command
     ){
         try {
             Long operateUserId = getBaseUserInfo(userToken).getId();
-            boolean flag = infoService.addOrUpdate(command, operateUserId);
+            boolean flag = infoService.add(command, operateUserId);
             if (flag) {
                 return WebResult.success().toMap();
             }

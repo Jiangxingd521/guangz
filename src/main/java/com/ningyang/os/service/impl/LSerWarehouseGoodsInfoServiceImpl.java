@@ -28,7 +28,6 @@ import static com.ningyang.os.action.utils.DateUtil.timeToStr;
 @Service
 public class LSerWarehouseGoodsInfoServiceImpl extends ServiceImpl<LSerWarehouseGoodsInfoMapper, LSerWarehouseGoodsInfo> implements ILSerWarehouseGoodsInfoService {
 
-    //fixme 添加备注
     @Override
     public boolean add(ApiWarehousePutInCommand command) {
         List<LSerWarehouseGoodsInfo> infoList = new ArrayList<>();
@@ -40,6 +39,7 @@ public class LSerWarehouseGoodsInfoServiceImpl extends ServiceImpl<LSerWarehouse
             info.setWarehouseInNo(getOrderNum());
             info.setUserId(command.getUserId());
             info.setWarehouseInTime(new Date());
+            info.setRemark(command.getRemark());
             info.setCreateTime(new Date());
             info.setUpdateTime(new Date());
             infoList.add(info);

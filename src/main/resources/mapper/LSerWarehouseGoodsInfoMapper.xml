@@ -11,6 +11,7 @@
         <result column="box_no" property="boxNo"/>
         <result column="warehouse_in_no" property="warehouseInNo"/>
         <result column="user_id" property="userId"/>
+        <result column="remark" property="remark"/>
         <result column="warehouse_in_time" property="warehouseInTime"/>
         <result column="create_time" property="createTime"/>
         <result column="update_time" property="updateTime"/>

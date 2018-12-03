@@ -1,7 +1,11 @@
 package com.ningyang.os.dao;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.ningyang.os.action.input.condition.serve.QueryPrizeCondition;
+import com.ningyang.os.action.output.vo.web.serve.PrizeSetLogVo;
 import com.ningyang.os.pojo.SerPrizeRecodeInfo;
+
+import java.util.List;
 
 /**
  * <p>
@@ -13,4 +17,9 @@ import com.ningyang.os.pojo.SerPrizeRecodeInfo;
  */
 public interface SerPrizeRecodeInfoMapper extends BaseMapper<SerPrizeRecodeInfo> {
 
+    List<PrizeSetLogVo> selectPrizeSetLogVoPageByCondition(QueryPrizeCondition condition);
+
+    int selectPrizeSetLogVoPageCountByCondition(QueryPrizeCondition condition);
+
+    boolean insertBatch(List<SerPrizeRecodeInfo> listData);
 }

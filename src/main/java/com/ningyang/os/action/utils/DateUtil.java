@@ -633,7 +633,7 @@ public class DateUtil {
      * @param amount 要添加到该字段的日期或时间的量
      * @return 指定日期
      * @Title: specifiedTime
-     * @Description: TODO(生成指定日期)
+     * @Description: (生成指定日期)
      */
     public static Date specifiedTime(int field, int amount) {
 

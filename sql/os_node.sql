@@ -11,7 +11,7 @@
  Target Server Version : 50721
  File Encoding         : 65001
 
- Date: 03/12/2018 16:43:01
+ Date: 03/12/2018 19:05:26
 */
 
 SET NAMES utf8mb4;
@@ -57,6 +57,7 @@ CREATE TABLE `l_ser_warehouse_goods_info` (
   `warehouse_in_no` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '入库单号',
   `user_id` bigint(20) DEFAULT NULL COMMENT '操作人',
   `warehouse_in_time` datetime DEFAULT NULL COMMENT '入库时间',
+  `remark` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '备注',
   `create_time` datetime DEFAULT NULL COMMENT '创建时间',
   `update_time` datetime DEFAULT NULL COMMENT '修改时间',
   PRIMARY KEY (`id`) USING BTREE,
@@ -70,8 +71,8 @@ CREATE TABLE `l_ser_warehouse_goods_info` (
 -- Records of l_ser_warehouse_goods_info
 -- ----------------------------
 BEGIN;
-INSERT INTO `l_ser_warehouse_goods_info` VALUES (1, 0, 1, NULL, '9000001005795865', '20181129112854', 3, '2018-11-29 11:28:54', '2018-11-29 11:28:54', '2018-11-29 11:28:54');
-INSERT INTO `l_ser_warehouse_goods_info` VALUES (2, 0, 1, NULL, '8000001631823255', '20181129112854', 3, '2018-11-29 11:28:54', '2018-11-29 11:28:54', '2018-11-29 11:28:54');
+INSERT INTO `l_ser_warehouse_goods_info` VALUES (1, 0, 1, NULL, '9000001005795865', '20181129112854', 3, '2018-11-29 11:28:54', NULL, '2018-11-29 11:28:54', '2018-11-29 11:28:54');
+INSERT INTO `l_ser_warehouse_goods_info` VALUES (2, 0, 1, NULL, '8000001631823255', '20181129112854', 3, '2018-11-29 11:28:54', NULL, '2018-11-29 11:28:54', '2018-11-29 11:28:54');
 COMMIT;
 
 -- ----------------------------
@@ -863,14 +864,17 @@ CREATE TABLE `t_ser_prize_recode_info` (
   `sdata4` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `create_time` datetime DEFAULT NULL COMMENT '创建时间',
   `update_time` datetime DEFAULT NULL COMMENT '修改时间',
-  PRIMARY KEY (`prize_recor_id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT COMMENT='奖项记录（布奖、兑奖）';
+  PRIMARY KEY (`prize_recor_id`) USING BTREE,
+  UNIQUE KEY `pr_code` (`pr_code`(255)) USING HASH COMMENT '商品溯源码'
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT COMMENT='奖项记录（布奖、兑奖）';
 
 -- ----------------------------
 -- Records of t_ser_prize_recode_info
 -- ----------------------------
 BEGIN;
-INSERT INTO `t_ser_prize_recode_info` VALUES (1, '1', 'http://9suyuan.com/6/CbRxMRoXQf/11', 1, NULL, 1, 1, 1, 1, 1.00, 1, 1, 1, 1, 1, 1, '1', '2018-11-30 10:29:06', '1', NULL, NULL, 1, 1, NULL, NULL, NULL, 'HB', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `t_ser_prize_recode_info` VALUES (9, '20181129125419', 'http://9suyuan.com/6/C7lQnKEEvt/11', 1, '扫码获得现金红包', 5, 1, 19, NULL, 5.99, NULL, 1, 2, NULL, NULL, 1, NULL, NULL, NULL, '2018-11-30 00:00:00', '2018-12-03 00:00:00', 2, NULL, NULL, NULL, NULL, 'HB', NULL, NULL, NULL, '2018-12-03 17:42:36', '2018-12-03 17:42:34');
+INSERT INTO `t_ser_prize_recode_info` VALUES (10, '20181129125419', 'http://9suyuan.com/6/CbRxMRoXQf/11', 1, '扫码获得现金红包', 5, 1, 19, NULL, 17.15, NULL, 1, 2, NULL, NULL, 1, NULL, NULL, NULL, '2018-11-30 00:00:00', '2018-12-03 00:00:00', 2, NULL, NULL, NULL, NULL, 'HB', NULL, NULL, NULL, '2018-12-03 17:42:36', '2018-12-03 17:42:36');
+INSERT INTO `t_ser_prize_recode_info` VALUES (11, '20181129125419', 'http://9suyuan.com/6/yHtxbXxVfb/11', 1, '扫码获得现金红包', 5, 1, 19, NULL, 0.00, NULL, 1, 2, NULL, NULL, 1, NULL, NULL, NULL, '2018-11-30 00:00:00', '2018-12-03 00:00:00', 2, NULL, NULL, NULL, NULL, 'HB', NULL, NULL, NULL, '2018-12-03 17:42:36', '2018-12-03 17:42:37');
 COMMIT;
 
 -- ----------------------------
@@ -909,13 +913,14 @@ CREATE TABLE `t_ser_prize_set_info` (
   PRIMARY KEY (`prize_set_id`) USING BTREE,
   KEY `prize_manager_id` (`prize_manager_id`),
   CONSTRAINT `t_ser_prize_set_info_ibfk_1` FOREIGN KEY (`prize_manager_id`) REFERENCES `t_ser_prize_manager_info` (`prize_manage_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='奖项设定';
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='奖项设定';
 
 -- ----------------------------
 -- Records of t_ser_prize_set_info
 -- ----------------------------
 BEGIN;
 INSERT INTO `t_ser_prize_set_info` VALUES (1, 1, '扫码获得现金红包', 5, 1, 19, 2, 2.00, 20.00, 5, 30, 1, 2, 100, 200, '2018-11-30 00:00:00', '2018-12-03 00:00:00', 2, 0, NULL, NULL, NULL, 'HB', NULL, NULL, NULL, NULL, '2018-12-03 11:41:14');
+INSERT INTO `t_ser_prize_set_info` VALUES (2, 1, '扫码红包不限量', 5, 1, 19, 0, 0.10, 10.00, 1, 14, 2, 2, 11, 15, '2018-12-03 00:00:00', '2018-12-07 00:00:00', 2, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-12-03 17:50:05', '2018-12-03 17:50:05');
 COMMIT;
 
 -- ----------------------------

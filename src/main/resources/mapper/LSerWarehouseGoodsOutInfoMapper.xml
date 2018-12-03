@@ -48,7 +48,7 @@
     >
         SELECT e.dealer_name,d.order_no,c.brand_name,c.brand_series_name AS series_name,
         c.brand_series_product_name AS product_name,c.brand_series_product_id as prodId,
-        c.id as goodsId
+        c.id as goodsId,c.M1 as prCode
         FROM l_ser_warehouse_goods_out_info a
         LEFT JOIN t_ser_goods_info c ON a.box_no = c.m5
         LEFT JOIN t_ser_order_info d ON a.order_id = d.order_no

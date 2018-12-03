@@ -6,7 +6,10 @@ import com.ningyang.os.action.input.condition.serve.QueryPrizeCondition;
 import com.ningyang.os.action.output.vo.web.serve.PrizeManagerVo;
 import com.ningyang.os.dao.SerPrizeManagerInfoMapper;
 import com.ningyang.os.pojo.SerPrizeManagerInfo;
+import com.ningyang.os.pojo.SerPrizeTypeInfo;
 import com.ningyang.os.service.ISerPrizeManagerInfoService;
+import com.ningyang.os.service.ISerPrizeTypeInfoService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
@@ -22,6 +25,9 @@ import java.util.List;
  */
 @Service
 public class SerPrizeManagerInfoServiceImpl extends ServiceImpl<SerPrizeManagerInfoMapper, SerPrizeManagerInfo> implements ISerPrizeManagerInfoService {
+
+    @Autowired
+    private ISerPrizeTypeInfoService typeInfoService;
 
     @Override
     public List<PrizeManagerVo> findPrizeManagerVoListByCondition(QueryPrizeCondition condition) {
@@ -39,6 +45,8 @@ public class SerPrizeManagerInfoServiceImpl extends ServiceImpl<SerPrizeManagerI
             info.setPrizeRemark(command.getPrizeRemark());
             info.setUserId(userId);
             info.setIdata1(command.getPrizeState());
+            SerPrizeTypeInfo typeInfo = typeInfoService.getById(command.getTypeId());
+            info.setSdata1(typeInfo.getPrizeTypeCode());
             info.setUpdateTime(new Date());
             flag = updateById(info);
         } else {
@@ -49,6 +57,8 @@ public class SerPrizeManagerInfoServiceImpl extends ServiceImpl<SerPrizeManagerI
             info.setPrizeRemark(command.getPrizeRemark());
             info.setUserId(userId);
             info.setIdata1(0);
+            SerPrizeTypeInfo typeInfo = typeInfoService.getById(command.getTypeId());
+            info.setSdata1(typeInfo.getPrizeTypeCode());
             info.setCreateTime(new Date());
             info.setUpdateTime(new Date());
             flag = save(info);

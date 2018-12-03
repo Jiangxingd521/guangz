@@ -1,7 +1,10 @@
 package com.ningyang.os.service;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.ningyang.os.action.input.command.web.serve.PrizeSetLogCommand;
+import com.ningyang.os.action.input.condition.serve.QueryPrizeCondition;
+import com.ningyang.os.action.output.vo.web.serve.PrizeSetLogVo;
 import com.ningyang.os.pojo.SerPrizeRecodeInfo;
 
 /**
@@ -14,8 +17,8 @@ import com.ningyang.os.pojo.SerPrizeRecodeInfo;
  */
 public interface ISerPrizeRecodeInfoService extends IService<SerPrizeRecodeInfo> {
 
+    Page<PrizeSetLogVo> findPrizeSetLogVoPageByCondition(QueryPrizeCondition condition);
 
-
-    boolean addOrUpdate(PrizeSetLogCommand command, Long userId);
+    boolean add(PrizeSetLogCommand command, Long userId);
 
 }

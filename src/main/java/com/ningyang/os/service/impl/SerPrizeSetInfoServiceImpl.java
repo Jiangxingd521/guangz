@@ -5,7 +5,9 @@ import com.ningyang.os.action.input.command.web.serve.PrizeSetCommand;
 import com.ningyang.os.action.input.condition.serve.QueryPrizeCondition;
 import com.ningyang.os.action.output.vo.web.serve.PrizeSetVo;
 import com.ningyang.os.dao.SerPrizeSetInfoMapper;
+import com.ningyang.os.pojo.SerPrizeManagerInfo;
 import com.ningyang.os.pojo.SerPrizeSetInfo;
+import com.ningyang.os.service.ISerPrizeManagerInfoService;
 import com.ningyang.os.service.ISerPrizeSetInfoService;
 import com.ningyang.os.service.ISysBaseRegionInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +29,8 @@ public class SerPrizeSetInfoServiceImpl extends ServiceImpl<SerPrizeSetInfoMappe
 
     @Autowired
     private ISysBaseRegionInfoService regionInfoService;
+    @Autowired
+    private ISerPrizeManagerInfoService managerInfoService;
 
     @Override
     public List<PrizeSetVo> findPrizeSetVoListByCondition(QueryPrizeCondition condition) {
@@ -62,6 +66,8 @@ public class SerPrizeSetInfoServiceImpl extends ServiceImpl<SerPrizeSetInfoMappe
             info.setPrizeStartDate(command.getPrizeDate()[0]);
             info.setPrizeEndDate(command.getPrizeDate()[1]);
             info.setIdata1(command.getSetState());
+            SerPrizeManagerInfo managerInfo = managerInfoService.getById(command.getManagerId());
+            info.setSdata1(managerInfo.getSdata1());
             info.setUserId(userId);
             info.setUpdateTime(new Date());
             flag = updateById(info);
@@ -84,6 +90,8 @@ public class SerPrizeSetInfoServiceImpl extends ServiceImpl<SerPrizeSetInfoMappe
             info.setPrizeStartDate(command.getPrizeDate()[0]);
             info.setPrizeEndDate(command.getPrizeDate()[1]);
             info.setIdata1(0);
+            SerPrizeManagerInfo managerInfo = managerInfoService.getById(command.getManagerId());
+            info.setSdata1(managerInfo.getSdata1());
             info.setUserId(userId);
             info.setCreateTime(new Date());
             info.setUpdateTime(new Date());

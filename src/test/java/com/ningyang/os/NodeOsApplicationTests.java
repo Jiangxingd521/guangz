@@ -3,14 +3,13 @@ package com.ningyang.os;
 import com.alibaba.fastjson.JSONObject;
 import com.ningyang.os.action.config.SystemConfig;
 import com.ningyang.os.action.input.condition.serve.QueryApplyCodeCondition;
+import com.ningyang.os.action.input.condition.serve.QueryGoodsPutCondition;
+import com.ningyang.os.action.output.vo.web.serve.GoodsPutOutVo;
 import com.ningyang.os.action.utils.ReadFileBackData;
 import com.ningyang.os.action.utils.WebResult;
 import com.ningyang.os.dao.SerApplyCodeTableInfoMapper;
 import com.ningyang.os.pojo.SerApplyCodeTemplate;
-import com.ningyang.os.service.ISerApplyCodeTableInfoService;
-import com.ningyang.os.service.ISerApplyCodeTemplateService;
-import com.ningyang.os.service.ISerCodeImportTemplateInfoService;
-import com.ningyang.os.service.ISysApiInfoService;
+import com.ningyang.os.service.*;
 import org.apache.commons.lang3.StringUtils;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -21,8 +20,15 @@ import org.springframework.test.context.junit4.SpringRunner;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Random;
+import java.util.stream.Collectors;
+
+import static com.ningyang.os.action.utils.RandomUtil.randomArray;
+import static com.ningyang.os.action.utils.RandomUtil.randomCommon;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -39,8 +45,69 @@ public class NodeOsApplicationTests {
     @Autowired
     private ISerApplyCodeTemplateService codeTemplateService;
 
+    @Autowired
+    private ILSerWarehouseGoodsOutInfoService outInfoService;
+
     @Test
     public void contextLoads() {
+
+
+
+        List<GoodsPutOutVo> goodsPutOutVoList = getGoodsList(1,"20181129125419");
+
+        //选中的商品
+        List<GoodsPutOutVo> listData1 = new ArrayList<>();
+        //未选中的商品
+        List<GoodsPutOutVo> listData2 = new ArrayList<>();
+
+
+        int[] aa = randomArray(0,2,2);
+
+        System.out.println(JSONObject.toJSONString(aa));
+
+        for(int i=0 ;i<aa.length; i++){
+            int j = aa[i];
+            listData1.add(goodsPutOutVoList.get(j));
+        }
+
+//        System.out.println(JSONObject.toJSONString(listData1));
+
+
+
+
+        /*for (int i=0;i<goodsPutOutVoList.size();i++){
+            for(int j=0;j<listData1.size();j++){
+                GoodsPutOutVo vo1 = goodsPutOutVoList.get(i);
+                if(vo1.getGoodsId() == listData1.get(j).getGoodsId()){
+                    goodsPutOutVoList.remove(vo1);
+                }
+            }
+        }*/
+
+//        listData2 = goodsPutOutVoList;
+
+        System.out.println("=========1=========");
+        System.out.println(JSONObject.toJSONString(listData1));
+        System.out.println("=========2=========");
+        System.out.println(JSONObject.toJSONString(listData2));
+        System.out.println("=========3=========");
+
+
+        /*int max=0;
+        int min=10;
+        Random random = new Random();
+
+        int s = random.nextInt(max)%(max-min+1) + min;
+        System.out.println(s);*/
+
+
+
+
+       /* BigDecimal b=new BigDecimal(45.45).multiply(new BigDecimal(100));
+
+        int a = b.intValue();
+
+        System.out.println(a);*/
 
         /*List<SysApiInfo> listTemp = infoService.list(null);
         System.out.println(JSONObject.toJSONString(listTemp));*/
@@ -127,7 +194,7 @@ public class NodeOsApplicationTests {
 
         }*/
 
-        List<String> tableList = new ArrayList<>();
+        /*List<String> tableList = new ArrayList<>();
         for (int i = 0; i < 4; i++) {
             String a = i + "AAA";
             tableList.add(a);
@@ -135,7 +202,7 @@ public class NodeOsApplicationTests {
 
         System.out.println(JSONObject.toJSONString(tableList));
         String aa = StringUtils.join(tableList, "-->");
-        System.out.println(aa);
+        System.out.println(aa);*/
 
 
 
@@ -164,6 +231,17 @@ public class NodeOsApplicationTests {
         generateFile(contents, path);*/
 
 
+    }
+
+
+    private List<GoodsPutOutVo> getGoodsList(int type, String typeValue){
+        QueryGoodsPutCondition condition = new QueryGoodsPutCondition();
+        if(type==1){
+            condition.setOrderNo(typeValue);
+        }else{
+            condition.setProdId(typeValue);
+        }
+        return outInfoService.findGoodsPutOutVoByCondition(condition);
     }
 
 }
