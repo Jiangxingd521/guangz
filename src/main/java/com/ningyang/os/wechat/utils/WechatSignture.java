@@ -1,4 +1,6 @@
-package com.ningyang.os.wechat;
+package com.ningyang.os.wechat.utils;
+
+import com.ningyang.os.wechat.utils.SignUtil;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
