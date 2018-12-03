@@ -10,6 +10,12 @@
         <result column="right_code" property="rightCode"/>
         <result column="left_code_type" property="leftCodeType"/>
         <result column="right_code_type" property="rightCodeType"/>
+        <result column="import_no" property="importNo"/>
     </resultMap>
+
+    <select id="callSetCode" statementType="CALLABLE">
+       CALL P_UPD_CommonM()
+    </select>
+
 
 </mapper>

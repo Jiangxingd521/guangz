@@ -18,6 +18,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import static com.ningyang.os.action.utils.DateUtil.getOrderNum;
+
 /**
  * <p>
  * 溯源码导入临时表 服务实现类
@@ -74,6 +76,7 @@ public class SerCodeImportTempInfoServiceImpl extends ServiceImpl<SerCodeImportT
                 info.setTemplateId(templateId);
                 info.setLeftCode(data.getLData());
                 info.setRightCode(data.getRData());
+                info.setImportNo(getOrderNum());
                 info.setLeftCodeType(templateVo.getLeftCodeId());
                 info.setRightCodeType(templateVo.getRightCodeId());
                 listTemp.add(info);
@@ -85,4 +88,8 @@ public class SerCodeImportTempInfoServiceImpl extends ServiceImpl<SerCodeImportT
     }
 
 
+    @Override
+    public void callSetCode() {
+        baseMapper.callSetCode();
+    }
 }

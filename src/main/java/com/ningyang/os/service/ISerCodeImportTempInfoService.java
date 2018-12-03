@@ -18,5 +18,6 @@ public interface ISerCodeImportTempInfoService extends IService<SerCodeImportTem
 
     boolean add(List<ReadFileBackData> listData, Long templateId);
 
+    void callSetCode();
 
 }
