@@ -106,7 +106,7 @@ public class SerPrizeRecodeInfo extends Model<SerPrizeRecodeInfo> {
      * 兑奖时间
      */
     @TableField("cash_time")
-    private String cashTime;
+    private Date cashTime;
     /**
      * 中奖人id
      */
@@ -283,11 +283,11 @@ public class SerPrizeRecodeInfo extends Model<SerPrizeRecodeInfo> {
         this.trackNo = trackNo;
     }
 
-    public String getCashTime() {
+    public Date getCashTime() {
         return cashTime;
     }
 
-    public void setCashTime(String cashTime) {
+    public void setCashTime(Date cashTime) {
         this.cashTime = cashTime;
     }
 

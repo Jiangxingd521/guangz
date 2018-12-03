@@ -19,11 +19,11 @@
 
 				<!-- 已领红包 -->
 				 <div class="get_tips">
-					<p th:if="${prizeRecodeInfo?.cashTime !=null}" th:text="${'本二维码已于'+#dates.format(prizeRecodeInfo.cashTime, 'yyyy年-MM月-dd日 hh时:MM分:ss秒')+'扫描过1次'}"></p>
-					<p  th:if="${prizeRecodeInfo?.cashTime !=null}" th:text="${'并领取红包'+prizeRecodeInfo.money+'元'}"></p>
-					 <p th:if="${goodsInfo.goodsState==0}">本二维码尚未使用</p>
-					 <p th:if="${goodsInfo.goodsState==1}">本二维码尚未激活</p>
-					 <p th:if="${goodsInfo.goodsState==2  and prizeRecodeInfo==null}">本产品为正品</p>
+					<p th:if="${prizeRecodeInfo?.cashTime !=null}" th:text="${'本二维码已于'+#dates.format(prizeRecodeInfo?.cashTime, 'yyyy年-MM月-dd日 hh时:MM分:ss秒')+'扫描过1次'}"></p>
+					<p  th:if="${prizeRecodeInfo?.cashTime !=null}" th:text="${'并领取红包'+prizeRecodeInfo?.money+'元'}"></p>
+					 <p th:if="${goodsInfo?.goodsState==0}">本二维码尚未使用</p>
+					 <p th:if="${goodsInfo?.goodsState==1}">本二维码尚未激活</p>
+					 <p th:if="${goodsInfo?.goodsState==2  and prizeRecodeInfo==null}">本产品为正品</p>
 
 
 

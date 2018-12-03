@@ -25,6 +25,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+import java.util.Date;
 
 @Controller
 @RequestMapping("/wechat")
@@ -92,7 +95,6 @@ public class IndexController {
 
 
     }
-
     /***
      * 溯源主界面 抽奖界面
      * @return
@@ -143,17 +145,17 @@ public class IndexController {
         }
         boolean  isHB=false;//是否可领取红包
         boolean  isPT=false;//是否可领取积分
-        if(goodsInfo!=null&&goodsInfo.getGoodsState()==3&&prizeRecodeInfo!=null&&prizeRecodeInfo.getPrizeState()==1){
-            if(serPrizeManagerInfo!=null&&serPrizeManagerInfo.getSdata1()!=null&serPrizeManagerInfo.getSdata1().equals("HB")){
+        if(goodsInfo!=null&&goodsInfo.getGoodsState()==2&&prizeRecodeInfo!=null&&prizeRecodeInfo.getPrizeState()==1){
+            if(prizeRecodeInfo.getSdata1()!=null&prizeRecodeInfo.getSdata1().equals("HB")){
                         isHB=true;
-            }else if(serPrizeManagerInfo!=null&&serPrizeManagerInfo.getSdata1()!=null&serPrizeManagerInfo.getSdata1().equals("PT")){
+            }else if(prizeRecodeInfo.getSdata1()!=null&prizeRecodeInfo.getSdata1().equals("PT")){
                   isPT=true;//是否可领取积分
             }
         }
 
 
         //获取IP地址
-        String ip = request.getHeader("X-Forwarded-For");
+        String ip = this.getIpAddr(request);
         //记录扫码次数
 
         MemberScanning  memberScanning=   iMemberScanningService.getOne(new QueryWrapper<MemberScanning>().eq("sdata1",ip).eq("pr_code",source).eq("open_id",openid));
@@ -162,6 +164,7 @@ public class IndexController {
             memberScanning.setOpenId(openid);
             memberScanning.setPrCode(source);
             memberScanning.setSdata1(ip);
+            memberScanning.setCreateTime(new Date());
             iMemberScanningService.save(memberScanning);
         }
 
@@ -249,6 +252,35 @@ public class IndexController {
         return wxUserInfo;
     }
 
+    public static String getIpAddr(HttpServletRequest request) {
+        String ip = request.getHeader("x-forwarded-for");
+        if(ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
+            ip = request.getHeader("Proxy-Client-IP");
+        }
+        if(ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
+            ip = request.getHeader("WL-Proxy-Client-IP");
+        }
+        if(ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
+            ip = request.getRemoteAddr();
+            if(ip.equals("127.0.0.1")){
+                //根据网卡取本机配置的IP
+                InetAddress inet=null;
+                try {
+                    inet = InetAddress.getLocalHost();
+                } catch (UnknownHostException e) {
+                    e.printStackTrace();
+                }
+                ip= inet.getHostAddress();
+            }
+        }
+        // 对于通过多个代理的情况，第一个IP为客户端真实IP,多个IP按照','分割
+        if(ip != null && ip.length() > 15){
+            if(ip.indexOf(",")>0){
+                ip = ip.substring(0,ip.indexOf(","));
+            }
+        }
+        return ip;
+    }
 
 
 
