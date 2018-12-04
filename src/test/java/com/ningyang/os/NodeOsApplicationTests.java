@@ -48,12 +48,23 @@ public class NodeOsApplicationTests {
     @Autowired
     private ILSerWarehouseGoodsOutInfoService outInfoService;
 
+    @Autowired
+    private ISerCodeImportTempInfoService tempInfoService;
+
+
     @Test
     public void contextLoads() {
 
+        /*String leftCodeFlag ="http://9suyuan.com/6/cQzbhFFg52/11".split("/")[5];
+        System.out.println(leftCodeFlag);
+
+        String leftCodeFlag2 ="http://www.headingtech.com/center/tz/6/c362d7c12cde462993bc7a4854fa95fb/12".split("/")[7];
+        System.out.println(leftCodeFlag2);*/
+
+        tempInfoService.callSetCode();
 
 
-        List<GoodsPutOutVo> goodsPutOutVoList = getGoodsList(1,"20181129125419");
+       /* List<GoodsPutOutVo> goodsPutOutVoList = getGoodsList(1,"20181129125419");
 
         //选中的商品
         List<GoodsPutOutVo> listData1 = new ArrayList<>();
@@ -69,7 +80,7 @@ public class NodeOsApplicationTests {
             int j = aa[i];
             listData1.add(goodsPutOutVoList.get(j));
         }
-
+*/
 //        System.out.println(JSONObject.toJSONString(listData1));
 
 
@@ -86,13 +97,13 @@ public class NodeOsApplicationTests {
 
 //        listData2 = goodsPutOutVoList;
 
-        System.out.println("=========1=========");
+      /*  System.out.println("=========1=========");
         System.out.println(JSONObject.toJSONString(listData1));
         System.out.println("=========2=========");
         System.out.println(JSONObject.toJSONString(listData2));
         System.out.println("=========3=========");
 
-
+*/
         /*int max=0;
         int min=10;
         Random random = new Random();

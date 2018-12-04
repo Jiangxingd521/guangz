@@ -41,4 +41,8 @@
         select COUNT(DISTINCT (a.warehouse_in_no)) from l_ser_warehouse_goods_info a
     </select>
 
+    <select id="getWarehouseBoxCount" parameterType="Long" resultType="int">
+        select count(DISTINCT a.box_no) from l_ser_warehouse_goods_info a where a.warehouse_id = #{warehouseId}
+    </select>
+
 </mapper>

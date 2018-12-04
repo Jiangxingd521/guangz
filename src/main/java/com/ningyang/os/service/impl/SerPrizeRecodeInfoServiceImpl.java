@@ -7,7 +7,7 @@ import com.ningyang.os.action.input.condition.serve.QueryGoodsPutCondition;
 import com.ningyang.os.action.input.condition.serve.QueryPrizeCondition;
 import com.ningyang.os.action.output.vo.web.serve.GoodsPutOutVo;
 import com.ningyang.os.action.output.vo.web.serve.PrizeSetLogVo;
-import com.ningyang.os.action.output.vo.web.serve.WarehouseVo;
+import com.ningyang.os.action.output.vo.web.serve.PrizeTicketLogVo;
 import com.ningyang.os.dao.SerPrizeRecodeInfoMapper;
 import com.ningyang.os.pojo.SerPrizeRecodeInfo;
 import com.ningyang.os.pojo.SerPrizeSetInfo;
@@ -23,6 +23,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Random;
 
+import static com.ningyang.os.action.utils.DateUtil.timeToStr;
 import static com.ningyang.os.action.utils.RandomUtil.randomArray;
 
 /**
@@ -54,6 +55,7 @@ public class SerPrizeRecodeInfoServiceImpl extends ServiceImpl<SerPrizeRecodeInf
         pageVo.setCurrent(condition.getLimit());
         return pageVo;
     }
+
 
     @Override
     public boolean add(PrizeSetLogCommand command, Long userId) {
@@ -293,6 +295,21 @@ public class SerPrizeRecodeInfoServiceImpl extends ServiceImpl<SerPrizeRecodeInf
         return baseMapper.insertBatch(listData);
     }
 
+
+    @Override
+    public Page<PrizeTicketLogVo> findPrizeTicketLogVoPageByCondition(QueryPrizeCondition condition) {
+        Page<PrizeTicketLogVo> pageVo = new Page<>();
+        List<PrizeTicketLogVo> listVoTemp = baseMapper.selectPrizeTicketLogVoPageByCondition(condition);
+        for(PrizeTicketLogVo vo : listVoTemp){
+            vo.setTicketTimeStr(timeToStr(vo.getTicketTime()));
+        }
+        int total = baseMapper.selectPrizeTicketLogVoPageCountByCondition(condition);
+        pageVo.setRecords(listVoTemp);
+        pageVo.setTotal(total);
+        pageVo.setSize(condition.getPage());
+        pageVo.setCurrent(condition.getLimit());
+        return pageVo;
+    }
 
     /**
      * 获取订单商品

@@ -21,4 +21,6 @@ public interface LSerWarehouseGoodsInfoMapper extends BaseMapper<LSerWarehouseGo
 
     int selectGoodsPutInVoPageCountByCondition(QueryGoodsPutCondition condition);
 
+    int getWarehouseBoxCount(Long warehouseId);
+
 }

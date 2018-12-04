@@ -21,4 +21,5 @@ public interface ILSerWarehouseGoodsInfoService extends IService<LSerWarehouseGo
 
     Page<GoodsPutInVo> findGoodsPutInVoPageByCondition(QueryGoodsPutCondition condition);
 
+    int getWarehouseBoxCount(Long warehouseId);
 }

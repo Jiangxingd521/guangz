@@ -13,9 +13,13 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.TreeSet;
 
 import static com.ningyang.os.action.utils.DateUtil.getOrderNum;
 import static com.ningyang.os.action.utils.DateUtil.timeToStr;
+import static java.util.Comparator.comparing;
+import static java.util.stream.Collectors.collectingAndThen;
+import static java.util.stream.Collectors.toCollection;
 
 /**
  * <p>
@@ -44,7 +48,13 @@ public class LSerWarehouseGoodsInfoServiceImpl extends ServiceImpl<LSerWarehouse
             info.setUpdateTime(new Date());
             infoList.add(info);
         }
-        return saveBatch(infoList);
+
+        //去除数组里面的重复对象
+        List<LSerWarehouseGoodsInfo> listTemp = infoList.stream().collect(
+                collectingAndThen(toCollection(() -> new TreeSet<>(comparing(LSerWarehouseGoodsInfo::getBoxNo))), ArrayList::new)
+        );
+
+        return saveBatch(listTemp);
     }
 
     @Override
@@ -60,5 +70,10 @@ public class LSerWarehouseGoodsInfoServiceImpl extends ServiceImpl<LSerWarehouse
         pageVo.setSize(condition.getPage());
         pageVo.setCurrent(condition.getLimit());
         return pageVo;
+    }
+
+    @Override
+    public int getWarehouseBoxCount(Long warehouseId) {
+        return baseMapper.getWarehouseBoxCount(warehouseId);
     }
 }

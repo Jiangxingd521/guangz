@@ -9,7 +9,8 @@ import com.ningyang.os.action.output.vo.web.serve.WarehousePersonVo;
 import com.ningyang.os.action.output.vo.web.serve.WarehouseVo;
 import com.ningyang.os.dao.SerWarehouseInfoMapper;
 import com.ningyang.os.pojo.SerWarehouseInfo;
-import com.ningyang.os.service.ISerWarehouseGoodsInfoService;
+import com.ningyang.os.service.ILSerWarehouseGoodsInfoService;
+import com.ningyang.os.service.ILSerWarehouseGoodsOutInfoService;
 import com.ningyang.os.service.ISerWarehouseInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -29,13 +30,23 @@ import java.util.List;
 public class SerWarehouseInfoServiceImpl extends ServiceImpl<SerWarehouseInfoMapper, SerWarehouseInfo> implements ISerWarehouseInfoService {
 
     @Autowired
-    private ISerWarehouseGoodsInfoService warehouseGoodsInfoService;
+    private ILSerWarehouseGoodsInfoService inInfoService;
+    @Autowired
+    private ILSerWarehouseGoodsOutInfoService outInfoService;
 
-    // FIXME: 2018/12/1 仓库库存量变化
+
     @Override
     public Page<WarehouseVo> findWarehouseVoPageByCondition(QueryWarehouseCondition condition) {
         Page<WarehouseVo> pageVo = new Page<>();
         List<WarehouseVo> listVoTemp = baseMapper.selectWarehouseVoPageByCondition(condition);
+        //仓库库存量变化
+        for(WarehouseVo vo : listVoTemp){
+            //入库
+            int inCount = inInfoService.getWarehouseBoxCount(vo.getWarehouseId());
+            //出库
+            int outCount = outInfoService.getWarehouseBoxCount(vo.getWarehouseId());
+            vo.setUsedTotalInventory(inCount-outCount);
+        }
         int total = baseMapper.selectWarehouseVoPageCountByCondition(condition);
         pageVo.setRecords(listVoTemp);
         pageVo.setTotal(total);

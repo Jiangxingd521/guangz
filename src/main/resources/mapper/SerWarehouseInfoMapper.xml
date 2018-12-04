@@ -20,10 +20,10 @@
             parameterType="com.ningyang.os.action.input.condition.serve.QueryWarehouseCondition"
             resultType="com.ningyang.os.action.output.vo.web.serve.WarehouseVo"
     >
-        select b.id,b.warehouse_name,b.total_inventory,b.warehouse_person,b.warehouse_person_mobile,
-               COUNT(DISTINCT box_no) as usedTotalInventory,b.warehouse_remark
+        select b.id,a.warehouse_id,b.warehouse_name,b.total_inventory,b.warehouse_person,
+               b.warehouse_person_mobile,b.warehouse_remark
         from t_ser_warehouse_goods_info a
-          RIGHT JOIN t_ser_warehouse_info b on a.warehouse_id = b.id
+                 RIGHT JOIN t_ser_warehouse_info b on a.warehouse_id = b.id
         GROUP BY b.id,b.warehouse_name,b.total_inventory,b.warehouse_person,b.warehouse_person_mobile
                  limit #{page},#{limit}
     </select>
@@ -41,8 +41,8 @@
     >
         select DISTINCT b.user_id,c.user_name as warehousePerson
         from t_sys_role_info a
-             left join t_sys_user_role_info b on a.id = b.role_id
-             left join t_sys_user_info c on b.user_id = c.id
+                 left join t_sys_user_role_info b on a.id = b.role_id
+                 left join t_sys_user_info c on b.user_id = c.id
         where a.id = 4
           and a.role_state = 0
           and c.user_state = 0

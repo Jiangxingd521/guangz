@@ -42,4 +42,5 @@ public class SerWarehouseGoodsInfoServiceImpl extends ServiceImpl<SerWarehouseGo
         }
         return saveBatch(infoList);
     }
+
 }

@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import com.ningyang.os.action.input.command.web.serve.PrizeSetLogCommand;
 import com.ningyang.os.action.input.condition.serve.QueryPrizeCondition;
 import com.ningyang.os.action.output.vo.web.serve.PrizeSetLogVo;
+import com.ningyang.os.action.output.vo.web.serve.PrizeTicketLogVo;
 import com.ningyang.os.pojo.SerPrizeRecodeInfo;
 
 /**
@@ -20,5 +21,7 @@ public interface ISerPrizeRecodeInfoService extends IService<SerPrizeRecodeInfo>
     Page<PrizeSetLogVo> findPrizeSetLogVoPageByCondition(QueryPrizeCondition condition);
 
     boolean add(PrizeSetLogCommand command, Long userId);
+
+    Page<PrizeTicketLogVo> findPrizeTicketLogVoPageByCondition(QueryPrizeCondition condition);
 
 }
