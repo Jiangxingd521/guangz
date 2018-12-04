@@ -27,4 +27,6 @@ public interface ILSerWarehouseGoodsOutInfoService extends IService<LSerWarehous
 
     int getWarehouseBoxCount(Long warehouseId);
 
+    int getOrderOutBoxCount(Long orderId);
+
 }

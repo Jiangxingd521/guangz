@@ -84,7 +84,6 @@ public class ApiWareHouseController extends BaseController {
             SysUserInfo loginUser = getBaseUserInfo(userToken);
             if (loginUser != null) {
                 QueryOrderCondition condition = new QueryOrderCondition();
-                condition.setOrderState(2);
                 List<SaleOrderVo> listVo = orderInfoService.findSaleOrderVoListByCondition(condition);
                 return WebResult.success().put("listVo", listVo).toMap();
             }

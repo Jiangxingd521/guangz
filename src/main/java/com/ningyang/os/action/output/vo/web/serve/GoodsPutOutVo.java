@@ -12,6 +12,8 @@ public class GoodsPutOutVo {
     private String dealerName;
     //订单号
     private String orderNo;
+    //订单id
+    private Long orderId;
     //品牌
     private String brandName;
     //产品
@@ -51,6 +53,14 @@ public class GoodsPutOutVo {
 
     public void setOrderNo(String orderNo) {
         this.orderNo = orderNo;
+    }
+
+    public Long getOrderId() {
+        return orderId;
+    }
+
+    public void setOrderId(Long orderId) {
+        this.orderId = orderId;
     }
 
     public String getBrandName() {

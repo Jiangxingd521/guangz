@@ -25,5 +25,6 @@ public interface ISerOrderInfoService extends IService<SerOrderInfo> {
 
     List<SaleOrderVo> findSaleOrderVoListByCondition(QueryOrderCondition condition);
 
-    int getOrderBoxCount(String orderNo);
+    int getOrderBoxCount(Long orderId);
+
 }

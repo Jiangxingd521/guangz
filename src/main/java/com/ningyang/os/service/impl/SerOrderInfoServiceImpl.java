@@ -1,6 +1,5 @@
 package com.ningyang.os.service.impl;
 
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.ningyang.os.action.input.command.web.serve.OrderSaleCommand;
@@ -10,6 +9,7 @@ import com.ningyang.os.action.output.vo.web.serve.SaleOrderVo;
 import com.ningyang.os.dao.SerOrderInfoMapper;
 import com.ningyang.os.pojo.SerOrderInfo;
 import com.ningyang.os.pojo.SerOrderInfoDetails;
+import com.ningyang.os.service.ILSerWarehouseGoodsOutInfoService;
 import com.ningyang.os.service.ISerOrderInfoDetailsService;
 import com.ningyang.os.service.ISerOrderInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,6 +34,8 @@ public class SerOrderInfoServiceImpl extends ServiceImpl<SerOrderInfoMapper, Ser
 
     @Autowired
     private ISerOrderInfoDetailsService detailsService;
+    @Autowired
+    private ILSerWarehouseGoodsOutInfoService outInfoService;
 
     @Override
     public Page<SaleOrderVo> findSaleOrderVoPageByCondition(QueryOrderCondition condition) {
@@ -109,21 +111,18 @@ public class SerOrderInfoServiceImpl extends ServiceImpl<SerOrderInfoMapper, Ser
             condition.setOrderId(vo.getOrderId());
             List<OrderDetailVo> detailList = detailsService.findOrderDetailVoList(condition);
             vo.setDetailList(detailList);
+            //订单数量
             int boxCount = detailsService.boxCount(condition);
             vo.setProductNumber(boxCount);
+            //已出货数量
+            int outBoxCount = outInfoService.getOrderOutBoxCount(vo.getOrderId());
+            vo.setOutBoxCount(outBoxCount);
         }
         return listTemp;
     }
 
-    /**
-     * 获取订单箱数
-     *
-     * @param orderNo
-     * @return
-     */
     @Override
-    public int getOrderBoxCount(String orderNo) {
-        Long orderId = getOne(new QueryWrapper<SerOrderInfo>().eq("order_no", orderNo)).getId();
+    public int getOrderBoxCount(Long orderId) {
         QueryOrderCondition condition = new QueryOrderCondition();
         condition.setOrderId(orderId);
         return detailsService.boxCount(condition);

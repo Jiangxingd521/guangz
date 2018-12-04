@@ -34,6 +34,8 @@ public class SaleOrderVo {
     private int orderState;
     //备注
     private String remark;
+    //已出货数
+    private int outBoxCount;
 
     private List<OrderDetailVo> detailList;
 
@@ -147,5 +149,13 @@ public class SaleOrderVo {
 
     public void setDetailList(List<OrderDetailVo> detailList) {
         this.detailList = detailList;
+    }
+
+    public int getOutBoxCount() {
+        return outBoxCount;
+    }
+
+    public void setOutBoxCount(int outBoxCount) {
+        this.outBoxCount = outBoxCount;
     }
 }

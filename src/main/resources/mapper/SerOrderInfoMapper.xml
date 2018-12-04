@@ -65,7 +65,7 @@
                  LEFT JOIN t_ser_brand_info d on c.brand_id = d.id
                  LEFT JOIN t_ser_dealer_info e on a.dealer_id = e.id
         WHERE 1 = 1
-          and a.order_state = 2
+          and a.order_state = 2 or a.order_state = 3
     </select>
 
 </mapper>
