@@ -16,7 +16,7 @@
 					<p  th:utext="${'<span>产品名称：</span>'+goodsInfo?.brandSeriesProductName}"><span>产品名称：</span>酒</p>
 					<p  th:utext="${'<span>价 格：</span>'+productInfo?.getMarketPrice()+'元/瓶'}"><span>价 格：</span>1000元/瓶</p>
 					<p  th:utext="${'<span>扫描次数：</span>'+scanns+'<b>（同一IP下只记录一次次数）'}"><span>扫描次数：</span>5次<b>（同一IP下只记录一次次数）</b></p>
-					<p  th:utext="${'<span>追溯结果：</span><i>此产品信息第一次查询于 '+#dates.format(memberScanning?.createTime, 'yyyy年-MM月-dd日 hh时:MM分:ss秒')}"><span>追溯结果：</span><i>此产品信息第一次查询于 2018-01-01  12:00:00</i></p>
+					<p  th:utext="${'<span>追溯结果：</span><i>此产品信息第一次查询于 '+#dates.format(memberScanning?.createTime, 'yyyy年-MM月-dd日 HH时:MM分:ss秒')}"><span>追溯结果：</span><i>此产品信息第一次查询于 2018-01-01  12:00:00</i></p>
 				</div>
 			</div>
 			<div class="details_bottom">

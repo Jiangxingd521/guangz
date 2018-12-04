@@ -1,5 +1,6 @@
 package com.ningyang.os.pojo;
 
+import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
@@ -21,7 +22,7 @@ public class MemberInfo extends Model<MemberInfo> {
 
     private static final long serialVersionUID = 1L;
 
-    @TableId("open_id")
+    @TableId(value = "open_id",type = IdType.INPUT)
     private String openId;
     /**
      * 会员类型

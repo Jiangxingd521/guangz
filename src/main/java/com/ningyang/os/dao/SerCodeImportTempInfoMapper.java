@@ -13,6 +13,6 @@ import com.ningyang.os.pojo.SerCodeImportTempInfo;
  */
 public interface SerCodeImportTempInfoMapper extends BaseMapper<SerCodeImportTempInfo> {
 
-    boolean callSetCode();
+    void callSetCode();
 
 }
