@@ -25,7 +25,7 @@ public class Oauth2To {
 
     public Oauth2To() {
         super();
-        // TODO Auto-generated constructor stub
+        //Auto-generated constructor stub
     }
 
     public Oauth2To(String access_token, Integer expires_in, String refresh_token, String openid, String scope) {

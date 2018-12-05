@@ -28,7 +28,7 @@ public interface WechatService {
     /***
      *
      * @Title: getOauth
-     * @Description: TODO(通过网页授权机制传入code获取用户信息)
+     * @Description: (通过网页授权机制传入code获取用户信息)
      * @param @param code
      * @param @return
      * @return Message<Oauth2To>
@@ -39,7 +39,7 @@ public interface WechatService {
     /***
      *
      * @Title: getWechatRedirectUrl
-     * @Description: TODO(获取页面跳转界面)
+     * @Description: (获取页面跳转界面)
      * @param @param url
      * @param @return
      * @return String
@@ -51,7 +51,7 @@ public interface WechatService {
     /***
      *
      * @Title: getWechatAccessToken
-     * @Description: TODO(获取token)
+     * @Description: (获取token)
      * @param @return
      * @return Message<AccessToken>
      * @throws
@@ -63,7 +63,7 @@ public interface WechatService {
     /***
      *
      * @Title: getWechatJsToken
-     * @Description: TODO(获取JSToken)
+     * @Description: (获取JSToken)
      * @param @param accessToken
      * @param @return
      * @return Message<WechatJsToken>
@@ -74,7 +74,7 @@ public interface WechatService {
     /***
      *
      * @Title: refreshWechatAccessToken
-     * @Description: TODO(刷新微信ACCESSTOKEN)
+     * @Description: (刷新微信ACCESSTOKEN)
      * @param @return
      * @return Message<AccessToken>
      * @throws
@@ -84,7 +84,7 @@ public interface WechatService {
     /***
      *
      * @Title: refreshWechatJsToken
-     * @Description: TODO(刷新微信JSTOKEN)
+     * @Description: (刷新微信JSTOKEN)
      * @param @return
      * @return Message<AccessToken>
      * @throws
