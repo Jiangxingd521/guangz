@@ -31,9 +31,9 @@ public class PrizeTicketLogController {
     private ISerPrizeRecodeInfoService infoService;
 
     @GetMapping("getPageList")
-    public Map<String,Object> getPageList(
+    public Map<String, Object> getPageList(
             QueryPrizeCondition condition
-    ){
+    ) {
         try {
             Page<PrizeTicketLogVo> pageVo = infoService.findPrizeTicketLogVoPageByCondition(condition);
             return WebResult.success().put("pageVo", pageVo).toMap();

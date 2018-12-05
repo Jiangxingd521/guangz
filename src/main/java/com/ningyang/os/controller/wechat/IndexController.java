@@ -41,11 +41,11 @@ public class IndexController {
 
     //布奖信息
     @Autowired
-    private ISerPrizeRecodeInfoService  serPrizeRecodeInfoService;
+    private ISerPrizeRecodeInfoService serPrizeRecodeInfoService;
 
     //会员扫码记录
     @Autowired
-    private IMemberScanningService  iMemberScanningService;
+    private IMemberScanningService iMemberScanningService;
 
     //会员信息
     @Autowired
@@ -62,13 +62,12 @@ public class IndexController {
     private ISerPrizeManagerInfoService iSerPrizeManagerInfoService;
 
 
-
     /***
      * 确认请求来自微信服务器
      * @return
      */
     @GetMapping("signture")
-    public void  getErpDatas(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    public void getErpDatas(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         WechatSignture.doWechatSignture(request, response);
     }
 
@@ -76,25 +75,26 @@ public class IndexController {
      * 溯源主界面
      * @return
      */
-    @RequestMapping(value="/index/{comanyid}/{prcode}/{day}", method = RequestMethod.GET)
-    public String  suyuanIndexForPrize(@RequestHeader("User-Agent") String userAgent, final @PathVariable("comanyid") Integer comanyid, final @PathVariable("prcode") String prcode, final @PathVariable("day") Integer day,
-                                       String source,String code, HttpServletRequest request, HttpServletResponse reponse, ModelMap model, HttpSession session){
+    @RequestMapping(value = "/index/{comanyid}/{prcode}/{day}", method = RequestMethod.GET)
+    public String suyuanIndexForPrize(@RequestHeader("User-Agent") String userAgent, final @PathVariable("comanyid") Integer comanyid, final @PathVariable("prcode") String prcode, final @PathVariable("day") Integer day,
+                                      String source, String code, HttpServletRequest request, HttpServletResponse reponse, ModelMap model, HttpSession session) {
         //判断是否是微信浏览器
-        boolean  isWechatBrower= BrowerUtils.isWechatBrower(userAgent);
-        session.setAttribute("source",source);
-        String openid="";
-       // 如果微信浏览器则使用微信网页授权模型
-        String url="http://" + request.getServerName() +/*":"+request.getServerPort()+*/ request.getContextPath()+"/wechat/prize";
-        if(isWechatBrower&& StringUtils.isEmpty(code)){
+        boolean isWechatBrower = BrowerUtils.isWechatBrower(userAgent);
+        session.setAttribute("source", source);
+        String openid = "";
+        // 如果微信浏览器则使用微信网页授权模型
+        String url = "http://" + request.getServerName() +/*":"+request.getServerPort()+*/ request.getContextPath() + "/wechat/prize";
+        if (isWechatBrower && StringUtils.isEmpty(code)) {
             System.out.println(url.toString());
             System.out.println(wechatService.getWechatRedirectUrl(url.toString()));
             return "redirect:" + wechatService.getWechatRedirectUrl(url.toString());
-        }else {
-            return "redirect:" +url;
+        } else {
+            return "redirect:" + url;
         }
 
 
     }
+
     /***
      * 溯源主界面 抽奖界面
      * @return
@@ -102,23 +102,24 @@ public class IndexController {
     @GetMapping("prize")
     public String suyuanPrize(@RequestHeader("User-Agent") String userAgent,
                               String code, HttpServletRequest request,
-                              HttpServletResponse reponse, ModelMap model, Long   prizeRecorId,HttpSession session){
+                              HttpServletResponse reponse, ModelMap model, Long prizeRecorId, HttpSession session) {
         //,@SessionAttribute("source")String source ,@SessionAttribute("openid") String openid ,
-        String source=session.getAttribute("source")==null?"":session.getAttribute("source").toString();
-        String openid=session.getAttribute("openid")==null?"":session.getAttribute("openid").toString();;
+        String source = session.getAttribute("source") == null ? "" : session.getAttribute("source").toString();
+        String openid = session.getAttribute("openid") == null ? "" : session.getAttribute("openid").toString();
+        ;
         //判断是否是微信浏览器
-        boolean  isWechatBrower= BrowerUtils.isWechatBrower(userAgent);
-        if(StringUtils.isNotEmpty(code)){
+        boolean isWechatBrower = BrowerUtils.isWechatBrower(userAgent);
+        if (StringUtils.isNotEmpty(code)) {
             Message<Oauth2To> message = wechatService.getOauth(code);
             if (message.getType() == Message.Type.error) {
                 LOGGER.error("读取用户信息失败......");
             } else if (message.getType() == Message.Type.success) {
-                openid=message.getContent().getOpenid();
-                session.setAttribute("openid",openid);
-                MemberInfo memberInfo= (MemberInfo) iMemberInfoService.getObj(new QueryWrapper<MemberInfo>().eq("open_id",message.getContent().getOpenid()));
-                if(memberInfo==null){
-                    memberInfo=this.getUserInfo(message.getContent().getOpenid());
-                    if(memberInfo!=null){
+                openid = message.getContent().getOpenid();
+                session.setAttribute("openid", openid);
+                MemberInfo memberInfo = (MemberInfo) iMemberInfoService.getObj(new QueryWrapper<MemberInfo>().eq("open_id", message.getContent().getOpenid()));
+                if (memberInfo == null) {
+                    memberInfo = this.getUserInfo(message.getContent().getOpenid());
+                    if (memberInfo != null) {
                         System.out.println(memberInfo.getOpenId());
                         iMemberInfoService.save(memberInfo);
                     }
@@ -127,8 +128,8 @@ public class IndexController {
             }
         }
         /**抽奖*/
-        if(/*StringUtils.isNotEmpty(openid)&&*/prizeRecorId!=null){
-            SerPrizeRecodeInfo prizeRecodeInfo=serPrizeRecodeInfoService.getById(prizeRecorId);
+        if (/*StringUtils.isNotEmpty(openid)&&*/prizeRecorId != null) {
+            SerPrizeRecodeInfo prizeRecodeInfo = serPrizeRecodeInfoService.getById(prizeRecorId);
             prizeRecodeInfo.setPrizeRecorId(prizeRecorId);
             prizeRecodeInfo.setCashTime(new Date());
             prizeRecodeInfo.setOpenId(openid);
@@ -137,29 +138,28 @@ public class IndexController {
         }
 
 
-
         //读取读取商品信息  获取产品状态
-        SerGoodsInfo  goodsInfo=   serGoodsInfoService.getOne(new QueryWrapper<SerGoodsInfo>().eq("m1",source));
+        SerGoodsInfo goodsInfo = serGoodsInfoService.getOne(new QueryWrapper<SerGoodsInfo>().eq("m1", source));
         //读取产品数据
         //读取布奖记录
-        SerPrizeRecodeInfo prizeRecodeInfo = serPrizeRecodeInfoService.getOne(new QueryWrapper<SerPrizeRecodeInfo>().eq("pr_code",source));
+        SerPrizeRecodeInfo prizeRecodeInfo = serPrizeRecodeInfoService.getOne(new QueryWrapper<SerPrizeRecodeInfo>().eq("pr_code", source));
 
         //读取设定类型
-        SerPrizeManagerInfo serPrizeManagerInfo=null;
-        SerPrizeSetInfo serPrizeSetInfo=null;
-        if(prizeRecodeInfo!=null){
-            serPrizeSetInfo=  prizeSetInfoService.getById(prizeRecodeInfo.getPrizeSetId());
-          if(serPrizeSetInfo!=null){
-              serPrizeManagerInfo=  iSerPrizeManagerInfoService.getById(serPrizeSetInfo.getPrizeManagerId());
-          }
+        SerPrizeManagerInfo serPrizeManagerInfo = null;
+        SerPrizeSetInfo serPrizeSetInfo = null;
+        if (prizeRecodeInfo != null) {
+            serPrizeSetInfo = prizeSetInfoService.getById(prizeRecodeInfo.getPrizeSetId());
+            if (serPrizeSetInfo != null) {
+                serPrizeManagerInfo = iSerPrizeManagerInfoService.getById(serPrizeSetInfo.getPrizeManagerId());
+            }
         }
-        boolean  isHB=false;//是否可领取红包
-        boolean  isPT=false;//是否可领取积分
-        if(goodsInfo!=null&&goodsInfo.getGoodsState()==2&&prizeRecodeInfo!=null&&prizeRecodeInfo.getPrizeState()==1){
-            if(prizeRecodeInfo.getSdata1()!=null&prizeRecodeInfo.getSdata1().equals("HB")){
-                        isHB=true;
-            }else if(prizeRecodeInfo.getSdata1()!=null&prizeRecodeInfo.getSdata1().equals("PT")){
-                  isPT=true;//是否可领取积分
+        boolean isHB = false;//是否可领取红包
+        boolean isPT = false;//是否可领取积分
+        if (goodsInfo != null && goodsInfo.getGoodsState() == 2 && prizeRecodeInfo != null && prizeRecodeInfo.getPrizeState() == 1) {
+            if (prizeRecodeInfo.getSdata1() != null & prizeRecodeInfo.getSdata1().equals("HB")) {
+                isHB = true;
+            } else if (prizeRecodeInfo.getSdata1() != null & prizeRecodeInfo.getSdata1().equals("PT")) {
+                isPT = true;//是否可领取积分
             }
         }
 
@@ -168,8 +168,8 @@ public class IndexController {
         String ip = this.getIpAddr(request);
         //记录扫码次数
 
-        MemberScanning  memberScanning=   iMemberScanningService.getOne(new QueryWrapper<MemberScanning>().eq("sdata1",ip).eq("pr_code",source).eq("open_id",openid));
-        if(memberScanning==null) {
+        MemberScanning memberScanning = iMemberScanningService.getOne(new QueryWrapper<MemberScanning>().eq("sdata1", ip).eq("pr_code", source).eq("open_id", openid));
+        if (memberScanning == null) {
             memberScanning = new MemberScanning();
             memberScanning.setOpenId(openid);
             memberScanning.setPrCode(source);
@@ -179,14 +179,14 @@ public class IndexController {
         }
 
 
-        model.addAttribute("isHB",isHB);
-        model.addAttribute("isPT",isPT);
-        model.addAttribute("prizeRecodeInfo",prizeRecodeInfo);
-        model.addAttribute("serPrizeSetInfo",serPrizeSetInfo);
-        model.addAttribute("goodsInfo",goodsInfo);
+        model.addAttribute("isHB", isHB);
+        model.addAttribute("isPT", isPT);
+        model.addAttribute("prizeRecodeInfo", prizeRecodeInfo);
+        model.addAttribute("serPrizeSetInfo", serPrizeSetInfo);
+        model.addAttribute("goodsInfo", goodsInfo);
 
 
-        return  "wechat/index";
+        return "wechat/index";
     }
 
 
@@ -195,38 +195,38 @@ public class IndexController {
      * @return
      */
     @GetMapping("details")
-    public String suyuanProdDetails(@RequestHeader("User-Agent") String userAgent, @SessionAttribute("source")String source,Long  goodid, ModelMap model){
+    public String suyuanProdDetails(@RequestHeader("User-Agent") String userAgent, @SessionAttribute("source") String source, Long goodid, ModelMap model) {
         //读取读取商品信息  获取产品状态
-       SerGoodsInfo goodsInfo = serGoodsInfoService.getById(goodid);
+        SerGoodsInfo goodsInfo = serGoodsInfoService.getById(goodid);
 
-       //d读取产品信息
-        SerBrandSeriesProductInfo productInfo=productInfoService.getById(goodsInfo.getBrandSeriesProductId());
+        //d读取产品信息
+        SerBrandSeriesProductInfo productInfo = productInfoService.getById(goodsInfo.getBrandSeriesProductId());
         //读取扫码次数
-        Integer  scanns= iMemberScanningService.count(new QueryWrapper<MemberScanning>().eq("pr_code",goodsInfo.getM1()));
+        Integer scanns = iMemberScanningService.count(new QueryWrapper<MemberScanning>().eq("pr_code", goodsInfo.getM1()));
 
         //读取扫码时间
-        MemberScanning  memberScanning= iMemberScanningService.getOne(new QueryWrapper<MemberScanning>().eq("pr_code",goodsInfo.getM1()));
+        MemberScanning memberScanning = iMemberScanningService.getOne(new QueryWrapper<MemberScanning>().eq("pr_code", goodsInfo.getM1()));
         //读取布奖记录
-        SerPrizeRecodeInfo prizeRecodeInfo = serPrizeRecodeInfoService.getOne(new QueryWrapper<SerPrizeRecodeInfo>().eq("pr_code",source));
+        SerPrizeRecodeInfo prizeRecodeInfo = serPrizeRecodeInfoService.getOne(new QueryWrapper<SerPrizeRecodeInfo>().eq("pr_code", source));
 
         //读取设定类型
-        SerPrizeManagerInfo serPrizeManagerInfo=null;
-        SerPrizeSetInfo serPrizeSetInfo=null;
-        if(prizeRecodeInfo!=null){
-            serPrizeSetInfo=  prizeSetInfoService.getById(prizeRecodeInfo.getPrizeSetId());
-            if(serPrizeSetInfo!=null){
-                serPrizeManagerInfo=  iSerPrizeManagerInfoService.getById(serPrizeSetInfo.getPrizeManagerId());
+        SerPrizeManagerInfo serPrizeManagerInfo = null;
+        SerPrizeSetInfo serPrizeSetInfo = null;
+        if (prizeRecodeInfo != null) {
+            serPrizeSetInfo = prizeSetInfoService.getById(prizeRecodeInfo.getPrizeSetId());
+            if (serPrizeSetInfo != null) {
+                serPrizeManagerInfo = iSerPrizeManagerInfoService.getById(serPrizeSetInfo.getPrizeManagerId());
             }
         }
 
 
-        model.addAttribute("serPrizeSetInfo",serPrizeSetInfo);
-        model.addAttribute("scanns",scanns);
-        model.addAttribute("goodsInfo",goodsInfo);
-        model.addAttribute("productInfo",productInfo);
-        model.addAttribute("memberScanning",memberScanning);
+        model.addAttribute("serPrizeSetInfo", serPrizeSetInfo);
+        model.addAttribute("scanns", scanns);
+        model.addAttribute("goodsInfo", goodsInfo);
+        model.addAttribute("productInfo", productInfo);
+        model.addAttribute("memberScanning", memberScanning);
 
-        return  "wechat/details";
+        return "wechat/details";
     }
 
 
@@ -235,18 +235,18 @@ public class IndexController {
      * @return
      */
     @GetMapping("activity")
-    public String suyuanPrizeRule(@RequestHeader("User-Agent") String userAgent,Long  prizeSetId,Long goodid,@SessionAttribute("source")String source, ModelMap model){
+    public String suyuanPrizeRule(@RequestHeader("User-Agent") String userAgent, Long prizeSetId, Long goodid, @SessionAttribute("source") String source, ModelMap model) {
         //读取规则信息
-        SerPrizeSetInfo serPrizeSetInfo= prizeSetInfoService.getById(prizeSetId);
-        String content ="";
-        if(serPrizeSetInfo!=null) {
+        SerPrizeSetInfo serPrizeSetInfo = prizeSetInfoService.getById(prizeSetId);
+        String content = "";
+        if (serPrizeSetInfo != null) {
             SerPrizeManagerInfo serPrizeManagerInfo = iSerPrizeManagerInfoService.getById(serPrizeSetInfo.getPrizeManagerId());
             content = serPrizeManagerInfo.getPrizeContent();
         }
-       model.addAttribute("content",content);
-        model.addAttribute("goodid",goodid);
+        model.addAttribute("content", content);
+        model.addAttribute("goodid", goodid);
 
-        return  "wechat/activity";
+        return "wechat/activity";
     }
 
     private MemberInfo getUserInfo(String openId) {
@@ -265,34 +265,33 @@ public class IndexController {
 
     public static String getIpAddr(HttpServletRequest request) {
         String ip = request.getHeader("x-forwarded-for");
-        if(ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
+        if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
             ip = request.getHeader("Proxy-Client-IP");
         }
-        if(ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
+        if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
             ip = request.getHeader("WL-Proxy-Client-IP");
         }
-        if(ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
+        if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
             ip = request.getRemoteAddr();
-            if(ip.equals("127.0.0.1")){
+            if (ip.equals("127.0.0.1")) {
                 //根据网卡取本机配置的IP
-                InetAddress inet=null;
+                InetAddress inet = null;
                 try {
                     inet = InetAddress.getLocalHost();
                 } catch (UnknownHostException e) {
                     e.printStackTrace();
                 }
-                ip= inet.getHostAddress();
+                ip = inet.getHostAddress();
             }
         }
         // 对于通过多个代理的情况，第一个IP为客户端真实IP,多个IP按照','分割
-        if(ip != null && ip.length() > 15){
-            if(ip.indexOf(",")>0){
-                ip = ip.substring(0,ip.indexOf(","));
+        if (ip != null && ip.length() > 15) {
+            if (ip.indexOf(",") > 0) {
+                ip = ip.substring(0, ip.indexOf(","));
             }
         }
         return ip;
     }
-
 
 
 }

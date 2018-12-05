@@ -32,9 +32,9 @@ public class PrizeSetLogController extends BaseController {
     private ISerPrizeRecodeInfoService infoService;
 
     @GetMapping("getPageList")
-    public Map<String,Object> getPageList(
+    public Map<String, Object> getPageList(
             QueryPrizeCondition condition
-    ){
+    ) {
         try {
             Page<PrizeSetLogVo> pageVo = infoService.findPrizeSetLogVoPageByCondition(condition);
             return WebResult.success().put("pageVo", pageVo).toMap();
@@ -45,10 +45,10 @@ public class PrizeSetLogController extends BaseController {
     }
 
     @PostMapping("add")
-    public Map<String,Object> add(
+    public Map<String, Object> add(
             @RequestHeader("Authorization") String userToken,
             @RequestBody PrizeSetLogCommand command
-    ){
+    ) {
         try {
             Long operateUserId = getBaseUserInfo(userToken).getId();
             boolean flag = infoService.add(command, operateUserId);

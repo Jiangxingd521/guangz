@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import com.ningyang.os.action.input.command.web.base.ProductCommand;
 import com.ningyang.os.action.input.condition.base.QueryBrandSeriesProductCondition;
 import com.ningyang.os.action.output.vo.web.base.BrandSeriesProductVo;
+import com.ningyang.os.action.output.vo.web.base.CodeTypeVo;
 import com.ningyang.os.action.output.vo.web.base.ProductVo;
 import com.ningyang.os.pojo.SerBrandSeriesProductInfo;
 
@@ -25,4 +26,6 @@ public interface ISerBrandSeriesProductInfoService extends IService<SerBrandSeri
     boolean addOrUpdate(ProductCommand command);
 
     BrandSeriesProductVo findBrandSeriesProductVo(Long productId);
+
+    List<CodeTypeVo> findCodeTypeVoByCondition(QueryBrandSeriesProductCondition condition);
 }

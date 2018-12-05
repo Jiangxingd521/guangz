@@ -2,6 +2,7 @@ package com.ningyang.os.controller.base;
 
 import com.ningyang.os.action.input.command.web.base.ProductCommand;
 import com.ningyang.os.action.input.condition.base.QueryBrandSeriesProductCondition;
+import com.ningyang.os.action.output.vo.web.base.CodeTypeVo;
 import com.ningyang.os.action.output.vo.web.base.ProductVo;
 import com.ningyang.os.action.utils.WebResult;
 import com.ningyang.os.service.ISerBrandSeriesProductInfoService;
@@ -57,6 +58,25 @@ public class ProductController {
         } catch (Exception e) {
             LOGGER.error(e.getMessage(), e);
             return WebResult.failure(OPERATING_ERROR.getInfo()).toMap();
+        }
+    }
+
+    /**
+     * 获取商品系列的组成码
+     *
+     * @param condition
+     * @return
+     */
+    @GetMapping("getCodeTypeList")
+    public Map<String, Object> getCodeTypeList(
+            QueryBrandSeriesProductCondition condition
+    ) {
+        try {
+            List<CodeTypeVo> listVo = infoService.findCodeTypeVoByCondition(condition);
+            return WebResult.success().put("listVo", listVo).toMap();
+        } catch (Exception e) {
+            LOGGER.error(e.getMessage(), e);
+            return WebResult.failure(DATA_ERROR.getInfo()).toMap();
         }
     }
 

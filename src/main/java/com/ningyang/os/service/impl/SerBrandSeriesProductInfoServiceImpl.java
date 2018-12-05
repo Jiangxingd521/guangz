@@ -6,6 +6,7 @@ import com.ningyang.os.action.input.command.web.base.ProductCommand;
 import com.ningyang.os.action.input.condition.base.QueryBrandSeriesProductCondition;
 import com.ningyang.os.action.output.dto.web.FileUploadDto;
 import com.ningyang.os.action.output.vo.web.base.BrandSeriesProductVo;
+import com.ningyang.os.action.output.vo.web.base.CodeTypeVo;
 import com.ningyang.os.action.output.vo.web.base.ProductVo;
 import com.ningyang.os.dao.SerBrandSeriesProductInfoMapper;
 import com.ningyang.os.pojo.SerBrandSeriesProductCodeInfo;
@@ -126,5 +127,10 @@ public class SerBrandSeriesProductInfoServiceImpl extends ServiceImpl<SerBrandSe
     @Override
     public BrandSeriesProductVo findBrandSeriesProductVo(Long productId) {
         return baseMapper.selectBrandSeriesProductVo(productId);
+    }
+
+    @Override
+    public List<CodeTypeVo> findCodeTypeVoByCondition(QueryBrandSeriesProductCondition condition) {
+        return baseMapper.selectCodeTypeVoByCondition(condition);
     }
 }

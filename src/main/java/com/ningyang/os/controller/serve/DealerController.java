@@ -74,13 +74,14 @@ public class DealerController {
 
     /**
      * 校验注册时是否已经含有社会代码
+     *
      * @param command
      * @return
      */
     @PostMapping("checkDealerCode")
-    public Map<String,Object> checkDealerCode(
+    public Map<String, Object> checkDealerCode(
             @RequestBody DealerCommand command
-    ){
+    ) {
         try {
             boolean flag = infoService.checkDealerCode(command);
             if (flag) {

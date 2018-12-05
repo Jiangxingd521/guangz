@@ -100,9 +100,9 @@ public class CodeApplyController extends BaseController {
                         command.setCodePosition(2L);
                     }
                     //设定内外码
-                    if(command.getCodePositionType()==1){
+                    if (command.getCodePositionType() == 1) {
                         command.setCodePosition(1L);
-                    }else{
+                    } else {
                         command.setCodePosition(2L);
                     }
                     command.setCodeOrder(getOrderNum());

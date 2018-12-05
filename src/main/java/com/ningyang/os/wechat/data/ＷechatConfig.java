@@ -24,48 +24,50 @@ public class ＷechatConfig {
     public static final String transfers = "https://api.mch.weixin.qq.com/mmpaymkttransfers/promotion/transfers";
 
     //获取微信用户信息
-    public static final String WX_USER_INFO= "https://api.weixin.qq.com/cgi-bin/user/info?access_token=ACCESS_TOKEN&openid=OPENID&lang=zh_CN";
+    public static final String WX_USER_INFO = "https://api.weixin.qq.com/cgi-bin/user/info?access_token=ACCESS_TOKEN&openid=OPENID&lang=zh_CN";
     // 菜单创建（POST） 限100（次/天）
     public static final String MENU_CREATE_URL = "https://api.weixin.qq.com/cgi-bin/menu/create?access_token=ACCESS_TOKEN";
 
 
     //提款证书路径
-    public static final String giveMoneyURL ="/data/apiclient_cert.p12";
+    public static final String giveMoneyURL = "/data/apiclient_cert.p12";
     //public static final String giveMoneyURL ="d:\\apiclient_cert.p12";
     //网页授权获取OpenID
-    public static final String  WECHAT_OAUTH="https://api.weixin.qq.com/sns/oauth2/access_token?appid=APPID&secret=SECRET&code=CODE&grant_type=authorization_code ";
+    public static final String WECHAT_OAUTH = "https://api.weixin.qq.com/sns/oauth2/access_token?appid=APPID&secret=SECRET&code=CODE&grant_type=authorization_code ";
     //网页授权界面
-    public static final String  WECHAT_OAUTHVIEW="https://open.weixin.qq.com/connect/oauth2/authorize?appid=APPID&redirect_uri=REDIRECT_URI&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect";
+    public static final String WECHAT_OAUTHVIEW = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=APPID&redirect_uri=REDIRECT_URI&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect";
 
     //微信同意下单界面
-    public static final String  WECHAT_UNIFIEORDER="https://api.mch.weixin.qq.com/pay/unifiedorder";
+    public static final String WECHAT_UNIFIEORDER = "https://api.mch.weixin.qq.com/pay/unifiedorder";
     //微信回调接口
-    public static final String  WECHAT_NOTIFY_URL="http://youyicloud.net/node/pay/notify";//http://m.leesche.cn/node/payinfo/notify
+    public static final String WECHAT_NOTIFY_URL = "http://youyicloud.net/node/pay/notify";//http://m.leesche.cn/node/payinfo/notify
 
     //微信取现 NO_CHECK：不校验真实姓名
-    public static final String WECHAT_TRANSFERS_NO_CHECK="NO_CHECK";
+    public static final String WECHAT_TRANSFERS_NO_CHECK = "NO_CHECK";
 
     //微信取现强校验真实姓名（未实名认证的用户会校验失败，无法转账）
-    public static final String WECHAT_TRANSFERS_FORCE_CHECK="FORCE_CHECK";
+    public static final String WECHAT_TRANSFERS_FORCE_CHECK = "FORCE_CHECK";
 
     //针对已实名认证的用户才校验真实姓名（未实名认证用户不校验，可以转账成功）
-    public static final String WECHAT_TRANSFERS_OPTION_CHECK="OPTION_CHECK";
+    public static final String WECHAT_TRANSFERS_OPTION_CHECK = "OPTION_CHECK";
 
-    public static final Integer  PAY_WECHAT=2;
+    public static final Integer PAY_WECHAT = 2;
 
-    public static  final Integer PAY_ALIPAY=3;
+    public static final Integer PAY_ALIPAY = 3;
 
 
-    public static final String  WECHAT_ACCESS_TOKEN="https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=APPID&secret=APPSECRET";
+    public static final String WECHAT_ACCESS_TOKEN = "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=APPID&secret=APPSECRET";
 
-    public static final String  WECHAT_JS_TOKEN="https://api.weixin.qq.com/cgi-bin/ticket/getticket?access_token=ACCESS_TOKEN&type=jsapi";
+    public static final String WECHAT_JS_TOKEN = "https://api.weixin.qq.com/cgi-bin/ticket/getticket?access_token=ACCESS_TOKEN&type=jsapi";
 
     public static final String GIZWITSZAPI = "noti.gizwitsapi.com";
 
 
-    public static final int OVERTIME = 30*1000;
+    public static final int OVERTIME = 30 * 1000;
 
-    /** ---------------------------------------支付宝授权相关配置-------------------------------------------------*/
+    /**
+     * ---------------------------------------支付宝授权相关配置-------------------------------------------------
+     */
     public static final String ALIPAY_APPID = "2016092401964622";
     public static final String ALIPAY_GATEWAY = "https://openapi.alipay.com/gateway.do";
     public static final String ALIPAY_SIGN_TYPE = "RSA";

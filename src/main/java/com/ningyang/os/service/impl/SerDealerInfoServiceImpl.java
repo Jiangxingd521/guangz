@@ -97,7 +97,7 @@ public class SerDealerInfoServiceImpl extends ServiceImpl<SerDealerInfoMapper, S
 
     @Override
     public boolean checkDealerCode(DealerCommand command) {
-        int dealerCodeCount = count(new QueryWrapper<SerDealerInfo>().eq("social_code",command.getSocialCode()));
-        return dealerCodeCount>0?false:true;
+        int dealerCodeCount = count(new QueryWrapper<SerDealerInfo>().eq("social_code", command.getSocialCode()));
+        return dealerCodeCount > 0 ? false : true;
     }
 }

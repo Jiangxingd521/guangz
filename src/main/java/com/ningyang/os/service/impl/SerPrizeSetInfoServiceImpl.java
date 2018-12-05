@@ -35,8 +35,8 @@ public class SerPrizeSetInfoServiceImpl extends ServiceImpl<SerPrizeSetInfoMappe
     @Override
     public List<PrizeSetVo> findPrizeSetVoListByCondition(QueryPrizeCondition condition) {
         List<PrizeSetVo> listTemp = baseMapper.selectPrizeSetVoListByCondition(condition);
-        for(PrizeSetVo vo : listTemp){
-            Date[] prizeDate = {vo.getPrizeStartDate(),vo.getPrizeEndDate()};
+        for (PrizeSetVo vo : listTemp) {
+            Date[] prizeDate = {vo.getPrizeStartDate(), vo.getPrizeEndDate()};
             vo.setPrizeDate(prizeDate);
             List<String> regionList = regionInfoService.findRegionThreeList(String.valueOf(vo.getRegionId()));
             vo.setRegionList(regionList);
@@ -48,7 +48,7 @@ public class SerPrizeSetInfoServiceImpl extends ServiceImpl<SerPrizeSetInfoMappe
     public boolean addOrUpdate(PrizeSetCommand command, Long userId) {
         SerPrizeSetInfo info = getById(command.getPrizeSetId());
         boolean flag;
-        if(info!=null){
+        if (info != null) {
             info.setPrizeManagerId(command.getManagerId());
             info.setPrizeSetName(command.getPrizeSetName());
             info.setProdId(command.getProdId());
@@ -71,7 +71,7 @@ public class SerPrizeSetInfoServiceImpl extends ServiceImpl<SerPrizeSetInfoMappe
             info.setUserId(userId);
             info.setUpdateTime(new Date());
             flag = updateById(info);
-        }else{
+        } else {
             info = new SerPrizeSetInfo();
             info.setPrizeManagerId(command.getManagerId());
             info.setPrizeSetName(command.getPrizeSetName());
