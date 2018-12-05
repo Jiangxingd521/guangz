@@ -72,4 +72,25 @@ public class DealerController {
         }
     }
 
+    /**
+     * 校验注册时是否已经含有社会代码
+     * @param command
+     * @return
+     */
+    @PostMapping("checkDealerCode")
+    public Map<String,Object> checkDealerCode(
+            @RequestBody DealerCommand command
+    ){
+        try {
+            boolean flag = infoService.checkDealerCode(command);
+            if (flag) {
+                return WebResult.success().toMap();
+            }
+            return WebResult.failure("社会代码已经存在").toMap();
+        } catch (Exception e) {
+            LOGGER.error(e.getMessage(), e);
+            return WebResult.failure(OPERATING_ERROR.getInfo()).toMap();
+        }
+    }
+
 }

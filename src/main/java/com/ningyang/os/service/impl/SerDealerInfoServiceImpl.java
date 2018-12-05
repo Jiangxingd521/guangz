@@ -94,4 +94,10 @@ public class SerDealerInfoServiceImpl extends ServiceImpl<SerDealerInfoMapper, S
     public List<DealerVo> findDealerVoListByCondition() {
         return baseMapper.selectDealerVoListByCondition();
     }
+
+    @Override
+    public boolean checkDealerCode(DealerCommand command) {
+        int dealerCodeCount = count(new QueryWrapper<SerDealerInfo>().eq("social_code",command.getSocialCode()));
+        return dealerCodeCount>0?false:true;
+    }
 }
