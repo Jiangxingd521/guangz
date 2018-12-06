@@ -38,4 +38,19 @@
         <result column="update_time" property="updateTime"/>
     </resultMap>
 
+    <select id="selectMemberInfoVoPageByCondition"
+            parameterType="com.ningyang.os.action.input.condition.serve.QueryMemberCondition"
+            resultType="com.ningyang.os.action.output.vo.web.serve.MemberInfoVo"
+    >
+        select a.nick_name,a.sex,a.country,a.province,a.city,a.create_time from t_member_info a
+        limit #{page},#{limit}
+    </select>
+
+    <select id="selectMemberInfoVoPageCountByCondition"
+            parameterType="com.ningyang.os.action.input.condition.serve.QueryMemberCondition"
+            resultType="int"
+    >
+        select count(1) from t_member_info
+    </select>
+
 </mapper>

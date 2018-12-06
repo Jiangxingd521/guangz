@@ -1,7 +1,11 @@
 package com.ningyang.os.dao;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.ningyang.os.action.input.condition.serve.QueryMemberCondition;
+import com.ningyang.os.action.output.vo.web.serve.MemberInfoVo;
 import com.ningyang.os.pojo.MemberInfo;
+
+import java.util.List;
 
 /**
  * <p>
@@ -12,5 +16,9 @@ import com.ningyang.os.pojo.MemberInfo;
  * @since 2018-11-29
  */
 public interface MemberInfoMapper extends BaseMapper<MemberInfo> {
+
+    List<MemberInfoVo> selectMemberInfoVoPageByCondition(QueryMemberCondition condition);
+
+    int selectMemberInfoVoPageCountByCondition(QueryMemberCondition condition);
 
 }
