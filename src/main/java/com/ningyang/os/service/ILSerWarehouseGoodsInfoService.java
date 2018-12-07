@@ -7,6 +7,8 @@ import com.ningyang.os.action.input.condition.serve.QueryGoodsPutCondition;
 import com.ningyang.os.action.output.vo.web.serve.GoodsPutInVo;
 import com.ningyang.os.pojo.LSerWarehouseGoodsInfo;
 
+import java.util.Map;
+
 /**
  * <p>
  * 商品入库记录日志 服务类
@@ -17,7 +19,7 @@ import com.ningyang.os.pojo.LSerWarehouseGoodsInfo;
  */
 public interface ILSerWarehouseGoodsInfoService extends IService<LSerWarehouseGoodsInfo> {
 
-    boolean add(ApiWarehousePutInCommand command);
+    Map<String,Object> add(ApiWarehousePutInCommand command);
 
     Page<GoodsPutInVo> findGoodsPutInVoPageByCondition(QueryGoodsPutCondition condition);
 

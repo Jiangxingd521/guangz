@@ -5,18 +5,16 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.ningyang.os.action.input.command.web.base.ProductCommand;
 import com.ningyang.os.action.input.condition.base.QueryBrandSeriesProductCondition;
 import com.ningyang.os.action.output.dto.web.FileUploadDto;
-import com.ningyang.os.action.output.vo.web.base.BrandSeriesProductVo;
-import com.ningyang.os.action.output.vo.web.base.CodeTypeVo;
-import com.ningyang.os.action.output.vo.web.base.ProductVo;
+import com.ningyang.os.action.output.vo.api.ApiBrandSeriesProductVo;
+import com.ningyang.os.action.output.vo.api.ApiProductVo;
+import com.ningyang.os.action.output.vo.api.ApiSeriesVo;
+import com.ningyang.os.action.output.vo.web.base.*;
 import com.ningyang.os.dao.SerBrandSeriesProductInfoMapper;
 import com.ningyang.os.pojo.SerBrandSeriesProductCodeInfo;
 import com.ningyang.os.pojo.SerBrandSeriesProductFile;
 import com.ningyang.os.pojo.SerBrandSeriesProductInfo;
 import com.ningyang.os.pojo.SysFileInfo;
-import com.ningyang.os.service.ISerBrandSeriesProductCodeInfoService;
-import com.ningyang.os.service.ISerBrandSeriesProductFileService;
-import com.ningyang.os.service.ISerBrandSeriesProductInfoService;
-import com.ningyang.os.service.ISysFileInfoService;
+import com.ningyang.os.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -41,6 +39,10 @@ public class SerBrandSeriesProductInfoServiceImpl extends ServiceImpl<SerBrandSe
     private ISerBrandSeriesProductCodeInfoService codeInfoService;
     @Autowired
     private ISysFileInfoService fileService;
+    @Autowired
+    private ISerBrandInfoService brandInfoService;
+    @Autowired
+    private ISerBrandSeriesInfoService seriesInfoService;
 
     @Override
     public List<ProductVo> findProductVoByCondition(QueryBrandSeriesProductCondition condition) {
@@ -132,5 +134,40 @@ public class SerBrandSeriesProductInfoServiceImpl extends ServiceImpl<SerBrandSe
     @Override
     public List<CodeTypeVo> findCodeTypeVoByCondition(QueryBrandSeriesProductCondition condition) {
         return baseMapper.selectCodeTypeVoByCondition(condition);
+    }
+
+    @Override
+    public List<ApiBrandSeriesProductVo> findApiBrandSeriesProductVoCondition() {
+        QueryBrandSeriesProductCondition condition = new QueryBrandSeriesProductCondition();
+        List<ApiBrandSeriesProductVo> brandSeriesProductVoList = new ArrayList<>();
+        condition.setBrandState(0);
+        List<BrandVo> brandList = brandInfoService.findBrandVoByCondition(condition);
+        for(BrandVo brandVo : brandList){
+            ApiBrandSeriesProductVo apiBrandSeriesProductVo = new ApiBrandSeriesProductVo();
+            apiBrandSeriesProductVo.setBrandName(brandVo.getBrandName());
+            List<ApiSeriesVo> seriesListVo = new ArrayList<>();
+            condition.setBrandId(brandVo.getBrandId());
+            condition.setSeriesState(0);
+            List<SeriesVo> seriesList = seriesInfoService.findSeriesVoByCondition(condition);
+            for(SeriesVo seriesVo : seriesList){
+                ApiSeriesVo apiSeriesVo = new ApiSeriesVo();
+                apiSeriesVo.setSeriesName(seriesVo.getSeriesName());
+                List<ApiProductVo> productListVo = new ArrayList<>();
+                List<SerBrandSeriesProductInfo> productInfoList = list(new QueryWrapper<SerBrandSeriesProductInfo>()
+                        .eq("series_id",seriesVo.getSeriesId())
+                        .eq("product_state",0));
+                for(SerBrandSeriesProductInfo productInfo : productInfoList){
+                    ApiProductVo productVo = new ApiProductVo();
+                    productVo.setProductId(productInfo.getId());
+                    productVo.setProductName(productInfo.getProductName());
+                    productListVo.add(productVo);
+                }
+                apiSeriesVo.setProductListVo(productListVo);
+                seriesListVo.add(apiSeriesVo);
+            }
+            apiBrandSeriesProductVo.setSeriesListVo(seriesListVo);
+            brandSeriesProductVoList.add(apiBrandSeriesProductVo);
+        }
+        return brandSeriesProductVoList;
     }
 }

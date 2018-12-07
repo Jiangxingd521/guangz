@@ -1,15 +1,19 @@
 package com.ningyang.os.controller.api.app;
 
+import com.alibaba.fastjson.JSONObject;
 import com.ningyang.os.action.input.command.api.ApiWarehousePutInCommand;
 import com.ningyang.os.action.input.command.api.ApiWarehousePutOutCommand;
+import com.ningyang.os.action.input.command.api.ApiWarehouseSaleOrderCommand;
 import com.ningyang.os.action.input.condition.serve.QueryOrderCondition;
+import com.ningyang.os.action.output.vo.api.ApiBrandSeriesProductVo;
+import com.ningyang.os.action.output.vo.web.serve.DealerVo;
 import com.ningyang.os.action.output.vo.web.serve.SaleOrderVo;
+import com.ningyang.os.action.output.vo.web.serve.WarehouseVo;
 import com.ningyang.os.action.utils.WebResult;
 import com.ningyang.os.controller.system.BaseController;
+import com.ningyang.os.pojo.LSerWarehouseGoodsInfo;
 import com.ningyang.os.pojo.SysUserInfo;
-import com.ningyang.os.service.ILSerWarehouseGoodsInfoService;
-import com.ningyang.os.service.ILSerWarehouseGoodsOutInfoService;
-import com.ningyang.os.service.ISerOrderInfoService;
+import com.ningyang.os.service.*;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
@@ -19,6 +23,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -42,6 +47,33 @@ public class ApiWareHouseController extends BaseController {
     private ILSerWarehouseGoodsOutInfoService putOutService;
     @Autowired
     private ISerOrderInfoService orderInfoService;
+    @Autowired
+    private ISerWarehouseInfoService warehouseInfoService;
+    @Autowired
+    private ISerDealerInfoService dealerInfoService;
+    @Autowired
+    private ISerBrandSeriesProductInfoService productInfoService;
+
+
+    @ApiOperation(value = "仓库列表")
+    @GetMapping("getWarehouseList")
+    public Map<String, Object> getWarehouseList(
+            @RequestHeader("Authorization") String userToken
+    ) {
+        try {
+            SysUserInfo loginUser = getBaseUserInfo(userToken);
+            if (loginUser != null) {
+                List<WarehouseVo> listVo = warehouseInfoService.findWarehouseVoListByCondition();
+                Map<String, Object> map = new HashMap<>();
+                map.put("listVo", listVo);
+                return WebResult.success().put("data", map).toMap();
+            }
+            return WebResult.failure(PERMISSION_ERROR.getInfo()).toMap();
+        } catch (Exception e) {
+            LOGGER.error(e.getMessage(), e);
+            return WebResult.failure(API_REQUEST_ERROR.getInfo()).toMap();
+        }
+    }
 
 
     @ApiOperation(value = "入库")
@@ -50,7 +82,6 @@ public class ApiWareHouseController extends BaseController {
             @ApiImplicitParam(name = "warehouse", value = "仓库", required = true, paramType = "query"),
             @ApiImplicitParam(name = "boxCode", value = "箱码", required = true, paramType = "query", allowMultiple = true),
             @ApiImplicitParam(name = "remark", value = "入库备注", paramType = "query")
-
     })
     @PostMapping("putIn")
     public Map<String, Object> putIn(
@@ -61,11 +92,15 @@ public class ApiWareHouseController extends BaseController {
             SysUserInfo loginUser = getBaseUserInfo(userToken);
             if (loginUser != null) {
                 command.setUserId(loginUser.getId());
-                boolean flag = putInService.add(command);
+                Map<String, Object> saveMap = putInService.add(command);
+                boolean flag = (boolean) saveMap.get("saveFlag");
+                List<LSerWarehouseGoodsInfo> unSaveList = (List<LSerWarehouseGoodsInfo>) saveMap.get("unSaveFlag");
+                Map<String, Object> map = new HashMap<>();
+                map.put("unSaveList", unSaveList);
                 if (flag) {
-                    return WebResult.success().toMap();
+                    return WebResult.success().put("data", map).toMap();
                 }
-                return WebResult.failure(PUTIN_WAREHOUSE_ERROR.getInfo()).toMap();
+                return WebResult.failure(PUTIN_WAREHOUSE_ERROR.getInfo()).put("data", map).toMap();
             }
             return WebResult.failure(PERMISSION_ERROR.getInfo()).toMap();
         } catch (Exception e) {
@@ -85,7 +120,9 @@ public class ApiWareHouseController extends BaseController {
             if (loginUser != null) {
                 QueryOrderCondition condition = new QueryOrderCondition();
                 List<SaleOrderVo> listVo = orderInfoService.findSaleOrderVoListByCondition(condition);
-                return WebResult.success().put("listVo", listVo).toMap();
+                Map<String, Object> map = new HashMap<>();
+                map.put("listVo", listVo);
+                return WebResult.success().put("data", map).toMap();
             }
             return WebResult.failure(PERMISSION_ERROR.getInfo()).toMap();
         } catch (Exception e) {
@@ -122,5 +159,75 @@ public class ApiWareHouseController extends BaseController {
             return WebResult.failure(API_REQUEST_ERROR.getInfo()).toMap();
         }
     }
+
+
+    @ApiOperation(value = "经销商列表")
+    @GetMapping("getDealerList")
+    public Map<String, Object> getDealerList(
+            @RequestHeader("Authorization") String userToken
+    ) {
+        try {
+            SysUserInfo loginUser = getBaseUserInfo(userToken);
+            if (loginUser != null) {
+                List<DealerVo> listVo = dealerInfoService.findDealerVoListByCondition();
+                Map<String, Object> map = new HashMap<>();
+                map.put("listVo", listVo);
+                return WebResult.success().put("data", map).toMap();
+            }
+            return WebResult.failure(PERMISSION_ERROR.getInfo()).toMap();
+        } catch (Exception e) {
+            LOGGER.error(e.getMessage(), e);
+            return WebResult.failure(API_REQUEST_ERROR.getInfo()).toMap();
+        }
+    }
+
+
+    @ApiOperation(value = "品牌系列商品列表")
+    @GetMapping("getBrandSeriesProductList")
+    public Map<String, Object> getBrandSeriesProductList(
+            @RequestHeader("Authorization") String userToken
+    ) {
+        try {
+            SysUserInfo loginUser = getBaseUserInfo(userToken);
+            if (loginUser != null) {
+                List<ApiBrandSeriesProductVo> listVo = productInfoService.findApiBrandSeriesProductVoCondition();
+                Map<String, Object> map = new HashMap<>();
+                map.put("listVo", listVo);
+                return WebResult.success().put("data", map).toMap();
+            }
+            return WebResult.failure(PERMISSION_ERROR.getInfo()).toMap();
+        } catch (Exception e) {
+            LOGGER.error(e.getMessage(), e);
+            return WebResult.failure(API_REQUEST_ERROR.getInfo()).toMap();
+        }
+    }
+
+
+    @ApiOperation(value = "创建销售订单")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "dealerId", value = "经销商id", required = true, paramType = "query"),
+            @ApiImplicitParam(name = "remark", value = "备注", paramType = "query"),
+            @ApiImplicitParam(name = "boxCode", value = "箱码", required = true, paramType = "query", allowMultiple = true)
+    })
+    @PostMapping("addOrder")
+    public Map<String,Object> addOrder(
+            @RequestHeader("Authorization") String userToken,
+            ApiWarehouseSaleOrderCommand command
+    ){
+        try {
+            SysUserInfo loginUser = getBaseUserInfo(userToken);
+            if (loginUser != null) {
+                command.setCreateUserId(loginUser.getId());
+                Map<String, Object> map = new HashMap<>();
+                map.put("listVo", JSONObject.toJSON(command));
+                return WebResult.success().put("data", map).toMap();
+            }
+            return WebResult.failure(PERMISSION_ERROR.getInfo()).toMap();
+        } catch (Exception e) {
+            LOGGER.error(e.getMessage(), e);
+            return WebResult.failure(API_REQUEST_ERROR.getInfo()).toMap();
+        }
+    }
+
 
 }

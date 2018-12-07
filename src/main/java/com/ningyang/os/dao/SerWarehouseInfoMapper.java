@@ -24,4 +24,5 @@ public interface SerWarehouseInfoMapper extends BaseMapper<SerWarehouseInfo> {
 
     List<WarehousePersonVo> selectWarehousePersonVoByCondition();
 
+    List<WarehouseVo> selectWarehouseVoListByCondition();
 }

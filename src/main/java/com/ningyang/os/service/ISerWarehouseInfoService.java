@@ -26,4 +26,6 @@ public interface ISerWarehouseInfoService extends IService<SerWarehouseInfo> {
 
     List<WarehousePersonVo> findWarehousePersonVoByCondition();
 
+    List<WarehouseVo> findWarehouseVoListByCondition();
+
 }

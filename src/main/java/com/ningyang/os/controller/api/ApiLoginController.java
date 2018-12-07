@@ -56,7 +56,7 @@ public class ApiLoginController {
             SysUserInfo userInfo = userInfoService.findByCondition(condition);
             if (userInfo != null) {
                 String token = buildJWT(String.valueOf(userInfo.getId()));
-                return WebResult.success().put("token", token).toMap();
+                return WebResult.success().put("data", token).toMap();
             }
             return WebResult.failure(PASSWORD_ERROR.getInfo()).toMap();
         } catch (Exception e) {
