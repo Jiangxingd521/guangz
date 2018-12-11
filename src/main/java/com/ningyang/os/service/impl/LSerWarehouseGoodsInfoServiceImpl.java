@@ -56,7 +56,7 @@ public class LSerWarehouseGoodsInfoServiceImpl extends ServiceImpl<LSerWarehouse
             } else {
                 info = new LSerWarehouseGoodsInfo();
                 info.setSourceType(command.getSourceType());
-                info.setWarehouseId(command.getWarehouse());
+                info.setWarehouseId(command.getWarehouseId());
                 info.setBoxNo(boxNo);
                 info.setProductId(goodsInfo.getBrandSeriesProductId());
                 info.setWarehouseInNo(getOrderNum());

@@ -1,12 +1,16 @@
 package com.ningyang.os.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.ningyang.os.action.input.command.web.serve.OrderDetailsCommand;
 import com.ningyang.os.action.input.condition.serve.QueryOrderCondition;
 import com.ningyang.os.action.output.vo.web.serve.OrderDetailVo;
 import com.ningyang.os.dao.SerOrderInfoDetailsMapper;
+import com.ningyang.os.pojo.LSerWarehouseGoodsOutInfo;
 import com.ningyang.os.pojo.SerOrderInfoDetails;
+import com.ningyang.os.service.ILSerWarehouseGoodsOutInfoService;
 import com.ningyang.os.service.ISerOrderInfoDetailsService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
@@ -23,6 +27,10 @@ import java.util.List;
 @Service
 public class SerOrderInfoDetailsServiceImpl extends ServiceImpl<SerOrderInfoDetailsMapper, SerOrderInfoDetails> implements ISerOrderInfoDetailsService {
 
+    @Autowired
+    private ILSerWarehouseGoodsOutInfoService outInfoService;
+
+
     @Override
     public boolean add(OrderDetailsCommand command, Long operateUserId) {
         SerOrderInfoDetails details = new SerOrderInfoDetails();
@@ -37,7 +45,9 @@ public class SerOrderInfoDetailsServiceImpl extends ServiceImpl<SerOrderInfoDeta
 
     @Override
     public List<OrderDetailVo> findOrderDetailVoList(QueryOrderCondition condition) {
-        return baseMapper.selectOrderDetailVoList(condition);
+        // FIXME: 2018-12-11 group 合并数据 按系列产品分组合并，删除统一删除此数据
+        List<OrderDetailVo> listTemp = baseMapper.selectOrderDetailVoList(condition);
+        return listTemp;
     }
 
     @Override
@@ -53,5 +63,19 @@ public class SerOrderInfoDetailsServiceImpl extends ServiceImpl<SerOrderInfoDeta
     @Override
     public boolean delete() {
         return baseMapper.deleteOrderByNull();
+    }
+
+    @Override
+    public List<OrderDetailVo> findApiWarehouseOrderDetailVoList(QueryOrderCondition condition) {
+        // FIXME: 2018-12-11 group 分组查询不同的系列产品订单箱数
+        List<LSerWarehouseGoodsOutInfo> outGoodsList = outInfoService.list(new QueryWrapper<LSerWarehouseGoodsOutInfo>()
+                .eq("order_id",condition.getOrderId()));
+
+        /*for(OrderDetailVo vo : listTemp){
+
+        }
+*/
+
+        return null;
     }
 }

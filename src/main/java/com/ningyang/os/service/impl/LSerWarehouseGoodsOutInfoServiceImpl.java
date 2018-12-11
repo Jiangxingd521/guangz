@@ -1,11 +1,12 @@
 package com.ningyang.os.service.impl;
 
-import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.ningyang.os.action.input.command.api.ApiWarehousePutOutCommand;
 import com.ningyang.os.action.input.condition.serve.QueryGoodsPutCondition;
+import com.ningyang.os.action.output.dto.serve.ApiWarehouseLOutDetailsDtoTemp;
+import com.ningyang.os.action.output.dto.serve.ApiWarehouseOutDetailsDtoTemp;
 import com.ningyang.os.action.output.dto.serve.PutOutDto;
 import com.ningyang.os.action.output.vo.web.serve.GoodsPutOutVo;
 import com.ningyang.os.dao.LSerWarehouseGoodsOutInfoMapper;
@@ -41,7 +42,10 @@ public class LSerWarehouseGoodsOutInfoServiceImpl extends ServiceImpl<LSerWareho
     private ISerGoodsInfoService goodsInfoService;
     @Autowired
     private ILSerWarehouseGoodsInfoService putInService;
+    @Autowired
+    private ISerBrandSeriesProductInfoService productInfoService;
 
+    // FIXME: 2018-12-11 商品出库
     @Override
     public Map<String, Object> add(ApiWarehousePutOutCommand command) {
         Map<String, Object> map = new HashMap<>();
@@ -53,7 +57,7 @@ public class LSerWarehouseGoodsOutInfoServiceImpl extends ServiceImpl<LSerWareho
         int outBoxCount = getOrderOutBoxCount(command.getOrderId());
         //实际需要出箱数
         int actualBoxCount = orderBoxCount - outBoxCount;
-        System.out.println("orderBoxCount:" + orderBoxCount + " scanBoxCount:" + scanBoxCount + " outBoxCount:" + outBoxCount + " actualBoxCount:" + actualBoxCount);
+//        System.out.println("orderBoxCount:" + orderBoxCount + " scanBoxCount:" + scanBoxCount + " outBoxCount:" + outBoxCount + " actualBoxCount:" + actualBoxCount);
         if (scanBoxCount > actualBoxCount) {
             PutOutDto dto = new PutOutDto();
             dto.setFlag(false);
@@ -87,109 +91,148 @@ public class LSerWarehouseGoodsOutInfoServiceImpl extends ServiceImpl<LSerWareho
             List<SerOrderInfoDetails> detailsList = detailsService.list(new QueryWrapper<SerOrderInfoDetails>()
                     .eq("order_id", command.getOrderId()));
 
-            List<LSerWarehouseGoodsOutInfo> infoList = new ArrayList<>();
-
-            //当前
+            //当前订单明细
             Map<Long, List<SerOrderInfoDetails>> groupByDetails = detailsList.stream().collect(Collectors
                     .groupingBy(SerOrderInfoDetails::getProductId));
-
+            //
             Map<Long, List<LSerWarehouseGoodsInfo>> groupByGoods = goodsInfoList.stream().collect(Collectors
                     .groupingBy(LSerWarehouseGoodsInfo::getProductId));
 
-//            putInService
+            //订单明细
+            List<ApiWarehouseOutDetailsDtoTemp> orderDetailsDtoTempList = new ArrayList<>();
+            for (Map.Entry<Long, List<SerOrderInfoDetails>> entry : groupByDetails.entrySet()) {
+//                System.out.println("键 key ："+entry.getKey()+" 值value ："+entry.getValue());
+                ApiWarehouseOutDetailsDtoTemp temp = new ApiWarehouseOutDetailsDtoTemp();
+                temp.setProductId(entry.getKey());
+                temp.setBoxNumber(entry.getValue().get(0).getBoxNumber());
+                orderDetailsDtoTempList.add(temp);
+            }
+            //扫描到的商品明细
+            List<ApiWarehouseOutDetailsDtoTemp> scanDetailsDtoTempList = new ArrayList<>();
+            for (Map.Entry<Long, List<LSerWarehouseGoodsInfo>> entry : groupByGoods.entrySet()) {
+//                System.out.println("键 key ："+entry.getKey()+"箱数："+entry.getValue().size()+" 值value ："+entry.getValue());
+                ApiWarehouseOutDetailsDtoTemp temp = new ApiWarehouseOutDetailsDtoTemp();
+                temp.setProductId(entry.getKey());
+                temp.setBoxNumber(entry.getValue().size());
+                scanDetailsDtoTempList.add(temp);
+            }
+            //校验扫到的箱数
+            List<ApiWarehouseOutDetailsDtoTemp> checkTempList = new ArrayList<>();
+            for (ApiWarehouseOutDetailsDtoTemp outDetailsDtoTemp : orderDetailsDtoTempList) {
+                for (ApiWarehouseOutDetailsDtoTemp scanDetailsDtoTemp : scanDetailsDtoTempList) {
+                    if (outDetailsDtoTemp.getProductId() == scanDetailsDtoTemp.getProductId()) {
+                        if (scanDetailsDtoTemp.getBoxNumber() > outDetailsDtoTemp.getBoxNumber()) {
+                            checkTempList.add(scanDetailsDtoTemp);
+                            continue;
+                        }
+                    }
+                }
+            }
 
+            if (checkTempList.size() > 0) {
+                PutOutDto dto = new PutOutDto();
+                dto.setFlag(false);
+                dto.setMessage("扫码箱数大于订单箱数");
+                dto.setObj(unSafeList);
+                map.put("putOutFlag", dto);
+                return map;
+            }
+
+            //查询已经出了的各商品箱数
+            List<LSerWarehouseGoodsOutInfo> outDetailsDtoTempList = list(new QueryWrapper<LSerWarehouseGoodsOutInfo>()
+                    .eq("order_id", command.getOrderId()));
+
+            if (outDetailsDtoTempList.size() > 0) {
+                Map<Long, List<LSerWarehouseGoodsOutInfo>> groupByOutGoods = outDetailsDtoTempList.stream().collect(Collectors
+                        .groupingBy(LSerWarehouseGoodsOutInfo::getProductId));
+
+                List<ApiWarehouseLOutDetailsDtoTemp> LOutDetailsDtoTempList = new ArrayList<>();
+                for (Map.Entry<Long, List<LSerWarehouseGoodsOutInfo>> entry : groupByOutGoods.entrySet()) {
+//                    System.out.println("键 key ："+entry.getKey()+" 值value ："+entry.getValue());
+                    //已经发货的系列产品id
+                    Long productId = entry.getKey();
+                    //判断与扫描到的箱子
+                    for (ApiWarehouseOutDetailsDtoTemp scanDetailsDtoTemp : scanDetailsDtoTempList) {
+                        if (scanDetailsDtoTemp.getProductId().equals(productId)) {
+                            //与订单具体
+                            for (ApiWarehouseOutDetailsDtoTemp orderDetailsDtoTemp : orderDetailsDtoTempList) {
+                                if (orderDetailsDtoTemp.getProductId().equals(productId)) {
+                                    ApiWarehouseLOutDetailsDtoTemp temp = new ApiWarehouseLOutDetailsDtoTemp();
+                                    SerBrandSeriesProductInfo productInfo = productInfoService.getById(productId);
+                                    temp.setProductName(productInfo.getProductName());
+                                    //扫描到的多余箱数
+                                    int boxCountTemp = scanDetailsDtoTemp.getBoxNumber() - entry.getValue().size() - orderDetailsDtoTemp.getBoxNumber();
+                                    temp.setBoxCount(boxCountTemp);
+                                    LOutDetailsDtoTempList.add(temp);
+                                }
+                            }
+                        }
+                    }
+                }
+                if (LOutDetailsDtoTempList.size() > 0) {
+                    PutOutDto dto = new PutOutDto();
+                    dto.setFlag(false);
+                    dto.setMessage("扫码箱数大于订单箱数");
+                    dto.setObj(unSafeList);
+                    map.put("putOutFlag", dto);
+                    return map;
+                }
+            } else {
+                List<LSerWarehouseGoodsOutInfo> infoList = new ArrayList<>();
+                for (String boxNo : command.getBoxCode()) {
+                    LSerWarehouseGoodsOutInfo info = new LSerWarehouseGoodsOutInfo();
+                    info.setOrderId(command.getOrderId());
+                    info.setWarehouseId(command.getWarehouseId());
+                    info.setBoxNo(boxNo);
+                    info.setUserId(command.getUserId());
+                    info.setGoodsOutTime(new Date());
+                    info.setCreateTime(new Date());
+                    info.setUpdateTime(new Date());
+                    infoList.add(info);
+                }
+                //去除数组里面的重复对象
+                List<LSerWarehouseGoodsOutInfo> listTemp = infoList.stream().collect(
+                        collectingAndThen(toCollection(() -> new TreeSet<>(comparing(LSerWarehouseGoodsOutInfo::getBoxNo))), ArrayList::new)
+                );
+                boolean flag;
+                //订单箱数
+                int orderBoxCountTemp = orderInfoService.getOrderBoxCount(command.getOrderId());
+                //已出箱数
+                int outBoxCountTemp = getOrderOutBoxCount(command.getOrderId());
+
+                if(orderBoxCountTemp<outBoxCountTemp){//订单未完成
+                    flag = saveBatch(listTemp);
+                    if(flag){
+                        //更改订单状态
+                        SerOrderInfo orderInfo = orderInfoService.getById(command.getOrderId());
+                        orderInfo.setOrderState(3);
+                        orderInfo.setUpdateTime(new Date());
+                        orderInfoService.updateById(orderInfo);
+                    }
+                    PutOutDto dto = new PutOutDto();
+                    dto.setFlag(true);
+                    dto.setMessage("出货成功");
+                    dto.setObj("订单未完成");
+                    map.put("putOutFlag", dto);
+                    return map;
+                }else if(orderBoxCountTemp == outBoxCountTemp){//订单已完成
+                    flag = saveBatch(listTemp);
+                    if(flag){
+                        //更改订单状态
+                        SerOrderInfo orderInfo = orderInfoService.getById(command.getOrderId());
+                        orderInfo.setOrderState(4);
+                        orderInfo.setUpdateTime(new Date());
+                        orderInfoService.updateById(orderInfo);
+                    }
+                    PutOutDto dto = new PutOutDto();
+                    dto.setFlag(true);
+                    dto.setMessage("出货成功");
+                    dto.setObj("订单已完成");
+                    map.put("putOutFlag", dto);
+                    return map;
+                }
+            }
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        /*for(){
-
-        }*/
-
-
-
-
-
-
-
-
-
-
-        /*
-        //查看明细里面的商品数据
-        for(SerOrderInfoDetails details : detailsList){
-            //产品系列
-            Long productId = details.getProductId();
-            //箱数
-            int boxNumber = details.getBoxNumber();
-
-            List<SerGoodsInfo> goodsInfoList = new ArrayList<>();
-            for(String boxNo : command.getBoxCode()){
-                SerGoodsInfo goodsInfo = goodsInfoService.getOne(new QueryWrapper<SerGoodsInfo>().eq("M5",boxNo));
-                goodsInfoList.add(goodsInfo);
-            }
-
-            int
-
-
-        }*/
-
-
-
-        /*for (String boxNo : command.getBoxCode()) {
-            LSerWarehouseGoodsOutInfo info = new LSerWarehouseGoodsOutInfo();
-            info.setOrderId(command.getOrderId());
-            info.setWarehouseId(command.getWarehouse());
-            info.setBoxNo(boxNo);
-            info.setUserId(command.getUserId());
-            info.setGoodsOutTime(new Date());
-            info.setCreateTime(new Date());
-            info.setUpdateTime(new Date());
-            infoList.add(info);
-        }
-        //去除数组里面的重复对象
-        List<LSerWarehouseGoodsOutInfo> listTemp = infoList.stream().collect(
-                collectingAndThen(toCollection(() -> new TreeSet<>(comparing(LSerWarehouseGoodsOutInfo::getBoxNo))), ArrayList::new)
-        );
-        boolean flag;
-        //订单箱数
-        int orderBoxCount = orderInfoService.getOrderBoxCount(command.getOrderId());
-        //已出箱数
-        int outBoxCount = getOrderOutBoxCount(command.getOrderId());
-
-        if(outBoxCount<orderBoxCount){//订单未完成
-            flag = saveBatch(listTemp);
-            if(flag){
-                //更改订单状态
-                SerOrderInfo orderInfo = orderInfoService.getById(command.getOrderId());
-                orderInfo.setOrderState(3);
-                orderInfo.setUpdateTime(new Date());
-                orderInfoService.updateById(orderInfo);
-            }
-        }else if(outBoxCount == orderBoxCount){//订单已完成
-            flag = saveBatch(listTemp);
-            if(flag){
-                //更改订单状态
-                SerOrderInfo orderInfo = orderInfoService.getById(command.getOrderId());
-                orderInfo.setOrderState(4);
-                orderInfo.setUpdateTime(new Date());
-                orderInfoService.updateById(orderInfo);
-            }
-        }else{//出货数据不对
-            flag = false;
-        }*/
         return map;
     }
 

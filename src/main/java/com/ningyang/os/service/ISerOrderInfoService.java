@@ -2,6 +2,7 @@ package com.ningyang.os.service;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.ningyang.os.action.input.command.api.ApiWarehouseSaleOrderCommand;
 import com.ningyang.os.action.input.command.web.serve.OrderSaleCommand;
 import com.ningyang.os.action.input.condition.serve.QueryOrderCondition;
 import com.ningyang.os.action.output.vo.web.serve.SaleOrderVo;
@@ -26,5 +27,7 @@ public interface ISerOrderInfoService extends IService<SerOrderInfo> {
     List<SaleOrderVo> findSaleOrderVoListByCondition(QueryOrderCondition condition);
 
     int getOrderBoxCount(Long orderId);
+
+    boolean apiWareHouseAdd(ApiWarehouseSaleOrderCommand command);
 
 }

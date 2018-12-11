@@ -23,6 +23,8 @@ public class OrderDetailVo {
     private int boxNumber;
     //订单明细状态
     private int detailState;
+    //订单销售状态（0：未完成，1：已完成）
+    private int saleState;
 
     public Long getDetailId() {
         return detailId;
@@ -94,5 +96,13 @@ public class OrderDetailVo {
 
     public void setDetailState(int detailState) {
         this.detailState = detailState;
+    }
+
+    public int getSaleState() {
+        return saleState;
+    }
+
+    public void setSaleState(int saleState) {
+        this.saleState = saleState;
     }
 }

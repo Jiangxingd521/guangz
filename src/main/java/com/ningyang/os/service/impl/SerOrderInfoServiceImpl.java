@@ -2,6 +2,8 @@ package com.ningyang.os.service.impl;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.ningyang.os.action.input.command.api.ApiWarehouseOrderDetailCommand;
+import com.ningyang.os.action.input.command.api.ApiWarehouseSaleOrderCommand;
 import com.ningyang.os.action.input.command.web.serve.OrderSaleCommand;
 import com.ningyang.os.action.input.condition.serve.QueryOrderCondition;
 import com.ningyang.os.action.output.vo.web.serve.OrderDetailVo;
@@ -65,6 +67,7 @@ public class SerOrderInfoServiceImpl extends ServiceImpl<SerOrderInfoMapper, Ser
         if (info != null) {
             info.setDealerId(command.getDealerId());
             info.setProductId(command.getProductId());
+            info.setIdata1(1);
             info.setOrderState(command.getOrderState());
             info.setOrderRemark(command.getRemark());
             if (command.getOperateType() == 1) {
@@ -77,6 +80,7 @@ public class SerOrderInfoServiceImpl extends ServiceImpl<SerOrderInfoMapper, Ser
             info.setOrderNo(getOrderNum());
             info.setDealerId(command.getDealerId());
             info.setProductId(command.getProductId());
+            info.setIdata1(1);
             info.setOrderState(0);
             info.setOrderRemark(command.getRemark());
             info.setUserId(operateUserId);
@@ -110,7 +114,7 @@ public class SerOrderInfoServiceImpl extends ServiceImpl<SerOrderInfoMapper, Ser
             vo.setOrderCreateTimeStr(dateToDate(vo.getOrderCreateTime()));
             //查询具体订单内容
             condition.setOrderId(vo.getOrderId());
-            List<OrderDetailVo> detailList = detailsService.findOrderDetailVoList(condition);
+            List<OrderDetailVo> detailList = detailsService.findApiWarehouseOrderDetailVoList(condition);
             vo.setDetailList(detailList);
             //订单数量
             int boxCount = detailsService.boxCount(condition);
@@ -127,5 +131,35 @@ public class SerOrderInfoServiceImpl extends ServiceImpl<SerOrderInfoMapper, Ser
         QueryOrderCondition condition = new QueryOrderCondition();
         condition.setOrderId(orderId);
         return detailsService.boxCount(condition);
+    }
+
+    @Override
+    public boolean apiWareHouseAdd(ApiWarehouseSaleOrderCommand command) {
+        SerOrderInfo info = new SerOrderInfo();
+        info.setOrderNo(getOrderNum());
+        info.setDealerId(command.getDealerId());
+        info.setOrderState(1);
+        info.setIdata1(2);
+        info.setOrderRemark(command.getRemark());
+        info.setUserId(command.getCreateUserId());
+        info.setCreateTime(new Date());
+        info.setUpdateTime(new Date());
+        boolean flag = save(info);
+        //插入订单明细
+        if(command.getDetailList().size()>0){
+            List<SerOrderInfoDetails> detailsList = new ArrayList<>();
+            for(ApiWarehouseOrderDetailCommand detailCommand : command.getDetailList()){
+                SerOrderInfoDetails details = new SerOrderInfoDetails();
+                details.setOrderId(info.getId());
+                details.setBoxNumber(detailCommand.getBoxNumber());
+                details.setUserId(command.getCreateUserId());
+                details.setProductId(detailCommand.getProductId());
+                details.setCreateTime(new Date());
+                details.setUpdateTime(new Date());
+                detailsList.add(details);
+            }
+            detailsService.saveBatch(detailsList);
+        }
+        return flag;
     }
 }

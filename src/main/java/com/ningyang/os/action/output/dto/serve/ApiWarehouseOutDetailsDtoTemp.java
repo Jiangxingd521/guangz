@@ -1,16 +1,14 @@
-package com.ningyang.os.action.input.command.api;
-
-import io.swagger.annotations.ApiModelProperty;
+package com.ningyang.os.action.output.dto.serve;
 
 /**
  * @Author： kaider
- * @Date：2018/12/06 15:38
+ * @Date：2018/12/11 17:07
  * @描述：
  */
-public class ApiWarehouseOrderDetailCommand {
-    @ApiModelProperty(value = "产品系列id")
+public class ApiWarehouseOutDetailsDtoTemp {
+    //产品系列id
     private Long productId;
-    @ApiModelProperty(value = "箱数")
+    //箱数
     private int boxNumber;
 
     public Long getProductId() {

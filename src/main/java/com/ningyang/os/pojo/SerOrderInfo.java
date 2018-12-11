@@ -83,6 +83,9 @@ public class SerOrderInfo extends Model<SerOrderInfo> {
     private Date createTime;
     @TableField("update_time")
     private Date updateTime;
+    //用户区别是pc操作还是app操作（1：pc，2：app）
+    private Integer idata1;
+
 
     public Long getId() {
         return id;
@@ -194,6 +197,14 @@ public class SerOrderInfo extends Model<SerOrderInfo> {
 
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
+    }
+
+    public Integer getIdata1() {
+        return idata1;
+    }
+
+    public void setIdata1(Integer idata1) {
+        this.idata1 = idata1;
     }
 
     @Override

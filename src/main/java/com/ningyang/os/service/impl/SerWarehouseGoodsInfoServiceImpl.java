@@ -30,7 +30,7 @@ public class SerWarehouseGoodsInfoServiceImpl extends ServiceImpl<SerWarehouseGo
         for (String boxNo : command.getBoxCode()) {
             SerWarehouseGoodsInfo info = new SerWarehouseGoodsInfo();
             info.setSourceType(command.getSourceType());
-            info.setWarehouseId(command.getWarehouse());
+            info.setWarehouseId(command.getWarehouseId());
             info.setBoxNo(boxNo);
             info.setWarehouseInNo(getOrderNum());
             info.setGoodsState(1);

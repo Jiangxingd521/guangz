@@ -9,7 +9,7 @@ public class ApiWarehousePutOutCommand {
     //销售订单id
     private Long orderId;
     //仓库
-    private Long warehouse;
+    private Long warehouseId;
     //操作人
     private Long userId;
     //箱码
@@ -23,12 +23,12 @@ public class ApiWarehousePutOutCommand {
         this.orderId = orderId;
     }
 
-    public Long getWarehouse() {
-        return warehouse;
+    public Long getWarehouseId() {
+        return warehouseId;
     }
 
-    public void setWarehouse(Long warehouse) {
-        this.warehouse = warehouse;
+    public void setWarehouseId(Long warehouseId) {
+        this.warehouseId = warehouseId;
     }
 
     public Long getUserId() {

@@ -1,6 +1,5 @@
 package com.ningyang.os.controller.api.app;
 
-import com.alibaba.fastjson.JSONObject;
 import com.ningyang.os.action.input.command.api.ApiWarehousePutInCommand;
 import com.ningyang.os.action.input.command.api.ApiWarehousePutOutCommand;
 import com.ningyang.os.action.input.command.api.ApiWarehouseSaleOrderCommand;
@@ -83,7 +82,7 @@ public class ApiWareHouseController extends BaseController {
     @ApiOperation(value = "入库")
     @ApiImplicitParams({
             @ApiImplicitParam(name = "sourceType", value = "入库来源（0：生产入库，1：换货入库，2：退货入库，3：换仓入库）", paramType = "query"),
-            @ApiImplicitParam(name = "warehouse", value = "仓库", required = true, paramType = "query"),
+            @ApiImplicitParam(name = "warehouseId", value = "仓库Id", required = true, paramType = "query"),
             @ApiImplicitParam(name = "boxCode", value = "箱码", required = true, paramType = "query", allowMultiple = true),
             @ApiImplicitParam(name = "remark", value = "入库备注", paramType = "query")
     })
@@ -144,7 +143,7 @@ public class ApiWareHouseController extends BaseController {
     @ApiImplicitParams({
             @ApiImplicitParam(name = "orderId", value = "订单号Id", required = true, paramType = "query"),
             @ApiImplicitParam(name = "boxCode", value = "箱码", required = true, paramType = "query", allowMultiple = true),
-            @ApiImplicitParam(name = "warehouse", value = "仓库", paramType = "query")
+            @ApiImplicitParam(name = "warehouseId", value = "仓库", paramType = "query")
     })
     @PostMapping("putOut")
     public Map<String, Object> putOut(
@@ -232,9 +231,12 @@ public class ApiWareHouseController extends BaseController {
             SysUserInfo loginUser = getBaseUserInfo(userToken);
             if (loginUser != null) {
                 command.setCreateUserId(loginUser.getId());
-                Map<String, Object> map = new HashMap<>();
-                map.put("listVo", JSONObject.toJSON(command));
-                return WebResult.success().put("data", map).toMap();
+                //仓管提供的订单数据
+                boolean flag = orderInfoService.apiWareHouseAdd(command);
+                if(flag){
+                    return WebResult.success().toMap();
+                }
+                return WebResult.failure(OPERATING_ERROR.getInfo()).toMap();
             }
             response.setStatus(300);
             return WebResult.failure(PERMISSION_ERROR.getInfo()).toMap();

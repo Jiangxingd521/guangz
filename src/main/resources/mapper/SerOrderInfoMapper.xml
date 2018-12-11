@@ -18,6 +18,7 @@
         <result column="financial_id" property="financialId"/>
         <result column="create_time" property="createTime"/>
         <result column="update_time" property="updateTime"/>
+        <result column="idata1" property="idata1"/>
     </resultMap>
 
     <select id="selectSaleOrderVoPageByCondition"

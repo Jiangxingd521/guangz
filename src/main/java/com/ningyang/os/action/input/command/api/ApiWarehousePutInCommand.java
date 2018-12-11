@@ -9,7 +9,7 @@ public class ApiWarehousePutInCommand {
     //入库来源
     private int sourceType;
     //仓库
-    private Long warehouse;
+    private Long warehouseId;
     //操作人
     private Long userId;
     //备注
@@ -25,12 +25,12 @@ public class ApiWarehousePutInCommand {
         this.sourceType = sourceType;
     }
 
-    public Long getWarehouse() {
-        return warehouse;
+    public Long getWarehouseId() {
+        return warehouseId;
     }
 
-    public void setWarehouse(Long warehouse) {
-        this.warehouse = warehouse;
+    public void setWarehouseId(Long warehouseId) {
+        this.warehouseId = warehouseId;
     }
 
     public Long getUserId() {

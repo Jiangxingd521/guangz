@@ -10,7 +10,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 
 @SpringBootApplication
 @ServletComponentScan
-@EnableScheduling
+//@EnableScheduling
 @MapperScan("com.ningyang.os.dao")
 public class NodeOsApplication extends SpringBootServletInitializer {
 
