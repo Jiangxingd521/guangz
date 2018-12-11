@@ -33,9 +33,9 @@ public class MemberInfoController {
 
 
     @GetMapping("getPageList")
-    public Map<String,Object> getPageList(
+    public Map<String, Object> getPageList(
             QueryMemberCondition condition
-    ){
+    ) {
         try {
             Page<MemberInfoVo> pageVo = infoService.findMemberInfoVoPageByCondition(condition);
             return WebResult.success().put("pageVo", pageVo).toMap();
@@ -44,10 +44,6 @@ public class MemberInfoController {
             return WebResult.failure(DATA_ERROR.getInfo()).toMap();
         }
     }
-
-
-
-
 
 
 }

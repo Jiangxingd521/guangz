@@ -19,7 +19,7 @@ import java.util.Map;
  */
 public interface ILSerWarehouseGoodsInfoService extends IService<LSerWarehouseGoodsInfo> {
 
-    Map<String,Object> add(ApiWarehousePutInCommand command);
+    Map<String, Object> add(ApiWarehousePutInCommand command);
 
     Page<GoodsPutInVo> findGoodsPutInVoPageByCondition(QueryGoodsPutCondition condition);
 

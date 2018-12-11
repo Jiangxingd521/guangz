@@ -9,9 +9,19 @@ import java.util.List;
  */
 public class ApiBrandSeriesProductVo {
 
+    private Long brandId;
+
     private String brandName;
 
     private List<ApiSeriesVo> seriesListVo;
+
+    public Long getBrandId() {
+        return brandId;
+    }
+
+    public void setBrandId(Long brandId) {
+        this.brandId = brandId;
+    }
 
     public String getBrandName() {
         return brandName;

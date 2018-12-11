@@ -12,8 +12,10 @@ public class OrderDetailsCommand {
     private Long productId;
     //产品数量
     private int boxNumber;
-    //
+    //销售订单id
     private Long orderId;
+    //退货订单id
+    private Long purchaseId;
 
     public Long getUserId() {
         return userId;
@@ -45,5 +47,13 @@ public class OrderDetailsCommand {
 
     public void setOrderId(Long orderId) {
         this.orderId = orderId;
+    }
+
+    public Long getPurchaseId() {
+        return purchaseId;
+    }
+
+    public void setPurchaseId(Long purchaseId) {
+        this.purchaseId = purchaseId;
     }
 }

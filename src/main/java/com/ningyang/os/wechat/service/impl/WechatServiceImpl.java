@@ -28,12 +28,12 @@ import java.util.logging.Logger;
 
 
 /**
+ * @author dennies yang
+ * @version V1.0
  * @Title: WechatServiceImpl.java
  * @Package com.leesche.zcsp.node.pay.wecha.service.encha.impl
  * @Description:()
- * @author dennies yang
  * @date 2016年10月9日 下午7:35:38
- * @version V1.0
  */
 @SuppressWarnings("all")
 @Service("wechatService")
@@ -118,6 +118,7 @@ public class WechatServiceImpl implements WechatService {
 
     /**
      * 获取微信用户信息
+     *
      * @param openId
      * @return
      *//*

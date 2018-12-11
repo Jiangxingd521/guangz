@@ -16,12 +16,12 @@ import com.ningyang.os.wechat.data.WechatJsToken;
 import javax.servlet.http.HttpServletRequest;
 
 /**
+ * @author dennies yang
+ * @version V1.0
  * @Title: WechatService.java
  * @Package com.leesche.zcsp.node.pay.wecha.service
  * @Description:()
- * @author dennies yang
  * @date 2016年10月9日 下午7:26:59
- * @version V1.0
  */
 public interface WechatService {
 
@@ -93,6 +93,7 @@ public interface WechatService {
 
     /**
      * 获取微信用户信息
+     *
      * @param ACCESS_TOKEN
      * @param OPENID
      * @return

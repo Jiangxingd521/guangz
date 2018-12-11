@@ -142,21 +142,23 @@ public class SerBrandSeriesProductInfoServiceImpl extends ServiceImpl<SerBrandSe
         List<ApiBrandSeriesProductVo> brandSeriesProductVoList = new ArrayList<>();
         condition.setBrandState(0);
         List<BrandVo> brandList = brandInfoService.findBrandVoByCondition(condition);
-        for(BrandVo brandVo : brandList){
+        for (BrandVo brandVo : brandList) {
             ApiBrandSeriesProductVo apiBrandSeriesProductVo = new ApiBrandSeriesProductVo();
+            apiBrandSeriesProductVo.setBrandId(brandVo.getBrandId());
             apiBrandSeriesProductVo.setBrandName(brandVo.getBrandName());
             List<ApiSeriesVo> seriesListVo = new ArrayList<>();
             condition.setBrandId(brandVo.getBrandId());
             condition.setSeriesState(0);
             List<SeriesVo> seriesList = seriesInfoService.findSeriesVoByCondition(condition);
-            for(SeriesVo seriesVo : seriesList){
+            for (SeriesVo seriesVo : seriesList) {
                 ApiSeriesVo apiSeriesVo = new ApiSeriesVo();
+                apiSeriesVo.setSeriesId(seriesVo.getSeriesId());
                 apiSeriesVo.setSeriesName(seriesVo.getSeriesName());
                 List<ApiProductVo> productListVo = new ArrayList<>();
                 List<SerBrandSeriesProductInfo> productInfoList = list(new QueryWrapper<SerBrandSeriesProductInfo>()
-                        .eq("series_id",seriesVo.getSeriesId())
-                        .eq("product_state",0));
-                for(SerBrandSeriesProductInfo productInfo : productInfoList){
+                        .eq("series_id", seriesVo.getSeriesId())
+                        .eq("product_state", 0));
+                for (SerBrandSeriesProductInfo productInfo : productInfoList) {
                     ApiProductVo productVo = new ApiProductVo();
                     productVo.setProductId(productInfo.getId());
                     productVo.setProductName(productInfo.getProductName());
@@ -169,5 +171,10 @@ public class SerBrandSeriesProductInfoServiceImpl extends ServiceImpl<SerBrandSe
             brandSeriesProductVoList.add(apiBrandSeriesProductVo);
         }
         return brandSeriesProductVoList;
+    }
+
+    @Override
+    public List<SeriesProductVo> findSeriesProductVoByCondition(QueryBrandSeriesProductCondition condition) {
+        return baseMapper.selectSeriesProductVoByCondition(condition);
     }
 }

@@ -11,12 +11,12 @@ package com.ningyang.os.wechat.data;
 import java.io.Serializable;
 
 /**
+ * @author dennies yang
+ * @version V1.0
  * @Title: AccessToken.java
  * @Package com.leesche.zcsp.node.pay.wecha.data
  * @Description:()
- * @author dennies yang
  * @date 2016年10月12日 下午2:48:30
- * @version V1.0
  */
 public class AccessToken implements Serializable {
     private String access_token;

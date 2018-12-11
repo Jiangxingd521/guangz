@@ -38,8 +38,10 @@ public class SerPrizeSetInfoServiceImpl extends ServiceImpl<SerPrizeSetInfoMappe
         for (PrizeSetVo vo : listTemp) {
             Date[] prizeDate = {vo.getPrizeStartDate(), vo.getPrizeEndDate()};
             vo.setPrizeDate(prizeDate);
-            List<String> regionList = regionInfoService.findRegionThreeList(String.valueOf(vo.getRegionId()));
-            vo.setRegionList(regionList);
+            if (vo.getRegionId() != null) {
+                List<String> regionList = regionInfoService.findRegionThreeList(String.valueOf(vo.getRegionId()));
+                vo.setRegionList(regionList);
+            }
         }
         return listTemp;
     }

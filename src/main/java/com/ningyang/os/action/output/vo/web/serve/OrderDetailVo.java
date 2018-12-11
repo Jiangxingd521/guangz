@@ -6,21 +6,23 @@ package com.ningyang.os.action.output.vo.web.serve;
  * @描述：订单详情
  */
 public class OrderDetailVo {
-
+    //明细id
     private Long detailId;
-
+    //订单id
     private Long orderId;
-    //
+    //品牌名称
     private String brandName;
-    //
+    //产品名称
     private String seriesName;
-    //
+    //产品系列
     private Long productId;
     private String productName;
-    //
+    //销售单价
     private String salesPrice;
-    //
+    //箱数
     private int boxNumber;
+    //订单明细状态
+    private int detailState;
 
     public Long getDetailId() {
         return detailId;
@@ -84,5 +86,13 @@ public class OrderDetailVo {
 
     public void setBoxNumber(int boxNumber) {
         this.boxNumber = boxNumber;
+    }
+
+    public int getDetailState() {
+        return detailState;
+    }
+
+    public void setDetailState(int detailState) {
+        this.detailState = detailState;
     }
 }

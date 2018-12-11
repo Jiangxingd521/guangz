@@ -189,7 +189,7 @@ public class CodeApplyController extends BaseController {
                     //二维码
                     bw = new BufferedWriter(new FileWriter(pFilePath + "/" + zipFileName + ".txt"));
                     for (SerApplyCodeTemplate code : codeList) {
-                        encode(code.getCodeContent(), pFilePath, false, String.valueOf(code.getCenterId()));
+//                        encode(code.getCodeContent(), pFilePath, false, String.valueOf(code.getCenterId()));
                         bw.write(code.getCodeContent() + "\r");
                         bw.newLine();
                         bw.flush();
@@ -199,7 +199,7 @@ public class CodeApplyController extends BaseController {
                     //条形码
                     bw = new BufferedWriter(new FileWriter(pFilePath + "/" + zipFileName + ".txt"));
                     for (SerApplyCodeTemplate code : codeList) {
-                        generateFile(code.getCodeContent(), pFilePath + "/" + code.getCenterId() + ".png");
+//                        generateFile(code.getCodeContent(), pFilePath + "/" + code.getCenterId() + ".png");
                         bw.write(code.getCodeContent() + "\r");
                         bw.newLine();
                         bw.flush();

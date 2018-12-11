@@ -7,9 +7,11 @@
         <id column="id" property="id"/>
         <result column="purchase_id" property="purchaseId"/>
         <result column="product_id" property="productId"/>
-        <result column="box_no" property="boxNo"/>
+        <result column="box_number" property="boxNumber"/>
         <result column="is_no" property="isNo"/>
+        <result column="purchase_type" property="purchaseType"/>
         <result column="purchase_state" property="purchaseState"/>
+        <result column="user_id" property="userId"/>
         <result column="idata1" property="idata1"/>
         <result column="idata2" property="idata2"/>
         <result column="idata3" property="idata3"/>
@@ -21,5 +23,28 @@
         <result column="create_time" property="createTime"/>
         <result column="update_time" property="updateTime"/>
     </resultMap>
+
+    <select id="selectOrderDetailVoList"
+            parameterType="com.ningyang.os.action.input.condition.serve.QueryOrderCondition"
+            resultType="com.ningyang.os.action.output.vo.web.serve.OrderDetailVo"
+    >
+        select a.id as detailId,a.purchase_id,a.product_id,a.box_number,a.user_id,
+               d.brand_name,c.series_name,b.product_name,b.sales_price
+		from t_ser_purchase_order_info_details a
+			left join t_ser_brand_series_product_info b on a.product_id=b.id
+			left join t_ser_brand_series_info c on b.series_id=c.id
+			left join t_ser_brand_info d on c.brand_id=d.id
+		where 1=1
+        <if test="purchaseId!=null">
+            and a.purchase_id = #{purchaseId}
+            <if test="orderSaleFlag!=0">
+                or a.purchase_id=-1 and a.user_id = #{userId}
+            </if>
+        </if>
+    </select>
+
+    <delete id="deletePurchaseOrderByNull">
+        DELETE FROM t_ser_purchase_order_info_details WHERE product_id = -1
+    </delete>
 
 </mapper>

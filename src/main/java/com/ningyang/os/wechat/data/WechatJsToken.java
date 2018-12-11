@@ -11,12 +11,12 @@ package com.ningyang.os.wechat.data;
 import java.io.Serializable;
 
 /**
+ * @author dennies yang
+ * @version V1.0
  * @Title: WechatJsToken.java
  * @Package com.leesche.zcsp.node.pay.wecha.data
  * @Description:()
- * @author dennies yang
  * @date 2016年10月12日 下午2:50:55
- * @version V1.0
  */
 public class WechatJsToken implements Serializable {
     private Integer errcode;

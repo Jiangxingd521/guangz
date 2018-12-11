@@ -27,8 +27,9 @@
     >
         select a.series_id,a.id as productId,a.product_name,a.code_number,a.series_standard,a.market_price,
         a.sales_price,a.code_69,a.product_remark,a.product_state,b.series_name,c.brand_name
-        from t_ser_brand_series_product_info a left join t_ser_brand_series_info b on a.series_id = b.id
-        left join t_ser_brand_info c on b.brand_id = c.id
+        from t_ser_brand_series_product_info a
+                left join t_ser_brand_series_info b on a.series_id = b.id
+                left join t_ser_brand_info c on b.brand_id = c.id
         where 1=1
         <if test="productState!=null">
             and a.product_state = #{productState}
@@ -55,6 +56,14 @@
         from t_ser_brand_series_product_code_info a
                  left join t_ser_code_type3_info b on a.code_id = b.id
         where a.product_id = #{productId}
+    </select>
+
+    <select id="selectSeriesProductVoByCondition"
+            parameterType="com.ningyang.os.action.input.condition.base.QueryBrandSeriesProductCondition"
+            resultType="com.ningyang.os.action.output.vo.web.base.SeriesProductVo"
+    >
+        select a.id as productId,a.product_name from t_ser_brand_series_product_info a
+        where a.product_state=0 and a.series_id = #{seriesId}
     </select>
 
 </mapper>

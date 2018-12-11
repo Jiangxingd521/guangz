@@ -22,7 +22,7 @@ public class MemberInfo extends Model<MemberInfo> {
 
     private static final long serialVersionUID = 1L;
 
-    @TableId(value = "open_id",type = IdType.INPUT)
+    @TableId(value = "open_id", type = IdType.INPUT)
     private String openId;
     /**
      * 会员类型

@@ -21,12 +21,12 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 /**
+ * @author dennies yang
+ * @version V1.0
  * @Title: WechatTimer.java
  * @Package com.leesche.zcsp.node.pay.wecha.timer
  * @Description:(定时更新token)
- * @author dennies yang
  * @date 2016年10月12日 下午3:15:52
- * @version V1.0
  */
 @Component
 @Lazy(value = false)

@@ -4,6 +4,7 @@ import com.ningyang.os.action.input.command.web.base.ProductCommand;
 import com.ningyang.os.action.input.condition.base.QueryBrandSeriesProductCondition;
 import com.ningyang.os.action.output.vo.web.base.CodeTypeVo;
 import com.ningyang.os.action.output.vo.web.base.ProductVo;
+import com.ningyang.os.action.output.vo.web.base.SeriesProductVo;
 import com.ningyang.os.action.utils.WebResult;
 import com.ningyang.os.service.ISerBrandSeriesProductInfoService;
 import org.slf4j.Logger;
@@ -37,6 +38,19 @@ public class ProductController {
     ) {
         try {
             List<ProductVo> listVo = infoService.findProductVoByCondition(condition);
+            return WebResult.success().put("listVo", listVo).toMap();
+        } catch (Exception e) {
+            LOGGER.error(e.getMessage(), e);
+            return WebResult.failure(DATA_ERROR.getInfo()).toMap();
+        }
+    }
+
+    @GetMapping("getSeriesProductList")
+    public Map<String, Object> getSeriesProductList(
+            QueryBrandSeriesProductCondition condition
+    ) {
+        try {
+            List<SeriesProductVo> listVo = infoService.findSeriesProductVoByCondition(condition);
             return WebResult.success().put("listVo", listVo).toMap();
         } catch (Exception e) {
             LOGGER.error(e.getMessage(), e);

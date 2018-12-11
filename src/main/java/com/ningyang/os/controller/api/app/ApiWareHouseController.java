@@ -5,6 +5,7 @@ import com.ningyang.os.action.input.command.api.ApiWarehousePutInCommand;
 import com.ningyang.os.action.input.command.api.ApiWarehousePutOutCommand;
 import com.ningyang.os.action.input.command.api.ApiWarehouseSaleOrderCommand;
 import com.ningyang.os.action.input.condition.serve.QueryOrderCondition;
+import com.ningyang.os.action.output.dto.serve.PutOutDto;
 import com.ningyang.os.action.output.vo.api.ApiBrandSeriesProductVo;
 import com.ningyang.os.action.output.vo.web.serve.DealerVo;
 import com.ningyang.os.action.output.vo.web.serve.SaleOrderVo;
@@ -23,6 +24,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletResponse;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -58,7 +60,8 @@ public class ApiWareHouseController extends BaseController {
     @ApiOperation(value = "仓库列表")
     @GetMapping("getWarehouseList")
     public Map<String, Object> getWarehouseList(
-            @RequestHeader("Authorization") String userToken
+            @RequestHeader("Authorization") String userToken,
+            HttpServletResponse response
     ) {
         try {
             SysUserInfo loginUser = getBaseUserInfo(userToken);
@@ -68,6 +71,7 @@ public class ApiWareHouseController extends BaseController {
                 map.put("listVo", listVo);
                 return WebResult.success().put("data", map).toMap();
             }
+            response.setStatus(300);
             return WebResult.failure(PERMISSION_ERROR.getInfo()).toMap();
         } catch (Exception e) {
             LOGGER.error(e.getMessage(), e);
@@ -86,7 +90,8 @@ public class ApiWareHouseController extends BaseController {
     @PostMapping("putIn")
     public Map<String, Object> putIn(
             @RequestHeader("Authorization") String userToken,
-            ApiWarehousePutInCommand command
+            ApiWarehousePutInCommand command,
+            HttpServletResponse response
     ) {
         try {
             SysUserInfo loginUser = getBaseUserInfo(userToken);
@@ -102,6 +107,7 @@ public class ApiWareHouseController extends BaseController {
                 }
                 return WebResult.failure(PUTIN_WAREHOUSE_ERROR.getInfo()).put("data", map).toMap();
             }
+            response.setStatus(300);
             return WebResult.failure(PERMISSION_ERROR.getInfo()).toMap();
         } catch (Exception e) {
             LOGGER.error(e.getMessage(), e);
@@ -113,7 +119,8 @@ public class ApiWareHouseController extends BaseController {
     @ApiOperation(value = "销售订单列表")
     @GetMapping("getOrderSaleList")
     public Map<String, Object> getOrderSaleList(
-            @RequestHeader("Authorization") String userToken
+            @RequestHeader("Authorization") String userToken,
+            HttpServletResponse response
     ) {
         try {
             SysUserInfo loginUser = getBaseUserInfo(userToken);
@@ -124,6 +131,7 @@ public class ApiWareHouseController extends BaseController {
                 map.put("listVo", listVo);
                 return WebResult.success().put("data", map).toMap();
             }
+            response.setStatus(300);
             return WebResult.failure(PERMISSION_ERROR.getInfo()).toMap();
         } catch (Exception e) {
             LOGGER.error(e.getMessage(), e);
@@ -141,18 +149,24 @@ public class ApiWareHouseController extends BaseController {
     @PostMapping("putOut")
     public Map<String, Object> putOut(
             @RequestHeader("Authorization") String userToken,
-            ApiWarehousePutOutCommand command
+            ApiWarehousePutOutCommand command,
+            HttpServletResponse response
     ) {
         try {
             SysUserInfo loginUser = getBaseUserInfo(userToken);
             if (loginUser != null) {
                 command.setUserId(loginUser.getId());
-                boolean flag = putOutService.add(command);
-                if (flag) {
+                Map<String, Object> flagMap = putOutService.add(command);
+                PutOutDto putOutDto = (PutOutDto) flagMap.get("putOutFlag");
+                Map<String, Object> map = new HashMap<>();
+                if (putOutDto.getFlag()) {
                     return WebResult.success().toMap();
+                } else {
+                    map.put("putOutDto", putOutDto);
+                    return WebResult.failure(PUTOUT_WAREHOUSE_ERROR.getInfo()).put("data", map).toMap();
                 }
-                return WebResult.failure(PUTOUT_WAREHOUSE_ERROR.getInfo()).toMap();
             }
+            response.setStatus(300);
             return WebResult.failure(PERMISSION_ERROR.getInfo()).toMap();
         } catch (Exception e) {
             LOGGER.error(e.getMessage(), e);
@@ -164,7 +178,8 @@ public class ApiWareHouseController extends BaseController {
     @ApiOperation(value = "经销商列表")
     @GetMapping("getDealerList")
     public Map<String, Object> getDealerList(
-            @RequestHeader("Authorization") String userToken
+            @RequestHeader("Authorization") String userToken,
+            HttpServletResponse response
     ) {
         try {
             SysUserInfo loginUser = getBaseUserInfo(userToken);
@@ -174,6 +189,7 @@ public class ApiWareHouseController extends BaseController {
                 map.put("listVo", listVo);
                 return WebResult.success().put("data", map).toMap();
             }
+            response.setStatus(300);
             return WebResult.failure(PERMISSION_ERROR.getInfo()).toMap();
         } catch (Exception e) {
             LOGGER.error(e.getMessage(), e);
@@ -185,7 +201,8 @@ public class ApiWareHouseController extends BaseController {
     @ApiOperation(value = "品牌系列商品列表")
     @GetMapping("getBrandSeriesProductList")
     public Map<String, Object> getBrandSeriesProductList(
-            @RequestHeader("Authorization") String userToken
+            @RequestHeader("Authorization") String userToken,
+            HttpServletResponse response
     ) {
         try {
             SysUserInfo loginUser = getBaseUserInfo(userToken);
@@ -195,6 +212,7 @@ public class ApiWareHouseController extends BaseController {
                 map.put("listVo", listVo);
                 return WebResult.success().put("data", map).toMap();
             }
+            response.setStatus(300);
             return WebResult.failure(PERMISSION_ERROR.getInfo()).toMap();
         } catch (Exception e) {
             LOGGER.error(e.getMessage(), e);
@@ -204,16 +222,12 @@ public class ApiWareHouseController extends BaseController {
 
 
     @ApiOperation(value = "创建销售订单")
-    @ApiImplicitParams({
-            @ApiImplicitParam(name = "dealerId", value = "经销商id", required = true, paramType = "query"),
-            @ApiImplicitParam(name = "remark", value = "备注", paramType = "query"),
-            @ApiImplicitParam(name = "boxCode", value = "箱码", required = true, paramType = "query", allowMultiple = true)
-    })
     @PostMapping("addOrder")
-    public Map<String,Object> addOrder(
+    public Map<String, Object> addOrder(
             @RequestHeader("Authorization") String userToken,
-            ApiWarehouseSaleOrderCommand command
-    ){
+            @RequestBody ApiWarehouseSaleOrderCommand command,
+            HttpServletResponse response
+    ) {
         try {
             SysUserInfo loginUser = getBaseUserInfo(userToken);
             if (loginUser != null) {
@@ -222,6 +236,7 @@ public class ApiWareHouseController extends BaseController {
                 map.put("listVo", JSONObject.toJSON(command));
                 return WebResult.success().put("data", map).toMap();
             }
+            response.setStatus(300);
             return WebResult.failure(PERMISSION_ERROR.getInfo()).toMap();
         } catch (Exception e) {
             LOGGER.error(e.getMessage(), e);

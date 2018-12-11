@@ -37,9 +37,9 @@ public class SerCodeImportTemplateInfoServiceImpl extends ServiceImpl<SerCodeImp
         if (info != null) {
             info.setProductId(command.getProductId());
             info.setTemplateName(command.getTemplateName());
-            if(command.getLeftCodeId()==1){
+            if (command.getLeftCodeId() == 1) {
                 info.setLeftCodeType(1L);
-            }else{
+            } else {
                 info.setLeftCodeType(2L);
             }
             info.setLeftCodeTypeId(command.getLeftCodeId());
@@ -52,9 +52,9 @@ public class SerCodeImportTemplateInfoServiceImpl extends ServiceImpl<SerCodeImp
             info = new SerCodeImportTemplateInfo();
             info.setProductId(command.getProductId());
             info.setTemplateName(command.getTemplateName());
-            if(command.getLeftCodeId()==1){
+            if (command.getLeftCodeId() == 1) {
                 info.setLeftCodeType(1L);
-            }else{
+            } else {
                 info.setLeftCodeType(2L);
             }
             info.setLeftCodeTypeId(command.getLeftCodeId());

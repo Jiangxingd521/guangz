@@ -11,12 +11,12 @@ package com.ningyang.os.wechat.data;
 import java.io.Serializable;
 
 /**
+ * @author dennies yang
+ * @version V1.0
  * @Title: WechatError.java
  * @Package com.leesche.zcsp.node.pay.wecha.data
  * @Description:()
- * @author dennies yang
  * @date 2016年10月10日 上午11:58:25
- * @version V1.0
  */
 public class WechatError implements Serializable {
     //微信错误代码

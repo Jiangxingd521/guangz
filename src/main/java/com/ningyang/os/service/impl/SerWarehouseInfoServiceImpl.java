@@ -40,12 +40,12 @@ public class SerWarehouseInfoServiceImpl extends ServiceImpl<SerWarehouseInfoMap
         Page<WarehouseVo> pageVo = new Page<>();
         List<WarehouseVo> listVoTemp = baseMapper.selectWarehouseVoPageByCondition(condition);
         //仓库库存量变化
-        for(WarehouseVo vo : listVoTemp){
+        for (WarehouseVo vo : listVoTemp) {
             //入库
             int inCount = inInfoService.getWarehouseBoxCount(vo.getWarehouseId());
             //出库
             int outCount = outInfoService.getWarehouseBoxCount(vo.getWarehouseId());
-            vo.setUsedTotalInventory(inCount-outCount);
+            vo.setUsedTotalInventory(inCount - outCount);
         }
         int total = baseMapper.selectWarehouseVoPageCountByCondition(condition);
         pageVo.setRecords(listVoTemp);
@@ -95,12 +95,12 @@ public class SerWarehouseInfoServiceImpl extends ServiceImpl<SerWarehouseInfoMap
     public List<WarehouseVo> findWarehouseVoListByCondition() {
         List<WarehouseVo> listVoTemp = baseMapper.selectWarehouseVoListByCondition();
         //仓库库存量变化
-        for(WarehouseVo vo : listVoTemp){
+        for (WarehouseVo vo : listVoTemp) {
             //入库
             int inCount = inInfoService.getWarehouseBoxCount(vo.getWarehouseId());
             //出库
             int outCount = outInfoService.getWarehouseBoxCount(vo.getWarehouseId());
-            vo.setUsedTotalInventory(inCount-outCount);
+            vo.setUsedTotalInventory(inCount - outCount);
         }
         return listVoTemp;
     }

@@ -33,12 +33,32 @@ public class SerPurchaseOrderInfo extends Model<SerPurchaseOrderInfo> {
      * 退货订单号
      */
     @TableField("order_no")
-    private Integer orderNo;
+    private String orderNo;
+    /**
+     * 订单状态
+     */
+    @TableField("order_state")
+    private Integer orderState;
     /**
      * 退货原因
      */
     @TableField("order_remark")
     private String orderRemark;
+    /**
+     * 数量
+     */
+    @TableField("product_number")
+    private String productNumber;
+    /**
+     * 财务
+     */
+    @TableField("financial_id")
+    private Long financialId;
+    /**
+     * 操作人
+     */
+    @TableField("user_id")
+    private Long userId;
     private Integer idata1;
     private Integer idata2;
     private Integer idata3;
@@ -58,7 +78,6 @@ public class SerPurchaseOrderInfo extends Model<SerPurchaseOrderInfo> {
     @TableField("update_time")
     private Date updateTime;
 
-
     public Long getId() {
         return id;
     }
@@ -75,12 +94,20 @@ public class SerPurchaseOrderInfo extends Model<SerPurchaseOrderInfo> {
         this.dealerId = dealerId;
     }
 
-    public Integer getOrderNo() {
+    public String getOrderNo() {
         return orderNo;
     }
 
-    public void setOrderNo(Integer orderNo) {
+    public void setOrderNo(String orderNo) {
         this.orderNo = orderNo;
+    }
+
+    public Integer getOrderState() {
+        return orderState;
+    }
+
+    public void setOrderState(Integer orderState) {
+        this.orderState = orderState;
     }
 
     public String getOrderRemark() {
@@ -89,6 +116,30 @@ public class SerPurchaseOrderInfo extends Model<SerPurchaseOrderInfo> {
 
     public void setOrderRemark(String orderRemark) {
         this.orderRemark = orderRemark;
+    }
+
+    public String getProductNumber() {
+        return productNumber;
+    }
+
+    public void setProductNumber(String productNumber) {
+        this.productNumber = productNumber;
+    }
+
+    public Long getFinancialId() {
+        return financialId;
+    }
+
+    public void setFinancialId(Long financialId) {
+        this.financialId = financialId;
+    }
+
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
 
     public Integer getIdata1() {
@@ -176,23 +227,4 @@ public class SerPurchaseOrderInfo extends Model<SerPurchaseOrderInfo> {
         return this.id;
     }
 
-    @Override
-    public String toString() {
-        return "SerPurchaseOrderInfo{" +
-                "id=" + id +
-                ", dealerId=" + dealerId +
-                ", orderNo=" + orderNo +
-                ", orderRemark=" + orderRemark +
-                ", idata1=" + idata1 +
-                ", idata2=" + idata2 +
-                ", idata3=" + idata3 +
-                ", idata4=" + idata4 +
-                ", sdata1=" + sdata1 +
-                ", sdata2=" + sdata2 +
-                ", sdata3=" + sdata3 +
-                ", sdata4=" + sdata4 +
-                ", createTime=" + createTime +
-                ", updateTime=" + updateTime +
-                "}";
-    }
 }

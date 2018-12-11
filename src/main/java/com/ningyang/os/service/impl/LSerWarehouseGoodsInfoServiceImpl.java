@@ -37,27 +37,28 @@ public class LSerWarehouseGoodsInfoServiceImpl extends ServiceImpl<LSerWarehouse
     private ISerGoodsInfoService goodsInfoService;
 
     @Override
-    public Map<String,Object> add(ApiWarehousePutInCommand command) {
+    public Map<String, Object> add(ApiWarehousePutInCommand command) {
         List<LSerWarehouseGoodsInfo> safeList = new ArrayList<>();
         List<LSerWarehouseGoodsInfo> unSafeList = new ArrayList<>();
         for (String boxNo : command.getBoxCode()) {
             LSerWarehouseGoodsInfo info;
             //校验是否存在此商品
-            SerGoodsInfo goodsInfo = goodsInfoService.getOne(new QueryWrapper<SerGoodsInfo>().eq("M5",boxNo));
+            SerGoodsInfo goodsInfo = goodsInfoService.getOne(new QueryWrapper<SerGoodsInfo>().eq("M5", boxNo));
             //校验码是否已经已经入库
-            List<LSerWarehouseGoodsInfo> listDataTemp = list(new QueryWrapper<LSerWarehouseGoodsInfo>().eq("box_no",boxNo));
-            if(listDataTemp.size()>0){
-                info = getOne(new QueryWrapper<LSerWarehouseGoodsInfo>().eq("box_no",boxNo));
+            List<LSerWarehouseGoodsInfo> listDataTemp = list(new QueryWrapper<LSerWarehouseGoodsInfo>().eq("box_no", boxNo));
+            if (listDataTemp.size() > 0) {
+                info = getOne(new QueryWrapper<LSerWarehouseGoodsInfo>().eq("box_no", boxNo));
                 unSafeList.add(info);
-            }else if(goodsInfo == null) {
+            } else if (goodsInfo == null) {
                 LSerWarehouseGoodsInfo infoTemp = new LSerWarehouseGoodsInfo();
                 infoTemp.setBoxNo(boxNo);
                 unSafeList.add(infoTemp);
-            }else{
+            } else {
                 info = new LSerWarehouseGoodsInfo();
                 info.setSourceType(command.getSourceType());
                 info.setWarehouseId(command.getWarehouse());
                 info.setBoxNo(boxNo);
+                info.setProductId(goodsInfo.getBrandSeriesProductId());
                 info.setWarehouseInNo(getOrderNum());
                 info.setUserId(command.getUserId());
                 info.setWarehouseInTime(new Date());
@@ -79,9 +80,9 @@ public class LSerWarehouseGoodsInfoServiceImpl extends ServiceImpl<LSerWarehouse
         );
 
         boolean addFlag = saveBatch(saveListTemp);
-        Map<String,Object> map = new HashMap<>();
-        map.put("saveFlag",addFlag);
-        map.put("unSaveFlag",unSaveListTemp);
+        Map<String, Object> map = new HashMap<>();
+        map.put("saveFlag", addFlag);
+        map.put("unSaveFlag", unSaveListTemp);
 
         return map;
     }

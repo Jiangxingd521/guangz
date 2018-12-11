@@ -24,17 +24,13 @@
             parameterType="com.ningyang.os.action.input.condition.serve.QueryOrderCondition"
             resultType="com.ningyang.os.action.output.vo.web.serve.SaleOrderVo"
     >
-        SELECT a.id as orderId,a.order_no,a.dealer_id,e.dealer_name,d.brand_name,c.series_name,
-               b.product_name,a.product_id,a.order_state,f.user_name as createUserName,
-               g.user_name as financialUserName,a.order_remark as remark
+        SELECT a.id AS orderId,a.order_no,a.dealer_id,b.dealer_name,a.order_state,c.user_name AS createUserName,
+              d.user_name AS financialUserName,a.order_remark AS remark
         FROM t_ser_order_info a
-            LEFT JOIN t_ser_brand_series_product_info b ON a.product_id = b.id
-            LEFT JOIN t_ser_brand_series_info c ON b.series_id = c.id
-            LEFT JOIN t_ser_brand_info d on c.brand_id = d.id
-            LEFT JOIN t_ser_dealer_info e on a.dealer_id = e.id
-            LEFT JOIN t_sys_user_info f on a.user_id = f.id
-            LEFT JOIN t_sys_user_info g on a.financial_id = g.id
-        WHERE 1=1
+                LEFT JOIN t_ser_dealer_info b ON a.dealer_id = b.id
+                LEFT JOIN t_sys_user_info c ON a.user_id = c.id
+                LEFT JOIN t_sys_user_info d ON a.financial_id = d.id
+        WHERE 1 =1
         <if test="orderState!=null">
             and a.order_state = #{orderState}
         </if>
@@ -57,15 +53,12 @@
             parameterType="com.ningyang.os.action.input.condition.serve.QueryOrderCondition"
             resultType="com.ningyang.os.action.output.vo.web.serve.SaleOrderVo"
     >
-        SELECT a.id as orderId,a.order_no,a.dealer_id,e.dealer_name,d.brand_name,
-               c.series_name,b.product_name,a.product_id,a.order_remark as remark
+        SELECT a.id as orderId,a.order_no,a.dealer_id,b.dealer_name,a.order_remark as remark,a.create_time as orderCreateTime
         FROM t_ser_order_info a
-                 LEFT JOIN t_ser_brand_series_product_info b ON a.product_id = b.id
-                 LEFT JOIN t_ser_brand_series_info c ON b.series_id = c.id
-                 LEFT JOIN t_ser_brand_info d on c.brand_id = d.id
-                 LEFT JOIN t_ser_dealer_info e on a.dealer_id = e.id
+                 LEFT JOIN t_ser_dealer_info b on a.dealer_id = b.id
         WHERE 1 = 1
           and a.order_state = 2 or a.order_state = 3
+          order by a.create_time desc
     </select>
 
 </mapper>

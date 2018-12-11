@@ -35,7 +35,15 @@
         <if test="codeImportState!=null">
             and a.template_state = #{codeImportState}
         </if>
-
+        <if test="brandName!=null and brandName!=''">
+            and d.brand_name like CONCAT('%',#{brandName},'%')
+        </if>
+        <if test="seriesName!=null and seriesName!=''">
+            and c.series_name like CONCAT('%',#{seriesName},'%')
+        </if>
+        <if test="productName!=null and productName!=''">
+            and b.product_name like CONCAT('%',#{productName},'%')
+        </if>
     </select>
 
 

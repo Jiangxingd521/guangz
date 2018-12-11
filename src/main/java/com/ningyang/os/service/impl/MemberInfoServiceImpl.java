@@ -28,7 +28,7 @@ public class MemberInfoServiceImpl extends ServiceImpl<MemberInfoMapper, MemberI
     public Page<MemberInfoVo> findMemberInfoVoPageByCondition(QueryMemberCondition condition) {
         Page<MemberInfoVo> pageVo = new Page<>();
         List<MemberInfoVo> listVoTemp = baseMapper.selectMemberInfoVoPageByCondition(condition);
-        for(MemberInfoVo vo : listVoTemp){
+        for (MemberInfoVo vo : listVoTemp) {
             vo.setCreateTimeStr(timeToStr(vo.getCreateTime()));
         }
         int total = baseMapper.selectMemberInfoVoPageCountByCondition(condition);

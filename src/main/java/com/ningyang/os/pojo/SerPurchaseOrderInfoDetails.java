@@ -35,14 +35,27 @@ public class SerPurchaseOrderInfoDetails extends Model<SerPurchaseOrderInfoDetai
     @TableField("product_id")
     private Long productId;
     /**
-     * 箱号
+     * 箱数量
      */
-    @TableField("box_no")
-    private String boxNo;
+    @TableField("box_number")
+    private Integer boxNumber;
     @TableField("is_no")
     private Integer isNo;
+    /**
+     * 退货发起（0：供应商发起，1：系统用户发起）
+     */
+    @TableField("purchase_type")
+    private Integer purchaseType;
+    /**
+     * 退货状态（0：未完成，1：已完成）
+     */
     @TableField("purchase_state")
     private Integer purchaseState;
+    /**
+     * 操作人
+     */
+    @TableField("user_id")
+    private Long userId;
     private Integer idata1;
     private Integer idata2;
     private Integer idata3;
@@ -55,7 +68,6 @@ public class SerPurchaseOrderInfoDetails extends Model<SerPurchaseOrderInfoDetai
     private Date createTime;
     @TableField("update_time")
     private Date updateTime;
-
 
     public Long getId() {
         return id;
@@ -81,12 +93,12 @@ public class SerPurchaseOrderInfoDetails extends Model<SerPurchaseOrderInfoDetai
         this.productId = productId;
     }
 
-    public String getBoxNo() {
-        return boxNo;
+    public Integer getBoxNumber() {
+        return boxNumber;
     }
 
-    public void setBoxNo(String boxNo) {
-        this.boxNo = boxNo;
+    public void setBoxNumber(Integer boxNumber) {
+        this.boxNumber = boxNumber;
     }
 
     public Integer getIsNo() {
@@ -97,12 +109,28 @@ public class SerPurchaseOrderInfoDetails extends Model<SerPurchaseOrderInfoDetai
         this.isNo = isNo;
     }
 
+    public Integer getPurchaseType() {
+        return purchaseType;
+    }
+
+    public void setPurchaseType(Integer purchaseType) {
+        this.purchaseType = purchaseType;
+    }
+
     public Integer getPurchaseState() {
         return purchaseState;
     }
 
     public void setPurchaseState(Integer purchaseState) {
         this.purchaseState = purchaseState;
+    }
+
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
 
     public Integer getIdata1() {
@@ -190,25 +218,4 @@ public class SerPurchaseOrderInfoDetails extends Model<SerPurchaseOrderInfoDetai
         return this.id;
     }
 
-    @Override
-    public String toString() {
-        return "SerPurchaseOrderInfoDetails{" +
-                "id=" + id +
-                ", purchaseId=" + purchaseId +
-                ", productId=" + productId +
-                ", boxNo=" + boxNo +
-                ", isNo=" + isNo +
-                ", purchaseState=" + purchaseState +
-                ", idata1=" + idata1 +
-                ", idata2=" + idata2 +
-                ", idata3=" + idata3 +
-                ", idata4=" + idata4 +
-                ", sdata1=" + sdata1 +
-                ", sdata2=" + sdata2 +
-                ", sdata3=" + sdata3 +
-                ", sdata4=" + sdata4 +
-                ", createTime=" + createTime +
-                ", updateTime=" + updateTime +
-                "}";
-    }
 }

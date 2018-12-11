@@ -1,5 +1,6 @@
 package com.ningyang.os.action.output.vo.web.serve;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -36,6 +37,10 @@ public class SaleOrderVo {
     private String remark;
     //已出货数
     private int outBoxCount;
+    //订单时间
+    private Date orderCreateTime;
+
+    private String orderCreateTimeStr;
 
     private List<OrderDetailVo> detailList;
 
@@ -143,19 +148,35 @@ public class SaleOrderVo {
         this.remark = remark;
     }
 
-    public List<OrderDetailVo> getDetailList() {
-        return detailList;
-    }
-
-    public void setDetailList(List<OrderDetailVo> detailList) {
-        this.detailList = detailList;
-    }
-
     public int getOutBoxCount() {
         return outBoxCount;
     }
 
     public void setOutBoxCount(int outBoxCount) {
         this.outBoxCount = outBoxCount;
+    }
+
+    public Date getOrderCreateTime() {
+        return orderCreateTime;
+    }
+
+    public void setOrderCreateTime(Date orderCreateTime) {
+        this.orderCreateTime = orderCreateTime;
+    }
+
+    public String getOrderCreateTimeStr() {
+        return orderCreateTimeStr;
+    }
+
+    public void setOrderCreateTimeStr(String orderCreateTimeStr) {
+        this.orderCreateTimeStr = orderCreateTimeStr;
+    }
+
+    public List<OrderDetailVo> getDetailList() {
+        return detailList;
+    }
+
+    public void setDetailList(List<OrderDetailVo> detailList) {
+        this.detailList = detailList;
     }
 }

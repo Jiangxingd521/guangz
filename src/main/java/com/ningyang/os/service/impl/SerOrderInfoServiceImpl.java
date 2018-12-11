@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import static com.ningyang.os.action.utils.DateUtil.getOrderNum;
+import static com.ningyang.os.action.utils.DateUtil.*;
 
 /**
  * <p>
@@ -107,6 +107,7 @@ public class SerOrderInfoServiceImpl extends ServiceImpl<SerOrderInfoMapper, Ser
     public List<SaleOrderVo> findSaleOrderVoListByCondition(QueryOrderCondition condition) {
         List<SaleOrderVo> listTemp = baseMapper.selectSaleOrderVoListByCondition(condition);
         for (SaleOrderVo vo : listTemp) {
+            vo.setOrderCreateTimeStr(dateToDate(vo.getOrderCreateTime()));
             //查询具体订单内容
             condition.setOrderId(vo.getOrderId());
             List<OrderDetailVo> detailList = detailsService.findOrderDetailVoList(condition);

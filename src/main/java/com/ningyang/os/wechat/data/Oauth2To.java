@@ -9,12 +9,12 @@
 package com.ningyang.os.wechat.data;
 
 /**
+ * @author dennies yang
+ * @version V1.0
  * @Title: Oauth2To.java
  * @Package com.leesche.zcsp.node.pay.wecha.data
  * @Description:()
- * @author dennies yang
  * @date 2016年10月9日 下午7:32:16
- * @version V1.0
  */
 public class Oauth2To {
     private String access_token;

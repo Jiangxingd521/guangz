@@ -5,6 +5,7 @@ import com.ningyang.os.action.input.condition.base.QueryBrandSeriesProductCondit
 import com.ningyang.os.action.output.vo.web.base.BrandSeriesProductVo;
 import com.ningyang.os.action.output.vo.web.base.CodeTypeVo;
 import com.ningyang.os.action.output.vo.web.base.ProductVo;
+import com.ningyang.os.action.output.vo.web.base.SeriesProductVo;
 import com.ningyang.os.pojo.SerBrandSeriesProductInfo;
 
 import java.util.List;
@@ -26,4 +27,5 @@ public interface SerBrandSeriesProductInfoMapper extends BaseMapper<SerBrandSeri
 
     List<CodeTypeVo> selectCodeTypeVoByCondition(QueryBrandSeriesProductCondition condition);
 
+    List<SeriesProductVo> selectSeriesProductVoByCondition(QueryBrandSeriesProductCondition condition);
 }

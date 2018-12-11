@@ -40,6 +40,11 @@ public class LSerWarehouseGoodsInfo extends Model<LSerWarehouseGoodsInfo> {
     @TableField("goods_id")
     private Long goodsId;
     /**
+     * 产品系列id
+     */
+    @TableField("product_id")
+    private Long productId;
+    /**
      * 箱码
      */
     @TableField("box_no")
@@ -75,7 +80,6 @@ public class LSerWarehouseGoodsInfo extends Model<LSerWarehouseGoodsInfo> {
     @TableField("update_time")
     private Date updateTime;
 
-
     public Long getId() {
         return id;
     }
@@ -106,6 +110,14 @@ public class LSerWarehouseGoodsInfo extends Model<LSerWarehouseGoodsInfo> {
 
     public void setGoodsId(Long goodsId) {
         this.goodsId = goodsId;
+    }
+
+    public Long getProductId() {
+        return productId;
+    }
+
+    public void setProductId(Long productId) {
+        this.productId = productId;
     }
 
     public String getBoxNo() {

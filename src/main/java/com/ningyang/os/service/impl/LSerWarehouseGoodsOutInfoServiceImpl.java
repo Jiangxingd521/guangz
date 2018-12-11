@@ -1,22 +1,21 @@
 package com.ningyang.os.service.impl;
 
+import com.alibaba.fastjson.JSONObject;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.ningyang.os.action.input.command.api.ApiWarehousePutOutCommand;
 import com.ningyang.os.action.input.condition.serve.QueryGoodsPutCondition;
+import com.ningyang.os.action.output.dto.serve.PutOutDto;
 import com.ningyang.os.action.output.vo.web.serve.GoodsPutOutVo;
 import com.ningyang.os.dao.LSerWarehouseGoodsOutInfoMapper;
-import com.ningyang.os.pojo.LSerWarehouseGoodsOutInfo;
-import com.ningyang.os.pojo.SerOrderInfo;
-import com.ningyang.os.service.ILSerWarehouseGoodsOutInfoService;
-import com.ningyang.os.service.ISerOrderInfoService;
+import com.ningyang.os.pojo.*;
+import com.ningyang.os.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.TreeSet;
+import java.util.*;
+import java.util.stream.Collectors;
 
 import static com.ningyang.os.action.utils.DateUtil.timeToStr;
 import static java.util.Comparator.comparing;
@@ -36,12 +35,120 @@ public class LSerWarehouseGoodsOutInfoServiceImpl extends ServiceImpl<LSerWareho
 
     @Autowired
     private ISerOrderInfoService orderInfoService;
-
+    @Autowired
+    private ISerOrderInfoDetailsService detailsService;
+    @Autowired
+    private ISerGoodsInfoService goodsInfoService;
+    @Autowired
+    private ILSerWarehouseGoodsInfoService putInService;
 
     @Override
-    public boolean add(ApiWarehousePutOutCommand command) {
-        List<LSerWarehouseGoodsOutInfo> infoList = new ArrayList<>();
-        for (String boxNo : command.getBoxCode()) {
+    public Map<String, Object> add(ApiWarehousePutOutCommand command) {
+        Map<String, Object> map = new HashMap<>();
+        //订单箱数
+        int orderBoxCount = orderInfoService.getOrderBoxCount(command.getOrderId());
+        //扫码箱数
+        int scanBoxCount = command.getBoxCode().length;
+        //已出箱数
+        int outBoxCount = getOrderOutBoxCount(command.getOrderId());
+        //实际需要出箱数
+        int actualBoxCount = orderBoxCount - outBoxCount;
+        System.out.println("orderBoxCount:" + orderBoxCount + " scanBoxCount:" + scanBoxCount + " outBoxCount:" + outBoxCount + " actualBoxCount:" + actualBoxCount);
+        if (scanBoxCount > actualBoxCount) {
+            PutOutDto dto = new PutOutDto();
+            dto.setFlag(false);
+            dto.setMessage("扫码箱数大于订单箱数");
+            map.put("putOutFlag", dto);
+            return map;
+        } else {
+            List<LSerWarehouseGoodsInfo> unSafeList = new ArrayList<>();
+            //查询所有箱子对应的商品
+            List<LSerWarehouseGoodsInfo> goodsInfoList = new ArrayList<>();
+            for (String boxNo : command.getBoxCode()) {
+                LSerWarehouseGoodsInfo goodsInfo = putInService.getOne(new QueryWrapper<LSerWarehouseGoodsInfo>().eq("box_no", boxNo));
+                if (goodsInfo != null) {
+                    goodsInfoList.add(goodsInfo);
+                } else {
+                    LSerWarehouseGoodsInfo infoTemp = new LSerWarehouseGoodsInfo();
+                    infoTemp.setBoxNo(boxNo);
+                    unSafeList.add(infoTemp);
+                }
+            }
+            //扫描到未入库的商品
+            if (unSafeList.size() > 0) {
+                PutOutDto dto = new PutOutDto();
+                dto.setFlag(false);
+                dto.setMessage("存在未入库的商品");
+                dto.setObj(unSafeList);
+                map.put("putOutFlag", dto);
+                return map;
+            }
+            //查看订单详情
+            List<SerOrderInfoDetails> detailsList = detailsService.list(new QueryWrapper<SerOrderInfoDetails>()
+                    .eq("order_id", command.getOrderId()));
+
+            List<LSerWarehouseGoodsOutInfo> infoList = new ArrayList<>();
+
+            //当前
+            Map<Long, List<SerOrderInfoDetails>> groupByDetails = detailsList.stream().collect(Collectors
+                    .groupingBy(SerOrderInfoDetails::getProductId));
+
+            Map<Long, List<LSerWarehouseGoodsInfo>> groupByGoods = goodsInfoList.stream().collect(Collectors
+                    .groupingBy(LSerWarehouseGoodsInfo::getProductId));
+
+//            putInService
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        /*for(){
+
+        }*/
+
+
+
+
+
+
+
+
+
+
+        /*
+        //查看明细里面的商品数据
+        for(SerOrderInfoDetails details : detailsList){
+            //产品系列
+            Long productId = details.getProductId();
+            //箱数
+            int boxNumber = details.getBoxNumber();
+
+            List<SerGoodsInfo> goodsInfoList = new ArrayList<>();
+            for(String boxNo : command.getBoxCode()){
+                SerGoodsInfo goodsInfo = goodsInfoService.getOne(new QueryWrapper<SerGoodsInfo>().eq("M5",boxNo));
+                goodsInfoList.add(goodsInfo);
+            }
+
+            int
+
+
+        }*/
+
+
+
+        /*for (String boxNo : command.getBoxCode()) {
             LSerWarehouseGoodsOutInfo info = new LSerWarehouseGoodsOutInfo();
             info.setOrderId(command.getOrderId());
             info.setWarehouseId(command.getWarehouse());
@@ -82,8 +189,8 @@ public class LSerWarehouseGoodsOutInfoServiceImpl extends ServiceImpl<LSerWareho
             }
         }else{//出货数据不对
             flag = false;
-        }
-        return flag;
+        }*/
+        return map;
     }
 
     @Override

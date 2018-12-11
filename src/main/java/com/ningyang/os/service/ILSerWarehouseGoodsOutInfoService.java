@@ -8,6 +8,7 @@ import com.ningyang.os.action.output.vo.web.serve.GoodsPutOutVo;
 import com.ningyang.os.pojo.LSerWarehouseGoodsOutInfo;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * <p>
@@ -19,7 +20,7 @@ import java.util.List;
  */
 public interface ILSerWarehouseGoodsOutInfoService extends IService<LSerWarehouseGoodsOutInfo> {
 
-    boolean add(ApiWarehousePutOutCommand command);
+    Map<String, Object> add(ApiWarehousePutOutCommand command);
 
     Page<GoodsPutOutVo> findGoodsPutOutVoPageByCondition(QueryGoodsPutCondition condition);
 

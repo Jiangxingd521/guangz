@@ -43,7 +43,6 @@ public class SerPrizeRecodeInfoServiceImpl extends ServiceImpl<SerPrizeRecodeInf
     private ILSerWarehouseGoodsOutInfoService outInfoService;
 
 
-
     @Override
     public Page<PrizeSetLogVo> findPrizeSetLogVoPageByCondition(QueryPrizeCondition condition) {
         Page<PrizeSetLogVo> pageVo = new Page<>();
@@ -70,24 +69,24 @@ public class SerPrizeRecodeInfoServiceImpl extends ServiceImpl<SerPrizeRecodeInf
         //未选中的商品
         List<GoodsPutOutVo> listData2;
         //1：订单，2：产品系列
-        if(command.getPrizeSpecies()==1){
+        if (command.getPrizeSpecies() == 1) {
             //布奖记录
             //获取订单商品
-            goodsPutOutVoList = getGoodsList(1,command.getOrderNo());
+            goodsPutOutVoList = getGoodsList(1, command.getOrderNo());
             //限制数量
-            if(info.getPrizeSetType()==1){
+            if (info.getPrizeSetType() == 1) {
                 //获取随机不重复数
-                int[] count = randomArray(0,goodsPutOutVoList.size()-1,prizeSetNumber);
+                int[] count = randomArray(0, goodsPutOutVoList.size() - 1, prizeSetNumber);
                 //依据总数随机选出来的商品
-                for(int i=0;i<count.length;i++){
+                for (int i = 0; i < count.length; i++) {
                     int j = count[i];
                     listData1.add(goodsPutOutVoList.get(j));
                 }
                 //剩余的商品
-                for (int i=0;i<goodsPutOutVoList.size();i++){
-                    for(int j=0;j<listData1.size();j++){
+                for (int i = 0; i < goodsPutOutVoList.size(); i++) {
+                    for (int j = 0; j < listData1.size(); j++) {
                         GoodsPutOutVo vo1 = goodsPutOutVoList.get(i);
-                        if(vo1.getGoodsId() == listData1.get(j).getGoodsId()){
+                        if (vo1.getGoodsId() == listData1.get(j).getGoodsId()) {
                             goodsPutOutVoList.remove(vo1);
                         }
                     }
@@ -106,11 +105,11 @@ public class SerPrizeRecodeInfoServiceImpl extends ServiceImpl<SerPrizeRecodeInf
                     //奖项类型
                     String setTypeStr = info.getSdata1();
                     recodeInfo.setSdata1(setTypeStr);
-                    if(setTypeStr.equalsIgnoreCase("HB")){//红包
-                        BigDecimal randomMoney = getRandomMoney(info.getMoney(),info.getMoneyEnd());
+                    if (setTypeStr.equalsIgnoreCase("HB")) {//红包
+                        BigDecimal randomMoney = getRandomMoney(info.getMoney(), info.getMoneyEnd());
                         recodeInfo.setMoney(randomMoney);
-                    }else if(setTypeStr.equalsIgnoreCase("TP")){//积分
-                        int point = getRandomPoint(info.getPonit(),info.getPointEnd());
+                    } else if (setTypeStr.equalsIgnoreCase("TP")) {//积分
+                        int point = getRandomPoint(info.getPonit(), info.getPointEnd());
                         recodeInfo.setPonit(point);
                     }
                     recodeInfo.setPrizeSetType(info.getPrizeSetType());
@@ -124,7 +123,7 @@ public class SerPrizeRecodeInfoServiceImpl extends ServiceImpl<SerPrizeRecodeInf
                     listData.add(recodeInfo);
                 }
 
-                for(GoodsPutOutVo vo : listData2){
+                for (GoodsPutOutVo vo : listData2) {
                     SerPrizeRecodeInfo recodeInfo = new SerPrizeRecodeInfo();
                     recodeInfo.setOrderNo(vo.getOrderNo());
                     recodeInfo.setPrCode(vo.getPrCode());
@@ -136,9 +135,9 @@ public class SerPrizeRecodeInfoServiceImpl extends ServiceImpl<SerPrizeRecodeInf
                     //奖项类型
                     String setTypeStr = info.getSdata1();
                     recodeInfo.setSdata1(setTypeStr);
-                    if(setTypeStr.equalsIgnoreCase("HB")){//红包
+                    if (setTypeStr.equalsIgnoreCase("HB")) {//红包
                         recodeInfo.setMoney(new BigDecimal(0));
-                    }else if(setTypeStr.equalsIgnoreCase("TP")){//积分
+                    } else if (setTypeStr.equalsIgnoreCase("TP")) {//积分
                         recodeInfo.setPonit(0);
                     }
                     recodeInfo.setPrizeSetType(info.getPrizeSetType());
@@ -151,9 +150,9 @@ public class SerPrizeRecodeInfoServiceImpl extends ServiceImpl<SerPrizeRecodeInf
                     recodeInfo.setUpdateTime(new Date());
                     listData.add(recodeInfo);
                 }
-            }else{//不限量
+            } else {//不限量
                 listData1 = goodsPutOutVoList;
-                for(GoodsPutOutVo vo : listData1){
+                for (GoodsPutOutVo vo : listData1) {
                     SerPrizeRecodeInfo recodeInfo = new SerPrizeRecodeInfo();
                     recodeInfo.setOrderNo(vo.getOrderNo());
                     recodeInfo.setPrCode(vo.getPrCode());
@@ -165,9 +164,9 @@ public class SerPrizeRecodeInfoServiceImpl extends ServiceImpl<SerPrizeRecodeInf
                     //奖项类型
                     String setTypeStr = info.getSdata1();
                     recodeInfo.setSdata1(setTypeStr);
-                    if(setTypeStr.equalsIgnoreCase("HB")){//红包
+                    if (setTypeStr.equalsIgnoreCase("HB")) {//红包
                         recodeInfo.setMoney(info.getMoney());
-                    }else if(setTypeStr.equalsIgnoreCase("TP")){//积分
+                    } else if (setTypeStr.equalsIgnoreCase("TP")) {//积分
                         recodeInfo.setPonit(info.getPonit());
                     }
                     recodeInfo.setPrizeSetType(info.getPrizeSetType());
@@ -181,23 +180,23 @@ public class SerPrizeRecodeInfoServiceImpl extends ServiceImpl<SerPrizeRecodeInf
                     listData.add(recodeInfo);
                 }
             }
-        }else{
+        } else {
             //产品系列
-            goodsPutOutVoList = getGoodsList(2,String.valueOf(command.getProdId()));
+            goodsPutOutVoList = getGoodsList(2, String.valueOf(command.getProdId()));
             //限制数量
-            if(info.getPrizeSetType()==1){
+            if (info.getPrizeSetType() == 1) {
                 //获取随机不重复数
-                int[] count = randomArray(0,goodsPutOutVoList.size()-1,prizeSetNumber);
+                int[] count = randomArray(0, goodsPutOutVoList.size() - 1, prizeSetNumber);
                 //依据总数随机选出来的商品
-                for(int i=0;i<count.length;i++){
+                for (int i = 0; i < count.length; i++) {
                     int j = count[i];
                     listData1.add(goodsPutOutVoList.get(j));
                 }
                 //剩余的商品
-                for (int i=0;i<goodsPutOutVoList.size();i++){
-                    for(int j=0;j<listData1.size();j++){
+                for (int i = 0; i < goodsPutOutVoList.size(); i++) {
+                    for (int j = 0; j < listData1.size(); j++) {
                         GoodsPutOutVo vo1 = goodsPutOutVoList.get(i);
-                        if(vo1.getGoodsId() == listData1.get(j).getGoodsId()){
+                        if (vo1.getGoodsId() == listData1.get(j).getGoodsId()) {
                             goodsPutOutVoList.remove(vo1);
                         }
                     }
@@ -216,11 +215,11 @@ public class SerPrizeRecodeInfoServiceImpl extends ServiceImpl<SerPrizeRecodeInf
                     //奖项类型
                     String setTypeStr = info.getSdata1();
                     recodeInfo.setSdata1(setTypeStr);
-                    if(setTypeStr.equalsIgnoreCase("HB")){//红包
-                        BigDecimal randomMoney = getRandomMoney(info.getMoney(),info.getMoneyEnd());
+                    if (setTypeStr.equalsIgnoreCase("HB")) {//红包
+                        BigDecimal randomMoney = getRandomMoney(info.getMoney(), info.getMoneyEnd());
                         recodeInfo.setMoney(randomMoney);
-                    }else if(setTypeStr.equalsIgnoreCase("TP")){//积分
-                        int point = getRandomPoint(info.getPonit(),info.getPointEnd());
+                    } else if (setTypeStr.equalsIgnoreCase("TP")) {//积分
+                        int point = getRandomPoint(info.getPonit(), info.getPointEnd());
                         recodeInfo.setPonit(point);
                     }
                     recodeInfo.setPrizeSetType(info.getPrizeSetType());
@@ -234,7 +233,7 @@ public class SerPrizeRecodeInfoServiceImpl extends ServiceImpl<SerPrizeRecodeInf
                     listData.add(recodeInfo);
                 }
 
-                for(GoodsPutOutVo vo : listData2){
+                for (GoodsPutOutVo vo : listData2) {
                     SerPrizeRecodeInfo recodeInfo = new SerPrizeRecodeInfo();
                     recodeInfo.setOrderNo(vo.getOrderNo());
                     recodeInfo.setPrCode(vo.getPrCode());
@@ -246,9 +245,9 @@ public class SerPrizeRecodeInfoServiceImpl extends ServiceImpl<SerPrizeRecodeInf
                     //奖项类型
                     String setTypeStr = info.getSdata1();
                     recodeInfo.setSdata1(setTypeStr);
-                    if(setTypeStr.equalsIgnoreCase("HB")){//红包
+                    if (setTypeStr.equalsIgnoreCase("HB")) {//红包
                         recodeInfo.setMoney(new BigDecimal(0));
-                    }else if(setTypeStr.equalsIgnoreCase("TP")){//积分
+                    } else if (setTypeStr.equalsIgnoreCase("TP")) {//积分
                         recodeInfo.setPonit(0);
                     }
                     recodeInfo.setPrizeSetType(info.getPrizeSetType());
@@ -261,9 +260,9 @@ public class SerPrizeRecodeInfoServiceImpl extends ServiceImpl<SerPrizeRecodeInf
                     recodeInfo.setUpdateTime(new Date());
                     listData.add(recodeInfo);
                 }
-            }else{//不限量
+            } else {//不限量
                 listData1 = goodsPutOutVoList;
-                for(GoodsPutOutVo vo : listData1){
+                for (GoodsPutOutVo vo : listData1) {
                     SerPrizeRecodeInfo recodeInfo = new SerPrizeRecodeInfo();
                     recodeInfo.setOrderNo(vo.getOrderNo());
                     recodeInfo.setPrCode(vo.getPrCode());
@@ -275,9 +274,9 @@ public class SerPrizeRecodeInfoServiceImpl extends ServiceImpl<SerPrizeRecodeInf
                     //奖项类型
                     String setTypeStr = info.getSdata1();
                     recodeInfo.setSdata1(setTypeStr);
-                    if(setTypeStr.equalsIgnoreCase("HB")){//红包
+                    if (setTypeStr.equalsIgnoreCase("HB")) {//红包
                         recodeInfo.setMoney(info.getMoney());
-                    }else if(setTypeStr.equalsIgnoreCase("TP")){//积分
+                    } else if (setTypeStr.equalsIgnoreCase("TP")) {//积分
                         recodeInfo.setPonit(info.getPonit());
                     }
                     recodeInfo.setPrizeSetType(info.getPrizeSetType());
@@ -300,7 +299,7 @@ public class SerPrizeRecodeInfoServiceImpl extends ServiceImpl<SerPrizeRecodeInf
     public Page<PrizeTicketLogVo> findPrizeTicketLogVoPageByCondition(QueryPrizeCondition condition) {
         Page<PrizeTicketLogVo> pageVo = new Page<>();
         List<PrizeTicketLogVo> listVoTemp = baseMapper.selectPrizeTicketLogVoPageByCondition(condition);
-        for(PrizeTicketLogVo vo : listVoTemp){
+        for (PrizeTicketLogVo vo : listVoTemp) {
             vo.setTicketTimeStr(timeToStr(vo.getTicketTime()));
         }
         int total = baseMapper.selectPrizeTicketLogVoPageCountByCondition(condition);
@@ -313,15 +312,16 @@ public class SerPrizeRecodeInfoServiceImpl extends ServiceImpl<SerPrizeRecodeInf
 
     /**
      * 获取订单商品
-     * @param type 1: 通过订单查询,2:通过产品系列查询
+     *
+     * @param type      1: 通过订单查询,2:通过产品系列查询
      * @param typeValue
      * @return
      */
-    private List<GoodsPutOutVo> getGoodsList(int type, String typeValue){
+    private List<GoodsPutOutVo> getGoodsList(int type, String typeValue) {
         QueryGoodsPutCondition condition = new QueryGoodsPutCondition();
-        if(type==1){
+        if (type == 1) {
             condition.setOrderNo(typeValue);
-        }else{
+        } else {
             condition.setProdId(typeValue);
         }
         return outInfoService.findGoodsPutOutVoByCondition(condition);
@@ -329,32 +329,34 @@ public class SerPrizeRecodeInfoServiceImpl extends ServiceImpl<SerPrizeRecodeInf
 
     /**
      * 获取某个范围内随机金额
+     *
      * @param minVal
      * @param maxVal
      * @return
      */
-    private BigDecimal getRandomMoney(BigDecimal minVal, BigDecimal maxVal){
+    private BigDecimal getRandomMoney(BigDecimal minVal, BigDecimal maxVal) {
         BigDecimal maxValTemp = maxVal.multiply(new BigDecimal(100));
         BigDecimal minValTemp = minVal.multiply(new BigDecimal(100));
         int max = maxValTemp.intValue();
         int min = minValTemp.intValue();
         Random random = new Random();
-        int randomMoneyValTemp = random.nextInt(max)%(max-min+1) + min;
+        int randomMoneyValTemp = random.nextInt(max) % (max - min + 1) + min;
         BigDecimal randomMoneyVal = new BigDecimal(randomMoneyValTemp).divide(new BigDecimal(100));
         return randomMoneyVal;
     }
 
     /**
      * 获取某个范围内随机积分
+     *
      * @param minVal
      * @param maxVal
      * @return
      */
-    private int getRandomPoint(int minVal, int maxVal){
+    private int getRandomPoint(int minVal, int maxVal) {
         int max = maxVal;
         int min = minVal;
         Random random = new Random();
-        int randomMoneyVal = random.nextInt(max)%(max-min+1) + min;
+        int randomMoneyVal = random.nextInt(max) % (max - min + 1) + min;
         return randomMoneyVal;
     }
 

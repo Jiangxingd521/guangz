@@ -201,23 +201,4 @@ public class SerOrderInfo extends Model<SerOrderInfo> {
         return this.id;
     }
 
-    @Override
-    public String toString() {
-        return "SerOrderInfo{" +
-                "id=" + id +
-                ", orderNo='" + orderNo +
-                ", dealerId=" + dealerId +
-                ", dealerCode='" + dealerCode +
-                ", brandId=" + brandId +
-                ", seriesId=" + seriesId +
-                ", productId=" + productId +
-                ", productNumber='" + productNumber +
-                ", orderState=" + orderState +
-                ", orderRemark='" + orderRemark +
-                ", userId=" + userId +
-                ", financialId=" + financialId +
-                ", createTime=" + createTime +
-                ", updateTime=" + updateTime +
-                '}';
-    }
 }

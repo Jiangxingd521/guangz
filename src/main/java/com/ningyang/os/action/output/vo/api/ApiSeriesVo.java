@@ -9,9 +9,19 @@ import java.util.List;
  */
 public class ApiSeriesVo {
 
+    private Long seriesId;
+
     private String seriesName;
 
     private List<ApiProductVo> productListVo;
+
+    public Long getSeriesId() {
+        return seriesId;
+    }
+
+    public void setSeriesId(Long seriesId) {
+        this.seriesId = seriesId;
+    }
 
     public String getSeriesName() {
         return seriesName;

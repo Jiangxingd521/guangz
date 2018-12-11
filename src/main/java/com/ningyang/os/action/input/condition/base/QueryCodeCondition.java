@@ -14,6 +14,12 @@ public class QueryCodeCondition extends BaseCondition {
     private Integer codeImportState;
     //码申请状态
     private Integer applyCodeState;
+    //产品
+    private String productName;
+    //系列
+    private String seriesName;
+    //品牌
+    private String brandName;
 
     public Integer getCodeTypeState() {
         return codeTypeState;
@@ -39,4 +45,27 @@ public class QueryCodeCondition extends BaseCondition {
         this.applyCodeState = applyCodeState;
     }
 
+    public String getProductName() {
+        return productName;
+    }
+
+    public void setProductName(String productName) {
+        this.productName = productName;
+    }
+
+    public String getSeriesName() {
+        return seriesName;
+    }
+
+    public void setSeriesName(String seriesName) {
+        this.seriesName = seriesName;
+    }
+
+    public String getBrandName() {
+        return brandName;
+    }
+
+    public void setBrandName(String brandName) {
+        this.brandName = brandName;
+    }
 }

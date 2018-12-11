@@ -7,7 +7,12 @@
         <id column="id" property="id"/>
         <result column="dealer_id" property="dealerId"/>
         <result column="order_no" property="orderNo"/>
+        <result column="order_state" property="orderState"/>
         <result column="order_remark" property="orderRemark"/>
+        <result column="product_number" property="productNumber"/>
+        <result column="order_state" property="orderState"/>
+        <result column="user_id" property="userId"/>
+        <result column="financial_id" property="financialId"/>
         <result column="idata1" property="idata1"/>
         <result column="idata2" property="idata2"/>
         <result column="idata3" property="idata3"/>
@@ -19,5 +24,34 @@
         <result column="create_time" property="createTime"/>
         <result column="update_time" property="updateTime"/>
     </resultMap>
+
+    <select id="selectOrderPurchaseVoPageByCondition"
+            parameterType="com.ningyang.os.action.input.condition.serve.QueryOrderCondition"
+            resultType="com.ningyang.os.action.output.vo.web.serve.OrderPurchaseVo"
+    >
+        select a.id as purchaseId,a.order_no,a.dealer_id,b.dealer_name,a.order_state,c.user_name AS createUserName,
+        d.user_name AS financialUserName,a.order_remark as remark
+        from t_ser_purchase_order_info a
+                left join t_ser_dealer_info b on a.dealer_id = b.id
+				left join t_sys_user_info c on a.user_id = c.id
+				left join t_sys_user_info d on a.financial_id = d.id
+        WHERE 1 =1
+        <if test="orderState!=null">
+            and a.order_state = #{orderState}
+        </if>
+        order by a.create_time desc
+        limit #{page},#{limit}
+    </select>
+
+    <select id="selectOrderPurchaseVoPageCountByCondition"
+            parameterType="com.ningyang.os.action.input.condition.serve.QueryOrderCondition"
+            resultType="int"
+    >
+        select count(1) from t_ser_purchase_order_info a
+        <if test="orderState!=null">
+            and a.order_state = #{orderState}
+        </if>
+        order by a.create_time desc
+    </select>
 
 </mapper>
