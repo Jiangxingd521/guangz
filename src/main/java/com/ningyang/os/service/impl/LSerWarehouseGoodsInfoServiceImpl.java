@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.ningyang.os.action.input.command.api.ApiWarehousePutInCommand;
 import com.ningyang.os.action.input.condition.serve.QueryGoodsPutCondition;
+import com.ningyang.os.action.output.vo.api.ApiWarehouseGoodsVo;
 import com.ningyang.os.action.output.vo.web.serve.GoodsPutInVo;
 import com.ningyang.os.dao.LSerWarehouseGoodsInfoMapper;
 import com.ningyang.os.pojo.LSerWarehouseGoodsInfo;
@@ -105,5 +106,17 @@ public class LSerWarehouseGoodsInfoServiceImpl extends ServiceImpl<LSerWarehouse
     @Override
     public int getWarehouseBoxCount(Long warehouseId) {
         return baseMapper.getWarehouseBoxCount(warehouseId);
+    }
+
+    @Override
+    public List<ApiWarehouseGoodsVo> findApiWarehouseGoodsVo(String productName) {
+        List<ApiWarehouseGoodsVo> listTemp = baseMapper.selectApiWarehouseGoodsVo(productName);
+        for(ApiWarehouseGoodsVo vo : listTemp){
+            int boxCount = count(new QueryWrapper<LSerWarehouseGoodsInfo>()
+                    .eq("product_id",vo.getProductId()));
+            vo.setBoxCount(boxCount);
+            // FIXME: 2018-12-12 加入其他数据
+        }
+        return listTemp;
     }
 }

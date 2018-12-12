@@ -66,4 +66,8 @@
         where a.product_state=0 and a.series_id = #{seriesId}
     </select>
 
+    <select id="selectApiProductVoList" resultType="com.ningyang.os.action.output.vo.api.ApiProductVo">
+        select DISTINCT a.product_name from t_ser_brand_series_product_info a where a.product_state=0
+    </select>
+
 </mapper>

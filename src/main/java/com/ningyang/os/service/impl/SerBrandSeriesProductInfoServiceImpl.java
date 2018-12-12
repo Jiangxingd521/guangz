@@ -177,4 +177,9 @@ public class SerBrandSeriesProductInfoServiceImpl extends ServiceImpl<SerBrandSe
     public List<SeriesProductVo> findSeriesProductVoByCondition(QueryBrandSeriesProductCondition condition) {
         return baseMapper.selectSeriesProductVoByCondition(condition);
     }
+
+    @Override
+    public List<ApiProductVo> findApiProductVoList() {
+        return baseMapper.selectApiProductVoList();
+    }
 }

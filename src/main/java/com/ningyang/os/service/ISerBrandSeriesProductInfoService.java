@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import com.ningyang.os.action.input.command.web.base.ProductCommand;
 import com.ningyang.os.action.input.condition.base.QueryBrandSeriesProductCondition;
 import com.ningyang.os.action.output.vo.api.ApiBrandSeriesProductVo;
+import com.ningyang.os.action.output.vo.api.ApiProductVo;
 import com.ningyang.os.action.output.vo.web.base.BrandSeriesProductVo;
 import com.ningyang.os.action.output.vo.web.base.CodeTypeVo;
 import com.ningyang.os.action.output.vo.web.base.ProductVo;
@@ -34,4 +35,6 @@ public interface ISerBrandSeriesProductInfoService extends IService<SerBrandSeri
     List<ApiBrandSeriesProductVo> findApiBrandSeriesProductVoCondition();
 
     List<SeriesProductVo> findSeriesProductVoByCondition(QueryBrandSeriesProductCondition condition);
+
+    List<ApiProductVo> findApiProductVoList();
 }

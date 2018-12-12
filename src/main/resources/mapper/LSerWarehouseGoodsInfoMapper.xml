@@ -46,4 +46,18 @@
         select count(DISTINCT a.box_no) from l_ser_warehouse_goods_info a where a.warehouse_id = #{warehouseId}
     </select>
 
+    <select id="selectApiWarehouseGoodsVo"
+            parameterType="String"
+            resultType="com.ningyang.os.action.output.vo.api.ApiWarehouseGoodsVo"
+    >
+        select a.product_id,e.brand_name,d.series_name,c.product_name,b.warehouse_name from l_ser_warehouse_goods_info a
+        left join t_ser_warehouse_info b on a.warehouse_id = b.id
+        left join t_ser_brand_series_product_info c on a.product_id = c.id
+        left join t_ser_brand_series_info d on c.series_id = d.id
+        left join t_ser_brand_info e on d.brand_id = e.id
+        where c.product_name = #{productName}
+        GROUP BY a.product_id,e.brand_name,d.series_name,c.product_name,b.warehouse_name
+    </select>
+
+
 </mapper>

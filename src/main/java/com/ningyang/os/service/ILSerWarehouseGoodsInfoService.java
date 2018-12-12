@@ -4,9 +4,11 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.ningyang.os.action.input.command.api.ApiWarehousePutInCommand;
 import com.ningyang.os.action.input.condition.serve.QueryGoodsPutCondition;
+import com.ningyang.os.action.output.vo.api.ApiWarehouseGoodsVo;
 import com.ningyang.os.action.output.vo.web.serve.GoodsPutInVo;
 import com.ningyang.os.pojo.LSerWarehouseGoodsInfo;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -24,4 +26,6 @@ public interface ILSerWarehouseGoodsInfoService extends IService<LSerWarehouseGo
     Page<GoodsPutInVo> findGoodsPutInVoPageByCondition(QueryGoodsPutCondition condition);
 
     int getWarehouseBoxCount(Long warehouseId);
+
+    List<ApiWarehouseGoodsVo> findApiWarehouseGoodsVo(String productName);
 }

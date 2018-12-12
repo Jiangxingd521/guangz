@@ -2,6 +2,7 @@ package com.ningyang.os.dao;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.ningyang.os.action.input.condition.base.QueryBrandSeriesProductCondition;
+import com.ningyang.os.action.output.vo.api.ApiProductVo;
 import com.ningyang.os.action.output.vo.web.base.BrandSeriesProductVo;
 import com.ningyang.os.action.output.vo.web.base.CodeTypeVo;
 import com.ningyang.os.action.output.vo.web.base.ProductVo;
@@ -28,4 +29,6 @@ public interface SerBrandSeriesProductInfoMapper extends BaseMapper<SerBrandSeri
     List<CodeTypeVo> selectCodeTypeVoByCondition(QueryBrandSeriesProductCondition condition);
 
     List<SeriesProductVo> selectSeriesProductVoByCondition(QueryBrandSeriesProductCondition condition);
+
+    List<ApiProductVo> selectApiProductVoList();
 }

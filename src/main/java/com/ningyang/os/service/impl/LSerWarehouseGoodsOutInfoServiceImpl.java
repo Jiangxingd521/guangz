@@ -45,7 +45,7 @@ public class LSerWarehouseGoodsOutInfoServiceImpl extends ServiceImpl<LSerWareho
     @Autowired
     private ISerBrandSeriesProductInfoService productInfoService;
 
-    // FIXME: 2018-12-11 商品出库
+    //商品出库
     @Override
     public Map<String, Object> add(ApiWarehousePutOutCommand command) {
         Map<String, Object> map = new HashMap<>();

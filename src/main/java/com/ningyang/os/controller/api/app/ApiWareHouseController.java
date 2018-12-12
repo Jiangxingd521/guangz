@@ -6,6 +6,8 @@ import com.ningyang.os.action.input.command.api.ApiWarehouseSaleOrderCommand;
 import com.ningyang.os.action.input.condition.serve.QueryOrderCondition;
 import com.ningyang.os.action.output.dto.serve.PutOutDto;
 import com.ningyang.os.action.output.vo.api.ApiBrandSeriesProductVo;
+import com.ningyang.os.action.output.vo.api.ApiProductVo;
+import com.ningyang.os.action.output.vo.api.ApiWarehouseGoodsVo;
 import com.ningyang.os.action.output.vo.web.serve.DealerVo;
 import com.ningyang.os.action.output.vo.web.serve.SaleOrderVo;
 import com.ningyang.os.action.output.vo.web.serve.WarehouseVo;
@@ -24,6 +26,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -246,5 +249,53 @@ public class ApiWareHouseController extends BaseController {
         }
     }
 
+
+    @ApiOperation(value = "所有系列产品")
+    @GetMapping("getProductList")
+    public Map<String,Object> getProductList(
+            @RequestHeader("Authorization") String userToken,
+            HttpServletResponse response
+    ){
+        try {
+            SysUserInfo loginUser = getBaseUserInfo(userToken);
+            if (loginUser != null) {
+                Map<String,Object> map = new HashMap<>();
+                List<ApiProductVo> productVoList = productInfoService.findApiProductVoList();
+                map.put("listVo",productVoList);
+                return WebResult.success().put("data",map).toMap();
+            }
+            response.setStatus(300);
+            return WebResult.failure(PERMISSION_ERROR.getInfo()).toMap();
+        } catch (Exception e) {
+            LOGGER.error(e.getMessage(), e);
+            return WebResult.failure(API_REQUEST_ERROR.getInfo()).toMap();
+        }
+    }
+
+
+
+    @ApiOperation(value = "库存查询")
+    @ApiImplicitParam(name = "productName", value = "系列产品名称", required = true, paramType = "query")
+    @GetMapping("getWarehouseGoodsInfo")
+    public Map<String,Object> getWarehouseGoodsInfo(
+            @RequestHeader("Authorization") String userToken,
+            String productName,
+            HttpServletResponse response
+    ){
+        try {
+            SysUserInfo loginUser = getBaseUserInfo(userToken);
+            if (loginUser != null) {
+                List<ApiWarehouseGoodsVo> listVo = putInService.findApiWarehouseGoodsVo(productName);
+                Map<String,Object> map = new HashMap<>();
+                map.put("listVo",listVo);
+                return WebResult.success().put("data",map).toMap();
+            }
+            response.setStatus(300);
+            return WebResult.failure(PERMISSION_ERROR.getInfo()).toMap();
+        } catch (Exception e) {
+            LOGGER.error(e.getMessage(), e);
+            return WebResult.failure(API_REQUEST_ERROR.getInfo()).toMap();
+        }
+    }
 
 }
