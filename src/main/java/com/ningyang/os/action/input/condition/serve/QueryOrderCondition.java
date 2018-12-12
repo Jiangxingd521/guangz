@@ -19,6 +19,9 @@ public class QueryOrderCondition extends BaseCondition {
     //退货订单id
     private Long purchaseId = -1L;
 
+    //系列产品id
+    private Long productId;
+
     public Integer getOrderState() {
         return orderState;
     }
@@ -57,5 +60,13 @@ public class QueryOrderCondition extends BaseCondition {
 
     public void setPurchaseId(Long purchaseId) {
         this.purchaseId = purchaseId;
+    }
+
+    public Long getProductId() {
+        return productId;
+    }
+
+    public void setProductId(Long productId) {
+        this.productId = productId;
     }
 }

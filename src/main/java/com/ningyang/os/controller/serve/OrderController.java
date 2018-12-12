@@ -11,6 +11,7 @@ import com.ningyang.os.action.output.vo.web.serve.SaleOrderVo;
 import com.ningyang.os.action.utils.WebResult;
 import com.ningyang.os.controller.system.BaseController;
 import com.ningyang.os.pojo.SerOrderInfoDetails;
+import com.ningyang.os.pojo.SerPurchaseOrderInfoDetails;
 import com.ningyang.os.service.ISerOrderInfoDetailsService;
 import com.ningyang.os.service.ISerOrderInfoService;
 import org.slf4j.Logger;
@@ -112,6 +113,22 @@ public class OrderController extends BaseController {
             return WebResult.failure(DELETE_ERROR.getInfo()).toMap();
         }
     }
+    //备份用
+    @GetMapping("getOrderDetailListBack")
+    public Map<String, Object> getOrderDetailListBack(
+            @RequestHeader("Authorization") String userToken,
+            QueryOrderCondition condition
+    ) {
+        try {
+            Long operateUserId = getBaseUserInfo(userToken).getId();
+            condition.setUserId(operateUserId);
+            List<OrderDetailVo> listVo = detailsService.findOrderDetailVoList(condition);
+            return WebResult.success().put("listVo", listVo).toMap();
+        } catch (Exception e) {
+            LOGGER.error(e.getMessage(), e);
+            return WebResult.failure(DELETE_ERROR.getInfo()).toMap();
+        }
+    }
 
 
     @PostMapping("addDetails")
@@ -145,7 +162,9 @@ public class OrderController extends BaseController {
                         .eq("order_id", -1)
                         .eq("user_id", operateUserId));
             } else {
-                flag = detailsService.removeById(command.getDetailId());
+                flag = detailsService.remove(new QueryWrapper<SerOrderInfoDetails>()
+                        .eq("order_id",command.getOrderId())
+                        .eq("product_id",command.getProductId()));
             }
             if (flag) {
                 return WebResult.success().toMap();

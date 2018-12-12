@@ -21,4 +21,6 @@ public interface SerOrderInfoDetailsMapper extends BaseMapper<SerOrderInfoDetail
 
     boolean deleteOrderByNull();
 
+    int selectOrderDetailBoxCount(QueryOrderCondition condition);
+
 }

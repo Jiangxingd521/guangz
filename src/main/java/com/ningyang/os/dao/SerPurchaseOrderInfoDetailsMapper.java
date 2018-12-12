@@ -19,5 +19,7 @@ public interface SerPurchaseOrderInfoDetailsMapper extends BaseMapper<SerPurchas
 
     List<OrderDetailVo> selectOrderDetailVoList(QueryOrderCondition condition);
 
+    int selectOrderDetailBoxCount(QueryOrderCondition condition);
+
     boolean deletePurchaseOrderByNull();
 }

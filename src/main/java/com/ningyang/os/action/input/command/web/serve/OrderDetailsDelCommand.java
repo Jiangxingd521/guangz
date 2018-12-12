@@ -9,7 +9,11 @@ public class OrderDetailsDelCommand {
 
     private int type;
 
-    private Long detailId;
+    private Long orderId;
+
+    private Long purchaseId;
+
+    private Long productId;
 
     public int getType() {
         return type;
@@ -19,11 +23,27 @@ public class OrderDetailsDelCommand {
         this.type = type;
     }
 
-    public Long getDetailId() {
-        return detailId;
+    public Long getOrderId() {
+        return orderId;
     }
 
-    public void setDetailId(Long detailId) {
-        this.detailId = detailId;
+    public void setOrderId(Long orderId) {
+        this.orderId = orderId;
+    }
+
+    public Long getPurchaseId() {
+        return purchaseId;
+    }
+
+    public void setPurchaseId(Long purchaseId) {
+        this.purchaseId = purchaseId;
+    }
+
+    public Long getProductId() {
+        return productId;
+    }
+
+    public void setProductId(Long productId) {
+        this.productId = productId;
     }
 }

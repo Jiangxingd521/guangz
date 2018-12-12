@@ -45,8 +45,12 @@ public class SerOrderInfoDetailsServiceImpl extends ServiceImpl<SerOrderInfoDeta
 
     @Override
     public List<OrderDetailVo> findOrderDetailVoList(QueryOrderCondition condition) {
-        // FIXME: 2018-12-11 group 合并数据 按系列产品分组合并，删除统一删除此数据
         List<OrderDetailVo> listTemp = baseMapper.selectOrderDetailVoList(condition);
+        for(OrderDetailVo vo : listTemp){
+            condition.setProductId(vo.getProductId());
+            int boxNumber = baseMapper.selectOrderDetailBoxCount(condition);
+            vo.setBoxNumber(boxNumber);
+        }
         return listTemp;
     }
 

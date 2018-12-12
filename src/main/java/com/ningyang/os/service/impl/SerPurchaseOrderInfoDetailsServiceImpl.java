@@ -26,7 +26,13 @@ public class SerPurchaseOrderInfoDetailsServiceImpl extends ServiceImpl<SerPurch
 
     @Override
     public List<OrderDetailVo> findOrderDetailVoList(QueryOrderCondition condition) {
-        return baseMapper.selectOrderDetailVoList(condition);
+        List<OrderDetailVo> listTemp = baseMapper.selectOrderDetailVoList(condition);
+        for(OrderDetailVo vo : listTemp){
+            condition.setProductId(vo.getProductId());
+            int boxNumber = baseMapper.selectOrderDetailBoxCount(condition);
+            vo.setBoxNumber(boxNumber);
+        }
+        return listTemp;
     }
 
     @Override

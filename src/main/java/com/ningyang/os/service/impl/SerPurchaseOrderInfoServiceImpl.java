@@ -60,7 +60,7 @@ public class SerPurchaseOrderInfoServiceImpl extends ServiceImpl<SerPurchaseOrde
 
     @Override
     public boolean addOrUpdate(OrderPurchaseCommand command, Long operateUserId) {
-        SerPurchaseOrderInfo info = getById(command.getProductId());
+        SerPurchaseOrderInfo info = getById(command.getPurchaseId());
         boolean flag;
         if (info != null) {
             info.setDealerId(command.getDealerId());

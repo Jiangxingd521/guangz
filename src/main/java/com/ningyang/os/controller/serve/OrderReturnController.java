@@ -139,7 +139,9 @@ public class OrderReturnController extends BaseController {
                         .eq("purchase_id", -1)
                         .eq("user_id", operateUserId));
             } else {
-                flag = detailsService.removeById(command.getDetailId());
+                flag = detailsService.remove(new QueryWrapper<SerPurchaseOrderInfoDetails>()
+                        .eq("purchase_id",command.getPurchaseId())
+                        .eq("product_id",command.getProductId()));
             }
             if (flag) {
                 return WebResult.success().toMap();
