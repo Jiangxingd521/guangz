@@ -11,7 +11,6 @@ import com.ningyang.os.action.output.vo.web.serve.SaleOrderVo;
 import com.ningyang.os.action.utils.WebResult;
 import com.ningyang.os.controller.system.BaseController;
 import com.ningyang.os.pojo.SerOrderInfoDetails;
-import com.ningyang.os.pojo.SerPurchaseOrderInfoDetails;
 import com.ningyang.os.service.ISerOrderInfoDetailsService;
 import com.ningyang.os.service.ISerOrderInfoService;
 import org.slf4j.Logger;

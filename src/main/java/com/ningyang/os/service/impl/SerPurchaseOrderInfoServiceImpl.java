@@ -7,8 +7,6 @@ import com.ningyang.os.action.input.condition.serve.QueryOrderCondition;
 import com.ningyang.os.action.output.vo.web.serve.OrderDetailVo;
 import com.ningyang.os.action.output.vo.web.serve.OrderPurchaseVo;
 import com.ningyang.os.dao.SerPurchaseOrderInfoMapper;
-import com.ningyang.os.pojo.SerOrderInfo;
-import com.ningyang.os.pojo.SerOrderInfoDetails;
 import com.ningyang.os.pojo.SerPurchaseOrderInfo;
 import com.ningyang.os.pojo.SerPurchaseOrderInfoDetails;
 import com.ningyang.os.service.ISerPurchaseOrderInfoDetailsService;

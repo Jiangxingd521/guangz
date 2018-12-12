@@ -26,5 +26,4 @@ public interface ISerOrderInfoDetailsService extends IService<SerOrderInfoDetail
 
     boolean delete();
 
-    List<OrderDetailVo> findApiWarehouseOrderDetailVoList(QueryOrderCondition condition);
 }

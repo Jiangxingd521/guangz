@@ -1,14 +1,19 @@
 package com.ningyang.os;
 
 import com.alibaba.fastjson.JSONObject;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.ningyang.os.action.config.SystemConfig;
+import com.ningyang.os.action.input.command.api.ApiWarehousePutOutCommand;
 import com.ningyang.os.action.input.condition.serve.QueryApplyCodeCondition;
 import com.ningyang.os.action.input.condition.serve.QueryGoodsPutCondition;
 import com.ningyang.os.action.output.vo.web.serve.GoodsPutOutVo;
 import com.ningyang.os.action.utils.ReadFileBackData;
 import com.ningyang.os.action.utils.WebResult;
 import com.ningyang.os.dao.SerApplyCodeTableInfoMapper;
+import com.ningyang.os.pojo.LSerWarehouseGoodsInfo;
 import com.ningyang.os.pojo.SerApplyCodeTemplate;
+import com.ningyang.os.pojo.SerGoodsInfo;
+import com.ningyang.os.pojo.SerOrderInfoDetails;
 import com.ningyang.os.service.*;
 import org.apache.commons.lang3.StringUtils;
 import org.junit.Test;
@@ -21,10 +26,7 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 import java.util.stream.Collectors;
 
 import static com.ningyang.os.action.utils.RandomUtil.randomArray;
@@ -34,7 +36,7 @@ import static com.ningyang.os.action.utils.RandomUtil.randomCommon;
 @SpringBootTest
 public class NodeOsApplicationTests {
 
-    @Autowired
+   /* @Autowired
     private ISysApiInfoService infoService;
     @Autowired
     private SystemConfig config;
@@ -49,11 +51,47 @@ public class NodeOsApplicationTests {
     private ILSerWarehouseGoodsOutInfoService outInfoService;
 
     @Autowired
-    private ISerCodeImportTempInfoService tempInfoService;
+    private ISerCodeImportTempInfoService tempInfoService;*/
 
+    @Autowired
+    private ISerGoodsInfoService goodsInfoService;
+    @Autowired
+    private ISerOrderInfoDetailsService detailsService;
+    @Autowired
+    private ILSerWarehouseGoodsInfoService putInService;
 
     @Test
     public void contextLoads() {
+
+
+        /*String[] boxCode = {"9999999","9999998","9999997","9999996","6000001227383389"};
+
+        List<LSerWarehouseGoodsInfo> goodsInfoList = new ArrayList<>();
+        for(String boxNo : boxCode){
+            LSerWarehouseGoodsInfo goodsInfo = putInService.getOne(new QueryWrapper<LSerWarehouseGoodsInfo>().eq("box_no",boxNo));
+            goodsInfoList.add(goodsInfo);
+        }
+
+
+
+
+        *//*Map<Long, List<LSerWarehouseGoodsInfo>> groupByGoods = goodsInfoList.stream().collect(Collectors
+                .groupingBy(LSerWarehouseGoodsInfo::get));*//*
+
+//        System.out.println(JSONObject.toJSONString(groupByGoods));
+
+        List<SerOrderInfoDetails> detailsList = detailsService.list(new QueryWrapper<SerOrderInfoDetails>()
+                .eq("order_id","5"));
+
+        Map<Long, List<SerOrderInfoDetails>> groupByDetails = detailsList.stream().collect(Collectors.groupingBy(SerOrderInfoDetails::getProductId));
+        System.out.println(JSONObject.toJSONString(groupByDetails));
+
+
+        for(Map.Entry<Long, List<SerOrderInfoDetails>> entry1 : groupByDetails.entrySet()){
+            System.out.println(entry1.getKey());
+        }
+*/
+
 
         /*String leftCodeFlag ="http://9suyuan.com/6/cQzbhFFg52/11".split("/")[5];
         System.out.println(leftCodeFlag);
@@ -61,7 +99,7 @@ public class NodeOsApplicationTests {
         String leftCodeFlag2 ="http://www.headingtech.com/center/tz/6/c362d7c12cde462993bc7a4854fa95fb/12".split("/")[7];
         System.out.println(leftCodeFlag2);*/
 
-        tempInfoService.callSetCode();
+//        tempInfoService.callSetCode();
 
 
        /* List<GoodsPutOutVo> goodsPutOutVoList = getGoodsList(1,"20181129125419");
@@ -163,9 +201,9 @@ public class NodeOsApplicationTests {
         http://9suyuan.com/6/IYxSaKgzxrDo/11*/
 
         //溯源码位置
-        Long codePosition = 1L;
+//        Long codePosition = 1L;
         //溯源码位置类型
-        Long codePositionType = 1L;
+//        Long codePositionType = 1L;
 
         /*List<ReadFileBackData> fileList = new ArrayList<>();
         ReadFileBackData data1 = new ReadFileBackData();
@@ -245,7 +283,7 @@ public class NodeOsApplicationTests {
     }
 
 
-    private List<GoodsPutOutVo> getGoodsList(int type, String typeValue){
+    /*private List<GoodsPutOutVo> getGoodsList(int type, String typeValue){
         QueryGoodsPutCondition condition = new QueryGoodsPutCondition();
         if(type==1){
             condition.setOrderNo(typeValue);
@@ -253,6 +291,6 @@ public class NodeOsApplicationTests {
             condition.setProdId(typeValue);
         }
         return outInfoService.findGoodsPutOutVoByCondition(condition);
-    }
+    }*/
 
 }

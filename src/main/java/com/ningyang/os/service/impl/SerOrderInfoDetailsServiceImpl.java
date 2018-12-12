@@ -3,6 +3,7 @@ package com.ningyang.os.service.impl;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.ningyang.os.action.input.command.web.serve.OrderDetailsCommand;
+import com.ningyang.os.action.input.condition.serve.QueryGoodsPutCondition;
 import com.ningyang.os.action.input.condition.serve.QueryOrderCondition;
 import com.ningyang.os.action.output.vo.web.serve.OrderDetailVo;
 import com.ningyang.os.dao.SerOrderInfoDetailsMapper;
@@ -50,6 +51,15 @@ public class SerOrderInfoDetailsServiceImpl extends ServiceImpl<SerOrderInfoDeta
             condition.setProductId(vo.getProductId());
             int boxNumber = baseMapper.selectOrderDetailBoxCount(condition);
             vo.setBoxNumber(boxNumber);
+            QueryGoodsPutCondition outCondition = new QueryGoodsPutCondition();
+            outCondition.setOrderId(vo.getOrderId());
+            outCondition.setProductId(vo.getProductId());
+            int outBoxCountByProduct = getOrderSaleBoxCount(outCondition);
+            if(boxNumber == outBoxCountByProduct){
+                vo.setSaleState(1);
+            }else{
+                vo.setSaleState(0);
+            }
         }
         return listTemp;
     }
@@ -69,17 +79,16 @@ public class SerOrderInfoDetailsServiceImpl extends ServiceImpl<SerOrderInfoDeta
         return baseMapper.deleteOrderByNull();
     }
 
-    @Override
-    public List<OrderDetailVo> findApiWarehouseOrderDetailVoList(QueryOrderCondition condition) {
-        // FIXME: 2018-12-11 group 分组查询不同的系列产品订单箱数
-        List<LSerWarehouseGoodsOutInfo> outGoodsList = outInfoService.list(new QueryWrapper<LSerWarehouseGoodsOutInfo>()
-                .eq("order_id",condition.getOrderId()));
-
-        /*for(OrderDetailVo vo : listTemp){
-
-        }
-*/
-
-        return null;
+    /**
+     *
+     * @param condition
+     * @return
+     */
+    private int getOrderSaleBoxCount(QueryGoodsPutCondition condition){
+        return outInfoService.count(new QueryWrapper<LSerWarehouseGoodsOutInfo>()
+                .eq("order_id",condition.getOrderId())
+                .eq("product_id",condition.getProductId()));
     }
+
+
 }

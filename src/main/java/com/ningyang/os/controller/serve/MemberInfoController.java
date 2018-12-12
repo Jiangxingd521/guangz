@@ -3,7 +3,6 @@ package com.ningyang.os.controller.serve;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.ningyang.os.action.input.condition.serve.QueryMemberCondition;
 import com.ningyang.os.action.output.vo.web.serve.MemberInfoVo;
-import com.ningyang.os.action.output.vo.web.serve.WarehouseVo;
 import com.ningyang.os.action.utils.WebResult;
 import com.ningyang.os.service.IMemberInfoService;
 import org.slf4j.Logger;
@@ -30,7 +29,6 @@ public class MemberInfoController {
 
     @Autowired
     private IMemberInfoService infoService;
-
 
     @GetMapping("getPageList")
     public Map<String, Object> getPageList(

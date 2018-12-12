@@ -10,8 +10,10 @@ import com.ningyang.os.action.input.condition.common.BaseCondition;
 public class QueryGoodsPutCondition extends BaseCondition {
     //订单号
     private String orderNo;
+    //订单id
+    private Long orderId;
     //产品系列id
-    private String prodId;
+    private Long productId;
 
     public String getOrderNo() {
         return orderNo;
@@ -21,11 +23,19 @@ public class QueryGoodsPutCondition extends BaseCondition {
         this.orderNo = orderNo;
     }
 
-    public String getProdId() {
-        return prodId;
+    public Long getOrderId() {
+        return orderId;
     }
 
-    public void setProdId(String prodId) {
-        this.prodId = prodId;
+    public void setOrderId(Long orderId) {
+        this.orderId = orderId;
+    }
+
+    public Long getProductId() {
+        return productId;
+    }
+
+    public void setProductId(Long productId) {
+        this.productId = productId;
     }
 }

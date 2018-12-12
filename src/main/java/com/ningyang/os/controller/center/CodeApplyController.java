@@ -38,9 +38,7 @@ import static cn.hutool.core.io.FileUtil.mkdir;
 import static cn.hutool.core.util.ZipUtil.zip;
 import static cn.hutool.http.HttpUtil.post;
 import static com.ningyang.os.action.enums.SystemErrorEnum.*;
-import static com.ningyang.os.action.utils.BarcodeUtil.generateFile;
 import static com.ningyang.os.action.utils.DateUtil.getOrderNum;
-import static com.ningyang.os.action.utils.QRCodeUtil.encode;
 
 /**
  * @Author： kaider

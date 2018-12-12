@@ -21,7 +21,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import static com.ningyang.os.action.utils.DateUtil.*;
+import static com.ningyang.os.action.utils.DateUtil.dateToDate;
+import static com.ningyang.os.action.utils.DateUtil.getOrderNum;
 
 /**
  * <p>
@@ -114,7 +115,7 @@ public class SerOrderInfoServiceImpl extends ServiceImpl<SerOrderInfoMapper, Ser
             vo.setOrderCreateTimeStr(dateToDate(vo.getOrderCreateTime()));
             //查询具体订单内容
             condition.setOrderId(vo.getOrderId());
-            List<OrderDetailVo> detailList = detailsService.findApiWarehouseOrderDetailVoList(condition);
+            List<OrderDetailVo> detailList = detailsService.findOrderDetailVoList(condition);
             vo.setDetailList(detailList);
             //订单数量
             int boxCount = detailsService.boxCount(condition);

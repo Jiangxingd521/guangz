@@ -5,7 +5,6 @@ import com.ningyang.os.action.input.command.web.serve.OrderDetailsCommand;
 import com.ningyang.os.action.input.condition.serve.QueryOrderCondition;
 import com.ningyang.os.action.output.vo.web.serve.OrderDetailVo;
 import com.ningyang.os.dao.SerPurchaseOrderInfoDetailsMapper;
-import com.ningyang.os.pojo.SerOrderInfoDetails;
 import com.ningyang.os.pojo.SerPurchaseOrderInfoDetails;
 import com.ningyang.os.service.ISerPurchaseOrderInfoDetailsService;
 import org.springframework.stereotype.Service;

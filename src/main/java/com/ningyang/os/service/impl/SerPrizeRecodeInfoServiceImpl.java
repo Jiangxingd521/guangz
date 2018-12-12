@@ -322,7 +322,7 @@ public class SerPrizeRecodeInfoServiceImpl extends ServiceImpl<SerPrizeRecodeInf
         if (type == 1) {
             condition.setOrderNo(typeValue);
         } else {
-            condition.setProdId(typeValue);
+            condition.setProductId(Long.valueOf(typeValue));
         }
         return outInfoService.findGoodsPutOutVoByCondition(condition);
     }

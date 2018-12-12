@@ -26,4 +26,5 @@ public interface LSerWarehouseGoodsOutInfoMapper extends BaseMapper<LSerWarehous
     int getWarehouseBoxCount(Long warehouseId);
 
     int getOrderOutBoxCount(Long orderId);
+
 }

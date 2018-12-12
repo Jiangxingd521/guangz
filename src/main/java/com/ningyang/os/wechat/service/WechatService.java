@@ -13,8 +13,6 @@ import com.ningyang.os.wechat.data.Message;
 import com.ningyang.os.wechat.data.Oauth2To;
 import com.ningyang.os.wechat.data.WechatJsToken;
 
-import javax.servlet.http.HttpServletRequest;
-
 /**
  * @author dennies yang
  * @version V1.0

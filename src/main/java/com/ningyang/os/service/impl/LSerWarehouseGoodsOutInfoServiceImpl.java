@@ -269,4 +269,5 @@ public class LSerWarehouseGoodsOutInfoServiceImpl extends ServiceImpl<LSerWareho
     public int getOrderOutBoxCount(Long orderId) {
         return baseMapper.getOrderOutBoxCount(orderId);
     }
+
 }

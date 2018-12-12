@@ -23,6 +23,4 @@ public interface SerOrderInfoMapper extends BaseMapper<SerOrderInfo> {
 
     List<SaleOrderVo> selectSaleOrderVoListByCondition(QueryOrderCondition condition);
 
-    int selectOrderBoxCount(String orderNo);
-
 }

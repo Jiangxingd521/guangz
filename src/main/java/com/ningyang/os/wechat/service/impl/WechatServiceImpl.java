@@ -8,23 +8,13 @@
  */
 package com.ningyang.os.wechat.service.impl;
 
-import com.alibaba.fastjson.JSON;
-
-import com.ningyang.os.controller.wechat.IndexController;
 import com.ningyang.os.wechat.data.*;
 import com.ningyang.os.wechat.service.WechatService;
 import com.ningyang.os.wechat.timer.WechatTimer;
 import com.ningyang.os.wechat.utils.HttpUtil;
 import org.apache.commons.lang3.StringUtils;
-
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
-
-import javax.servlet.http.HttpServletRequest;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.logging.Logger;
 
 
 /**
