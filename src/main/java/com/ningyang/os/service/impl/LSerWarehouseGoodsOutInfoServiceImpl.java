@@ -50,7 +50,9 @@ public class LSerWarehouseGoodsOutInfoServiceImpl extends ServiceImpl<LSerWareho
     public Map<String, Object> add(ApiWarehousePutOutCommand command) {
         Map<String, Object> map = new HashMap<>();
         //订单箱数
-        int orderBoxCount = orderInfoService.getOrderBoxCount(command.getOrderId());
+        QueryGoodsPutCondition condition = new QueryGoodsPutCondition();
+        condition.setOrderId(command.getOrderId());
+        int orderBoxCount = orderInfoService.getOrderBoxCount(condition);
         //扫码箱数
         int scanBoxCount = command.getBoxCode().length;
         //已出箱数
@@ -184,6 +186,9 @@ public class LSerWarehouseGoodsOutInfoServiceImpl extends ServiceImpl<LSerWareho
                     info.setOrderId(command.getOrderId());
                     info.setWarehouseId(command.getWarehouseId());
                     info.setBoxNo(boxNo);
+                    SerGoodsInfo goodsInfo = goodsInfoService.getOne(new QueryWrapper<SerGoodsInfo>()
+                            .eq("M5",boxNo));
+                    info.setProductId(goodsInfo.getBrandSeriesProductId());
                     info.setUserId(command.getUserId());
                     info.setGoodsOutTime(new Date());
                     info.setCreateTime(new Date());
@@ -196,7 +201,7 @@ public class LSerWarehouseGoodsOutInfoServiceImpl extends ServiceImpl<LSerWareho
                 );
                 boolean flag;
                 //订单箱数
-                int orderBoxCountTemp = orderInfoService.getOrderBoxCount(command.getOrderId()); //1
+                int orderBoxCountTemp = orderInfoService.getOrderBoxCount(condition); //1
                 //已出箱数
                 int outBoxCountTemp = getOrderOutBoxCount(command.getOrderId()); //0
 
@@ -257,9 +262,15 @@ public class LSerWarehouseGoodsOutInfoServiceImpl extends ServiceImpl<LSerWareho
         List<GoodsPutOutVo> listVoTemp = baseMapper.selectGoodsPutOutVoPageByCondition(condition);
         for (GoodsPutOutVo vo : listVoTemp) {
             vo.setGoodsOutTimeStr(timeToStr(vo.getGoodsOutTime()));
-            int orderBoxCount = orderInfoService.getOrderBoxCount(vo.getOrderId());
+            QueryGoodsPutCondition putCondition = new QueryGoodsPutCondition();
+            putCondition.setOrderId(vo.getOrderId());
+            putCondition.setProductId(vo.getProductId());
+//            int orderBoxCount = orderInfoService.getOrderBoxCount(vo.getOrderId());
+            int orderBoxCount = orderInfoService.getOrderBoxCount(putCondition);
+
             vo.setOrderBoxCount(orderBoxCount);
-            int outBoxCount = getOrderOutBoxCount(vo.getOrderId());
+//            int outBoxCount = getOrderOutBoxCount(vo.getOrderId());
+            int outBoxCount = getOrderOutBoxCountByCondition(putCondition);
             vo.setOutBoxCount(outBoxCount);
         }
         int total = baseMapper.selectGoodsPutOutVoPageCountByCondition(condition);
@@ -285,4 +296,8 @@ public class LSerWarehouseGoodsOutInfoServiceImpl extends ServiceImpl<LSerWareho
         return baseMapper.getOrderOutBoxCount(orderId);
     }
 
+    @Override
+    public int getOrderOutBoxCountByCondition(QueryGoodsPutCondition condition) {
+        return baseMapper.getOrderOutBoxCountByCondition(condition);
+    }
 }

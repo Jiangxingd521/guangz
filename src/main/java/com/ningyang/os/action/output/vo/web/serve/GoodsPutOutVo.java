@@ -33,7 +33,7 @@ public class GoodsPutOutVo {
     //完成状态（0：未完成，1：已完成）
     private int finishFlag;
     //产品系列id
-    private Long prodId;
+    private Long productId;
     //商品id
     private Long goodsId;
     //唯一码
@@ -135,12 +135,12 @@ public class GoodsPutOutVo {
         this.finishFlag = finishFlag;
     }
 
-    public Long getProdId() {
-        return prodId;
+    public Long getProductId() {
+        return productId;
     }
 
-    public void setProdId(Long prodId) {
-        this.prodId = prodId;
+    public void setProductId(Long productId) {
+        this.productId = productId;
     }
 
     public Long getGoodsId() {

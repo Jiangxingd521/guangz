@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.ningyang.os.action.input.command.api.ApiWarehouseOrderDetailCommand;
 import com.ningyang.os.action.input.command.api.ApiWarehouseSaleOrderCommand;
 import com.ningyang.os.action.input.command.web.serve.OrderSaleCommand;
+import com.ningyang.os.action.input.condition.serve.QueryGoodsPutCondition;
 import com.ningyang.os.action.input.condition.serve.QueryOrderCondition;
 import com.ningyang.os.action.output.vo.web.serve.OrderDetailVo;
 import com.ningyang.os.action.output.vo.web.serve.SaleOrderVo;
@@ -132,6 +133,14 @@ public class SerOrderInfoServiceImpl extends ServiceImpl<SerOrderInfoMapper, Ser
         QueryOrderCondition condition = new QueryOrderCondition();
         condition.setOrderId(orderId);
         return detailsService.boxCount(condition);
+    }
+
+    @Override
+    public int getOrderBoxCount(QueryGoodsPutCondition condition) {
+        QueryOrderCondition orderCondition = new QueryOrderCondition();
+        orderCondition.setOrderId(condition.getOrderId());
+        orderCondition.setProductId(condition.getProductId());
+        return detailsService.boxCount(orderCondition);
     }
 
     @Override

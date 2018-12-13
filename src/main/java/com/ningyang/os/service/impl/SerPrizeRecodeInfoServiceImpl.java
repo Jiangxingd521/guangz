@@ -99,7 +99,7 @@ public class SerPrizeRecodeInfoServiceImpl extends ServiceImpl<SerPrizeRecodeInf
                     recodeInfo.setPrCode(vo.getPrCode());
                     recodeInfo.setPrizeSetId(info.getPrizeSetId());
                     recodeInfo.setPrizeSetName(info.getPrizeSetName());
-                    recodeInfo.setProdId(vo.getProdId());
+                    recodeInfo.setProdId(vo.getProductId());
                     recodeInfo.setMemberType(info.getMemberType());
                     recodeInfo.setRegionId(info.getRegionId());
                     //奖项类型
@@ -129,7 +129,7 @@ public class SerPrizeRecodeInfoServiceImpl extends ServiceImpl<SerPrizeRecodeInf
                     recodeInfo.setPrCode(vo.getPrCode());
                     recodeInfo.setPrizeSetId(info.getPrizeSetId());
                     recodeInfo.setPrizeSetName(info.getPrizeSetName());
-                    recodeInfo.setProdId(vo.getProdId());
+                    recodeInfo.setProdId(vo.getProductId());
                     recodeInfo.setMemberType(info.getMemberType());
                     recodeInfo.setRegionId(info.getRegionId());
                     //奖项类型
@@ -158,7 +158,7 @@ public class SerPrizeRecodeInfoServiceImpl extends ServiceImpl<SerPrizeRecodeInf
                     recodeInfo.setPrCode(vo.getPrCode());
                     recodeInfo.setPrizeSetId(info.getPrizeSetId());
                     recodeInfo.setPrizeSetName(info.getPrizeSetName());
-                    recodeInfo.setProdId(vo.getProdId());
+                    recodeInfo.setProdId(vo.getProductId());
                     recodeInfo.setMemberType(info.getMemberType());
                     recodeInfo.setRegionId(info.getRegionId());
                     //奖项类型
@@ -209,7 +209,7 @@ public class SerPrizeRecodeInfoServiceImpl extends ServiceImpl<SerPrizeRecodeInf
                     recodeInfo.setPrCode(vo.getPrCode());
                     recodeInfo.setPrizeSetId(info.getPrizeSetId());
                     recodeInfo.setPrizeSetName(info.getPrizeSetName());
-                    recodeInfo.setProdId(vo.getProdId());
+                    recodeInfo.setProdId(vo.getProductId());
                     recodeInfo.setMemberType(info.getMemberType());
                     recodeInfo.setRegionId(info.getRegionId());
                     //奖项类型
@@ -239,7 +239,7 @@ public class SerPrizeRecodeInfoServiceImpl extends ServiceImpl<SerPrizeRecodeInf
                     recodeInfo.setPrCode(vo.getPrCode());
                     recodeInfo.setPrizeSetId(info.getPrizeSetId());
                     recodeInfo.setPrizeSetName(info.getPrizeSetName());
-                    recodeInfo.setProdId(vo.getProdId());
+                    recodeInfo.setProdId(vo.getProductId());
                     recodeInfo.setMemberType(info.getMemberType());
                     recodeInfo.setRegionId(info.getRegionId());
                     //奖项类型
@@ -268,7 +268,7 @@ public class SerPrizeRecodeInfoServiceImpl extends ServiceImpl<SerPrizeRecodeInf
                     recodeInfo.setPrCode(vo.getPrCode());
                     recodeInfo.setPrizeSetId(info.getPrizeSetId());
                     recodeInfo.setPrizeSetName(info.getPrizeSetName());
-                    recodeInfo.setProdId(vo.getProdId());
+                    recodeInfo.setProdId(vo.getProductId());
                     recodeInfo.setMemberType(info.getMemberType());
                     recodeInfo.setRegionId(info.getRegionId());
                     //奖项类型

@@ -30,6 +30,9 @@
                 or a.order_id=-1 and a.user_id = #{userId}
             </if>
         </if>
+        <if test="productId!=null">
+            and a.product_id = #{productId}
+        </if>
         group by a.order_id,a.product_id,a.user_id,d.brand_name,
         c.series_name,b.product_name,b.sales_price
     </select>
