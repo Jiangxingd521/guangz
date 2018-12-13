@@ -60,8 +60,8 @@ public class ApiWareHouseController extends BaseController {
 
 
     @ApiOperation(value = "仓库列表")
-    @GetMapping("getWarehouseList")
-    public Map<String, Object> getWarehouseList(
+    @GetMapping("getWarehouseInfoList")
+    public Map<String, Object> getWarehouseInfoList(
             @RequestHeader("Authorization") String userToken,
             HttpServletResponse response
     ) {
@@ -227,7 +227,7 @@ public class ApiWareHouseController extends BaseController {
     @PostMapping("addOrder")
     public Map<String, Object> addOrder(
             @RequestHeader("Authorization") String userToken,
-            @RequestBody ApiWarehouseSaleOrderCommand command,
+            ApiWarehouseSaleOrderCommand command,
             HttpServletResponse response
     ) {
         try {
@@ -273,7 +273,6 @@ public class ApiWareHouseController extends BaseController {
     }
 
 
-
     @ApiOperation(value = "库存查询")
     @ApiImplicitParam(name = "productName", value = "系列产品名称", required = true, paramType = "query")
     @GetMapping("getWarehouseGoodsInfo")
@@ -297,5 +296,34 @@ public class ApiWareHouseController extends BaseController {
             return WebResult.failure(API_REQUEST_ERROR.getInfo()).toMap();
         }
     }
+
+
+    @ApiOperation(value = "已完成订单")
+    @GetMapping("getOrderCompleteList")
+    public Map<String,Object> getOrderCompleteList(
+            @RequestHeader("Authorization") String userToken,
+            HttpServletResponse response
+    ){
+        try {
+            SysUserInfo loginUser = getBaseUserInfo(userToken);
+            if (loginUser != null) {
+                QueryOrderCondition condition = new QueryOrderCondition();
+                condition.setOrderState(4);
+                List<SaleOrderVo> listVo = orderInfoService.findOrderCompleteListByCondition(condition);
+
+                Map<String,Object> map = new HashMap<>();
+                map.put("listVo",listVo);
+                return WebResult.success().put("data",map).toMap();
+            }
+            response.setStatus(300);
+            return WebResult.failure(PERMISSION_ERROR.getInfo()).toMap();
+        } catch (Exception e) {
+            LOGGER.error(e.getMessage(), e);
+            return WebResult.failure(API_REQUEST_ERROR.getInfo()).toMap();
+        }
+    }
+
+
+
 
 }

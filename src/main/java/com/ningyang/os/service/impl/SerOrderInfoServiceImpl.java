@@ -163,4 +163,26 @@ public class SerOrderInfoServiceImpl extends ServiceImpl<SerOrderInfoMapper, Ser
         }
         return flag;
     }
+
+    @Override
+    public List<SaleOrderVo> findOrderCompleteListByCondition(QueryOrderCondition condition) {
+        List<SaleOrderVo> listTemp = baseMapper.selectOrderCompleteListByCondition(condition);
+        for(SaleOrderVo vo : listTemp){
+            vo.setOrderCreateTimeStr(dateToDate(vo.getOrderCreateTime()));
+            vo.setOrderCompleteTimeStr(dateToDate(vo.getOrderCompleteTime()));
+            //订单数量
+            int boxCount = detailsService.boxCount(condition);
+            vo.setProductNumber(boxCount);
+            //已出货数量
+            int outBoxCount = outInfoService.getOrderOutBoxCount(vo.getOrderId());
+            vo.setOutBoxCount(outBoxCount);
+            //查询具体订单内容
+            condition.setOrderId(vo.getOrderId());
+            // FIXME: 2018-12-13 出库明细
+            //出库明细
+            /*List<OrderDetailVo> detailList = detailsService.findOrderDetailVoList(condition);
+            vo.setDetailList(detailList);*/
+        }
+        return listTemp;
+    }
 }

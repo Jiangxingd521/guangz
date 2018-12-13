@@ -60,7 +60,7 @@ public class SerOrderInfo extends Model<SerOrderInfo> {
     @TableField("product_number")
     private String productNumber;
     /**
-     * 订单状态（0：备单，1：确认订单，2：发货）
+     * 订单状态（0：备单，1：确认订单，2：待发货，3：已发货未完成，4：已发货完成）
      */
     @TableField("order_state")
     private Integer orderState;

@@ -22,16 +22,15 @@
             parameterType="com.ningyang.os.action.input.condition.serve.QueryGoodsPutCondition"
             resultType="com.ningyang.os.action.output.vo.web.serve.GoodsPutInVo"
     >
-        select b.warehouse_name,d.brand_name,d.brand_series_name as series_name,
-               d.brand_series_product_name as product_name,c.user_name,
-               a.create_time,COUNT(DISTINCT a.box_no) as boxCount
+        select b.warehouse_name,f.brand_name,e.series_name,d.product_name,
+               c.user_name,a.create_time,COUNT( DISTINCT a.box_no ) AS boxCount
         from l_ser_warehouse_goods_info a
-                 left join t_ser_warehouse_info b on a.warehouse_id = b.id
-                 left join t_sys_user_info c on a.user_id = c.id
-                 left join t_ser_goods_info d on a.box_no = d.m5
-        where 1 = 1
-        GROUP BY b.warehouse_name,d.brand_name,d.brand_series_name,d.brand_series_product_name,
-                 c.user_name,a.create_time
+                left join t_ser_warehouse_info b on a.warehouse_id = b.id
+                left join t_sys_user_info c on a.user_id = c.id
+                left join t_ser_brand_series_product_info d on a.product_id = d.id
+                left join t_ser_brand_series_info e on e.id = d.series_id
+                left join t_ser_brand_info f on e.brand_id = f.id
+	    group by b.warehouse_name,f.brand_name,e.series_name,d.product_name,c.user_name,a.create_time
                  limit #{page},#{limit}
     </select>
 

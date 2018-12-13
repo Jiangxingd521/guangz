@@ -23,4 +23,6 @@ public interface SerOrderInfoMapper extends BaseMapper<SerOrderInfo> {
 
     List<SaleOrderVo> selectSaleOrderVoListByCondition(QueryOrderCondition condition);
 
+    List<SaleOrderVo> selectOrderCompleteListByCondition(QueryOrderCondition condition);
+
 }

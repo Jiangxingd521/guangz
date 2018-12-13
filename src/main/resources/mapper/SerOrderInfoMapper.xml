@@ -62,4 +62,18 @@
           order by a.create_time desc
     </select>
 
+    <select id="selectOrderCompleteListByCondition"
+            parameterType="com.ningyang.os.action.input.condition.serve.QueryOrderCondition"
+            resultType="com.ningyang.os.action.output.vo.web.serve.SaleOrderVo"
+    >
+        SELECT a.id as orderId,a.order_no,a.dealer_id,b.dealer_name,a.order_remark as remark,
+               a.create_time as orderCreateTime, a.update_time as orderCompleteTime
+        FROM t_ser_order_info a
+                 LEFT JOIN t_ser_dealer_info b on a.dealer_id = b.id
+        WHERE 1 = 1
+          and a.order_state = 4
+          order by a.create_time desc
+    </select>
+
+
 </mapper>

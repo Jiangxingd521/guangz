@@ -196,9 +196,9 @@ public class LSerWarehouseGoodsOutInfoServiceImpl extends ServiceImpl<LSerWareho
                 );
                 boolean flag;
                 //订单箱数
-                int orderBoxCountTemp = orderInfoService.getOrderBoxCount(command.getOrderId());
+                int orderBoxCountTemp = orderInfoService.getOrderBoxCount(command.getOrderId()); //1
                 //已出箱数
-                int outBoxCountTemp = getOrderOutBoxCount(command.getOrderId());
+                int outBoxCountTemp = getOrderOutBoxCount(command.getOrderId()); //0
 
                 if(orderBoxCountTemp<outBoxCountTemp){//订单未完成
                     flag = saveBatch(listTemp);
@@ -228,6 +228,21 @@ public class LSerWarehouseGoodsOutInfoServiceImpl extends ServiceImpl<LSerWareho
                     dto.setFlag(true);
                     dto.setMessage("出货成功");
                     dto.setObj("订单已完成");
+                    map.put("putOutFlag", dto);
+                    return map;
+                }else{
+                    flag = saveBatch(listTemp);
+                    if(flag){
+                        //更改订单状态
+                        SerOrderInfo orderInfo = orderInfoService.getById(command.getOrderId());
+                        orderInfo.setOrderState(3);
+                        orderInfo.setUpdateTime(new Date());
+                        orderInfoService.updateById(orderInfo);
+                    }
+                    PutOutDto dto = new PutOutDto();
+                    dto.setFlag(true);
+                    dto.setMessage("出货成功");
+                    dto.setObj("订单未完成");
                     map.put("putOutFlag", dto);
                     return map;
                 }

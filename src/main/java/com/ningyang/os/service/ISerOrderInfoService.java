@@ -30,4 +30,6 @@ public interface ISerOrderInfoService extends IService<SerOrderInfo> {
 
     boolean apiWareHouseAdd(ApiWarehouseSaleOrderCommand command);
 
+    List<SaleOrderVo> findOrderCompleteListByCondition(QueryOrderCondition condition);
+
 }

@@ -33,7 +33,11 @@ public class SaleOrderVo {
     private Date orderCreateTime;
 
     private String orderCreateTimeStr;
+    //完成时间
+    private Date orderCompleteTime;
 
+    private String orderCompleteTimeStr;
+    //订单详情
     private List<OrderDetailVo> detailList;
 
     public Long getOrderId() {
@@ -130,6 +134,22 @@ public class SaleOrderVo {
 
     public void setOrderCreateTimeStr(String orderCreateTimeStr) {
         this.orderCreateTimeStr = orderCreateTimeStr;
+    }
+
+    public Date getOrderCompleteTime() {
+        return orderCompleteTime;
+    }
+
+    public void setOrderCompleteTime(Date orderCompleteTime) {
+        this.orderCompleteTime = orderCompleteTime;
+    }
+
+    public String getOrderCompleteTimeStr() {
+        return orderCompleteTimeStr;
+    }
+
+    public void setOrderCompleteTimeStr(String orderCompleteTimeStr) {
+        this.orderCompleteTimeStr = orderCompleteTimeStr;
     }
 
     public List<OrderDetailVo> getDetailList() {
