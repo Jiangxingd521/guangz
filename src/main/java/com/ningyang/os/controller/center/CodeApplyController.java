@@ -185,7 +185,8 @@ public class CodeApplyController extends BaseController {
                 BufferedWriter bw;
                 if (codeType == 2) {
                     //二维码
-                    bw = new BufferedWriter(new FileWriter(pFilePath + "/" + zipFileName + ".txt"));
+                    bw = new BufferedWriter(new FileWriter(pFilePath + "/" +zipFileName
+                            +'-'+condition.getCodeTypeName()+'-'+condition.getCodePositionTypeName()+".txt"));
                     for (SerApplyCodeTemplate code : codeList) {
 //                        encode(code.getCodeContent(), pFilePath, false, String.valueOf(code.getCenterId()));
                         bw.write(code.getCodeContent() + "\r");
@@ -195,7 +196,8 @@ public class CodeApplyController extends BaseController {
                     bw.close();
                 } else if (codeType == 1) {
                     //条形码
-                    bw = new BufferedWriter(new FileWriter(pFilePath + "/" + zipFileName + ".txt"));
+                    bw = new BufferedWriter(new FileWriter(pFilePath + "/" + zipFileName
+                            +'-'+condition.getCodeTypeName()+'-'+condition.getCodePositionTypeName()+ ".txt"));
                     for (SerApplyCodeTemplate code : codeList) {
 //                        generateFile(code.getCodeContent(), pFilePath + "/" + code.getCenterId() + ".png");
                         bw.write(code.getCodeContent() + "\r");

@@ -1,5 +1,6 @@
 package com.ningyang.os.controller.base;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.ningyang.os.action.input.command.web.base.CodeImportTemplateCommand;
 import com.ningyang.os.action.input.condition.base.QueryCodeCondition;
 import com.ningyang.os.action.output.vo.web.base.CodeImportTemplateVo;
@@ -10,7 +11,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 import java.util.Map;
 
 import static com.ningyang.os.action.enums.SystemErrorEnum.DATA_ERROR;
@@ -30,13 +30,13 @@ public class CodeTemplateController {
     @Autowired
     private ISerCodeImportTemplateInfoService infoService;
 
-
+    // FIXME: 2018-12-13 改为分页 倒序
     @GetMapping("getCodeTemplateList")
     public Map<String, Object> getCodeTemplateList(
             QueryCodeCondition condition
     ) {
         try {
-            List<CodeImportTemplateVo> listVo = infoService.findCodeImportVoByCondition(condition);
+            Page<CodeImportTemplateVo> listVo = infoService.findCodeImportVoPageByCondition(condition);
             return WebResult.success().put("listVo", listVo).toMap();
         } catch (Exception e) {
             LOGGER.error(e.getMessage(), e);

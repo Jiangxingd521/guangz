@@ -9,6 +9,7 @@ import com.ningyang.os.action.output.vo.web.base.BrandSeriesProductVo;
 import com.ningyang.os.action.output.vo.web.base.CodeTypeVo;
 import com.ningyang.os.action.output.vo.web.base.ProductVo;
 import com.ningyang.os.action.output.vo.web.base.SeriesProductVo;
+import com.ningyang.os.action.output.vo.web.serve.BrandSeriesProductNameVo;
 import com.ningyang.os.pojo.SerBrandSeriesProductInfo;
 
 import java.util.List;
@@ -37,4 +38,7 @@ public interface ISerBrandSeriesProductInfoService extends IService<SerBrandSeri
     List<SeriesProductVo> findSeriesProductVoByCondition(QueryBrandSeriesProductCondition condition);
 
     List<ApiProductVo> findApiProductVoList();
+
+    BrandSeriesProductNameVo findBrandSeriesProductNameVo(Long productId);
+
 }

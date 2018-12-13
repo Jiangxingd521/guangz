@@ -20,16 +20,6 @@
             parameterType="com.ningyang.os.action.input.condition.serve.QueryGoodsPutCondition"
             resultType="com.ningyang.os.action.output.vo.web.serve.GoodsPutOutVo"
     >
-        /*SELECT e.dealer_name,d.order_no,d.id as orderId,c.brand_name,c.brand_series_name AS series_name,
-               c.brand_series_product_name AS product_name,b.user_name,a.goods_out_time
-        FROM l_ser_warehouse_goods_out_info a
-                 LEFT JOIN t_sys_user_info b ON a.user_id = b.id
-                 LEFT JOIN t_ser_goods_info c ON a.box_no = c.m5
-                 LEFT JOIN t_ser_order_info d ON a.order_id = d.id
-                 LEFT JOIN t_ser_dealer_info e ON d.dealer_id = e.id
-        WHERE 1 = 1
-        GROUP BY e.dealer_name,d.order_no,d.id,c.brand_name,c.brand_series_name,
-                 c.brand_series_product_name,b.user_name,a.goods_out_time*/
         select a.order_id,d.brand_name,c.series_name,b.product_name,a.product_id,a.goods_out_time,f.dealer_name,e.order_no
         from l_ser_warehouse_goods_out_info a
                 left join t_ser_brand_series_product_info b on a.product_id=b.id
@@ -38,6 +28,7 @@
                 left join t_ser_order_info e on a.order_id=e.id
                 left join t_ser_dealer_info f on e.dealer_id=f.id
         group by a.order_id,d.brand_name,c.series_name,b.product_name,a.product_id,a.goods_out_time,f.dealer_name,e.order_no
+        order by a.goods_out_time desc
               limit #{page},#{limit}
     </select>
 
@@ -63,7 +54,7 @@
             resultType="com.ningyang.os.action.output.vo.web.serve.GoodsPutOutVo"
     >
         SELECT e.dealer_name,d.order_no,d.id as orderId,c.brand_name,c.brand_series_name as series_name, c.brand_series_product_name as
-        product_name,c.brand_series_product_id as prodId,c.id as goodsId,c.M1 as prCode
+        product_name,c.brand_series_product_id as productId,c.id as goodsId,c.M1 as prCode
         FROM l_ser_warehouse_goods_out_info a
                 LEFT JOIN t_ser_goods_info c ON a.box_no = c.m5
                 LEFT JOIN t_ser_order_info d ON a.order_id = d.id

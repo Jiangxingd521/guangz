@@ -9,6 +9,7 @@ import com.ningyang.os.action.output.vo.api.ApiBrandSeriesProductVo;
 import com.ningyang.os.action.output.vo.api.ApiProductVo;
 import com.ningyang.os.action.output.vo.api.ApiSeriesVo;
 import com.ningyang.os.action.output.vo.web.base.*;
+import com.ningyang.os.action.output.vo.web.serve.BrandSeriesProductNameVo;
 import com.ningyang.os.dao.SerBrandSeriesProductInfoMapper;
 import com.ningyang.os.pojo.SerBrandSeriesProductCodeInfo;
 import com.ningyang.os.pojo.SerBrandSeriesProductFile;
@@ -181,5 +182,10 @@ public class SerBrandSeriesProductInfoServiceImpl extends ServiceImpl<SerBrandSe
     @Override
     public List<ApiProductVo> findApiProductVoList() {
         return baseMapper.selectApiProductVoList();
+    }
+
+    @Override
+    public BrandSeriesProductNameVo findBrandSeriesProductNameVo(Long productId) {
+        return baseMapper.selectBrandSeriesProductNameVo(productId);
     }
 }

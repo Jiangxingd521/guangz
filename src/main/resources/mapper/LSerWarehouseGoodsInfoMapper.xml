@@ -31,6 +31,7 @@
                 left join t_ser_brand_series_info e on e.id = d.series_id
                 left join t_ser_brand_info f on e.brand_id = f.id
 	    group by b.warehouse_name,f.brand_name,e.series_name,d.product_name,c.user_name,a.create_time
+	    ORDER BY a.create_time desc
                  limit #{page},#{limit}
     </select>
 
@@ -56,6 +57,7 @@
         left join t_ser_brand_info e on d.brand_id = e.id
         where c.product_name = #{productName}
         GROUP BY a.product_id,e.brand_name,d.series_name,c.product_name,b.warehouse_name
+        ORDER BY a.create_time desc
     </select>
 
 

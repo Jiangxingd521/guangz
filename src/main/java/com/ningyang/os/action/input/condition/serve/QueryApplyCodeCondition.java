@@ -18,6 +18,11 @@ public class QueryApplyCodeCondition extends BaseCondition {
     //溯源码内容
     private String codeContent;
 
+    //种类
+    private String codeTypeName;
+    //位置
+    private String codePositionTypeName;
+
     public String getTableName() {
         return tableName;
     }
@@ -48,5 +53,21 @@ public class QueryApplyCodeCondition extends BaseCondition {
 
     public void setCodeContent(String codeContent) {
         this.codeContent = codeContent;
+    }
+
+    public String getCodeTypeName() {
+        return codeTypeName;
+    }
+
+    public void setCodeTypeName(String codeTypeName) {
+        this.codeTypeName = codeTypeName;
+    }
+
+    public String getCodePositionTypeName() {
+        return codePositionTypeName;
+    }
+
+    public void setCodePositionTypeName(String codePositionTypeName) {
+        this.codePositionTypeName = codePositionTypeName;
     }
 }

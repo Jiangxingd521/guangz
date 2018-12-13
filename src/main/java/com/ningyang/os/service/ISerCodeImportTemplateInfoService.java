@@ -1,5 +1,6 @@
 package com.ningyang.os.service;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.ningyang.os.action.input.command.web.base.CodeImportTemplateCommand;
 import com.ningyang.os.action.input.condition.base.QueryCodeCondition;
@@ -19,7 +20,7 @@ import java.util.List;
  */
 public interface ISerCodeImportTemplateInfoService extends IService<SerCodeImportTemplateInfo> {
 
-    List<CodeImportTemplateVo> findCodeImportVoByCondition(QueryCodeCondition condition);
+    Page<CodeImportTemplateVo> findCodeImportVoPageByCondition(QueryCodeCondition condition);
 
     boolean addOrUpdate(CodeImportTemplateCommand command);
 

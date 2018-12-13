@@ -258,9 +258,7 @@ public class QRCodeUtil {
         try {
             BitMatrix bitMatrix = new MultiFormatWriter().encode(contents,
                     BarcodeFormat.CODABAR, codeWidth, height, null);
-
-            MatrixToImageWriter.writeToFile(bitMatrix, "png", new File(imgPath));
-//            MatrixToImageWriter.writeToPath(bitMatrix, "png",null);
+            MatrixToImageWriter.writeToPath(bitMatrix, "png",new File(imgPath).toPath());
         } catch (Exception e) {
             e.printStackTrace();
         }
