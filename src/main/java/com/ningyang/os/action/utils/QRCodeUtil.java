@@ -13,6 +13,7 @@ import java.awt.geom.RoundRectangle2D;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.OutputStream;
+import java.nio.file.Path;
 import java.util.Hashtable;
 
 /**
@@ -259,6 +260,7 @@ public class QRCodeUtil {
                     BarcodeFormat.CODABAR, codeWidth, height, null);
 
             MatrixToImageWriter.writeToFile(bitMatrix, "png", new File(imgPath));
+//            MatrixToImageWriter.writeToPath(bitMatrix, "png",null);
         } catch (Exception e) {
             e.printStackTrace();
         }
