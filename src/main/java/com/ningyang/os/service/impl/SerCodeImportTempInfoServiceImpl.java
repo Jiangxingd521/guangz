@@ -44,12 +44,10 @@ public class SerCodeImportTempInfoServiceImpl extends ServiceImpl<SerCodeImportT
     public boolean add(List<ReadFileBackData> listData, Long templateId) {
         //获取模板信息
         CodeImportTemplateVo templateVo = templateInfoService.findCodeImportTemplateVo(templateId);
-        // FIXME: 2018-12-14
-        System.out.println(JSONObject.toJSONString(templateVo));
+//        System.out.println(JSONObject.toJSONString(templateVo));
         boolean flag;
         Long leftCodeType = templateVo.getLeftCodeType();
-        // FIXME: 2018-12-14
-        System.out.println("leftCodeType:"+leftCodeType);
+//        System.out.println("leftCodeType:"+leftCodeType);
         if (leftCodeType == 1) {
             //模板对应的品牌系列产品
             BrandSeriesProductVo vo = productInfoService.findBrandSeriesProductVo(templateVo.getProductId());
@@ -72,8 +70,7 @@ public class SerCodeImportTempInfoServiceImpl extends ServiceImpl<SerCodeImportT
                 info.setGoodsState(0);
                 listTemp.add(info);
             }
-            // FIXME: 2018-12-14
-            System.out.println(JSONObject.toJSONString(listTemp));
+//            System.out.println(JSONObject.toJSONString(listTemp));
             flag = goodsInfoService.saveBatch(listTemp);
         } else {
             //外码
@@ -88,8 +85,7 @@ public class SerCodeImportTempInfoServiceImpl extends ServiceImpl<SerCodeImportT
                 info.setRightCodeType(templateVo.getRightCodeId());
                 listTemp.add(info);
             }
-            // FIXME: 2018-12-14
-            System.out.println(JSONObject.toJSONString(listTemp));
+//            System.out.println(JSONObject.toJSONString(listTemp));
             //插入临时表
             flag = saveBatch(listTemp);
         }

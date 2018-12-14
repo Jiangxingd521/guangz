@@ -226,7 +226,7 @@ public class ApiWareHouseController extends BaseController {
     @PostMapping("addOrder")
     public Map<String, Object> addOrder(
             @RequestHeader("Authorization") String userToken,
-            ApiWarehouseSaleOrderCommand command,
+            @RequestBody ApiWarehouseSaleOrderCommand command,
             HttpServletResponse response
     ) {
         try {

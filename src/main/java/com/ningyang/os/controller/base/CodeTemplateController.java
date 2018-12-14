@@ -30,9 +30,9 @@ public class CodeTemplateController {
     @Autowired
     private ISerCodeImportTemplateInfoService infoService;
 
-    // FIXME: 2018-12-13 改为分页 倒序
-    @GetMapping("getCodeTemplateList")
-    public Map<String, Object> getCodeTemplateList(
+
+    @GetMapping("getCodeTemplatePageList")
+    public Map<String, Object> getCodeTemplatePageList(
             QueryCodeCondition condition
     ) {
         try {

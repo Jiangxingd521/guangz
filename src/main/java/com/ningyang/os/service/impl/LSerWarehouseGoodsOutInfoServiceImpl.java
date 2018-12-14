@@ -163,9 +163,11 @@ public class LSerWarehouseGoodsOutInfoServiceImpl extends ServiceImpl<LSerWareho
                                     SerBrandSeriesProductInfo productInfo = productInfoService.getById(productId);
                                     temp.setProductName(productInfo.getProductName());
                                     //扫描到的多余箱数
-                                    int boxCountTemp = scanDetailsDtoTemp.getBoxNumber() - entry.getValue().size() - orderDetailsDtoTemp.getBoxNumber();
-                                    temp.setBoxCount(boxCountTemp);
-                                    LOutDetailsDtoTempList.add(temp);
+                                    int boxCountTemp = scanDetailsDtoTemp.getBoxNumber() + entry.getValue().size() - orderDetailsDtoTemp.getBoxNumber();
+                                    if(boxCountTemp>0){
+                                        temp.setBoxCount(boxCountTemp);
+                                        LOutDetailsDtoTempList.add(temp);
+                                    }
                                 }
                             }
                         }
@@ -178,6 +180,79 @@ public class LSerWarehouseGoodsOutInfoServiceImpl extends ServiceImpl<LSerWareho
                     dto.setObj(unSafeList);
                     map.put("putOutFlag", dto);
                     return map;
+                }else{
+                    List<LSerWarehouseGoodsOutInfo> infoList = new ArrayList<>();
+                    for (String boxNo : command.getBoxCode()) {
+                        LSerWarehouseGoodsOutInfo info = new LSerWarehouseGoodsOutInfo();
+                        info.setOrderId(command.getOrderId());
+                        info.setWarehouseId(command.getWarehouseId());
+                        info.setBoxNo(boxNo);
+                        SerGoodsInfo goodsInfo = goodsInfoService.getOne(new QueryWrapper<SerGoodsInfo>()
+                                .eq("M5",boxNo));
+                        info.setProductId(goodsInfo.getBrandSeriesProductId());
+                        info.setUserId(command.getUserId());
+                        info.setGoodsOutTime(new Date());
+                        info.setCreateTime(new Date());
+                        info.setUpdateTime(new Date());
+                        infoList.add(info);
+                    }
+                    //去除数组里面的重复对象
+                    List<LSerWarehouseGoodsOutInfo> listTemp = infoList.stream().collect(
+                            collectingAndThen(toCollection(() -> new TreeSet<>(comparing(LSerWarehouseGoodsOutInfo::getBoxNo))), ArrayList::new)
+                    );
+                    boolean flag;
+                    //订单箱数
+                    int orderBoxCountTemp = orderInfoService.getOrderBoxCount(condition);
+                    //已出箱数
+                    int outBoxCountTemp = getOrderOutBoxCount(command.getOrderId());
+                    //扫描到的箱数+已出货箱数
+                    int allBoxCountTemp = outBoxCountTemp+scanBoxCount;
+                    if(allBoxCountTemp<orderBoxCountTemp){//订单未完成
+                        flag = saveBatch(listTemp);
+                        if(flag){
+                            //更改订单状态
+                            SerOrderInfo orderInfo = orderInfoService.getById(command.getOrderId());
+                            orderInfo.setOrderState(3);
+                            orderInfo.setUpdateTime(new Date());
+                            orderInfoService.updateById(orderInfo);
+                        }
+                        PutOutDto dto = new PutOutDto();
+                        dto.setFlag(true);
+                        dto.setMessage("出货成功");
+                        dto.setObj("订单未完成");
+                        map.put("putOutFlag", dto);
+                        return map;
+                    }else if(allBoxCountTemp == orderBoxCountTemp){//订单已完成
+                        flag = saveBatch(listTemp);
+                        if(flag){
+                            //更改订单状态
+                            SerOrderInfo orderInfo = orderInfoService.getById(command.getOrderId());
+                            orderInfo.setOrderState(4);
+                            orderInfo.setUpdateTime(new Date());
+                            orderInfoService.updateById(orderInfo);
+                        }
+                        PutOutDto dto = new PutOutDto();
+                        dto.setFlag(true);
+                        dto.setMessage("出货成功");
+                        dto.setObj("订单已完成");
+                        map.put("putOutFlag", dto);
+                        return map;
+                    }else{
+                        flag = saveBatch(listTemp);
+                        if(flag){
+                            //更改订单状态
+                            SerOrderInfo orderInfo = orderInfoService.getById(command.getOrderId());
+                            orderInfo.setOrderState(3);
+                            orderInfo.setUpdateTime(new Date());
+                            orderInfoService.updateById(orderInfo);
+                        }
+                        PutOutDto dto = new PutOutDto();
+                        dto.setFlag(true);
+                        dto.setMessage("出货成功");
+                        dto.setObj("订单未完成");
+                        map.put("putOutFlag", dto);
+                        return map;
+                    }
                 }
             } else {
                 List<LSerWarehouseGoodsOutInfo> infoList = new ArrayList<>();
@@ -201,9 +276,9 @@ public class LSerWarehouseGoodsOutInfoServiceImpl extends ServiceImpl<LSerWareho
                 );
                 boolean flag;
                 //订单箱数
-                int orderBoxCountTemp = orderInfoService.getOrderBoxCount(condition); //1
+                int orderBoxCountTemp = orderInfoService.getOrderBoxCount(condition);
                 //已出箱数
-                int outBoxCountTemp = getOrderOutBoxCount(command.getOrderId()); //0
+                int outBoxCountTemp = getOrderOutBoxCount(command.getOrderId());
 
                 if(orderBoxCountTemp<outBoxCountTemp){//订单未完成
                     flag = saveBatch(listTemp);
@@ -253,7 +328,6 @@ public class LSerWarehouseGoodsOutInfoServiceImpl extends ServiceImpl<LSerWareho
                 }
             }
         }
-        return map;
     }
 
     @Override
@@ -265,13 +339,9 @@ public class LSerWarehouseGoodsOutInfoServiceImpl extends ServiceImpl<LSerWareho
             QueryGoodsPutCondition putCondition = new QueryGoodsPutCondition();
             putCondition.setOrderId(vo.getOrderId());
             putCondition.setProductId(vo.getProductId());
-//            int orderBoxCount = orderInfoService.getOrderBoxCount(vo.getOrderId());
             int orderBoxCount = orderInfoService.getOrderBoxCount(putCondition);
 
             vo.setOrderBoxCount(orderBoxCount);
-//            int outBoxCount = getOrderOutBoxCount(vo.getOrderId());
-            int outBoxCount = getOrderOutBoxCountByCondition(putCondition);
-            vo.setOutBoxCount(outBoxCount);
         }
         int total = baseMapper.selectGoodsPutOutVoPageCountByCondition(condition);
         pageVo.setRecords(listVoTemp);

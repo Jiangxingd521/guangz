@@ -74,7 +74,7 @@
         <if test="productName!=null and productName!=''">
             and b.product_name like CONCAT('%',#{productName},'%')
         </if>
-        order by a.update_time desc
+        order by a.template_state asc,a.update_time desc
         limit #{page},#{limit}
     </select>
 
@@ -103,7 +103,7 @@
         <if test="productName!=null and productName!=''">
             and b.product_name like CONCAT('%',#{productName},'%')
         </if>
-        order by a.update_time desc
+        order by a.template_state asc,a.update_time desc
     </select>
 
     <select id="selectCodeImportTemplateVo"

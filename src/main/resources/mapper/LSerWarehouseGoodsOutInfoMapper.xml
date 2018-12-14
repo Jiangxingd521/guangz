@@ -20,7 +20,8 @@
             parameterType="com.ningyang.os.action.input.condition.serve.QueryGoodsPutCondition"
             resultType="com.ningyang.os.action.output.vo.web.serve.GoodsPutOutVo"
     >
-        select a.order_id,d.brand_name,c.series_name,b.product_name,a.product_id,a.goods_out_time,f.dealer_name,e.order_no
+        select a.order_id,d.brand_name,c.series_name,b.product_name,a.product_id,a.goods_out_time,f.dealer_name,e.order_no,
+        count(a.goods_out_time) as outBoxCount
         from l_ser_warehouse_goods_out_info a
                 left join t_ser_brand_series_product_info b on a.product_id=b.id
                 left join t_ser_brand_series_info c on b.series_id=c.id
