@@ -370,4 +370,18 @@ public class LSerWarehouseGoodsOutInfoServiceImpl extends ServiceImpl<LSerWareho
     public int getOrderOutBoxCountByCondition(QueryGoodsPutCondition condition) {
         return baseMapper.getOrderOutBoxCountByCondition(condition);
     }
+
+    @Override
+    public List<GoodsPutOutVo> findWarehouseGoodsPutOutVoByCondition(QueryGoodsPutCondition condition) {
+        List<GoodsPutOutVo> listVoTemp = baseMapper.selectWarehouseGoodsPutOutVoPageByCondition(condition);
+        for (GoodsPutOutVo vo : listVoTemp) {
+            vo.setGoodsOutTimeStr(timeToStr(vo.getGoodsOutTime()));
+            QueryGoodsPutCondition putCondition = new QueryGoodsPutCondition();
+            putCondition.setOrderId(vo.getOrderId());
+            putCondition.setProductId(vo.getProductId());
+            int orderBoxCount = orderInfoService.getOrderBoxCount(putCondition);
+            vo.setOrderBoxCount(orderBoxCount);
+        }
+        return listVoTemp;
+    }
 }

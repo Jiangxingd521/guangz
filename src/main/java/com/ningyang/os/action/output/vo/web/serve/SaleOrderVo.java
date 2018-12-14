@@ -40,6 +40,9 @@ public class SaleOrderVo {
     //订单详情
     private List<OrderDetailVo> detailList;
 
+    //出货完成后的详情
+    private List<GoodsPutOutVo> warehouseDetailList;
+
     public Long getOrderId() {
         return orderId;
     }
@@ -158,5 +161,13 @@ public class SaleOrderVo {
 
     public void setDetailList(List<OrderDetailVo> detailList) {
         this.detailList = detailList;
+    }
+
+    public List<GoodsPutOutVo> getWarehouseDetailList() {
+        return warehouseDetailList;
+    }
+
+    public void setWarehouseDetailList(List<GoodsPutOutVo> warehouseDetailList) {
+        this.warehouseDetailList = warehouseDetailList;
     }
 }

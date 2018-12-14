@@ -7,6 +7,7 @@ import com.ningyang.os.action.input.command.api.ApiWarehouseSaleOrderCommand;
 import com.ningyang.os.action.input.command.web.serve.OrderSaleCommand;
 import com.ningyang.os.action.input.condition.serve.QueryGoodsPutCondition;
 import com.ningyang.os.action.input.condition.serve.QueryOrderCondition;
+import com.ningyang.os.action.output.vo.web.serve.GoodsPutOutVo;
 import com.ningyang.os.action.output.vo.web.serve.OrderDetailVo;
 import com.ningyang.os.action.output.vo.web.serve.SaleOrderVo;
 import com.ningyang.os.dao.SerOrderInfoMapper;
@@ -187,10 +188,11 @@ public class SerOrderInfoServiceImpl extends ServiceImpl<SerOrderInfoMapper, Ser
             vo.setOutBoxCount(outBoxCount);
             //查询具体订单内容
             condition.setOrderId(vo.getOrderId());
-            // FIXME: 2018-12-13 出库明细
             //出库明细
-            /*List<OrderDetailVo> detailList = detailsService.findOrderDetailVoList(condition);
-            vo.setDetailList(detailList);*/
+            QueryGoodsPutCondition putCondition = new QueryGoodsPutCondition();
+            putCondition.setOrderId(vo.getOrderId());
+            List<GoodsPutOutVo> warehouseDetailList = outInfoService.findWarehouseGoodsPutOutVoByCondition(putCondition);
+            vo.setWarehouseDetailList(warehouseDetailList);
         }
         return listTemp;
     }

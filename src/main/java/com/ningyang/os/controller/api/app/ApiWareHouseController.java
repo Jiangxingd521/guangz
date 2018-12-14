@@ -9,6 +9,7 @@ import com.ningyang.os.action.output.vo.api.ApiBrandSeriesProductVo;
 import com.ningyang.os.action.output.vo.api.ApiProductVo;
 import com.ningyang.os.action.output.vo.api.ApiWarehouseGoodsVo;
 import com.ningyang.os.action.output.vo.web.serve.DealerVo;
+import com.ningyang.os.action.output.vo.web.serve.GoodsPutOutVo;
 import com.ningyang.os.action.output.vo.web.serve.SaleOrderVo;
 import com.ningyang.os.action.output.vo.web.serve.WarehouseVo;
 import com.ningyang.os.action.utils.WebResult;
@@ -283,6 +284,7 @@ public class ApiWareHouseController extends BaseController {
         try {
             SysUserInfo loginUser = getBaseUserInfo(userToken);
             if (loginUser != null) {
+                // FIXME: 2018-12-14
                 List<ApiWarehouseGoodsVo> listVo = putInService.findApiWarehouseGoodsVo(productName);
                 Map<String,Object> map = new HashMap<>();
                 map.put("listVo",listVo);
@@ -309,7 +311,6 @@ public class ApiWareHouseController extends BaseController {
                 QueryOrderCondition condition = new QueryOrderCondition();
                 condition.setOrderState(4);
                 List<SaleOrderVo> listVo = orderInfoService.findOrderCompleteListByCondition(condition);
-
                 Map<String,Object> map = new HashMap<>();
                 map.put("listVo",listVo);
                 return WebResult.success().put("data",map).toMap();
@@ -321,8 +322,6 @@ public class ApiWareHouseController extends BaseController {
             return WebResult.failure(API_REQUEST_ERROR.getInfo()).toMap();
         }
     }
-
-
 
 
 }

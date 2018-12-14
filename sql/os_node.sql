@@ -11,7 +11,7 @@
  Target Server Version : 50721
  File Encoding         : 65001
 
- Date: 11/12/2018 14:31:50
+ Date: 14/12/2018 17:06:34
 */
 
 SET NAMES utf8mb4;
@@ -32,7 +32,7 @@ CREATE TABLE `l_code_import_file_info` (
   `create_time` datetime DEFAULT NULL COMMENT '创建时间',
   `update_time` datetime DEFAULT NULL COMMENT '修改时间',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='溯源码文件上传记录';
+) ENGINE=InnoDB AUTO_INCREMENT=49 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='溯源码文件上传记录';
 
 -- ----------------------------
 -- Records of l_code_import_file_info
@@ -51,6 +51,41 @@ INSERT INTO `l_code_import_file_info` VALUES (10, '狗年内外.txt', 'upload/33
 INSERT INTO `l_code_import_file_info` VALUES (11, '狗年外箱子.txt', 'upload/49fe722549d44b90a2367127410c3e80狗年外箱子.txt', '20181203223048', 2, 4, 7, '2018-12-03 22:30:48', '2018-12-03 22:30:48');
 INSERT INTO `l_code_import_file_info` VALUES (12, '河套36 内-外.txt', 'upload/362407d78061460b91c1243904068311河套36 内-外.txt', '20181207124902', 2, 4, 11, '2018-12-07 12:49:02', '2018-12-07 12:49:02');
 INSERT INTO `l_code_import_file_info` VALUES (13, '河套36外 - 箱.txt', 'upload/55058bb0b5a14a6eafedbbb340939c0b河套36外 - 箱.txt', '20181207125322', 2, 4, 12, '2018-12-07 12:53:22', '2018-12-07 12:53:22');
+INSERT INTO `l_code_import_file_info` VALUES (14, '景芝老虎头内-外.txt', 'upload/d0958efbc6a5448db3cca8788caee484景芝老虎头内-外.txt', '20181211150023', 6, 12, 13, '2018-12-11 15:00:23', '2018-12-11 15:00:23');
+INSERT INTO `l_code_import_file_info` VALUES (15, '景芝老虎头内-外.txt', 'upload/40da36f4e4c34fddb1eb70d68213359b景芝老虎头内-外.txt', '20181211150054', 6, 12, 13, '2018-12-11 15:00:54', '2018-12-11 15:00:54');
+INSERT INTO `l_code_import_file_info` VALUES (16, '景芝老虎头内-外.txt', 'upload/6d28b0be3aad4a029b27c48d4cf22a9c景芝老虎头内-外.txt', '20181211150054', 6, 12, 13, '2018-12-11 15:00:54', '2018-12-11 15:00:54');
+INSERT INTO `l_code_import_file_info` VALUES (17, '景芝老虎头外-箱.txt', 'upload/b44f822d6f4b4d69ace0e481e86b6322景芝老虎头外-箱.txt', '20181211150150', 6, 12, 14, '2018-12-11 15:01:50', '2018-12-11 15:01:50');
+INSERT INTO `l_code_import_file_info` VALUES (18, '内-外.txt', 'upload/6c4a7bb6cd9f4e0faf28c6fba632171f内-外.txt', '20181212171149', 7, 12, 16, '2018-12-12 17:11:49', '2018-12-12 17:11:49');
+INSERT INTO `l_code_import_file_info` VALUES (19, '外-箱.txt', 'upload/5f4f3368594a470386bbffaf02c89061外-箱.txt', '20181212171354', 7, 12, 17, '2018-12-12 17:13:54', '2018-12-12 17:13:54');
+INSERT INTO `l_code_import_file_info` VALUES (20, 'ceshi内-外.xlsx', 'upload/183e542747e54b8cb550e23bcbfcb9b3ceshi内-外.xlsx', '20181213103305', 7, 200, 16, '2018-12-13 10:33:05', '2018-12-13 10:33:05');
+INSERT INTO `l_code_import_file_info` VALUES (21, 'ceshi外 -箱子.xlsx', 'upload/4cdd1c9b61cc49df92b52cf65a1080e7ceshi外 -箱子.xlsx', '20181213104039', 7, 200, 17, '2018-12-13 10:40:39', '2018-12-13 10:40:39');
+INSERT INTO `l_code_import_file_info` VALUES (22, 'excel测试 内-盒.xlsx', 'upload/0e12f95ccb4b424eb75984ca9eb7e88aexcel测试 内-盒.xlsx', '20181213105132', 7, 40, 18, '2018-12-13 10:51:32', '2018-12-13 10:51:32');
+INSERT INTO `l_code_import_file_info` VALUES (23, 'excel测试 内-盒 - 箱.xlsx', 'upload/f53422e4968041c6b6b143a9af4a2099excel测试 内-盒 - 箱.xlsx', '20181213105151', 7, 40, 19, '2018-12-13 10:51:51', '2018-12-13 10:51:51');
+INSERT INTO `l_code_import_file_info` VALUES (24, 'ceshi外 -箱子.xlsx', 'upload/86863c3e038e473980419e5895bf7e82ceshi外 -箱子.xlsx', '20181213112635', 7, 200, 17, '2018-12-13 11:26:35', '2018-12-13 11:26:35');
+INSERT INTO `l_code_import_file_info` VALUES (25, 'excel测试 内-盒 - 箱.xlsx', 'upload/216367b068e94ed1a322b8e04cceef91excel测试 内-盒 - 箱.xlsx', '20181213113815', 7, 40, 19, '2018-12-13 11:38:15', '2018-12-13 11:38:15');
+INSERT INTO `l_code_import_file_info` VALUES (26, 'excel测试 内-盒.xlsx', 'upload/5d94c5ef15d24773815502b9786e321bexcel测试 内-盒.xlsx', '20181213113823', 7, 40, 18, '2018-12-13 11:38:23', '2018-12-13 11:38:23');
+INSERT INTO `l_code_import_file_info` VALUES (27, '内-外.xlsx', 'upload/a56823afb4384732b45cc63ab0648e23内-外.xlsx', '20181214121629', 7, 20, 16, '2018-12-14 12:16:29', '2018-12-14 12:16:29');
+INSERT INTO `l_code_import_file_info` VALUES (28, '内-外 - 箱子.xlsx', 'upload/95eb9fa1eb394a48a1743ea0b4336c71内-外 - 箱子.xlsx', '20181214121719', 7, 4, 17, '2018-12-14 12:17:19', '2018-12-14 12:17:19');
+INSERT INTO `l_code_import_file_info` VALUES (29, '内-外 - 箱子 - 副本.xlsx', 'upload/81c8e898d2314054850a9d84cd6a7457内-外 - 箱子 - 副本.xlsx', '20181214121733', 7, 4, 17, '2018-12-14 12:17:33', '2018-12-14 12:17:33');
+INSERT INTO `l_code_import_file_info` VALUES (30, '-盖外码 - 副本.txt', 'upload/37e00080290b45f295e780e5783bfbb4-盖外码 - 副本.txt', '20181214122430', 7, 4, 17, '2018-12-14 12:24:30', '2018-12-14 12:24:30');
+INSERT INTO `l_code_import_file_info` VALUES (31, '-盖外码 - 副本 (2).txt', 'upload/db031563144c4a088f32c89ceefceb9a-盖外码 - 副本 (2).txt', '20181214122506', 7, 4, 17, '2018-12-14 12:25:06', '2018-12-14 12:25:06');
+INSERT INTO `l_code_import_file_info` VALUES (32, '-盖外码 - 副本 (3).txt', 'upload/927797eb9bb849ca8e1c329933afed4c-盖外码 - 副本 (3).txt', '20181214122514', 7, 4, 17, '2018-12-14 12:25:14', '2018-12-14 12:25:14');
+INSERT INTO `l_code_import_file_info` VALUES (33, '-盖外码 - 副本 (4).txt', 'upload/b207a8352b034b498edb586696a91b4f-盖外码 - 副本 (4).txt', '20181214122559', 7, 4, 17, '2018-12-14 12:25:59', '2018-12-14 12:25:59');
+INSERT INTO `l_code_import_file_info` VALUES (34, '-盖外码 - 副本 (5).txt', 'upload/3724919947844732896e57088d923db8-盖外码 - 副本 (5).txt', '20181214122606', 7, 4, 17, '2018-12-14 12:26:06', '2018-12-14 12:26:06');
+INSERT INTO `l_code_import_file_info` VALUES (35, '-盖外码 - 副本.txt', 'upload/45e2727949f04213a2df921762edc382-盖外码 - 副本.txt', '20181214144211', 1, 4, 17, '2018-12-14 14:42:11', '2018-12-14 14:42:11');
+INSERT INTO `l_code_import_file_info` VALUES (36, '-盖外码 - 副本.txt', 'upload/a03a70b7f2c24e62ae58c679a9815d00-盖外码 - 副本.txt', '20181214144256', 1, 4, 17, '2018-12-14 14:42:56', '2018-12-14 14:42:56');
+INSERT INTO `l_code_import_file_info` VALUES (37, '-盖外码 - 副本 (2).txt', 'upload/4a4b5c494a41469e96cd1894a9867adb-盖外码 - 副本 (2).txt', '20181214144411', 1, 4, 17, '2018-12-14 14:44:11', '2018-12-14 14:44:11');
+INSERT INTO `l_code_import_file_info` VALUES (38, '-盖外码 - 副本.txt', 'upload/b408619020f34791ac357698051ee5ce-盖外码 - 副本.txt', '20181214144617', 1, 4, 17, '2018-12-14 14:46:17', '2018-12-14 14:46:17');
+INSERT INTO `l_code_import_file_info` VALUES (39, '-盖外码 - 副本 (2).txt', 'upload/5f114b0672f74febad70483c0cbe2262-盖外码 - 副本 (2).txt', '20181214144714', 1, 4, 17, '2018-12-14 14:47:14', '2018-12-14 14:47:14');
+INSERT INTO `l_code_import_file_info` VALUES (40, '-盖外码 - 副本.txt', 'upload/a65ec9eb89b746c49831002cb53811e0-盖外码 - 副本.txt', '20181214144739', 1, 4, 17, '2018-12-14 14:47:39', '2018-12-14 14:47:39');
+INSERT INTO `l_code_import_file_info` VALUES (41, '-盖外码 - 副本.txt', 'upload/f1a1373fdbc848c080eaee56a85d4f19-盖外码 - 副本.txt', '20181214150002', 1, 4, 17, '2018-12-14 15:00:02', '2018-12-14 15:00:02');
+INSERT INTO `l_code_import_file_info` VALUES (42, '-盖外码 - 副本 (2).txt', 'upload/48fc4b73c0d4496a9a9add1f5cc0101c-盖外码 - 副本 (2).txt', '20181214150023', 1, 4, 17, '2018-12-14 15:00:23', '2018-12-14 15:00:23');
+INSERT INTO `l_code_import_file_info` VALUES (43, '-盖外码 - 副本.txt', 'upload/b5710ccd707e4964a7d3288f5b59f5fe-盖外码 - 副本.txt', '20181214150559', 1, 4, 17, '2018-12-14 15:05:59', '2018-12-14 15:05:59');
+INSERT INTO `l_code_import_file_info` VALUES (44, '-盖外码 - 副本 (2).txt', 'upload/09ab446294ff421091896c468f8872e1-盖外码 - 副本 (2).txt', '20181214150621', 1, 4, 17, '2018-12-14 15:06:21', '2018-12-14 15:06:21');
+INSERT INTO `l_code_import_file_info` VALUES (45, '内-外.txt', 'upload/019181f214ab45f585e39b0f8c5b0b01内-外.txt', '20181214151812', 7, 12, 16, '2018-12-14 15:18:12', '2018-12-14 15:18:12');
+INSERT INTO `l_code_import_file_info` VALUES (46, '外-箱.txt', 'upload/9fee1ff1efb14919b7bb26d6130acf99外-箱.txt', '20181214151900', 7, 4, 17, '2018-12-14 15:19:00', '2018-12-14 15:19:00');
+INSERT INTO `l_code_import_file_info` VALUES (47, '外-箱 - 副本.txt', 'upload/2f482734aff54218930818d762978eb9外-箱 - 副本.txt', '20181214151907', 7, 4, 17, '2018-12-14 15:19:07', '2018-12-14 15:19:07');
+INSERT INTO `l_code_import_file_info` VALUES (48, '外-箱 - 副本 - 副本.txt', 'upload/a883c6ba16a6455ebeecea419cf0cbc8外-箱 - 副本 - 副本.txt', '20181214151913', 7, 4, 17, '2018-12-14 15:19:13', '2018-12-14 15:19:13');
 COMMIT;
 
 -- ----------------------------
@@ -75,7 +110,7 @@ CREATE TABLE `l_ser_warehouse_goods_info` (
   KEY `goods_id` (`goods_id`) USING BTREE,
   CONSTRAINT `l_ser_warehouse_goods_info_ibfk_1` FOREIGN KEY (`warehouse_id`) REFERENCES `t_ser_warehouse_info` (`id`),
   CONSTRAINT `l_ser_warehouse_goods_info_ibfk_2` FOREIGN KEY (`goods_id`) REFERENCES `t_ser_goods_info` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='商品入库记录日志';
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='商品入库记录日志';
 
 -- ----------------------------
 -- Records of l_ser_warehouse_goods_info
@@ -83,6 +118,21 @@ CREATE TABLE `l_ser_warehouse_goods_info` (
 BEGIN;
 INSERT INTO `l_ser_warehouse_goods_info` VALUES (3, 0, 1, NULL, NULL, 'http://www.headingtech.com/center/tz/6/d0685add2d44465eb226147e01199d67/12', '20181203223747', 3, '2018-12-03 22:37:47', 'biezhu', '2018-12-03 22:37:47', '2018-12-03 22:37:47');
 INSERT INTO `l_ser_warehouse_goods_info` VALUES (5, 0, 1, NULL, 12, '6000001227383389', '20181207141218', 3, '2018-12-07 14:12:18', NULL, '2018-12-07 14:12:18', '2018-12-07 14:12:18');
+INSERT INTO `l_ser_warehouse_goods_info` VALUES (6, 0, 1, NULL, 13, '8000001933717133', '20181211150600', 4, '2018-12-11 15:06:00', NULL, '2018-12-11 15:06:00', '2018-12-11 15:06:00');
+INSERT INTO `l_ser_warehouse_goods_info` VALUES (7, 0, 1, NULL, 14, '3000000410808105', '20181212175716', 3, '2018-12-12 17:57:16', NULL, '2018-12-12 17:57:16', '2018-12-12 17:57:16');
+INSERT INTO `l_ser_warehouse_goods_info` VALUES (8, 0, 1, NULL, 14, 'http://www.headingtech.com/center/tz/6/36a649dec320419e8714ba793d1223ea/12', '20181213112721', 3, '2018-12-13 11:27:21', '1', '2018-12-13 11:27:21', '2018-12-13 11:27:21');
+INSERT INTO `l_ser_warehouse_goods_info` VALUES (9, 0, 1, NULL, 14, 'http://www.headingtech.com/center/tz/6/66cdb3466db54f41a41da615e58f6a8d/12', '20181213112721', 3, '2018-12-13 11:27:21', '1', '2018-12-13 11:27:21', '2018-12-13 11:27:21');
+INSERT INTO `l_ser_warehouse_goods_info` VALUES (10, 0, 1, NULL, 14, 'http://www.headingtech.com/center/tz/6/7284f27bbb8547b0b470d83ce9515ec6/12', '20181213112721', 3, '2018-12-13 11:27:21', '1', '2018-12-13 11:27:21', '2018-12-13 11:27:21');
+INSERT INTO `l_ser_warehouse_goods_info` VALUES (11, 0, 1, NULL, 14, 'http://www.headingtech.com/center/tz/6/8d6960b3b0f948a69dc0da3472e34a41/12', '20181213112721', 3, '2018-12-13 11:27:21', '1', '2018-12-13 11:27:21', '2018-12-13 11:27:21');
+INSERT INTO `l_ser_warehouse_goods_info` VALUES (12, 0, 1, NULL, 14, 'http://www.headingtech.com/center/tz/6/e68adb9dbe294ee4b03f0385a9cfc6ef/12', '20181213112721', 3, '2018-12-13 11:27:21', '1', '2018-12-13 11:27:21', '2018-12-13 11:27:21');
+INSERT INTO `l_ser_warehouse_goods_info` VALUES (13, 0, 1, NULL, 14, 'http://www.headingtech.com/center/tz/6/012c17193f13423fb7a97b3757cf96af/12', '20181213113639', 3, '2018-12-13 11:36:39', '1', '2018-12-13 11:36:39', '2018-12-13 11:36:39');
+INSERT INTO `l_ser_warehouse_goods_info` VALUES (14, 0, 1, NULL, 14, 'http://www.headingtech.com/center/tz/6/4a7807a2375442238b8e6a92025cf4fe/12', '20181213113639', 3, '2018-12-13 11:36:39', '1', '2018-12-13 11:36:39', '2018-12-13 11:36:39');
+INSERT INTO `l_ser_warehouse_goods_info` VALUES (15, 0, 1, NULL, 14, 'http://www.headingtech.com/center/tz/6/6787378e417b4e679d694ea6a373f83c/12', '20181213113639', 3, '2018-12-13 11:36:39', '1', '2018-12-13 11:36:39', '2018-12-13 11:36:39');
+INSERT INTO `l_ser_warehouse_goods_info` VALUES (16, 0, 1, NULL, 14, 'http://www.headingtech.com/center/tz/6/8e3b4e319fe443caa9f4c516084c0a80/12', '20181213113655', 3, '2018-12-13 11:36:55', '1', '2018-12-13 11:36:55', '2018-12-13 11:36:55');
+INSERT INTO `l_ser_warehouse_goods_info` VALUES (17, 0, 1, NULL, 14, 'http://www.headingtech.com/center/tz/6/b6875233daaf402394fcf4e3f22add9c/12', '20181213113655', 3, '2018-12-13 11:36:55', '1', '2018-12-13 11:36:55', '2018-12-13 11:36:55');
+INSERT INTO `l_ser_warehouse_goods_info` VALUES (18, 0, 1, NULL, 14, '6000000818852820', '20181214152050', 3, '2018-12-14 15:20:50', '0', '2018-12-14 15:20:50', '2018-12-14 15:20:50');
+INSERT INTO `l_ser_warehouse_goods_info` VALUES (19, 0, 1, NULL, 14, '3000001522724679', '20181214152120', 3, '2018-12-14 15:21:20', '0', '2018-12-14 15:21:20', '2018-12-14 15:21:20');
+INSERT INTO `l_ser_warehouse_goods_info` VALUES (20, 0, 1, NULL, 14, '4000000474173888', '20181214152129', 3, '2018-12-14 15:21:29', '0', '2018-12-14 15:21:29', '2018-12-14 15:21:29');
 COMMIT;
 
 -- ----------------------------
@@ -101,7 +151,7 @@ CREATE TABLE `l_ser_warehouse_goods_out_info` (
   `create_time` datetime DEFAULT NULL COMMENT '创建时间',
   `update_time` datetime DEFAULT NULL COMMENT '修改时间',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='商品出库记录日志';
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='商品出库记录日志';
 
 -- ----------------------------
 -- Records of l_ser_warehouse_goods_out_info
@@ -111,6 +161,10 @@ INSERT INTO `l_ser_warehouse_goods_out_info` VALUES (1, 20181129125419, 1, '8000
 INSERT INTO `l_ser_warehouse_goods_out_info` VALUES (2, 20181129125419, 1, '9000001005795865', NULL, NULL, 3, '2018-11-29 14:59:11', '2018-11-29 14:59:11', '2018-11-29 14:59:11');
 INSERT INTO `l_ser_warehouse_goods_out_info` VALUES (3, 20181203223116, 1, 'http://www.headingtech.com/center/tz/6/d0685add2d44465eb226147e01199d67/12', NULL, NULL, 3, '2018-12-03 22:41:21', '2018-12-03 22:41:21', '2018-12-03 22:41:21');
 INSERT INTO `l_ser_warehouse_goods_out_info` VALUES (4, 5, 1, '6000001227383389', NULL, NULL, 3, '2018-12-07 14:12:39', '2018-12-07 14:12:39', '2018-12-07 14:12:39');
+INSERT INTO `l_ser_warehouse_goods_out_info` VALUES (5, 7, 1, '3000000410808105', NULL, NULL, 3, '2018-12-13 10:22:13', '2018-12-13 10:22:13', '2018-12-13 10:22:13');
+INSERT INTO `l_ser_warehouse_goods_out_info` VALUES (6, 12, NULL, '6000000818852820', 14, NULL, 3, '2018-12-14 15:26:49', '2018-12-14 15:26:49', '2018-12-14 15:26:49');
+INSERT INTO `l_ser_warehouse_goods_out_info` VALUES (7, 12, NULL, '3000001522724679', 14, NULL, 3, '2018-12-14 16:32:55', '2018-12-14 16:32:55', '2018-12-14 16:32:55');
+INSERT INTO `l_ser_warehouse_goods_out_info` VALUES (8, 12, NULL, '4000000474173888', 14, NULL, 3, '2018-12-14 16:32:55', '2018-12-14 16:32:55', '2018-12-14 16:32:55');
 COMMIT;
 
 -- ----------------------------
@@ -182,7 +236,7 @@ CREATE TABLE `t_member_point_rule` (
   `create_time` datetime DEFAULT NULL,
   `update_time` datetime DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='会员积分规则';
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='会员积分规则';
 
 -- ----------------------------
 -- Records of t_member_point_rule
@@ -190,6 +244,9 @@ CREATE TABLE `t_member_point_rule` (
 BEGIN;
 INSERT INTO `t_member_point_rule` VALUES (1, '一阶段', 10, 2, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-11-30 14:11:58', '2018-12-03 10:16:45');
 INSERT INTO `t_member_point_rule` VALUES (2, '二阶段', 21, 2, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-11-30 14:12:06', '2018-12-03 10:16:45');
+INSERT INTO `t_member_point_rule` VALUES (3, '三阶段', 100, 7, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-12-14 14:53:26', '2018-12-14 14:53:26');
+INSERT INTO `t_member_point_rule` VALUES (4, '四阶段', 1000, 7, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-12-14 14:53:34', '2018-12-14 14:53:34');
+INSERT INTO `t_member_point_rule` VALUES (5, '所有', 0, 7, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-12-14 16:41:30', '2018-12-14 16:41:30');
 COMMIT;
 
 -- ----------------------------
@@ -211,7 +268,7 @@ CREATE TABLE `t_member_scanning` (
   `create_time` datetime DEFAULT NULL COMMENT '创建时间',
   `update_time` datetime DEFAULT NULL COMMENT '修改时间',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='会员扫码记录';
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='会员扫码记录';
 
 -- ----------------------------
 -- Records of t_member_scanning
@@ -238,6 +295,9 @@ INSERT INTO `t_member_scanning` VALUES (18, 'oM4Zm0nxTWr_sLSg_WNUty4v1ytE', 'htt
 INSERT INTO `t_member_scanning` VALUES (19, 'oM4Zm0gqYxSUZgoasecfK3bhRa9k', 'http://www.headingtech.com/center/tz/6/9e6a100d140a4786bab4888f1ceca00a/12', NULL, NULL, NULL, NULL, '219.137.142.99', NULL, NULL, NULL, '2018-12-04 17:15:21', NULL);
 INSERT INTO `t_member_scanning` VALUES (20, 'oM4Zm0htCb2hMyVebDFGa7pLvzvg', 'http://www.headingtech.com/center/tz/6/9e6a100d140a4786bab4888f1ceca00a/12', NULL, NULL, NULL, NULL, '27.205.54.192', NULL, NULL, NULL, '2018-12-04 17:16:43', NULL);
 INSERT INTO `t_member_scanning` VALUES (21, '', 'http://www.headingtech.com/center/tz/6/cc104e91c5bc448c974ac9909640e01f/12', NULL, NULL, NULL, NULL, '123.246.200.51', NULL, NULL, NULL, '2018-12-07 14:20:44', NULL);
+INSERT INTO `t_member_scanning` VALUES (22, '', 'http://www.headingtech.com/center/tz/6/1mJfOXrafWkH/12', NULL, NULL, NULL, NULL, '219.137.141.174', NULL, NULL, NULL, '2018-12-14 11:56:46', NULL);
+INSERT INTO `t_member_scanning` VALUES (23, '', 'http://www.headingtech.com/center/tz/6/d4bc9cc762bc44eeb7fe8aab16ef4099/12', NULL, NULL, NULL, NULL, '219.137.141.174', NULL, NULL, NULL, '2018-12-14 16:35:27', NULL);
+INSERT INTO `t_member_scanning` VALUES (24, 'oM4Zm0gqYxSUZgoasecfK3bhRa9k', 'http://www.headingtech.com/center/tz/6/e966e40807bd4c2094eb46acb5acf67b/12', NULL, NULL, NULL, NULL, '219.137.141.174', NULL, NULL, NULL, '2018-12-14 16:37:41', NULL);
 COMMIT;
 
 -- ----------------------------
@@ -261,7 +321,7 @@ CREATE TABLE `t_member_type_info` (
   `create_time` datetime DEFAULT NULL,
   `update_time` datetime DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='会员类型';
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='会员类型';
 
 -- ----------------------------
 -- Records of t_member_type_info
@@ -269,6 +329,9 @@ CREATE TABLE `t_member_type_info` (
 BEGIN;
 INSERT INTO `t_member_type_info` VALUES (1, '普通会员', 1, 10, 2, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-11-30 14:27:33', '2018-12-03 10:17:42');
 INSERT INTO `t_member_type_info` VALUES (2, '普通二段会员', 2, 21, 2, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-11-30 14:27:50', '2018-12-03 10:17:42');
+INSERT INTO `t_member_type_info` VALUES (3, '黄金会员', 3, 100, 7, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-12-14 14:54:07', '2018-12-14 14:54:07');
+INSERT INTO `t_member_type_info` VALUES (4, '白金会员', 4, 1000, 7, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-12-14 14:54:24', '2018-12-14 14:54:24');
+INSERT INTO `t_member_type_info` VALUES (5, '所有人', 5, 0, 7, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-12-14 16:41:46', '2018-12-14 16:41:46');
 COMMIT;
 
 -- ----------------------------
@@ -341,7 +404,7 @@ CREATE TABLE `t_ser_apply_code_201812` (
   `create_time` datetime DEFAULT NULL COMMENT '创建时间',
   `update_time` datetime DEFAULT NULL COMMENT '修改时间',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=3439 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='溯源码';
+) ENGINE=InnoDB AUTO_INCREMENT=3757 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='溯源码';
 
 -- ----------------------------
 -- Records of t_ser_apply_code_201812
@@ -3785,6 +3848,324 @@ INSERT INTO `t_ser_apply_code_201812` VALUES (3435, 3435, 'http://www.headingtec
 INSERT INTO `t_ser_apply_code_201812` VALUES (3436, 3436, 'http://www.headingtech.com/center/tz/6/84b1fbab778c47d7aceee5514ca458d3/12', '20181207124000', 1, 1, '2018-12-07 12:40:18', '2018-12-07 12:40:18');
 INSERT INTO `t_ser_apply_code_201812` VALUES (3437, 3437, 'http://www.headingtech.com/center/tz/6/1d29b031668b4da884644b99ce4aa8a6/12', '20181207124000', 1, 1, '2018-12-07 12:40:18', '2018-12-07 12:40:18');
 INSERT INTO `t_ser_apply_code_201812` VALUES (3438, 3438, 'http://www.headingtech.com/center/tz/6/1b9127ffc6d64fdd97694e8447b83f72/12', '20181207124000', 1, 1, '2018-12-07 12:40:18', '2018-12-07 12:40:18');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3439, 3453, '8000001933717133', '20181211145416', 2, 5, '2018-12-11 14:56:18', '2018-12-11 14:56:18');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3440, 3454, 'http://www.headingtech.com/center/tz/6/f851f94def184eb0b2bb6c69d5ca10ff/12', '20181211145359', 2, 2, '2018-12-11 14:56:22', '2018-12-11 14:56:22');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3441, 3455, 'http://www.headingtech.com/center/tz/6/6a0ad10a3618409eaf7773029dfbee62/12', '20181211145359', 2, 2, '2018-12-11 14:56:22', '2018-12-11 14:56:22');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3442, 3456, 'http://www.headingtech.com/center/tz/6/44129df5245d493fa5d97573dfc17ec9/12', '20181211145359', 2, 2, '2018-12-11 14:56:22', '2018-12-11 14:56:22');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3443, 3457, 'http://www.headingtech.com/center/tz/6/4d9692f369f344ffb47b7d454e8b85e8/12', '20181211145359', 2, 2, '2018-12-11 14:56:22', '2018-12-11 14:56:22');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3444, 3458, 'http://www.headingtech.com/center/tz/6/d83a64c23d664d5393fa5cc4449b2f74/12', '20181211145359', 2, 2, '2018-12-11 14:56:22', '2018-12-11 14:56:22');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3445, 3459, 'http://www.headingtech.com/center/tz/6/76f1be82777e4fa99eb13b7025c86e13/12', '20181211145359', 2, 2, '2018-12-11 14:56:22', '2018-12-11 14:56:22');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3446, 3460, 'http://www.headingtech.com/center/tz/6/c85a841f484b49c8a956ae76258506e2/12', '20181211145313', 1, 1, '2018-12-11 14:56:23', '2018-12-11 14:56:23');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3447, 3461, 'http://www.headingtech.com/center/tz/6/5a8eec554761436699ff1c9260b80780/12', '20181211145313', 1, 1, '2018-12-11 14:56:23', '2018-12-11 14:56:23');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3448, 3462, 'http://www.headingtech.com/center/tz/6/af7f20e1bc62481d903f5f5de838c247/12', '20181211145313', 1, 1, '2018-12-11 14:56:23', '2018-12-11 14:56:23');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3449, 3463, 'http://www.headingtech.com/center/tz/6/0757670b24cd4ce9a4e36cf7626309d7/12', '20181211145313', 1, 1, '2018-12-11 14:56:23', '2018-12-11 14:56:23');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3450, 3464, 'http://www.headingtech.com/center/tz/6/b33b9d58c9fe454c98765234935967a8/12', '20181211145313', 1, 1, '2018-12-11 14:56:23', '2018-12-11 14:56:23');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3451, 3465, 'http://www.headingtech.com/center/tz/6/7e5e395a51aa46fabf386bc9d8d6b630/12', '20181211145313', 1, 1, '2018-12-11 14:56:23', '2018-12-11 14:56:23');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3452, 3466, '3000000410808105', '20181212162446', 2, 5, '2018-12-12 16:30:42', '2018-12-12 16:30:42');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3453, 3467, 'http://www.headingtech.com/center/tz/6/ff96a64db9b543b586d2a651a596f6e9/12', '20181212162428', 2, 2, '2018-12-12 16:30:44', '2018-12-12 16:30:44');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3454, 3468, 'http://www.headingtech.com/center/tz/6/50a73a3cfee04c45815182d861e62189/12', '20181212162428', 2, 2, '2018-12-12 16:30:44', '2018-12-12 16:30:44');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3455, 3469, 'http://www.headingtech.com/center/tz/6/674645b7c1ff4a06a6e0770f863ad176/12', '20181212162428', 2, 2, '2018-12-12 16:30:44', '2018-12-12 16:30:44');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3456, 3470, 'http://www.headingtech.com/center/tz/6/f8cb03c61872468ebaca05df874a967c/12', '20181212162428', 2, 2, '2018-12-12 16:30:44', '2018-12-12 16:30:44');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3457, 3471, 'http://www.headingtech.com/center/tz/6/86e8f73cf9384c36872593f76506d474/12', '20181212162428', 2, 2, '2018-12-12 16:30:44', '2018-12-12 16:30:44');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3458, 3472, 'http://www.headingtech.com/center/tz/6/ac7c33d066b7402ea56944e510ba31a7/12', '20181212162428', 2, 2, '2018-12-12 16:30:44', '2018-12-12 16:30:44');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3459, 3473, 'http://www.headingtech.com/center/tz/6/466da01976644866838a69da80186c69/12', '20181212162059', 1, 1, '2018-12-12 16:30:53', '2018-12-12 16:30:53');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3460, 3474, 'http://www.headingtech.com/center/tz/6/3b33e54444974327a3a9be65ae08b311/12', '20181212162059', 1, 1, '2018-12-12 16:30:53', '2018-12-12 16:30:53');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3461, 3475, 'http://www.headingtech.com/center/tz/6/9cda3fe846b243b68869dadf0e30e44e/12', '20181212162059', 1, 1, '2018-12-12 16:30:53', '2018-12-12 16:30:53');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3462, 3476, 'http://www.headingtech.com/center/tz/6/3151967065484b8ab20e4339285974a2/12', '20181212162059', 1, 1, '2018-12-12 16:30:53', '2018-12-12 16:30:53');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3463, 3477, 'http://www.headingtech.com/center/tz/6/7b9506142e0e4435b3ddf57a2d4960e5/12', '20181212162059', 1, 1, '2018-12-12 16:30:53', '2018-12-12 16:30:53');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3464, 3478, 'http://www.headingtech.com/center/tz/6/960509876cb047d88a067ffbb6cabad1/12', '20181212162059', 1, 1, '2018-12-12 16:30:53', '2018-12-12 16:30:53');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3465, 3479, 'http://www.headingtech.com/center/tz/6/36a649dec320419e8714ba793d1223ea/12', '20181213102826', 2, 5, '2018-12-13 10:28:36', '2018-12-13 10:28:36');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3466, 3480, 'http://www.headingtech.com/center/tz/6/7284f27bbb8547b0b470d83ce9515ec6/12', '20181213102826', 2, 5, '2018-12-13 10:28:36', '2018-12-13 10:28:36');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3467, 3481, 'http://www.headingtech.com/center/tz/6/8d6960b3b0f948a69dc0da3472e34a41/12', '20181213102826', 2, 5, '2018-12-13 10:28:36', '2018-12-13 10:28:36');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3468, 3482, 'http://www.headingtech.com/center/tz/6/e68adb9dbe294ee4b03f0385a9cfc6ef/12', '20181213102826', 2, 5, '2018-12-13 10:28:36', '2018-12-13 10:28:36');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3469, 3483, 'http://www.headingtech.com/center/tz/6/66cdb3466db54f41a41da615e58f6a8d/12', '20181213102826', 2, 5, '2018-12-13 10:28:36', '2018-12-13 10:28:36');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3470, 3484, 'http://www.headingtech.com/center/tz/6/4a7807a2375442238b8e6a92025cf4fe/12', '20181213102826', 2, 5, '2018-12-13 10:28:36', '2018-12-13 10:28:36');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3471, 3485, 'http://www.headingtech.com/center/tz/6/012c17193f13423fb7a97b3757cf96af/12', '20181213102826', 2, 5, '2018-12-13 10:28:36', '2018-12-13 10:28:36');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3472, 3486, 'http://www.headingtech.com/center/tz/6/6787378e417b4e679d694ea6a373f83c/12', '20181213102826', 2, 5, '2018-12-13 10:28:36', '2018-12-13 10:28:36');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3473, 3487, 'http://www.headingtech.com/center/tz/6/b6875233daaf402394fcf4e3f22add9c/12', '20181213102826', 2, 5, '2018-12-13 10:28:36', '2018-12-13 10:28:36');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3474, 3488, 'http://www.headingtech.com/center/tz/6/8e3b4e319fe443caa9f4c516084c0a80/12', '20181213102826', 2, 5, '2018-12-13 10:28:36', '2018-12-13 10:28:36');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3475, 3489, 'http://www.headingtech.com/center/tz/6/dc71874ebcfd4edfb115090c505a4ffa/12', '20181213102740', 1, 1, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3476, 3490, 'http://www.headingtech.com/center/tz/6/9e06c04d5a2d4640a7aedd770dd16afd/12', '20181213102740', 1, 1, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3477, 3491, 'http://www.headingtech.com/center/tz/6/138ba51fb717410db29278ec61588595/12', '20181213102740', 1, 1, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3478, 3492, 'http://www.headingtech.com/center/tz/6/0f6a1c760dac4d738791b234f0621b83/12', '20181213102740', 1, 1, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3479, 3493, 'http://www.headingtech.com/center/tz/6/58ae0a810d494a7880ce2b026dca50da/12', '20181213102740', 1, 1, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3480, 3494, 'http://www.headingtech.com/center/tz/6/2618ca37b07e41629d7775785bf643ce/12', '20181213102740', 1, 1, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3481, 3495, 'http://www.headingtech.com/center/tz/6/41a3cf867b394b3f95b30a14c8fbcef2/12', '20181213102740', 1, 1, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3482, 3496, 'http://www.headingtech.com/center/tz/6/592e204e4f2045cba175c34f2c4e25d2/12', '20181213102740', 1, 1, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3483, 3497, 'http://www.headingtech.com/center/tz/6/218d84b0ea7e448b8914e76f42b765c6/12', '20181213102740', 1, 1, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3484, 3498, 'http://www.headingtech.com/center/tz/6/ced7b492c0c3461a99c2229689c1477a/12', '20181213102740', 1, 1, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3485, 3499, 'http://www.headingtech.com/center/tz/6/ac91cc5b478442d586b91b255a2ef91a/12', '20181213102740', 1, 1, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3486, 3500, 'http://www.headingtech.com/center/tz/6/d1d2258af1ed4344a39b48763c53a6b5/12', '20181213102740', 1, 1, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3487, 3501, 'http://www.headingtech.com/center/tz/6/ada27a592895402484226bc6d275ab0f/12', '20181213102740', 1, 1, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3488, 3502, 'http://www.headingtech.com/center/tz/6/98d1adb39d224fbc96b7d34e6c9e3ad3/12', '20181213102740', 1, 1, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3489, 3503, 'http://www.headingtech.com/center/tz/6/4d19af06c096459299a2eb01e2222cb2/12', '20181213102740', 1, 1, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3490, 3504, 'http://www.headingtech.com/center/tz/6/6fb4b4353eed4d84aaed24bf0fd836f3/12', '20181213102740', 1, 1, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3491, 3505, 'http://www.headingtech.com/center/tz/6/b67f80b96d004e968382472557046418/12', '20181213102740', 1, 1, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3492, 3506, 'http://www.headingtech.com/center/tz/6/5bf9a8dbc9424c95b354256cbd6f70d5/12', '20181213102740', 1, 1, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3493, 3507, 'http://www.headingtech.com/center/tz/6/b120001963cd493dad17d8b53965faae/12', '20181213102740', 1, 1, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3494, 3508, 'http://www.headingtech.com/center/tz/6/0685e128309047e9b83d81bfd3893742/12', '20181213102740', 1, 1, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3495, 3509, 'http://www.headingtech.com/center/tz/6/4151022b212446ccb23e6a87807268de/12', '20181213102740', 1, 1, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3496, 3510, 'http://www.headingtech.com/center/tz/6/e3eda6ef0c4640b4b4ed4dccf7247b3a/12', '20181213102740', 1, 1, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3497, 3511, 'http://www.headingtech.com/center/tz/6/c272a5163ce348ae8f42cb0c3295eeef/12', '20181213102740', 1, 1, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3498, 3512, 'http://www.headingtech.com/center/tz/6/f5d1c8b032734883ae065e5e627dc4c3/12', '20181213102740', 1, 1, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3499, 3513, 'http://www.headingtech.com/center/tz/6/319412538ebe4ef5b5c6c1074e81939c/12', '20181213102740', 1, 1, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3500, 3514, 'http://www.headingtech.com/center/tz/6/7d82699c7b1942558b6175e9697f3cdf/12', '20181213102740', 1, 1, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3501, 3515, 'http://www.headingtech.com/center/tz/6/01b22716f4cf4455871eae33b47ecf43/12', '20181213102740', 1, 1, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3502, 3516, 'http://www.headingtech.com/center/tz/6/9513a935a092421d9433636d3051724d/12', '20181213102740', 1, 1, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3503, 3517, 'http://www.headingtech.com/center/tz/6/76c1ded8cda047e28a28679d14f4c0d2/12', '20181213102740', 1, 1, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3504, 3518, 'http://www.headingtech.com/center/tz/6/8e3b2d3842b142cba6db2f62a0fb6f51/12', '20181213102740', 1, 1, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3505, 3519, 'http://www.headingtech.com/center/tz/6/42108cadda6a4a539fd5c240e4b227da/12', '20181213102740', 1, 1, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3506, 3520, 'http://www.headingtech.com/center/tz/6/020fb8993b824ede993d4a30f85b3b59/12', '20181213102740', 1, 1, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3507, 3521, 'http://www.headingtech.com/center/tz/6/68523b33e0f74654ba5ff33127c3fa06/12', '20181213102740', 1, 1, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3508, 3522, 'http://www.headingtech.com/center/tz/6/486ca7c989724b6bbf44fca1e8662997/12', '20181213102740', 1, 1, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3509, 3523, 'http://www.headingtech.com/center/tz/6/435c9f4daba04eff886b639cb307a3fc/12', '20181213102740', 1, 1, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3510, 3524, 'http://www.headingtech.com/center/tz/6/caa6fc884df94081956c4767f096eac5/12', '20181213102740', 1, 1, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3511, 3525, 'http://www.headingtech.com/center/tz/6/303451cb147245e0bff63c7ebd88d363/12', '20181213102740', 1, 1, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3512, 3526, 'http://www.headingtech.com/center/tz/6/13fb7a008fdb46c88e759317885afa02/12', '20181213102740', 1, 1, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3513, 3527, 'http://www.headingtech.com/center/tz/6/b881691f0976456a84fbb43a5c1c60aa/12', '20181213102740', 1, 1, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3514, 3528, 'http://www.headingtech.com/center/tz/6/d096d1db1a084f918bef801e38757e26/12', '20181213102740', 1, 1, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3515, 3529, 'http://www.headingtech.com/center/tz/6/b40243749c6349c5848dc4723b0a2904/12', '20181213102740', 1, 1, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3516, 3530, 'http://www.headingtech.com/center/tz/6/91913a9cd4d64ef48c3b62ee81c2724e/12', '20181213102740', 1, 1, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3517, 3531, 'http://www.headingtech.com/center/tz/6/eb5622cfda0845d8a02b5b4897b3829c/12', '20181213102740', 1, 1, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3518, 3532, 'http://www.headingtech.com/center/tz/6/d8459985b45b4236ae2dc7ecea5304eb/12', '20181213102740', 1, 1, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3519, 3533, 'http://www.headingtech.com/center/tz/6/708fab2123804171a05868ba0872c566/12', '20181213102740', 1, 1, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3520, 3534, 'http://www.headingtech.com/center/tz/6/a0017a2ade66421d861e612d16a4d26f/12', '20181213102740', 1, 1, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3521, 3535, 'http://www.headingtech.com/center/tz/6/aa971dd599f14067a9d9f4d5ff260e13/12', '20181213102740', 1, 1, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3522, 3536, 'http://www.headingtech.com/center/tz/6/6bcf8412869d4d74bc88d964d7a778de/12', '20181213102740', 1, 1, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3523, 3537, 'http://www.headingtech.com/center/tz/6/0866caf2778c4fb4bb4a7f3ea15da342/12', '20181213102740', 1, 1, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3524, 3538, 'http://www.headingtech.com/center/tz/6/35a77ec7976e43919f4d23ee0c92966e/12', '20181213102740', 1, 1, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3525, 3539, 'http://www.headingtech.com/center/tz/6/f62269b5b94849f7bd2b36571f249241/12', '20181213102740', 1, 1, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3526, 3540, 'http://www.headingtech.com/center/tz/6/49def65927d7429894ddb4d2f0d074de/12', '20181213102740', 1, 1, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3527, 3541, 'http://www.headingtech.com/center/tz/6/743fcc3e9f1e41008715145641ea1705/12', '20181213102740', 1, 1, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3528, 3542, 'http://www.headingtech.com/center/tz/6/87ab04a055d541c9b2fdbf5364b0f048/12', '20181213102740', 1, 1, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3529, 3543, 'http://www.headingtech.com/center/tz/6/7ab92d5cd9fa465699721f91a9650b87/12', '20181213102740', 1, 1, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3530, 3544, 'http://www.headingtech.com/center/tz/6/966bf175fbbd4cc6be0019b83615bffb/12', '20181213102740', 1, 1, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3531, 3545, 'http://www.headingtech.com/center/tz/6/e159a0b33ed9487aa096dfe72445ae38/12', '20181213102740', 1, 1, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3532, 3546, 'http://www.headingtech.com/center/tz/6/5123492dea004341b319cd230f061c87/12', '20181213102740', 1, 1, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3533, 3547, 'http://www.headingtech.com/center/tz/6/55068461b3b04e1baab0d49e7bea3617/12', '20181213102740', 1, 1, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3534, 3548, 'http://www.headingtech.com/center/tz/6/a395f22dfa1d44c1a8df1d1614dcbd28/12', '20181213102740', 1, 1, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3535, 3549, 'http://www.headingtech.com/center/tz/6/a31103711aad47dcb97c018144b4b127/12', '20181213102740', 1, 1, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3536, 3550, 'http://www.headingtech.com/center/tz/6/9f7c667aa9e14c5a931e9a6411618f38/12', '20181213102740', 1, 1, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3537, 3551, 'http://www.headingtech.com/center/tz/6/5e36d31025c1417ca55ca5a18eebc42e/12', '20181213102740', 1, 1, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3538, 3552, 'http://www.headingtech.com/center/tz/6/6981dd0180c34aa2be2a0cf799497240/12', '20181213102740', 1, 1, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3539, 3553, 'http://www.headingtech.com/center/tz/6/413b2efacdfe458fb0b77ae78b67e5b2/12', '20181213102740', 1, 1, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3540, 3554, 'http://www.headingtech.com/center/tz/6/f31e99779ace4ae2a5d9472eb5999c3d/12', '20181213102740', 1, 1, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3541, 3555, 'http://www.headingtech.com/center/tz/6/1bb8a45af8a3445e8233b62f0a31ec82/12', '20181213102740', 1, 1, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3542, 3556, 'http://www.headingtech.com/center/tz/6/88194426cf2a423c9692e4c478c4a555/12', '20181213102740', 1, 1, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3543, 3557, 'http://www.headingtech.com/center/tz/6/d2fc123617f74401abc598274994f29a/12', '20181213102740', 1, 1, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3544, 3558, 'http://www.headingtech.com/center/tz/6/c1df32ad28774172be80fb01f86dc931/12', '20181213102740', 1, 1, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3545, 3559, 'http://www.headingtech.com/center/tz/6/ea66936a7f0c4ef3a865ac16446dee7e/12', '20181213102740', 1, 1, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3546, 3560, 'http://www.headingtech.com/center/tz/6/ee58a14f158e47eca7d01ee0b1b5f59b/12', '20181213102740', 1, 1, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3547, 3561, 'http://www.headingtech.com/center/tz/6/4fe3ba10ca3a4fd48ee88ef888c780df/12', '20181213102740', 1, 1, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3548, 3562, 'http://www.headingtech.com/center/tz/6/479d7aaaa08347a5aec70773553fbb6f/12', '20181213102740', 1, 1, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3549, 3563, 'http://www.headingtech.com/center/tz/6/b0a9a30bb82c4448b81c4b7dccc3d0ce/12', '20181213102740', 1, 1, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3550, 3564, 'http://www.headingtech.com/center/tz/6/68d9163df9804589abdc8498655b0fda/12', '20181213102740', 1, 1, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3551, 3565, 'http://www.headingtech.com/center/tz/6/f529efd954c7484e8378b9488fc5188f/12', '20181213102740', 1, 1, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3552, 3566, 'http://www.headingtech.com/center/tz/6/ba583f1dde444347b77aa50ac9d6d76b/12', '20181213102740', 1, 1, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3553, 3567, 'http://www.headingtech.com/center/tz/6/e573840293b94a66b7fe395701402e8d/12', '20181213102740', 1, 1, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3554, 3568, 'http://www.headingtech.com/center/tz/6/4fc0694d37ed453986821019e42e10f4/12', '20181213102740', 1, 1, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3555, 3569, 'http://www.headingtech.com/center/tz/6/b686ab69dde34470a335e4a6140191b3/12', '20181213102740', 1, 1, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3556, 3570, 'http://www.headingtech.com/center/tz/6/1d4141dd4d4249a08881c0408e3b5b49/12', '20181213102740', 1, 1, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3557, 3571, 'http://www.headingtech.com/center/tz/6/3db6460e06c846e9817e97c83a805f34/12', '20181213102740', 1, 1, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3558, 3572, 'http://www.headingtech.com/center/tz/6/265d172e345b4cf3b3b283657d0e018c/12', '20181213102740', 1, 1, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3559, 3573, 'http://www.headingtech.com/center/tz/6/ac4069862b694eee8f5ca273db59f42e/12', '20181213102740', 1, 1, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3560, 3574, 'http://www.headingtech.com/center/tz/6/8dcb8c0c9eca4075b44920442a845d19/12', '20181213102740', 1, 1, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3561, 3575, 'http://www.headingtech.com/center/tz/6/43584fa6543c4a0ba30c8d177e03511e/12', '20181213102740', 1, 1, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3562, 3576, 'http://www.headingtech.com/center/tz/6/09495501a07c46538c9d237aafa57798/12', '20181213102740', 1, 1, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3563, 3577, 'http://www.headingtech.com/center/tz/6/0732242e17974ee284f8821a37b6ed3e/12', '20181213102740', 1, 1, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3564, 3578, 'http://www.headingtech.com/center/tz/6/92cc9a3e405243f589c7d50df78f3c28/12', '20181213102740', 1, 1, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3565, 3579, 'http://www.headingtech.com/center/tz/6/e0d6ce0eecc44810be1831524765e576/12', '20181213102740', 1, 1, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3566, 3580, 'http://www.headingtech.com/center/tz/6/6abfb39307254446acdf0392a5cc9f61/12', '20181213102740', 1, 1, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3567, 3581, 'http://www.headingtech.com/center/tz/6/573607805a0f48f39f0913820c524536/12', '20181213102740', 1, 1, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3568, 3582, 'http://www.headingtech.com/center/tz/6/eb2ff9db1c90473d91f27a9c76b23ae0/12', '20181213102740', 1, 1, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3569, 3583, 'http://www.headingtech.com/center/tz/6/fbe73f11a1584129907ce0559324540d/12', '20181213102740', 1, 1, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3570, 3584, 'http://www.headingtech.com/center/tz/6/c62c99d7ce914f69848e9c7b110f4297/12', '20181213102740', 1, 1, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3571, 3585, 'http://www.headingtech.com/center/tz/6/73f2d9bc2270420bb60978a9e6e60bd2/12', '20181213102740', 1, 1, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3572, 3586, 'http://www.headingtech.com/center/tz/6/96d9458c795a48649ca90c5e76a09050/12', '20181213102740', 1, 1, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3573, 3587, 'http://www.headingtech.com/center/tz/6/01e26428b0a4477dbcdd79c4dd5c58cc/12', '20181213102740', 1, 1, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3574, 3588, 'http://www.headingtech.com/center/tz/6/cd248ab245a9449c941fc3183a73a3f2/12', '20181213102740', 1, 1, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3575, 3589, 'http://www.headingtech.com/center/tz/6/cd437853a6084b0ebca87432a317aa1c/12', '20181213102756', 2, 2, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3576, 3590, 'http://www.headingtech.com/center/tz/6/f26fc3daceff47a88e7a90850db89c33/12', '20181213102756', 2, 2, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3577, 3591, 'http://www.headingtech.com/center/tz/6/c2bb8f571ecc4e928eaf4720090aae5c/12', '20181213102756', 2, 2, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3578, 3592, 'http://www.headingtech.com/center/tz/6/fda74852d73e4530947e8164faf4b1bb/12', '20181213102756', 2, 2, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3579, 3593, 'http://www.headingtech.com/center/tz/6/03d107932e644daeaa5b23a69e7f493d/12', '20181213102756', 2, 2, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3580, 3594, 'http://www.headingtech.com/center/tz/6/f282a32b97c5468e872a7d61c2af9dc3/12', '20181213102756', 2, 2, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3581, 3595, 'http://www.headingtech.com/center/tz/6/3bd87fd3b3d04a0f823dbfb4eefbad25/12', '20181213102756', 2, 2, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3582, 3596, 'http://www.headingtech.com/center/tz/6/e2a6f3cc3d1c4ffaa23a1260a463bea6/12', '20181213102756', 2, 2, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3583, 3597, 'http://www.headingtech.com/center/tz/6/18a374bd30c04bda876cddc7d69d4e7f/12', '20181213102756', 2, 2, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3584, 3598, 'http://www.headingtech.com/center/tz/6/1e6828a986b0448ba9b77ecb115d3645/12', '20181213102756', 2, 2, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3585, 3599, 'http://www.headingtech.com/center/tz/6/302973121ed449feb187fb13fb72ac1a/12', '20181213102756', 2, 2, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3586, 3600, 'http://www.headingtech.com/center/tz/6/0ef07c4cb95c44868640058179685bc3/12', '20181213102756', 2, 2, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3587, 3601, 'http://www.headingtech.com/center/tz/6/8f9c2f5dffc849c9b890b16bb020b0d9/12', '20181213102756', 2, 2, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3588, 3602, 'http://www.headingtech.com/center/tz/6/0a805fbeeb264bb2b9bc7180dacc9b4f/12', '20181213102756', 2, 2, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3589, 3603, 'http://www.headingtech.com/center/tz/6/55c9e1f7357140909150017b88f2634e/12', '20181213102756', 2, 2, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3590, 3604, 'http://www.headingtech.com/center/tz/6/ecc97ed2743142e48d37564e3449f147/12', '20181213102756', 2, 2, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3591, 3605, 'http://www.headingtech.com/center/tz/6/c4a0a32b258642058d95e42736af0163/12', '20181213102756', 2, 2, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3592, 3606, 'http://www.headingtech.com/center/tz/6/b339f1363ef549f9994d2841a6401a0f/12', '20181213102756', 2, 2, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3593, 3607, 'http://www.headingtech.com/center/tz/6/57abf171a0ab4f07bc1444f0215923c6/12', '20181213102756', 2, 2, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3594, 3608, 'http://www.headingtech.com/center/tz/6/756ba7c4cc984d7592490fecba35a921/12', '20181213102756', 2, 2, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3595, 3609, 'http://www.headingtech.com/center/tz/6/7b3cba82a04347838257124653040ee5/12', '20181213102756', 2, 2, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3596, 3610, 'http://www.headingtech.com/center/tz/6/2e9cf6e00e82401aba21c9a913a8e73f/12', '20181213102756', 2, 2, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3597, 3611, 'http://www.headingtech.com/center/tz/6/1e87b9edaad84c88a68a8f757c24531c/12', '20181213102756', 2, 2, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3598, 3612, 'http://www.headingtech.com/center/tz/6/7cf1d62b026e44228c40d5bd2fc4ce23/12', '20181213102756', 2, 2, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3599, 3613, 'http://www.headingtech.com/center/tz/6/c7653cd95fa14322b66b24d07b697976/12', '20181213102756', 2, 2, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3600, 3614, 'http://www.headingtech.com/center/tz/6/b8e6b4efb830495f85be5f21326eff1e/12', '20181213102756', 2, 2, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3601, 3615, 'http://www.headingtech.com/center/tz/6/e359313f58b04c69abae7250f20793f0/12', '20181213102756', 2, 2, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3602, 3616, 'http://www.headingtech.com/center/tz/6/367f11493e8f4512a440d04c4981882b/12', '20181213102756', 2, 2, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3603, 3617, 'http://www.headingtech.com/center/tz/6/9c0b447de22846d9bb9a54b8dc4e0422/12', '20181213102756', 2, 2, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3604, 3618, 'http://www.headingtech.com/center/tz/6/fa6892e13c9248238bb11890139392b1/12', '20181213102756', 2, 2, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3605, 3619, 'http://www.headingtech.com/center/tz/6/0ab49525becc4227907550a3ed3657ce/12', '20181213102756', 2, 2, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3606, 3620, 'http://www.headingtech.com/center/tz/6/a3ee4137a6b94c2492c24e083f4f8b48/12', '20181213102756', 2, 2, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3607, 3621, 'http://www.headingtech.com/center/tz/6/02b526c6b8c04c688109122f6230257d/12', '20181213102756', 2, 2, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3608, 3622, 'http://www.headingtech.com/center/tz/6/b63bc79f923a4ad185c0346c5ded8333/12', '20181213102756', 2, 2, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3609, 3623, 'http://www.headingtech.com/center/tz/6/ced833858c2a4f7ba10b166531d3a009/12', '20181213102756', 2, 2, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3610, 3624, 'http://www.headingtech.com/center/tz/6/70a1a66335b8490288034b91d17c0064/12', '20181213102756', 2, 2, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3611, 3625, 'http://www.headingtech.com/center/tz/6/3b45443228344a29b7dd1869cbe78dc2/12', '20181213102756', 2, 2, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3612, 3626, 'http://www.headingtech.com/center/tz/6/56ea92553fb64cd7ab68091fd90e2d9a/12', '20181213102756', 2, 2, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3613, 3627, 'http://www.headingtech.com/center/tz/6/df2e764e18dd49dc9f6030470f894ca4/12', '20181213102756', 2, 2, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3614, 3628, 'http://www.headingtech.com/center/tz/6/35da5738021a4de0bf46c1417167674b/12', '20181213102756', 2, 2, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3615, 3629, 'http://www.headingtech.com/center/tz/6/53dfc1fdfade4c878489dcbf274e927c/12', '20181213102756', 2, 2, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3616, 3630, 'http://www.headingtech.com/center/tz/6/aa8f596825e745ad813d7fa55acba0ad/12', '20181213102756', 2, 2, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3617, 3631, 'http://www.headingtech.com/center/tz/6/13b001aed6754dcd86c0868e517166ba/12', '20181213102756', 2, 2, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3618, 3632, 'http://www.headingtech.com/center/tz/6/db49e8933ea24e3689d314dc9558a836/12', '20181213102756', 2, 2, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3619, 3633, 'http://www.headingtech.com/center/tz/6/5c20e1cbdf414f7ead02c4eb2509cb4b/12', '20181213102756', 2, 2, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3620, 3634, 'http://www.headingtech.com/center/tz/6/cc4fd51e2506452481e4e9d7c5fe5caf/12', '20181213102756', 2, 2, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3621, 3635, 'http://www.headingtech.com/center/tz/6/262dc24c7e5d4e9196d70aed2f0f4fb3/12', '20181213102756', 2, 2, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3622, 3636, 'http://www.headingtech.com/center/tz/6/a264796702c146349eecb56b9e6c1fe7/12', '20181213102756', 2, 2, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3623, 3637, 'http://www.headingtech.com/center/tz/6/d6789a9f189a4db891ba55b37700a067/12', '20181213102756', 2, 2, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3624, 3638, 'http://www.headingtech.com/center/tz/6/6c32917f7a8d4fea95c949ddb0fefd76/12', '20181213102756', 2, 2, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3625, 3639, 'http://www.headingtech.com/center/tz/6/4ab9864ce2dd426a86c5693d69f6b294/12', '20181213102756', 2, 2, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3626, 3640, 'http://www.headingtech.com/center/tz/6/1816cbe68aa24879b85f7d2486e3cb41/12', '20181213102756', 2, 2, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3627, 3641, 'http://www.headingtech.com/center/tz/6/e18994e79fa741d9bf906879b11fb931/12', '20181213102756', 2, 2, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3628, 3642, 'http://www.headingtech.com/center/tz/6/556d31bddc2f49b6853c768a437e39a7/12', '20181213102756', 2, 2, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3629, 3643, 'http://www.headingtech.com/center/tz/6/549c1659f8764e2d89b664ef655c68d1/12', '20181213102756', 2, 2, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3630, 3644, 'http://www.headingtech.com/center/tz/6/7e5daea601a54d6d904661d5236419a6/12', '20181213102756', 2, 2, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3631, 3645, 'http://www.headingtech.com/center/tz/6/4ca3f85c4f644994829e299de1b1d7ae/12', '20181213102756', 2, 2, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3632, 3646, 'http://www.headingtech.com/center/tz/6/acd99f34ba294ae798c6cdc4e3177e4d/12', '20181213102756', 2, 2, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3633, 3647, 'http://www.headingtech.com/center/tz/6/b71ee50e609440a7a227ecb27ec0f85c/12', '20181213102756', 2, 2, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3634, 3648, 'http://www.headingtech.com/center/tz/6/adf875f73336482782fd316812f6c7a2/12', '20181213102756', 2, 2, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3635, 3649, 'http://www.headingtech.com/center/tz/6/b44eeb0cfdaa4715835a289042575098/12', '20181213102756', 2, 2, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3636, 3650, 'http://www.headingtech.com/center/tz/6/59e89ea8c76b43f0810adcb13869d99f/12', '20181213102756', 2, 2, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3637, 3651, 'http://www.headingtech.com/center/tz/6/8f37f70a383d4eceb3485e7aea30f0d5/12', '20181213102756', 2, 2, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3638, 3652, 'http://www.headingtech.com/center/tz/6/1a3ec958ca2b488f9bf1e5222d5e5296/12', '20181213102756', 2, 2, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3639, 3653, 'http://www.headingtech.com/center/tz/6/548e1df27b214b8785cf8c6ad0225b96/12', '20181213102756', 2, 2, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3640, 3654, 'http://www.headingtech.com/center/tz/6/e3d99a9058714e8ba11ceced40f843e4/12', '20181213102756', 2, 2, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3641, 3655, 'http://www.headingtech.com/center/tz/6/bda614b60361475590ecb0af1a0706eb/12', '20181213102756', 2, 2, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3642, 3656, 'http://www.headingtech.com/center/tz/6/689ea465aa4c496297cf6f6790a3babd/12', '20181213102756', 2, 2, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3643, 3657, 'http://www.headingtech.com/center/tz/6/0fb8ff7497e4424cbfd19bd97c485a44/12', '20181213102756', 2, 2, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3644, 3658, 'http://www.headingtech.com/center/tz/6/83957b53cd394c51abede39b6ef240bb/12', '20181213102756', 2, 2, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3645, 3659, 'http://www.headingtech.com/center/tz/6/a99258830f5b4e8e84dccd4ec12eda25/12', '20181213102756', 2, 2, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3646, 3660, 'http://www.headingtech.com/center/tz/6/7f2446e47b48420fbb057e5b48af2bce/12', '20181213102756', 2, 2, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3647, 3661, 'http://www.headingtech.com/center/tz/6/6551d17e664c48988e4d0837c29aa453/12', '20181213102756', 2, 2, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3648, 3662, 'http://www.headingtech.com/center/tz/6/c7c3ab92ca8d4c5198c64c62136df3c8/12', '20181213102756', 2, 2, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3649, 3663, 'http://www.headingtech.com/center/tz/6/ebb62397552343a9a76ba27388c118eb/12', '20181213102756', 2, 2, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3650, 3664, 'http://www.headingtech.com/center/tz/6/b08b5937e7734be59c6d6ca090a6506b/12', '20181213102756', 2, 2, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3651, 3665, 'http://www.headingtech.com/center/tz/6/66f6c66560c34a2bbe4e4d62641c2858/12', '20181213102756', 2, 2, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3652, 3666, 'http://www.headingtech.com/center/tz/6/715f91eea014482cb9c231f73ff1dab8/12', '20181213102756', 2, 2, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3653, 3667, 'http://www.headingtech.com/center/tz/6/2da165aeba8543b48fa24964fbc970b8/12', '20181213102756', 2, 2, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3654, 3668, 'http://www.headingtech.com/center/tz/6/5a4aeabd6822414f9a04d7cf402a15d3/12', '20181213102756', 2, 2, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3655, 3669, 'http://www.headingtech.com/center/tz/6/c1f84ab9940e43ce818a2d928a25a528/12', '20181213102756', 2, 2, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3656, 3670, 'http://www.headingtech.com/center/tz/6/ccf0f22095ea4c5eb436e8d608b51370/12', '20181213102756', 2, 2, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3657, 3671, 'http://www.headingtech.com/center/tz/6/799880168dea498ca99986ffe77af53f/12', '20181213102756', 2, 2, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3658, 3672, 'http://www.headingtech.com/center/tz/6/4ff22d5df20f4d29868b0e2afe48f90c/12', '20181213102756', 2, 2, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3659, 3673, 'http://www.headingtech.com/center/tz/6/33448303887f4d218948d1b7a0c7a628/12', '20181213102756', 2, 2, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3660, 3674, 'http://www.headingtech.com/center/tz/6/78f1a42f52d74d73a9b324f0d8a59c2a/12', '20181213102756', 2, 2, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3661, 3675, 'http://www.headingtech.com/center/tz/6/b56344380bc844d1b90e793f4c9335aa/12', '20181213102756', 2, 2, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3662, 3676, 'http://www.headingtech.com/center/tz/6/de333c890a464a9890c1894418d6d5b6/12', '20181213102756', 2, 2, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3663, 3677, 'http://www.headingtech.com/center/tz/6/2d80d88a0e4d4e41a10ea87fe63e57e5/12', '20181213102756', 2, 2, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3664, 3678, 'http://www.headingtech.com/center/tz/6/1884f17b4c1c4a4daf7a1e6ef8c27bfc/12', '20181213102756', 2, 2, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3665, 3679, 'http://www.headingtech.com/center/tz/6/8f67263e0b034d149060c659570432f8/12', '20181213102756', 2, 2, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3666, 3680, 'http://www.headingtech.com/center/tz/6/e108ff92a96646ac86a7f6c3c0ba8747/12', '20181213102756', 2, 2, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3667, 3681, 'http://www.headingtech.com/center/tz/6/1378d0755e1c4427a81efebd0eeb659c/12', '20181213102756', 2, 2, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3668, 3682, 'http://www.headingtech.com/center/tz/6/1543711ad9f8406da8f1a0d564d6f650/12', '20181213102756', 2, 2, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3669, 3683, 'http://www.headingtech.com/center/tz/6/4e7952c18d82474b88deac5f156a0401/12', '20181213102756', 2, 2, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3670, 3684, 'http://www.headingtech.com/center/tz/6/e1767a5737d74517ae6f6d227e1e6077/12', '20181213102756', 2, 2, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3671, 3685, 'http://www.headingtech.com/center/tz/6/520d41ae55064fa096942c7df05a49dd/12', '20181213102756', 2, 2, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3672, 3686, 'http://www.headingtech.com/center/tz/6/a7700dd342c4493f99d99ebc8e297188/12', '20181213102756', 2, 2, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3673, 3687, 'http://www.headingtech.com/center/tz/6/de32ad05a77e4397b4848d31feae589b/12', '20181213102756', 2, 2, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3674, 3688, 'http://www.headingtech.com/center/tz/6/33100c6ce9f94500a447d158795d4635/12', '20181213102756', 2, 2, '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3675, 3689, '8000001086062199', '20181213104429', 2, 5, '2018-12-13 10:44:34', '2018-12-13 10:44:34');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3676, 3690, '7000001888839682', '20181213104429', 2, 5, '2018-12-13 10:44:34', '2018-12-13 10:44:34');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3677, 3691, 'http://www.headingtech.com/center/tz/6/f17a3520414648fb99ce311e5a20c616/12', '20181213104410', 1, 1, '2018-12-13 10:44:36', '2018-12-13 10:44:36');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3678, 3692, 'http://www.headingtech.com/center/tz/6/ab84a4049fac40739fcc2bc29f687a8e/12', '20181213104410', 1, 1, '2018-12-13 10:44:36', '2018-12-13 10:44:36');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3679, 3693, 'http://www.headingtech.com/center/tz/6/b4b646124c0e4030b8bff910ba611eb5/12', '20181213104410', 1, 1, '2018-12-13 10:44:36', '2018-12-13 10:44:36');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3680, 3694, 'http://www.headingtech.com/center/tz/6/72fbd22c3e134ea2a23314563c5706f0/12', '20181213104410', 1, 1, '2018-12-13 10:44:36', '2018-12-13 10:44:36');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3681, 3695, 'http://www.headingtech.com/center/tz/6/29510716577d43d2b8d6c28c8b0f9d99/12', '20181213104410', 1, 1, '2018-12-13 10:44:36', '2018-12-13 10:44:36');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3682, 3696, 'http://www.headingtech.com/center/tz/6/4e942c5b3eda487db3dc19ecc92466b5/12', '20181213104410', 1, 1, '2018-12-13 10:44:36', '2018-12-13 10:44:36');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3683, 3697, 'http://www.headingtech.com/center/tz/6/e97ae341c9be4068b4539def94bfc7dc/12', '20181213104410', 1, 1, '2018-12-13 10:44:36', '2018-12-13 10:44:36');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3684, 3698, 'http://www.headingtech.com/center/tz/6/bad8e7905251483bbfee36650f0ae595/12', '20181213104410', 1, 1, '2018-12-13 10:44:36', '2018-12-13 10:44:36');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3685, 3699, 'http://www.headingtech.com/center/tz/6/c4b7a8f3134c4282ab73f176d0946acd/12', '20181213104410', 1, 1, '2018-12-13 10:44:36', '2018-12-13 10:44:36');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3686, 3700, 'http://www.headingtech.com/center/tz/6/a083f36267f94adc9d1a768fb92324c1/12', '20181213104410', 1, 1, '2018-12-13 10:44:36', '2018-12-13 10:44:36');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3687, 3701, 'http://www.headingtech.com/center/tz/6/1d6c7c7b084145408cee04b03d6f125a/12', '20181213104410', 1, 1, '2018-12-13 10:44:36', '2018-12-13 10:44:36');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3688, 3702, 'http://www.headingtech.com/center/tz/6/9960d83d2e404da49fa0a35b06ee8363/12', '20181213104410', 1, 1, '2018-12-13 10:44:36', '2018-12-13 10:44:36');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3689, 3703, 'http://www.headingtech.com/center/tz/6/06faff1487514a2796bf5f5b750ae1a1/12', '20181213104410', 1, 1, '2018-12-13 10:44:36', '2018-12-13 10:44:36');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3690, 3704, 'http://www.headingtech.com/center/tz/6/d35cacab9ba346c586de5b75e4b4ea9f/12', '20181213104410', 1, 1, '2018-12-13 10:44:36', '2018-12-13 10:44:36');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3691, 3705, 'http://www.headingtech.com/center/tz/6/616a07eef770490e9762bdeaa6d88ba0/12', '20181213104410', 1, 1, '2018-12-13 10:44:36', '2018-12-13 10:44:36');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3692, 3706, 'http://www.headingtech.com/center/tz/6/f65c95cecde140e5aaabb1cc0f0cce12/12', '20181213104410', 1, 1, '2018-12-13 10:44:36', '2018-12-13 10:44:36');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3693, 3707, 'http://www.headingtech.com/center/tz/6/ac82498e9577445e854a0ee4b82c8fcf/12', '20181213104410', 1, 1, '2018-12-13 10:44:36', '2018-12-13 10:44:36');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3694, 3708, 'http://www.headingtech.com/center/tz/6/fe4b269d8e3f474dac827a38df3f4c0b/12', '20181213104410', 1, 1, '2018-12-13 10:44:36', '2018-12-13 10:44:36');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3695, 3709, 'http://www.headingtech.com/center/tz/6/a16d33d14736404e9be632c90d1f44be/12', '20181213104410', 1, 1, '2018-12-13 10:44:36', '2018-12-13 10:44:36');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3696, 3710, 'http://www.headingtech.com/center/tz/6/b16e0c06063545c8a0a4d3c59fd4014a/12', '20181213104410', 1, 1, '2018-12-13 10:44:36', '2018-12-13 10:44:36');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3697, 3711, 'http://www.headingtech.com/center/tz/6/1bde8f655e9740fc9ce3ce0f6de3c7df/12', '20181213104420', 2, 4, '2018-12-13 10:44:37', '2018-12-13 10:44:37');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3698, 3712, 'http://www.headingtech.com/center/tz/6/8a8cc840cce942c0b4a085b787c44530/12', '20181213104420', 2, 4, '2018-12-13 10:44:37', '2018-12-13 10:44:37');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3699, 3713, 'http://www.headingtech.com/center/tz/6/3a38ed9e5a904974bb0ee2f05dc1e8aa/12', '20181213104420', 2, 4, '2018-12-13 10:44:37', '2018-12-13 10:44:37');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3700, 3714, 'http://www.headingtech.com/center/tz/6/37d38b3cc01e46299c301b18ddffa719/12', '20181213104420', 2, 4, '2018-12-13 10:44:37', '2018-12-13 10:44:37');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3701, 3715, 'http://www.headingtech.com/center/tz/6/343210b1501346c7b3a0b7d5e9dfa892/12', '20181213104420', 2, 4, '2018-12-13 10:44:37', '2018-12-13 10:44:37');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3702, 3716, 'http://www.headingtech.com/center/tz/6/d9ed0e44ea17460a9156cff98479048c/12', '20181213104420', 2, 4, '2018-12-13 10:44:37', '2018-12-13 10:44:37');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3703, 3717, 'http://www.headingtech.com/center/tz/6/8aaf47aeb897460ba5c2485a31bf84f2/12', '20181213104420', 2, 4, '2018-12-13 10:44:37', '2018-12-13 10:44:37');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3704, 3718, 'http://www.headingtech.com/center/tz/6/edf3221987934510aca1825f6a1e432c/12', '20181213104420', 2, 4, '2018-12-13 10:44:37', '2018-12-13 10:44:37');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3705, 3719, 'http://www.headingtech.com/center/tz/6/0be4da2f4f404d13b377e8979faefb9c/12', '20181213104420', 2, 4, '2018-12-13 10:44:37', '2018-12-13 10:44:37');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3706, 3720, 'http://www.headingtech.com/center/tz/6/6277fd64c737462a9449bdb86976024d/12', '20181213104420', 2, 4, '2018-12-13 10:44:37', '2018-12-13 10:44:37');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3707, 3721, 'http://www.headingtech.com/center/tz/6/e08e4b04ca8b4815aa79f06b88198af0/12', '20181213104420', 2, 4, '2018-12-13 10:44:37', '2018-12-13 10:44:37');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3708, 3722, 'http://www.headingtech.com/center/tz/6/5e33c3c82c974f31b9bc77f3b243b374/12', '20181213104420', 2, 4, '2018-12-13 10:44:37', '2018-12-13 10:44:37');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3709, 3723, 'http://www.headingtech.com/center/tz/6/392d332248204be4a07bd21efe565cd8/12', '20181213104420', 2, 4, '2018-12-13 10:44:37', '2018-12-13 10:44:37');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3710, 3724, 'http://www.headingtech.com/center/tz/6/e8e9fd66209c4d049a95a15e97408f6f/12', '20181213104420', 2, 4, '2018-12-13 10:44:37', '2018-12-13 10:44:37');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3711, 3725, 'http://www.headingtech.com/center/tz/6/9596dd6ce0e0467d8497137b271689e3/12', '20181213104420', 2, 4, '2018-12-13 10:44:37', '2018-12-13 10:44:37');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3712, 3726, 'http://www.headingtech.com/center/tz/6/4b1fd596d7e4490da28a3ab70cdabfd7/12', '20181213104420', 2, 4, '2018-12-13 10:44:37', '2018-12-13 10:44:37');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3713, 3727, 'http://www.headingtech.com/center/tz/6/250c6cdcee36447a81bc5be422378f53/12', '20181213104420', 2, 4, '2018-12-13 10:44:37', '2018-12-13 10:44:37');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3714, 3728, 'http://www.headingtech.com/center/tz/6/aaf88ed5f78f43e5a12bbf50729f5e29/12', '20181213104420', 2, 4, '2018-12-13 10:44:37', '2018-12-13 10:44:37');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3715, 3729, 'http://www.headingtech.com/center/tz/6/956c38b6b77c4e3d9320c143a548ba06/12', '20181213104420', 2, 4, '2018-12-13 10:44:37', '2018-12-13 10:44:37');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3716, 3730, 'http://www.headingtech.com/center/tz/6/b6832b7218c949acaddcbe768f8bfabe/12', '20181213104420', 2, 4, '2018-12-13 10:44:37', '2018-12-13 10:44:37');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3717, 3731, '3000000156027107', '20181214120956', 2, 5, '2018-12-14 12:10:12', '2018-12-14 12:10:12');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3718, 3732, '8000001888747371', '20181214120956', 2, 5, '2018-12-14 12:10:12', '2018-12-14 12:10:12');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3719, 3733, '8000001439850843', '20181214120956', 2, 5, '2018-12-14 12:10:12', '2018-12-14 12:10:12');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3720, 3734, '6000000733505349', '20181214120956', 2, 5, '2018-12-14 12:10:12', '2018-12-14 12:10:12');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3721, 3735, '1000002044217268', '20181214120956', 2, 5, '2018-12-14 12:10:12', '2018-12-14 12:10:12');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3722, 3736, 'http://www.headingtech.com/center/tz/6/66a84dd6351b4cba8c8f5a348b0cf211/12', '20181214120939', 1, 1, '2018-12-14 12:10:13', '2018-12-14 12:10:13');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3723, 3737, 'http://www.headingtech.com/center/tz/6/b5dc9c4dbd5342019d8b5e8182ef7b58/12', '20181214120939', 1, 1, '2018-12-14 12:10:13', '2018-12-14 12:10:13');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3724, 3738, 'http://www.headingtech.com/center/tz/6/921c0bc4adcb4c0ea206d273fdb27b46/12', '20181214120939', 1, 1, '2018-12-14 12:10:13', '2018-12-14 12:10:13');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3725, 3739, 'http://www.headingtech.com/center/tz/6/68696bae8f08429eadca8291c018baee/12', '20181214120939', 1, 1, '2018-12-14 12:10:13', '2018-12-14 12:10:13');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3726, 3740, 'http://www.headingtech.com/center/tz/6/047176fd2eac4d1fbb65762f8b702cb0/12', '20181214120939', 1, 1, '2018-12-14 12:10:13', '2018-12-14 12:10:13');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3727, 3741, 'http://www.headingtech.com/center/tz/6/361d34a11e744842b2c33e328f42c322/12', '20181214120939', 1, 1, '2018-12-14 12:10:13', '2018-12-14 12:10:13');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3728, 3742, 'http://www.headingtech.com/center/tz/6/aeb77a7c17de462184dd4d3f42694597/12', '20181214120939', 1, 1, '2018-12-14 12:10:13', '2018-12-14 12:10:13');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3729, 3743, 'http://www.headingtech.com/center/tz/6/fbc24b5500d74949a950852fa4c915d8/12', '20181214120939', 1, 1, '2018-12-14 12:10:13', '2018-12-14 12:10:13');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3730, 3744, 'http://www.headingtech.com/center/tz/6/5ad0b5ab3ab441b99c5bd830192c7647/12', '20181214120939', 1, 1, '2018-12-14 12:10:13', '2018-12-14 12:10:13');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3731, 3745, 'http://www.headingtech.com/center/tz/6/fd99c66019934c45a2699cde4a155314/12', '20181214120939', 1, 1, '2018-12-14 12:10:13', '2018-12-14 12:10:13');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3732, 3746, 'http://www.headingtech.com/center/tz/6/53193e04b6514febad7e2dd0cd45cc92/12', '20181214120948', 2, 2, '2018-12-14 12:10:14', '2018-12-14 12:10:14');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3733, 3747, 'http://www.headingtech.com/center/tz/6/75ac28f1678640c687eec40939b4f937/12', '20181214120948', 2, 2, '2018-12-14 12:10:14', '2018-12-14 12:10:14');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3734, 3748, 'http://www.headingtech.com/center/tz/6/f52d24818e3f475b8f245a7f05ce1113/12', '20181214120948', 2, 2, '2018-12-14 12:10:14', '2018-12-14 12:10:14');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3735, 3749, 'http://www.headingtech.com/center/tz/6/4ae29cf0f3ff40f88f17bed1a19017b7/12', '20181214120948', 2, 2, '2018-12-14 12:10:14', '2018-12-14 12:10:14');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3736, 3750, 'http://www.headingtech.com/center/tz/6/332ea528126c460dbe7043e8b4ca55a0/12', '20181214120948', 2, 2, '2018-12-14 12:10:14', '2018-12-14 12:10:14');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3737, 3751, 'http://www.headingtech.com/center/tz/6/51a7b8e7a7fd4662b2f322eae76e0fbc/12', '20181214120948', 2, 2, '2018-12-14 12:10:14', '2018-12-14 12:10:14');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3738, 3752, 'http://www.headingtech.com/center/tz/6/6dd781611ec5447b8ff36f483f932e53/12', '20181214120948', 2, 2, '2018-12-14 12:10:14', '2018-12-14 12:10:14');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3739, 3753, 'http://www.headingtech.com/center/tz/6/94056d9eeeed4eda864b24701af0933f/12', '20181214120948', 2, 2, '2018-12-14 12:10:14', '2018-12-14 12:10:14');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3740, 3754, 'http://www.headingtech.com/center/tz/6/a6355a46fe8f4dd8a9a0e388b1b0d586/12', '20181214120948', 2, 2, '2018-12-14 12:10:14', '2018-12-14 12:10:14');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3741, 3755, 'http://www.headingtech.com/center/tz/6/1806359927c8447ebeb147baf00011c3/12', '20181214120948', 2, 2, '2018-12-14 12:10:14', '2018-12-14 12:10:14');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3742, 3756, '6000000818852820', '20181214151212', 2, 5, '2018-12-14 15:12:26', '2018-12-14 15:12:26');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3743, 3757, '3000001522724679', '20181214151212', 2, 5, '2018-12-14 15:12:26', '2018-12-14 15:12:26');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3744, 3758, '4000000474173888', '20181214151212', 2, 5, '2018-12-14 15:12:26', '2018-12-14 15:12:26');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3745, 3759, 'http://www.headingtech.com/center/tz/6/477a3ce7aea446b29a5b0c3a73dd50d7/12', '20181214151203', 2, 2, '2018-12-14 15:12:27', '2018-12-14 15:12:27');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3746, 3760, 'http://www.headingtech.com/center/tz/6/7d233d5061e34fff9233b4c3dda01aef/12', '20181214151203', 2, 2, '2018-12-14 15:12:27', '2018-12-14 15:12:27');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3747, 3761, 'http://www.headingtech.com/center/tz/6/9629fd01742e40a49276dd13b9ca01fb/12', '20181214151203', 2, 2, '2018-12-14 15:12:27', '2018-12-14 15:12:27');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3748, 3762, 'http://www.headingtech.com/center/tz/6/bb836569b3e04356b0a5c742ac765768/12', '20181214151203', 2, 2, '2018-12-14 15:12:27', '2018-12-14 15:12:27');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3749, 3763, 'http://www.headingtech.com/center/tz/6/cb064cc07cb24993a093c76963c915c4/12', '20181214151203', 2, 2, '2018-12-14 15:12:27', '2018-12-14 15:12:27');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3750, 3764, 'http://www.headingtech.com/center/tz/6/857d437229904733a11d24ef28f827a4/12', '20181214151203', 2, 2, '2018-12-14 15:12:27', '2018-12-14 15:12:27');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3751, 3765, 'http://www.headingtech.com/center/tz/6/d4bc9cc762bc44eeb7fe8aab16ef4099/12', '20181214151155', 1, 1, '2018-12-14 15:12:28', '2018-12-14 15:12:28');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3752, 3766, 'http://www.headingtech.com/center/tz/6/e966e40807bd4c2094eb46acb5acf67b/12', '20181214151155', 1, 1, '2018-12-14 15:12:28', '2018-12-14 15:12:28');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3753, 3767, 'http://www.headingtech.com/center/tz/6/581e292afdd549f19824d20917e6bede/12', '20181214151155', 1, 1, '2018-12-14 15:12:28', '2018-12-14 15:12:28');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3754, 3768, 'http://www.headingtech.com/center/tz/6/3d53bd7495394bab91412aeb560d55e1/12', '20181214151155', 1, 1, '2018-12-14 15:12:28', '2018-12-14 15:12:28');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3755, 3769, 'http://www.headingtech.com/center/tz/6/1db1826fb04f4c8fb4e4ad607153ff4d/12', '20181214151155', 1, 1, '2018-12-14 15:12:28', '2018-12-14 15:12:28');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3756, 3770, 'http://www.headingtech.com/center/tz/6/18fc51a552db4694b1f3ce9578bf5993/12', '20181214151155', 1, 1, '2018-12-14 15:12:28', '2018-12-14 15:12:28');
 COMMIT;
 
 -- ----------------------------
@@ -3804,7 +4185,7 @@ CREATE TABLE `t_ser_apply_code_info` (
   `create_time` datetime DEFAULT NULL COMMENT '创建时间',
   `update_time` datetime DEFAULT NULL COMMENT '修改时间',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='溯源码申请';
+) ENGINE=InnoDB AUTO_INCREMENT=53 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='溯源码申请';
 
 -- ----------------------------
 -- Records of t_ser_apply_code_info
@@ -3832,6 +4213,25 @@ INSERT INTO `t_ser_apply_code_info` VALUES (30, '20181203230119', 2, 2, 2, 2, 10
 INSERT INTO `t_ser_apply_code_info` VALUES (31, '20181203230128', 2, 2, 2, 4, 1000, 1, '201812', '2018-12-03 23:01:28', '2018-12-03 23:01:51');
 INSERT INTO `t_ser_apply_code_info` VALUES (32, '20181203230144', 2, 1, 2, 5, 300, 1, '201812', '2018-12-03 23:01:44', '2018-12-03 23:01:50');
 INSERT INTO `t_ser_apply_code_info` VALUES (33, '20181207124000', 2, 2, 1, 1, 100, 1, '201812', '2018-12-07 12:40:01', '2018-12-07 12:40:19');
+INSERT INTO `t_ser_apply_code_info` VALUES (34, '20181211145313', 6, 2, 1, 1, 6, 1, '201812', '2018-12-11 14:53:14', '2018-12-11 14:56:23');
+INSERT INTO `t_ser_apply_code_info` VALUES (35, '20181211145359', 6, 2, 2, 2, 6, 1, '201812', '2018-12-11 14:53:59', '2018-12-11 14:56:22');
+INSERT INTO `t_ser_apply_code_info` VALUES (36, '20181211145416', 6, 1, 2, 5, 1, 1, '201812', '2018-12-11 14:54:17', '2018-12-11 14:56:18');
+INSERT INTO `t_ser_apply_code_info` VALUES (37, '20181212162059', 7, 2, 1, 1, 6, 1, '201812', '2018-12-12 16:20:59', '2018-12-12 16:30:53');
+INSERT INTO `t_ser_apply_code_info` VALUES (38, '20181212162428', 7, 2, 2, 2, 6, 1, '201812', '2018-12-12 16:24:28', '2018-12-12 16:30:44');
+INSERT INTO `t_ser_apply_code_info` VALUES (39, '20181212162446', 7, 1, 2, 5, 1, 1, '201812', '2018-12-12 16:24:46', '2018-12-12 16:30:42');
+INSERT INTO `t_ser_apply_code_info` VALUES (40, '20181213102740', 7, 2, 1, 1, 100, 1, '201812', '2018-12-13 10:27:41', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_info` VALUES (41, '20181213102756', 7, 2, 2, 2, 100, 1, '201812', '2018-12-13 10:27:56', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_info` VALUES (42, '20181213102826', 7, 2, 2, 5, 10, 1, '201812', '2018-12-13 10:28:26', '2018-12-13 10:28:36');
+INSERT INTO `t_ser_apply_code_info` VALUES (43, '20181213104410', 7, 2, 1, 1, 20, 1, '201812', '2018-12-13 10:44:11', '2018-12-13 10:44:36');
+INSERT INTO `t_ser_apply_code_info` VALUES (44, '20181213104420', 7, 2, 2, 4, 20, 1, '201812', '2018-12-13 10:44:20', '2018-12-13 10:44:37');
+INSERT INTO `t_ser_apply_code_info` VALUES (45, '20181213104429', 7, 1, 2, 5, 2, 1, '201812', '2018-12-13 10:44:29', '2018-12-13 10:44:34');
+INSERT INTO `t_ser_apply_code_info` VALUES (46, '20181214120939', 7, 2, 1, 1, 10, 1, '201812', '2018-12-14 12:09:40', '2018-12-14 12:10:13');
+INSERT INTO `t_ser_apply_code_info` VALUES (47, '20181214120948', 7, 2, 2, 2, 10, 1, '201812', '2018-12-14 12:09:48', '2018-12-14 12:10:14');
+INSERT INTO `t_ser_apply_code_info` VALUES (48, '20181214120956', 7, 1, 2, 5, 5, 1, '201812', '2018-12-14 12:09:56', '2018-12-14 12:10:12');
+INSERT INTO `t_ser_apply_code_info` VALUES (49, '20181214144801', 7, 1, 1, 1, 1, 0, NULL, '2018-12-14 14:48:01', '2018-12-14 14:48:01');
+INSERT INTO `t_ser_apply_code_info` VALUES (50, '20181214151155', 7, 2, 1, 1, 6, 1, '201812', '2018-12-14 15:11:55', '2018-12-14 15:12:28');
+INSERT INTO `t_ser_apply_code_info` VALUES (51, '20181214151203', 7, 2, 2, 2, 6, 1, '201812', '2018-12-14 15:12:03', '2018-12-14 15:12:27');
+INSERT INTO `t_ser_apply_code_info` VALUES (52, '20181214151212', 7, 1, 2, 5, 3, 1, '201812', '2018-12-14 15:12:12', '2018-12-14 15:12:26');
 COMMIT;
 
 -- ----------------------------
@@ -3845,7 +4245,7 @@ CREATE TABLE `t_ser_apply_code_table_info` (
   `create_time` datetime DEFAULT NULL,
   `update_time` datetime DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='溯源码申请对应的存放表';
+) ENGINE=InnoDB AUTO_INCREMENT=50 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='溯源码申请对应的存放表';
 
 -- ----------------------------
 -- Records of t_ser_apply_code_table_info
@@ -3872,6 +4272,24 @@ INSERT INTO `t_ser_apply_code_table_info` VALUES (28, '12', 't_ser_apply_code_20
 INSERT INTO `t_ser_apply_code_table_info` VALUES (29, '12', 't_ser_apply_code_201812', '2018-12-03 23:01:52', '2018-12-03 23:01:52');
 INSERT INTO `t_ser_apply_code_table_info` VALUES (30, '12', 't_ser_apply_code_201812', '2018-12-03 23:01:53', '2018-12-03 23:01:53');
 INSERT INTO `t_ser_apply_code_table_info` VALUES (31, '12', 't_ser_apply_code_201812', '2018-12-07 12:40:19', '2018-12-07 12:40:19');
+INSERT INTO `t_ser_apply_code_table_info` VALUES (32, '12', 't_ser_apply_code_201812', '2018-12-11 14:56:19', '2018-12-11 14:56:19');
+INSERT INTO `t_ser_apply_code_table_info` VALUES (33, '12', 't_ser_apply_code_201812', '2018-12-11 14:56:22', '2018-12-11 14:56:22');
+INSERT INTO `t_ser_apply_code_table_info` VALUES (34, '12', 't_ser_apply_code_201812', '2018-12-11 14:56:23', '2018-12-11 14:56:23');
+INSERT INTO `t_ser_apply_code_table_info` VALUES (35, '12', 't_ser_apply_code_201812', '2018-12-12 16:30:42', '2018-12-12 16:30:42');
+INSERT INTO `t_ser_apply_code_table_info` VALUES (36, '12', 't_ser_apply_code_201812', '2018-12-12 16:30:44', '2018-12-12 16:30:44');
+INSERT INTO `t_ser_apply_code_table_info` VALUES (37, '12', 't_ser_apply_code_201812', '2018-12-12 16:30:53', '2018-12-12 16:30:53');
+INSERT INTO `t_ser_apply_code_table_info` VALUES (38, '12', 't_ser_apply_code_201812', '2018-12-13 10:28:36', '2018-12-13 10:28:36');
+INSERT INTO `t_ser_apply_code_table_info` VALUES (39, '12', 't_ser_apply_code_201812', '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_table_info` VALUES (40, '12', 't_ser_apply_code_201812', '2018-12-13 10:28:38', '2018-12-13 10:28:38');
+INSERT INTO `t_ser_apply_code_table_info` VALUES (41, '12', 't_ser_apply_code_201812', '2018-12-13 10:44:34', '2018-12-13 10:44:34');
+INSERT INTO `t_ser_apply_code_table_info` VALUES (42, '12', 't_ser_apply_code_201812', '2018-12-13 10:44:36', '2018-12-13 10:44:36');
+INSERT INTO `t_ser_apply_code_table_info` VALUES (43, '12', 't_ser_apply_code_201812', '2018-12-13 10:44:37', '2018-12-13 10:44:37');
+INSERT INTO `t_ser_apply_code_table_info` VALUES (44, '12', 't_ser_apply_code_201812', '2018-12-14 12:10:12', '2018-12-14 12:10:12');
+INSERT INTO `t_ser_apply_code_table_info` VALUES (45, '12', 't_ser_apply_code_201812', '2018-12-14 12:10:13', '2018-12-14 12:10:13');
+INSERT INTO `t_ser_apply_code_table_info` VALUES (46, '12', 't_ser_apply_code_201812', '2018-12-14 12:10:14', '2018-12-14 12:10:14');
+INSERT INTO `t_ser_apply_code_table_info` VALUES (47, '12', 't_ser_apply_code_201812', '2018-12-14 15:12:26', '2018-12-14 15:12:26');
+INSERT INTO `t_ser_apply_code_table_info` VALUES (48, '12', 't_ser_apply_code_201812', '2018-12-14 15:12:27', '2018-12-14 15:12:27');
+INSERT INTO `t_ser_apply_code_table_info` VALUES (49, '12', 't_ser_apply_code_201812', '2018-12-14 15:12:28', '2018-12-14 15:12:28');
 COMMIT;
 
 -- ----------------------------
@@ -3890,17 +4308,19 @@ CREATE TABLE `t_ser_brand_info` (
   `create_time` datetime DEFAULT NULL COMMENT '创建时间',
   `update_time` datetime DEFAULT NULL COMMENT '修改时间',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='企业品牌信息';
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='企业品牌信息';
 
 -- ----------------------------
 -- Records of t_ser_brand_info
 -- ----------------------------
 BEGIN;
-INSERT INTO `t_ser_brand_info` VALUES (1, '第一品牌', NULL, 1, NULL, NULL, '第一个备注', 0, '2018-11-13 16:26:03', '2018-11-14 16:02:22');
-INSERT INTO `t_ser_brand_info` VALUES (2, '第二品牌', NULL, 2, NULL, NULL, '第二个备注', 0, '2018-11-13 16:35:55', '2018-11-13 17:00:57');
-INSERT INTO `t_ser_brand_info` VALUES (3, '河套酒业', NULL, 1, NULL, NULL, NULL, 0, '2018-12-04 15:23:22', '2018-12-04 15:23:22');
-INSERT INTO `t_ser_brand_info` VALUES (4, '河套酒业', NULL, 1, NULL, NULL, NULL, 0, '2018-12-04 15:24:09', '2018-12-04 15:24:09');
+INSERT INTO `t_ser_brand_info` VALUES (1, '第一品牌', NULL, 1, NULL, NULL, '第一个备注', 0, '2018-11-13 16:26:03', '2018-12-14 14:25:13');
+INSERT INTO `t_ser_brand_info` VALUES (2, '第二品牌', NULL, 2, NULL, NULL, '第二个备注', 0, '2018-11-13 16:35:55', '2018-12-14 14:26:12');
+INSERT INTO `t_ser_brand_info` VALUES (3, '河套酒业', NULL, 1, NULL, NULL, NULL, 0, '2018-12-04 15:23:22', '2018-12-14 14:25:27');
+INSERT INTO `t_ser_brand_info` VALUES (4, '河套酒业', NULL, 1, NULL, NULL, NULL, 0, '2018-12-04 15:24:09', '2018-12-14 14:25:55');
 INSERT INTO `t_ser_brand_info` VALUES (5, '河套', NULL, 1, NULL, NULL, NULL, 0, '2018-12-07 12:33:58', '2018-12-07 12:33:58');
+INSERT INTO `t_ser_brand_info` VALUES (6, '景芝酒', NULL, 0, NULL, NULL, NULL, 0, '2018-12-11 14:49:19', '2018-12-14 14:24:47');
+INSERT INTO `t_ser_brand_info` VALUES (7, '洋河大曲', NULL, 0, NULL, NULL, NULL, 0, '2018-12-12 14:40:59', '2018-12-12 15:00:45');
 COMMIT;
 
 -- ----------------------------
@@ -3916,17 +4336,19 @@ CREATE TABLE `t_ser_brand_logo_file` (
   KEY `file_id` (`file_id`) USING BTREE,
   CONSTRAINT `t_ser_brand_logo_file_ibfk_1` FOREIGN KEY (`brand_id`) REFERENCES `t_ser_brand_info` (`id`),
   CONSTRAINT `t_ser_brand_logo_file_ibfk_2` FOREIGN KEY (`file_id`) REFERENCES `t_sys_file_info` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='品牌logo信息';
+) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='品牌logo信息';
 
 -- ----------------------------
 -- Records of t_ser_brand_logo_file
 -- ----------------------------
 BEGIN;
-INSERT INTO `t_ser_brand_logo_file` VALUES (14, 2, 4);
-INSERT INTO `t_ser_brand_logo_file` VALUES (18, 1, 22);
 INSERT INTO `t_ser_brand_logo_file` VALUES (19, 5, 24);
-INSERT INTO `t_ser_brand_logo_file` VALUES (20, 3, 4);
-INSERT INTO `t_ser_brand_logo_file` VALUES (21, 4, 4);
+INSERT INTO `t_ser_brand_logo_file` VALUES (29, 7, 26);
+INSERT INTO `t_ser_brand_logo_file` VALUES (31, 6, 25);
+INSERT INTO `t_ser_brand_logo_file` VALUES (35, 1, 27);
+INSERT INTO `t_ser_brand_logo_file` VALUES (37, 3, 28);
+INSERT INTO `t_ser_brand_logo_file` VALUES (40, 4, 29);
+INSERT INTO `t_ser_brand_logo_file` VALUES (43, 2, 27);
 COMMIT;
 
 -- ----------------------------
@@ -3947,7 +4369,7 @@ CREATE TABLE `t_ser_brand_series_info` (
   PRIMARY KEY (`id`) USING BTREE,
   KEY `brand_id` (`brand_id`) USING BTREE,
   CONSTRAINT `t_ser_brand_series_info_ibfk_1` FOREIGN KEY (`brand_id`) REFERENCES `t_ser_brand_info` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='品牌系列信息';
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='品牌系列信息';
 
 -- ----------------------------
 -- Records of t_ser_brand_series_info
@@ -3958,6 +4380,8 @@ INSERT INTO `t_ser_brand_series_info` VALUES (2, 1, NULL, '系列2', NULL, NULL,
 INSERT INTO `t_ser_brand_series_info` VALUES (3, 2, NULL, '系列1', NULL, NULL, '第二品牌系列1', 0, '2018-11-13 17:51:53', '2018-11-13 18:07:39');
 INSERT INTO `t_ser_brand_series_info` VALUES (4, 3, NULL, '河套王年份酒', NULL, NULL, '韩磊代言', 0, '2018-12-04 15:26:21', '2018-12-04 15:26:21');
 INSERT INTO `t_ser_brand_series_info` VALUES (5, 5, NULL, '河套王', NULL, NULL, NULL, 0, '2018-12-07 12:34:18', '2018-12-07 12:34:18');
+INSERT INTO `t_ser_brand_series_info` VALUES (6, 6, NULL, '打老虎酒', NULL, NULL, NULL, 0, '2018-12-11 14:49:36', '2018-12-11 14:49:36');
+INSERT INTO `t_ser_brand_series_info` VALUES (7, 7, NULL, '海之蓝', NULL, NULL, NULL, 0, '2018-12-12 15:02:12', '2018-12-12 15:02:12');
 COMMIT;
 
 -- ----------------------------
@@ -3969,7 +4393,7 @@ CREATE TABLE `t_ser_brand_series_product_code_info` (
   `product_id` bigint(255) DEFAULT NULL COMMENT '产品id',
   `code_id` bigint(20) DEFAULT NULL COMMENT '码类型id',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=98 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='产品组成码信息';
+) ENGINE=InnoDB AUTO_INCREMENT=125 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='产品组成码信息';
 
 -- ----------------------------
 -- Records of t_ser_brand_series_product_code_info
@@ -3998,6 +4422,12 @@ INSERT INTO `t_ser_brand_series_product_code_info` VALUES (94, 12, 1);
 INSERT INTO `t_ser_brand_series_product_code_info` VALUES (95, 12, 2);
 INSERT INTO `t_ser_brand_series_product_code_info` VALUES (96, 12, 4);
 INSERT INTO `t_ser_brand_series_product_code_info` VALUES (97, 12, 5);
+INSERT INTO `t_ser_brand_series_product_code_info` VALUES (98, 13, 1);
+INSERT INTO `t_ser_brand_series_product_code_info` VALUES (99, 13, 2);
+INSERT INTO `t_ser_brand_series_product_code_info` VALUES (100, 13, 5);
+INSERT INTO `t_ser_brand_series_product_code_info` VALUES (122, 14, 1);
+INSERT INTO `t_ser_brand_series_product_code_info` VALUES (123, 14, 2);
+INSERT INTO `t_ser_brand_series_product_code_info` VALUES (124, 14, 5);
 COMMIT;
 
 -- ----------------------------
@@ -4047,7 +4477,7 @@ CREATE TABLE `t_ser_brand_series_product_info` (
   PRIMARY KEY (`id`) USING BTREE,
   KEY `series_id` (`series_id`) USING BTREE,
   CONSTRAINT `t_ser_brand_series_product_info_ibfk_2` FOREIGN KEY (`series_id`) REFERENCES `t_ser_brand_series_info` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='品牌系列产品信息';
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='品牌系列产品信息';
 
 -- ----------------------------
 -- Records of t_ser_brand_series_product_info
@@ -4061,6 +4491,8 @@ INSERT INTO `t_ser_brand_series_product_info` VALUES (9, 2, NULL, 'QWAQWEQWE', N
 INSERT INTO `t_ser_brand_series_product_info` VALUES (10, 4, NULL, 'QWEQWE', NULL, NULL, NULL, 'QWEQ', NULL, NULL, NULL, NULL, '2018-12-04 16:01:05', '2018-12-04 16:01:05', 0);
 INSERT INTO `t_ser_brand_series_product_info` VALUES (11, 4, NULL, '52度', NULL, NULL, NULL, '500ML', 1588.00, NULL, NULL, NULL, '2018-12-04 16:01:35', '2018-12-04 16:01:35', 0);
 INSERT INTO `t_ser_brand_series_product_info` VALUES (12, 5, NULL, '36度', NULL, NULL, NULL, '500ml', 1234.00, NULL, '9876543', NULL, '2018-12-07 12:35:30', '2018-12-07 12:35:30', 0);
+INSERT INTO `t_ser_brand_series_product_info` VALUES (13, 6, NULL, '42度', NULL, NULL, NULL, '5000000ml', NULL, NULL, NULL, NULL, '2018-12-11 14:49:57', '2018-12-11 14:49:57', 0);
+INSERT INTO `t_ser_brand_series_product_info` VALUES (14, 7, NULL, '52度', NULL, NULL, NULL, '500ml', 128.00, 128.00, '987654321', NULL, '2018-12-12 16:18:26', '2018-12-14 14:56:54', 0);
 COMMIT;
 
 -- ----------------------------
@@ -4079,7 +4511,7 @@ CREATE TABLE `t_ser_code_import_temp_info` (
   `creat_time` datetime DEFAULT NULL COMMENT '创建时间',
   `orderno` int(11) DEFAULT NULL COMMENT '排序用',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='溯源码导入临时表';
+) ENGINE=InnoDB AUTO_INCREMENT=293 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='溯源码导入临时表';
 
 -- ----------------------------
 -- Table structure for t_ser_code_import_template_info
@@ -4103,7 +4535,7 @@ CREATE TABLE `t_ser_code_import_template_info` (
   CONSTRAINT `t_ser_code_import_template_info_ibfk_3` FOREIGN KEY (`product_id`) REFERENCES `t_ser_brand_series_product_info` (`id`),
   CONSTRAINT `t_ser_code_import_template_info_ibfk_4` FOREIGN KEY (`left_code_type_id`) REFERENCES `t_ser_code_type3_info` (`id`),
   CONSTRAINT `t_ser_code_import_template_info_ibfk_5` FOREIGN KEY (`right_code_type_id`) REFERENCES `t_ser_code_type3_info` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='溯源码导入模板';
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='溯源码导入模板';
 
 -- ----------------------------
 -- Records of t_ser_code_import_template_info
@@ -4112,15 +4544,23 @@ BEGIN;
 INSERT INTO `t_ser_code_import_template_info` VALUES (1, 5, '盖内-盖外', 1, 1, 2, '产品1的盖内外模板', 1, '2018-11-14 15:23:55', '2018-12-07 12:37:42');
 INSERT INTO `t_ser_code_import_template_info` VALUES (2, 5, '盒子-箱子', 2, 4, 5, '吧啦啦啦', 1, '2018-11-23 17:22:56', '2018-12-07 12:37:42');
 INSERT INTO `t_ser_code_import_template_info` VALUES (3, 5, '盖外-盒子', 2, 2, 4, '测试', 1, '2018-11-26 15:31:06', '2018-12-07 12:37:43');
-INSERT INTO `t_ser_code_import_template_info` VALUES (4, 5, '盖内和箱子', 1, 1, 5, '11', 0, '2018-12-03 20:13:33', '2018-12-03 20:13:33');
-INSERT INTO `t_ser_code_import_template_info` VALUES (5, 5, 'XXX盖外 ---箱子', 2, 2, 5, NULL, 0, '2018-12-03 20:45:10', '2018-12-03 20:45:10');
-INSERT INTO `t_ser_code_import_template_info` VALUES (6, 7, '狗年  内码到外码', 1, 1, 2, NULL, 0, '2018-12-03 22:03:07', '2018-12-03 22:03:07');
-INSERT INTO `t_ser_code_import_template_info` VALUES (7, 7, '狗年外到想', 2, 2, 5, '123', 0, '2018-12-03 22:30:40', '2018-12-03 22:30:40');
-INSERT INTO `t_ser_code_import_template_info` VALUES (8, 11, '盖内-盖外', 1, 1, 2, NULL, 0, '2018-12-04 16:02:16', '2018-12-04 16:02:16');
-INSERT INTO `t_ser_code_import_template_info` VALUES (9, 11, '盖外-盒', 2, 2, 4, NULL, 0, '2018-12-04 16:02:34', '2018-12-04 16:02:34');
-INSERT INTO `t_ser_code_import_template_info` VALUES (10, 11, '盒-箱', 2, 4, 5, NULL, 0, '2018-12-04 16:02:47', '2018-12-04 16:02:47');
-INSERT INTO `t_ser_code_import_template_info` VALUES (11, 12, '内-外', 1, 1, 2, NULL, 0, '2018-12-07 12:36:36', '2018-12-07 12:36:36');
-INSERT INTO `t_ser_code_import_template_info` VALUES (12, 12, '河套36外-箱', 2, 2, 5, NULL, 0, '2018-12-07 12:53:12', '2018-12-07 12:53:12');
+INSERT INTO `t_ser_code_import_template_info` VALUES (4, 5, '第一品牌-系列1-产品1-盖内码-箱码', 1, 1, 5, '11', 1, '2018-12-03 20:13:33', '2018-12-14 12:15:43');
+INSERT INTO `t_ser_code_import_template_info` VALUES (5, 5, '第一品牌-系列1-产品1-盖外码-箱码', 2, 2, 5, NULL, 1, '2018-12-03 20:45:10', '2018-12-14 12:15:39');
+INSERT INTO `t_ser_code_import_template_info` VALUES (6, 7, '第二品牌-系列1-狗年新品-盖内码-盖外码', 1, 1, 2, NULL, 1, '2018-12-03 22:03:07', '2018-12-14 12:15:39');
+INSERT INTO `t_ser_code_import_template_info` VALUES (7, 7, '第二品牌-系列1-狗年新品-盖外码-箱码', 2, 2, 5, '123', 1, '2018-12-03 22:30:40', '2018-12-14 12:15:39');
+INSERT INTO `t_ser_code_import_template_info` VALUES (8, 11, '河套酒业-河套王年份酒-52度-盖内码-盖外码', 1, 1, 2, NULL, 1, '2018-12-04 16:02:16', '2018-12-14 12:15:38');
+INSERT INTO `t_ser_code_import_template_info` VALUES (9, 11, '河套酒业-河套王年份酒-52度-盖外码-盒码', 2, 2, 4, NULL, 1, '2018-12-04 16:02:34', '2018-12-14 12:15:37');
+INSERT INTO `t_ser_code_import_template_info` VALUES (10, 11, '河套酒业-河套王年份酒-52度-盒码-箱码', 2, 4, 5, NULL, 1, '2018-12-04 16:02:47', '2018-12-14 12:15:36');
+INSERT INTO `t_ser_code_import_template_info` VALUES (11, 12, '河套-河套王-36度-盖内码-盖外码', 1, 1, 2, NULL, 1, '2018-12-07 12:36:36', '2018-12-14 12:15:36');
+INSERT INTO `t_ser_code_import_template_info` VALUES (12, 12, '河套-河套王-36度-盖外码-箱码', 2, 2, 5, NULL, 1, '2018-12-07 12:53:12', '2018-12-14 12:15:34');
+INSERT INTO `t_ser_code_import_template_info` VALUES (13, 13, '景芝酒-打老虎酒-42度-盖内码-盖外码', 1, 1, 2, NULL, 1, '2018-12-11 14:50:17', '2018-12-14 12:15:33');
+INSERT INTO `t_ser_code_import_template_info` VALUES (14, 13, '景芝酒-打老虎酒-42度-盖外码-箱码', 2, 2, 5, NULL, 1, '2018-12-11 14:51:16', '2018-12-14 12:15:33');
+INSERT INTO `t_ser_code_import_template_info` VALUES (15, 5, '第一品牌-系列1-产品1-盖内码-箱码', 1, 1, 5, NULL, 1, '2018-12-11 14:52:19', '2018-12-14 12:15:32');
+INSERT INTO `t_ser_code_import_template_info` VALUES (16, 14, '洋河大曲52内-外', 1, 1, 2, NULL, 0, '2018-12-12 17:04:56', '2018-12-12 17:04:56');
+INSERT INTO `t_ser_code_import_template_info` VALUES (17, 14, '洋河大曲52', 2, 2, 5, NULL, 0, '2018-12-12 17:06:30', '2018-12-12 17:06:30');
+INSERT INTO `t_ser_code_import_template_info` VALUES (18, 14, '洋河大曲-海之蓝-52度-盖内码-盒码', 1, 1, 4, NULL, 1, '2018-12-13 10:51:04', '2018-12-14 12:15:51');
+INSERT INTO `t_ser_code_import_template_info` VALUES (19, 14, '洋河大曲-海之蓝-52度-盒码-箱码', 2, 4, 5, NULL, 1, '2018-12-13 10:51:20', '2018-12-14 12:15:50');
+INSERT INTO `t_ser_code_import_template_info` VALUES (20, 13, '景芝酒-打老虎酒-42度-盖内码-盖外码', 1, 1, 2, '234', 1, '2018-12-13 17:53:13', '2018-12-14 12:15:31');
 COMMIT;
 
 -- ----------------------------
@@ -4204,19 +4644,21 @@ CREATE TABLE `t_ser_dealer_info` (
   `create_time` datetime DEFAULT NULL COMMENT '创建时间',
   `update_time` datetime DEFAULT NULL COMMENT '修改时间',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='经销商信息';
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='经销商信息';
 
 -- ----------------------------
 -- Records of t_ser_dealer_info
 -- ----------------------------
 BEGIN;
-INSERT INTO `t_ser_dealer_info` VALUES (1, '经销商1', '周星星', '9528', 0, NULL, '龙口科技大厦', '123qwe', '备注1', '2018-11-15 11:24:42', '2018-11-15 11:41:19');
-INSERT INTO `t_ser_dealer_info` VALUES (2, '经销商2', '周素素', '9528', 0, NULL, '科技大厦', 'WERS', '备注2', '2018-11-27 13:13:07', '2018-11-27 13:13:07');
-INSERT INTO `t_ser_dealer_info` VALUES (3, '广州百货商场', '凯哥', '185552552521', 0, NULL, NULL, '1234567890123456789', NULL, '2018-12-04 14:45:21', '2018-12-04 14:45:21');
+INSERT INTO `t_ser_dealer_info` VALUES (1, '经销商1', '周星星', '15033336666', 0, NULL, '龙口科技大厦', '123qwe', '备注1', '2018-11-15 11:24:42', '2018-12-13 17:30:47');
+INSERT INTO `t_ser_dealer_info` VALUES (2, '经销商2', '周素素', '15022225555', 0, NULL, '科技大厦', 'WERS', '备注2', '2018-11-27 13:13:07', '2018-12-13 17:31:01');
+INSERT INTO `t_ser_dealer_info` VALUES (3, '广州百货商场', '凯哥', '18555255252', 0, NULL, NULL, '1234567890123456789', NULL, '2018-12-04 14:45:21', '2018-12-12 13:41:11');
 INSERT INTO `t_ser_dealer_info` VALUES (4, '广州百货商场', '凯哥', '18555255252', 0, NULL, NULL, '1234567890123456789', NULL, '2018-12-04 14:45:24', '2018-12-04 14:45:24');
 INSERT INTO `t_ser_dealer_info` VALUES (5, '广州百货商场', '凯哥', '18555255252', 0, NULL, NULL, '123456789012345678', NULL, '2018-12-04 14:45:26', '2018-12-04 14:45:26');
 INSERT INTO `t_ser_dealer_info` VALUES (6, '广州百货商场', '凯哥', '18555255252', 0, NULL, NULL, '123456789012345678', NULL, '2018-12-04 14:45:44', '2018-12-04 14:45:44');
-INSERT INTO `t_ser_dealer_info` VALUES (7, '广州百货商场', '凯哥', '185552552521', 0, NULL, NULL, '1234567890123456781', NULL, '2018-12-04 14:46:00', '2018-12-04 14:46:00');
+INSERT INTO `t_ser_dealer_info` VALUES (7, '广州百货商场', '凯哥', '18555255252', 0, NULL, NULL, '1234567890123456781', NULL, '2018-12-04 14:46:00', '2018-12-12 13:41:17');
+INSERT INTO `t_ser_dealer_info` VALUES (8, 'qweqweqweqw驱蚊器翁群翁群翁', '奥术大师多', '15000000000', 0, NULL, NULL, '123456789012345672', NULL, '2018-12-11 14:55:50', '2018-12-11 14:55:50');
+INSERT INTO `t_ser_dealer_info` VALUES (9, '广东天很冷经销商', '张三三', '15099929992', 0, NULL, NULL, '098765432112345678', NULL, '2018-12-12 17:20:36', '2018-12-12 17:20:36');
 COMMIT;
 
 -- ----------------------------
@@ -4228,21 +4670,30 @@ CREATE TABLE `t_ser_dealer_region_info` (
   `dealer_id` bigint(20) DEFAULT NULL COMMENT '经销商id',
   `region_id` bigint(20) DEFAULT NULL COMMENT '区域id',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='经销商区域';
+) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='经销商区域';
 
 -- ----------------------------
 -- Records of t_ser_dealer_region_info
 -- ----------------------------
 BEGIN;
-INSERT INTO `t_ser_dealer_region_info` VALUES (13, 1, 1930);
-INSERT INTO `t_ser_dealer_region_info` VALUES (14, 1, 1931);
-INSERT INTO `t_ser_dealer_region_info` VALUES (15, 1, 1935);
-INSERT INTO `t_ser_dealer_region_info` VALUES (16, 2, 1930);
-INSERT INTO `t_ser_dealer_region_info` VALUES (17, 2, 1931);
-INSERT INTO `t_ser_dealer_region_info` VALUES (18, 2, 1935);
-INSERT INTO `t_ser_dealer_region_info` VALUES (19, 7, 1930);
-INSERT INTO `t_ser_dealer_region_info` VALUES (20, 7, 1931);
-INSERT INTO `t_ser_dealer_region_info` VALUES (21, 7, 1933);
+INSERT INTO `t_ser_dealer_region_info` VALUES (22, 8, 1);
+INSERT INTO `t_ser_dealer_region_info` VALUES (23, 8, 2);
+INSERT INTO `t_ser_dealer_region_info` VALUES (24, 8, 3);
+INSERT INTO `t_ser_dealer_region_info` VALUES (25, 3, 1);
+INSERT INTO `t_ser_dealer_region_info` VALUES (26, 3, 2);
+INSERT INTO `t_ser_dealer_region_info` VALUES (27, 3, 3);
+INSERT INTO `t_ser_dealer_region_info` VALUES (28, 7, 1930);
+INSERT INTO `t_ser_dealer_region_info` VALUES (29, 7, 1931);
+INSERT INTO `t_ser_dealer_region_info` VALUES (30, 7, 1933);
+INSERT INTO `t_ser_dealer_region_info` VALUES (31, 9, 1930);
+INSERT INTO `t_ser_dealer_region_info` VALUES (32, 9, 1931);
+INSERT INTO `t_ser_dealer_region_info` VALUES (33, 9, 1932);
+INSERT INTO `t_ser_dealer_region_info` VALUES (34, 1, 1930);
+INSERT INTO `t_ser_dealer_region_info` VALUES (35, 1, 1931);
+INSERT INTO `t_ser_dealer_region_info` VALUES (36, 1, 1935);
+INSERT INTO `t_ser_dealer_region_info` VALUES (37, 2, 1930);
+INSERT INTO `t_ser_dealer_region_info` VALUES (38, 2, 1931);
+INSERT INTO `t_ser_dealer_region_info` VALUES (39, 2, 1935);
 COMMIT;
 
 -- ----------------------------
@@ -4281,7 +4732,7 @@ CREATE TABLE `t_ser_goods_info` (
   `create_time` datetime DEFAULT NULL COMMENT '创建时间',
   `update_time` datetime DEFAULT NULL COMMENT '修改时间',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='商品信息表';
+) ENGINE=InnoDB AUTO_INCREMENT=207 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='商品信息表';
 
 -- ----------------------------
 -- Records of t_ser_goods_info
@@ -4293,12 +4744,192 @@ INSERT INTO `t_ser_goods_info` VALUES (3, 1, '第一品牌', 1, '系列1', 5, '�
 INSERT INTO `t_ser_goods_info` VALUES (14, 1, '第一品牌', 1, '系列1', 5, '产品1', 'http://www.headingtech.com/center/tz/6/8c8b21ede0d543bb88f0cf68f1cc19c5/12', 'http://www.headingtech.com/center/tz/6/c29407124f574fa7b421f7a02f2dca32/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2018-12-03 20:43:04', '2018-12-03 20:43:04');
 INSERT INTO `t_ser_goods_info` VALUES (15, 1, '第一品牌', 1, '系列1', 5, '产品1', 'http://www.headingtech.com/center/tz/6/54d859c3e9a54bd5a1d0ef8bfd4b3631/12', 'http://www.headingtech.com/center/tz/6/c2d90c3bfe1643ee86ee063d73a2c0bf/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2018-12-03 20:43:04', '2018-12-03 20:43:04');
 INSERT INTO `t_ser_goods_info` VALUES (16, 1, '第一品牌', 1, '系列1', 5, '产品1', 'http://www.headingtech.com/center/tz/6/7a3de5b3363d4bed923784d69763963a/12', 'http://www.headingtech.com/center/tz/6/21af5541779c453f8282f94ecc3c66e6/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2018-12-03 20:43:04', '2018-12-03 20:43:04');
-INSERT INTO `t_ser_goods_info` VALUES (17, 1, '第一品牌', 1, '系列1', 5, '产品1', 'http://www.headingtech.com/center/tz/6/c362d7c12cde462993bc7a4854fa95fb/12', 'http://www.headingtech.com/center/tz/6/b15c6ef47dfb4312b53f214a5db090ac/12', NULL, NULL, '9999999', NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2018-12-03 20:43:04', '2018-12-03 20:43:04');
-INSERT INTO `t_ser_goods_info` VALUES (18, 1, '第一品牌', 1, '系列1', 5, '产品1', 'http://www.headingtech.com/center/tz/6/e12469cd6513442bb508e7a0bdd54ab1/12', 'http://www.headingtech.com/center/tz/6/7fe1deeb486047b6b2b00a847f5aadcb/12', NULL, NULL, '9999998', NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2018-12-03 20:43:04', '2018-12-03 20:43:04');
-INSERT INTO `t_ser_goods_info` VALUES (23, 2, '第二品牌', 3, '系列1', 7, '狗年新品', 'http://www.headingtech.com/center/tz/6/5c2eb70380d74ad8a363f51a452e8b58/12', 'http://www.headingtech.com/center/tz/6/46c22156dc534224bb5fac4ecb7e01bf/12', NULL, NULL, '9999997', NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 3, '2018-12-03 22:27:36', '2018-12-03 22:27:36');
-INSERT INTO `t_ser_goods_info` VALUES (24, 2, '第二品牌', 3, '系列1', 7, '狗年新品', 'http://www.headingtech.com/center/tz/6/9e6a100d140a4786bab4888f1ceca00a/12', 'http://www.headingtech.com/center/tz/6/0339d5d2704b44c1a3c2a8fe6a8db47a/12', NULL, NULL, '9999996', NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 3, '2018-12-03 22:27:36', '2018-12-03 22:27:36');
-INSERT INTO `t_ser_goods_info` VALUES (25, 5, '河套', 5, '河套王', 12, '36度', 'http://www.headingtech.com/center/tz/6/cc104e91c5bc448c974ac9909640e01f/12', 'http://www.headingtech.com/center/tz/6/0afd980f8ba94b75b63a6abb3288a605/12', NULL, NULL, '6000001227383389', NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, '2018-12-07 12:49:01', '2018-12-07 12:49:01');
-INSERT INTO `t_ser_goods_info` VALUES (26, 5, '河套', 5, '河套王', 12, '36度', 'http://www.headingtech.com/center/tz/6/19a6df8062124df0aaaf5acda946e1a4/12', 'http://www.headingtech.com/center/tz/6/4cb8ceeb2bcf4a32b76416af969469bd/12', NULL, NULL, '6000001227383389', NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, '2018-12-07 12:49:01', '2018-12-07 12:49:01');
+INSERT INTO `t_ser_goods_info` VALUES (17, 1, '第一品牌', 1, '系列1', 5, '产品1', 'http://www.headingtech.com/center/tz/6/c362d7c12cde462993bc7a4854fa95fb/12', 'http://www.headingtech.com/center/tz/6/b15c6ef47dfb4312b53f214a5db090ac/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2018-12-03 20:43:04', '2018-12-03 20:43:04');
+INSERT INTO `t_ser_goods_info` VALUES (18, 1, '第一品牌', 1, '系列1', 5, '产品1', 'http://www.headingtech.com/center/tz/6/e12469cd6513442bb508e7a0bdd54ab1/12', 'http://www.headingtech.com/center/tz/6/7fe1deeb486047b6b2b00a847f5aadcb/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2018-12-03 20:43:04', '2018-12-03 20:43:04');
+INSERT INTO `t_ser_goods_info` VALUES (23, 2, '第二品牌', 3, '系列1', 7, '狗年新品', 'http://www.headingtech.com/center/tz/6/5c2eb70380d74ad8a363f51a452e8b58/12', 'http://www.headingtech.com/center/tz/6/46c22156dc534224bb5fac4ecb7e01bf/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 3, '2018-12-03 22:27:36', '2018-12-03 22:27:36');
+INSERT INTO `t_ser_goods_info` VALUES (24, 2, '第二品牌', 3, '系列1', 7, '狗年新品', 'http://www.headingtech.com/center/tz/6/9e6a100d140a4786bab4888f1ceca00a/12', 'http://www.headingtech.com/center/tz/6/0339d5d2704b44c1a3c2a8fe6a8db47a/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 3, '2018-12-03 22:27:36', '2018-12-03 22:27:36');
+INSERT INTO `t_ser_goods_info` VALUES (25, 5, '河套', 5, '河套王', 12, '36度', 'http://www.headingtech.com/center/tz/6/cc104e91c5bc448c974ac9909640e01f/12', 'http://www.headingtech.com/center/tz/6/0afd980f8ba94b75b63a6abb3288a605/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, '2018-12-07 12:49:01', '2018-12-07 12:49:01');
+INSERT INTO `t_ser_goods_info` VALUES (26, 5, '河套', 5, '河套王', 12, '36度', 'http://www.headingtech.com/center/tz/6/19a6df8062124df0aaaf5acda946e1a4/12', 'http://www.headingtech.com/center/tz/6/4cb8ceeb2bcf4a32b76416af969469bd/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, '2018-12-07 12:49:01', '2018-12-07 12:49:01');
+INSERT INTO `t_ser_goods_info` VALUES (27, 6, '景芝酒', 6, '打老虎酒', 13, '42度', 'http://www.headingtech.com/center/tz/6/c85a841f484b49c8a956ae76258506e2/12', 'http://www.headingtech.com/center/tz/6/f851f94def184eb0b2bb6c69d5ca10ff/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-11 15:00:18', '2018-12-11 15:00:18');
+INSERT INTO `t_ser_goods_info` VALUES (28, 6, '景芝酒', 6, '打老虎酒', 13, '42度', 'http://www.headingtech.com/center/tz/6/5a8eec554761436699ff1c9260b80780/12', 'http://www.headingtech.com/center/tz/6/6a0ad10a3618409eaf7773029dfbee62/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-11 15:00:18', '2018-12-11 15:00:18');
+INSERT INTO `t_ser_goods_info` VALUES (29, 6, '景芝酒', 6, '打老虎酒', 13, '42度', 'http://www.headingtech.com/center/tz/6/af7f20e1bc62481d903f5f5de838c247/12', 'http://www.headingtech.com/center/tz/6/44129df5245d493fa5d97573dfc17ec9/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-11 15:00:18', '2018-12-11 15:00:18');
+INSERT INTO `t_ser_goods_info` VALUES (30, 6, '景芝酒', 6, '打老虎酒', 13, '42度', 'http://www.headingtech.com/center/tz/6/0757670b24cd4ce9a4e36cf7626309d7/12', 'http://www.headingtech.com/center/tz/6/4d9692f369f344ffb47b7d454e8b85e8/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-11 15:00:18', '2018-12-11 15:00:18');
+INSERT INTO `t_ser_goods_info` VALUES (31, 6, '景芝酒', 6, '打老虎酒', 13, '42度', 'http://www.headingtech.com/center/tz/6/b33b9d58c9fe454c98765234935967a8/12', 'http://www.headingtech.com/center/tz/6/d83a64c23d664d5393fa5cc4449b2f74/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-11 15:00:18', '2018-12-11 15:00:18');
+INSERT INTO `t_ser_goods_info` VALUES (32, 6, '景芝酒', 6, '打老虎酒', 13, '42度', 'http://www.headingtech.com/center/tz/6/7e5e395a51aa46fabf386bc9d8d6b630/12', 'http://www.headingtech.com/center/tz/6/76f1be82777e4fa99eb13b7025c86e13/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-11 15:00:18', '2018-12-11 15:00:18');
+INSERT INTO `t_ser_goods_info` VALUES (33, 6, '景芝酒', 6, '打老虎酒', 13, '42度', 'http://www.headingtech.com/center/tz/6/c85a841f484b49c8a956ae76258506e2/12', 'http://www.headingtech.com/center/tz/6/f851f94def184eb0b2bb6c69d5ca10ff/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-11 15:00:51', '2018-12-11 15:00:51');
+INSERT INTO `t_ser_goods_info` VALUES (34, 6, '景芝酒', 6, '打老虎酒', 13, '42度', 'http://www.headingtech.com/center/tz/6/c85a841f484b49c8a956ae76258506e2/12', 'http://www.headingtech.com/center/tz/6/f851f94def184eb0b2bb6c69d5ca10ff/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-11 15:00:51', '2018-12-11 15:00:51');
+INSERT INTO `t_ser_goods_info` VALUES (35, 6, '景芝酒', 6, '打老虎酒', 13, '42度', 'http://www.headingtech.com/center/tz/6/5a8eec554761436699ff1c9260b80780/12', 'http://www.headingtech.com/center/tz/6/6a0ad10a3618409eaf7773029dfbee62/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-11 15:00:51', '2018-12-11 15:00:51');
+INSERT INTO `t_ser_goods_info` VALUES (36, 6, '景芝酒', 6, '打老虎酒', 13, '42度', 'http://www.headingtech.com/center/tz/6/5a8eec554761436699ff1c9260b80780/12', 'http://www.headingtech.com/center/tz/6/6a0ad10a3618409eaf7773029dfbee62/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-11 15:00:51', '2018-12-11 15:00:51');
+INSERT INTO `t_ser_goods_info` VALUES (37, 6, '景芝酒', 6, '打老虎酒', 13, '42度', 'http://www.headingtech.com/center/tz/6/af7f20e1bc62481d903f5f5de838c247/12', 'http://www.headingtech.com/center/tz/6/44129df5245d493fa5d97573dfc17ec9/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-11 15:00:51', '2018-12-11 15:00:51');
+INSERT INTO `t_ser_goods_info` VALUES (38, 6, '景芝酒', 6, '打老虎酒', 13, '42度', 'http://www.headingtech.com/center/tz/6/af7f20e1bc62481d903f5f5de838c247/12', 'http://www.headingtech.com/center/tz/6/44129df5245d493fa5d97573dfc17ec9/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-11 15:00:51', '2018-12-11 15:00:51');
+INSERT INTO `t_ser_goods_info` VALUES (39, 6, '景芝酒', 6, '打老虎酒', 13, '42度', 'http://www.headingtech.com/center/tz/6/0757670b24cd4ce9a4e36cf7626309d7/12', 'http://www.headingtech.com/center/tz/6/4d9692f369f344ffb47b7d454e8b85e8/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-11 15:00:51', '2018-12-11 15:00:51');
+INSERT INTO `t_ser_goods_info` VALUES (40, 6, '景芝酒', 6, '打老虎酒', 13, '42度', 'http://www.headingtech.com/center/tz/6/0757670b24cd4ce9a4e36cf7626309d7/12', 'http://www.headingtech.com/center/tz/6/4d9692f369f344ffb47b7d454e8b85e8/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-11 15:00:51', '2018-12-11 15:00:51');
+INSERT INTO `t_ser_goods_info` VALUES (41, 6, '景芝酒', 6, '打老虎酒', 13, '42度', 'http://www.headingtech.com/center/tz/6/b33b9d58c9fe454c98765234935967a8/12', 'http://www.headingtech.com/center/tz/6/d83a64c23d664d5393fa5cc4449b2f74/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-11 15:00:51', '2018-12-11 15:00:51');
+INSERT INTO `t_ser_goods_info` VALUES (42, 6, '景芝酒', 6, '打老虎酒', 13, '42度', 'http://www.headingtech.com/center/tz/6/b33b9d58c9fe454c98765234935967a8/12', 'http://www.headingtech.com/center/tz/6/d83a64c23d664d5393fa5cc4449b2f74/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-11 15:00:51', '2018-12-11 15:00:51');
+INSERT INTO `t_ser_goods_info` VALUES (43, 6, '景芝酒', 6, '打老虎酒', 13, '42度', 'http://www.headingtech.com/center/tz/6/7e5e395a51aa46fabf386bc9d8d6b630/12', 'http://www.headingtech.com/center/tz/6/76f1be82777e4fa99eb13b7025c86e13/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-11 15:00:51', '2018-12-11 15:00:51');
+INSERT INTO `t_ser_goods_info` VALUES (44, 6, '景芝酒', 6, '打老虎酒', 13, '42度', 'http://www.headingtech.com/center/tz/6/7e5e395a51aa46fabf386bc9d8d6b630/12', 'http://www.headingtech.com/center/tz/6/76f1be82777e4fa99eb13b7025c86e13/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-11 15:00:51', '2018-12-11 15:00:51');
+INSERT INTO `t_ser_goods_info` VALUES (45, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/466da01976644866838a69da80186c69/12', 'http://www.headingtech.com/center/tz/6/ff96a64db9b543b586d2a651a596f6e9/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, '2018-12-12 17:11:48', '2018-12-12 17:11:48');
+INSERT INTO `t_ser_goods_info` VALUES (46, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/3b33e54444974327a3a9be65ae08b311/12', 'http://www.headingtech.com/center/tz/6/50a73a3cfee04c45815182d861e62189/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, '2018-12-12 17:11:48', '2018-12-12 17:11:48');
+INSERT INTO `t_ser_goods_info` VALUES (47, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/9cda3fe846b243b68869dadf0e30e44e/12', 'http://www.headingtech.com/center/tz/6/674645b7c1ff4a06a6e0770f863ad176/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, '2018-12-12 17:11:48', '2018-12-12 17:11:48');
+INSERT INTO `t_ser_goods_info` VALUES (48, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/3151967065484b8ab20e4339285974a2/12', 'http://www.headingtech.com/center/tz/6/f8cb03c61872468ebaca05df874a967c/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, '2018-12-12 17:11:48', '2018-12-12 17:11:48');
+INSERT INTO `t_ser_goods_info` VALUES (49, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/7b9506142e0e4435b3ddf57a2d4960e5/12', 'http://www.headingtech.com/center/tz/6/86e8f73cf9384c36872593f76506d474/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, '2018-12-12 17:11:48', '2018-12-12 17:11:48');
+INSERT INTO `t_ser_goods_info` VALUES (50, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/960509876cb047d88a067ffbb6cabad1/12', 'http://www.headingtech.com/center/tz/6/ac7c33d066b7402ea56944e510ba31a7/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, '2018-12-12 17:11:48', '2018-12-12 17:11:48');
+INSERT INTO `t_ser_goods_info` VALUES (51, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/dc71874ebcfd4edfb115090c505a4ffa/12', 'http://www.headingtech.com/center/tz/6/cd437853a6084b0ebca87432a317aa1c/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-13 10:33:05', '2018-12-13 10:33:05');
+INSERT INTO `t_ser_goods_info` VALUES (52, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/9e06c04d5a2d4640a7aedd770dd16afd/12', 'http://www.headingtech.com/center/tz/6/f26fc3daceff47a88e7a90850db89c33/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-13 10:33:05', '2018-12-13 10:33:05');
+INSERT INTO `t_ser_goods_info` VALUES (53, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/138ba51fb717410db29278ec61588595/12', 'http://www.headingtech.com/center/tz/6/c2bb8f571ecc4e928eaf4720090aae5c/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-13 10:33:05', '2018-12-13 10:33:05');
+INSERT INTO `t_ser_goods_info` VALUES (54, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/0f6a1c760dac4d738791b234f0621b83/12', 'http://www.headingtech.com/center/tz/6/fda74852d73e4530947e8164faf4b1bb/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-13 10:33:05', '2018-12-13 10:33:05');
+INSERT INTO `t_ser_goods_info` VALUES (55, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/58ae0a810d494a7880ce2b026dca50da/12', 'http://www.headingtech.com/center/tz/6/03d107932e644daeaa5b23a69e7f493d/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-13 10:33:05', '2018-12-13 10:33:05');
+INSERT INTO `t_ser_goods_info` VALUES (56, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/2618ca37b07e41629d7775785bf643ce/12', 'http://www.headingtech.com/center/tz/6/f282a32b97c5468e872a7d61c2af9dc3/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-13 10:33:05', '2018-12-13 10:33:05');
+INSERT INTO `t_ser_goods_info` VALUES (57, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/41a3cf867b394b3f95b30a14c8fbcef2/12', 'http://www.headingtech.com/center/tz/6/3bd87fd3b3d04a0f823dbfb4eefbad25/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-13 10:33:05', '2018-12-13 10:33:05');
+INSERT INTO `t_ser_goods_info` VALUES (58, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/592e204e4f2045cba175c34f2c4e25d2/12', 'http://www.headingtech.com/center/tz/6/e2a6f3cc3d1c4ffaa23a1260a463bea6/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-13 10:33:05', '2018-12-13 10:33:05');
+INSERT INTO `t_ser_goods_info` VALUES (59, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/218d84b0ea7e448b8914e76f42b765c6/12', 'http://www.headingtech.com/center/tz/6/18a374bd30c04bda876cddc7d69d4e7f/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-13 10:33:05', '2018-12-13 10:33:05');
+INSERT INTO `t_ser_goods_info` VALUES (60, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/ced7b492c0c3461a99c2229689c1477a/12', 'http://www.headingtech.com/center/tz/6/1e6828a986b0448ba9b77ecb115d3645/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-13 10:33:05', '2018-12-13 10:33:05');
+INSERT INTO `t_ser_goods_info` VALUES (61, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/ac91cc5b478442d586b91b255a2ef91a/12', 'http://www.headingtech.com/center/tz/6/302973121ed449feb187fb13fb72ac1a/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-13 10:33:05', '2018-12-13 10:33:05');
+INSERT INTO `t_ser_goods_info` VALUES (62, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/d1d2258af1ed4344a39b48763c53a6b5/12', 'http://www.headingtech.com/center/tz/6/0ef07c4cb95c44868640058179685bc3/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-13 10:33:05', '2018-12-13 10:33:05');
+INSERT INTO `t_ser_goods_info` VALUES (63, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/ada27a592895402484226bc6d275ab0f/12', 'http://www.headingtech.com/center/tz/6/8f9c2f5dffc849c9b890b16bb020b0d9/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-13 10:33:05', '2018-12-13 10:33:05');
+INSERT INTO `t_ser_goods_info` VALUES (64, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/98d1adb39d224fbc96b7d34e6c9e3ad3/12', 'http://www.headingtech.com/center/tz/6/0a805fbeeb264bb2b9bc7180dacc9b4f/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-13 10:33:05', '2018-12-13 10:33:05');
+INSERT INTO `t_ser_goods_info` VALUES (65, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/4d19af06c096459299a2eb01e2222cb2/12', 'http://www.headingtech.com/center/tz/6/55c9e1f7357140909150017b88f2634e/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-13 10:33:05', '2018-12-13 10:33:05');
+INSERT INTO `t_ser_goods_info` VALUES (66, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/6fb4b4353eed4d84aaed24bf0fd836f3/12', 'http://www.headingtech.com/center/tz/6/ecc97ed2743142e48d37564e3449f147/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-13 10:33:05', '2018-12-13 10:33:05');
+INSERT INTO `t_ser_goods_info` VALUES (67, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/b67f80b96d004e968382472557046418/12', 'http://www.headingtech.com/center/tz/6/c4a0a32b258642058d95e42736af0163/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-13 10:33:05', '2018-12-13 10:33:05');
+INSERT INTO `t_ser_goods_info` VALUES (68, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/5bf9a8dbc9424c95b354256cbd6f70d5/12', 'http://www.headingtech.com/center/tz/6/b339f1363ef549f9994d2841a6401a0f/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-13 10:33:05', '2018-12-13 10:33:05');
+INSERT INTO `t_ser_goods_info` VALUES (69, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/b120001963cd493dad17d8b53965faae/12', 'http://www.headingtech.com/center/tz/6/57abf171a0ab4f07bc1444f0215923c6/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-13 10:33:05', '2018-12-13 10:33:05');
+INSERT INTO `t_ser_goods_info` VALUES (70, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/0685e128309047e9b83d81bfd3893742/12', 'http://www.headingtech.com/center/tz/6/756ba7c4cc984d7592490fecba35a921/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-13 10:33:05', '2018-12-13 10:33:05');
+INSERT INTO `t_ser_goods_info` VALUES (71, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/4151022b212446ccb23e6a87807268de/12', 'http://www.headingtech.com/center/tz/6/7b3cba82a04347838257124653040ee5/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-13 10:33:05', '2018-12-13 10:33:05');
+INSERT INTO `t_ser_goods_info` VALUES (72, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/e3eda6ef0c4640b4b4ed4dccf7247b3a/12', 'http://www.headingtech.com/center/tz/6/2e9cf6e00e82401aba21c9a913a8e73f/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-13 10:33:05', '2018-12-13 10:33:05');
+INSERT INTO `t_ser_goods_info` VALUES (73, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/c272a5163ce348ae8f42cb0c3295eeef/12', 'http://www.headingtech.com/center/tz/6/1e87b9edaad84c88a68a8f757c24531c/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-13 10:33:05', '2018-12-13 10:33:05');
+INSERT INTO `t_ser_goods_info` VALUES (74, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/f5d1c8b032734883ae065e5e627dc4c3/12', 'http://www.headingtech.com/center/tz/6/7cf1d62b026e44228c40d5bd2fc4ce23/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-13 10:33:05', '2018-12-13 10:33:05');
+INSERT INTO `t_ser_goods_info` VALUES (75, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/319412538ebe4ef5b5c6c1074e81939c/12', 'http://www.headingtech.com/center/tz/6/c7653cd95fa14322b66b24d07b697976/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-13 10:33:05', '2018-12-13 10:33:05');
+INSERT INTO `t_ser_goods_info` VALUES (76, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/7d82699c7b1942558b6175e9697f3cdf/12', 'http://www.headingtech.com/center/tz/6/b8e6b4efb830495f85be5f21326eff1e/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-13 10:33:05', '2018-12-13 10:33:05');
+INSERT INTO `t_ser_goods_info` VALUES (77, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/01b22716f4cf4455871eae33b47ecf43/12', 'http://www.headingtech.com/center/tz/6/e359313f58b04c69abae7250f20793f0/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-13 10:33:05', '2018-12-13 10:33:05');
+INSERT INTO `t_ser_goods_info` VALUES (78, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/9513a935a092421d9433636d3051724d/12', 'http://www.headingtech.com/center/tz/6/367f11493e8f4512a440d04c4981882b/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-13 10:33:05', '2018-12-13 10:33:05');
+INSERT INTO `t_ser_goods_info` VALUES (79, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/76c1ded8cda047e28a28679d14f4c0d2/12', 'http://www.headingtech.com/center/tz/6/9c0b447de22846d9bb9a54b8dc4e0422/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-13 10:33:05', '2018-12-13 10:33:05');
+INSERT INTO `t_ser_goods_info` VALUES (80, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/8e3b2d3842b142cba6db2f62a0fb6f51/12', 'http://www.headingtech.com/center/tz/6/fa6892e13c9248238bb11890139392b1/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-13 10:33:05', '2018-12-13 10:33:05');
+INSERT INTO `t_ser_goods_info` VALUES (81, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/42108cadda6a4a539fd5c240e4b227da/12', 'http://www.headingtech.com/center/tz/6/0ab49525becc4227907550a3ed3657ce/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-13 10:33:05', '2018-12-13 10:33:05');
+INSERT INTO `t_ser_goods_info` VALUES (82, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/020fb8993b824ede993d4a30f85b3b59/12', 'http://www.headingtech.com/center/tz/6/a3ee4137a6b94c2492c24e083f4f8b48/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-13 10:33:05', '2018-12-13 10:33:05');
+INSERT INTO `t_ser_goods_info` VALUES (83, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/68523b33e0f74654ba5ff33127c3fa06/12', 'http://www.headingtech.com/center/tz/6/02b526c6b8c04c688109122f6230257d/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-13 10:33:05', '2018-12-13 10:33:05');
+INSERT INTO `t_ser_goods_info` VALUES (84, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/486ca7c989724b6bbf44fca1e8662997/12', 'http://www.headingtech.com/center/tz/6/b63bc79f923a4ad185c0346c5ded8333/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-13 10:33:05', '2018-12-13 10:33:05');
+INSERT INTO `t_ser_goods_info` VALUES (85, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/435c9f4daba04eff886b639cb307a3fc/12', 'http://www.headingtech.com/center/tz/6/ced833858c2a4f7ba10b166531d3a009/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-13 10:33:05', '2018-12-13 10:33:05');
+INSERT INTO `t_ser_goods_info` VALUES (86, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/caa6fc884df94081956c4767f096eac5/12', 'http://www.headingtech.com/center/tz/6/70a1a66335b8490288034b91d17c0064/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-13 10:33:05', '2018-12-13 10:33:05');
+INSERT INTO `t_ser_goods_info` VALUES (87, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/303451cb147245e0bff63c7ebd88d363/12', 'http://www.headingtech.com/center/tz/6/3b45443228344a29b7dd1869cbe78dc2/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-13 10:33:05', '2018-12-13 10:33:05');
+INSERT INTO `t_ser_goods_info` VALUES (88, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/13fb7a008fdb46c88e759317885afa02/12', 'http://www.headingtech.com/center/tz/6/56ea92553fb64cd7ab68091fd90e2d9a/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-13 10:33:05', '2018-12-13 10:33:05');
+INSERT INTO `t_ser_goods_info` VALUES (89, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/b881691f0976456a84fbb43a5c1c60aa/12', 'http://www.headingtech.com/center/tz/6/df2e764e18dd49dc9f6030470f894ca4/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-13 10:33:05', '2018-12-13 10:33:05');
+INSERT INTO `t_ser_goods_info` VALUES (90, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/d096d1db1a084f918bef801e38757e26/12', 'http://www.headingtech.com/center/tz/6/35da5738021a4de0bf46c1417167674b/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-13 10:33:05', '2018-12-13 10:33:05');
+INSERT INTO `t_ser_goods_info` VALUES (91, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/b40243749c6349c5848dc4723b0a2904/12', 'http://www.headingtech.com/center/tz/6/53dfc1fdfade4c878489dcbf274e927c/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-13 10:33:05', '2018-12-13 10:33:05');
+INSERT INTO `t_ser_goods_info` VALUES (92, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/91913a9cd4d64ef48c3b62ee81c2724e/12', 'http://www.headingtech.com/center/tz/6/aa8f596825e745ad813d7fa55acba0ad/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-13 10:33:05', '2018-12-13 10:33:05');
+INSERT INTO `t_ser_goods_info` VALUES (93, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/eb5622cfda0845d8a02b5b4897b3829c/12', 'http://www.headingtech.com/center/tz/6/13b001aed6754dcd86c0868e517166ba/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-13 10:33:05', '2018-12-13 10:33:05');
+INSERT INTO `t_ser_goods_info` VALUES (94, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/d8459985b45b4236ae2dc7ecea5304eb/12', 'http://www.headingtech.com/center/tz/6/db49e8933ea24e3689d314dc9558a836/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-13 10:33:05', '2018-12-13 10:33:05');
+INSERT INTO `t_ser_goods_info` VALUES (95, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/708fab2123804171a05868ba0872c566/12', 'http://www.headingtech.com/center/tz/6/5c20e1cbdf414f7ead02c4eb2509cb4b/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-13 10:33:05', '2018-12-13 10:33:05');
+INSERT INTO `t_ser_goods_info` VALUES (96, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/a0017a2ade66421d861e612d16a4d26f/12', 'http://www.headingtech.com/center/tz/6/cc4fd51e2506452481e4e9d7c5fe5caf/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-13 10:33:05', '2018-12-13 10:33:05');
+INSERT INTO `t_ser_goods_info` VALUES (97, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/aa971dd599f14067a9d9f4d5ff260e13/12', 'http://www.headingtech.com/center/tz/6/262dc24c7e5d4e9196d70aed2f0f4fb3/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-13 10:33:05', '2018-12-13 10:33:05');
+INSERT INTO `t_ser_goods_info` VALUES (98, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/6bcf8412869d4d74bc88d964d7a778de/12', 'http://www.headingtech.com/center/tz/6/a264796702c146349eecb56b9e6c1fe7/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-13 10:33:05', '2018-12-13 10:33:05');
+INSERT INTO `t_ser_goods_info` VALUES (99, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/0866caf2778c4fb4bb4a7f3ea15da342/12', 'http://www.headingtech.com/center/tz/6/d6789a9f189a4db891ba55b37700a067/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-13 10:33:05', '2018-12-13 10:33:05');
+INSERT INTO `t_ser_goods_info` VALUES (100, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/35a77ec7976e43919f4d23ee0c92966e/12', 'http://www.headingtech.com/center/tz/6/6c32917f7a8d4fea95c949ddb0fefd76/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-13 10:33:05', '2018-12-13 10:33:05');
+INSERT INTO `t_ser_goods_info` VALUES (101, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/f62269b5b94849f7bd2b36571f249241/12', 'http://www.headingtech.com/center/tz/6/4ab9864ce2dd426a86c5693d69f6b294/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-13 10:33:05', '2018-12-13 10:33:05');
+INSERT INTO `t_ser_goods_info` VALUES (102, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/49def65927d7429894ddb4d2f0d074de/12', 'http://www.headingtech.com/center/tz/6/1816cbe68aa24879b85f7d2486e3cb41/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-13 10:33:05', '2018-12-13 10:33:05');
+INSERT INTO `t_ser_goods_info` VALUES (103, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/743fcc3e9f1e41008715145641ea1705/12', 'http://www.headingtech.com/center/tz/6/e18994e79fa741d9bf906879b11fb931/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-13 10:33:05', '2018-12-13 10:33:05');
+INSERT INTO `t_ser_goods_info` VALUES (104, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/87ab04a055d541c9b2fdbf5364b0f048/12', 'http://www.headingtech.com/center/tz/6/556d31bddc2f49b6853c768a437e39a7/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-13 10:33:05', '2018-12-13 10:33:05');
+INSERT INTO `t_ser_goods_info` VALUES (105, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/7ab92d5cd9fa465699721f91a9650b87/12', 'http://www.headingtech.com/center/tz/6/549c1659f8764e2d89b664ef655c68d1/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-13 10:33:05', '2018-12-13 10:33:05');
+INSERT INTO `t_ser_goods_info` VALUES (106, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/966bf175fbbd4cc6be0019b83615bffb/12', 'http://www.headingtech.com/center/tz/6/7e5daea601a54d6d904661d5236419a6/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-13 10:33:05', '2018-12-13 10:33:05');
+INSERT INTO `t_ser_goods_info` VALUES (107, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/e159a0b33ed9487aa096dfe72445ae38/12', 'http://www.headingtech.com/center/tz/6/4ca3f85c4f644994829e299de1b1d7ae/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-13 10:33:05', '2018-12-13 10:33:05');
+INSERT INTO `t_ser_goods_info` VALUES (108, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/5123492dea004341b319cd230f061c87/12', 'http://www.headingtech.com/center/tz/6/acd99f34ba294ae798c6cdc4e3177e4d/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-13 10:33:05', '2018-12-13 10:33:05');
+INSERT INTO `t_ser_goods_info` VALUES (109, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/55068461b3b04e1baab0d49e7bea3617/12', 'http://www.headingtech.com/center/tz/6/b71ee50e609440a7a227ecb27ec0f85c/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-13 10:33:05', '2018-12-13 10:33:05');
+INSERT INTO `t_ser_goods_info` VALUES (110, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/a395f22dfa1d44c1a8df1d1614dcbd28/12', 'http://www.headingtech.com/center/tz/6/adf875f73336482782fd316812f6c7a2/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-13 10:33:05', '2018-12-13 10:33:05');
+INSERT INTO `t_ser_goods_info` VALUES (111, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/a31103711aad47dcb97c018144b4b127/12', 'http://www.headingtech.com/center/tz/6/b44eeb0cfdaa4715835a289042575098/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-13 10:33:05', '2018-12-13 10:33:05');
+INSERT INTO `t_ser_goods_info` VALUES (112, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/9f7c667aa9e14c5a931e9a6411618f38/12', 'http://www.headingtech.com/center/tz/6/59e89ea8c76b43f0810adcb13869d99f/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-13 10:33:05', '2018-12-13 10:33:05');
+INSERT INTO `t_ser_goods_info` VALUES (113, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/5e36d31025c1417ca55ca5a18eebc42e/12', 'http://www.headingtech.com/center/tz/6/8f37f70a383d4eceb3485e7aea30f0d5/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-13 10:33:05', '2018-12-13 10:33:05');
+INSERT INTO `t_ser_goods_info` VALUES (114, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/6981dd0180c34aa2be2a0cf799497240/12', 'http://www.headingtech.com/center/tz/6/1a3ec958ca2b488f9bf1e5222d5e5296/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-13 10:33:05', '2018-12-13 10:33:05');
+INSERT INTO `t_ser_goods_info` VALUES (115, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/413b2efacdfe458fb0b77ae78b67e5b2/12', 'http://www.headingtech.com/center/tz/6/548e1df27b214b8785cf8c6ad0225b96/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-13 10:33:05', '2018-12-13 10:33:05');
+INSERT INTO `t_ser_goods_info` VALUES (116, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/f31e99779ace4ae2a5d9472eb5999c3d/12', 'http://www.headingtech.com/center/tz/6/e3d99a9058714e8ba11ceced40f843e4/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-13 10:33:05', '2018-12-13 10:33:05');
+INSERT INTO `t_ser_goods_info` VALUES (117, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/1bb8a45af8a3445e8233b62f0a31ec82/12', 'http://www.headingtech.com/center/tz/6/bda614b60361475590ecb0af1a0706eb/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-13 10:33:05', '2018-12-13 10:33:05');
+INSERT INTO `t_ser_goods_info` VALUES (118, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/88194426cf2a423c9692e4c478c4a555/12', 'http://www.headingtech.com/center/tz/6/689ea465aa4c496297cf6f6790a3babd/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-13 10:33:05', '2018-12-13 10:33:05');
+INSERT INTO `t_ser_goods_info` VALUES (119, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/d2fc123617f74401abc598274994f29a/12', 'http://www.headingtech.com/center/tz/6/0fb8ff7497e4424cbfd19bd97c485a44/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-13 10:33:05', '2018-12-13 10:33:05');
+INSERT INTO `t_ser_goods_info` VALUES (120, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/c1df32ad28774172be80fb01f86dc931/12', 'http://www.headingtech.com/center/tz/6/83957b53cd394c51abede39b6ef240bb/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-13 10:33:05', '2018-12-13 10:33:05');
+INSERT INTO `t_ser_goods_info` VALUES (121, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/ea66936a7f0c4ef3a865ac16446dee7e/12', 'http://www.headingtech.com/center/tz/6/a99258830f5b4e8e84dccd4ec12eda25/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-13 10:33:05', '2018-12-13 10:33:05');
+INSERT INTO `t_ser_goods_info` VALUES (122, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/ee58a14f158e47eca7d01ee0b1b5f59b/12', 'http://www.headingtech.com/center/tz/6/7f2446e47b48420fbb057e5b48af2bce/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-13 10:33:05', '2018-12-13 10:33:05');
+INSERT INTO `t_ser_goods_info` VALUES (123, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/4fe3ba10ca3a4fd48ee88ef888c780df/12', 'http://www.headingtech.com/center/tz/6/6551d17e664c48988e4d0837c29aa453/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-13 10:33:05', '2018-12-13 10:33:05');
+INSERT INTO `t_ser_goods_info` VALUES (124, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/479d7aaaa08347a5aec70773553fbb6f/12', 'http://www.headingtech.com/center/tz/6/c7c3ab92ca8d4c5198c64c62136df3c8/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-13 10:33:05', '2018-12-13 10:33:05');
+INSERT INTO `t_ser_goods_info` VALUES (125, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/b0a9a30bb82c4448b81c4b7dccc3d0ce/12', 'http://www.headingtech.com/center/tz/6/ebb62397552343a9a76ba27388c118eb/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-13 10:33:05', '2018-12-13 10:33:05');
+INSERT INTO `t_ser_goods_info` VALUES (126, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/68d9163df9804589abdc8498655b0fda/12', 'http://www.headingtech.com/center/tz/6/b08b5937e7734be59c6d6ca090a6506b/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-13 10:33:05', '2018-12-13 10:33:05');
+INSERT INTO `t_ser_goods_info` VALUES (127, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/f529efd954c7484e8378b9488fc5188f/12', 'http://www.headingtech.com/center/tz/6/66f6c66560c34a2bbe4e4d62641c2858/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-13 10:33:05', '2018-12-13 10:33:05');
+INSERT INTO `t_ser_goods_info` VALUES (128, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/ba583f1dde444347b77aa50ac9d6d76b/12', 'http://www.headingtech.com/center/tz/6/715f91eea014482cb9c231f73ff1dab8/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-13 10:33:05', '2018-12-13 10:33:05');
+INSERT INTO `t_ser_goods_info` VALUES (129, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/e573840293b94a66b7fe395701402e8d/12', 'http://www.headingtech.com/center/tz/6/2da165aeba8543b48fa24964fbc970b8/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-13 10:33:05', '2018-12-13 10:33:05');
+INSERT INTO `t_ser_goods_info` VALUES (130, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/4fc0694d37ed453986821019e42e10f4/12', 'http://www.headingtech.com/center/tz/6/5a4aeabd6822414f9a04d7cf402a15d3/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-13 10:33:05', '2018-12-13 10:33:05');
+INSERT INTO `t_ser_goods_info` VALUES (131, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/b686ab69dde34470a335e4a6140191b3/12', 'http://www.headingtech.com/center/tz/6/c1f84ab9940e43ce818a2d928a25a528/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-13 10:33:05', '2018-12-13 10:33:05');
+INSERT INTO `t_ser_goods_info` VALUES (132, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/1d4141dd4d4249a08881c0408e3b5b49/12', 'http://www.headingtech.com/center/tz/6/ccf0f22095ea4c5eb436e8d608b51370/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-13 10:33:05', '2018-12-13 10:33:05');
+INSERT INTO `t_ser_goods_info` VALUES (133, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/3db6460e06c846e9817e97c83a805f34/12', 'http://www.headingtech.com/center/tz/6/799880168dea498ca99986ffe77af53f/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-13 10:33:05', '2018-12-13 10:33:05');
+INSERT INTO `t_ser_goods_info` VALUES (134, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/265d172e345b4cf3b3b283657d0e018c/12', 'http://www.headingtech.com/center/tz/6/4ff22d5df20f4d29868b0e2afe48f90c/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-13 10:33:05', '2018-12-13 10:33:05');
+INSERT INTO `t_ser_goods_info` VALUES (135, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/ac4069862b694eee8f5ca273db59f42e/12', 'http://www.headingtech.com/center/tz/6/33448303887f4d218948d1b7a0c7a628/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-13 10:33:05', '2018-12-13 10:33:05');
+INSERT INTO `t_ser_goods_info` VALUES (136, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/8dcb8c0c9eca4075b44920442a845d19/12', 'http://www.headingtech.com/center/tz/6/78f1a42f52d74d73a9b324f0d8a59c2a/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-13 10:33:05', '2018-12-13 10:33:05');
+INSERT INTO `t_ser_goods_info` VALUES (137, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/43584fa6543c4a0ba30c8d177e03511e/12', 'http://www.headingtech.com/center/tz/6/b56344380bc844d1b90e793f4c9335aa/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-13 10:33:05', '2018-12-13 10:33:05');
+INSERT INTO `t_ser_goods_info` VALUES (138, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/09495501a07c46538c9d237aafa57798/12', 'http://www.headingtech.com/center/tz/6/de333c890a464a9890c1894418d6d5b6/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-13 10:33:05', '2018-12-13 10:33:05');
+INSERT INTO `t_ser_goods_info` VALUES (139, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/0732242e17974ee284f8821a37b6ed3e/12', 'http://www.headingtech.com/center/tz/6/2d80d88a0e4d4e41a10ea87fe63e57e5/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-13 10:33:05', '2018-12-13 10:33:05');
+INSERT INTO `t_ser_goods_info` VALUES (140, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/92cc9a3e405243f589c7d50df78f3c28/12', 'http://www.headingtech.com/center/tz/6/1884f17b4c1c4a4daf7a1e6ef8c27bfc/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-13 10:33:05', '2018-12-13 10:33:05');
+INSERT INTO `t_ser_goods_info` VALUES (141, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/e0d6ce0eecc44810be1831524765e576/12', 'http://www.headingtech.com/center/tz/6/8f67263e0b034d149060c659570432f8/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-13 10:33:05', '2018-12-13 10:33:05');
+INSERT INTO `t_ser_goods_info` VALUES (142, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/6abfb39307254446acdf0392a5cc9f61/12', 'http://www.headingtech.com/center/tz/6/e108ff92a96646ac86a7f6c3c0ba8747/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-13 10:33:05', '2018-12-13 10:33:05');
+INSERT INTO `t_ser_goods_info` VALUES (143, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/573607805a0f48f39f0913820c524536/12', 'http://www.headingtech.com/center/tz/6/1378d0755e1c4427a81efebd0eeb659c/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-13 10:33:05', '2018-12-13 10:33:05');
+INSERT INTO `t_ser_goods_info` VALUES (144, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/eb2ff9db1c90473d91f27a9c76b23ae0/12', 'http://www.headingtech.com/center/tz/6/1543711ad9f8406da8f1a0d564d6f650/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-13 10:33:05', '2018-12-13 10:33:05');
+INSERT INTO `t_ser_goods_info` VALUES (145, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/fbe73f11a1584129907ce0559324540d/12', 'http://www.headingtech.com/center/tz/6/4e7952c18d82474b88deac5f156a0401/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-13 10:33:05', '2018-12-13 10:33:05');
+INSERT INTO `t_ser_goods_info` VALUES (146, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/c62c99d7ce914f69848e9c7b110f4297/12', 'http://www.headingtech.com/center/tz/6/e1767a5737d74517ae6f6d227e1e6077/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-13 10:33:05', '2018-12-13 10:33:05');
+INSERT INTO `t_ser_goods_info` VALUES (147, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/73f2d9bc2270420bb60978a9e6e60bd2/12', 'http://www.headingtech.com/center/tz/6/520d41ae55064fa096942c7df05a49dd/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-13 10:33:05', '2018-12-13 10:33:05');
+INSERT INTO `t_ser_goods_info` VALUES (148, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/96d9458c795a48649ca90c5e76a09050/12', 'http://www.headingtech.com/center/tz/6/a7700dd342c4493f99d99ebc8e297188/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-13 10:33:05', '2018-12-13 10:33:05');
+INSERT INTO `t_ser_goods_info` VALUES (149, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/01e26428b0a4477dbcdd79c4dd5c58cc/12', 'http://www.headingtech.com/center/tz/6/de32ad05a77e4397b4848d31feae589b/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-13 10:33:05', '2018-12-13 10:33:05');
+INSERT INTO `t_ser_goods_info` VALUES (150, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/cd248ab245a9449c941fc3183a73a3f2/12', 'http://www.headingtech.com/center/tz/6/33100c6ce9f94500a447d158795d4635/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-13 10:33:05', '2018-12-13 10:33:05');
+INSERT INTO `t_ser_goods_info` VALUES (151, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/f17a3520414648fb99ce311e5a20c616/12', 'http://www.headingtech.com/center/tz/6/1bde8f655e9740fc9ce3ce0f6de3c7df/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盒码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2018-12-13 10:51:32', '2018-12-13 10:51:32');
+INSERT INTO `t_ser_goods_info` VALUES (152, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/ab84a4049fac40739fcc2bc29f687a8e/12', 'http://www.headingtech.com/center/tz/6/8a8cc840cce942c0b4a085b787c44530/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盒码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2018-12-13 10:51:32', '2018-12-13 10:51:32');
+INSERT INTO `t_ser_goods_info` VALUES (153, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/b4b646124c0e4030b8bff910ba611eb5/12', 'http://www.headingtech.com/center/tz/6/3a38ed9e5a904974bb0ee2f05dc1e8aa/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盒码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2018-12-13 10:51:32', '2018-12-13 10:51:32');
+INSERT INTO `t_ser_goods_info` VALUES (154, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/72fbd22c3e134ea2a23314563c5706f0/12', 'http://www.headingtech.com/center/tz/6/37d38b3cc01e46299c301b18ddffa719/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盒码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2018-12-13 10:51:32', '2018-12-13 10:51:32');
+INSERT INTO `t_ser_goods_info` VALUES (155, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/29510716577d43d2b8d6c28c8b0f9d99/12', 'http://www.headingtech.com/center/tz/6/343210b1501346c7b3a0b7d5e9dfa892/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盒码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2018-12-13 10:51:32', '2018-12-13 10:51:32');
+INSERT INTO `t_ser_goods_info` VALUES (156, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/4e942c5b3eda487db3dc19ecc92466b5/12', 'http://www.headingtech.com/center/tz/6/d9ed0e44ea17460a9156cff98479048c/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盒码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2018-12-13 10:51:32', '2018-12-13 10:51:32');
+INSERT INTO `t_ser_goods_info` VALUES (157, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/e97ae341c9be4068b4539def94bfc7dc/12', 'http://www.headingtech.com/center/tz/6/8aaf47aeb897460ba5c2485a31bf84f2/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盒码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2018-12-13 10:51:32', '2018-12-13 10:51:32');
+INSERT INTO `t_ser_goods_info` VALUES (158, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/bad8e7905251483bbfee36650f0ae595/12', 'http://www.headingtech.com/center/tz/6/edf3221987934510aca1825f6a1e432c/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盒码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2018-12-13 10:51:32', '2018-12-13 10:51:32');
+INSERT INTO `t_ser_goods_info` VALUES (159, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/c4b7a8f3134c4282ab73f176d0946acd/12', 'http://www.headingtech.com/center/tz/6/0be4da2f4f404d13b377e8979faefb9c/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盒码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2018-12-13 10:51:32', '2018-12-13 10:51:32');
+INSERT INTO `t_ser_goods_info` VALUES (160, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/a083f36267f94adc9d1a768fb92324c1/12', 'http://www.headingtech.com/center/tz/6/6277fd64c737462a9449bdb86976024d/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盒码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2018-12-13 10:51:32', '2018-12-13 10:51:32');
+INSERT INTO `t_ser_goods_info` VALUES (161, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/1d6c7c7b084145408cee04b03d6f125a/12', 'http://www.headingtech.com/center/tz/6/e08e4b04ca8b4815aa79f06b88198af0/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盒码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2018-12-13 10:51:32', '2018-12-13 10:51:32');
+INSERT INTO `t_ser_goods_info` VALUES (162, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/9960d83d2e404da49fa0a35b06ee8363/12', 'http://www.headingtech.com/center/tz/6/5e33c3c82c974f31b9bc77f3b243b374/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盒码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2018-12-13 10:51:32', '2018-12-13 10:51:32');
+INSERT INTO `t_ser_goods_info` VALUES (163, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/06faff1487514a2796bf5f5b750ae1a1/12', 'http://www.headingtech.com/center/tz/6/392d332248204be4a07bd21efe565cd8/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盒码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2018-12-13 10:51:32', '2018-12-13 10:51:32');
+INSERT INTO `t_ser_goods_info` VALUES (164, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/d35cacab9ba346c586de5b75e4b4ea9f/12', 'http://www.headingtech.com/center/tz/6/e8e9fd66209c4d049a95a15e97408f6f/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盒码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2018-12-13 10:51:32', '2018-12-13 10:51:32');
+INSERT INTO `t_ser_goods_info` VALUES (165, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/616a07eef770490e9762bdeaa6d88ba0/12', 'http://www.headingtech.com/center/tz/6/9596dd6ce0e0467d8497137b271689e3/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盒码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2018-12-13 10:51:32', '2018-12-13 10:51:32');
+INSERT INTO `t_ser_goods_info` VALUES (166, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/f65c95cecde140e5aaabb1cc0f0cce12/12', 'http://www.headingtech.com/center/tz/6/4b1fd596d7e4490da28a3ab70cdabfd7/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盒码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2018-12-13 10:51:32', '2018-12-13 10:51:32');
+INSERT INTO `t_ser_goods_info` VALUES (167, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/ac82498e9577445e854a0ee4b82c8fcf/12', 'http://www.headingtech.com/center/tz/6/250c6cdcee36447a81bc5be422378f53/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盒码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2018-12-13 10:51:32', '2018-12-13 10:51:32');
+INSERT INTO `t_ser_goods_info` VALUES (168, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/fe4b269d8e3f474dac827a38df3f4c0b/12', 'http://www.headingtech.com/center/tz/6/aaf88ed5f78f43e5a12bbf50729f5e29/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盒码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2018-12-13 10:51:32', '2018-12-13 10:51:32');
+INSERT INTO `t_ser_goods_info` VALUES (169, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/a16d33d14736404e9be632c90d1f44be/12', 'http://www.headingtech.com/center/tz/6/956c38b6b77c4e3d9320c143a548ba06/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盒码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2018-12-13 10:51:32', '2018-12-13 10:51:32');
+INSERT INTO `t_ser_goods_info` VALUES (170, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/b16e0c06063545c8a0a4d3c59fd4014a/12', 'http://www.headingtech.com/center/tz/6/b6832b7218c949acaddcbe768f8bfabe/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盒码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2018-12-13 10:51:32', '2018-12-13 10:51:32');
+INSERT INTO `t_ser_goods_info` VALUES (171, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/f17a3520414648fb99ce311e5a20c616/12', 'http://www.headingtech.com/center/tz/6/1bde8f655e9740fc9ce3ce0f6de3c7df/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盒码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2018-12-13 11:38:22', '2018-12-13 11:38:22');
+INSERT INTO `t_ser_goods_info` VALUES (172, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/ab84a4049fac40739fcc2bc29f687a8e/12', 'http://www.headingtech.com/center/tz/6/8a8cc840cce942c0b4a085b787c44530/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盒码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2018-12-13 11:38:22', '2018-12-13 11:38:22');
+INSERT INTO `t_ser_goods_info` VALUES (173, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/b4b646124c0e4030b8bff910ba611eb5/12', 'http://www.headingtech.com/center/tz/6/3a38ed9e5a904974bb0ee2f05dc1e8aa/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盒码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2018-12-13 11:38:22', '2018-12-13 11:38:22');
+INSERT INTO `t_ser_goods_info` VALUES (174, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/72fbd22c3e134ea2a23314563c5706f0/12', 'http://www.headingtech.com/center/tz/6/37d38b3cc01e46299c301b18ddffa719/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盒码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2018-12-13 11:38:22', '2018-12-13 11:38:22');
+INSERT INTO `t_ser_goods_info` VALUES (175, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/29510716577d43d2b8d6c28c8b0f9d99/12', 'http://www.headingtech.com/center/tz/6/343210b1501346c7b3a0b7d5e9dfa892/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盒码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2018-12-13 11:38:22', '2018-12-13 11:38:22');
+INSERT INTO `t_ser_goods_info` VALUES (176, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/4e942c5b3eda487db3dc19ecc92466b5/12', 'http://www.headingtech.com/center/tz/6/d9ed0e44ea17460a9156cff98479048c/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盒码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2018-12-13 11:38:22', '2018-12-13 11:38:22');
+INSERT INTO `t_ser_goods_info` VALUES (177, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/e97ae341c9be4068b4539def94bfc7dc/12', 'http://www.headingtech.com/center/tz/6/8aaf47aeb897460ba5c2485a31bf84f2/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盒码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2018-12-13 11:38:22', '2018-12-13 11:38:22');
+INSERT INTO `t_ser_goods_info` VALUES (178, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/bad8e7905251483bbfee36650f0ae595/12', 'http://www.headingtech.com/center/tz/6/edf3221987934510aca1825f6a1e432c/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盒码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2018-12-13 11:38:22', '2018-12-13 11:38:22');
+INSERT INTO `t_ser_goods_info` VALUES (179, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/c4b7a8f3134c4282ab73f176d0946acd/12', 'http://www.headingtech.com/center/tz/6/0be4da2f4f404d13b377e8979faefb9c/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盒码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2018-12-13 11:38:22', '2018-12-13 11:38:22');
+INSERT INTO `t_ser_goods_info` VALUES (180, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/a083f36267f94adc9d1a768fb92324c1/12', 'http://www.headingtech.com/center/tz/6/6277fd64c737462a9449bdb86976024d/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盒码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2018-12-13 11:38:22', '2018-12-13 11:38:22');
+INSERT INTO `t_ser_goods_info` VALUES (181, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/1d6c7c7b084145408cee04b03d6f125a/12', 'http://www.headingtech.com/center/tz/6/e08e4b04ca8b4815aa79f06b88198af0/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盒码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2018-12-13 11:38:22', '2018-12-13 11:38:22');
+INSERT INTO `t_ser_goods_info` VALUES (182, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/9960d83d2e404da49fa0a35b06ee8363/12', 'http://www.headingtech.com/center/tz/6/5e33c3c82c974f31b9bc77f3b243b374/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盒码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2018-12-13 11:38:22', '2018-12-13 11:38:22');
+INSERT INTO `t_ser_goods_info` VALUES (183, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/06faff1487514a2796bf5f5b750ae1a1/12', 'http://www.headingtech.com/center/tz/6/392d332248204be4a07bd21efe565cd8/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盒码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2018-12-13 11:38:22', '2018-12-13 11:38:22');
+INSERT INTO `t_ser_goods_info` VALUES (184, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/d35cacab9ba346c586de5b75e4b4ea9f/12', 'http://www.headingtech.com/center/tz/6/e8e9fd66209c4d049a95a15e97408f6f/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盒码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2018-12-13 11:38:22', '2018-12-13 11:38:22');
+INSERT INTO `t_ser_goods_info` VALUES (185, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/616a07eef770490e9762bdeaa6d88ba0/12', 'http://www.headingtech.com/center/tz/6/9596dd6ce0e0467d8497137b271689e3/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盒码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2018-12-13 11:38:22', '2018-12-13 11:38:22');
+INSERT INTO `t_ser_goods_info` VALUES (186, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/f65c95cecde140e5aaabb1cc0f0cce12/12', 'http://www.headingtech.com/center/tz/6/4b1fd596d7e4490da28a3ab70cdabfd7/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盒码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2018-12-13 11:38:22', '2018-12-13 11:38:22');
+INSERT INTO `t_ser_goods_info` VALUES (187, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/ac82498e9577445e854a0ee4b82c8fcf/12', 'http://www.headingtech.com/center/tz/6/250c6cdcee36447a81bc5be422378f53/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盒码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2018-12-13 11:38:22', '2018-12-13 11:38:22');
+INSERT INTO `t_ser_goods_info` VALUES (188, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/fe4b269d8e3f474dac827a38df3f4c0b/12', 'http://www.headingtech.com/center/tz/6/aaf88ed5f78f43e5a12bbf50729f5e29/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盒码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2018-12-13 11:38:22', '2018-12-13 11:38:22');
+INSERT INTO `t_ser_goods_info` VALUES (189, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/a16d33d14736404e9be632c90d1f44be/12', 'http://www.headingtech.com/center/tz/6/956c38b6b77c4e3d9320c143a548ba06/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盒码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2018-12-13 11:38:22', '2018-12-13 11:38:22');
+INSERT INTO `t_ser_goods_info` VALUES (190, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/b16e0c06063545c8a0a4d3c59fd4014a/12', 'http://www.headingtech.com/center/tz/6/b6832b7218c949acaddcbe768f8bfabe/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盒码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2018-12-13 11:38:22', '2018-12-13 11:38:22');
+INSERT INTO `t_ser_goods_info` VALUES (191, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/66a84dd6351b4cba8c8f5a348b0cf211/12', 'http://www.headingtech.com/center/tz/6/53193e04b6514febad7e2dd0cd45cc92/12', NULL, NULL, '3000000156027107', NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2018-12-14 12:16:29', '2018-12-14 12:16:29');
+INSERT INTO `t_ser_goods_info` VALUES (192, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/b5dc9c4dbd5342019d8b5e8182ef7b58/12', 'http://www.headingtech.com/center/tz/6/75ac28f1678640c687eec40939b4f937/12', NULL, NULL, '3000000156027107', NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2018-12-14 12:16:29', '2018-12-14 12:16:29');
+INSERT INTO `t_ser_goods_info` VALUES (193, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/921c0bc4adcb4c0ea206d273fdb27b46/12', 'http://www.headingtech.com/center/tz/6/f52d24818e3f475b8f245a7f05ce1113/12', NULL, NULL, '8000001888747371', NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2018-12-14 12:16:29', '2018-12-14 12:16:29');
+INSERT INTO `t_ser_goods_info` VALUES (194, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/68696bae8f08429eadca8291c018baee/12', 'http://www.headingtech.com/center/tz/6/4ae29cf0f3ff40f88f17bed1a19017b7/12', NULL, NULL, '8000001888747371', NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2018-12-14 12:16:29', '2018-12-14 12:16:29');
+INSERT INTO `t_ser_goods_info` VALUES (195, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/047176fd2eac4d1fbb65762f8b702cb0/12', 'http://www.headingtech.com/center/tz/6/332ea528126c460dbe7043e8b4ca55a0/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2018-12-14 12:16:29', '2018-12-14 12:16:29');
+INSERT INTO `t_ser_goods_info` VALUES (196, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/361d34a11e744842b2c33e328f42c322/12', 'http://www.headingtech.com/center/tz/6/51a7b8e7a7fd4662b2f322eae76e0fbc/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2018-12-14 12:16:29', '2018-12-14 12:16:29');
+INSERT INTO `t_ser_goods_info` VALUES (197, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/aeb77a7c17de462184dd4d3f42694597/12', 'http://www.headingtech.com/center/tz/6/6dd781611ec5447b8ff36f483f932e53/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2018-12-14 12:16:29', '2018-12-14 12:16:29');
+INSERT INTO `t_ser_goods_info` VALUES (198, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/fbc24b5500d74949a950852fa4c915d8/12', 'http://www.headingtech.com/center/tz/6/94056d9eeeed4eda864b24701af0933f/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2018-12-14 12:16:29', '2018-12-14 12:16:29');
+INSERT INTO `t_ser_goods_info` VALUES (199, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/5ad0b5ab3ab441b99c5bd830192c7647/12', 'http://www.headingtech.com/center/tz/6/a6355a46fe8f4dd8a9a0e388b1b0d586/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2018-12-14 12:16:29', '2018-12-14 12:16:29');
+INSERT INTO `t_ser_goods_info` VALUES (200, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/fd99c66019934c45a2699cde4a155314/12', 'http://www.headingtech.com/center/tz/6/1806359927c8447ebeb147baf00011c3/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2018-12-14 12:16:29', '2018-12-14 12:16:29');
+INSERT INTO `t_ser_goods_info` VALUES (201, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/d4bc9cc762bc44eeb7fe8aab16ef4099/12', 'http://www.headingtech.com/center/tz/6/477a3ce7aea446b29a5b0c3a73dd50d7/12', NULL, NULL, '6000000818852820', NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, '2018-12-14 15:18:11', '2018-12-14 15:18:11');
+INSERT INTO `t_ser_goods_info` VALUES (202, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/e966e40807bd4c2094eb46acb5acf67b/12', 'http://www.headingtech.com/center/tz/6/7d233d5061e34fff9233b4c3dda01aef/12', NULL, NULL, '6000000818852820', NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 3, '2018-12-14 15:18:11', '2018-12-14 15:18:11');
+INSERT INTO `t_ser_goods_info` VALUES (203, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/581e292afdd549f19824d20917e6bede/12', 'http://www.headingtech.com/center/tz/6/9629fd01742e40a49276dd13b9ca01fb/12', NULL, NULL, '3000001522724679', NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, '2018-12-14 15:18:11', '2018-12-14 15:18:11');
+INSERT INTO `t_ser_goods_info` VALUES (204, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/3d53bd7495394bab91412aeb560d55e1/12', 'http://www.headingtech.com/center/tz/6/bb836569b3e04356b0a5c742ac765768/12', NULL, NULL, '3000001522724679', NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, '2018-12-14 15:18:11', '2018-12-14 15:18:11');
+INSERT INTO `t_ser_goods_info` VALUES (205, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/1db1826fb04f4c8fb4e4ad607153ff4d/12', 'http://www.headingtech.com/center/tz/6/cb064cc07cb24993a093c76963c915c4/12', NULL, NULL, '4000000474173888', NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, '2018-12-14 15:18:11', '2018-12-14 15:18:11');
+INSERT INTO `t_ser_goods_info` VALUES (206, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/18fc51a552db4694b1f3ce9578bf5993/12', 'http://www.headingtech.com/center/tz/6/857d437229904733a11d24ef28f827a4/12', NULL, NULL, '4000000474173888', NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, '2018-12-14 15:18:11', '2018-12-14 15:18:11');
 COMMIT;
 
 -- ----------------------------
@@ -4329,7 +4960,7 @@ CREATE TABLE `t_ser_order_info` (
   `create_time` datetime DEFAULT NULL,
   `update_time` datetime DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='销售订单表';
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='销售订单表';
 
 -- ----------------------------
 -- Records of t_ser_order_info
@@ -4340,6 +4971,13 @@ INSERT INTO `t_ser_order_info` VALUES (2, '20181129132946', 1, NULL, NULL, NULL,
 INSERT INTO `t_ser_order_info` VALUES (3, '20181203215346', 2, NULL, NULL, NULL, NULL, NULL, 2, NULL, 2, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-12-03 21:53:46', '2018-12-03 21:55:11');
 INSERT INTO `t_ser_order_info` VALUES (4, '20181203223116', 2, NULL, NULL, NULL, NULL, NULL, 2, NULL, 2, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-12-03 22:31:16', '2018-12-03 22:31:32');
 INSERT INTO `t_ser_order_info` VALUES (5, '20181207135716', 7, NULL, NULL, NULL, NULL, NULL, 3, NULL, 2, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-12-07 13:57:16', '2018-12-07 14:12:39');
+INSERT INTO `t_ser_order_info` VALUES (6, '20181211150838', 1, NULL, NULL, NULL, NULL, NULL, 2, NULL, 6, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-12-11 15:08:38', '2018-12-11 15:08:40');
+INSERT INTO `t_ser_order_info` VALUES (7, '20181212173757', 9, NULL, NULL, NULL, NULL, NULL, 3, NULL, 7, 7, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-12-12 17:37:57', '2018-12-13 10:22:13');
+INSERT INTO `t_ser_order_info` VALUES (8, '20181213105426', 2, NULL, NULL, NULL, NULL, NULL, 2, NULL, 3, 7, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-12-13 10:54:26', '2018-12-13 11:21:03');
+INSERT INTO `t_ser_order_info` VALUES (9, '20181213131356', 1, NULL, NULL, NULL, NULL, NULL, 2, NULL, 3, 7, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-12-13 13:13:56', '2018-12-14 14:38:56');
+INSERT INTO `t_ser_order_info` VALUES (10, '20181213131600', 1, NULL, NULL, NULL, NULL, NULL, 2, NULL, 3, 7, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-12-13 13:16:00', '2018-12-14 14:38:55');
+INSERT INTO `t_ser_order_info` VALUES (11, '20181213173930', 9, NULL, NULL, NULL, NULL, NULL, 2, NULL, 7, 7, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-12-13 17:39:30', '2018-12-13 17:39:33');
+INSERT INTO `t_ser_order_info` VALUES (12, '20181214152400', 9, NULL, NULL, NULL, NULL, NULL, 4, NULL, 7, 7, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-12-14 15:24:00', '2018-12-14 16:32:55');
 COMMIT;
 
 -- ----------------------------
@@ -4356,7 +4994,7 @@ CREATE TABLE `t_ser_order_info_details` (
   `update_time` datetime DEFAULT NULL COMMENT '修改时间',
   PRIMARY KEY (`id`) USING BTREE,
   KEY `FK_FK_SERV_ORDER_IDEALS` (`order_id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=146 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='销售订单详情';
+) ENGINE=InnoDB AUTO_INCREMENT=158 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='销售订单详情';
 
 -- ----------------------------
 -- Records of t_ser_order_info_details
@@ -4369,6 +5007,13 @@ INSERT INTO `t_ser_order_info_details` VALUES (134, 2, 6, 4, 2, '2018-11-29 14:2
 INSERT INTO `t_ser_order_info_details` VALUES (139, 3, 7, 12, 2, '2018-12-03 21:53:46', '2018-12-03 21:53:46');
 INSERT INTO `t_ser_order_info_details` VALUES (141, 4, 7, 1, 2, '2018-12-03 22:31:16', '2018-12-03 22:31:16');
 INSERT INTO `t_ser_order_info_details` VALUES (143, 5, 12, 2, 2, '2018-12-07 13:57:16', '2018-12-07 13:57:16');
+INSERT INTO `t_ser_order_info_details` VALUES (148, 6, 13, 1, 6, '2018-12-11 15:08:38', '2018-12-11 15:08:38');
+INSERT INTO `t_ser_order_info_details` VALUES (150, 7, 14, 1, 7, '2018-12-12 17:37:57', '2018-12-12 17:37:57');
+INSERT INTO `t_ser_order_info_details` VALUES (151, 8, 13, 1, 3, '2018-12-13 10:54:26', '2018-12-13 10:54:26');
+INSERT INTO `t_ser_order_info_details` VALUES (152, 9, 13, 1, 3, '2018-12-13 13:13:56', '2018-12-13 13:13:56');
+INSERT INTO `t_ser_order_info_details` VALUES (153, 10, 13, 1, 3, '2018-12-13 13:16:00', '2018-12-13 13:16:00');
+INSERT INTO `t_ser_order_info_details` VALUES (155, 11, 14, 1, 7, '2018-12-13 17:39:30', '2018-12-13 17:39:30');
+INSERT INTO `t_ser_order_info_details` VALUES (157, 12, 14, 3, 7, '2018-12-14 15:24:00', '2018-12-14 15:24:00');
 COMMIT;
 
 -- ----------------------------
@@ -4395,7 +5040,7 @@ CREATE TABLE `t_ser_prize_manager_info` (
   PRIMARY KEY (`prize_manage_id`) USING BTREE,
   KEY `FK_PK_PRIZE_MANAGER` (`prize_type_id`) USING BTREE,
   CONSTRAINT `t_ser_prize_manager_info_ibfk_1` FOREIGN KEY (`prize_type_id`) REFERENCES `t_ser_prize_type_info` (`prize_type_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='奖项管理';
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='奖项管理';
 
 -- ----------------------------
 -- Records of t_ser_prize_manager_info
@@ -4405,6 +5050,7 @@ INSERT INTO `t_ser_prize_manager_info` VALUES (1, 1, '现金红包', '现金红�
 INSERT INTO `t_ser_prize_manager_info` VALUES (2, 2, '获得积分', '扫码获得积分', '扫码获得积分', 2, 0, NULL, NULL, NULL, 'PT', NULL, NULL, NULL, '2018-11-30 11:26:09', '2018-12-03 10:14:45');
 INSERT INTO `t_ser_prize_manager_info` VALUES (5, 1, '今晚最后一次测试', '庆祝今晚测试通过！', NULL, 2, 0, NULL, NULL, NULL, 'HB', NULL, NULL, NULL, '2018-12-03 22:51:12', '2018-12-03 22:59:21');
 INSERT INTO `t_ser_prize_manager_info` VALUES (6, 1, '菊花', '1', '111', 2, 0, NULL, NULL, NULL, 'HB', NULL, NULL, NULL, '2018-12-07 13:58:55', '2018-12-07 13:58:55');
+INSERT INTO `t_ser_prize_manager_info` VALUES (7, 1, '大老虎酒', '钱', '无', 6, 0, NULL, NULL, NULL, 'HB', NULL, NULL, NULL, '2018-12-11 15:06:46', '2018-12-11 15:06:46');
 COMMIT;
 
 -- ----------------------------
@@ -4446,7 +5092,7 @@ CREATE TABLE `t_ser_prize_recode_info` (
   `update_time` datetime DEFAULT NULL COMMENT '修改时间',
   PRIMARY KEY (`prize_recor_id`) USING BTREE,
   UNIQUE KEY `pr_code` (`pr_code`(255)) USING BTREE COMMENT '商品溯源码'
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='奖项记录（布奖、兑奖）';
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='奖项记录（布奖、兑奖）';
 
 -- ----------------------------
 -- Records of t_ser_prize_recode_info
@@ -4457,6 +5103,12 @@ INSERT INTO `t_ser_prize_recode_info` VALUES (16, '20181203223116', 'http://www.
 INSERT INTO `t_ser_prize_recode_info` VALUES (17, '20181129125419', '', 3, '狗年过年大奖', NULL, 1, 76, NULL, NULL, NULL, 1, 1, NULL, NULL, 1, NULL, NULL, NULL, '2018-12-04 00:00:00', '2019-01-10 00:00:00', 2, NULL, NULL, NULL, NULL, 'wxhb', NULL, NULL, NULL, '2018-12-04 16:46:53', '2018-12-04 16:46:53');
 INSERT INTO `t_ser_prize_recode_info` VALUES (21, '20181207135716', 'http://www.headingtech.com/center/tz/6/19a6df8062124df0aaaf5acda946e1a4/12', 5, '抽红包', 12, 1, 347, NULL, 1.61, NULL, 1, 1, NULL, NULL, 1, NULL, NULL, NULL, '2018-12-07 00:00:00', '2019-01-01 00:00:00', 2, NULL, NULL, NULL, NULL, 'HB', NULL, NULL, NULL, '2018-12-07 14:34:00', '2018-12-07 14:34:00');
 INSERT INTO `t_ser_prize_recode_info` VALUES (22, '20181207135716', 'http://www.headingtech.com/center/tz/6/cc104e91c5bc448c974ac9909640e01f/12', 5, '抽红包', 12, 1, 347, NULL, 0.00, NULL, 1, 1, NULL, NULL, 1, NULL, NULL, NULL, '2018-12-07 00:00:00', '2019-01-01 00:00:00', 2, NULL, NULL, NULL, NULL, 'HB', NULL, NULL, NULL, '2018-12-07 14:34:00', '2018-12-07 14:34:00');
+INSERT INTO `t_ser_prize_recode_info` VALUES (23, '20181214152400', 'http://www.headingtech.com/center/tz/6/d4bc9cc762bc44eeb7fe8aab16ef4099/12', 9, '海之蓝布奖', 14, 1, NULL, NULL, 10.00, NULL, 2, 2, NULL, NULL, 1, NULL, NULL, NULL, '2018-12-14 00:00:00', '2019-01-09 00:00:00', 7, NULL, NULL, NULL, NULL, 'HB', NULL, NULL, NULL, '2018-12-14 16:36:57', '2018-12-14 16:36:57');
+INSERT INTO `t_ser_prize_recode_info` VALUES (24, '20181214152400', 'http://www.headingtech.com/center/tz/6/e966e40807bd4c2094eb46acb5acf67b/12', 9, '海之蓝布奖', 14, 1, NULL, NULL, 10.00, NULL, 2, 2, NULL, NULL, 1, NULL, '2018-12-14 16:37:43', 'oM4Zm0gqYxSUZgoasecfK3bhRa9k', '2018-12-14 00:00:00', '2019-01-09 00:00:00', 7, NULL, NULL, NULL, NULL, 'HB', NULL, NULL, NULL, '2018-12-14 16:36:57', '2018-12-14 16:36:57');
+INSERT INTO `t_ser_prize_recode_info` VALUES (25, '20181214152400', 'http://www.headingtech.com/center/tz/6/581e292afdd549f19824d20917e6bede/12', 9, '海之蓝布奖', 14, 1, NULL, NULL, 10.00, NULL, 2, 2, NULL, NULL, 1, NULL, NULL, NULL, '2018-12-14 00:00:00', '2019-01-09 00:00:00', 7, NULL, NULL, NULL, NULL, 'HB', NULL, NULL, NULL, '2018-12-14 16:36:57', '2018-12-14 16:36:57');
+INSERT INTO `t_ser_prize_recode_info` VALUES (26, '20181214152400', 'http://www.headingtech.com/center/tz/6/3d53bd7495394bab91412aeb560d55e1/12', 9, '海之蓝布奖', 14, 1, NULL, NULL, 10.00, NULL, 2, 2, NULL, NULL, 1, NULL, NULL, NULL, '2018-12-14 00:00:00', '2019-01-09 00:00:00', 7, NULL, NULL, NULL, NULL, 'HB', NULL, NULL, NULL, '2018-12-14 16:36:57', '2018-12-14 16:36:57');
+INSERT INTO `t_ser_prize_recode_info` VALUES (27, '20181214152400', 'http://www.headingtech.com/center/tz/6/1db1826fb04f4c8fb4e4ad607153ff4d/12', 9, '海之蓝布奖', 14, 1, NULL, NULL, 10.00, NULL, 2, 2, NULL, NULL, 1, NULL, NULL, NULL, '2018-12-14 00:00:00', '2019-01-09 00:00:00', 7, NULL, NULL, NULL, NULL, 'HB', NULL, NULL, NULL, '2018-12-14 16:36:57', '2018-12-14 16:36:57');
+INSERT INTO `t_ser_prize_recode_info` VALUES (28, '20181214152400', 'http://www.headingtech.com/center/tz/6/18fc51a552db4694b1f3ce9578bf5993/12', 9, '海之蓝布奖', 14, 1, NULL, NULL, 10.00, NULL, 2, 2, NULL, NULL, 1, NULL, NULL, NULL, '2018-12-14 00:00:00', '2019-01-09 00:00:00', 7, NULL, NULL, NULL, NULL, 'HB', NULL, NULL, NULL, '2018-12-14 16:36:57', '2018-12-14 16:36:57');
 COMMIT;
 
 -- ----------------------------
@@ -4495,17 +5147,20 @@ CREATE TABLE `t_ser_prize_set_info` (
   PRIMARY KEY (`prize_set_id`) USING BTREE,
   KEY `prize_manager_id` (`prize_manager_id`) USING BTREE,
   CONSTRAINT `t_ser_prize_set_info_ibfk_1` FOREIGN KEY (`prize_manager_id`) REFERENCES `t_ser_prize_manager_info` (`prize_manage_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='奖项设定';
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='奖项设定';
 
 -- ----------------------------
 -- Records of t_ser_prize_set_info
 -- ----------------------------
 BEGIN;
-INSERT INTO `t_ser_prize_set_info` VALUES (1, 1, '扫码获得现金红包', 5, 1, 19, 2, 2.00, 20.00, 5, 30, 1, 2, 100, 200, '2018-11-30 00:00:00', '2018-12-03 00:00:00', 2, 1, NULL, NULL, NULL, 'HB', NULL, NULL, NULL, NULL, '2018-12-10 17:53:51');
+INSERT INTO `t_ser_prize_set_info` VALUES (1, 1, '扫码获得现金红包', 5, 1, 19, 2, 2.00, 20.00, 5, 30, 1, 2, 100, 200, '2018-11-30 00:00:00', '2018-12-03 00:00:00', 6, 0, NULL, NULL, NULL, 'HB', NULL, NULL, NULL, NULL, '2018-12-11 15:17:41');
 INSERT INTO `t_ser_prize_set_info` VALUES (2, 1, '扫码红包不限量', 5, 1, 19, 0, 0.10, 10.00, 1, 14, 2, 2, 11, 15, '2018-12-03 00:00:00', '2018-12-07 00:00:00', 2, 0, NULL, NULL, NULL, 'HB', NULL, NULL, NULL, '2018-12-03 17:50:05', '2018-12-05 17:00:16');
 INSERT INTO `t_ser_prize_set_info` VALUES (4, 5, '测试红包！', 7, 1, 3, 1, 1.00, 2.00, 10, 20, 1, 1, 0, 0, '2018-12-03 00:00:00', '2019-01-09 00:00:00', 2, 0, NULL, NULL, NULL, 'HB', NULL, NULL, NULL, '2018-12-03 22:51:46', '2018-12-05 17:00:23');
 INSERT INTO `t_ser_prize_set_info` VALUES (5, 6, '抽红包', 12, 1, 347, 1, 1.00, 2.00, 0, 0, 1, 1, 0, 0, '2018-12-07 00:00:00', '2019-01-01 00:00:00', 5, 0, NULL, NULL, NULL, 'HB', NULL, NULL, NULL, '2018-12-07 13:59:47', '2018-12-07 14:16:46');
 INSERT INTO `t_ser_prize_set_info` VALUES (6, 5, '123123', NULL, 1, NULL, 0, 1.00, 5.00, 0, 0, 2, 1, 0, 0, '2018-12-11 00:00:00', '2018-12-13 00:00:00', 2, 0, NULL, NULL, NULL, 'HB', NULL, NULL, NULL, '2018-12-11 11:24:44', '2018-12-11 11:24:44');
+INSERT INTO `t_ser_prize_set_info` VALUES (7, 7, '测试', NULL, 1, NULL, 0, 22.00, 22.00, 0, 0, 2, 2, 0, 0, '2018-12-11 00:00:00', '2018-12-14 00:00:00', 6, 0, NULL, NULL, NULL, 'HB', NULL, NULL, NULL, '2018-12-11 15:07:13', '2018-12-11 15:07:13');
+INSERT INTO `t_ser_prize_set_info` VALUES (8, 1, '测试布奖2018-12-14', NULL, 1, NULL, 0, NULL, NULL, 0, 0, 1, 1, 0, 0, '2018-12-14 00:00:00', '2018-12-26 00:00:00', 7, 0, NULL, NULL, NULL, 'HB', NULL, NULL, NULL, '2018-12-14 14:52:37', '2018-12-14 14:52:37');
+INSERT INTO `t_ser_prize_set_info` VALUES (9, 1, '海之蓝布奖', NULL, 1, NULL, 0, 10.00, 10.00, 0, 0, 2, 2, 0, 0, '2018-12-14 00:00:00', '2019-01-09 00:00:00', 7, 0, NULL, NULL, NULL, 'HB', NULL, NULL, NULL, '2018-12-14 16:36:30', '2018-12-14 16:36:30');
 COMMIT;
 
 -- ----------------------------
@@ -4566,13 +5221,15 @@ CREATE TABLE `t_ser_purchase_order_info` (
   `create_time` datetime DEFAULT NULL COMMENT '创建时间',
   `update_time` datetime DEFAULT NULL COMMENT '修改时间',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='商品退货订单';
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='商品退货订单';
 
 -- ----------------------------
 -- Records of t_ser_purchase_order_info
 -- ----------------------------
 BEGIN;
 INSERT INTO `t_ser_purchase_order_info` VALUES (1, 2, '20181211134104', '就是要退货', 0, NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-12-11 13:41:04', '2018-12-11 13:41:04');
+INSERT INTO `t_ser_purchase_order_info` VALUES (6, 1, '20181212134219', NULL, 0, NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-12-12 13:42:19', '2018-12-12 13:42:19');
+INSERT INTO `t_ser_purchase_order_info` VALUES (7, 2, '20181212134221', '就是要退货', 2, NULL, 7, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-12-12 13:42:21', '2018-12-13 11:21:15');
 COMMIT;
 
 -- ----------------------------
@@ -4599,7 +5256,7 @@ CREATE TABLE `t_ser_purchase_order_info_details` (
   `create_time` datetime DEFAULT NULL,
   `update_time` datetime DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='退货订单商品明细';
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='退货订单商品明细';
 
 -- ----------------------------
 -- Records of t_ser_purchase_order_info_details
@@ -4607,6 +5264,8 @@ CREATE TABLE `t_ser_purchase_order_info_details` (
 BEGIN;
 INSERT INTO `t_ser_purchase_order_info_details` VALUES (11, 1, 8, 3, NULL, NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-12-11 13:41:04', '2018-12-11 13:41:04');
 INSERT INTO `t_ser_purchase_order_info_details` VALUES (12, 1, 9, 5, NULL, NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-12-11 13:41:04', '2018-12-11 13:41:04');
+INSERT INTO `t_ser_purchase_order_info_details` VALUES (13, -1, 5, 1, NULL, NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-12-12 13:42:18', '2018-12-12 13:42:18');
+INSERT INTO `t_ser_purchase_order_info_details` VALUES (14, 6, 5, 1, NULL, NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-12-12 13:42:19', '2018-12-12 13:42:19');
 COMMIT;
 
 -- ----------------------------
@@ -4629,7 +5288,7 @@ CREATE TABLE `t_ser_warehouse_goods_info` (
   KEY `warehouse_id` (`warehouse_id`) USING BTREE,
   KEY `goods_id` (`goods_id`) USING BTREE,
   CONSTRAINT `t_ser_warehouse_goods_info_ibfk_1` FOREIGN KEY (`warehouse_id`) REFERENCES `t_ser_warehouse_info` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='商品入库';
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='商品入库';
 
 -- ----------------------------
 -- Records of t_ser_warehouse_goods_info
@@ -4640,6 +5299,21 @@ INSERT INTO `t_ser_warehouse_goods_info` VALUES (3, 0, 1, NULL, '900000100579586
 INSERT INTO `t_ser_warehouse_goods_info` VALUES (4, 0, 1, NULL, 'http://www.headingtech.com/center/tz/6/d0685add2d44465eb226147e01199d67/12', 2, '20181203223747', 3, NULL, '2018-12-03 22:37:47', '2018-12-03 22:41:21');
 INSERT INTO `t_ser_warehouse_goods_info` VALUES (5, 0, 1, NULL, '', 1, '20181207141218', 3, NULL, '2018-12-07 14:12:18', '2018-12-07 14:12:18');
 INSERT INTO `t_ser_warehouse_goods_info` VALUES (6, 0, 1, NULL, '6000001227383389', 2, '20181207141218', 3, NULL, '2018-12-07 14:12:18', '2018-12-07 14:12:39');
+INSERT INTO `t_ser_warehouse_goods_info` VALUES (7, 0, 1, NULL, '8000001933717133', 1, '20181211150600', 4, NULL, '2018-12-11 15:06:00', '2018-12-11 15:06:00');
+INSERT INTO `t_ser_warehouse_goods_info` VALUES (8, 0, 1, NULL, '3000000410808105', 2, '20181212175716', 3, NULL, '2018-12-12 17:57:16', '2018-12-13 10:22:13');
+INSERT INTO `t_ser_warehouse_goods_info` VALUES (9, 0, 1, NULL, 'http://www.headingtech.com/center/tz/6/36a649dec320419e8714ba793d1223ea/12', 1, '20181213112721', 3, NULL, '2018-12-13 11:27:21', '2018-12-13 11:27:21');
+INSERT INTO `t_ser_warehouse_goods_info` VALUES (10, 0, 1, NULL, 'http://www.headingtech.com/center/tz/6/66cdb3466db54f41a41da615e58f6a8d/12', 1, '20181213112721', 3, NULL, '2018-12-13 11:27:21', '2018-12-13 11:27:21');
+INSERT INTO `t_ser_warehouse_goods_info` VALUES (11, 0, 1, NULL, 'http://www.headingtech.com/center/tz/6/7284f27bbb8547b0b470d83ce9515ec6/12', 1, '20181213112721', 3, NULL, '2018-12-13 11:27:21', '2018-12-13 11:27:21');
+INSERT INTO `t_ser_warehouse_goods_info` VALUES (12, 0, 1, NULL, 'http://www.headingtech.com/center/tz/6/8d6960b3b0f948a69dc0da3472e34a41/12', 1, '20181213112721', 3, NULL, '2018-12-13 11:27:21', '2018-12-13 11:27:21');
+INSERT INTO `t_ser_warehouse_goods_info` VALUES (13, 0, 1, NULL, 'http://www.headingtech.com/center/tz/6/e68adb9dbe294ee4b03f0385a9cfc6ef/12', 1, '20181213112721', 3, NULL, '2018-12-13 11:27:21', '2018-12-13 11:27:21');
+INSERT INTO `t_ser_warehouse_goods_info` VALUES (14, 0, 1, NULL, 'http://www.headingtech.com/center/tz/6/012c17193f13423fb7a97b3757cf96af/12', 1, '20181213113639', 3, NULL, '2018-12-13 11:36:39', '2018-12-13 11:36:39');
+INSERT INTO `t_ser_warehouse_goods_info` VALUES (15, 0, 1, NULL, 'http://www.headingtech.com/center/tz/6/4a7807a2375442238b8e6a92025cf4fe/12', 1, '20181213113639', 3, NULL, '2018-12-13 11:36:39', '2018-12-13 11:36:39');
+INSERT INTO `t_ser_warehouse_goods_info` VALUES (16, 0, 1, NULL, 'http://www.headingtech.com/center/tz/6/6787378e417b4e679d694ea6a373f83c/12', 1, '20181213113639', 3, NULL, '2018-12-13 11:36:39', '2018-12-13 11:36:39');
+INSERT INTO `t_ser_warehouse_goods_info` VALUES (17, 0, 1, NULL, 'http://www.headingtech.com/center/tz/6/8e3b4e319fe443caa9f4c516084c0a80/12', 1, '20181213113655', 3, NULL, '2018-12-13 11:36:55', '2018-12-13 11:36:55');
+INSERT INTO `t_ser_warehouse_goods_info` VALUES (18, 0, 1, NULL, 'http://www.headingtech.com/center/tz/6/b6875233daaf402394fcf4e3f22add9c/12', 1, '20181213113655', 3, NULL, '2018-12-13 11:36:55', '2018-12-13 11:36:55');
+INSERT INTO `t_ser_warehouse_goods_info` VALUES (19, 0, 1, NULL, '6000000818852820', 2, '20181214152050', 3, NULL, '2018-12-14 15:20:50', '2018-12-14 15:26:49');
+INSERT INTO `t_ser_warehouse_goods_info` VALUES (20, 0, 1, NULL, '3000001522724679', 2, '20181214152120', 3, NULL, '2018-12-14 15:21:20', '2018-12-14 16:32:55');
+INSERT INTO `t_ser_warehouse_goods_info` VALUES (21, 0, 1, NULL, '4000000474173888', 2, '20181214152129', 3, NULL, '2018-12-14 15:21:29', '2018-12-14 16:32:55');
 COMMIT;
 
 -- ----------------------------
@@ -4663,7 +5337,7 @@ CREATE TABLE `t_ser_warehouse_info` (
   PRIMARY KEY (`id`) USING BTREE,
   KEY `user_id` (`user_id`) USING BTREE,
   CONSTRAINT `t_ser_warehouse_info_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `t_sys_user_info` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='仓库信息';
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='仓库信息';
 
 -- ----------------------------
 -- Records of t_ser_warehouse_info
@@ -4675,6 +5349,7 @@ INSERT INTO `t_ser_warehouse_info` VALUES (3, '新的河套仓库', 3, '仓库�
 INSERT INTO `t_ser_warehouse_info` VALUES (4, '新的河套仓库', NULL, '仓库小王', '1588858585881212', NULL, NULL, 0, NULL, NULL, NULL, '2018-12-04 14:51:58', '2018-12-04 14:51:58');
 INSERT INTO `t_ser_warehouse_info` VALUES (5, '新的河套仓库', NULL, '仓库小王', '1588858585881212', NULL, NULL, 0, NULL, NULL, NULL, '2018-12-04 14:51:59', '2018-12-04 14:51:59');
 INSERT INTO `t_ser_warehouse_info` VALUES (6, '仓库12345', 3, '张三', '1234567890', '123', NULL, 0, NULL, NULL, NULL, '2018-12-07 13:56:38', '2018-12-07 13:56:38');
+INSERT INTO `t_ser_warehouse_info` VALUES (7, '广东天很冷仓库', 3, '张三', '15099929992', '100', NULL, 0, NULL, NULL, NULL, '2018-12-12 17:22:51', '2018-12-12 17:22:51');
 COMMIT;
 
 -- ----------------------------
@@ -7976,7 +8651,7 @@ CREATE TABLE `t_sys_file_info` (
   `create_time` datetime DEFAULT NULL COMMENT '创建时间',
   `update_time` datetime DEFAULT NULL COMMENT '修改时间',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='上传文件信息';
+) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='上传文件信息';
 
 -- ----------------------------
 -- Records of t_sys_file_info
@@ -8006,6 +8681,11 @@ INSERT INTO `t_sys_file_info` VALUES (21, '675a2520364d47a6b95636209d43c16d0011.
 INSERT INTO `t_sys_file_info` VALUES (22, '5d3fd66040bd4477ba31e6844aca76ab0011.jpg', 'upload/5d3fd66040bd4477ba31e6844aca76ab0011.jpg', '2018-11-14 16:02:11', '2018-11-14 16:02:11');
 INSERT INTO `t_sys_file_info` VALUES (23, '092d5171b907416bba017c41a39f9918河套王年份酒 -天赋神韵 淡雅浓香 河套王酒.png', 'upload/092d5171b907416bba017c41a39f9918河套王年份酒 -天赋神韵 淡雅浓香 河套王酒.png', '2018-12-04 15:31:25', '2018-12-04 15:31:25');
 INSERT INTO `t_sys_file_info` VALUES (24, '5390568efb3f493593ad9b5085206518LOGO.jpg', 'upload/5390568efb3f493593ad9b5085206518LOGO.jpg', '2018-12-07 12:33:51', '2018-12-07 12:33:51');
+INSERT INTO `t_sys_file_info` VALUES (25, '1a4321c289ca46c288bc3ed9d5463a56logo.jpg', 'upload/1a4321c289ca46c288bc3ed9d5463a56logo.jpg', '2018-12-11 14:49:17', '2018-12-11 14:49:17');
+INSERT INTO `t_sys_file_info` VALUES (26, '4543e501021d4b489c407fd448192cf6logo2.png', 'upload/4543e501021d4b489c407fd448192cf6logo2.png', '2018-12-12 14:40:51', '2018-12-12 14:40:51');
+INSERT INTO `t_sys_file_info` VALUES (27, '43b309e535a141b9bd470a38ff69fe12p2317872999.jpg', 'upload/43b309e535a141b9bd470a38ff69fe12p2317872999.jpg', '2018-12-14 14:25:06', '2018-12-14 14:25:06');
+INSERT INTO `t_sys_file_info` VALUES (28, 'c0947b4bb2e64dcf9b53f0a5c28ca822经典跑车梅赛德斯-奔弛300SL（1955）.jpg', 'upload/c0947b4bb2e64dcf9b53f0a5c28ca822经典跑车梅赛德斯-奔弛300SL（1955）.jpg', '2018-12-14 14:25:23', '2018-12-14 14:25:23');
+INSERT INTO `t_sys_file_info` VALUES (29, '43ac950be930423d9e2f34274abf37d6素材1.jpg', 'upload/43ac950be930423d9e2f34274abf37d6素材1.jpg', '2018-12-14 14:25:38', '2018-12-14 14:25:38');
 COMMIT;
 
 -- ----------------------------
@@ -8253,7 +8933,7 @@ CREATE TABLE `t_sys_user_info` (
   `create_time` timestamp NULL DEFAULT NULL COMMENT '创建时间',
   `update_time` timestamp NULL DEFAULT NULL COMMENT '修改时间',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='用户信息表';
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='用户信息表';
 
 -- ----------------------------
 -- Records of t_sys_user_info
@@ -8264,6 +8944,8 @@ INSERT INTO `t_sys_user_info` VALUES (2, 1, '系统管理员', 'admin', '25d55ad
 INSERT INTO `t_sys_user_info` VALUES (3, 1, '仓库员1', 'ck1', '25d55ad283aa400af464c76d713c07ad', '12345678', 0, 0, NULL, 1, '2018-11-15 12:53:35', '2018-11-15 12:53:35');
 INSERT INTO `t_sys_user_info` VALUES (4, 1, '仓库员2', 'ck2', '25d55ad283aa400af464c76d713c07ad', '12345678', 0, 0, NULL, 1, '2018-11-15 12:53:50', '2018-11-15 12:53:50');
 INSERT INTO `t_sys_user_info` VALUES (5, 1, '财务1', 'cw1', '25d55ad283aa400af464c76d713c07ad', '12345678', 0, 0, NULL, 1, '2018-11-27 16:41:12', '2018-11-27 16:41:12');
+INSERT INTO `t_sys_user_info` VALUES (6, 1, '张鑫1', 'zx1', '25d55ad283aa400af464c76d713c07ad', '12345678', 0, 0, NULL, 1, '2018-12-11 14:48:34', '2018-12-11 14:48:34');
+INSERT INTO `t_sys_user_info` VALUES (7, 1, '张鑫2', 'zx2', '25d55ad283aa400af464c76d713c07ad', '12345678', 0, 0, NULL, 1, '2018-12-12 14:17:33', '2018-12-12 14:17:33');
 COMMIT;
 
 -- ----------------------------
@@ -8279,7 +8961,7 @@ CREATE TABLE `t_sys_user_role_info` (
   KEY `role_id` (`role_id`) USING BTREE,
   CONSTRAINT `t_sys_user_role_info_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `t_sys_user_info` (`id`),
   CONSTRAINT `t_sys_user_role_info_ibfk_2` FOREIGN KEY (`role_id`) REFERENCES `t_sys_role_info` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='用户关联角色';
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='用户关联角色';
 
 -- ----------------------------
 -- Records of t_sys_user_role_info
@@ -8291,6 +8973,16 @@ INSERT INTO `t_sys_user_role_info` VALUES (3, 2, 2);
 INSERT INTO `t_sys_user_role_info` VALUES (4, 3, 4);
 INSERT INTO `t_sys_user_role_info` VALUES (5, 4, 4);
 INSERT INTO `t_sys_user_role_info` VALUES (6, 5, 6);
+INSERT INTO `t_sys_user_role_info` VALUES (7, 6, 2);
+INSERT INTO `t_sys_user_role_info` VALUES (8, 6, 3);
+INSERT INTO `t_sys_user_role_info` VALUES (9, 6, 4);
+INSERT INTO `t_sys_user_role_info` VALUES (10, 6, 5);
+INSERT INTO `t_sys_user_role_info` VALUES (11, 6, 6);
+INSERT INTO `t_sys_user_role_info` VALUES (17, 7, 2);
+INSERT INTO `t_sys_user_role_info` VALUES (18, 7, 3);
+INSERT INTO `t_sys_user_role_info` VALUES (19, 7, 4);
+INSERT INTO `t_sys_user_role_info` VALUES (20, 7, 5);
+INSERT INTO `t_sys_user_role_info` VALUES (21, 7, 6);
 COMMIT;
 
 -- ----------------------------
@@ -8330,7 +9022,7 @@ delimiter ;
 -- ----------------------------
 DROP PROCEDURE IF EXISTS `P_DELTEMPS`;
 delimiter ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `P_DELTEMPS`( )
+CREATE DEFINER=`root`@`localhost` PROCEDURE `P_DELTEMPS`()
 BEGIN
 #2,3
 	DELETE a.* 
@@ -8463,7 +9155,7 @@ delimiter ;
 -- ----------------------------
 DROP PROCEDURE IF EXISTS `P_UPDAEGOODS2`;
 delimiter ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `P_UPDAEGOODS2`( IN v_improtno VARCHAR ( 32 ), IN v_left_code_type INT, IN v_right_code_type INT )
+CREATE DEFINER=`root`@`localhost` PROCEDURE `P_UPDAEGOODS2`(IN v_improtno VARCHAR ( 32 ), IN v_left_code_type INT, IN v_right_code_type INT)
 BEGIN
 	DECLARE
 		v_imno VARCHAR ( 255 );
@@ -8493,36 +9185,49 @@ BEGIN
 			updatetype = 3 THEN
 			IF
 				codetype = 0 THEN
-					UPDATE t_ser_goods_info s 
-					SET m3 = ( SELECT left_code FROM t_ser_code_import_temp_info b WHERE b.import_no = v_improtno AND b.right_code = s.m2 );
+						update  t_ser_goods_info s ,t_ser_code_import_temp_info b set s.m3=b.left_code  
+						where b.right_code=s.m2  and b.import_no= v_improtno;
+				
+				#	UPDATE t_ser_goods_info s 
+				#	SET m3 = ( SELECT left_code FROM t_ser_code_import_temp_info b WHERE b.import_no = v_improtno AND #b.right_code = s.m2 );
 				
 				ELSEIF codetype = 1 THEN
-				UPDATE t_ser_goods_info s 
-				SET m3 = ( SELECT right_code FROM t_ser_code_import_temp_info b WHERE b.import_no = v_improtno AND b.left_code = s.m2 );
+				update  t_ser_goods_info s ,t_ser_code_import_temp_info b set s.m3=b.right_code  
+						where b.left_code=s.m2  and b.import_no= v_improtno;
 				
 			END IF;
 			
 			ELSEIF updatetype = 4 THEN
 			IF
 				codetype = 0 THEN
-					UPDATE t_ser_goods_info s 
-					SET m4 = ( SELECT left_code FROM t_ser_code_import_temp_info b WHERE b.import_no = v_improtno AND b.right_code = s.m2 );
+					update  t_ser_goods_info s ,t_ser_code_import_temp_info b set s.m4=b.left_code  
+						where b.right_code=s.m2  and b.import_no= v_improtno;
 				
 				ELSEIF codetype = 1 THEN
-				UPDATE t_ser_goods_info s 
-				SET m4 = ( SELECT right_code FROM t_ser_code_import_temp_info b WHERE b.import_no = v_improtno AND b.left_code = s.m2 );
+				update  t_ser_goods_info s ,t_ser_code_import_temp_info b set s.m4=b.right_code  
+						where b.left_code=s.m2  and b.import_no= v_improtno;
 				
 			END IF;
 			
 			ELSEIF updatetype = 5 THEN
 			IF
 				codetype = 0 THEN
-					UPDATE t_ser_goods_info s 
-					SET m5 = ( SELECT left_code FROM t_ser_code_import_temp_info b WHERE b.import_no = v_improtno AND b.right_code = s.m2 );
+				
+					update  t_ser_goods_info s ,t_ser_code_import_temp_info b set s.m5=b.left_code  
+						where b.right_code=s.m2  and b.import_no= v_improtno;
+						
+					#UPDATE t_ser_goods_info s 
+					#SET m5 = ( SELECT left_code FROM t_ser_code_import_temp_info b WHERE b.import_no = v_improtno AND #b.right_code = s.m2 );
 				
 				ELSEIF codetype = 1 THEN
-				UPDATE t_ser_goods_info s 
-				SET m5 = ( SELECT right_code FROM t_ser_code_import_temp_info b WHERE b.import_no = v_improtno AND b.left_code = s.m2 );
+				
+						update  t_ser_goods_info s ,t_ser_code_import_temp_info b set s.m5=b.right_code  
+						where b.left_code=s.m2  and b.import_no= v_improtno;
+				
+				
+				
+				#UPDATE t_ser_goods_info s 
+				#SET m5 = ( SELECT right_code FROM t_ser_code_import_temp_info b WHERE b.import_no = v_improtno AND #b.left_code = s.m2 );
 				
 			END IF;
 			
@@ -8533,24 +9238,24 @@ BEGIN
 			updatetype = 4 THEN
 			IF
 				codetype = 0 THEN
-					UPDATE t_ser_goods_info s 
-					SET m4 = ( SELECT left_code FROM t_ser_code_import_temp_info b WHERE b.import_no = v_improtno AND b.right_code = s.m3 );
+						update  t_ser_goods_info s ,t_ser_code_import_temp_info b set s.m4=b.left_code  
+						where b.right_code=s.m3  and b.import_no= v_improtno;
 				
 				ELSEIF codetype = 1 THEN
-				UPDATE t_ser_goods_info s 
-				SET m4 = ( SELECT right_code FROM t_ser_code_import_temp_info b WHERE b.import_no = v_improtno AND b.left_code = s.m3 );
+						update  t_ser_goods_info s ,t_ser_code_import_temp_info b set s.m4=b.right_code  
+						where b.left_code=s.m3  and b.import_no= v_improtno;
 				
 			END IF;
 			
 			ELSEIF updatetype = 5 THEN
 			IF
 				codetype = 0 THEN
-					UPDATE t_ser_goods_info s 
-					SET m5 = ( SELECT left_code FROM t_ser_code_import_temp_info b WHERE b.import_no = v_improtno AND b.right_code = s.m3 );
+					update  t_ser_goods_info s ,t_ser_code_import_temp_info b set s.m5=b.left_code  
+						where b.right_code=s.m3  and b.import_no= v_improtno;
 				
 				ELSEIF codetype = 1 THEN
-				UPDATE t_ser_goods_info s 
-				SET m5 = ( SELECT right_code FROM t_ser_code_import_temp_info b WHERE b.import_no = v_improtno AND b.left_code = s.m3 );
+						update  t_ser_goods_info s ,t_ser_code_import_temp_info b set s.m5=b.right_code  
+						where b.left_code=s.m3  and b.import_no= v_improtno;
 				
 			END IF;
 			
@@ -8561,12 +9266,12 @@ BEGIN
 			updatetype = 5 THEN
 			IF
 				codetype = 0 THEN
-					UPDATE t_ser_goods_info s 
-					SET m5 = ( SELECT left_code FROM t_ser_code_import_temp_info b WHERE b.import_no = v_improtno AND b.right_code = s.m4 );
+					update  t_ser_goods_info s ,t_ser_code_import_temp_info b set s.m5=b.left_code  
+						where b.right_code=s.m4  and b.import_no= v_improtno;
 				
 				ELSEIF codetype = 1 THEN
-				UPDATE t_ser_goods_info s 
-				SET m5 = ( SELECT right_code FROM t_ser_code_import_temp_info b WHERE b.import_no = v_improtno AND b.left_code = s.m4 );
+							update  t_ser_goods_info s ,t_ser_code_import_temp_info b set s.m5=b.right_code  
+						where b.left_code=s.m4  and b.import_no= v_improtno;
 				
 			END IF;
 			
@@ -8583,7 +9288,7 @@ delimiter ;
 -- ----------------------------
 DROP PROCEDURE IF EXISTS `p_update_goods_m`;
 delimiter ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `p_update_goods_m`( )
+CREATE DEFINER=`root`@`localhost` PROCEDURE `p_update_goods_m`()
 BEGIN
 	DECLARE
 		done INT DEFAULT FALSE;-- 自定义控制游标循环变量,默认false
@@ -8650,7 +9355,7 @@ delimiter ;
 -- ----------------------------
 DROP PROCEDURE IF EXISTS `P_UPD_CommonM`;
 delimiter ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `P_UPD_CommonM`( )
+CREATE DEFINER=`root`@`localhost` PROCEDURE `P_UPD_CommonM`()
 BEGIN
 	DECLARE
 		flag INT DEFAULT TRUE;#声明一个开关变量flag用于循环结束判断默认是true;
