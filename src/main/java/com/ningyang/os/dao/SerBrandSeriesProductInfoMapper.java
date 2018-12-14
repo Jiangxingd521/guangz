@@ -34,4 +34,9 @@ public interface SerBrandSeriesProductInfoMapper extends BaseMapper<SerBrandSeri
     List<ApiProductVo> selectApiProductVoList();
 
     BrandSeriesProductNameVo selectBrandSeriesProductNameVo(Long productId);
+
+    List<ProductVo> selectProductVoPageByCondition(QueryBrandSeriesProductCondition condition);
+
+    int selectProductVoPageCountByCondition(QueryBrandSeriesProductCondition condition);
+
 }

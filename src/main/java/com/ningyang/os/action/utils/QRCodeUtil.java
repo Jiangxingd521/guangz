@@ -13,7 +13,6 @@ import java.awt.geom.RoundRectangle2D;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.OutputStream;
-import java.nio.file.Path;
 import java.util.Hashtable;
 
 /**

@@ -81,4 +81,32 @@
         where a.id = #{productId}
     </select>
 
+    <select id="selectProductVoPageByCondition"
+            parameterType="com.ningyang.os.action.input.condition.base.QueryBrandSeriesProductCondition"
+            resultType="com.ningyang.os.action.output.vo.web.base.ProductVo"
+    >
+        select a.series_id,a.id as productId,a.product_name,a.code_number,a.series_standard,a.market_price,
+        a.sales_price,a.code_69,a.product_remark,a.product_state,b.series_name,c.brand_name
+        from t_ser_brand_series_product_info a
+        left join t_ser_brand_series_info b on a.series_id = b.id
+        left join t_ser_brand_info c on b.brand_id = c.id
+        where 1=1
+        <if test="productState!=null">
+            and a.product_state = #{productState}
+        </if>
+        order by a.update_time desc
+        limit #{page},#{limit}
+    </select>
+
+    <select id="selectProductVoPageCountByCondition"
+            parameterType="com.ningyang.os.action.input.condition.base.QueryBrandSeriesProductCondition"
+            resultType="int"
+    >
+        select count(1) from t_ser_brand_series_product_info a where 1=1
+        <if test="productState!=null">
+            and a.product_state = #{productState}
+        </if>
+        order by a.update_time desc
+    </select>
+
 </mapper>

@@ -1,6 +1,7 @@
 package com.ningyang.os.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.ningyang.os.action.input.command.web.base.BrandCommand;
 import com.ningyang.os.action.input.condition.base.QueryBrandSeriesProductCondition;
@@ -36,6 +37,33 @@ public class SerBrandInfoServiceImpl extends ServiceImpl<SerBrandInfoMapper, Ser
     @Autowired
     private ISysFileInfoService fileService;
 
+    @Override
+    public Page<BrandVo> findBrandVoPageByCondition(QueryBrandSeriesProductCondition condition) {
+        Page<BrandVo> pageVo = new Page<>();
+        List<BrandVo> listVoTemp = baseMapper.selectBrandVoPageByCondition(condition);
+        for (BrandVo vo : listVoTemp) {
+            SerBrandLogoFile logoFile = logoFileService.getOne(new QueryWrapper<SerBrandLogoFile>()
+                    .eq("brand_id", vo.getBrandId()));
+            List<FileUploadDto> fileList = new ArrayList<>();
+            if (logoFile != null) {
+                SysFileInfo fileInfo = fileService.getById(logoFile.getFileId());
+                FileUploadDto dto = new FileUploadDto();
+                dto.setId(logoFile.getFileId());
+                dto.setName(fileInfo.getFileName());
+                dto.setStatus("success");
+                dto.setUid(logoFile.getFileId());
+                dto.setUrl(fileInfo.getFilePath());
+                fileList.add(dto);
+            }
+            vo.setLogoFile(fileList);
+        }
+        int total = baseMapper.selectBrandVoPageCountByCondition(condition);
+        pageVo.setRecords(listVoTemp);
+        pageVo.setTotal(total);
+        pageVo.setSize(condition.getPage());
+        pageVo.setCurrent(condition.getLimit());
+        return pageVo;
+    }
 
     @Override
     public List<BrandVo> findBrandVoByCondition(QueryBrandSeriesProductCondition condition) {

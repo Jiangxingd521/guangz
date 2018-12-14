@@ -1,6 +1,7 @@
 package com.ningyang.os.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.ningyang.os.action.input.command.web.base.SeriesCommand;
 import com.ningyang.os.action.input.condition.base.QueryBrandSeriesProductCondition;
@@ -24,6 +25,17 @@ import java.util.List;
 @Service
 public class SerBrandSeriesInfoServiceImpl extends ServiceImpl<SerBrandSeriesInfoMapper, SerBrandSeriesInfo> implements ISerBrandSeriesInfoService {
 
+    @Override
+    public Page<SeriesVo> findSeriesVoPageByCondition(QueryBrandSeriesProductCondition condition) {
+        Page<SeriesVo> pageVo = new Page<>();
+        List<SeriesVo> listVoTemp = baseMapper.selectSeriesVoPageByCondition(condition);
+        int total = baseMapper.selectSeriesVoPageCountByCondition(condition);
+        pageVo.setRecords(listVoTemp);
+        pageVo.setTotal(total);
+        pageVo.setSize(condition.getPage());
+        pageVo.setCurrent(condition.getLimit());
+        return pageVo;
+    }
 
     @Override
     public List<SeriesVo> findSeriesVoByCondition(QueryBrandSeriesProductCondition condition) {

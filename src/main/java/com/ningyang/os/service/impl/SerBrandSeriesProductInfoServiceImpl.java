@@ -1,6 +1,7 @@
 package com.ningyang.os.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.ningyang.os.action.input.command.web.base.ProductCommand;
 import com.ningyang.os.action.input.condition.base.QueryBrandSeriesProductCondition;
@@ -44,6 +45,42 @@ public class SerBrandSeriesProductInfoServiceImpl extends ServiceImpl<SerBrandSe
     private ISerBrandInfoService brandInfoService;
     @Autowired
     private ISerBrandSeriesInfoService seriesInfoService;
+
+
+    @Override
+    public Page<ProductVo> findProductVoPageByCondition(QueryBrandSeriesProductCondition condition) {
+        Page<ProductVo> pageVo = new Page<>();
+        List<ProductVo> listVoTemp = baseMapper.selectProductVoPageByCondition(condition);
+        for (ProductVo vo : listVoTemp) {
+            List<Long> productCodeIdList = codeInfoService.getProductCodeIds(vo.getProductId());
+            int codeNumber = productCodeIdList.size();
+            vo.setCodeNumber(codeNumber);
+            vo.setCodeTypeIds(productCodeIdList);
+
+            List<SerBrandSeriesProductFile> productFileList = productFileService.list(new QueryWrapper<SerBrandSeriesProductFile>()
+                    .eq("product_id", vo.getProductId()));
+
+            List<FileUploadDto> fileList = new ArrayList<>();
+            for (SerBrandSeriesProductFile productFile : productFileList) {
+                Long fileId = productFile.getFileId();
+                SysFileInfo fileInfo = fileService.getById(fileId);
+                FileUploadDto dto = new FileUploadDto();
+                dto.setId(fileId);
+                dto.setName(fileInfo.getFileName());
+                dto.setStatus("success");
+                dto.setUid(fileId);
+                dto.setUrl(fileInfo.getFilePath());
+                fileList.add(dto);
+            }
+            vo.setProductFileList(fileList);
+        }
+        int total = baseMapper.selectProductVoPageCountByCondition(condition);
+        pageVo.setRecords(listVoTemp);
+        pageVo.setTotal(total);
+        pageVo.setSize(condition.getPage());
+        pageVo.setCurrent(condition.getLimit());
+        return pageVo;
+    }
 
     @Override
     public List<ProductVo> findProductVoByCondition(QueryBrandSeriesProductCondition condition) {

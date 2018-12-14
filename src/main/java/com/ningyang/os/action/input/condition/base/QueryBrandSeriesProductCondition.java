@@ -1,11 +1,13 @@
 package com.ningyang.os.action.input.condition.base;
 
+import com.ningyang.os.action.input.condition.common.BaseCondition;
+
 /**
  * @Author： kaider
  * @Date：2018/11/13 14:33
  * @描述：品牌产品系列
  */
-public class QueryBrandSeriesProductCondition {
+public class QueryBrandSeriesProductCondition extends BaseCondition {
     //品牌id
     private Long brandId;
     //品牌状态

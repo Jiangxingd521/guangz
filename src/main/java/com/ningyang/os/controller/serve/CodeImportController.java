@@ -1,5 +1,6 @@
 package com.ningyang.os.controller.serve;
 
+import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.ningyang.os.action.input.command.web.serve.ImportCodeCommand;
 import com.ningyang.os.action.input.condition.serve.QueryApplyCodeCondition;
@@ -102,7 +103,8 @@ public class CodeImportController extends BaseController {
             out.close();
             //获取导入文件左右码
             List<ReadFileBackData> fileList = returnReadFileData(file);
-
+            // FIXME: 2018-12-14 
+            System.out.println(JSONObject.toJSONString(fileList));
             CodeImportTemplateVo templateVo = templateInfoService.findCodeImportTemplateVo(templateId);
             //溯源码位置
             Long codePosition = templateVo.getLeftCodeType();
@@ -121,9 +123,10 @@ public class CodeImportController extends BaseController {
                     return WebResult.failure("导入数据与使用模板有误！").toMap();
                 }
             }
-
+            // FIXME: 2018-12-14 
             //溯源码导入临时表
             boolean codeTempFlag = tempInfoService.add(fileList, templateId);
+            
             if (codeTempFlag) {
                 //加入导入日志
                 ImportCodeCommand command = new ImportCodeCommand();
@@ -132,6 +135,8 @@ public class CodeImportController extends BaseController {
                 command.setCodeCount(Long.valueOf(fileList.size() * 2));
                 command.setUserId(uploadUserId);
                 command.setTemplateId(templateId);
+                // FIXME: 2018-12-14 
+                System.out.println(JSONObject.toJSONString(command));
                 boolean logFlag = infoService.add(command);
                 if (logFlag) {
                     //调用插入码的存储过程

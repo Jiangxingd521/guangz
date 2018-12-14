@@ -1,5 +1,6 @@
 package com.ningyang.os.service;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.ningyang.os.action.input.command.web.base.SeriesCommand;
 import com.ningyang.os.action.input.condition.base.QueryBrandSeriesProductCondition;
@@ -22,4 +23,6 @@ public interface ISerBrandSeriesInfoService extends IService<SerBrandSeriesInfo>
     List<SeriesVo> findSeriesVoByCondition(QueryBrandSeriesProductCondition condition);
 
     boolean addOrUpdate(SeriesCommand command);
+
+    Page<SeriesVo> findSeriesVoPageByCondition(QueryBrandSeriesProductCondition condition);
 }

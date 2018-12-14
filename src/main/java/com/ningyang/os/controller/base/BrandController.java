@@ -1,5 +1,6 @@
 package com.ningyang.os.controller.base;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.ningyang.os.action.input.command.web.base.BrandCommand;
 import com.ningyang.os.action.input.condition.base.QueryBrandSeriesProductCondition;
 import com.ningyang.os.action.output.vo.web.base.BrandVo;
@@ -29,6 +30,19 @@ public class BrandController {
 
     @Autowired
     private ISerBrandInfoService infoService;
+
+    @GetMapping("getBrandPageList")
+    public Map<String,Object> getBrandPageList(
+            QueryBrandSeriesProductCondition condition
+    ){
+        try {
+            Page<BrandVo> pageVo = infoService.findBrandVoPageByCondition(condition);
+            return WebResult.success().put("pageVo", pageVo).toMap();
+        } catch (Exception e) {
+            LOGGER.error(e.getMessage(), e);
+            return WebResult.failure(DATA_ERROR.getInfo()).toMap();
+        }
+    }
 
     @GetMapping("getBrandList")
     public Map<String, Object> getBrandList(

@@ -1,5 +1,6 @@
 package com.ningyang.os.service;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.ningyang.os.action.input.command.web.base.ProductCommand;
 import com.ningyang.os.action.input.condition.base.QueryBrandSeriesProductCondition;
@@ -40,5 +41,7 @@ public interface ISerBrandSeriesProductInfoService extends IService<SerBrandSeri
     List<ApiProductVo> findApiProductVoList();
 
     BrandSeriesProductNameVo findBrandSeriesProductNameVo(Long productId);
+
+    Page<ProductVo> findProductVoPageByCondition(QueryBrandSeriesProductCondition condition);
 
 }

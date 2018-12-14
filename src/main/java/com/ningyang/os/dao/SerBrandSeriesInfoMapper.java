@@ -20,4 +20,8 @@ public interface SerBrandSeriesInfoMapper extends BaseMapper<SerBrandSeriesInfo>
 
     List<SeriesVo> selectSeriesVoByCondition(QueryBrandSeriesProductCondition condition);
 
+    List<SeriesVo> selectSeriesVoPageByCondition(QueryBrandSeriesProductCondition condition);
+
+    int selectSeriesVoPageCountByCondition(QueryBrandSeriesProductCondition condition);
+
 }

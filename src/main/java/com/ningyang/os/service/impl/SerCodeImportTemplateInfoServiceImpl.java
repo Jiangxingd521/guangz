@@ -7,7 +7,6 @@ import com.ningyang.os.action.input.command.web.base.CodeImportTemplateCommand;
 import com.ningyang.os.action.input.condition.base.QueryCodeCondition;
 import com.ningyang.os.action.output.vo.web.base.CodeImportTemplateVo;
 import com.ningyang.os.action.output.vo.web.serve.BrandSeriesProductNameVo;
-import com.ningyang.os.action.output.vo.web.serve.DealerVo;
 import com.ningyang.os.dao.SerCodeImportTemplateInfoMapper;
 import com.ningyang.os.pojo.SerCodeImportTemplateInfo;
 import com.ningyang.os.service.ISerBrandSeriesProductInfoService;

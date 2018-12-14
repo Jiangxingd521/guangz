@@ -32,4 +32,35 @@
         order by a.brand_id asc
     </select>
 
+    <select id="selectSeriesVoPageByCondition"
+            parameterType="com.ningyang.os.action.input.condition.base.QueryBrandSeriesProductCondition"
+            resultType="com.ningyang.os.action.output.vo.web.base.SeriesVo"
+    >
+        select a.id as seriesId,a.brand_id,b.brand_name,a.series_name,a.series_remark,a.series_state
+        from t_ser_brand_series_info a left join t_ser_brand_info b on a.brand_id = b.id
+        where 1=1
+        <if test="brandId!=null">
+            and a.brand_id = #{brandId}
+        </if>
+        <if test="seriesState!=null">
+            and a.series_state = #{seriesState}
+        </if>
+        order by a.update_time desc
+        limit #{page},#{limit}
+    </select>
+
+    <select id="selectSeriesVoPageCountByCondition"
+            parameterType="com.ningyang.os.action.input.condition.base.QueryBrandSeriesProductCondition"
+            resultType="int"
+    >
+        select count(1) from t_ser_brand_series_info a where 1=1
+        <if test="brandId!=null">
+            and a.brand_id = #{brandId}
+        </if>
+        <if test="seriesState!=null">
+            and a.series_state = #{seriesState}
+        </if>
+        order by a.update_time desc
+    </select>
+
 </mapper>

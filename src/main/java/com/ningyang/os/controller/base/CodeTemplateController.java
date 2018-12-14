@@ -36,8 +36,8 @@ public class CodeTemplateController {
             QueryCodeCondition condition
     ) {
         try {
-            Page<CodeImportTemplateVo> listVo = infoService.findCodeImportVoPageByCondition(condition);
-            return WebResult.success().put("listVo", listVo).toMap();
+            Page<CodeImportTemplateVo> pageVo = infoService.findCodeImportVoPageByCondition(condition);
+            return WebResult.success().put("pageVo", pageVo).toMap();
         } catch (Exception e) {
             LOGGER.error(e.getMessage(), e);
             return WebResult.failure(DATA_ERROR.getInfo()).toMap();
