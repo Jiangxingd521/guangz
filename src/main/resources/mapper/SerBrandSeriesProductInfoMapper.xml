@@ -94,7 +94,7 @@
         <if test="productState!=null">
             and a.product_state = #{productState}
         </if>
-        order by a.update_time desc
+        order by a.product_state ,a.update_time desc
         limit #{page},#{limit}
     </select>
 
@@ -106,7 +106,7 @@
         <if test="productState!=null">
             and a.product_state = #{productState}
         </if>
-        order by a.update_time desc
+        order by a.product_state ,a.update_time desc
     </select>
 
 </mapper>
