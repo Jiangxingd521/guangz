@@ -50,15 +50,30 @@
             parameterType="String"
             resultType="com.ningyang.os.action.output.vo.api.ApiWarehouseGoodsVo"
     >
-        select a.product_id,e.brand_name,d.series_name,c.product_name,b.warehouse_name from l_ser_warehouse_goods_info a
-        left join t_ser_warehouse_info b on a.warehouse_id = b.id
-        left join t_ser_brand_series_product_info c on a.product_id = c.id
-        left join t_ser_brand_series_info d on c.series_id = d.id
-        left join t_ser_brand_info e on d.brand_id = e.id
-        where c.product_name = #{productName}
-        GROUP BY a.product_id,e.brand_name,d.series_name,c.product_name,b.warehouse_name
-        ORDER BY a.create_time desc
+        select a.product_id,e.brand_name,d.series_name,c.product_name,b.warehouse_name
+            from l_ser_warehouse_goods_info a
+            left join t_ser_warehouse_info b on a.warehouse_id = b.id
+            left join t_ser_brand_series_product_info c on a.product_id = c.id
+            left join t_ser_brand_series_info d on c.series_id = d.id
+            left join t_ser_brand_info e on d.brand_id = e.id
+            where c.product_name = #{productName}
+            group by a.product_id,e.brand_name,d.series_name,c.product_name,b.warehouse_name
     </select>
 
+    <select id="selectApiWarehouseGoodsInfoVo"
+            parameterType="Long"
+            resultType="com.ningyang.os.action.output.vo.api.ApiWarehouseGoodsInfoVo"
+    >
+        select d.brand_name,c.series_name,b.product_name,a.product_id,e.warehouse_name,
+        a.warehouse_in_time,count(a.warehouse_in_time) as boxCount
+        from l_ser_warehouse_goods_info a
+        left join t_ser_brand_series_product_info b on a.product_id=b.id
+        left join t_ser_brand_series_info c on b.series_id=c.id
+        left join t_ser_brand_info d on c.brand_id=d.id
+        left join t_ser_warehouse_info e on a.warehouse_id=e.id
+        where a.product_id=#{productId}
+        group by d.brand_name,c.series_name,b.product_name,a.product_id,
+        e.warehouse_name,a.warehouse_in_time
+    </select>
 
 </mapper>

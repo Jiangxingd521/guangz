@@ -2,6 +2,7 @@ package com.ningyang.os.dao;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.ningyang.os.action.input.condition.serve.QueryGoodsPutCondition;
+import com.ningyang.os.action.output.vo.api.ApiWarehouseGoodsInfoVo;
 import com.ningyang.os.action.output.vo.api.ApiWarehouseGoodsVo;
 import com.ningyang.os.action.output.vo.web.serve.GoodsPutInVo;
 import com.ningyang.os.pojo.LSerWarehouseGoodsInfo;
@@ -25,4 +26,6 @@ public interface LSerWarehouseGoodsInfoMapper extends BaseMapper<LSerWarehouseGo
     int getWarehouseBoxCount(Long warehouseId);
 
     List<ApiWarehouseGoodsVo> selectApiWarehouseGoodsVo(String productName);
+
+    List<ApiWarehouseGoodsInfoVo> selectApiWarehouseGoodsInfoVo(Long productId);
 }

@@ -43,4 +43,8 @@ public class SerWarehouseGoodsInfoServiceImpl extends ServiceImpl<SerWarehouseGo
         return saveBatch(infoList);
     }
 
+    @Override
+    public int getWarehouseGoodsCount(Long productId) {
+        return baseMapper.getWarehouseGoodsCount(productId);
+    }
 }

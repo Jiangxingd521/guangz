@@ -16,4 +16,5 @@ public interface ISerWarehouseGoodsInfoService extends IService<SerWarehouseGood
 
     boolean add(ApiWarehousePutInCommand command);
 
+    int getWarehouseGoodsCount(Long productId);
 }

@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.ningyang.os.action.input.command.api.ApiWarehousePutInCommand;
 import com.ningyang.os.action.input.condition.serve.QueryGoodsPutCondition;
+import com.ningyang.os.action.output.vo.api.ApiWarehouseGoodsInfoVo;
 import com.ningyang.os.action.output.vo.api.ApiWarehouseGoodsVo;
 import com.ningyang.os.action.output.vo.web.serve.GoodsPutInVo;
 import com.ningyang.os.dao.LSerWarehouseGoodsInfoMapper;
@@ -12,6 +13,7 @@ import com.ningyang.os.pojo.LSerWarehouseGoodsInfo;
 import com.ningyang.os.pojo.SerGoodsInfo;
 import com.ningyang.os.service.ILSerWarehouseGoodsInfoService;
 import com.ningyang.os.service.ISerGoodsInfoService;
+import com.ningyang.os.service.ISerWarehouseGoodsInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -36,6 +38,8 @@ public class LSerWarehouseGoodsInfoServiceImpl extends ServiceImpl<LSerWarehouse
 
     @Autowired
     private ISerGoodsInfoService goodsInfoService;
+    @Autowired
+    private ISerWarehouseGoodsInfoService warehouseGoodsInfoService;
 
     @Override
     public Map<String, Object> add(ApiWarehousePutInCommand command) {
@@ -112,10 +116,16 @@ public class LSerWarehouseGoodsInfoServiceImpl extends ServiceImpl<LSerWarehouse
     public List<ApiWarehouseGoodsVo> findApiWarehouseGoodsVo(String productName) {
         List<ApiWarehouseGoodsVo> listTemp = baseMapper.selectApiWarehouseGoodsVo(productName);
         for(ApiWarehouseGoodsVo vo : listTemp){
-            int boxCount = count(new QueryWrapper<LSerWarehouseGoodsInfo>()
-                    .eq("product_id",vo.getProductId()));
+            //当前出库此商品数量
+            Long productId = vo.getProductId();
+            int boxCount = warehouseGoodsInfoService.getWarehouseGoodsCount(productId);
             vo.setBoxCount(boxCount);
-            // FIXME: 2018-12-12 加入其他数据
+            //加入入库详细数据
+            List<ApiWarehouseGoodsInfoVo> goodsInfoVoList = baseMapper.selectApiWarehouseGoodsInfoVo(productId);
+            vo.setGoodsInfoVoList(goodsInfoVoList);
+            for(ApiWarehouseGoodsInfoVo voTemp : goodsInfoVoList){
+                voTemp.setWarehouseInTimeStr(timeToStr(voTemp.getWarehouseInTime()));
+            }
         }
         return listTemp;
     }

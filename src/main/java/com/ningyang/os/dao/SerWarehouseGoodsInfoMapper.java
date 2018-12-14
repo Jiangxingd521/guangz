@@ -13,4 +13,6 @@ import com.ningyang.os.pojo.SerWarehouseGoodsInfo;
  */
 public interface SerWarehouseGoodsInfoMapper extends BaseMapper<SerWarehouseGoodsInfo> {
 
+    int getWarehouseGoodsCount(Long productId);
+
 }

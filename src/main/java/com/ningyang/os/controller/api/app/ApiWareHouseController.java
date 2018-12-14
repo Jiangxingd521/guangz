@@ -9,7 +9,6 @@ import com.ningyang.os.action.output.vo.api.ApiBrandSeriesProductVo;
 import com.ningyang.os.action.output.vo.api.ApiProductVo;
 import com.ningyang.os.action.output.vo.api.ApiWarehouseGoodsVo;
 import com.ningyang.os.action.output.vo.web.serve.DealerVo;
-import com.ningyang.os.action.output.vo.web.serve.GoodsPutOutVo;
 import com.ningyang.os.action.output.vo.web.serve.SaleOrderVo;
 import com.ningyang.os.action.output.vo.web.serve.WarehouseVo;
 import com.ningyang.os.action.utils.WebResult;
@@ -284,7 +283,6 @@ public class ApiWareHouseController extends BaseController {
         try {
             SysUserInfo loginUser = getBaseUserInfo(userToken);
             if (loginUser != null) {
-                // FIXME: 2018-12-14
                 List<ApiWarehouseGoodsVo> listVo = putInService.findApiWarehouseGoodsVo(productName);
                 Map<String,Object> map = new HashMap<>();
                 map.put("listVo",listVo);

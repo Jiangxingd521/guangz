@@ -17,4 +17,13 @@
         <result column="update_time" property="updateTime"/>
     </resultMap>
 
+    <select id="getWarehouseGoodsCount"
+            parameterType="Long"
+            resultType="int"
+    >
+        select count(1) from l_ser_warehouse_goods_info a
+        left join t_ser_warehouse_goods_info b on a.box_no=b.box_no
+        where b.goods_state=1 and a.product_id = #{productId}
+    </select>
+
 </mapper>
