@@ -310,6 +310,11 @@ public class SerPrizeRecodeInfoServiceImpl extends ServiceImpl<SerPrizeRecodeInf
         return pageVo;
     }
 
+    @Override
+    public boolean addMake(PrizeSetLogCommand command, Long userId) {
+        return false;
+    }
+
     /**
      * 获取订单商品
      *

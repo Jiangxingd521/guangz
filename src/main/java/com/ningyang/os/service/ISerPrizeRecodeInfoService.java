@@ -24,4 +24,5 @@ public interface ISerPrizeRecodeInfoService extends IService<SerPrizeRecodeInfo>
 
     Page<PrizeTicketLogVo> findPrizeTicketLogVoPageByCondition(QueryPrizeCondition condition);
 
+    boolean addMake(PrizeSetLogCommand command, Long userId);
 }

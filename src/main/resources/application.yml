@@ -46,6 +46,7 @@ mybatisPlus:
       field-strategy: ignored
       column-like: true
     refresh: true
+    banner: false
   configuration:
     mapUnderscoreToCamelCase: true
     cacheEnabled: true

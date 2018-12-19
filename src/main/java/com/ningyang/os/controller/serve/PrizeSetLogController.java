@@ -45,13 +45,31 @@ public class PrizeSetLogController extends BaseController {
     }
 
     @PostMapping("add")
-    public Map<String, Object> add(
+    public Map<String, Object> addSale(
             @RequestHeader("Authorization") String userToken,
             @RequestBody PrizeSetLogCommand command
     ) {
         try {
             Long operateUserId = getBaseUserInfo(userToken).getId();
             boolean flag = infoService.add(command, operateUserId);
+            if (flag) {
+                return WebResult.success().toMap();
+            }
+            return WebResult.failure(OPERATING_ERROR.getInfo()).toMap();
+        } catch (Exception e) {
+            LOGGER.error(e.getMessage(), e);
+            return WebResult.failure(OPERATING_ERROR.getInfo()).toMap();
+        }
+    }
+
+    @PostMapping("addMake")
+    public Map<String, Object> addMake(
+            @RequestHeader("Authorization") String userToken,
+            @RequestBody PrizeSetLogCommand command
+    ){
+        try {
+            Long operateUserId = getBaseUserInfo(userToken).getId();
+            boolean flag = infoService.addMake(command, operateUserId);
             if (flag) {
                 return WebResult.success().toMap();
             }

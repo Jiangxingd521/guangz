@@ -57,7 +57,7 @@ public class SerBrandSeriesProductInfoServiceImpl extends ServiceImpl<SerBrandSe
             vo.setCodeNumber(codeNumber);
             vo.setCodeTypeIds(productCodeIdList);
 
-            List<SerBrandSeriesProductFile> productFileList = productFileService.list(new QueryWrapper<SerBrandSeriesProductFile>()
+            /*List<SerBrandSeriesProductFile> productFileList = productFileService.list(new QueryWrapper<SerBrandSeriesProductFile>()
                     .eq("product_id", vo.getProductId()));
 
             List<FileUploadDto> fileList = new ArrayList<>();
@@ -72,7 +72,7 @@ public class SerBrandSeriesProductInfoServiceImpl extends ServiceImpl<SerBrandSe
                 dto.setUrl(fileInfo.getFilePath());
                 fileList.add(dto);
             }
-            vo.setProductFileList(fileList);
+            vo.setProductFileList(fileList);*/
         }
         int total = baseMapper.selectProductVoPageCountByCondition(condition);
         pageVo.setRecords(listVoTemp);
@@ -91,7 +91,7 @@ public class SerBrandSeriesProductInfoServiceImpl extends ServiceImpl<SerBrandSe
             vo.setCodeNumber(codeNumber);
             vo.setCodeTypeIds(productCodeIdList);
 
-            List<SerBrandSeriesProductFile> productFileList = productFileService.list(new QueryWrapper<SerBrandSeriesProductFile>()
+            /*List<SerBrandSeriesProductFile> productFileList = productFileService.list(new QueryWrapper<SerBrandSeriesProductFile>()
                     .eq("product_id", vo.getProductId()));
 
             List<FileUploadDto> fileList = new ArrayList<>();
@@ -106,7 +106,7 @@ public class SerBrandSeriesProductInfoServiceImpl extends ServiceImpl<SerBrandSe
                 dto.setUrl(fileInfo.getFilePath());
                 fileList.add(dto);
             }
-            vo.setProductFileList(fileList);
+            vo.setProductFileList(fileList);*/
         }
         return list;
     }
@@ -151,7 +151,7 @@ public class SerBrandSeriesProductInfoServiceImpl extends ServiceImpl<SerBrandSe
         }
         boolean flag2 = codeInfoService.saveBatch(productCodeInfoList);
 
-        productFileService.remove(new QueryWrapper<SerBrandSeriesProductFile>().eq("product_id", info.getId()));
+       /* productFileService.remove(new QueryWrapper<SerBrandSeriesProductFile>().eq("product_id", info.getId()));
         List<SerBrandSeriesProductFile> fileList = new ArrayList<>();
         for (FileUploadDto fileDto : command.getProductFileList()) {
             SerBrandSeriesProductFile productFile = new SerBrandSeriesProductFile();
@@ -159,9 +159,9 @@ public class SerBrandSeriesProductInfoServiceImpl extends ServiceImpl<SerBrandSe
             productFile.setFileId(fileDto.getId());
             fileList.add(productFile);
         }
-        boolean flag3 = productFileService.saveBatch(fileList);
+        boolean flag3 = productFileService.saveBatch(fileList);*/
 
-        return flag1 && flag2 && flag3;
+        return flag1 && flag2;
     }
 
     @Override
