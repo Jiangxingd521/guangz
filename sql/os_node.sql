@@ -11,7 +11,7 @@
  Target Server Version : 50721
  File Encoding         : 65001
 
- Date: 14/12/2018 17:06:34
+ Date: 19/12/2018 15:28:54
 */
 
 SET NAMES utf8mb4;
@@ -32,7 +32,7 @@ CREATE TABLE `l_code_import_file_info` (
   `create_time` datetime DEFAULT NULL COMMENT '创建时间',
   `update_time` datetime DEFAULT NULL COMMENT '修改时间',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=49 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='溯源码文件上传记录';
+) ENGINE=InnoDB AUTO_INCREMENT=63 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='溯源码文件上传记录';
 
 -- ----------------------------
 -- Records of l_code_import_file_info
@@ -86,6 +86,20 @@ INSERT INTO `l_code_import_file_info` VALUES (45, '内-外.txt', 'upload/019181f
 INSERT INTO `l_code_import_file_info` VALUES (46, '外-箱.txt', 'upload/9fee1ff1efb14919b7bb26d6130acf99外-箱.txt', '20181214151900', 7, 4, 17, '2018-12-14 15:19:00', '2018-12-14 15:19:00');
 INSERT INTO `l_code_import_file_info` VALUES (47, '外-箱 - 副本.txt', 'upload/2f482734aff54218930818d762978eb9外-箱 - 副本.txt', '20181214151907', 7, 4, 17, '2018-12-14 15:19:07', '2018-12-14 15:19:07');
 INSERT INTO `l_code_import_file_info` VALUES (48, '外-箱 - 副本 - 副本.txt', 'upload/a883c6ba16a6455ebeecea419cf0cbc8外-箱 - 副本 - 副本.txt', '20181214151913', 7, 4, 17, '2018-12-14 15:19:13', '2018-12-14 15:19:13');
+INSERT INTO `l_code_import_file_info` VALUES (49, '外-箱.txt', 'upload/6159f4ecdfaf4cd7945f1691109667ae外-箱.txt', '20181217154808', 7, 4, 17, '2018-12-17 15:48:08', '2018-12-17 15:48:08');
+INSERT INTO `l_code_import_file_info` VALUES (50, '内-盒.txt', 'upload/3c5af69af6fa45059faf9430cfda3cb4内-盒.txt', '20181219142845', 2, 2, 21, '2018-12-19 00:28:45', '2018-12-19 00:28:45');
+INSERT INTO `l_code_import_file_info` VALUES (51, '内-盒.txt', 'upload/d6dc6eef18384aefb0a64238075ae164内-盒.txt', '20181219143133', 2, 2, 21, '2018-12-19 00:31:33', '2018-12-19 00:31:33');
+INSERT INTO `l_code_import_file_info` VALUES (52, '内-盒.txt', 'upload/e319f1b8b27743009f8e0418c6d3c4b7内-盒.txt', '20181219143239', 2, 2, 21, '2018-12-19 00:32:39', '2018-12-19 00:32:39');
+INSERT INTO `l_code_import_file_info` VALUES (53, '盒-箱.txt', 'upload/d0fe5085a15747f9b2d7cbe11cc24c14盒-箱.txt', '20181219143324', 2, 2, 22, '2018-12-19 00:33:24', '2018-12-19 00:33:24');
+INSERT INTO `l_code_import_file_info` VALUES (54, '内-盒.txt', 'upload/b735c138a86c43ebbf20a9bf169cb711内-盒.txt', '20181219144351', 2, 2, 21, '2018-12-19 00:43:51', '2018-12-19 00:43:51');
+INSERT INTO `l_code_import_file_info` VALUES (55, '盒-箱.txt', 'upload/47dbcb250b7e4f029e85e50a54ec55bf盒-箱.txt', '20181219144434', 2, 2, 22, '2018-12-19 00:44:34', '2018-12-19 00:44:34');
+INSERT INTO `l_code_import_file_info` VALUES (56, '盒-箱.txt', 'upload/60df856db0fd47819a52040a90d77185盒-箱.txt', '20181219144633', 2, 2, 22, '2018-12-19 00:46:33', '2018-12-19 00:46:33');
+INSERT INTO `l_code_import_file_info` VALUES (57, '盒-箱.txt', 'upload/066f43e3ec1c41029ec4a9c5296ba4ca盒-箱.txt', '20181219150807', 2, 2, 22, '2018-12-19 01:08:07', '2018-12-19 01:08:07');
+INSERT INTO `l_code_import_file_info` VALUES (58, '盒-箱.txt', 'upload/98f6f606c8864b40a1ca8b194059ce84盒-箱.txt', '20181219151909', 2, 2, 22, '2018-12-19 01:19:10', '2018-12-19 01:19:10');
+INSERT INTO `l_code_import_file_info` VALUES (59, '盒-箱.txt', 'upload/4ef8003c7ae7477c8b5aa869296274b7盒-箱.txt', '20181219151914', 2, 2, 22, '2018-12-19 01:19:15', '2018-12-19 01:19:15');
+INSERT INTO `l_code_import_file_info` VALUES (60, '内-盒.txt', 'upload/ef44c56f5d3a4e60b5ffebc5fb322db4内-盒.txt', '20181219152434', 2, 2, 21, '2018-12-19 01:24:35', '2018-12-19 01:24:35');
+INSERT INTO `l_code_import_file_info` VALUES (61, '内-盒.txt', 'upload/95a5d3a501ad441f9c6aa0c8a24edcfd内-盒.txt', '20181219152640', 2, 2, 21, '2018-12-19 01:26:40', '2018-12-19 01:26:40');
+INSERT INTO `l_code_import_file_info` VALUES (62, '盒-箱.txt', 'upload/7701ca297b72479fb39c075f2fd0bd1c盒-箱.txt', '20181219152646', 2, 2, 22, '2018-12-19 01:26:47', '2018-12-19 01:26:47');
 COMMIT;
 
 -- ----------------------------
@@ -404,7 +418,7 @@ CREATE TABLE `t_ser_apply_code_201812` (
   `create_time` datetime DEFAULT NULL COMMENT '创建时间',
   `update_time` datetime DEFAULT NULL COMMENT '修改时间',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=3757 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='溯源码';
+) ENGINE=InnoDB AUTO_INCREMENT=3797 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='溯源码';
 
 -- ----------------------------
 -- Records of t_ser_apply_code_201812
@@ -4166,7 +4180,63 @@ INSERT INTO `t_ser_apply_code_201812` VALUES (3753, 3767, 'http://www.headingtec
 INSERT INTO `t_ser_apply_code_201812` VALUES (3754, 3768, 'http://www.headingtech.com/center/tz/6/3d53bd7495394bab91412aeb560d55e1/12', '20181214151155', 1, 1, '2018-12-14 15:12:28', '2018-12-14 15:12:28');
 INSERT INTO `t_ser_apply_code_201812` VALUES (3755, 3769, 'http://www.headingtech.com/center/tz/6/1db1826fb04f4c8fb4e4ad607153ff4d/12', '20181214151155', 1, 1, '2018-12-14 15:12:28', '2018-12-14 15:12:28');
 INSERT INTO `t_ser_apply_code_201812` VALUES (3756, 3770, 'http://www.headingtech.com/center/tz/6/18fc51a552db4694b1f3ce9578bf5993/12', '20181214151155', 1, 1, '2018-12-14 15:12:28', '2018-12-14 15:12:28');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3757, 3771, 'http://www.headingtech.com/center/tz/6/5385728252a74a9a92833c91646b7323/12', '20181219142347', 2, 5, '2018-12-19 00:24:06', '2018-12-19 00:24:06');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3758, 3772, 'http://www.headingtech.com/center/tz/6/3ea5c051d3594ad5b068968213f66686/12', '20181219142347', 2, 5, '2018-12-19 00:24:06', '2018-12-19 00:24:06');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3759, 3773, 'http://www.headingtech.com/center/tz/6/bef640d2e2f14372814135ed2a18b16e/12', '20181219142347', 2, 5, '2018-12-19 00:24:06', '2018-12-19 00:24:06');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3760, 3774, 'http://www.headingtech.com/center/tz/6/116cf7425fdb4890945e12611ed24ba6/12', '20181219142347', 2, 5, '2018-12-19 00:24:06', '2018-12-19 00:24:06');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3761, 3775, 'http://www.headingtech.com/center/tz/6/93b42edf7e1e4ee089367a657b86a454/12', '20181219142347', 2, 5, '2018-12-19 00:24:06', '2018-12-19 00:24:06');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3762, 3776, 'http://www.headingtech.com/center/tz/6/bf7b9d3c11a94ae993f3b3f60d9d5c28/12', '20181219142347', 2, 5, '2018-12-19 00:24:06', '2018-12-19 00:24:06');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3763, 3777, 'http://www.headingtech.com/center/tz/6/97bb13f7f974422f990a0ef0317129b4/12', '20181219142347', 2, 5, '2018-12-19 00:24:06', '2018-12-19 00:24:06');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3764, 3778, 'http://www.headingtech.com/center/tz/6/42e76a7f900a44ff85d00c41c962cf4f/12', '20181219142347', 2, 5, '2018-12-19 00:24:06', '2018-12-19 00:24:06');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3765, 3779, 'http://www.headingtech.com/center/tz/6/9df0aa612c3646ddadce77c563d7e374/12', '20181219142347', 2, 5, '2018-12-19 00:24:06', '2018-12-19 00:24:06');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3766, 3780, 'http://www.headingtech.com/center/tz/6/ce6937c4d2d54bd4b7fc891174ca7f37/12', '20181219142347', 2, 5, '2018-12-19 00:24:06', '2018-12-19 00:24:06');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3767, 3781, 'http://www.headingtech.com/center/tz/6/b009eecb67a249eab2f63995806fb77a/12', '20181219142336', 2, 4, '2018-12-19 00:24:07', '2018-12-19 00:24:07');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3768, 3782, 'http://www.headingtech.com/center/tz/6/a74d71d5110d407ba085e7e5db08c7a0/12', '20181219142336', 2, 4, '2018-12-19 00:24:07', '2018-12-19 00:24:07');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3769, 3783, 'http://www.headingtech.com/center/tz/6/217b94018cf545df809cd657ae49345d/12', '20181219142336', 2, 4, '2018-12-19 00:24:07', '2018-12-19 00:24:07');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3770, 3784, 'http://www.headingtech.com/center/tz/6/bccab130c3a343809b00d65c632d6b97/12', '20181219142336', 2, 4, '2018-12-19 00:24:07', '2018-12-19 00:24:07');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3771, 3785, 'http://www.headingtech.com/center/tz/6/dd03a58881134ce8abfbb22f5a0c4ee6/12', '20181219142336', 2, 4, '2018-12-19 00:24:07', '2018-12-19 00:24:07');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3772, 3786, 'http://www.headingtech.com/center/tz/6/24eb2aa3562c4a9eb21fa792d651c14e/12', '20181219142336', 2, 4, '2018-12-19 00:24:07', '2018-12-19 00:24:07');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3773, 3787, 'http://www.headingtech.com/center/tz/6/4917214208a14e49a9cff3283c18436a/12', '20181219142336', 2, 4, '2018-12-19 00:24:07', '2018-12-19 00:24:07');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3774, 3788, 'http://www.headingtech.com/center/tz/6/cef00015a30e45079d857cca2540b3f5/12', '20181219142336', 2, 4, '2018-12-19 00:24:07', '2018-12-19 00:24:07');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3775, 3789, 'http://www.headingtech.com/center/tz/6/84a7ce61f2b5421394ca43073b91902a/12', '20181219142336', 2, 4, '2018-12-19 00:24:07', '2018-12-19 00:24:07');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3776, 3790, 'http://www.headingtech.com/center/tz/6/e2c12a9c4ae740a192cce6aa22dd8039/12', '20181219142336', 2, 4, '2018-12-19 00:24:07', '2018-12-19 00:24:07');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3777, 3791, 'http://www.headingtech.com/center/tz/6/4f6e25a7b3a4475a96c176625f2fb548/12', '20181219142327', 2, 2, '2018-12-19 00:24:08', '2018-12-19 00:24:08');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3778, 3792, 'http://www.headingtech.com/center/tz/6/4951bb3bd8ee48b6bcab3dbebf7087ae/12', '20181219142327', 2, 2, '2018-12-19 00:24:08', '2018-12-19 00:24:08');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3779, 3793, 'http://www.headingtech.com/center/tz/6/59a86397be2541d485bf3eeaadc92f83/12', '20181219142327', 2, 2, '2018-12-19 00:24:08', '2018-12-19 00:24:08');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3780, 3794, 'http://www.headingtech.com/center/tz/6/336793ff1b0b4a87aa0e34bc4fc0120e/12', '20181219142327', 2, 2, '2018-12-19 00:24:08', '2018-12-19 00:24:08');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3781, 3795, 'http://www.headingtech.com/center/tz/6/b7347ad41e454775917453635c0b26b4/12', '20181219142327', 2, 2, '2018-12-19 00:24:08', '2018-12-19 00:24:08');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3782, 3796, 'http://www.headingtech.com/center/tz/6/3f45f3f6349a42c2bb9850e009f8dd51/12', '20181219142327', 2, 2, '2018-12-19 00:24:08', '2018-12-19 00:24:08');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3783, 3797, 'http://www.headingtech.com/center/tz/6/8f584addf81e418f9b76ae80491121f2/12', '20181219142327', 2, 2, '2018-12-19 00:24:08', '2018-12-19 00:24:08');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3784, 3798, 'http://www.headingtech.com/center/tz/6/5a264176458c46d78e720ac22fe80f96/12', '20181219142327', 2, 2, '2018-12-19 00:24:08', '2018-12-19 00:24:08');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3785, 3799, 'http://www.headingtech.com/center/tz/6/77cb5bba3e9d42fcbf6215126fc2bff0/12', '20181219142327', 2, 2, '2018-12-19 00:24:08', '2018-12-19 00:24:08');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3786, 3800, 'http://www.headingtech.com/center/tz/6/44e96fdb0fa941f0b462b1970c18172d/12', '20181219142327', 2, 2, '2018-12-19 00:24:08', '2018-12-19 00:24:08');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3787, 3801, 'http://www.headingtech.com/center/tz/6/ac361af378e043c6a3347efa50fc351d/12', '20181219142312', 1, 1, '2018-12-19 00:24:09', '2018-12-19 00:24:09');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3788, 3802, 'http://www.headingtech.com/center/tz/6/13c0c478541a4a61ba1e05cb625296a1/12', '20181219142312', 1, 1, '2018-12-19 00:24:09', '2018-12-19 00:24:09');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3789, 3803, 'http://www.headingtech.com/center/tz/6/3547c93696d148ab8999167296467a47/12', '20181219142312', 1, 1, '2018-12-19 00:24:09', '2018-12-19 00:24:09');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3790, 3804, 'http://www.headingtech.com/center/tz/6/6a03b7e128244cf38bdf51c133c6dcaf/12', '20181219142312', 1, 1, '2018-12-19 00:24:09', '2018-12-19 00:24:09');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3791, 3805, 'http://www.headingtech.com/center/tz/6/c91f84fdbb3b48fa862e91e6650b9e0a/12', '20181219142312', 1, 1, '2018-12-19 00:24:09', '2018-12-19 00:24:09');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3792, 3806, 'http://www.headingtech.com/center/tz/6/a7e29239e5cd44b8ad1996fafac0f724/12', '20181219142312', 1, 1, '2018-12-19 00:24:09', '2018-12-19 00:24:09');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3793, 3807, 'http://www.headingtech.com/center/tz/6/8b89e34c76d843c6b508af92de42d9b3/12', '20181219142312', 1, 1, '2018-12-19 00:24:09', '2018-12-19 00:24:09');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3794, 3808, 'http://www.headingtech.com/center/tz/6/a951528f51474418971ddb74da91bc91/12', '20181219142312', 1, 1, '2018-12-19 00:24:09', '2018-12-19 00:24:09');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3795, 3809, 'http://www.headingtech.com/center/tz/6/7bbe7430c40049dd83f38729ede495b7/12', '20181219142312', 1, 1, '2018-12-19 00:24:09', '2018-12-19 00:24:09');
+INSERT INTO `t_ser_apply_code_201812` VALUES (3796, 3810, 'http://www.headingtech.com/center/tz/6/f7537d9c4cc84e25a6226258809bbeed/12', '20181219142312', 1, 1, '2018-12-19 00:24:09', '2018-12-19 00:24:09');
 COMMIT;
+
+-- ----------------------------
+-- Table structure for t_ser_apply_code_201901
+-- ----------------------------
+DROP TABLE IF EXISTS `t_ser_apply_code_201901`;
+CREATE TABLE `t_ser_apply_code_201901` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '主键',
+  `center_id` bigint(20) DEFAULT NULL COMMENT '中心id',
+  `code_content` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '溯源码内容',
+  `code_order` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '溯源码订单号',
+  `code_position` bigint(255) DEFAULT NULL COMMENT '溯源码位置',
+  `code_position_type` bigint(255) DEFAULT NULL COMMENT '溯源码位置类型',
+  `create_time` datetime DEFAULT NULL COMMENT '创建时间',
+  `update_time` datetime DEFAULT NULL COMMENT '修改时间',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='溯源码';
 
 -- ----------------------------
 -- Table structure for t_ser_apply_code_info
@@ -4185,7 +4255,7 @@ CREATE TABLE `t_ser_apply_code_info` (
   `create_time` datetime DEFAULT NULL COMMENT '创建时间',
   `update_time` datetime DEFAULT NULL COMMENT '修改时间',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=53 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='溯源码申请';
+) ENGINE=InnoDB AUTO_INCREMENT=57 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='溯源码申请';
 
 -- ----------------------------
 -- Records of t_ser_apply_code_info
@@ -4232,6 +4302,10 @@ INSERT INTO `t_ser_apply_code_info` VALUES (49, '20181214144801', 7, 1, 1, 1, 1,
 INSERT INTO `t_ser_apply_code_info` VALUES (50, '20181214151155', 7, 2, 1, 1, 6, 1, '201812', '2018-12-14 15:11:55', '2018-12-14 15:12:28');
 INSERT INTO `t_ser_apply_code_info` VALUES (51, '20181214151203', 7, 2, 2, 2, 6, 1, '201812', '2018-12-14 15:12:03', '2018-12-14 15:12:27');
 INSERT INTO `t_ser_apply_code_info` VALUES (52, '20181214151212', 7, 1, 2, 5, 3, 1, '201812', '2018-12-14 15:12:12', '2018-12-14 15:12:26');
+INSERT INTO `t_ser_apply_code_info` VALUES (53, '20181219142312', 2, 2, 1, 1, 10, 1, '201812', '2018-12-19 00:23:14', '2018-12-19 00:24:09');
+INSERT INTO `t_ser_apply_code_info` VALUES (54, '20181219142327', 2, 2, 2, 2, 10, 1, '201812', '2018-12-19 00:23:27', '2018-12-19 00:24:08');
+INSERT INTO `t_ser_apply_code_info` VALUES (55, '20181219142336', 2, 2, 2, 4, 10, 1, '201812', '2018-12-19 00:23:36', '2018-12-19 00:24:07');
+INSERT INTO `t_ser_apply_code_info` VALUES (56, '20181219142347', 2, 2, 2, 5, 10, 1, '201812', '2018-12-19 00:23:47', '2018-12-19 00:24:06');
 COMMIT;
 
 -- ----------------------------
@@ -4245,7 +4319,7 @@ CREATE TABLE `t_ser_apply_code_table_info` (
   `create_time` datetime DEFAULT NULL,
   `update_time` datetime DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=50 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='溯源码申请对应的存放表';
+) ENGINE=InnoDB AUTO_INCREMENT=54 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='溯源码申请对应的存放表';
 
 -- ----------------------------
 -- Records of t_ser_apply_code_table_info
@@ -4290,6 +4364,10 @@ INSERT INTO `t_ser_apply_code_table_info` VALUES (46, '12', 't_ser_apply_code_20
 INSERT INTO `t_ser_apply_code_table_info` VALUES (47, '12', 't_ser_apply_code_201812', '2018-12-14 15:12:26', '2018-12-14 15:12:26');
 INSERT INTO `t_ser_apply_code_table_info` VALUES (48, '12', 't_ser_apply_code_201812', '2018-12-14 15:12:27', '2018-12-14 15:12:27');
 INSERT INTO `t_ser_apply_code_table_info` VALUES (49, '12', 't_ser_apply_code_201812', '2018-12-14 15:12:28', '2018-12-14 15:12:28');
+INSERT INTO `t_ser_apply_code_table_info` VALUES (50, '12', 't_ser_apply_code_201812', '2018-12-19 00:24:06', '2018-12-19 00:24:06');
+INSERT INTO `t_ser_apply_code_table_info` VALUES (51, '12', 't_ser_apply_code_201812', '2018-12-19 00:24:07', '2018-12-19 00:24:07');
+INSERT INTO `t_ser_apply_code_table_info` VALUES (52, '12', 't_ser_apply_code_201812', '2018-12-19 00:24:08', '2018-12-19 00:24:08');
+INSERT INTO `t_ser_apply_code_table_info` VALUES (53, '12', 't_ser_apply_code_201812', '2018-12-19 00:24:09', '2018-12-19 00:24:09');
 COMMIT;
 
 -- ----------------------------
@@ -4308,7 +4386,7 @@ CREATE TABLE `t_ser_brand_info` (
   `create_time` datetime DEFAULT NULL COMMENT '创建时间',
   `update_time` datetime DEFAULT NULL COMMENT '修改时间',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='企业品牌信息';
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='企业品牌信息';
 
 -- ----------------------------
 -- Records of t_ser_brand_info
@@ -4321,6 +4399,7 @@ INSERT INTO `t_ser_brand_info` VALUES (4, '河套酒业', NULL, 1, NULL, NULL, N
 INSERT INTO `t_ser_brand_info` VALUES (5, '河套', NULL, 1, NULL, NULL, NULL, 0, '2018-12-07 12:33:58', '2018-12-07 12:33:58');
 INSERT INTO `t_ser_brand_info` VALUES (6, '景芝酒', NULL, 0, NULL, NULL, NULL, 0, '2018-12-11 14:49:19', '2018-12-14 14:24:47');
 INSERT INTO `t_ser_brand_info` VALUES (7, '洋河大曲', NULL, 0, NULL, NULL, NULL, 0, '2018-12-12 14:40:59', '2018-12-12 15:00:45');
+INSERT INTO `t_ser_brand_info` VALUES (8, '小郎酒', NULL, 0, NULL, NULL, NULL, 0, '2018-12-18 18:22:30', '2018-12-18 18:22:30');
 COMMIT;
 
 -- ----------------------------
@@ -4336,7 +4415,7 @@ CREATE TABLE `t_ser_brand_logo_file` (
   KEY `file_id` (`file_id`) USING BTREE,
   CONSTRAINT `t_ser_brand_logo_file_ibfk_1` FOREIGN KEY (`brand_id`) REFERENCES `t_ser_brand_info` (`id`),
   CONSTRAINT `t_ser_brand_logo_file_ibfk_2` FOREIGN KEY (`file_id`) REFERENCES `t_sys_file_info` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='品牌logo信息';
+) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='品牌logo信息';
 
 -- ----------------------------
 -- Records of t_ser_brand_logo_file
@@ -4349,6 +4428,7 @@ INSERT INTO `t_ser_brand_logo_file` VALUES (35, 1, 27);
 INSERT INTO `t_ser_brand_logo_file` VALUES (37, 3, 28);
 INSERT INTO `t_ser_brand_logo_file` VALUES (40, 4, 29);
 INSERT INTO `t_ser_brand_logo_file` VALUES (43, 2, 27);
+INSERT INTO `t_ser_brand_logo_file` VALUES (44, 8, 30);
 COMMIT;
 
 -- ----------------------------
@@ -4369,7 +4449,7 @@ CREATE TABLE `t_ser_brand_series_info` (
   PRIMARY KEY (`id`) USING BTREE,
   KEY `brand_id` (`brand_id`) USING BTREE,
   CONSTRAINT `t_ser_brand_series_info_ibfk_1` FOREIGN KEY (`brand_id`) REFERENCES `t_ser_brand_info` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='品牌系列信息';
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='品牌系列信息';
 
 -- ----------------------------
 -- Records of t_ser_brand_series_info
@@ -4382,6 +4462,7 @@ INSERT INTO `t_ser_brand_series_info` VALUES (4, 3, NULL, '河套王年份酒', 
 INSERT INTO `t_ser_brand_series_info` VALUES (5, 5, NULL, '河套王', NULL, NULL, NULL, 0, '2018-12-07 12:34:18', '2018-12-07 12:34:18');
 INSERT INTO `t_ser_brand_series_info` VALUES (6, 6, NULL, '打老虎酒', NULL, NULL, NULL, 0, '2018-12-11 14:49:36', '2018-12-11 14:49:36');
 INSERT INTO `t_ser_brand_series_info` VALUES (7, 7, NULL, '海之蓝', NULL, NULL, NULL, 0, '2018-12-12 15:02:12', '2018-12-12 15:02:12');
+INSERT INTO `t_ser_brand_series_info` VALUES (8, 8, NULL, '春节专用', NULL, NULL, NULL, 0, '2018-12-18 18:23:01', '2018-12-18 18:23:01');
 COMMIT;
 
 -- ----------------------------
@@ -4393,7 +4474,7 @@ CREATE TABLE `t_ser_brand_series_product_code_info` (
   `product_id` bigint(255) DEFAULT NULL COMMENT '产品id',
   `code_id` bigint(20) DEFAULT NULL COMMENT '码类型id',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=125 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='产品组成码信息';
+) ENGINE=InnoDB AUTO_INCREMENT=143 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='产品组成码信息';
 
 -- ----------------------------
 -- Records of t_ser_brand_series_product_code_info
@@ -4425,9 +4506,12 @@ INSERT INTO `t_ser_brand_series_product_code_info` VALUES (97, 12, 5);
 INSERT INTO `t_ser_brand_series_product_code_info` VALUES (98, 13, 1);
 INSERT INTO `t_ser_brand_series_product_code_info` VALUES (99, 13, 2);
 INSERT INTO `t_ser_brand_series_product_code_info` VALUES (100, 13, 5);
-INSERT INTO `t_ser_brand_series_product_code_info` VALUES (122, 14, 1);
-INSERT INTO `t_ser_brand_series_product_code_info` VALUES (123, 14, 2);
-INSERT INTO `t_ser_brand_series_product_code_info` VALUES (124, 14, 5);
+INSERT INTO `t_ser_brand_series_product_code_info` VALUES (134, 14, 1);
+INSERT INTO `t_ser_brand_series_product_code_info` VALUES (135, 14, 2);
+INSERT INTO `t_ser_brand_series_product_code_info` VALUES (136, 14, 5);
+INSERT INTO `t_ser_brand_series_product_code_info` VALUES (140, 15, 1);
+INSERT INTO `t_ser_brand_series_product_code_info` VALUES (141, 15, 4);
+INSERT INTO `t_ser_brand_series_product_code_info` VALUES (142, 15, 5);
 COMMIT;
 
 -- ----------------------------
@@ -4443,7 +4527,7 @@ CREATE TABLE `t_ser_brand_series_product_file` (
   KEY `file_id` (`file_id`) USING BTREE,
   CONSTRAINT `t_ser_brand_series_product_file_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `t_ser_brand_series_product_info` (`id`),
   CONSTRAINT `t_ser_brand_series_product_file_ibfk_2` FOREIGN KEY (`file_id`) REFERENCES `t_sys_file_info` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='品牌产品系列图片';
+) ENGINE=InnoDB AUTO_INCREMENT=46 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='品牌产品系列图片';
 
 -- ----------------------------
 -- Records of t_ser_brand_series_product_file
@@ -4452,6 +4536,7 @@ BEGIN;
 INSERT INTO `t_ser_brand_series_product_file` VALUES (41, 5, 17);
 INSERT INTO `t_ser_brand_series_product_file` VALUES (42, 5, 18);
 INSERT INTO `t_ser_brand_series_product_file` VALUES (43, 5, 19);
+INSERT INTO `t_ser_brand_series_product_file` VALUES (45, 15, 32);
 COMMIT;
 
 -- ----------------------------
@@ -4477,7 +4562,7 @@ CREATE TABLE `t_ser_brand_series_product_info` (
   PRIMARY KEY (`id`) USING BTREE,
   KEY `series_id` (`series_id`) USING BTREE,
   CONSTRAINT `t_ser_brand_series_product_info_ibfk_2` FOREIGN KEY (`series_id`) REFERENCES `t_ser_brand_series_info` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='品牌系列产品信息';
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='品牌系列产品信息';
 
 -- ----------------------------
 -- Records of t_ser_brand_series_product_info
@@ -4492,7 +4577,8 @@ INSERT INTO `t_ser_brand_series_product_info` VALUES (10, 4, NULL, 'QWEQWE', NUL
 INSERT INTO `t_ser_brand_series_product_info` VALUES (11, 4, NULL, '52度', NULL, NULL, NULL, '500ML', 1588.00, NULL, NULL, NULL, '2018-12-04 16:01:35', '2018-12-04 16:01:35', 0);
 INSERT INTO `t_ser_brand_series_product_info` VALUES (12, 5, NULL, '36度', NULL, NULL, NULL, '500ml', 1234.00, NULL, '9876543', NULL, '2018-12-07 12:35:30', '2018-12-07 12:35:30', 0);
 INSERT INTO `t_ser_brand_series_product_info` VALUES (13, 6, NULL, '42度', NULL, NULL, NULL, '5000000ml', NULL, NULL, NULL, NULL, '2018-12-11 14:49:57', '2018-12-11 14:49:57', 0);
-INSERT INTO `t_ser_brand_series_product_info` VALUES (14, 7, NULL, '52度', NULL, NULL, NULL, '500ml', 128.00, 128.00, '987654321', NULL, '2018-12-12 16:18:26', '2018-12-14 14:56:54', 0);
+INSERT INTO `t_ser_brand_series_product_info` VALUES (14, 7, NULL, '52度', NULL, NULL, NULL, '500ml', 128.00, 128.00, '987654321', NULL, '2018-12-12 16:18:26', '2018-12-19 00:25:34', 0);
+INSERT INTO `t_ser_brand_series_product_info` VALUES (15, 8, NULL, '红色版', NULL, NULL, NULL, '250ML', NULL, NULL, NULL, NULL, '2018-12-18 18:26:19', '2018-12-19 00:26:45', 0);
 COMMIT;
 
 -- ----------------------------
@@ -4511,7 +4597,7 @@ CREATE TABLE `t_ser_code_import_temp_info` (
   `creat_time` datetime DEFAULT NULL COMMENT '创建时间',
   `orderno` int(11) DEFAULT NULL COMMENT '排序用',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=293 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='溯源码导入临时表';
+) ENGINE=InnoDB AUTO_INCREMENT=302 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='溯源码导入临时表';
 
 -- ----------------------------
 -- Table structure for t_ser_code_import_template_info
@@ -4535,7 +4621,7 @@ CREATE TABLE `t_ser_code_import_template_info` (
   CONSTRAINT `t_ser_code_import_template_info_ibfk_3` FOREIGN KEY (`product_id`) REFERENCES `t_ser_brand_series_product_info` (`id`),
   CONSTRAINT `t_ser_code_import_template_info_ibfk_4` FOREIGN KEY (`left_code_type_id`) REFERENCES `t_ser_code_type3_info` (`id`),
   CONSTRAINT `t_ser_code_import_template_info_ibfk_5` FOREIGN KEY (`right_code_type_id`) REFERENCES `t_ser_code_type3_info` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='溯源码导入模板';
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='溯源码导入模板';
 
 -- ----------------------------
 -- Records of t_ser_code_import_template_info
@@ -4556,11 +4642,13 @@ INSERT INTO `t_ser_code_import_template_info` VALUES (12, 12, '河套-河套王-
 INSERT INTO `t_ser_code_import_template_info` VALUES (13, 13, '景芝酒-打老虎酒-42度-盖内码-盖外码', 1, 1, 2, NULL, 1, '2018-12-11 14:50:17', '2018-12-14 12:15:33');
 INSERT INTO `t_ser_code_import_template_info` VALUES (14, 13, '景芝酒-打老虎酒-42度-盖外码-箱码', 2, 2, 5, NULL, 1, '2018-12-11 14:51:16', '2018-12-14 12:15:33');
 INSERT INTO `t_ser_code_import_template_info` VALUES (15, 5, '第一品牌-系列1-产品1-盖内码-箱码', 1, 1, 5, NULL, 1, '2018-12-11 14:52:19', '2018-12-14 12:15:32');
-INSERT INTO `t_ser_code_import_template_info` VALUES (16, 14, '洋河大曲52内-外', 1, 1, 2, NULL, 0, '2018-12-12 17:04:56', '2018-12-12 17:04:56');
-INSERT INTO `t_ser_code_import_template_info` VALUES (17, 14, '洋河大曲52', 2, 2, 5, NULL, 0, '2018-12-12 17:06:30', '2018-12-12 17:06:30');
-INSERT INTO `t_ser_code_import_template_info` VALUES (18, 14, '洋河大曲-海之蓝-52度-盖内码-盒码', 1, 1, 4, NULL, 1, '2018-12-13 10:51:04', '2018-12-14 12:15:51');
-INSERT INTO `t_ser_code_import_template_info` VALUES (19, 14, '洋河大曲-海之蓝-52度-盒码-箱码', 2, 4, 5, NULL, 1, '2018-12-13 10:51:20', '2018-12-14 12:15:50');
+INSERT INTO `t_ser_code_import_template_info` VALUES (16, 14, '洋河大曲-海之蓝-52度-盖内码-盖外码', 1, 1, 2, NULL, 1, '2018-12-12 17:04:56', '2018-12-19 00:27:22');
+INSERT INTO `t_ser_code_import_template_info` VALUES (17, 14, '洋河大曲-海之蓝-52度-盖外码-箱码', 2, 2, 5, NULL, 1, '2018-12-12 17:06:30', '2018-12-19 00:27:22');
+INSERT INTO `t_ser_code_import_template_info` VALUES (18, 14, '洋河大曲-海之蓝-52度-盖内码-盒码', 1, 1, 4, NULL, 1, '2018-12-13 10:51:04', '2018-12-19 00:27:21');
+INSERT INTO `t_ser_code_import_template_info` VALUES (19, 14, '洋河大曲-海之蓝-52度-盒码-箱码', 2, 4, 5, NULL, 1, '2018-12-13 10:51:20', '2018-12-19 00:27:21');
 INSERT INTO `t_ser_code_import_template_info` VALUES (20, 13, '景芝酒-打老虎酒-42度-盖内码-盖外码', 1, 1, 2, '234', 1, '2018-12-13 17:53:13', '2018-12-14 12:15:31');
+INSERT INTO `t_ser_code_import_template_info` VALUES (21, 15, '小郎酒-春节专用-红色版-盖内码-盒码', 1, 1, 4, NULL, 0, '2018-12-19 00:27:03', '2018-12-19 00:27:03');
+INSERT INTO `t_ser_code_import_template_info` VALUES (22, 15, '小郎酒-春节专用-红色版-盒码-箱码', 2, 4, 5, NULL, 0, '2018-12-19 00:27:16', '2018-12-19 00:27:16');
 COMMIT;
 
 -- ----------------------------
@@ -4731,8 +4819,9 @@ CREATE TABLE `t_ser_goods_info` (
   `goods_state` int(255) DEFAULT NULL COMMENT '商品状态',
   `create_time` datetime DEFAULT NULL COMMENT '创建时间',
   `update_time` datetime DEFAULT NULL COMMENT '修改时间',
-  PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=207 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='商品信息表';
+  PRIMARY KEY (`id`) USING BTREE,
+  UNIQUE KEY `M1` (`M1`) USING BTREE COMMENT '唯一内码'
+) ENGINE=InnoDB AUTO_INCREMENT=216 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='商品信息表';
 
 -- ----------------------------
 -- Records of t_ser_goods_info
@@ -4750,24 +4839,6 @@ INSERT INTO `t_ser_goods_info` VALUES (23, 2, '第二品牌', 3, '系列1', 7, '
 INSERT INTO `t_ser_goods_info` VALUES (24, 2, '第二品牌', 3, '系列1', 7, '狗年新品', 'http://www.headingtech.com/center/tz/6/9e6a100d140a4786bab4888f1ceca00a/12', 'http://www.headingtech.com/center/tz/6/0339d5d2704b44c1a3c2a8fe6a8db47a/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 3, '2018-12-03 22:27:36', '2018-12-03 22:27:36');
 INSERT INTO `t_ser_goods_info` VALUES (25, 5, '河套', 5, '河套王', 12, '36度', 'http://www.headingtech.com/center/tz/6/cc104e91c5bc448c974ac9909640e01f/12', 'http://www.headingtech.com/center/tz/6/0afd980f8ba94b75b63a6abb3288a605/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, '2018-12-07 12:49:01', '2018-12-07 12:49:01');
 INSERT INTO `t_ser_goods_info` VALUES (26, 5, '河套', 5, '河套王', 12, '36度', 'http://www.headingtech.com/center/tz/6/19a6df8062124df0aaaf5acda946e1a4/12', 'http://www.headingtech.com/center/tz/6/4cb8ceeb2bcf4a32b76416af969469bd/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, '2018-12-07 12:49:01', '2018-12-07 12:49:01');
-INSERT INTO `t_ser_goods_info` VALUES (27, 6, '景芝酒', 6, '打老虎酒', 13, '42度', 'http://www.headingtech.com/center/tz/6/c85a841f484b49c8a956ae76258506e2/12', 'http://www.headingtech.com/center/tz/6/f851f94def184eb0b2bb6c69d5ca10ff/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-11 15:00:18', '2018-12-11 15:00:18');
-INSERT INTO `t_ser_goods_info` VALUES (28, 6, '景芝酒', 6, '打老虎酒', 13, '42度', 'http://www.headingtech.com/center/tz/6/5a8eec554761436699ff1c9260b80780/12', 'http://www.headingtech.com/center/tz/6/6a0ad10a3618409eaf7773029dfbee62/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-11 15:00:18', '2018-12-11 15:00:18');
-INSERT INTO `t_ser_goods_info` VALUES (29, 6, '景芝酒', 6, '打老虎酒', 13, '42度', 'http://www.headingtech.com/center/tz/6/af7f20e1bc62481d903f5f5de838c247/12', 'http://www.headingtech.com/center/tz/6/44129df5245d493fa5d97573dfc17ec9/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-11 15:00:18', '2018-12-11 15:00:18');
-INSERT INTO `t_ser_goods_info` VALUES (30, 6, '景芝酒', 6, '打老虎酒', 13, '42度', 'http://www.headingtech.com/center/tz/6/0757670b24cd4ce9a4e36cf7626309d7/12', 'http://www.headingtech.com/center/tz/6/4d9692f369f344ffb47b7d454e8b85e8/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-11 15:00:18', '2018-12-11 15:00:18');
-INSERT INTO `t_ser_goods_info` VALUES (31, 6, '景芝酒', 6, '打老虎酒', 13, '42度', 'http://www.headingtech.com/center/tz/6/b33b9d58c9fe454c98765234935967a8/12', 'http://www.headingtech.com/center/tz/6/d83a64c23d664d5393fa5cc4449b2f74/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-11 15:00:18', '2018-12-11 15:00:18');
-INSERT INTO `t_ser_goods_info` VALUES (32, 6, '景芝酒', 6, '打老虎酒', 13, '42度', 'http://www.headingtech.com/center/tz/6/7e5e395a51aa46fabf386bc9d8d6b630/12', 'http://www.headingtech.com/center/tz/6/76f1be82777e4fa99eb13b7025c86e13/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-11 15:00:18', '2018-12-11 15:00:18');
-INSERT INTO `t_ser_goods_info` VALUES (33, 6, '景芝酒', 6, '打老虎酒', 13, '42度', 'http://www.headingtech.com/center/tz/6/c85a841f484b49c8a956ae76258506e2/12', 'http://www.headingtech.com/center/tz/6/f851f94def184eb0b2bb6c69d5ca10ff/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-11 15:00:51', '2018-12-11 15:00:51');
-INSERT INTO `t_ser_goods_info` VALUES (34, 6, '景芝酒', 6, '打老虎酒', 13, '42度', 'http://www.headingtech.com/center/tz/6/c85a841f484b49c8a956ae76258506e2/12', 'http://www.headingtech.com/center/tz/6/f851f94def184eb0b2bb6c69d5ca10ff/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-11 15:00:51', '2018-12-11 15:00:51');
-INSERT INTO `t_ser_goods_info` VALUES (35, 6, '景芝酒', 6, '打老虎酒', 13, '42度', 'http://www.headingtech.com/center/tz/6/5a8eec554761436699ff1c9260b80780/12', 'http://www.headingtech.com/center/tz/6/6a0ad10a3618409eaf7773029dfbee62/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-11 15:00:51', '2018-12-11 15:00:51');
-INSERT INTO `t_ser_goods_info` VALUES (36, 6, '景芝酒', 6, '打老虎酒', 13, '42度', 'http://www.headingtech.com/center/tz/6/5a8eec554761436699ff1c9260b80780/12', 'http://www.headingtech.com/center/tz/6/6a0ad10a3618409eaf7773029dfbee62/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-11 15:00:51', '2018-12-11 15:00:51');
-INSERT INTO `t_ser_goods_info` VALUES (37, 6, '景芝酒', 6, '打老虎酒', 13, '42度', 'http://www.headingtech.com/center/tz/6/af7f20e1bc62481d903f5f5de838c247/12', 'http://www.headingtech.com/center/tz/6/44129df5245d493fa5d97573dfc17ec9/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-11 15:00:51', '2018-12-11 15:00:51');
-INSERT INTO `t_ser_goods_info` VALUES (38, 6, '景芝酒', 6, '打老虎酒', 13, '42度', 'http://www.headingtech.com/center/tz/6/af7f20e1bc62481d903f5f5de838c247/12', 'http://www.headingtech.com/center/tz/6/44129df5245d493fa5d97573dfc17ec9/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-11 15:00:51', '2018-12-11 15:00:51');
-INSERT INTO `t_ser_goods_info` VALUES (39, 6, '景芝酒', 6, '打老虎酒', 13, '42度', 'http://www.headingtech.com/center/tz/6/0757670b24cd4ce9a4e36cf7626309d7/12', 'http://www.headingtech.com/center/tz/6/4d9692f369f344ffb47b7d454e8b85e8/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-11 15:00:51', '2018-12-11 15:00:51');
-INSERT INTO `t_ser_goods_info` VALUES (40, 6, '景芝酒', 6, '打老虎酒', 13, '42度', 'http://www.headingtech.com/center/tz/6/0757670b24cd4ce9a4e36cf7626309d7/12', 'http://www.headingtech.com/center/tz/6/4d9692f369f344ffb47b7d454e8b85e8/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-11 15:00:51', '2018-12-11 15:00:51');
-INSERT INTO `t_ser_goods_info` VALUES (41, 6, '景芝酒', 6, '打老虎酒', 13, '42度', 'http://www.headingtech.com/center/tz/6/b33b9d58c9fe454c98765234935967a8/12', 'http://www.headingtech.com/center/tz/6/d83a64c23d664d5393fa5cc4449b2f74/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-11 15:00:51', '2018-12-11 15:00:51');
-INSERT INTO `t_ser_goods_info` VALUES (42, 6, '景芝酒', 6, '打老虎酒', 13, '42度', 'http://www.headingtech.com/center/tz/6/b33b9d58c9fe454c98765234935967a8/12', 'http://www.headingtech.com/center/tz/6/d83a64c23d664d5393fa5cc4449b2f74/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-11 15:00:51', '2018-12-11 15:00:51');
-INSERT INTO `t_ser_goods_info` VALUES (43, 6, '景芝酒', 6, '打老虎酒', 13, '42度', 'http://www.headingtech.com/center/tz/6/7e5e395a51aa46fabf386bc9d8d6b630/12', 'http://www.headingtech.com/center/tz/6/76f1be82777e4fa99eb13b7025c86e13/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-11 15:00:51', '2018-12-11 15:00:51');
-INSERT INTO `t_ser_goods_info` VALUES (44, 6, '景芝酒', 6, '打老虎酒', 13, '42度', 'http://www.headingtech.com/center/tz/6/7e5e395a51aa46fabf386bc9d8d6b630/12', 'http://www.headingtech.com/center/tz/6/76f1be82777e4fa99eb13b7025c86e13/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2018-12-11 15:00:51', '2018-12-11 15:00:51');
 INSERT INTO `t_ser_goods_info` VALUES (45, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/466da01976644866838a69da80186c69/12', 'http://www.headingtech.com/center/tz/6/ff96a64db9b543b586d2a651a596f6e9/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, '2018-12-12 17:11:48', '2018-12-12 17:11:48');
 INSERT INTO `t_ser_goods_info` VALUES (46, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/3b33e54444974327a3a9be65ae08b311/12', 'http://www.headingtech.com/center/tz/6/50a73a3cfee04c45815182d861e62189/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, '2018-12-12 17:11:48', '2018-12-12 17:11:48');
 INSERT INTO `t_ser_goods_info` VALUES (47, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/9cda3fe846b243b68869dadf0e30e44e/12', 'http://www.headingtech.com/center/tz/6/674645b7c1ff4a06a6e0770f863ad176/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, '2018-12-12 17:11:48', '2018-12-12 17:11:48');
@@ -4886,26 +4957,6 @@ INSERT INTO `t_ser_goods_info` VALUES (159, 7, '洋河大曲', 7, '海之蓝', 1
 INSERT INTO `t_ser_goods_info` VALUES (160, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/a083f36267f94adc9d1a768fb92324c1/12', 'http://www.headingtech.com/center/tz/6/6277fd64c737462a9449bdb86976024d/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盒码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2018-12-13 10:51:32', '2018-12-13 10:51:32');
 INSERT INTO `t_ser_goods_info` VALUES (161, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/1d6c7c7b084145408cee04b03d6f125a/12', 'http://www.headingtech.com/center/tz/6/e08e4b04ca8b4815aa79f06b88198af0/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盒码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2018-12-13 10:51:32', '2018-12-13 10:51:32');
 INSERT INTO `t_ser_goods_info` VALUES (162, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/9960d83d2e404da49fa0a35b06ee8363/12', 'http://www.headingtech.com/center/tz/6/5e33c3c82c974f31b9bc77f3b243b374/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盒码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2018-12-13 10:51:32', '2018-12-13 10:51:32');
-INSERT INTO `t_ser_goods_info` VALUES (163, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/06faff1487514a2796bf5f5b750ae1a1/12', 'http://www.headingtech.com/center/tz/6/392d332248204be4a07bd21efe565cd8/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盒码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2018-12-13 10:51:32', '2018-12-13 10:51:32');
-INSERT INTO `t_ser_goods_info` VALUES (164, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/d35cacab9ba346c586de5b75e4b4ea9f/12', 'http://www.headingtech.com/center/tz/6/e8e9fd66209c4d049a95a15e97408f6f/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盒码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2018-12-13 10:51:32', '2018-12-13 10:51:32');
-INSERT INTO `t_ser_goods_info` VALUES (165, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/616a07eef770490e9762bdeaa6d88ba0/12', 'http://www.headingtech.com/center/tz/6/9596dd6ce0e0467d8497137b271689e3/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盒码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2018-12-13 10:51:32', '2018-12-13 10:51:32');
-INSERT INTO `t_ser_goods_info` VALUES (166, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/f65c95cecde140e5aaabb1cc0f0cce12/12', 'http://www.headingtech.com/center/tz/6/4b1fd596d7e4490da28a3ab70cdabfd7/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盒码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2018-12-13 10:51:32', '2018-12-13 10:51:32');
-INSERT INTO `t_ser_goods_info` VALUES (167, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/ac82498e9577445e854a0ee4b82c8fcf/12', 'http://www.headingtech.com/center/tz/6/250c6cdcee36447a81bc5be422378f53/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盒码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2018-12-13 10:51:32', '2018-12-13 10:51:32');
-INSERT INTO `t_ser_goods_info` VALUES (168, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/fe4b269d8e3f474dac827a38df3f4c0b/12', 'http://www.headingtech.com/center/tz/6/aaf88ed5f78f43e5a12bbf50729f5e29/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盒码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2018-12-13 10:51:32', '2018-12-13 10:51:32');
-INSERT INTO `t_ser_goods_info` VALUES (169, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/a16d33d14736404e9be632c90d1f44be/12', 'http://www.headingtech.com/center/tz/6/956c38b6b77c4e3d9320c143a548ba06/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盒码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2018-12-13 10:51:32', '2018-12-13 10:51:32');
-INSERT INTO `t_ser_goods_info` VALUES (170, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/b16e0c06063545c8a0a4d3c59fd4014a/12', 'http://www.headingtech.com/center/tz/6/b6832b7218c949acaddcbe768f8bfabe/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盒码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2018-12-13 10:51:32', '2018-12-13 10:51:32');
-INSERT INTO `t_ser_goods_info` VALUES (171, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/f17a3520414648fb99ce311e5a20c616/12', 'http://www.headingtech.com/center/tz/6/1bde8f655e9740fc9ce3ce0f6de3c7df/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盒码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2018-12-13 11:38:22', '2018-12-13 11:38:22');
-INSERT INTO `t_ser_goods_info` VALUES (172, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/ab84a4049fac40739fcc2bc29f687a8e/12', 'http://www.headingtech.com/center/tz/6/8a8cc840cce942c0b4a085b787c44530/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盒码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2018-12-13 11:38:22', '2018-12-13 11:38:22');
-INSERT INTO `t_ser_goods_info` VALUES (173, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/b4b646124c0e4030b8bff910ba611eb5/12', 'http://www.headingtech.com/center/tz/6/3a38ed9e5a904974bb0ee2f05dc1e8aa/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盒码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2018-12-13 11:38:22', '2018-12-13 11:38:22');
-INSERT INTO `t_ser_goods_info` VALUES (174, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/72fbd22c3e134ea2a23314563c5706f0/12', 'http://www.headingtech.com/center/tz/6/37d38b3cc01e46299c301b18ddffa719/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盒码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2018-12-13 11:38:22', '2018-12-13 11:38:22');
-INSERT INTO `t_ser_goods_info` VALUES (175, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/29510716577d43d2b8d6c28c8b0f9d99/12', 'http://www.headingtech.com/center/tz/6/343210b1501346c7b3a0b7d5e9dfa892/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盒码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2018-12-13 11:38:22', '2018-12-13 11:38:22');
-INSERT INTO `t_ser_goods_info` VALUES (176, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/4e942c5b3eda487db3dc19ecc92466b5/12', 'http://www.headingtech.com/center/tz/6/d9ed0e44ea17460a9156cff98479048c/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盒码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2018-12-13 11:38:22', '2018-12-13 11:38:22');
-INSERT INTO `t_ser_goods_info` VALUES (177, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/e97ae341c9be4068b4539def94bfc7dc/12', 'http://www.headingtech.com/center/tz/6/8aaf47aeb897460ba5c2485a31bf84f2/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盒码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2018-12-13 11:38:22', '2018-12-13 11:38:22');
-INSERT INTO `t_ser_goods_info` VALUES (178, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/bad8e7905251483bbfee36650f0ae595/12', 'http://www.headingtech.com/center/tz/6/edf3221987934510aca1825f6a1e432c/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盒码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2018-12-13 11:38:22', '2018-12-13 11:38:22');
-INSERT INTO `t_ser_goods_info` VALUES (179, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/c4b7a8f3134c4282ab73f176d0946acd/12', 'http://www.headingtech.com/center/tz/6/0be4da2f4f404d13b377e8979faefb9c/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盒码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2018-12-13 11:38:22', '2018-12-13 11:38:22');
-INSERT INTO `t_ser_goods_info` VALUES (180, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/a083f36267f94adc9d1a768fb92324c1/12', 'http://www.headingtech.com/center/tz/6/6277fd64c737462a9449bdb86976024d/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盒码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2018-12-13 11:38:22', '2018-12-13 11:38:22');
-INSERT INTO `t_ser_goods_info` VALUES (181, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/1d6c7c7b084145408cee04b03d6f125a/12', 'http://www.headingtech.com/center/tz/6/e08e4b04ca8b4815aa79f06b88198af0/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盒码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2018-12-13 11:38:22', '2018-12-13 11:38:22');
-INSERT INTO `t_ser_goods_info` VALUES (182, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/9960d83d2e404da49fa0a35b06ee8363/12', 'http://www.headingtech.com/center/tz/6/5e33c3c82c974f31b9bc77f3b243b374/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盒码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2018-12-13 11:38:22', '2018-12-13 11:38:22');
 INSERT INTO `t_ser_goods_info` VALUES (183, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/06faff1487514a2796bf5f5b750ae1a1/12', 'http://www.headingtech.com/center/tz/6/392d332248204be4a07bd21efe565cd8/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盒码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2018-12-13 11:38:22', '2018-12-13 11:38:22');
 INSERT INTO `t_ser_goods_info` VALUES (184, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/d35cacab9ba346c586de5b75e4b4ea9f/12', 'http://www.headingtech.com/center/tz/6/e8e9fd66209c4d049a95a15e97408f6f/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盒码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2018-12-13 11:38:22', '2018-12-13 11:38:22');
 INSERT INTO `t_ser_goods_info` VALUES (185, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/616a07eef770490e9762bdeaa6d88ba0/12', 'http://www.headingtech.com/center/tz/6/9596dd6ce0e0467d8497137b271689e3/12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '盖内码', '盒码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2018-12-13 11:38:22', '2018-12-13 11:38:22');
@@ -4930,6 +4981,7 @@ INSERT INTO `t_ser_goods_info` VALUES (203, 7, '洋河大曲', 7, '海之蓝', 1
 INSERT INTO `t_ser_goods_info` VALUES (204, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/3d53bd7495394bab91412aeb560d55e1/12', 'http://www.headingtech.com/center/tz/6/bb836569b3e04356b0a5c742ac765768/12', NULL, NULL, '3000001522724679', NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, '2018-12-14 15:18:11', '2018-12-14 15:18:11');
 INSERT INTO `t_ser_goods_info` VALUES (205, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/1db1826fb04f4c8fb4e4ad607153ff4d/12', 'http://www.headingtech.com/center/tz/6/cb064cc07cb24993a093c76963c915c4/12', NULL, NULL, '4000000474173888', NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, '2018-12-14 15:18:11', '2018-12-14 15:18:11');
 INSERT INTO `t_ser_goods_info` VALUES (206, 7, '洋河大曲', 7, '海之蓝', 14, '52度', 'http://www.headingtech.com/center/tz/6/18fc51a552db4694b1f3ce9578bf5993/12', 'http://www.headingtech.com/center/tz/6/857d437229904733a11d24ef28f827a4/12', NULL, NULL, '4000000474173888', NULL, NULL, NULL, NULL, NULL, '盖内码', '盖外码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, '2018-12-14 15:18:11', '2018-12-14 15:18:11');
+INSERT INTO `t_ser_goods_info` VALUES (215, 8, '小郎酒', 8, '春节专用', 15, '红色版', 'http://www.headingtech.com/center/tz/6/ac361af378e043c6a3347efa50fc351d/12', NULL, NULL, 'http://www.headingtech.com/center/tz/6/b009eecb67a249eab2f63995806fb77a/12', 'http://www.headingtech.com/center/tz/6/5385728252a74a9a92833c91646b7323/12', NULL, NULL, NULL, NULL, NULL, '盖内码', '盒码', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2018-12-19 01:26:40', '2018-12-19 01:26:40');
 COMMIT;
 
 -- ----------------------------
@@ -4960,7 +5012,7 @@ CREATE TABLE `t_ser_order_info` (
   `create_time` datetime DEFAULT NULL,
   `update_time` datetime DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='销售订单表';
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='销售订单表';
 
 -- ----------------------------
 -- Records of t_ser_order_info
@@ -4978,6 +5030,7 @@ INSERT INTO `t_ser_order_info` VALUES (9, '20181213131356', 1, NULL, NULL, NULL,
 INSERT INTO `t_ser_order_info` VALUES (10, '20181213131600', 1, NULL, NULL, NULL, NULL, NULL, 2, NULL, 3, 7, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-12-13 13:16:00', '2018-12-14 14:38:55');
 INSERT INTO `t_ser_order_info` VALUES (11, '20181213173930', 9, NULL, NULL, NULL, NULL, NULL, 2, NULL, 7, 7, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-12-13 17:39:30', '2018-12-13 17:39:33');
 INSERT INTO `t_ser_order_info` VALUES (12, '20181214152400', 9, NULL, NULL, NULL, NULL, NULL, 4, NULL, 7, 7, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-12-14 15:24:00', '2018-12-14 16:32:55');
+INSERT INTO `t_ser_order_info` VALUES (14, '20181218162929', 2, NULL, NULL, NULL, NULL, NULL, 2, NULL, 8, 5, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-12-18 16:29:29', '2018-12-18 17:13:07');
 COMMIT;
 
 -- ----------------------------
@@ -4994,7 +5047,7 @@ CREATE TABLE `t_ser_order_info_details` (
   `update_time` datetime DEFAULT NULL COMMENT '修改时间',
   PRIMARY KEY (`id`) USING BTREE,
   KEY `FK_FK_SERV_ORDER_IDEALS` (`order_id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=158 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='销售订单详情';
+) ENGINE=InnoDB AUTO_INCREMENT=166 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='销售订单详情';
 
 -- ----------------------------
 -- Records of t_ser_order_info_details
@@ -5014,6 +5067,9 @@ INSERT INTO `t_ser_order_info_details` VALUES (152, 9, 13, 1, 3, '2018-12-13 13:
 INSERT INTO `t_ser_order_info_details` VALUES (153, 10, 13, 1, 3, '2018-12-13 13:16:00', '2018-12-13 13:16:00');
 INSERT INTO `t_ser_order_info_details` VALUES (155, 11, 14, 1, 7, '2018-12-13 17:39:30', '2018-12-13 17:39:30');
 INSERT INTO `t_ser_order_info_details` VALUES (157, 12, 14, 3, 7, '2018-12-14 15:24:00', '2018-12-14 15:24:00');
+INSERT INTO `t_ser_order_info_details` VALUES (159, 13, 13, 12, 8, '2018-12-18 16:28:46', '2018-12-18 16:28:46');
+INSERT INTO `t_ser_order_info_details` VALUES (164, 14, 13, 26, 8, '2018-12-18 16:29:29', '2018-12-18 16:29:29');
+INSERT INTO `t_ser_order_info_details` VALUES (165, 14, 14, 1, 8, '2018-12-18 16:29:29', '2018-12-18 16:29:29');
 COMMIT;
 
 -- ----------------------------
@@ -5153,7 +5209,7 @@ CREATE TABLE `t_ser_prize_set_info` (
 -- Records of t_ser_prize_set_info
 -- ----------------------------
 BEGIN;
-INSERT INTO `t_ser_prize_set_info` VALUES (1, 1, '扫码获得现金红包', 5, 1, 19, 2, 2.00, 20.00, 5, 30, 1, 2, 100, 200, '2018-11-30 00:00:00', '2018-12-03 00:00:00', 6, 0, NULL, NULL, NULL, 'HB', NULL, NULL, NULL, NULL, '2018-12-11 15:17:41');
+INSERT INTO `t_ser_prize_set_info` VALUES (1, 6, '扫码获得现金红包', 5, 1, 19, 2, 2.00, 20.00, 5, 30, 1, 2, 100, 200, '2018-11-30 00:00:00', '2018-12-03 00:00:00', 7, 0, NULL, NULL, NULL, 'HB', NULL, NULL, NULL, NULL, '2018-12-17 15:45:06');
 INSERT INTO `t_ser_prize_set_info` VALUES (2, 1, '扫码红包不限量', 5, 1, 19, 0, 0.10, 10.00, 1, 14, 2, 2, 11, 15, '2018-12-03 00:00:00', '2018-12-07 00:00:00', 2, 0, NULL, NULL, NULL, 'HB', NULL, NULL, NULL, '2018-12-03 17:50:05', '2018-12-05 17:00:16');
 INSERT INTO `t_ser_prize_set_info` VALUES (4, 5, '测试红包！', 7, 1, 3, 1, 1.00, 2.00, 10, 20, 1, 1, 0, 0, '2018-12-03 00:00:00', '2019-01-09 00:00:00', 2, 0, NULL, NULL, NULL, 'HB', NULL, NULL, NULL, '2018-12-03 22:51:46', '2018-12-05 17:00:23');
 INSERT INTO `t_ser_prize_set_info` VALUES (5, 6, '抽红包', 12, 1, 347, 1, 1.00, 2.00, 0, 0, 1, 1, 0, 0, '2018-12-07 00:00:00', '2019-01-01 00:00:00', 5, 0, NULL, NULL, NULL, 'HB', NULL, NULL, NULL, '2018-12-07 13:59:47', '2018-12-07 14:16:46');
@@ -5221,15 +5277,16 @@ CREATE TABLE `t_ser_purchase_order_info` (
   `create_time` datetime DEFAULT NULL COMMENT '创建时间',
   `update_time` datetime DEFAULT NULL COMMENT '修改时间',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='商品退货订单';
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='商品退货订单';
 
 -- ----------------------------
 -- Records of t_ser_purchase_order_info
 -- ----------------------------
 BEGIN;
-INSERT INTO `t_ser_purchase_order_info` VALUES (1, 2, '20181211134104', '就是要退货', 0, NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-12-11 13:41:04', '2018-12-11 13:41:04');
-INSERT INTO `t_ser_purchase_order_info` VALUES (6, 1, '20181212134219', NULL, 0, NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-12-12 13:42:19', '2018-12-12 13:42:19');
+INSERT INTO `t_ser_purchase_order_info` VALUES (1, 2, '20181211134104', '就是要退货', 2, NULL, 7, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-12-11 13:41:04', '2018-12-17 15:44:27');
+INSERT INTO `t_ser_purchase_order_info` VALUES (6, 1, '20181212134219', NULL, 2, NULL, 7, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-12-12 13:42:19', '2018-12-17 15:44:26');
 INSERT INTO `t_ser_purchase_order_info` VALUES (7, 2, '20181212134221', '就是要退货', 2, NULL, 7, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-12-12 13:42:21', '2018-12-13 11:21:15');
+INSERT INTO `t_ser_purchase_order_info` VALUES (8, 1, '20181219141732', NULL, 2, NULL, 2, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-12-19 00:17:32', '2018-12-19 00:17:35');
 COMMIT;
 
 -- ----------------------------
@@ -5256,7 +5313,7 @@ CREATE TABLE `t_ser_purchase_order_info_details` (
   `create_time` datetime DEFAULT NULL,
   `update_time` datetime DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='退货订单商品明细';
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='退货订单商品明细';
 
 -- ----------------------------
 -- Records of t_ser_purchase_order_info_details
@@ -5264,8 +5321,8 @@ CREATE TABLE `t_ser_purchase_order_info_details` (
 BEGIN;
 INSERT INTO `t_ser_purchase_order_info_details` VALUES (11, 1, 8, 3, NULL, NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-12-11 13:41:04', '2018-12-11 13:41:04');
 INSERT INTO `t_ser_purchase_order_info_details` VALUES (12, 1, 9, 5, NULL, NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-12-11 13:41:04', '2018-12-11 13:41:04');
-INSERT INTO `t_ser_purchase_order_info_details` VALUES (13, -1, 5, 1, NULL, NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-12-12 13:42:18', '2018-12-12 13:42:18');
 INSERT INTO `t_ser_purchase_order_info_details` VALUES (14, 6, 5, 1, NULL, NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-12-12 13:42:19', '2018-12-12 13:42:19');
+INSERT INTO `t_ser_purchase_order_info_details` VALUES (16, 8, 13, 1, NULL, NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-12-19 00:17:32', '2018-12-19 00:17:32');
 COMMIT;
 
 -- ----------------------------
@@ -8651,7 +8708,7 @@ CREATE TABLE `t_sys_file_info` (
   `create_time` datetime DEFAULT NULL COMMENT '创建时间',
   `update_time` datetime DEFAULT NULL COMMENT '修改时间',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='上传文件信息';
+) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='上传文件信息';
 
 -- ----------------------------
 -- Records of t_sys_file_info
@@ -8686,6 +8743,9 @@ INSERT INTO `t_sys_file_info` VALUES (26, '4543e501021d4b489c407fd448192cf6logo2
 INSERT INTO `t_sys_file_info` VALUES (27, '43b309e535a141b9bd470a38ff69fe12p2317872999.jpg', 'upload/43b309e535a141b9bd470a38ff69fe12p2317872999.jpg', '2018-12-14 14:25:06', '2018-12-14 14:25:06');
 INSERT INTO `t_sys_file_info` VALUES (28, 'c0947b4bb2e64dcf9b53f0a5c28ca822经典跑车梅赛德斯-奔弛300SL（1955）.jpg', 'upload/c0947b4bb2e64dcf9b53f0a5c28ca822经典跑车梅赛德斯-奔弛300SL（1955）.jpg', '2018-12-14 14:25:23', '2018-12-14 14:25:23');
 INSERT INTO `t_sys_file_info` VALUES (29, '43ac950be930423d9e2f34274abf37d6素材1.jpg', 'upload/43ac950be930423d9e2f34274abf37d6素材1.jpg', '2018-12-14 14:25:38', '2018-12-14 14:25:38');
+INSERT INTO `t_sys_file_info` VALUES (30, '068c69e0d36c46ea94cdc8ef11ce78d8p2317872999.jpg', 'upload/068c69e0d36c46ea94cdc8ef11ce78d8p2317872999.jpg', '2018-12-18 18:22:28', '2018-12-18 18:22:28');
+INSERT INTO `t_sys_file_info` VALUES (31, '8ad60373d06649618907855b505f65aap2317872999.jpg', 'upload/8ad60373d06649618907855b505f65aap2317872999.jpg', '2018-12-18 18:26:02', '2018-12-18 18:26:02');
+INSERT INTO `t_sys_file_info` VALUES (32, '254d098b0aa846d284ec62be169e2e5fp2317872999.jpg', 'upload/254d098b0aa846d284ec62be169e2e5fp2317872999.jpg', '2018-12-18 18:26:19', '2018-12-18 18:26:19');
 COMMIT;
 
 -- ----------------------------
@@ -8706,7 +8766,7 @@ CREATE TABLE `t_sys_menu_info` (
   `create_time` timestamp NULL DEFAULT NULL COMMENT '创建时间',
   `update_time` timestamp NULL DEFAULT NULL COMMENT '修改时间',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='菜单信息';
+) ENGINE=InnoDB AUTO_INCREMENT=174 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='菜单信息';
 
 -- ----------------------------
 -- Records of t_sys_menu_info
@@ -8735,13 +8795,10 @@ INSERT INTO `t_sys_menu_info` VALUES (20, 16, '溯源码导入', 0, NULL, '/serv
 INSERT INTO `t_sys_menu_info` VALUES (21, 16, '中心注册', 0, 'icon-link', '/center/register', NULL, 5, 0, NULL, '2018-11-19 11:27:09', '2018-11-19 11:28:24');
 INSERT INTO `t_sys_menu_info` VALUES (22, 16, '销售订单管理', 0, NULL, '/server/order/sale', NULL, 6, 0, '', '2018-11-27 11:45:23', '2018-11-27 11:59:00');
 INSERT INTO `t_sys_menu_info` VALUES (23, 16, '退货订单管理', 0, NULL, '/server/order/return', NULL, 7, 0, NULL, '2018-11-27 11:57:46', '2018-11-28 18:16:12');
-INSERT INTO `t_sys_menu_info` VALUES (24, 22, '退回-销售订单', 1, NULL, NULL, 'sale_order_return', 2, 0, NULL, '2018-11-27 16:37:42', '2018-11-27 16:42:46');
-INSERT INTO `t_sys_menu_info` VALUES (25, 22, '同意-销售订单', 1, NULL, NULL, 'sale_order_agree', 1, 0, NULL, '2018-11-27 16:39:17', '2018-11-27 16:42:40');
-INSERT INTO `t_sys_menu_info` VALUES (26, 22, '新建-销售订单', 1, NULL, NULL, 'sale_order_add', 0, 0, NULL, '2018-11-27 16:42:35', '2018-11-27 16:42:35');
 INSERT INTO `t_sys_menu_info` VALUES (27, 16, '入库管理', 0, NULL, '/server/warehouse/putIn', NULL, 8, 0, NULL, '2018-11-28 18:34:52', '2018-11-28 18:34:52');
 INSERT INTO `t_sys_menu_info` VALUES (28, 16, '出库管理', 0, NULL, '/server/warehouse/putOut', NULL, 9, 0, NULL, '2018-11-28 18:35:10', '2018-11-28 18:35:10');
 INSERT INTO `t_sys_menu_info` VALUES (29, 0, '布奖兑奖', 0, NULL, '', NULL, 10, 0, NULL, '2018-11-28 18:35:43', '2018-12-04 17:11:59');
-INSERT INTO `t_sys_menu_info` VALUES (30, 29, '奖项类型', 0, NULL, '/server/prize/type', NULL, 1, 0, NULL, '2018-11-28 18:36:35', '2018-12-04 17:13:37');
+INSERT INTO `t_sys_menu_info` VALUES (30, 29, '奖项类型', 0, NULL, '/server/prize/type', NULL, 1, 0, NULL, '2018-11-28 18:36:35', '2018-12-18 17:36:42');
 INSERT INTO `t_sys_menu_info` VALUES (31, 29, '奖项管理', 0, NULL, '/server/prize/manager', NULL, 2, 0, NULL, '2018-11-28 18:36:48', '2018-12-04 17:13:47');
 INSERT INTO `t_sys_menu_info` VALUES (32, 29, '奖项设定', 0, NULL, '/server/prize/set', NULL, 3, 0, NULL, '2018-11-28 18:36:59', '2018-11-30 11:33:20');
 INSERT INTO `t_sys_menu_info` VALUES (33, 29, '布奖记录', 0, NULL, '/server/prize/log/set', NULL, 4, 0, NULL, '2018-11-28 18:37:12', '2018-11-29 18:13:14');
@@ -8752,6 +8809,127 @@ INSERT INTO `t_sys_menu_info` VALUES (37, 34, '积分管理', 0, NULL, '/server/
 INSERT INTO `t_sys_menu_info` VALUES (38, 29, '兑奖记录', 0, NULL, '/server/prize/log/ticket', NULL, 5, 0, NULL, '2018-11-29 18:12:11', '2018-11-29 18:12:48');
 INSERT INTO `t_sys_menu_info` VALUES (39, 34, '会员类型', 0, NULL, '/server/member/type', NULL, 4, 0, NULL, '2018-11-30 14:08:33', '2018-11-30 14:09:31');
 INSERT INTO `t_sys_menu_info` VALUES (40, 34, '积分规则', 0, NULL, '/server/member/rule', NULL, 5, 0, NULL, '2018-11-30 14:08:55', '2018-11-30 14:09:48');
+INSERT INTO `t_sys_menu_info` VALUES (41, 2, '禁用-导航栏', 1, NULL, NULL, 'sys_bar_disable', 3, 0, NULL, '2018-12-18 09:40:01', '2018-12-18 09:40:32');
+INSERT INTO `t_sys_menu_info` VALUES (42, 2, '启用-导航栏', 1, NULL, NULL, 'sys_bar_enable', 4, 0, NULL, '2018-12-18 09:41:08', '2018-12-18 09:44:21');
+INSERT INTO `t_sys_menu_info` VALUES (43, 2, '权限-导航栏', 1, NULL, NULL, 'sys_bar_role', 5, 0, NULL, '2018-12-18 09:41:34', '2018-12-18 09:44:40');
+INSERT INTO `t_sys_menu_info` VALUES (44, 2, '编辑-确认-导航栏', 1, NULL, NULL, 'sys_bar_edit_ok', 6, 0, NULL, '2018-12-18 09:42:26', '2018-12-18 09:51:30');
+INSERT INTO `t_sys_menu_info` VALUES (45, 2, '权限-确认-导航栏', 1, NULL, NULL, 'sys_bar_role_ok', 7, 0, NULL, '2018-12-18 09:43:20', '2018-12-18 09:46:02');
+INSERT INTO `t_sys_menu_info` VALUES (46, 4, '新增-菜单', 1, NULL, NULL, 'sys_menu_add', 10, 0, NULL, '2018-12-18 09:46:59', '2018-12-18 16:39:21');
+INSERT INTO `t_sys_menu_info` VALUES (47, 4, '编辑-菜单', 1, NULL, NULL, 'sys_menu_edit', 11, 0, NULL, '2018-12-18 09:47:13', '2018-12-18 16:39:41');
+INSERT INTO `t_sys_menu_info` VALUES (48, 4, '删除-菜单', 1, NULL, NULL, 'sys_menu_del', 12, 0, NULL, '2018-12-18 09:47:25', '2018-12-18 16:39:47');
+INSERT INTO `t_sys_menu_info` VALUES (49, 4, '新增-确认-菜单', 1, NULL, NULL, 'sys_menu_add_ok', 13, 0, NULL, '2018-12-18 09:47:44', '2018-12-18 16:39:59');
+INSERT INTO `t_sys_menu_info` VALUES (50, 4, '编辑-确认-菜单', 1, NULL, NULL, 'sys_menu_edit_ok', 14, 0, NULL, '2018-12-18 09:48:26', '2018-12-18 16:40:02');
+INSERT INTO `t_sys_menu_info` VALUES (51, 8, '新增-角色', 1, NULL, NULL, 'sys_role_add', 20, 0, NULL, '2018-12-18 09:49:29', '2018-12-18 16:40:21');
+INSERT INTO `t_sys_menu_info` VALUES (52, 8, '编辑-角色', 1, NULL, NULL, 'sys_role_edit', 21, 0, NULL, '2018-12-18 09:49:57', '2018-12-18 16:40:31');
+INSERT INTO `t_sys_menu_info` VALUES (53, 8, '启用-角色', 1, NULL, NULL, 'sys_role_enable', 22, 0, NULL, '2018-12-18 09:50:14', '2018-12-18 16:40:42');
+INSERT INTO `t_sys_menu_info` VALUES (54, 8, '权限-角色', 1, NULL, NULL, 'sys_role_role', 23, 0, NULL, '2018-12-18 09:50:29', '2018-12-18 16:40:47');
+INSERT INTO `t_sys_menu_info` VALUES (55, 8, '编辑-确认-角色', 1, NULL, NULL, 'sys_role_edit_ok', 25, 0, NULL, '2018-12-18 09:51:22', '2018-12-18 16:40:55');
+INSERT INTO `t_sys_menu_info` VALUES (56, 8, '权限-确认-角色', 1, NULL, NULL, 'sys_role_role_ok', 27, 0, NULL, '2018-12-18 09:52:07', '2018-12-18 16:41:04');
+INSERT INTO `t_sys_menu_info` VALUES (57, 8, '新增-确认-角色', 1, NULL, NULL, 'sys_role_add_ok', 26, 0, NULL, '2018-12-18 09:52:47', '2018-12-18 16:41:00');
+INSERT INTO `t_sys_menu_info` VALUES (58, 9, '查询-用户', 1, NULL, NULL, 'sys_user_search', 30, 0, NULL, '2018-12-18 09:53:36', '2018-12-18 16:41:20');
+INSERT INTO `t_sys_menu_info` VALUES (59, 9, '新增-用户', 1, NULL, NULL, 'sys_user_add', 31, 0, NULL, '2018-12-18 09:53:48', '2018-12-18 16:41:42');
+INSERT INTO `t_sys_menu_info` VALUES (60, 9, '禁用-用户', 1, NULL, NULL, 'sys_user_disable', 33, 0, NULL, '2018-12-18 09:54:02', '2018-12-18 16:41:59');
+INSERT INTO `t_sys_menu_info` VALUES (61, 9, '权限-用户', 1, NULL, NULL, 'sys_user_role', 34, 0, NULL, '2018-12-18 09:54:26', '2018-12-18 16:42:03');
+INSERT INTO `t_sys_menu_info` VALUES (62, 9, '编辑-用户', 1, NULL, NULL, 'sys_user_edit', 32, 0, NULL, '2018-12-18 09:54:47', '2018-12-18 16:41:52');
+INSERT INTO `t_sys_menu_info` VALUES (63, 9, '启用-用户', 1, NULL, NULL, 'sys_user_enable', 35, 0, NULL, '2018-12-18 09:55:02', '2018-12-18 16:42:09');
+INSERT INTO `t_sys_menu_info` VALUES (64, 9, '编辑-确认-用户', 1, NULL, NULL, 'sys_user_edit_ok', 36, 0, NULL, '2018-12-18 09:55:26', '2018-12-18 16:42:37');
+INSERT INTO `t_sys_menu_info` VALUES (65, 9, '权限-确认-用户', 1, NULL, NULL, 'sys_user_role_ok', 38, 0, NULL, '2018-12-18 09:55:45', '2018-12-18 16:42:51');
+INSERT INTO `t_sys_menu_info` VALUES (66, 11, '新增-品牌', 1, NULL, NULL, 'ser_brand_add', 40, 0, NULL, '2018-12-18 09:56:33', '2018-12-18 16:43:11');
+INSERT INTO `t_sys_menu_info` VALUES (67, 11, '禁用-品牌', 1, NULL, NULL, 'ser_brand_disable', 43, 0, NULL, '2018-12-18 09:56:45', '2018-12-18 16:43:31');
+INSERT INTO `t_sys_menu_info` VALUES (68, 11, '编辑-品牌', 1, NULL, NULL, 'ser_brand_edit', 41, 0, NULL, '2018-12-18 09:57:04', '2018-12-18 16:43:18');
+INSERT INTO `t_sys_menu_info` VALUES (69, 11, '启用-品牌', 1, NULL, NULL, 'ser_brand_enable', 42, 0, NULL, '2018-12-18 09:57:21', '2018-12-18 16:43:24');
+INSERT INTO `t_sys_menu_info` VALUES (70, 11, '新增-确认-品牌', 1, NULL, NULL, 'ser_brand_add_ok', 44, 0, NULL, '2018-12-18 09:57:53', '2018-12-18 16:43:38');
+INSERT INTO `t_sys_menu_info` VALUES (71, 11, '编辑-确认-品牌', 1, NULL, NULL, 'ser_brand_edit_ok', 45, 0, NULL, '2018-12-18 09:58:14', '2018-12-18 16:43:45');
+INSERT INTO `t_sys_menu_info` VALUES (72, 12, '新增-系列', 1, NULL, NULL, 'ser_series_add', 50, 0, NULL, '2018-12-18 09:58:54', '2018-12-18 16:43:54');
+INSERT INTO `t_sys_menu_info` VALUES (73, 12, '禁用-系列', 1, NULL, NULL, 'ser_series_disable', 53, 0, NULL, '2018-12-18 09:59:10', '2018-12-18 16:44:33');
+INSERT INTO `t_sys_menu_info` VALUES (74, 12, '编辑-系列', 1, NULL, NULL, 'ser_series_edit', 51, 0, NULL, '2018-12-18 09:59:32', '2018-12-18 16:44:05');
+INSERT INTO `t_sys_menu_info` VALUES (75, 12, '启用-系列', 1, NULL, NULL, 'ser_series_enable', 52, 0, NULL, '2018-12-18 09:59:49', '2018-12-18 16:44:26');
+INSERT INTO `t_sys_menu_info` VALUES (76, 12, '新增-确认-系列', 1, NULL, NULL, 'ser_series_add_ok', 54, 0, NULL, '2018-12-18 10:00:08', '2018-12-18 16:44:42');
+INSERT INTO `t_sys_menu_info` VALUES (77, 12, '编辑-确认-系列', 1, NULL, NULL, 'ser_series_edit_ok', 55, 0, NULL, '2018-12-18 10:00:38', '2018-12-18 16:44:53');
+INSERT INTO `t_sys_menu_info` VALUES (78, 13, '新增-产品', 1, NULL, NULL, 'ser_product_add', 60, 0, NULL, '2018-12-18 10:01:15', '2018-12-18 16:46:05');
+INSERT INTO `t_sys_menu_info` VALUES (79, 13, '禁用-产品', 1, NULL, NULL, 'ser_product_disable', 63, 0, NULL, '2018-12-18 10:01:32', '2018-12-18 16:46:32');
+INSERT INTO `t_sys_menu_info` VALUES (80, 13, '编辑-产品', 1, NULL, NULL, 'ser_product_edit', 61, 0, NULL, '2018-12-18 10:01:48', '2018-12-18 16:46:15');
+INSERT INTO `t_sys_menu_info` VALUES (81, 13, '启用-产品', 1, NULL, NULL, 'ser_product_enable', 62, 0, NULL, '2018-12-18 10:02:04', '2018-12-18 16:46:23');
+INSERT INTO `t_sys_menu_info` VALUES (82, 13, '新增-确认-产品', 1, NULL, NULL, 'ser_product_add_ok', 64, 0, NULL, '2018-12-18 10:02:27', '2018-12-18 16:46:40');
+INSERT INTO `t_sys_menu_info` VALUES (83, 13, '编辑-确认-产品', 1, NULL, NULL, 'ser_product_edit_ok', 65, 0, NULL, '2018-12-18 10:02:50', '2018-12-18 16:46:47');
+INSERT INTO `t_sys_menu_info` VALUES (84, 15, '新增-模板', 1, NULL, NULL, 'ser_codeTemplate_add', 70, 0, NULL, '2018-12-18 10:04:07', '2018-12-18 16:47:14');
+INSERT INTO `t_sys_menu_info` VALUES (85, 15, '禁用-模板', 1, NULL, NULL, 'ser_codeTemplate_disable', 73, 0, NULL, '2018-12-18 10:04:26', '2018-12-18 16:47:38');
+INSERT INTO `t_sys_menu_info` VALUES (86, 15, '编辑-模板', 1, NULL, NULL, 'ser_codeTemplate_edit', 71, 0, NULL, '2018-12-18 10:04:47', '2018-12-18 16:47:23');
+INSERT INTO `t_sys_menu_info` VALUES (87, 15, '启用-模板', 1, NULL, NULL, 'ser_codeTemplate_enable', 72, 0, NULL, '2018-12-18 10:05:06', '2018-12-18 16:47:31');
+INSERT INTO `t_sys_menu_info` VALUES (88, 15, '新增-确认-模板', 1, NULL, NULL, 'ser_codeTemplate_add_ok', 74, 0, NULL, '2018-12-18 10:05:30', '2018-12-18 16:47:47');
+INSERT INTO `t_sys_menu_info` VALUES (89, 15, '编辑-确认-模板', 1, NULL, NULL, 'ser_codeTemplate_edit_ok', 75, 0, NULL, '2018-12-18 10:05:52', '2018-12-18 16:47:55');
+INSERT INTO `t_sys_menu_info` VALUES (90, 17, '新增-经销商', 1, NULL, NULL, 'ser_dealer_add', 80, 0, NULL, '2018-12-18 10:07:07', '2018-12-18 16:48:21');
+INSERT INTO `t_sys_menu_info` VALUES (91, 17, '编辑-经销商', 1, NULL, NULL, 'ser_dealer_edit', 81, 0, NULL, '2018-12-18 10:07:23', '2018-12-18 16:48:31');
+INSERT INTO `t_sys_menu_info` VALUES (92, 17, '新增-确认-经销商', 1, NULL, NULL, 'ser_dealer_add_ok', 82, 0, NULL, '2018-12-18 10:07:41', '2018-12-18 16:48:38');
+INSERT INTO `t_sys_menu_info` VALUES (93, 17, '编辑-确认-经销商', 1, NULL, NULL, 'ser_dealer_edit_ok', 83, 0, NULL, '2018-12-18 10:07:59', '2018-12-18 16:48:45');
+INSERT INTO `t_sys_menu_info` VALUES (94, 18, '新增-仓库', 1, NULL, NULL, 'ser_warehouse_add', 90, 0, NULL, '2018-12-18 10:08:33', '2018-12-18 16:49:50');
+INSERT INTO `t_sys_menu_info` VALUES (95, 18, '禁用-仓库', 1, NULL, NULL, 'ser_warehouse_disable', 93, 0, NULL, '2018-12-18 10:08:53', '2018-12-18 16:50:15');
+INSERT INTO `t_sys_menu_info` VALUES (96, 18, '编辑-仓库', 1, NULL, NULL, 'ser_warehouse_edit', 91, 0, NULL, '2018-12-18 10:09:09', '2018-12-18 16:50:00');
+INSERT INTO `t_sys_menu_info` VALUES (97, 18, '启用-仓库', 1, NULL, NULL, 'ser_warehouse_enable', 92, 0, NULL, '2018-12-18 10:09:33', '2018-12-18 16:50:08');
+INSERT INTO `t_sys_menu_info` VALUES (98, 18, '新增-确认-仓库', 1, NULL, NULL, 'ser_warehouse_add_ok', 94, 0, NULL, '2018-12-18 10:09:50', '2018-12-18 16:50:22');
+INSERT INTO `t_sys_menu_info` VALUES (99, 18, '编辑-确认-仓库', 1, NULL, NULL, 'ser_warehouse_edit_ok', 95, 0, NULL, '2018-12-18 10:12:28', '2018-12-18 16:50:29');
+INSERT INTO `t_sys_menu_info` VALUES (100, 19, '查询-溯源码申请', 1, NULL, NULL, 'ser_code_apply_search', 100, 0, NULL, '2018-12-18 10:14:53', '2018-12-18 16:50:45');
+INSERT INTO `t_sys_menu_info` VALUES (101, 19, '申请-溯源码申请', 1, NULL, NULL, 'ser_code_apply_add', 101, 0, NULL, '2018-12-18 10:15:09', '2018-12-18 16:50:55');
+INSERT INTO `t_sys_menu_info` VALUES (102, 19, '下载-溯源码申请', 1, NULL, NULL, 'ser_code_apply_down', 102, 0, NULL, '2018-12-18 10:15:38', '2018-12-18 16:51:06');
+INSERT INTO `t_sys_menu_info` VALUES (103, 19, '申请-确认-溯源码申请', 1, NULL, NULL, 'ser_code_apply_ok', 103, 0, NULL, '2018-12-18 10:16:09', '2018-12-18 16:51:13');
+INSERT INTO `t_sys_menu_info` VALUES (104, 20, '选择-溯源码导入', 1, NULL, NULL, 'ser_code_import_change', 110, 0, NULL, '2018-12-18 10:16:52', '2018-12-18 16:51:25');
+INSERT INTO `t_sys_menu_info` VALUES (105, 20, '查询-溯源码导入', 1, NULL, NULL, 'ser_code_import_search', 111, 0, NULL, '2018-12-18 10:17:14', '2018-12-18 16:51:33');
+INSERT INTO `t_sys_menu_info` VALUES (106, 20, '导入-溯源码导入', 1, '112', NULL, 'ser_code_import_add', 3, 0, NULL, '2018-12-18 10:17:40', '2018-12-18 16:51:40');
+INSERT INTO `t_sys_menu_info` VALUES (107, 20, '导入-确认-溯源码导入', 1, NULL, NULL, 'ser_code_import_add_ok', 113, 0, NULL, '2018-12-18 10:18:05', '2018-12-18 16:51:59');
+INSERT INTO `t_sys_menu_info` VALUES (117, 23, '退货-退货订单', 1, NULL, NULL, 'ser_return_add', 130, 0, NULL, '2018-12-18 10:27:55', '2018-12-18 16:54:32');
+INSERT INTO `t_sys_menu_info` VALUES (119, 23, '查看-退货订单', 1, NULL, NULL, 'ser_return_show', 131, 0, NULL, '2018-12-18 10:28:38', '2018-12-18 16:54:45');
+INSERT INTO `t_sys_menu_info` VALUES (120, 23, '修改-退货订单', 1, NULL, NULL, 'ser_return_edit', 132, 0, NULL, '2018-12-18 10:29:01', '2018-12-18 16:54:57');
+INSERT INTO `t_sys_menu_info` VALUES (121, 23, '确认-退货订单', 1, NULL, NULL, 'ser_return_next', 133, 0, NULL, '2018-12-18 10:29:18', '2018-12-18 16:55:05');
+INSERT INTO `t_sys_menu_info` VALUES (122, 23, '删除-退货订单', 1, NULL, NULL, 'ser_return_del', 134, 0, NULL, '2018-12-18 10:29:53', '2018-12-18 16:55:13');
+INSERT INTO `t_sys_menu_info` VALUES (123, 23, '添加-详情-退货订单', 1, NULL, NULL, 'ser_return_item_add', 135, 0, NULL, '2018-12-18 10:30:32', '2018-12-18 16:55:24');
+INSERT INTO `t_sys_menu_info` VALUES (124, 23, '删除-详情-退货订单', 1, NULL, NULL, 'ser_return_item_del', 136, 0, NULL, '2018-12-18 10:30:51', '2018-12-18 16:55:41');
+INSERT INTO `t_sys_menu_info` VALUES (125, 23, '提交-详情-退货订单', 1, NULL, NULL, 'ser_return_item_ok', 137, 0, NULL, '2018-12-18 10:31:14', '2018-12-18 16:55:49');
+INSERT INTO `t_sys_menu_info` VALUES (126, 23, '新增-确认-退货订单', 1, NULL, NULL, 'ser_return_add_ok', 138, 0, NULL, '2018-12-18 10:31:48', '2018-12-18 16:56:00');
+INSERT INTO `t_sys_menu_info` VALUES (127, 23, '修改-确认-退货订单', 1, NULL, NULL, 'ser_return_edit_ok', 139, 0, NULL, '2018-12-18 10:33:01', '2018-12-18 16:56:08');
+INSERT INTO `t_sys_menu_info` VALUES (128, 23, '同意-退货订单', 1, NULL, NULL, 'ser_return_agree', 139, 0, NULL, '2018-12-18 10:35:05', '2018-12-18 16:56:17');
+INSERT INTO `t_sys_menu_info` VALUES (129, 23, '退回-退货订单', 1, NULL, NULL, 'ser_return_return', 139, 0, NULL, '2018-12-18 10:35:28', '2018-12-18 16:56:26');
+INSERT INTO `t_sys_menu_info` VALUES (130, 31, '新增-奖项管理', 1, NULL, NULL, 'ser_prize_manager_add', 140, 0, NULL, '2018-12-18 10:40:02', '2018-12-18 16:57:05');
+INSERT INTO `t_sys_menu_info` VALUES (131, 31, '禁用-奖项管理', 1, NULL, NULL, 'ser_prize_manager_disable', 143, 0, NULL, '2018-12-18 10:40:48', '2018-12-18 16:57:37');
+INSERT INTO `t_sys_menu_info` VALUES (132, 31, '启用-奖项管理', 1, NULL, NULL, 'ser_prize_manager_enable', 142, 0, NULL, '2018-12-18 10:41:14', '2018-12-18 16:57:26');
+INSERT INTO `t_sys_menu_info` VALUES (133, 31, '新增-确认-奖项管理', 1, NULL, NULL, 'ser_prize_manager_add_ok', 144, 0, NULL, '2018-12-18 10:41:42', '2018-12-18 16:57:47');
+INSERT INTO `t_sys_menu_info` VALUES (134, 31, '编辑-确认-奖项管理', 1, NULL, NULL, 'ser_prize_manager_edit_ok', 145, 0, NULL, '2018-12-18 10:42:02', '2018-12-18 16:57:57');
+INSERT INTO `t_sys_menu_info` VALUES (135, 32, '新增-奖项设定', 1, NULL, NULL, 'ser_prize_set_add', 150, 0, NULL, '2018-12-18 10:43:06', '2018-12-18 16:58:08');
+INSERT INTO `t_sys_menu_info` VALUES (136, 32, '明细-奖项设定', 1, NULL, NULL, 'ser_prize_set_show', 151, 0, NULL, '2018-12-18 10:43:24', '2018-12-18 16:58:18');
+INSERT INTO `t_sys_menu_info` VALUES (137, 32, '禁用-奖项设定', 1, NULL, NULL, 'ser_prize_set_disable', 154, 0, NULL, '2018-12-18 10:43:43', '2018-12-18 16:58:44');
+INSERT INTO `t_sys_menu_info` VALUES (138, 32, '编辑-奖项设定', 1, NULL, NULL, 'ser_prize_set_edit', 152, 0, NULL, '2018-12-18 10:44:27', '2018-12-18 16:58:28');
+INSERT INTO `t_sys_menu_info` VALUES (139, 32, '启用-奖项设定', 1, NULL, NULL, 'ser_prize_set_enable', 153, 0, NULL, '2018-12-18 10:44:42', '2018-12-18 16:58:35');
+INSERT INTO `t_sys_menu_info` VALUES (140, 32, '新增-确认-奖项设定', 1, NULL, NULL, 'ser_prize_set_add_ok', 155, 0, NULL, '2018-12-18 10:45:05', '2018-12-18 16:58:51');
+INSERT INTO `t_sys_menu_info` VALUES (141, 32, '编辑-确认-奖项设定', 1, NULL, NULL, 'ser_prize_set_edit_ok', 156, 0, NULL, '2018-12-18 10:45:20', '2018-12-18 16:58:59');
+INSERT INTO `t_sys_menu_info` VALUES (142, 33, '新增-布奖记录', 1, NULL, NULL, 'ser_prize_set_log_add', 160, 0, NULL, '2018-12-18 10:46:33', '2018-12-18 16:59:08');
+INSERT INTO `t_sys_menu_info` VALUES (143, 33, '新增-确认-布奖记录', 1, NULL, NULL, 'ser_prize_set_log_add_ok', 161, 0, NULL, '2018-12-18 10:46:51', '2018-12-18 16:59:17');
+INSERT INTO `t_sys_menu_info` VALUES (144, 39, '新增-会员类型', 1, NULL, NULL, 'ser_member_type_add', 170, 0, NULL, '2018-12-18 10:48:08', '2018-12-18 16:59:52');
+INSERT INTO `t_sys_menu_info` VALUES (145, 39, '禁用-会员类型', 1, NULL, NULL, 'ser_member_type_disable', 173, 0, NULL, '2018-12-18 10:48:25', '2018-12-18 17:00:20');
+INSERT INTO `t_sys_menu_info` VALUES (146, 39, '编辑-会员类型', 1, NULL, NULL, 'ser_member_type_edit', 171, 0, NULL, '2018-12-18 10:48:51', '2018-12-18 17:00:00');
+INSERT INTO `t_sys_menu_info` VALUES (147, 39, '启用-会员类型', 1, NULL, NULL, 'ser_member_type_enable', 172, 0, NULL, '2018-12-18 10:49:07', '2018-12-18 17:00:10');
+INSERT INTO `t_sys_menu_info` VALUES (148, 39, '新增-确认-会员类型', 1, NULL, NULL, 'ser_member_type_add_ok', 174, 0, NULL, '2018-12-18 10:49:26', '2018-12-18 17:00:34');
+INSERT INTO `t_sys_menu_info` VALUES (149, 39, '编辑-确认-会员类型', 1, NULL, NULL, 'ser_member_type_edit_ok', 175, 0, NULL, '2018-12-18 10:49:42', '2018-12-18 17:00:46');
+INSERT INTO `t_sys_menu_info` VALUES (150, 40, '新增-积分规则', 1, NULL, NULL, 'ser_member_rule_add', 180, 0, NULL, '2018-12-18 10:50:42', '2018-12-18 17:00:54');
+INSERT INTO `t_sys_menu_info` VALUES (151, 40, '禁用-积分规则', 1, NULL, NULL, 'ser_member_rule_disable', 183, 0, NULL, '2018-12-18 10:50:59', '2018-12-18 17:01:21');
+INSERT INTO `t_sys_menu_info` VALUES (152, 40, '编辑-积分规则', 1, NULL, NULL, 'ser_member_rule_edit', 181, 0, NULL, '2018-12-18 10:51:23', '2018-12-18 17:01:04');
+INSERT INTO `t_sys_menu_info` VALUES (153, 40, '启用-积分规则', 1, NULL, NULL, 'ser_member_rule_enable', 182, 0, NULL, '2018-12-18 10:51:39', '2018-12-18 17:01:12');
+INSERT INTO `t_sys_menu_info` VALUES (154, 40, '新增-确认-积分规则', 1, NULL, NULL, 'ser_member_rule_add_ok', 184, 0, NULL, '2018-12-18 10:51:52', '2018-12-18 17:01:28');
+INSERT INTO `t_sys_menu_info` VALUES (155, 40, '编辑-确认-积分规则', 1, NULL, NULL, 'ser_member_rule_edit_ok', 185, 0, NULL, '2018-12-18 10:52:08', '2018-12-18 17:01:38');
+INSERT INTO `t_sys_menu_info` VALUES (156, 9, '新增-确认-用户', 1, NULL, NULL, 'sys_user_add_ok', 37, 0, NULL, '2018-12-18 11:39:55', '2018-12-18 16:42:45');
+INSERT INTO `t_sys_menu_info` VALUES (157, 8, '禁用-角色', 1, NULL, NULL, 'sys_role_disable', 24, 0, NULL, '2018-12-18 11:49:30', '2018-12-18 16:40:52');
+INSERT INTO `t_sys_menu_info` VALUES (158, 2, '新增-确认-导航栏', 1, NULL, NULL, 'sys_bar_add_ok', 8, 0, NULL, '2018-12-18 11:59:41', '2018-12-18 11:59:41');
+INSERT INTO `t_sys_menu_info` VALUES (160, 22, '新建-销售订单', 1, NULL, NULL, 'ser_sale_add', 120, 0, NULL, '2018-12-18 12:59:31', '2018-12-18 16:52:24');
+INSERT INTO `t_sys_menu_info` VALUES (161, 22, '查看-销售订单', 1, NULL, NULL, 'ser_sale_show', 121, 0, NULL, '2018-12-18 13:00:01', '2018-12-18 16:52:34');
+INSERT INTO `t_sys_menu_info` VALUES (162, 22, '修改-销售订单', 1, NULL, NULL, 'ser_sale_edit', 122, 0, NULL, '2018-12-18 13:00:43', '2018-12-18 16:52:42');
+INSERT INTO `t_sys_menu_info` VALUES (163, 22, '确认-销售订单', 1, NULL, NULL, 'ser_sale_next', 123, 0, NULL, '2018-12-18 13:01:16', '2018-12-18 16:52:50');
+INSERT INTO `t_sys_menu_info` VALUES (164, 22, '删除-销售订单', 1, NULL, NULL, 'ser_sale_del', 124, 0, NULL, '2018-12-18 13:01:40', '2018-12-18 16:52:58');
+INSERT INTO `t_sys_menu_info` VALUES (165, 22, '添加-详情-销售订单', 1, NULL, NULL, 'ser_sale_item_add', 125, 0, NULL, '2018-12-18 13:02:12', '2018-12-18 16:53:06');
+INSERT INTO `t_sys_menu_info` VALUES (166, 22, '删除-详情-销售订单', 1, NULL, NULL, 'ser_sale_item_del', 126, 0, NULL, '2018-12-18 13:03:36', '2018-12-18 16:53:13');
+INSERT INTO `t_sys_menu_info` VALUES (167, 22, '提交-详情-销售订单', 1, NULL, NULL, 'ser_sale_item_add_ok', 127, 0, NULL, '2018-12-18 13:04:09', '2018-12-18 16:53:20');
+INSERT INTO `t_sys_menu_info` VALUES (168, 22, '新增-确认-销售订单', 1, NULL, NULL, 'ser_sale_add_ok', 128, 0, NULL, '2018-12-18 13:05:01', '2018-12-18 16:53:27');
+INSERT INTO `t_sys_menu_info` VALUES (169, 22, '修改-确认-销售订单', 1, NULL, NULL, 'ser_sale_edit_ok', 129, 0, NULL, '2018-12-18 13:05:27', '2018-12-18 16:53:34');
+INSERT INTO `t_sys_menu_info` VALUES (170, 22, '同意-销售订单', 1, NULL, NULL, 'ser_sale_agree', 129, 0, NULL, '2018-12-18 13:06:05', '2018-12-18 16:54:06');
+INSERT INTO `t_sys_menu_info` VALUES (171, 22, '退回-销售订单', 1, NULL, NULL, 'ser_sale_return', 129, 0, NULL, '2018-12-18 13:06:32', '2018-12-18 16:54:17');
+INSERT INTO `t_sys_menu_info` VALUES (173, 31, '编辑-奖项管理', 1, NULL, NULL, 'ser_prize_manager_edit', 141, 0, NULL, '2018-12-18 13:57:34', '2018-12-18 16:57:18');
 COMMIT;
 
 -- ----------------------------
@@ -8769,7 +8947,7 @@ CREATE TABLE `t_sys_navigation_bar_info` (
   `create_time` timestamp NULL DEFAULT NULL COMMENT '创建时间',
   `update_time` timestamp NULL DEFAULT NULL COMMENT '修改时间',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='导航栏信息表';
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='导航栏信息表';
 
 -- ----------------------------
 -- Records of t_sys_navigation_bar_info
@@ -8777,9 +8955,10 @@ CREATE TABLE `t_sys_navigation_bar_info` (
 BEGIN;
 INSERT INTO `t_sys_navigation_bar_info` VALUES (1, '系统设置', '/sys/bar', 'el-icon-setting', 0, '系统', 0, '2018-09-28 17:14:26', '2018-11-12 17:48:41');
 INSERT INTO `t_sys_navigation_bar_info` VALUES (2, '系统基础设置', '/sys/icon', 'icon-present', 1, '系统', 0, '2018-10-01 23:16:56', '2018-11-14 11:32:16');
-INSERT INTO `t_sys_navigation_bar_info` VALUES (3, '基础设置', '/base/brand', 'icon-present', 2, '业务基础设置', 0, '2018-11-14 11:30:56', '2018-11-14 15:11:54');
-INSERT INTO `t_sys_navigation_bar_info` VALUES (4, '企业业务', '/server/dealer', 'icon-qi', 4, '经销商管理', 0, '2018-11-14 17:41:10', '2018-12-06 10:54:20');
-INSERT INTO `t_sys_navigation_bar_info` VALUES (5, '中心业务', '/center/code/apply', 'icon-goodsfavor', 3, '溯源业务', 0, '2018-11-15 15:41:01', '2018-11-23 10:00:27');
+INSERT INTO `t_sys_navigation_bar_info` VALUES (3, '基础设置', '/base/brand', 'icon-settings_light', 2, '业务基础设置', 0, '2018-11-14 11:30:56', '2018-12-18 17:31:28');
+INSERT INTO `t_sys_navigation_bar_info` VALUES (4, '企业业务', '/server/dealer', 'icon-qi', 4, '经销商管理', 0, '2018-11-14 17:41:10', '2018-12-18 17:33:02');
+INSERT INTO `t_sys_navigation_bar_info` VALUES (5, '溯源码业务', '/center/code/apply', 'icon-apps', 3, '溯源业务', 0, '2018-11-15 15:41:01', '2018-12-18 17:32:34');
+INSERT INTO `t_sys_navigation_bar_info` VALUES (6, '布奖兑奖', '/server/prize/type', 'icon-present', 3, '布奖兑奖+会员', 0, '2018-12-18 17:29:01', '2018-12-18 17:38:13');
 COMMIT;
 
 -- ----------------------------
@@ -8795,7 +8974,7 @@ CREATE TABLE `t_sys_navigation_bar_menu_info` (
   KEY `menu_id` (`menu_id`) USING BTREE,
   CONSTRAINT `t_sys_navigation_bar_menu_info_ibfk_1` FOREIGN KEY (`bar_id`) REFERENCES `t_sys_navigation_bar_info` (`id`),
   CONSTRAINT `t_sys_navigation_bar_menu_info_ibfk_2` FOREIGN KEY (`menu_id`) REFERENCES `t_sys_menu_info` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=158 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='菜单关联导航';
+) ENGINE=InnoDB AUTO_INCREMENT=208 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='菜单关联导航';
 
 -- ----------------------------
 -- Records of t_sys_navigation_bar_menu_info
@@ -8809,33 +8988,41 @@ INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (7, 1, 9);
 INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (15, 2, 6);
 INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (16, 2, 10);
 INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (17, 2, 7);
-INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (18, 3, 11);
-INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (19, 3, 6);
-INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (20, 3, 12);
-INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (21, 3, 13);
-INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (22, 3, 14);
-INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (23, 3, 15);
 INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (29, 5, 16);
 INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (30, 5, 19);
 INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (31, 5, 20);
-INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (140, 4, 17);
-INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (141, 4, 30);
-INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (142, 4, 35);
-INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (143, 4, 18);
-INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (144, 4, 31);
-INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (145, 4, 16);
-INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (146, 4, 32);
-INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (147, 4, 9);
-INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (148, 4, 33);
-INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (149, 4, 39);
-INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (150, 4, 38);
-INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (151, 4, 40);
-INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (152, 4, 22);
-INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (153, 4, 23);
-INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (154, 4, 27);
-INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (155, 4, 28);
-INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (156, 4, 29);
-INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (157, 4, 34);
+INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (158, 3, 11);
+INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (159, 3, 6);
+INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (160, 3, 12);
+INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (161, 3, 13);
+INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (162, 3, 14);
+INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (163, 3, 15);
+INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (182, 4, 17);
+INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (183, 4, 30);
+INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (184, 4, 18);
+INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (185, 4, 31);
+INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (186, 4, 16);
+INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (187, 4, 32);
+INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (188, 4, 9);
+INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (189, 4, 33);
+INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (190, 4, 39);
+INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (191, 4, 38);
+INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (192, 4, 40);
+INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (193, 4, 22);
+INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (194, 4, 23);
+INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (195, 4, 27);
+INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (196, 4, 28);
+INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (197, 6, 30);
+INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (198, 6, 35);
+INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (199, 6, 31);
+INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (200, 6, 36);
+INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (201, 6, 32);
+INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (202, 6, 37);
+INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (203, 6, 9);
+INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (204, 6, 39);
+INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (205, 6, 38);
+INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (206, 6, 29);
+INSERT INTO `t_sys_navigation_bar_menu_info` VALUES (207, 6, 34);
 COMMIT;
 
 -- ----------------------------
@@ -8850,18 +9037,21 @@ CREATE TABLE `t_sys_role_info` (
   `create_time` timestamp NULL DEFAULT NULL COMMENT '创建时间',
   `update_time` timestamp NULL DEFAULT NULL COMMENT '修改时间',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='角色权限表';
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='角色权限表';
 
 -- ----------------------------
 -- Records of t_sys_role_info
 -- ----------------------------
 BEGIN;
-INSERT INTO `t_sys_role_info` VALUES (1, '超级管理员', 0, 1, '2018-09-28 14:37:36', '2018-11-27 17:38:58');
-INSERT INTO `t_sys_role_info` VALUES (2, '系统管理员', 0, 0, '2018-09-28 14:38:05', '2018-11-27 17:39:06');
-INSERT INTO `t_sys_role_info` VALUES (3, '测试员', 0, 0, '2018-10-04 22:43:38', '2018-11-15 12:49:37');
-INSERT INTO `t_sys_role_info` VALUES (4, '仓库管理员', 0, 0, '2018-11-15 12:51:54', '2018-11-15 12:55:05');
-INSERT INTO `t_sys_role_info` VALUES (5, '销售人员', 0, 0, '2018-11-15 12:52:07', '2018-11-15 12:52:07');
-INSERT INTO `t_sys_role_info` VALUES (6, '财务人员', 0, 0, '2018-11-15 12:52:14', '2018-11-27 16:40:58');
+INSERT INTO `t_sys_role_info` VALUES (1, '超级管理员', 0, 1, '2018-09-28 14:37:36', '2018-12-18 17:33:28');
+INSERT INTO `t_sys_role_info` VALUES (2, '系统管理员', 0, 0, '2018-09-28 14:38:05', '2018-12-18 18:20:00');
+INSERT INTO `t_sys_role_info` VALUES (3, '产品管理员', 0, 0, '2018-10-04 22:43:38', '2018-12-18 17:04:03');
+INSERT INTO `t_sys_role_info` VALUES (4, '仓库管理员', 0, 0, '2018-11-15 12:51:54', '2018-12-18 17:05:11');
+INSERT INTO `t_sys_role_info` VALUES (5, '销售部1级', 0, 0, '2018-11-15 12:52:07', '2018-12-18 17:09:23');
+INSERT INTO `t_sys_role_info` VALUES (6, '财务人员', 0, 0, '2018-11-15 12:52:14', '2018-12-18 17:11:47');
+INSERT INTO `t_sys_role_info` VALUES (7, '销售部2级', 0, 0, '2018-12-18 16:30:44', '2018-12-18 17:10:54');
+INSERT INTO `t_sys_role_info` VALUES (8, '经销商管理员', 0, 0, '2018-12-18 17:05:40', '2018-12-18 17:06:27');
+INSERT INTO `t_sys_role_info` VALUES (9, '溯源码管理员', 0, 0, '2018-12-18 17:06:39', '2018-12-18 17:07:38');
 COMMIT;
 
 -- ----------------------------
@@ -8877,15 +9067,207 @@ CREATE TABLE `t_sys_role_menu_info` (
   KEY `menu_id` (`menu_id`) USING BTREE,
   CONSTRAINT `t_sys_role_menu_info_ibfk_1` FOREIGN KEY (`role_id`) REFERENCES `t_sys_role_info` (`id`),
   CONSTRAINT `t_sys_role_menu_info_ibfk_2` FOREIGN KEY (`menu_id`) REFERENCES `t_sys_menu_info` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='角色关联菜单';
+) ENGINE=InnoDB AUTO_INCREMENT=285 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='角色关联菜单';
 
 -- ----------------------------
 -- Records of t_sys_role_menu_info
 -- ----------------------------
 BEGIN;
-INSERT INTO `t_sys_role_menu_info` VALUES (3, 6, 25);
-INSERT INTO `t_sys_role_menu_info` VALUES (4, 6, 24);
-INSERT INTO `t_sys_role_menu_info` VALUES (5, 2, 26);
+INSERT INTO `t_sys_role_menu_info` VALUES (10, 1, 3);
+INSERT INTO `t_sys_role_menu_info` VALUES (11, 1, 46);
+INSERT INTO `t_sys_role_menu_info` VALUES (12, 1, 51);
+INSERT INTO `t_sys_role_menu_info` VALUES (13, 1, 58);
+INSERT INTO `t_sys_role_menu_info` VALUES (14, 1, 5);
+INSERT INTO `t_sys_role_menu_info` VALUES (15, 1, 47);
+INSERT INTO `t_sys_role_menu_info` VALUES (16, 1, 52);
+INSERT INTO `t_sys_role_menu_info` VALUES (17, 1, 59);
+INSERT INTO `t_sys_role_menu_info` VALUES (18, 1, 41);
+INSERT INTO `t_sys_role_menu_info` VALUES (19, 1, 48);
+INSERT INTO `t_sys_role_menu_info` VALUES (20, 1, 53);
+INSERT INTO `t_sys_role_menu_info` VALUES (21, 1, 60);
+INSERT INTO `t_sys_role_menu_info` VALUES (22, 1, 42);
+INSERT INTO `t_sys_role_menu_info` VALUES (23, 1, 49);
+INSERT INTO `t_sys_role_menu_info` VALUES (24, 1, 54);
+INSERT INTO `t_sys_role_menu_info` VALUES (25, 1, 61);
+INSERT INTO `t_sys_role_menu_info` VALUES (26, 1, 43);
+INSERT INTO `t_sys_role_menu_info` VALUES (27, 1, 50);
+INSERT INTO `t_sys_role_menu_info` VALUES (28, 1, 62);
+INSERT INTO `t_sys_role_menu_info` VALUES (29, 1, 157);
+INSERT INTO `t_sys_role_menu_info` VALUES (30, 1, 44);
+INSERT INTO `t_sys_role_menu_info` VALUES (31, 1, 55);
+INSERT INTO `t_sys_role_menu_info` VALUES (32, 1, 63);
+INSERT INTO `t_sys_role_menu_info` VALUES (33, 1, 45);
+INSERT INTO `t_sys_role_menu_info` VALUES (34, 1, 57);
+INSERT INTO `t_sys_role_menu_info` VALUES (35, 1, 64);
+INSERT INTO `t_sys_role_menu_info` VALUES (36, 1, 56);
+INSERT INTO `t_sys_role_menu_info` VALUES (37, 1, 65);
+INSERT INTO `t_sys_role_menu_info` VALUES (38, 1, 158);
+INSERT INTO `t_sys_role_menu_info` VALUES (39, 1, 156);
+INSERT INTO `t_sys_role_menu_info` VALUES (120, 3, 66);
+INSERT INTO `t_sys_role_menu_info` VALUES (121, 3, 68);
+INSERT INTO `t_sys_role_menu_info` VALUES (122, 3, 69);
+INSERT INTO `t_sys_role_menu_info` VALUES (123, 3, 67);
+INSERT INTO `t_sys_role_menu_info` VALUES (124, 3, 70);
+INSERT INTO `t_sys_role_menu_info` VALUES (125, 3, 71);
+INSERT INTO `t_sys_role_menu_info` VALUES (126, 3, 72);
+INSERT INTO `t_sys_role_menu_info` VALUES (127, 3, 74);
+INSERT INTO `t_sys_role_menu_info` VALUES (128, 3, 75);
+INSERT INTO `t_sys_role_menu_info` VALUES (129, 3, 73);
+INSERT INTO `t_sys_role_menu_info` VALUES (130, 3, 76);
+INSERT INTO `t_sys_role_menu_info` VALUES (131, 3, 77);
+INSERT INTO `t_sys_role_menu_info` VALUES (132, 3, 78);
+INSERT INTO `t_sys_role_menu_info` VALUES (133, 3, 80);
+INSERT INTO `t_sys_role_menu_info` VALUES (134, 3, 81);
+INSERT INTO `t_sys_role_menu_info` VALUES (135, 3, 79);
+INSERT INTO `t_sys_role_menu_info` VALUES (136, 3, 82);
+INSERT INTO `t_sys_role_menu_info` VALUES (137, 3, 83);
+INSERT INTO `t_sys_role_menu_info` VALUES (138, 4, 94);
+INSERT INTO `t_sys_role_menu_info` VALUES (139, 4, 96);
+INSERT INTO `t_sys_role_menu_info` VALUES (140, 4, 97);
+INSERT INTO `t_sys_role_menu_info` VALUES (141, 4, 95);
+INSERT INTO `t_sys_role_menu_info` VALUES (142, 4, 98);
+INSERT INTO `t_sys_role_menu_info` VALUES (143, 4, 99);
+INSERT INTO `t_sys_role_menu_info` VALUES (144, 8, 90);
+INSERT INTO `t_sys_role_menu_info` VALUES (145, 8, 91);
+INSERT INTO `t_sys_role_menu_info` VALUES (146, 8, 92);
+INSERT INTO `t_sys_role_menu_info` VALUES (147, 8, 93);
+INSERT INTO `t_sys_role_menu_info` VALUES (148, 9, 106);
+INSERT INTO `t_sys_role_menu_info` VALUES (149, 9, 84);
+INSERT INTO `t_sys_role_menu_info` VALUES (150, 9, 86);
+INSERT INTO `t_sys_role_menu_info` VALUES (151, 9, 87);
+INSERT INTO `t_sys_role_menu_info` VALUES (152, 9, 85);
+INSERT INTO `t_sys_role_menu_info` VALUES (153, 9, 88);
+INSERT INTO `t_sys_role_menu_info` VALUES (154, 9, 89);
+INSERT INTO `t_sys_role_menu_info` VALUES (155, 9, 100);
+INSERT INTO `t_sys_role_menu_info` VALUES (156, 9, 101);
+INSERT INTO `t_sys_role_menu_info` VALUES (157, 9, 102);
+INSERT INTO `t_sys_role_menu_info` VALUES (158, 9, 103);
+INSERT INTO `t_sys_role_menu_info` VALUES (159, 9, 104);
+INSERT INTO `t_sys_role_menu_info` VALUES (160, 9, 105);
+INSERT INTO `t_sys_role_menu_info` VALUES (161, 9, 107);
+INSERT INTO `t_sys_role_menu_info` VALUES (162, 5, 160);
+INSERT INTO `t_sys_role_menu_info` VALUES (163, 5, 161);
+INSERT INTO `t_sys_role_menu_info` VALUES (164, 5, 162);
+INSERT INTO `t_sys_role_menu_info` VALUES (165, 5, 164);
+INSERT INTO `t_sys_role_menu_info` VALUES (166, 5, 165);
+INSERT INTO `t_sys_role_menu_info` VALUES (167, 5, 166);
+INSERT INTO `t_sys_role_menu_info` VALUES (168, 5, 167);
+INSERT INTO `t_sys_role_menu_info` VALUES (169, 5, 168);
+INSERT INTO `t_sys_role_menu_info` VALUES (170, 5, 169);
+INSERT INTO `t_sys_role_menu_info` VALUES (171, 5, 117);
+INSERT INTO `t_sys_role_menu_info` VALUES (172, 5, 119);
+INSERT INTO `t_sys_role_menu_info` VALUES (173, 5, 120);
+INSERT INTO `t_sys_role_menu_info` VALUES (174, 5, 122);
+INSERT INTO `t_sys_role_menu_info` VALUES (175, 5, 123);
+INSERT INTO `t_sys_role_menu_info` VALUES (176, 5, 124);
+INSERT INTO `t_sys_role_menu_info` VALUES (177, 5, 125);
+INSERT INTO `t_sys_role_menu_info` VALUES (178, 5, 126);
+INSERT INTO `t_sys_role_menu_info` VALUES (179, 5, 127);
+INSERT INTO `t_sys_role_menu_info` VALUES (180, 7, 161);
+INSERT INTO `t_sys_role_menu_info` VALUES (181, 7, 163);
+INSERT INTO `t_sys_role_menu_info` VALUES (182, 7, 171);
+INSERT INTO `t_sys_role_menu_info` VALUES (183, 7, 119);
+INSERT INTO `t_sys_role_menu_info` VALUES (184, 7, 121);
+INSERT INTO `t_sys_role_menu_info` VALUES (185, 7, 129);
+INSERT INTO `t_sys_role_menu_info` VALUES (186, 6, 161);
+INSERT INTO `t_sys_role_menu_info` VALUES (187, 6, 170);
+INSERT INTO `t_sys_role_menu_info` VALUES (188, 6, 171);
+INSERT INTO `t_sys_role_menu_info` VALUES (189, 6, 119);
+INSERT INTO `t_sys_role_menu_info` VALUES (190, 6, 128);
+INSERT INTO `t_sys_role_menu_info` VALUES (191, 6, 129);
+INSERT INTO `t_sys_role_menu_info` VALUES (192, 2, 106);
+INSERT INTO `t_sys_role_menu_info` VALUES (193, 2, 66);
+INSERT INTO `t_sys_role_menu_info` VALUES (194, 2, 68);
+INSERT INTO `t_sys_role_menu_info` VALUES (195, 2, 69);
+INSERT INTO `t_sys_role_menu_info` VALUES (196, 2, 67);
+INSERT INTO `t_sys_role_menu_info` VALUES (197, 2, 70);
+INSERT INTO `t_sys_role_menu_info` VALUES (198, 2, 71);
+INSERT INTO `t_sys_role_menu_info` VALUES (199, 2, 72);
+INSERT INTO `t_sys_role_menu_info` VALUES (200, 2, 74);
+INSERT INTO `t_sys_role_menu_info` VALUES (201, 2, 75);
+INSERT INTO `t_sys_role_menu_info` VALUES (202, 2, 73);
+INSERT INTO `t_sys_role_menu_info` VALUES (203, 2, 76);
+INSERT INTO `t_sys_role_menu_info` VALUES (204, 2, 77);
+INSERT INTO `t_sys_role_menu_info` VALUES (205, 2, 78);
+INSERT INTO `t_sys_role_menu_info` VALUES (206, 2, 80);
+INSERT INTO `t_sys_role_menu_info` VALUES (207, 2, 81);
+INSERT INTO `t_sys_role_menu_info` VALUES (208, 2, 79);
+INSERT INTO `t_sys_role_menu_info` VALUES (209, 2, 82);
+INSERT INTO `t_sys_role_menu_info` VALUES (210, 2, 83);
+INSERT INTO `t_sys_role_menu_info` VALUES (211, 2, 84);
+INSERT INTO `t_sys_role_menu_info` VALUES (212, 2, 86);
+INSERT INTO `t_sys_role_menu_info` VALUES (213, 2, 87);
+INSERT INTO `t_sys_role_menu_info` VALUES (214, 2, 85);
+INSERT INTO `t_sys_role_menu_info` VALUES (215, 2, 88);
+INSERT INTO `t_sys_role_menu_info` VALUES (216, 2, 89);
+INSERT INTO `t_sys_role_menu_info` VALUES (217, 2, 90);
+INSERT INTO `t_sys_role_menu_info` VALUES (218, 2, 91);
+INSERT INTO `t_sys_role_menu_info` VALUES (219, 2, 92);
+INSERT INTO `t_sys_role_menu_info` VALUES (220, 2, 93);
+INSERT INTO `t_sys_role_menu_info` VALUES (221, 2, 94);
+INSERT INTO `t_sys_role_menu_info` VALUES (222, 2, 96);
+INSERT INTO `t_sys_role_menu_info` VALUES (223, 2, 97);
+INSERT INTO `t_sys_role_menu_info` VALUES (224, 2, 95);
+INSERT INTO `t_sys_role_menu_info` VALUES (225, 2, 98);
+INSERT INTO `t_sys_role_menu_info` VALUES (226, 2, 99);
+INSERT INTO `t_sys_role_menu_info` VALUES (227, 2, 100);
+INSERT INTO `t_sys_role_menu_info` VALUES (228, 2, 101);
+INSERT INTO `t_sys_role_menu_info` VALUES (229, 2, 102);
+INSERT INTO `t_sys_role_menu_info` VALUES (230, 2, 103);
+INSERT INTO `t_sys_role_menu_info` VALUES (231, 2, 104);
+INSERT INTO `t_sys_role_menu_info` VALUES (232, 2, 105);
+INSERT INTO `t_sys_role_menu_info` VALUES (233, 2, 107);
+INSERT INTO `t_sys_role_menu_info` VALUES (234, 2, 160);
+INSERT INTO `t_sys_role_menu_info` VALUES (235, 2, 161);
+INSERT INTO `t_sys_role_menu_info` VALUES (236, 2, 162);
+INSERT INTO `t_sys_role_menu_info` VALUES (237, 2, 163);
+INSERT INTO `t_sys_role_menu_info` VALUES (238, 2, 164);
+INSERT INTO `t_sys_role_menu_info` VALUES (239, 2, 165);
+INSERT INTO `t_sys_role_menu_info` VALUES (240, 2, 166);
+INSERT INTO `t_sys_role_menu_info` VALUES (241, 2, 167);
+INSERT INTO `t_sys_role_menu_info` VALUES (242, 2, 168);
+INSERT INTO `t_sys_role_menu_info` VALUES (243, 2, 169);
+INSERT INTO `t_sys_role_menu_info` VALUES (244, 2, 170);
+INSERT INTO `t_sys_role_menu_info` VALUES (245, 2, 171);
+INSERT INTO `t_sys_role_menu_info` VALUES (246, 2, 117);
+INSERT INTO `t_sys_role_menu_info` VALUES (247, 2, 119);
+INSERT INTO `t_sys_role_menu_info` VALUES (248, 2, 120);
+INSERT INTO `t_sys_role_menu_info` VALUES (249, 2, 121);
+INSERT INTO `t_sys_role_menu_info` VALUES (250, 2, 122);
+INSERT INTO `t_sys_role_menu_info` VALUES (251, 2, 123);
+INSERT INTO `t_sys_role_menu_info` VALUES (252, 2, 124);
+INSERT INTO `t_sys_role_menu_info` VALUES (253, 2, 125);
+INSERT INTO `t_sys_role_menu_info` VALUES (254, 2, 126);
+INSERT INTO `t_sys_role_menu_info` VALUES (255, 2, 127);
+INSERT INTO `t_sys_role_menu_info` VALUES (256, 2, 128);
+INSERT INTO `t_sys_role_menu_info` VALUES (257, 2, 129);
+INSERT INTO `t_sys_role_menu_info` VALUES (258, 2, 130);
+INSERT INTO `t_sys_role_menu_info` VALUES (259, 2, 173);
+INSERT INTO `t_sys_role_menu_info` VALUES (260, 2, 132);
+INSERT INTO `t_sys_role_menu_info` VALUES (261, 2, 131);
+INSERT INTO `t_sys_role_menu_info` VALUES (262, 2, 133);
+INSERT INTO `t_sys_role_menu_info` VALUES (263, 2, 134);
+INSERT INTO `t_sys_role_menu_info` VALUES (264, 2, 135);
+INSERT INTO `t_sys_role_menu_info` VALUES (265, 2, 136);
+INSERT INTO `t_sys_role_menu_info` VALUES (266, 2, 138);
+INSERT INTO `t_sys_role_menu_info` VALUES (267, 2, 139);
+INSERT INTO `t_sys_role_menu_info` VALUES (268, 2, 137);
+INSERT INTO `t_sys_role_menu_info` VALUES (269, 2, 140);
+INSERT INTO `t_sys_role_menu_info` VALUES (270, 2, 141);
+INSERT INTO `t_sys_role_menu_info` VALUES (271, 2, 142);
+INSERT INTO `t_sys_role_menu_info` VALUES (272, 2, 143);
+INSERT INTO `t_sys_role_menu_info` VALUES (273, 2, 144);
+INSERT INTO `t_sys_role_menu_info` VALUES (274, 2, 146);
+INSERT INTO `t_sys_role_menu_info` VALUES (275, 2, 147);
+INSERT INTO `t_sys_role_menu_info` VALUES (276, 2, 145);
+INSERT INTO `t_sys_role_menu_info` VALUES (277, 2, 148);
+INSERT INTO `t_sys_role_menu_info` VALUES (278, 2, 149);
+INSERT INTO `t_sys_role_menu_info` VALUES (279, 2, 150);
+INSERT INTO `t_sys_role_menu_info` VALUES (280, 2, 152);
+INSERT INTO `t_sys_role_menu_info` VALUES (281, 2, 153);
+INSERT INTO `t_sys_role_menu_info` VALUES (282, 2, 151);
+INSERT INTO `t_sys_role_menu_info` VALUES (283, 2, 154);
+INSERT INTO `t_sys_role_menu_info` VALUES (284, 2, 155);
 COMMIT;
 
 -- ----------------------------
@@ -8901,18 +9283,34 @@ CREATE TABLE `t_sys_role_navigation_bar_info` (
   KEY `bar_id` (`bar_id`) USING BTREE,
   CONSTRAINT `t_sys_role_navigation_bar_info_ibfk_1` FOREIGN KEY (`role_id`) REFERENCES `t_sys_role_info` (`id`),
   CONSTRAINT `t_sys_role_navigation_bar_info_ibfk_2` FOREIGN KEY (`bar_id`) REFERENCES `t_sys_navigation_bar_info` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='角色关联导航栏';
+) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='角色关联导航栏';
 
 -- ----------------------------
 -- Records of t_sys_role_navigation_bar_info
 -- ----------------------------
 BEGIN;
-INSERT INTO `t_sys_role_navigation_bar_info` VALUES (2, 1, 1);
-INSERT INTO `t_sys_role_navigation_bar_info` VALUES (3, 1, 2);
-INSERT INTO `t_sys_role_navigation_bar_info` VALUES (8, 2, 3);
-INSERT INTO `t_sys_role_navigation_bar_info` VALUES (9, 2, 4);
-INSERT INTO `t_sys_role_navigation_bar_info` VALUES (10, 2, 5);
-INSERT INTO `t_sys_role_navigation_bar_info` VALUES (11, 6, 4);
+INSERT INTO `t_sys_role_navigation_bar_info` VALUES (13, 5, 4);
+INSERT INTO `t_sys_role_navigation_bar_info` VALUES (14, 5, 3);
+INSERT INTO `t_sys_role_navigation_bar_info` VALUES (15, 7, 4);
+INSERT INTO `t_sys_role_navigation_bar_info` VALUES (16, 7, 3);
+INSERT INTO `t_sys_role_navigation_bar_info` VALUES (17, 3, 3);
+INSERT INTO `t_sys_role_navigation_bar_info` VALUES (18, 4, 3);
+INSERT INTO `t_sys_role_navigation_bar_info` VALUES (19, 8, 4);
+INSERT INTO `t_sys_role_navigation_bar_info` VALUES (20, 8, 3);
+INSERT INTO `t_sys_role_navigation_bar_info` VALUES (21, 9, 5);
+INSERT INTO `t_sys_role_navigation_bar_info` VALUES (22, 9, 3);
+INSERT INTO `t_sys_role_navigation_bar_info` VALUES (23, 6, 4);
+INSERT INTO `t_sys_role_navigation_bar_info` VALUES (24, 6, 3);
+INSERT INTO `t_sys_role_navigation_bar_info` VALUES (25, 1, 1);
+INSERT INTO `t_sys_role_navigation_bar_info` VALUES (26, 1, 2);
+INSERT INTO `t_sys_role_navigation_bar_info` VALUES (27, 1, 4);
+INSERT INTO `t_sys_role_navigation_bar_info` VALUES (28, 1, 5);
+INSERT INTO `t_sys_role_navigation_bar_info` VALUES (29, 1, 6);
+INSERT INTO `t_sys_role_navigation_bar_info` VALUES (30, 1, 3);
+INSERT INTO `t_sys_role_navigation_bar_info` VALUES (37, 2, 3);
+INSERT INTO `t_sys_role_navigation_bar_info` VALUES (38, 2, 4);
+INSERT INTO `t_sys_role_navigation_bar_info` VALUES (39, 2, 5);
+INSERT INTO `t_sys_role_navigation_bar_info` VALUES (40, 2, 6);
 COMMIT;
 
 -- ----------------------------
@@ -8933,7 +9331,7 @@ CREATE TABLE `t_sys_user_info` (
   `create_time` timestamp NULL DEFAULT NULL COMMENT '创建时间',
   `update_time` timestamp NULL DEFAULT NULL COMMENT '修改时间',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='用户信息表';
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='用户信息表';
 
 -- ----------------------------
 -- Records of t_sys_user_info
@@ -8945,7 +9343,11 @@ INSERT INTO `t_sys_user_info` VALUES (3, 1, '仓库员1', 'ck1', '25d55ad283aa40
 INSERT INTO `t_sys_user_info` VALUES (4, 1, '仓库员2', 'ck2', '25d55ad283aa400af464c76d713c07ad', '12345678', 0, 0, NULL, 1, '2018-11-15 12:53:50', '2018-11-15 12:53:50');
 INSERT INTO `t_sys_user_info` VALUES (5, 1, '财务1', 'cw1', '25d55ad283aa400af464c76d713c07ad', '12345678', 0, 0, NULL, 1, '2018-11-27 16:41:12', '2018-11-27 16:41:12');
 INSERT INTO `t_sys_user_info` VALUES (6, 1, '张鑫1', 'zx1', '25d55ad283aa400af464c76d713c07ad', '12345678', 0, 0, NULL, 1, '2018-12-11 14:48:34', '2018-12-11 14:48:34');
-INSERT INTO `t_sys_user_info` VALUES (7, 1, '张鑫2', 'zx2', '25d55ad283aa400af464c76d713c07ad', '12345678', 0, 0, NULL, 1, '2018-12-12 14:17:33', '2018-12-12 14:17:33');
+INSERT INTO `t_sys_user_info` VALUES (7, 1, '张鑫2', 'zx2', '870590859f7934194894bf786088e2d4', 'zhangxin2!', 0, 0, NULL, 1, '2018-12-12 14:17:33', '2018-12-17 15:43:38');
+INSERT INTO `t_sys_user_info` VALUES (8, 1, '销售1', 'xs1', '25d55ad283aa400af464c76d713c07ad', '12345678', 0, 0, NULL, 1, '2018-12-17 15:34:11', '2018-12-17 15:34:11');
+INSERT INTO `t_sys_user_info` VALUES (9, 1, '销售经理1', 'xsjl1', '25d55ad283aa400af464c76d713c07ad', '12345678', 0, 0, NULL, 1, '2018-12-18 16:34:29', '2018-12-18 17:13:52');
+INSERT INTO `t_sys_user_info` VALUES (10, 1, '产品管理员', 'cpgly1', '25d55ad283aa400af464c76d713c07ad', '12345678', 0, 0, NULL, 1, '2018-12-18 17:14:27', '2018-12-18 17:14:27');
+INSERT INTO `t_sys_user_info` VALUES (11, 1, '溯源码管理员', 'symgly1', '25d55ad283aa400af464c76d713c07ad', '12345678', 0, 0, NULL, 1, '2018-12-18 17:16:16', '2018-12-18 17:16:16');
 COMMIT;
 
 -- ----------------------------
@@ -8961,7 +9363,7 @@ CREATE TABLE `t_sys_user_role_info` (
   KEY `role_id` (`role_id`) USING BTREE,
   CONSTRAINT `t_sys_user_role_info_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `t_sys_user_info` (`id`),
   CONSTRAINT `t_sys_user_role_info_ibfk_2` FOREIGN KEY (`role_id`) REFERENCES `t_sys_role_info` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='用户关联角色';
+) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='用户关联角色';
 
 -- ----------------------------
 -- Records of t_sys_user_role_info
@@ -8969,10 +9371,7 @@ CREATE TABLE `t_sys_user_role_info` (
 BEGIN;
 INSERT INTO `t_sys_user_role_info` VALUES (1, 1, 1);
 INSERT INTO `t_sys_user_role_info` VALUES (2, 1, 2);
-INSERT INTO `t_sys_user_role_info` VALUES (3, 2, 2);
-INSERT INTO `t_sys_user_role_info` VALUES (4, 3, 4);
 INSERT INTO `t_sys_user_role_info` VALUES (5, 4, 4);
-INSERT INTO `t_sys_user_role_info` VALUES (6, 5, 6);
 INSERT INTO `t_sys_user_role_info` VALUES (7, 6, 2);
 INSERT INTO `t_sys_user_role_info` VALUES (8, 6, 3);
 INSERT INTO `t_sys_user_role_info` VALUES (9, 6, 4);
@@ -8983,6 +9382,19 @@ INSERT INTO `t_sys_user_role_info` VALUES (18, 7, 3);
 INSERT INTO `t_sys_user_role_info` VALUES (19, 7, 4);
 INSERT INTO `t_sys_user_role_info` VALUES (20, 7, 5);
 INSERT INTO `t_sys_user_role_info` VALUES (21, 7, 6);
+INSERT INTO `t_sys_user_role_info` VALUES (22, 5, 6);
+INSERT INTO `t_sys_user_role_info` VALUES (23, 3, 4);
+INSERT INTO `t_sys_user_role_info` VALUES (26, 9, 7);
+INSERT INTO `t_sys_user_role_info` VALUES (27, 8, 5);
+INSERT INTO `t_sys_user_role_info` VALUES (28, 10, 3);
+INSERT INTO `t_sys_user_role_info` VALUES (29, 11, 9);
+INSERT INTO `t_sys_user_role_info` VALUES (30, 2, 3);
+INSERT INTO `t_sys_user_role_info` VALUES (31, 2, 4);
+INSERT INTO `t_sys_user_role_info` VALUES (32, 2, 5);
+INSERT INTO `t_sys_user_role_info` VALUES (33, 2, 6);
+INSERT INTO `t_sys_user_role_info` VALUES (34, 2, 7);
+INSERT INTO `t_sys_user_role_info` VALUES (35, 2, 8);
+INSERT INTO `t_sys_user_role_info` VALUES (36, 2, 9);
 COMMIT;
 
 -- ----------------------------
@@ -9366,14 +9778,17 @@ BEGIN
 	DECLARE
 		v_right_code_type INT;
 	DECLARE
+		v_orderno INT;
+	DECLARE
 		cur_param CURSOR FOR SELECT DISTINCT
 		a.import_no,
 		a.left_code_type,
-		a.right_code_type 
+		a.right_code_type,
+		a.orderno
 	FROM
 		t_ser_code_import_temp_info a 
 	ORDER BY
-		orderno;
+		a.orderno;
 		# declare cur_param1 cursor for  select   DISTINCT a.importno,a.left_code_type,a.right_code_type  from t_ser_code_import_temp_info a,t_ser_code_import_temp_info b
 		#	where  b.importno =v_imno and ( (a.left_code =b.right_code  and  a.right_code_type>updatetype) or
 		# (a.right_code =b.right_code  and a.left_code_type>updatetype ));
@@ -9384,12 +9799,13 @@ BEGIN
 	REPEAT
 			FETCH cur_param INTO v_imortno,
 			v_left_code_type,
-			v_right_code_type;#把游标的内容赋值到变量中。
+			v_right_code_type,
+			v_orderno;#把游标的内容赋值到变量中。
 		CALL P_UPDAEGOODS2 ( v_imortno, v_left_code_type, v_right_code_type );
 		COMMIT;
 		UNTIL flag = FALSE 
 	END REPEAT;
-	CLOSE cur_param;#删除临时表数据
+-- 	CLOSE cur_param;#删除临时表数据
 	CALL P_DELTEMPS ( );
 
 END;

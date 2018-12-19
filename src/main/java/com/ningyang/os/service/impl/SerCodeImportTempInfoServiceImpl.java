@@ -62,7 +62,23 @@ public class SerCodeImportTempInfoServiceImpl extends ServiceImpl<SerCodeImportT
                 info.setBrandSeriesProductId(vo.getProductId());
                 info.setBrandSeriesProductName(templateVo.getProductName());
                 info.setM1(data.getLData());
-                info.setM2(data.getRData());
+                int rightCodeId = Integer.parseInt(templateVo.getRightCodeId().toString());
+                switch (rightCodeId){
+                    case 2:
+                        info.setM2(data.getRData());
+                        break;
+                    case 3:
+                        info.setM3(data.getRData());
+                        break;
+                    case 4:
+                        info.setM4(data.getRData());
+                        break;
+                    case 5:
+                        info.setM5(data.getRData());
+                        break;
+                    default:
+                        break;
+                }
                 info.setM1Remark(templateVo.getLeftCodeName());
                 info.setM2Remark(templateVo.getRightCodeName());
                 info.setCreateTime(new Date());
