@@ -63,6 +63,7 @@ public class NodeOsApplicationTests {
     @Test
     public void contextLoads() {
 
+        System.out.println(2>2);
 
         /*String[] boxCode = {"9999999","9999998","9999997","9999996","6000001227383389"};
 

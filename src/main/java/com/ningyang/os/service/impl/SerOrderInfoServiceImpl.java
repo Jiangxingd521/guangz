@@ -48,10 +48,14 @@ public class SerOrderInfoServiceImpl extends ServiceImpl<SerOrderInfoMapper, Ser
         List<SaleOrderVo> listVoTemp = baseMapper.selectSaleOrderVoPageByCondition(condition);
 
         for (SaleOrderVo vo : listVoTemp) {
-            condition.setOrderId(vo.getOrderId());
-            List<OrderDetailVo> detailList = detailsService.findOrderDetailVoList(condition);
+            QueryOrderCondition orderCondition = new QueryOrderCondition();
+            orderCondition.setOrderId(vo.getOrderId());
+            List<OrderDetailVo> detailList = detailsService.findOrderDetailVoList(orderCondition);
             vo.setDetailList(detailList);
-            int boxCount = detailsService.boxCount(condition);
+            int boxCount = 0;
+            for(OrderDetailVo detailVo : detailList){
+                boxCount = boxCount+detailVo.getBoxNumber();
+            }
             vo.setProductNumber(boxCount);
         }
 
@@ -120,11 +124,24 @@ public class SerOrderInfoServiceImpl extends ServiceImpl<SerOrderInfoMapper, Ser
             List<OrderDetailVo> detailList = detailsService.findOrderDetailVoList(condition);
             vo.setDetailList(detailList);
             //订单数量
-            int boxCount = detailsService.boxCount(condition);
+            int boxCount = 0;
+            for(OrderDetailVo detailVo : detailList){
+                boxCount = boxCount+detailVo.getBoxNumber();
+            }
             vo.setProductNumber(boxCount);
             //已出货数量
             int outBoxCount = outInfoService.getOrderOutBoxCount(vo.getOrderId());
             vo.setOutBoxCount(outBoxCount);
+
+            if(outBoxCount>0){
+                if(outBoxCount < boxCount){//已发货未完成
+                    vo.setOrderState(1);
+                }else{//已发货完成
+                    vo.setOrderState(2);
+                }
+            }else{//未发货
+                vo.setOrderState(0);
+            }
         }
         return listTemp;
     }
@@ -180,9 +197,15 @@ public class SerOrderInfoServiceImpl extends ServiceImpl<SerOrderInfoMapper, Ser
         for(SaleOrderVo vo : listTemp){
             vo.setOrderCreateTimeStr(dateToDate(vo.getOrderCreateTime()));
             vo.setOrderCompleteTimeStr(dateToDate(vo.getOrderCompleteTime()));
+            condition.setOrderId(vo.getOrderId());
+            List<OrderDetailVo> detailList = detailsService.findOrderDetailVoList(condition);
             //订单数量
-            int boxCount = detailsService.boxCount(condition);
+            int boxCount = 0;
+            for(OrderDetailVo detailVo : detailList){
+                boxCount = boxCount+detailVo.getBoxNumber();
+            }
             vo.setProductNumber(boxCount);
+            vo.setOrderState(1);
             //已出货数量
             int outBoxCount = outInfoService.getOrderOutBoxCount(vo.getOrderId());
             vo.setOutBoxCount(outBoxCount);

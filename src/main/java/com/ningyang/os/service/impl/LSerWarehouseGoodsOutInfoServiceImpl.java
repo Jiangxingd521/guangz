@@ -71,9 +71,24 @@ public class LSerWarehouseGoodsOutInfoServiceImpl extends ServiceImpl<LSerWareho
             //查询所有箱子对应的商品
             List<LSerWarehouseGoodsInfo> goodsInfoList = new ArrayList<>();
             for (String boxNo : command.getBoxCode()) {
+                //判断是否入库的商品
                 LSerWarehouseGoodsInfo goodsInfo = putInService.getOne(new QueryWrapper<LSerWarehouseGoodsInfo>().eq("box_no", boxNo));
                 if (goodsInfo != null) {
-                    goodsInfoList.add(goodsInfo);
+                    //判断是否已经出库的商品
+                    LSerWarehouseGoodsOutInfo outInfo = getOne(new QueryWrapper<LSerWarehouseGoodsOutInfo>().eq("box_no", boxNo));
+                    if(outInfo!=null){
+                        LSerWarehouseGoodsInfo infoTemp = new LSerWarehouseGoodsInfo();
+                        infoTemp.setBoxNo(boxNo);
+                        unSafeList.add(infoTemp);
+                        PutOutDto dto = new PutOutDto();
+                        dto.setFlag(false);
+                        dto.setMessage("此商品已出货");
+                        dto.setObj(unSafeList);
+                        map.put("putOutFlag", dto);
+                        return map;
+                    }else{
+                        goodsInfoList.add(goodsInfo);
+                    }
                 } else {
                     LSerWarehouseGoodsInfo infoTemp = new LSerWarehouseGoodsInfo();
                     infoTemp.setBoxNo(boxNo);
@@ -296,6 +311,21 @@ public class LSerWarehouseGoodsOutInfoServiceImpl extends ServiceImpl<LSerWareho
                     map.put("putOutFlag", dto);
                     return map;
                 }else if(orderBoxCountTemp == outBoxCountTemp){//订单已完成
+                    flag = saveBatch(listTemp);
+                    if(flag){
+                        //更改订单状态
+                        SerOrderInfo orderInfo = orderInfoService.getById(command.getOrderId());
+                        orderInfo.setOrderState(4);
+                        orderInfo.setUpdateTime(new Date());
+                        orderInfoService.updateById(orderInfo);
+                    }
+                    PutOutDto dto = new PutOutDto();
+                    dto.setFlag(true);
+                    dto.setMessage("出货成功");
+                    dto.setObj("订单已完成");
+                    map.put("putOutFlag", dto);
+                    return map;
+                }else if(orderBoxCountTemp == scanBoxCount){//订单箱子==扫描到的箱子时
                     flag = saveBatch(listTemp);
                     if(flag){
                         //更改订单状态
