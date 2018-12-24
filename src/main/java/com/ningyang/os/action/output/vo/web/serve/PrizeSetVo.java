@@ -50,7 +50,11 @@ public class PrizeSetVo {
 
     private Date prizeStartDate;
 
+    private String prizeStartDateStr;
+
     private Date prizeEndDate;
+
+    private String prizeEndDateStr;
 
     private int setState;
 
@@ -216,12 +220,28 @@ public class PrizeSetVo {
         this.prizeStartDate = prizeStartDate;
     }
 
+    public String getPrizeStartDateStr() {
+        return prizeStartDateStr;
+    }
+
+    public void setPrizeStartDateStr(String prizeStartDateStr) {
+        this.prizeStartDateStr = prizeStartDateStr;
+    }
+
     public Date getPrizeEndDate() {
         return prizeEndDate;
     }
 
     public void setPrizeEndDate(Date prizeEndDate) {
         this.prizeEndDate = prizeEndDate;
+    }
+
+    public String getPrizeEndDateStr() {
+        return prizeEndDateStr;
+    }
+
+    public void setPrizeEndDateStr(String prizeEndDateStr) {
+        this.prizeEndDateStr = prizeEndDateStr;
     }
 
     public int getSetState() {

@@ -16,6 +16,8 @@ import org.springframework.stereotype.Service;
 import java.util.Date;
 import java.util.List;
 
+import static com.ningyang.os.action.utils.DateUtil.dateToDate;
+
 /**
  * <p>
  * 奖项设定 服务实现类
@@ -38,6 +40,8 @@ public class SerPrizeSetInfoServiceImpl extends ServiceImpl<SerPrizeSetInfoMappe
         for (PrizeSetVo vo : listTemp) {
             Date[] prizeDate = {vo.getPrizeStartDate(), vo.getPrizeEndDate()};
             vo.setPrizeDate(prizeDate);
+            vo.setPrizeStartDateStr(dateToDate(vo.getPrizeStartDate()));
+            vo.setPrizeEndDateStr(dateToDate(vo.getPrizeEndDate()));
             if (vo.getRegionId() != null) {
                 List<String> regionList = regionInfoService.findRegionThreeList(String.valueOf(vo.getRegionId()));
                 vo.setRegionList(regionList);
