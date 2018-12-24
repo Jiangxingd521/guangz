@@ -1,5 +1,6 @@
 package com.ningyang.os.service.impl;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.ningyang.os.action.input.command.web.serve.PrizeSetCommand;
 import com.ningyang.os.action.input.condition.serve.QueryPrizeCondition;
@@ -33,6 +34,28 @@ public class SerPrizeSetInfoServiceImpl extends ServiceImpl<SerPrizeSetInfoMappe
     private ISysBaseRegionInfoService regionInfoService;
     @Autowired
     private ISerPrizeManagerInfoService managerInfoService;
+
+    @Override
+    public Page<PrizeSetVo> findPrizeSetVoListPageByCondition(QueryPrizeCondition condition) {
+        Page<PrizeSetVo> pageVo = new Page<>();
+        List<PrizeSetVo> listTemp = baseMapper.selectPrizeSetVoListPageByCondition(condition);
+        for (PrizeSetVo vo : listTemp) {
+            Date[] prizeDate = {vo.getPrizeStartDate(), vo.getPrizeEndDate()};
+            vo.setPrizeDate(prizeDate);
+            vo.setPrizeStartDateStr(dateToDate(vo.getPrizeStartDate()));
+            vo.setPrizeEndDateStr(dateToDate(vo.getPrizeEndDate()));
+            if (vo.getRegionId() != null) {
+                List<String> regionList = regionInfoService.findRegionThreeList(String.valueOf(vo.getRegionId()));
+                vo.setRegionList(regionList);
+            }
+        }
+        int total = baseMapper.selectPrizeSetVoListPageCountByCondition(condition);
+        pageVo.setRecords(listTemp);
+        pageVo.setTotal(total);
+        pageVo.setSize(condition.getPage());
+        pageVo.setCurrent(condition.getLimit());
+        return pageVo;
+    }
 
     @Override
     public List<PrizeSetVo> findPrizeSetVoListByCondition(QueryPrizeCondition condition) {

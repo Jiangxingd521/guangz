@@ -15,13 +15,14 @@ import com.ningyang.os.dao.SerBrandSeriesProductInfoMapper;
 import com.ningyang.os.pojo.SerBrandSeriesProductCodeInfo;
 import com.ningyang.os.pojo.SerBrandSeriesProductInfo;
 import com.ningyang.os.service.*;
-import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+
+import static com.sun.deploy.util.StringUtils.join;
 
 /**
  * <p>
@@ -66,7 +67,7 @@ public class SerBrandSeriesProductInfoServiceImpl extends ServiceImpl<SerBrandSe
             int codeNumber = productCodeDtoList.size();
             vo.setCodeNumber(codeNumber);
             vo.setCodeTypeIds(productCodeIdList);
-            String codeMakeInfo = StringUtils.join(codeMakeInfoList, "、");
+            String codeMakeInfo = join(codeMakeInfoList, "、");
             vo.setCodeMakeInfo(codeMakeInfo);
 
             /*List<SerBrandSeriesProductFile> productFileList = productFileService.list(new QueryWrapper<SerBrandSeriesProductFile>()

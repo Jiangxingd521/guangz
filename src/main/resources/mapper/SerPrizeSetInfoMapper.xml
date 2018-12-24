@@ -52,4 +52,32 @@
         </if>
     </select>
 
+    <select id="selectPrizeSetVoListPageByCondition"
+            parameterType="com.ningyang.os.action.input.condition.serve.QueryPrizeCondition"
+            resultType="com.ningyang.os.action.output.vo.web.serve.PrizeSetVo"
+    >
+        select a.prize_set_id,a.prize_set_name,a.prize_manager_id as managerId,c.prize_name as managerName,
+        a.prod_id,d.product_name,a.member_type,a.region_id,a.prize_quantity,a.money,a.money_end,
+        a.ponit,a.point_end,a.prize_set_type,a.prize_mode_type,a.card_money,a.card_coupon_money,
+        a.idata1 as setState,a.prize_start_date,a.prize_end_date,b.user_name
+        from t_ser_prize_set_info a
+        left join t_sys_user_info b on a.user_id=b.id
+        left join t_ser_prize_manager_info c on a.prize_manager_id=c.prize_manage_id
+        left join t_ser_brand_series_product_info d on a.prod_id=d.id
+        where 1=1
+        <if test="typeState!=null">
+            and a.idata1 = #{typeState}
+        </if>
+        limit #{page},#{limit}
+    </select>
+
+    <select id="selectPrizeSetVoListPageCountByCondition"
+            parameterType="com.ningyang.os.action.input.condition.serve.QueryPrizeCondition"
+            resultType="int"
+    >
+        select count(1) from t_ser_prize_set_info a where 1=1
+        <if test="typeState!=null">
+            and a.idata1 = #{typeState}
+        </if>
+    </select>
 </mapper>

@@ -5,7 +5,6 @@ import io.jsonwebtoken.Jws;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.impl.crypto.MacProvider;
-import org.apache.commons.lang.StringUtils;
 import org.apache.tomcat.util.codec.binary.Base64;
 import org.joda.time.DateTime;
 import org.slf4j.Logger;
@@ -16,6 +15,9 @@ import javax.crypto.spec.SecretKeySpec;
 import java.security.Key;
 import java.util.Date;
 import java.util.UUID;
+
+import static org.apache.commons.lang3.StringUtils.substringAfter;
+
 
 public class JwtUtil {
 
@@ -144,7 +146,7 @@ public class JwtUtil {
      */
     public static Jws<Claims> parseJWT(Key key, String claimsJws) {
         // 移除 JWT 前的"Bearer "字符串
-        claimsJws = StringUtils.substringAfter(claimsJws, JWT_SEPARATOR);
+        claimsJws = substringAfter(claimsJws, JWT_SEPARATOR);
         // 解析 JWT 字符串
         return Jwts.parser().setSigningKey(key).parseClaimsJws(claimsJws);
     }

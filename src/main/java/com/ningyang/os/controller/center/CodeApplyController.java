@@ -16,7 +16,6 @@ import com.ningyang.os.service.ISerApplyCodeInfoService;
 import com.ningyang.os.service.ISerApplyCodeTableInfoService;
 import com.ningyang.os.service.ISerApplyCodeTemplateService;
 import org.apache.commons.io.FileUtils;
-import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,6 +38,10 @@ import static cn.hutool.core.util.ZipUtil.zip;
 import static cn.hutool.http.HttpUtil.post;
 import static com.ningyang.os.action.enums.SystemErrorEnum.*;
 import static com.ningyang.os.action.utils.DateUtil.getOrderNum;
+import static org.apache.commons.lang3.StringUtils.isNotBlank;
+
+//import org.apache.commons.io.FileUtils;
+//import org.apache.commons.codec.i
 
 /**
  * @Author： kaider
@@ -91,7 +94,7 @@ public class CodeApplyController extends BaseController {
                 command.setApplyUserId(userInfo.getId());
 
                 String userCode = getAuthorizationCode(0);
-                if (StringUtils.isNotBlank(userCode)) {
+                if (isNotBlank(userCode)) {
                     command.setUserCode(userCode);
                     if (command.getCodeType() == 1) {
                         //条形码

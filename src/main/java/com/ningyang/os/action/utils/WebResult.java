@@ -1,8 +1,8 @@
 package com.ningyang.os.action.utils;
 
-import org.apache.commons.lang.StringUtils;
-
 import java.util.*;
+
+import static org.apache.commons.lang3.StringUtils.isBlank;
 
 /**
  * Created by kaider on 2017/4/19.
@@ -77,7 +77,7 @@ public class WebResult {
     public static WebResult failure(Throwable throwable) {
         String msg = throwable.getLocalizedMessage();
 
-        if (StringUtils.isBlank(msg)) {
+        if (isBlank(msg)) {
             msg = "未知错误。" + throwable.toString();
         }
 
@@ -95,7 +95,7 @@ public class WebResult {
     public static WebResult failure(String resultKey, String infoKey, Throwable throwable) {
         String msg = throwable.getLocalizedMessage();
 
-        if (StringUtils.isBlank(msg)) {
+        if (isBlank(msg)) {
             msg = "未知错误。" + throwable.getMessage();
         }
 
