@@ -9,7 +9,6 @@ import com.ningyang.os.action.output.vo.web.serve.WarehouseInventoryVo;
 import com.ningyang.os.action.output.vo.web.serve.WarehousePersonVo;
 import com.ningyang.os.action.output.vo.web.serve.WarehouseVo;
 import com.ningyang.os.dao.SerWarehouseInfoMapper;
-import com.ningyang.os.pojo.LSerWarehouseGoodsInfo;
 import com.ningyang.os.pojo.SerWarehouseGoodsInfo;
 import com.ningyang.os.pojo.SerWarehouseInfo;
 import com.ningyang.os.service.ILSerWarehouseGoodsInfoService;

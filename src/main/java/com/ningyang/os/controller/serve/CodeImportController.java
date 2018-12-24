@@ -1,6 +1,5 @@
 package com.ningyang.os.controller.serve;
 
-import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.ningyang.os.action.input.command.web.serve.ImportCodeCommand;
 import com.ningyang.os.action.input.condition.serve.QueryApplyCodeCondition;
@@ -130,7 +129,7 @@ public class CodeImportController extends BaseController {
                 ImportCodeCommand command = new ImportCodeCommand();
                 command.setImportFileName(fileName);
                 command.setSaveFilePath(saveFilePath);
-                command.setCodeCount(Long.valueOf(fileList.size() * 2));
+                command.setCodeCount(Long.valueOf(fileList.size()));
                 command.setUserId(uploadUserId);
                 command.setTemplateId(templateId);
 //                System.out.println(JSONObject.toJSONString(command));

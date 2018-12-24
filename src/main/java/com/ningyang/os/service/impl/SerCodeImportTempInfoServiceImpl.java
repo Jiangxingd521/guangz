@@ -1,6 +1,5 @@
 package com.ningyang.os.service.impl;
 
-import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.ningyang.os.action.output.vo.web.base.BrandSeriesProductVo;
 import com.ningyang.os.action.output.vo.web.base.CodeImportTemplateVo;
@@ -79,8 +78,8 @@ public class SerCodeImportTempInfoServiceImpl extends ServiceImpl<SerCodeImportT
                     default:
                         break;
                 }
-                info.setM1Remark(templateVo.getLeftCodeName());
-                info.setM2Remark(templateVo.getRightCodeName());
+                /*info.setM1Remark(templateVo.getLeftCodeName());
+                info.setM2Remark(templateVo.getRightCodeName());*/
                 info.setCreateTime(new Date());
                 info.setUpdateTime(new Date());
                 info.setGoodsState(0);
