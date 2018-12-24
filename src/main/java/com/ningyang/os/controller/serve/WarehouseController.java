@@ -3,6 +3,7 @@ package com.ningyang.os.controller.serve;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.ningyang.os.action.input.command.web.serve.WarehouseCommand;
 import com.ningyang.os.action.input.condition.serve.QueryWarehouseCondition;
+import com.ningyang.os.action.output.vo.web.serve.WarehouseInventoryVo;
 import com.ningyang.os.action.output.vo.web.serve.WarehousePersonVo;
 import com.ningyang.os.action.output.vo.web.serve.WarehouseVo;
 import com.ningyang.os.action.utils.WebResult;
@@ -66,6 +67,19 @@ public class WarehouseController {
     public Map<String, Object> getWarehouseUserList() {
         try {
             List<WarehousePersonVo> listVo = infoService.findWarehousePersonVoByCondition();
+            return WebResult.success().put("listVo", listVo).toMap();
+        } catch (Exception e) {
+            LOGGER.error(e.getMessage(), e);
+            return WebResult.failure(DATA_ERROR.getInfo()).toMap();
+        }
+    }
+
+    @GetMapping("getWarehouseInventory/{warehouseId}")
+    public Map<String, Object> getWarehouseInventory(
+            @PathVariable("warehouseId") Long warehouseId
+    ){
+        try {
+            List<WarehouseInventoryVo> listVo = infoService.findWarehouseInventoryVoById(warehouseId);
             return WebResult.success().put("listVo", listVo).toMap();
         } catch (Exception e) {
             LOGGER.error(e.getMessage(), e);

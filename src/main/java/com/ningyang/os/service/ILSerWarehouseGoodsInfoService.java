@@ -6,6 +6,7 @@ import com.ningyang.os.action.input.command.api.ApiWarehousePutInCommand;
 import com.ningyang.os.action.input.condition.serve.QueryGoodsPutCondition;
 import com.ningyang.os.action.output.vo.api.ApiWarehouseGoodsVo;
 import com.ningyang.os.action.output.vo.web.serve.GoodsPutInVo;
+import com.ningyang.os.action.output.vo.web.serve.WarehouseInventoryVo;
 import com.ningyang.os.pojo.LSerWarehouseGoodsInfo;
 
 import java.util.List;
@@ -28,4 +29,6 @@ public interface ILSerWarehouseGoodsInfoService extends IService<LSerWarehouseGo
     int getWarehouseBoxCount(Long warehouseId);
 
     List<ApiWarehouseGoodsVo> findApiWarehouseGoodsVo(String productName);
+
+    List<WarehouseInventoryVo> findWarehouseInventoryVoById(Long warehouseId);
 }

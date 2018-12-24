@@ -5,6 +5,7 @@ import com.ningyang.os.action.input.condition.serve.QueryGoodsPutCondition;
 import com.ningyang.os.action.output.vo.api.ApiWarehouseGoodsInfoVo;
 import com.ningyang.os.action.output.vo.api.ApiWarehouseGoodsVo;
 import com.ningyang.os.action.output.vo.web.serve.GoodsPutInVo;
+import com.ningyang.os.action.output.vo.web.serve.WarehouseInventoryVo;
 import com.ningyang.os.pojo.LSerWarehouseGoodsInfo;
 
 import java.util.List;
@@ -28,4 +29,6 @@ public interface LSerWarehouseGoodsInfoMapper extends BaseMapper<LSerWarehouseGo
     List<ApiWarehouseGoodsVo> selectApiWarehouseGoodsVo(String productName);
 
     List<ApiWarehouseGoodsInfoVo> selectApiWarehouseGoodsInfoVo(Long productId);
+
+    List<WarehouseInventoryVo> selectWarehouseInventoryVoById(Long warehouseId);
 }

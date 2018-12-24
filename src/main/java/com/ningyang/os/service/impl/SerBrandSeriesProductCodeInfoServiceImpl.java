@@ -2,6 +2,7 @@ package com.ningyang.os.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.ningyang.os.action.output.dto.serve.ProductCodeDto;
 import com.ningyang.os.dao.SerBrandSeriesProductCodeInfoMapper;
 import com.ningyang.os.pojo.SerBrandSeriesProductCodeInfo;
 import com.ningyang.os.service.ISerBrandSeriesProductCodeInfoService;
@@ -32,5 +33,10 @@ public class SerBrandSeriesProductCodeInfoServiceImpl extends ServiceImpl<SerBra
             productCodeIdList.add(codeId);
         }
         return productCodeIdList;
+    }
+
+    @Override
+    public List<ProductCodeDto> getProductCodeMake(Long productId) {
+        return baseMapper.selectProductCodeMake(productId);
     }
 }

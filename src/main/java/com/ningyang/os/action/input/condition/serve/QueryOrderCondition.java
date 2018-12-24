@@ -22,6 +22,11 @@ public class QueryOrderCondition extends BaseCondition {
     //系列产品id
     private Long productId;
 
+    //订单号（销售、退货）
+    private String orderNo;
+    //经销商
+    private String dealerName;
+
     public Integer getOrderState() {
         return orderState;
     }
@@ -68,5 +73,21 @@ public class QueryOrderCondition extends BaseCondition {
 
     public void setProductId(Long productId) {
         this.productId = productId;
+    }
+
+    public String getOrderNo() {
+        return orderNo;
+    }
+
+    public void setOrderNo(String orderNo) {
+        this.orderNo = orderNo;
+    }
+
+    public String getDealerName() {
+        return dealerName;
+    }
+
+    public void setDealerName(String dealerName) {
+        this.dealerName = dealerName;
     }
 }

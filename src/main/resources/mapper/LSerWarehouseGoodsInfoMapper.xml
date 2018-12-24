@@ -76,4 +76,19 @@
         e.warehouse_name,a.warehouse_in_time
     </select>
 
+    <select id="selectWarehouseInventoryVoById"
+            parameterType="Long"
+            resultType="com.ningyang.os.action.output.vo.web.serve.WarehouseInventoryVo"
+    >
+        select a.product_id,d.product_name,e.series_name,f.brand_name, count(product_id) as usedTotalInventory
+        from l_ser_warehouse_goods_info a
+        left join t_ser_warehouse_goods_info b on a.box_no = b.box_no
+        left join t_ser_warehouse_info c on a.warehouse_id = c.id
+        left join t_ser_brand_series_product_info d on a.product_id = d.id
+        left join t_ser_brand_series_info e on d.series_id = e.id
+        left join t_ser_brand_info f on e.brand_id = f.id
+        where b.goods_state=1 and a.warehouse_id = #{warehouseId}
+        GROUP BY a.product_id,d.product_name,e.series_name,f.brand_name
+    </select>
+
 </mapper>

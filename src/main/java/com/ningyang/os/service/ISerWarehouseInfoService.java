@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.ningyang.os.action.input.command.web.serve.WarehouseCommand;
 import com.ningyang.os.action.input.condition.serve.QueryWarehouseCondition;
+import com.ningyang.os.action.output.vo.web.serve.WarehouseInventoryVo;
 import com.ningyang.os.action.output.vo.web.serve.WarehousePersonVo;
 import com.ningyang.os.action.output.vo.web.serve.WarehouseVo;
 import com.ningyang.os.pojo.SerWarehouseInfo;
@@ -26,6 +27,8 @@ public interface ISerWarehouseInfoService extends IService<SerWarehouseInfo> {
 
     List<WarehousePersonVo> findWarehousePersonVoByCondition();
 
-    List<WarehouseVo> findWarehouseVoListByCondition();
+    List<WarehouseVo> findWarehouseVoListByCondition(QueryWarehouseCondition condition);
+
+    List<WarehouseInventoryVo> findWarehouseInventoryVoById(Long warehouseId);
 
 }

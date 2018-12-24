@@ -37,6 +37,8 @@ public class ProductVo {
     private int productState;
     //码类型id
     private List<Long> codeTypeIds;
+    //组成码
+    private String codeMakeInfo;
 
     private List<FileUploadDto> productFileList;
 
@@ -142,6 +144,14 @@ public class ProductVo {
 
     public void setCodeTypeIds(List<Long> codeTypeIds) {
         this.codeTypeIds = codeTypeIds;
+    }
+
+    public String getCodeMakeInfo() {
+        return codeMakeInfo;
+    }
+
+    public void setCodeMakeInfo(String codeMakeInfo) {
+        this.codeMakeInfo = codeMakeInfo;
     }
 
     public List<FileUploadDto> getProductFileList() {

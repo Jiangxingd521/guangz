@@ -8,6 +8,7 @@ import com.ningyang.os.action.input.condition.serve.QueryGoodsPutCondition;
 import com.ningyang.os.action.output.vo.api.ApiWarehouseGoodsInfoVo;
 import com.ningyang.os.action.output.vo.api.ApiWarehouseGoodsVo;
 import com.ningyang.os.action.output.vo.web.serve.GoodsPutInVo;
+import com.ningyang.os.action.output.vo.web.serve.WarehouseInventoryVo;
 import com.ningyang.os.dao.LSerWarehouseGoodsInfoMapper;
 import com.ningyang.os.pojo.LSerWarehouseGoodsInfo;
 import com.ningyang.os.pojo.SerGoodsInfo;
@@ -128,5 +129,10 @@ public class LSerWarehouseGoodsInfoServiceImpl extends ServiceImpl<LSerWarehouse
             }
         }
         return listTemp;
+    }
+
+    @Override
+    public List<WarehouseInventoryVo> findWarehouseInventoryVoById(Long warehouseId) {
+        return baseMapper.selectWarehouseInventoryVoById(warehouseId);
     }
 }

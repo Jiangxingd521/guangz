@@ -35,6 +35,12 @@
         <if test="orderState!=null">
             and a.order_state = #{orderState}
         </if>
+        <if test="orderNo!=null and orderNo!=''">
+            and a.order_no like CONCAT('%',#{orderNo},'%')
+        </if>
+        <if test="dealerName!=null and dealerName!=''">
+            and b.dealer_name like CONCAT('%',#{dealerName},'%')
+        </if>
         order by a.create_time desc
         limit #{page},#{limit}
     </select>
@@ -43,9 +49,17 @@
             parameterType="com.ningyang.os.action.input.condition.serve.QueryOrderCondition"
             resultType="int"
     >
-        select count(1) from t_ser_order_info a where 1=1
+        select count(1) from t_ser_order_info a
+        LEFT JOIN t_ser_dealer_info b ON a.dealer_id = b.id
+        where 1=1
         <if test="orderState!=null">
             and a.order_state = #{orderState}
+        </if>
+        <if test="orderNo!=null and orderNo!=''">
+            and a.order_no like CONCAT('%',#{orderNo},'%')
+        </if>
+        <if test="dealerName!=null and dealerName!=''">
+            and b.dealer_name like CONCAT('%',#{dealerName},'%')
         </if>
         order by a.create_time desc
     </select>

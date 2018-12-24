@@ -39,6 +39,12 @@
         <if test="orderState!=null">
             and a.order_state = #{orderState}
         </if>
+        <if test="orderNo!=null and orderNo!=''">
+            and a.order_no like CONCAT('%',#{orderNo},'%')
+        </if>
+        <if test="dealerName!=null and dealerName!=''">
+            and b.dealer_name like CONCAT('%',#{dealerName},'%')
+        </if>
         order by a.create_time desc
         limit #{page},#{limit}
     </select>
@@ -48,8 +54,15 @@
             resultType="int"
     >
         select count(1) from t_ser_purchase_order_info a
+        left join t_ser_dealer_info b on a.dealer_id = b.id
         <if test="orderState!=null">
             and a.order_state = #{orderState}
+        </if>
+        <if test="orderNo!=null and orderNo!=''">
+            and a.order_no like CONCAT('%',#{orderNo},'%')
+        </if>
+        <if test="dealerName!=null and dealerName!=''">
+            and b.dealer_name like CONCAT('%',#{dealerName},'%')
         </if>
         order by a.create_time desc
     </select>

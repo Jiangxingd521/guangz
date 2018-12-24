@@ -5,12 +5,16 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.ningyang.os.action.input.command.web.serve.WarehouseCommand;
 import com.ningyang.os.action.input.condition.serve.QueryWarehouseCondition;
+import com.ningyang.os.action.output.vo.web.serve.WarehouseInventoryVo;
 import com.ningyang.os.action.output.vo.web.serve.WarehousePersonVo;
 import com.ningyang.os.action.output.vo.web.serve.WarehouseVo;
 import com.ningyang.os.dao.SerWarehouseInfoMapper;
+import com.ningyang.os.pojo.LSerWarehouseGoodsInfo;
+import com.ningyang.os.pojo.SerWarehouseGoodsInfo;
 import com.ningyang.os.pojo.SerWarehouseInfo;
 import com.ningyang.os.service.ILSerWarehouseGoodsInfoService;
 import com.ningyang.os.service.ILSerWarehouseGoodsOutInfoService;
+import com.ningyang.os.service.ISerWarehouseGoodsInfoService;
 import com.ningyang.os.service.ISerWarehouseInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -33,7 +37,8 @@ public class SerWarehouseInfoServiceImpl extends ServiceImpl<SerWarehouseInfoMap
     private ILSerWarehouseGoodsInfoService inInfoService;
     @Autowired
     private ILSerWarehouseGoodsOutInfoService outInfoService;
-
+    @Autowired
+    private ISerWarehouseGoodsInfoService goodsInfoService;
 
     @Override
     public Page<WarehouseVo> findWarehouseVoPageByCondition(QueryWarehouseCondition condition) {
@@ -41,11 +46,9 @@ public class SerWarehouseInfoServiceImpl extends ServiceImpl<SerWarehouseInfoMap
         List<WarehouseVo> listVoTemp = baseMapper.selectWarehouseVoPageByCondition(condition);
         //仓库库存量变化
         for (WarehouseVo vo : listVoTemp) {
-            //入库
-            int inCount = inInfoService.getWarehouseBoxCount(vo.getWarehouseId());
-            //出库
-            int outCount = outInfoService.getWarehouseBoxCount(vo.getWarehouseId());
-            vo.setUsedTotalInventory(inCount - outCount);
+            int boxCount = goodsInfoService.count(new QueryWrapper<SerWarehouseGoodsInfo>()
+                    .eq("warehouse_id",vo.getWarehouseId()).eq("goods_state",1));
+            vo.setUsedTotalInventory(boxCount);
         }
         int total = baseMapper.selectWarehouseVoPageCountByCondition(condition);
         pageVo.setRecords(listVoTemp);
@@ -90,10 +93,9 @@ public class SerWarehouseInfoServiceImpl extends ServiceImpl<SerWarehouseInfoMap
         return baseMapper.selectWarehousePersonVoByCondition();
     }
 
-
     @Override
-    public List<WarehouseVo> findWarehouseVoListByCondition() {
-        List<WarehouseVo> listVoTemp = baseMapper.selectWarehouseVoListByCondition();
+    public List<WarehouseVo> findWarehouseVoListByCondition(QueryWarehouseCondition condition) {
+        List<WarehouseVo> listVoTemp = baseMapper.selectWarehouseVoListByCondition(condition);
         //仓库库存量变化
         for (WarehouseVo vo : listVoTemp) {
             //入库
@@ -102,6 +104,12 @@ public class SerWarehouseInfoServiceImpl extends ServiceImpl<SerWarehouseInfoMap
             int outCount = outInfoService.getWarehouseBoxCount(vo.getWarehouseId());
             vo.setUsedTotalInventory(inCount - outCount);
         }
+        return listVoTemp;
+    }
+
+    @Override
+    public List<WarehouseInventoryVo> findWarehouseInventoryVoById(Long warehouseId) {
+        List<WarehouseInventoryVo> listVoTemp = inInfoService.findWarehouseInventoryVoById(warehouseId);
         return listVoTemp;
     }
 }

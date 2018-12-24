@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.ningyang.os.action.input.command.web.base.ProductCommand;
 import com.ningyang.os.action.input.condition.base.QueryBrandSeriesProductCondition;
+import com.ningyang.os.action.output.dto.serve.ProductCodeDto;
 import com.ningyang.os.action.output.dto.web.FileUploadDto;
 import com.ningyang.os.action.output.vo.api.ApiBrandSeriesProductVo;
 import com.ningyang.os.action.output.vo.api.ApiProductVo;
@@ -17,6 +18,7 @@ import com.ningyang.os.pojo.SerBrandSeriesProductFile;
 import com.ningyang.os.pojo.SerBrandSeriesProductInfo;
 import com.ningyang.os.pojo.SysFileInfo;
 import com.ningyang.os.service.*;
+import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -52,10 +54,23 @@ public class SerBrandSeriesProductInfoServiceImpl extends ServiceImpl<SerBrandSe
         Page<ProductVo> pageVo = new Page<>();
         List<ProductVo> listVoTemp = baseMapper.selectProductVoPageByCondition(condition);
         for (ProductVo vo : listVoTemp) {
-            List<Long> productCodeIdList = codeInfoService.getProductCodeIds(vo.getProductId());
+            /*List<Long> productCodeIdList = codeInfoService.getProductCodeIds(vo.getProductId());
             int codeNumber = productCodeIdList.size();
             vo.setCodeNumber(codeNumber);
+            vo.setCodeTypeIds(productCodeIdList);*/
+
+            List<Long> productCodeIdList = new ArrayList<>();
+            List<ProductCodeDto> productCodeDtoList = codeInfoService.getProductCodeMake(vo.getProductId());
+            List<String> codeMakeInfoList = new ArrayList<>();
+            for(ProductCodeDto dto : productCodeDtoList){
+                productCodeIdList.add(dto.getCodeId());
+                codeMakeInfoList.add(dto.getCodeName());
+            }
+            int codeNumber = productCodeDtoList.size();
+            vo.setCodeNumber(codeNumber);
             vo.setCodeTypeIds(productCodeIdList);
+            String codeMakeInfo = StringUtils.join(codeMakeInfoList, "、");
+            vo.setCodeMakeInfo(codeMakeInfo);
 
             /*List<SerBrandSeriesProductFile> productFileList = productFileService.list(new QueryWrapper<SerBrandSeriesProductFile>()
                     .eq("product_id", vo.getProductId()));

@@ -27,8 +27,17 @@
                  left join t_sys_base_region_info b on a.region_id = b.id
         where 1 = 1
           and a.dealer_state = 0
-            limit #{page}
-            ,#{limit}
+
+        <if test="dealerName!=null and dealerName!=''">
+            and a.dealer_name like CONCAT('%',#{dealerName},'%')
+        </if>
+        <if test="personName!=null and personName!=''">
+            and a.person_name like CONCAT('%',#{personName},'%')
+        </if>
+        <if test="personMobile!=null and personMobile!=''">
+            and a.person_mobile like CONCAT('%',#{personMobile},'%')
+        </if>
+            limit #{page},#{limit}
     </select>
 
     <select id="selectDealerVoPageCountByCondition"
@@ -37,6 +46,15 @@
     >
         select count(1) from t_ser_dealer_info a
         where 1 = 1 and a.dealer_state = 0
+        <if test="dealerName!=null and dealerName!=''">
+            and a.dealer_name like CONCAT('%',#{dealerName},'%')
+        </if>
+        <if test="personName!=null and personName!=''">
+            and a.person_name like CONCAT('%',#{personName},'%')
+        </if>
+        <if test="personMobile!=null and personMobile!=''">
+            and a.person_mobile like CONCAT('%',#{personMobile},'%')
+        </if>
     </select>
 
     <select id="selectDealerVoListByCondition"

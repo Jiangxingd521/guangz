@@ -1,6 +1,7 @@
 package com.ningyang.os.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.ningyang.os.action.output.dto.serve.ProductCodeDto;
 import com.ningyang.os.pojo.SerBrandSeriesProductCodeInfo;
 
 import java.util.List;
@@ -16,5 +17,7 @@ import java.util.List;
 public interface ISerBrandSeriesProductCodeInfoService extends IService<SerBrandSeriesProductCodeInfo> {
 
     List<Long> getProductCodeIds(Long productId);
+
+    List<ProductCodeDto> getProductCodeMake(Long productId);
 
 }

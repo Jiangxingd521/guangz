@@ -4,6 +4,7 @@ import com.ningyang.os.action.input.command.api.ApiWarehousePutInCommand;
 import com.ningyang.os.action.input.command.api.ApiWarehousePutOutCommand;
 import com.ningyang.os.action.input.command.api.ApiWarehouseSaleOrderCommand;
 import com.ningyang.os.action.input.condition.serve.QueryOrderCondition;
+import com.ningyang.os.action.input.condition.serve.QueryWarehouseCondition;
 import com.ningyang.os.action.output.dto.serve.PutOutDto;
 import com.ningyang.os.action.output.vo.api.ApiBrandSeriesProductVo;
 import com.ningyang.os.action.output.vo.api.ApiProductVo;
@@ -67,7 +68,9 @@ public class ApiWareHouseController extends BaseController {
         try {
             SysUserInfo loginUser = getBaseUserInfo(userToken);
             if (loginUser != null) {
-                List<WarehouseVo> listVo = warehouseInfoService.findWarehouseVoListByCondition();
+                QueryWarehouseCondition condition = new QueryWarehouseCondition();
+                condition.setWarehouseState(1);
+                List<WarehouseVo> listVo = warehouseInfoService.findWarehouseVoListByCondition(condition);
                 Map<String, Object> map = new HashMap<>();
                 map.put("listVo", listVo);
                 return WebResult.success().put("data", map).toMap();

@@ -1,7 +1,10 @@
 package com.ningyang.os.dao;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.ningyang.os.action.output.dto.serve.ProductCodeDto;
 import com.ningyang.os.pojo.SerBrandSeriesProductCodeInfo;
+
+import java.util.List;
 
 /**
  * <p>
@@ -12,5 +15,7 @@ import com.ningyang.os.pojo.SerBrandSeriesProductCodeInfo;
  * @since 2018-11-14
  */
 public interface SerBrandSeriesProductCodeInfoMapper extends BaseMapper<SerBrandSeriesProductCodeInfo> {
+
+    List<ProductCodeDto> selectProductCodeMake(Long productId);
 
 }
