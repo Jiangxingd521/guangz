@@ -10,10 +10,7 @@ import com.ningyang.os.action.output.vo.web.serve.GoodsPutOutVo;
 import com.ningyang.os.action.utils.ReadFileBackData;
 import com.ningyang.os.action.utils.WebResult;
 import com.ningyang.os.dao.SerApplyCodeTableInfoMapper;
-import com.ningyang.os.pojo.LSerWarehouseGoodsInfo;
-import com.ningyang.os.pojo.SerApplyCodeTemplate;
-import com.ningyang.os.pojo.SerGoodsInfo;
-import com.ningyang.os.pojo.SerOrderInfoDetails;
+import com.ningyang.os.pojo.*;
 import com.ningyang.os.service.*;
 import org.apache.commons.lang3.StringUtils;
 import org.junit.Test;
@@ -31,6 +28,7 @@ import java.util.stream.Collectors;
 
 import static com.ningyang.os.action.utils.RandomUtil.randomArray;
 import static com.ningyang.os.action.utils.RandomUtil.randomCommon;
+import static com.ningyang.os.action.utils.UuidUtil.generateUUID;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -64,6 +62,13 @@ public class NodeOsApplicationTests {
     public void contextLoads() {
 
         System.out.println(2>2);
+
+        for(int i=0;i<4;i++){
+            String uuid = generateUUID();
+            System.out.println(uuid);
+        }
+
+
 
         /*String[] boxCode = {"9999999","9999998","9999997","9999996","6000001227383389"};
 

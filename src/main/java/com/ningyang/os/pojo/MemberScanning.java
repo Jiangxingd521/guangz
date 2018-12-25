@@ -32,8 +32,8 @@ public class MemberScanning extends Model<MemberScanning> {
     /**
      * 内码
      */
-    @TableField("pr_code")
-    private String prCode;
+    @TableField("product_code")
+    private String productCode;
     private Integer idata1;
     private Integer idata2;
     private Integer idata3;
@@ -70,12 +70,12 @@ public class MemberScanning extends Model<MemberScanning> {
         this.openId = openId;
     }
 
-    public String getPrCode() {
-        return prCode;
+    public String getProductCode() {
+        return productCode;
     }
 
-    public void setPrCode(String prCode) {
-        this.prCode = prCode;
+    public void setProductCode(String productCode) {
+        this.productCode = productCode;
     }
 
     public Integer getIdata1() {
@@ -168,7 +168,7 @@ public class MemberScanning extends Model<MemberScanning> {
         return "MemberScanning{" +
                 "id=" + id +
                 ", openId=" + openId +
-                ", prCode=" + prCode +
+                ", productCode=" + productCode +
                 ", idata1=" + idata1 +
                 ", idata2=" + idata2 +
                 ", idata3=" + idata3 +

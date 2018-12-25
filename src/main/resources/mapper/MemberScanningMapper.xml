@@ -6,7 +6,7 @@
     <resultMap id="BaseResultMap" type="com.ningyang.os.pojo.MemberScanning">
         <id column="id" property="id"/>
         <result column="open_id" property="openId"/>
-        <result column="pr_code" property="prCode"/>
+        <result column="product_code" property="productCode"/>
         <result column="idata1" property="idata1"/>
         <result column="idata2" property="idata2"/>
         <result column="idata3" property="idata3"/>

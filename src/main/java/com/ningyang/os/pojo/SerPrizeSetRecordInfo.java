@@ -6,15 +6,16 @@ import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 /**
  * <p>
- * 奖项设定操作记录
+ *
  * </p>
  *
  * @author kaider
- * @since 2018-12-24
+ * @since 2018-12-25
  */
 @TableName("t_ser_prize_set_record_info")
 public class SerPrizeSetRecordInfo extends Model<SerPrizeSetRecordInfo> {
@@ -60,9 +61,14 @@ public class SerPrizeSetRecordInfo extends Model<SerPrizeSetRecordInfo> {
     private Long prizeSetId;
 
     /**
-     * 奖项类型（0：订单，1：产品）
+     * 布奖种类（0：订单，1：产品）
      */
     private Integer prizeSetType;
+
+    /**
+     * 当前奖项设置的状态（0：有效，1：无效）
+     */
+    private Integer prizeSetState;
 
     /**
      * 奖项设置时的uuid
@@ -75,14 +81,9 @@ public class SerPrizeSetRecordInfo extends Model<SerPrizeSetRecordInfo> {
     private Integer prizeSetCount;
 
     /**
-     * 创建人id
+     * 操作人
      */
     private Long createUserId;
-
-    /**
-     * 当前奖项设置的状态（0：有效，1：无效）
-     */
-    private Integer prizeSetState;
 
     /**
      * 创建时间
@@ -167,6 +168,14 @@ public class SerPrizeSetRecordInfo extends Model<SerPrizeSetRecordInfo> {
         this.prizeSetType = prizeSetType;
     }
 
+    public Integer getPrizeSetState() {
+        return prizeSetState;
+    }
+
+    public void setPrizeSetState(Integer prizeSetState) {
+        this.prizeSetState = prizeSetState;
+    }
+
     public String getPrizeSetUuid() {
         return prizeSetUuid;
     }
@@ -189,14 +198,6 @@ public class SerPrizeSetRecordInfo extends Model<SerPrizeSetRecordInfo> {
 
     public void setCreateUserId(Long createUserId) {
         this.createUserId = createUserId;
-    }
-
-    public Integer getPrizeSetState() {
-        return prizeSetState;
-    }
-
-    public void setPrizeSetState(Integer prizeSetState) {
-        this.prizeSetState = prizeSetState;
     }
 
     public Date getCreateTime() {
@@ -223,21 +224,21 @@ public class SerPrizeSetRecordInfo extends Model<SerPrizeSetRecordInfo> {
     @Override
     public String toString() {
         return "SerPrizeSetRecordInfo{" +
-                "id=" + id +
-                ", orderId=" + orderId +
-                ", orderNo=" + orderNo +
-                ", brandId=" + brandId +
-                ", seriesId=" + seriesId +
-                ", productId=" + productId +
-                ", warehouseId=" + warehouseId +
-                ", prizeSetId=" + prizeSetId +
-                ", prizeSetType=" + prizeSetType +
-                ", prizeSetUuid=" + prizeSetUuid +
-                ", prizeSetCount=" + prizeSetCount +
-                ", createUserId=" + createUserId +
-                ", prizeSetState=" + prizeSetState +
-                ", createTime=" + createTime +
-                ", updateTime=" + updateTime +
-                "}";
+        "id=" + id +
+        ", orderId=" + orderId +
+        ", orderNo=" + orderNo +
+        ", brandId=" + brandId +
+        ", seriesId=" + seriesId +
+        ", productId=" + productId +
+        ", warehouseId=" + warehouseId +
+        ", prizeSetId=" + prizeSetId +
+        ", prizeSetType=" + prizeSetType +
+        ", prizeSetState=" + prizeSetState +
+        ", prizeSetUuid=" + prizeSetUuid +
+        ", prizeSetCount=" + prizeSetCount +
+        ", createUserId=" + createUserId +
+        ", createTime=" + createTime +
+        ", updateTime=" + updateTime +
+        "}";
     }
 }

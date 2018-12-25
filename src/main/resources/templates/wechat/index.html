@@ -16,7 +16,6 @@
 				<!-- 未领红包 -->
 				<a href="JavaScript:;" onclick="prize()" class="get_btn" th:if="${isHB}">领取红包</a>
 				<a href="JavaScript:;" onclick="prize()" class="get_btn" th:if="${isPT}">领取积分</a>
-
 				<!-- 已领红包 -->
 				 <div class="get_tips">
 					<p th:if="${prizeRecodeInfo?.cashTime !=null}" th:text="${'本二维码已于'+#dates.format(prizeRecodeInfo?.cashTime, 'yyyy年-MM月-dd日 HH时:mm分:ss秒')+'扫描过1次'}"></p>
@@ -24,13 +23,9 @@
 					 <p th:if="${goodsInfo?.goodsState==0}">本二维码尚未使用</p>
 					 <p th:if="${goodsInfo?.goodsState==1}">本二维码尚未激活</p>
 					 <p th:if="${goodsInfo?.goodsState==2  and prizeRecodeInfo==null}">本产品为正品</p>
-
-
-
-
 				 </div>
-				<a  th:if="${goodsInfo!=null}" th:href="@{${'/wechat/details?goodid='+goodsInfo?.id}}" class="btn">产品详情</a>
-				<a  th:if="${serPrizeSetInfo!=null}" th:href="@{${'../wechat/activity?prizeSetId='+serPrizeSetInfo?.prizeSetId+'&goodid='+goodsInfo?.id}}" class="btn">活动规则</a>
+				<a th:if="${goodsInfo!=null}" th:href="@{${'/wechat/details?goodid='+goodsInfo?.id}}" class="btn">产品详情</a>
+				<a th:if="${serPrizeSetInfo!=null}" th:href="@{${'../wechat/activity?prizeSetId='+serPrizeSetInfo?.prizeSetId+'&goodid='+goodsInfo?.id}}" class="btn">活动规则</a>
 			</div>
 			<div class="footer">技术详情：山东三向溯源信息科技有限公司</div>
 		</div>
@@ -39,14 +34,14 @@
 </html>
 <script>
     function prize() {
-        var prizeRecorId= [[${prizeRecodeInfo?.prizeRecorId}]]
+        var prizeRecodeId= [[${prizeRecodeInfo?.prizeRecodeId}]]
         var userAgent = window.navigator.userAgent.toLowerCase();
         if (userAgent.indexOf('micromessenger') == -1) {
             alert('请在微信中扫码！')
             return ;
         }
 
-        window.location.href='../wechat/prize?prizeRecorId='+prizeRecorId;
+        window.location.href='../wechat/prize?prizeRecodeId='+prizeRecodeId;
 
     }
 

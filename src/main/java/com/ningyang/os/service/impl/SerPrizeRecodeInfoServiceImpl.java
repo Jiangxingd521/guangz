@@ -96,7 +96,7 @@ public class SerPrizeRecodeInfoServiceImpl extends ServiceImpl<SerPrizeRecodeInf
                 for (GoodsPutOutVo vo : listData1) {
                     SerPrizeRecodeInfo recodeInfo = new SerPrizeRecodeInfo();
                     recodeInfo.setOrderNo(vo.getOrderNo());
-                    recodeInfo.setPrCode(vo.getPrCode());
+                    recodeInfo.setProductCode(vo.getProductCode());
                     recodeInfo.setPrizeSetId(info.getPrizeSetId());
                     recodeInfo.setPrizeSetName(info.getPrizeSetName());
                     recodeInfo.setProdId(vo.getProductId());
@@ -126,7 +126,7 @@ public class SerPrizeRecodeInfoServiceImpl extends ServiceImpl<SerPrizeRecodeInf
                 for (GoodsPutOutVo vo : listData2) {
                     SerPrizeRecodeInfo recodeInfo = new SerPrizeRecodeInfo();
                     recodeInfo.setOrderNo(vo.getOrderNo());
-                    recodeInfo.setPrCode(vo.getPrCode());
+                    recodeInfo.setProductCode(vo.getProductCode());
                     recodeInfo.setPrizeSetId(info.getPrizeSetId());
                     recodeInfo.setPrizeSetName(info.getPrizeSetName());
                     recodeInfo.setProdId(vo.getProductId());
@@ -155,7 +155,7 @@ public class SerPrizeRecodeInfoServiceImpl extends ServiceImpl<SerPrizeRecodeInf
                 for (GoodsPutOutVo vo : listData1) {
                     SerPrizeRecodeInfo recodeInfo = new SerPrizeRecodeInfo();
                     recodeInfo.setOrderNo(vo.getOrderNo());
-                    recodeInfo.setPrCode(vo.getPrCode());
+                    recodeInfo.setProductCode(vo.getProductCode());
                     recodeInfo.setPrizeSetId(info.getPrizeSetId());
                     recodeInfo.setPrizeSetName(info.getPrizeSetName());
                     recodeInfo.setProdId(vo.getProductId());
@@ -206,7 +206,7 @@ public class SerPrizeRecodeInfoServiceImpl extends ServiceImpl<SerPrizeRecodeInf
                 for (GoodsPutOutVo vo : listData1) {
                     SerPrizeRecodeInfo recodeInfo = new SerPrizeRecodeInfo();
                     recodeInfo.setOrderNo(vo.getOrderNo());
-                    recodeInfo.setPrCode(vo.getPrCode());
+                    recodeInfo.setProductCode(vo.getProductCode());
                     recodeInfo.setPrizeSetId(info.getPrizeSetId());
                     recodeInfo.setPrizeSetName(info.getPrizeSetName());
                     recodeInfo.setProdId(vo.getProductId());
@@ -236,7 +236,7 @@ public class SerPrizeRecodeInfoServiceImpl extends ServiceImpl<SerPrizeRecodeInf
                 for (GoodsPutOutVo vo : listData2) {
                     SerPrizeRecodeInfo recodeInfo = new SerPrizeRecodeInfo();
                     recodeInfo.setOrderNo(vo.getOrderNo());
-                    recodeInfo.setPrCode(vo.getPrCode());
+                    recodeInfo.setProductCode(vo.getProductCode());
                     recodeInfo.setPrizeSetId(info.getPrizeSetId());
                     recodeInfo.setPrizeSetName(info.getPrizeSetName());
                     recodeInfo.setProdId(vo.getProductId());
@@ -265,7 +265,7 @@ public class SerPrizeRecodeInfoServiceImpl extends ServiceImpl<SerPrizeRecodeInf
                 for (GoodsPutOutVo vo : listData1) {
                     SerPrizeRecodeInfo recodeInfo = new SerPrizeRecodeInfo();
                     recodeInfo.setOrderNo(vo.getOrderNo());
-                    recodeInfo.setPrCode(vo.getPrCode());
+                    recodeInfo.setProductCode(vo.getProductCode());
                     recodeInfo.setPrizeSetId(info.getPrizeSetId());
                     recodeInfo.setPrizeSetName(info.getPrizeSetName());
                     recodeInfo.setProdId(vo.getProductId());

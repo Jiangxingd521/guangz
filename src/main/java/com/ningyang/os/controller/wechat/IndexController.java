@@ -109,7 +109,7 @@ public class IndexController {
     public String suyuanPrize(
             @RequestHeader("User-Agent") String userAgent,
             String code,
-            Long prizeRecorId,
+            Long prizeRecodeId,
             HttpServletRequest request,
             HttpServletResponse reponse,
             HttpSession session,
@@ -142,9 +142,10 @@ public class IndexController {
             }
         }
         /**抽奖*/
-        if (/*StringUtils.isNotEmpty(openid)&&*/prizeRecorId != null) {
-            SerPrizeRecodeInfo prizeRecodeInfo = serPrizeRecodeInfoService.getById(prizeRecorId);
-            prizeRecodeInfo.setPrizeRecorId(prizeRecorId);
+        if (/*StringUtils.isNotEmpty(openid)&&*/prizeRecodeId != null) {
+            SerPrizeRecodeInfo prizeRecodeInfo = serPrizeRecodeInfoService.getById(prizeRecodeId);
+            // FIXME: 2018-12-25
+            prizeRecodeInfo.setPrizeRecodeId(prizeRecodeId);
             prizeRecodeInfo.setCashTime(new Date());
             prizeRecodeInfo.setOpenId(openid);
             serPrizeRecodeInfoService.updateById(prizeRecodeInfo);
@@ -156,7 +157,7 @@ public class IndexController {
         //读取产品数据
         //读取布奖记录
         SerPrizeRecodeInfo prizeRecodeInfo = serPrizeRecodeInfoService.getOne(new QueryWrapper<SerPrizeRecodeInfo>()
-                .eq("pr_code", source));
+                .eq("product_code", source));
 
         //读取设定类型
         SerPrizeManagerInfo serPrizeManagerInfo = null;
@@ -183,13 +184,13 @@ public class IndexController {
 
         MemberScanning memberScanning = iMemberScanningService.getOne(new QueryWrapper<MemberScanning>()
                 .eq("sdata1", ip)
-                .eq("pr_code", source)
+                .eq("product_code", source)
                 .eq("open_id", openid));
 
         if (memberScanning == null) {
             memberScanning = new MemberScanning();
             memberScanning.setOpenId(openid);
-            memberScanning.setPrCode(source);
+            memberScanning.setProductCode(source);
             memberScanning.setSdata1(ip);
             memberScanning.setCreateTime(new Date());
             iMemberScanningService.save(memberScanning);
@@ -221,11 +222,11 @@ public class IndexController {
         //d读取产品信息
         SerBrandSeriesProductInfo productInfo = productInfoService.getById(goodsInfo.getBrandSeriesProductId());
         //读取扫码次数
-        Integer scanns = iMemberScanningService.count(new QueryWrapper<MemberScanning>().eq("pr_code", goodsInfo.getM1()));
+        Integer scanns = iMemberScanningService.count(new QueryWrapper<MemberScanning>().eq("product_code", goodsInfo.getM1()));
         //读取扫码时间
-        MemberScanning memberScanning = iMemberScanningService.getOne(new QueryWrapper<MemberScanning>().eq("pr_code", goodsInfo.getM1()));
+        MemberScanning memberScanning = iMemberScanningService.getOne(new QueryWrapper<MemberScanning>().eq("product_code", goodsInfo.getM1()));
         //读取布奖记录
-        SerPrizeRecodeInfo prizeRecodeInfo = serPrizeRecodeInfoService.getOne(new QueryWrapper<SerPrizeRecodeInfo>().eq("pr_code", source));
+        SerPrizeRecodeInfo prizeRecodeInfo = serPrizeRecodeInfoService.getOne(new QueryWrapper<SerPrizeRecodeInfo>().eq("product_code", source));
         //读取设定类型
         SerPrizeManagerInfo serPrizeManagerInfo = null;
         SerPrizeSetInfo serPrizeSetInfo = null;

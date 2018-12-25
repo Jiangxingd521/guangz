@@ -1,6 +1,6 @@
 package com.ningyang.os.pojo;
 
-import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
@@ -11,148 +11,185 @@ import java.util.Date;
 
 /**
  * <p>
- * 布奖记录
+ * 奖项记录（布奖、兑奖）
  * </p>
  *
  * @author kaider
- * @since 2018-11-29
+ * @since 2018-12-25
  */
 @TableName("t_ser_prize_recode_info")
 public class SerPrizeRecodeInfo extends Model<SerPrizeRecodeInfo> {
 
     private static final long serialVersionUID = 1L;
 
-    @TableId("prize_recor_id")
-    private Long prizeRecorId;
+    @TableId(value = "prize_recode_id", type = IdType.AUTO)
+    private Long prizeRecodeId;
+
+    /**
+     * 订单id
+     */
+    private Long orderId;
+
     /**
      * 订单编号
      */
-    @TableField("order_no")
     private String orderNo;
+
     /**
-     * 产品编码
+     * 产品箱码
      */
-    @TableField("pr_code")
-    private String prCode;
+    private String productBoxCode;
+
+    /**
+     * 产品编码（内码）
+     */
+    private String productCode;
+
+    /**
+     * 受影响数量
+     */
+    private Integer recordCount;
+
     /**
      * 奖项设定id
      */
-    @TableField("prize_set_id")
     private Long prizeSetId;
+
+    /**
+     * 奖项设定uuid
+     */
+    private String prizeSetUuid;
+
     /**
      * 布奖名称
      */
-    @TableField("prize_set_name")
     private String prizeSetName;
+
     /**
      * 产品id
      */
-    @TableField("prod_id")
     private Long prodId;
+
     /**
      * 会员类型
      */
-    @TableField("member_type")
     private Long memberType;
+
     /**
      * 布奖区域
      */
-    @TableField("region_id")
     private Long regionId;
+
     /**
      * 布奖数量
      */
-    @TableField("prize_quantity")
     private Integer prizeQuantity;
+
     /**
      * 红包额度
      */
     private BigDecimal money;
+
     /**
      * 积分额度
      */
     private Integer ponit;
+
     /**
-     * 布奖类型（1：限制，2：不限制）
+     * 布奖类型
      */
-    @TableField("prize_set_type")
     private Integer prizeSetType;
+
     /**
-     * 布奖模式（1：随机部署，2：平均部署）
+     * 布奖模式（1：随机，2：平均）
      */
-    @TableField("prize_mode_type")
     private Integer prizeModeType;
+
     /**
      * 卡券消费额度
      */
-    @TableField("card_money")
     private Integer cardMoney;
+
     /**
      * 卡券优惠额度
      */
-    @TableField("card_coupon_money")
     private Integer cardCouponMoney;
+
     /**
-     * 布奖状态（0：未激活，1：已激活）
+     * 布奖状态（0：未激活，1：激活）
      */
-    @TableField("prize_state")
     private Integer prizeState;
+
     /**
      * 快递单号
      */
-    @TableField("track_no")
     private String trackNo;
+
     /**
      * 兑奖时间
      */
-    @TableField("cash_time")
     private Date cashTime;
+
     /**
      * 中奖人id
      */
-    @TableField("open_id")
     private String openId;
+
     /**
      * 布奖开始日期
      */
-    @TableField("prize_start_date")
     private Date prizeStartDate;
+
     /**
      * 布奖结束日期
      */
-    @TableField("prize_end_date")
     private Date prizeEndDate;
+
     /**
      * 创建人
      */
-    @TableField("user_id")
     private Long userId;
+
     private Integer idata1;
+
     private Integer idata2;
+
     private Integer idata3;
+
     private Integer idata4;
+
     private String sdata1;
+
     private String sdata2;
+
     private String sdata3;
+
     private String sdata4;
+
     /**
      * 创建时间
      */
-    @TableField("create_time")
     private Date createTime;
+
     /**
      * 修改时间
      */
-    @TableField("update_time")
     private Date updateTime;
 
-
-    public Long getPrizeRecorId() {
-        return prizeRecorId;
+    public Long getPrizeRecodeId() {
+        return prizeRecodeId;
     }
 
-    public void setPrizeRecorId(Long prizeRecorId) {
-        this.prizeRecorId = prizeRecorId;
+    public void setPrizeRecodeId(Long prizeRecodeId) {
+        this.prizeRecodeId = prizeRecodeId;
+    }
+
+    public Long getOrderId() {
+        return orderId;
+    }
+
+    public void setOrderId(Long orderId) {
+        this.orderId = orderId;
     }
 
     public String getOrderNo() {
@@ -163,12 +200,28 @@ public class SerPrizeRecodeInfo extends Model<SerPrizeRecodeInfo> {
         this.orderNo = orderNo;
     }
 
-    public String getPrCode() {
-        return prCode;
+    public String getProductBoxCode() {
+        return productBoxCode;
     }
 
-    public void setPrCode(String prCode) {
-        this.prCode = prCode;
+    public void setProductBoxCode(String productBoxCode) {
+        this.productBoxCode = productBoxCode;
+    }
+
+    public String getProductCode() {
+        return productCode;
+    }
+
+    public void setProductCode(String productCode) {
+        this.productCode = productCode;
+    }
+
+    public Integer getRecordCount() {
+        return recordCount;
+    }
+
+    public void setRecordCount(Integer recordCount) {
+        this.recordCount = recordCount;
     }
 
     public Long getPrizeSetId() {
@@ -177,6 +230,14 @@ public class SerPrizeRecodeInfo extends Model<SerPrizeRecodeInfo> {
 
     public void setPrizeSetId(Long prizeSetId) {
         this.prizeSetId = prizeSetId;
+    }
+
+    public String getPrizeSetUuid() {
+        return prizeSetUuid;
+    }
+
+    public void setPrizeSetUuid(String prizeSetUuid) {
+        this.prizeSetUuid = prizeSetUuid;
     }
 
     public String getPrizeSetName() {
@@ -405,44 +466,48 @@ public class SerPrizeRecodeInfo extends Model<SerPrizeRecodeInfo> {
 
     @Override
     protected Serializable pkVal() {
-        return this.prizeRecorId;
+        return this.prizeRecodeId;
     }
 
     @Override
     public String toString() {
         return "SerPrizeRecodeInfo{" +
-                "prizeRecorId=" + prizeRecorId +
-                ", orderNo=" + orderNo +
-                ", prCode=" + prCode +
-                ", prizeSetId=" + prizeSetId +
-                ", prizeSetName=" + prizeSetName +
-                ", prodId=" + prodId +
-                ", memberType=" + memberType +
-                ", regionId=" + regionId +
-                ", prizeQuantity=" + prizeQuantity +
-                ", money=" + money +
-                ", ponit=" + ponit +
-                ", prizeSetType=" + prizeSetType +
-                ", prizeModeType=" + prizeModeType +
-                ", cardMoney=" + cardMoney +
-                ", cardCouponMoney=" + cardCouponMoney +
-                ", prizeState=" + prizeState +
-                ", trackNo=" + trackNo +
-                ", cashTime=" + cashTime +
-                ", openId=" + openId +
-                ", prizeStartDate=" + prizeStartDate +
-                ", prizeEndDate=" + prizeEndDate +
-                ", userId=" + userId +
-                ", idata1=" + idata1 +
-                ", idata2=" + idata2 +
-                ", idata3=" + idata3 +
-                ", idata4=" + idata4 +
-                ", sdata1=" + sdata1 +
-                ", sdata2=" + sdata2 +
-                ", sdata3=" + sdata3 +
-                ", sdata4=" + sdata4 +
-                ", createTime=" + createTime +
-                ", updateTime=" + updateTime +
-                "}";
+        "prizeRecodeId=" + prizeRecodeId +
+        ", orderId=" + orderId +
+        ", orderNo=" + orderNo +
+        ", productBoxCode=" + productBoxCode +
+        ", productCode=" + productCode +
+        ", recordCount=" + recordCount +
+        ", prizeSetId=" + prizeSetId +
+        ", prizeSetUuid=" + prizeSetUuid +
+        ", prizeSetName=" + prizeSetName +
+        ", prodId=" + prodId +
+        ", memberType=" + memberType +
+        ", regionId=" + regionId +
+        ", prizeQuantity=" + prizeQuantity +
+        ", money=" + money +
+        ", ponit=" + ponit +
+        ", prizeSetType=" + prizeSetType +
+        ", prizeModeType=" + prizeModeType +
+        ", cardMoney=" + cardMoney +
+        ", cardCouponMoney=" + cardCouponMoney +
+        ", prizeState=" + prizeState +
+        ", trackNo=" + trackNo +
+        ", cashTime=" + cashTime +
+        ", openId=" + openId +
+        ", prizeStartDate=" + prizeStartDate +
+        ", prizeEndDate=" + prizeEndDate +
+        ", userId=" + userId +
+        ", idata1=" + idata1 +
+        ", idata2=" + idata2 +
+        ", idata3=" + idata3 +
+        ", idata4=" + idata4 +
+        ", sdata1=" + sdata1 +
+        ", sdata2=" + sdata2 +
+        ", sdata3=" + sdata3 +
+        ", sdata4=" + sdata4 +
+        ", createTime=" + createTime +
+        ", updateTime=" + updateTime +
+        "}";
     }
 }

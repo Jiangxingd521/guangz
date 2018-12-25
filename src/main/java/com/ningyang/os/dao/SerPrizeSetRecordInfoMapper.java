@@ -1,7 +1,11 @@
 package com.ningyang.os.dao;
 
+import com.ningyang.os.action.input.condition.serve.QueryPrizeCondition;
+import com.ningyang.os.action.output.vo.web.serve.PrizeSetRecordVo;
 import com.ningyang.os.pojo.SerPrizeSetRecordInfo;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+
+import java.util.List;
 
 /**
  * <p>
@@ -12,5 +16,9 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * @since 2018-12-24
  */
 public interface SerPrizeSetRecordInfoMapper extends BaseMapper<SerPrizeSetRecordInfo> {
+
+    List<PrizeSetRecordVo> selectPrizeSetRecordVoPageByCondition(QueryPrizeCondition condition);
+
+    int selectPrizeSetRecordVoPageCountByCondition(QueryPrizeCondition condition);
 
 }

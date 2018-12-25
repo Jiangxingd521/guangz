@@ -37,7 +37,7 @@ public class GoodsPutOutVo {
     //商品id
     private Long goodsId;
     //唯一码
-    private String prCode;
+    private String productCode;
 
     public String getDealerName() {
         return dealerName;
@@ -151,11 +151,11 @@ public class GoodsPutOutVo {
         this.goodsId = goodsId;
     }
 
-    public String getPrCode() {
-        return prCode;
+    public String getProductCode() {
+        return productCode;
     }
 
-    public void setPrCode(String prCode) {
-        this.prCode = prCode;
+    public void setProductCode(String productCode) {
+        this.productCode = productCode;
     }
 }
