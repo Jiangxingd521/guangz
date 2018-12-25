@@ -144,7 +144,6 @@ public class IndexController {
         /**抽奖*/
         if (/*StringUtils.isNotEmpty(openid)&&*/prizeRecodeId != null) {
             SerPrizeRecodeInfo prizeRecodeInfo = serPrizeRecodeInfoService.getById(prizeRecodeId);
-            // FIXME: 2018-12-25
             prizeRecodeInfo.setPrizeRecodeId(prizeRecodeId);
             prizeRecodeInfo.setCashTime(new Date());
             prizeRecodeInfo.setOpenId(openid);
