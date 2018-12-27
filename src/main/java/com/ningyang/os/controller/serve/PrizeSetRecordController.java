@@ -62,5 +62,23 @@ public class PrizeSetRecordController extends BaseController {
         }
     }
 
+    @PostMapping("stopSetRecord")
+    public Map<String,Object> stopSetRecord(
+            @RequestHeader("Authorization") String userToken,
+            @RequestBody PrizeSetRecordCommand command
+    ){
+        try {
+            Long operateUserId = getBaseUserInfo(userToken).getId();
+            boolean flag = infoService.stopSetRecordById(command, operateUserId);
+            if (flag) {
+                return WebResult.success().toMap();
+            }
+            return WebResult.failure(OPERATING_ERROR.getInfo()).toMap();
+        } catch (Exception e) {
+            LOGGER.error(e.getMessage(), e);
+            return WebResult.failure(OPERATING_ERROR.getInfo()).toMap();
+        }
+    }
+
 
 }

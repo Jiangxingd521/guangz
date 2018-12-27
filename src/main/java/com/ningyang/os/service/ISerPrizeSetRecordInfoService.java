@@ -21,6 +21,6 @@ public interface ISerPrizeSetRecordInfoService extends IService<SerPrizeSetRecor
 
     boolean add(PrizeSetRecordCommand command, Long operateUserId);
 
-
+    boolean stopSetRecordById(PrizeSetRecordCommand command, Long operateUserId);
 
 }

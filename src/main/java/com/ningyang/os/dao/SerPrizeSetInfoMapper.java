@@ -22,4 +22,6 @@ public interface SerPrizeSetInfoMapper extends BaseMapper<SerPrizeSetInfo> {
     List<PrizeSetVo> selectPrizeSetVoListPageByCondition(QueryPrizeCondition condition);
 
     Long selectPrizeSetVoListPageCountByCondition(QueryPrizeCondition condition);
+
+    PrizeSetVo selectPrizeSetVoById(Long prizeSetId);
 }

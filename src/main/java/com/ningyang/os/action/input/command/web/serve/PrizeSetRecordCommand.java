@@ -10,13 +10,10 @@ import java.util.List;
  * @描述：布奖操作
  */
 public class PrizeSetRecordCommand {
-    /*//订单id
-    private Long[] orderId;
-    //订单号
-    private String[] orderNo;*/
+    //布奖操作id
+    private Long recordId;
     //订单信息
     private List<SaleOrderVo> saleOrderVoList;
-
     //品牌id
     private Long brandId;
     //系列id
@@ -27,28 +24,16 @@ public class PrizeSetRecordCommand {
     private Long prizeSetId;
     //奖项类型（0：订单，1：产品）
     private int prizeSetType;
-    //奖项设置时的uuid
-    private String prizeSetUUId;
-    //奖项设置时受影响的数量
-    private int prizeSetCount;
     //当前奖项设置的状态（0：有效，1：无效）
     private int prizeSetState;
 
-    /*public Long[] getOrderId() {
-        return orderId;
+    public Long getRecordId() {
+        return recordId;
     }
 
-    public void setOrderId(Long[] orderId) {
-        this.orderId = orderId;
+    public void setRecordId(Long recordId) {
+        this.recordId = recordId;
     }
-
-    public String[] getOrderNo() {
-        return orderNo;
-    }
-
-    public void setOrderNo(String[] orderNo) {
-        this.orderNo = orderNo;
-    }*/
 
     public List<SaleOrderVo> getSaleOrderVoList() {
         return saleOrderVoList;
@@ -96,22 +81,6 @@ public class PrizeSetRecordCommand {
 
     public void setPrizeSetType(int prizeSetType) {
         this.prizeSetType = prizeSetType;
-    }
-
-    public String getPrizeSetUUId() {
-        return prizeSetUUId;
-    }
-
-    public void setPrizeSetUUId(String prizeSetUUId) {
-        this.prizeSetUUId = prizeSetUUId;
-    }
-
-    public int getPrizeSetCount() {
-        return prizeSetCount;
-    }
-
-    public void setPrizeSetCount(int prizeSetCount) {
-        this.prizeSetCount = prizeSetCount;
     }
 
     public int getPrizeSetState() {

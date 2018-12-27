@@ -76,4 +76,17 @@ public class PrizeSetController extends BaseController {
         }
     }
 
+    @GetMapping("showPrizeSet/{prizeSetId}")
+    public Map<String,Object> showPrizeSet(
+            @PathVariable("prizeSetId") Long prizeSetId
+    ){
+        try {
+            PrizeSetVo vo = infoService.findPrizeSetVoById(prizeSetId);
+            return WebResult.success().put("dataVo", vo).toMap();
+        } catch (Exception e) {
+            LOGGER.error(e.getMessage(), e);
+            return WebResult.failure(DATA_ERROR.getInfo()).toMap();
+        }
+    }
+
 }

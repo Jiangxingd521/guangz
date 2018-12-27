@@ -128,4 +128,18 @@ public class SerPrizeSetInfoServiceImpl extends ServiceImpl<SerPrizeSetInfoMappe
         }
         return flag;
     }
+
+    @Override
+    public PrizeSetVo findPrizeSetVoById(Long prizeSetId) {
+        PrizeSetVo vo = baseMapper.selectPrizeSetVoById(prizeSetId);
+        Date[] prizeDate = {vo.getPrizeStartDate(), vo.getPrizeEndDate()};
+        vo.setPrizeDate(prizeDate);
+        vo.setPrizeStartDateStr(dateToDate(vo.getPrizeStartDate()));
+        vo.setPrizeEndDateStr(dateToDate(vo.getPrizeEndDate()));
+        if (vo.getRegionId() != null) {
+            List<String> regionList = regionInfoService.findRegionThreeList(String.valueOf(vo.getRegionId()));
+            vo.setRegionList(regionList);
+        }
+        return vo;
+    }
 }

@@ -25,4 +25,5 @@ public interface ISerPrizeSetInfoService extends IService<SerPrizeSetInfo> {
 
     boolean addOrUpdate(PrizeSetCommand command, Long userId);
 
+    PrizeSetVo findPrizeSetVoById(Long prizeSetId);
 }

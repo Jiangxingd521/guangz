@@ -122,4 +122,12 @@ public class SerPrizeSetRecordInfoServiceImpl extends ServiceImpl<SerPrizeSetRec
         return addFlag && updateFlag;
     }
 
+    @Override
+    public boolean stopSetRecordById(PrizeSetRecordCommand command, Long operateUserId) {
+        SerPrizeSetRecordInfo info = getById(command.getRecordId());
+        info.setPrizeSetState(command.getPrizeSetState());
+        info.setCreateUserId(operateUserId);
+        info.setUpdateTime(new Date());
+        return updateById(info);
+    }
 }
