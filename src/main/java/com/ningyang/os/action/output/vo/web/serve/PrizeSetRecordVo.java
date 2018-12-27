@@ -38,6 +38,8 @@ public class PrizeSetRecordVo {
     private Long orderId;
     //订单号
     private String orderNo;
+    //经销商
+    private Long dealerId;
 
 
     public Long getRecordId() {
@@ -158,5 +160,13 @@ public class PrizeSetRecordVo {
 
     public void setOrderNo(String orderNo) {
         this.orderNo = orderNo;
+    }
+
+    public Long getDealerId() {
+        return dealerId;
+    }
+
+    public void setDealerId(Long dealerId) {
+        this.dealerId = dealerId;
     }
 }

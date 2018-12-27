@@ -397,11 +397,6 @@ public class LSerWarehouseGoodsOutInfoServiceImpl extends ServiceImpl<LSerWareho
     }
 
     @Override
-    public int getOrderOutBoxCountByCondition(QueryGoodsPutCondition condition) {
-        return baseMapper.getOrderOutBoxCountByCondition(condition);
-    }
-
-    @Override
     public List<GoodsPutOutVo> findWarehouseGoodsPutOutVoByCondition(QueryGoodsPutCondition condition) {
         List<GoodsPutOutVo> listVoTemp = baseMapper.selectWarehouseGoodsPutOutVoPageByCondition(condition);
         for (GoodsPutOutVo vo : listVoTemp) {
@@ -414,4 +409,5 @@ public class LSerWarehouseGoodsOutInfoServiceImpl extends ServiceImpl<LSerWareho
         }
         return listVoTemp;
     }
+
 }

@@ -25,12 +25,12 @@
             parameterType="com.ningyang.os.action.input.condition.serve.QueryPrizeCondition"
             resultType="com.ningyang.os.action.output.vo.web.serve.PrizeSetRecordVo"
     >
-        select a.id as recordId,a.prize_set_id,b.prize_set_name,a.prize_set_type,c.user_name,a.order_id,
+        select a.id as recordId,a.prize_set_id,b.prize_set_name,a.prize_set_type,c.user_name,a.order_id,d.dealer_id,
         a.order_no,b.prize_start_date,b.prize_end_date,a.create_time,a.prize_set_state,a.prize_set_count
         from t_ser_prize_set_record_info a
         left join t_ser_prize_set_info b on a.prize_set_id = b.prize_set_id
         left join t_sys_user_info c on a.create_user_id = c.id
-        where 1=1
+        left join t_ser_order_info d on a.order_id=d.id
         <if test="prizeSetType!=null">
             and a.prize_set_type = #{prizeSetType}
         </if>

@@ -74,13 +74,6 @@
         select count(DISTINCT a.box_no) from l_ser_warehouse_goods_out_info a where a.order_id = #{orderId}
     </select>
 
-    <select id="getOrderOutBoxCountByCondition"
-            parameterType="com.ningyang.os.action.input.condition.serve.QueryGoodsPutCondition"
-            resultType="int"
-    >
-        select count(DISTINCT a.box_no) from l_ser_warehouse_goods_out_info a where a.order_id = #{orderId} and product_id = #{productId}
-    </select>
-
     <select id="selectWarehouseGoodsPutOutVoPageByCondition"
             parameterType="com.ningyang.os.action.input.condition.serve.QueryGoodsPutCondition"
             resultType="com.ningyang.os.action.output.vo.web.serve.GoodsPutOutVo"

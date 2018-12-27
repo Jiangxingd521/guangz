@@ -147,13 +147,6 @@ public class SerOrderInfoServiceImpl extends ServiceImpl<SerOrderInfoMapper, Ser
     }
 
     @Override
-    public int getOrderBoxCount(Long orderId) {
-        QueryOrderCondition condition = new QueryOrderCondition();
-        condition.setOrderId(orderId);
-        return detailsService.boxCount(condition);
-    }
-
-    @Override
     public int getOrderBoxCount(QueryGoodsPutCondition condition) {
         QueryOrderCondition orderCondition = new QueryOrderCondition();
         orderCondition.setOrderId(condition.getOrderId());
@@ -219,4 +212,18 @@ public class SerOrderInfoServiceImpl extends ServiceImpl<SerOrderInfoMapper, Ser
         }
         return listTemp;
     }
+
+    @Override
+    public SaleOrderVo getSaleOrderVoByOrderId(Long orderId) {
+        SerOrderInfo info = getById(orderId);
+        SaleOrderVo vo = new SaleOrderVo();
+        vo.setDealerId(info.getDealerId());
+        QueryOrderCondition orderCondition = new QueryOrderCondition();
+        orderCondition.setOrderId(orderId);
+        List<OrderDetailVo> detailList = detailsService.findOrderDetailVoList(orderCondition);
+        vo.setDetailList(detailList);
+        vo.setRemark(info.getOrderRemark());
+        return vo;
+    }
+
 }

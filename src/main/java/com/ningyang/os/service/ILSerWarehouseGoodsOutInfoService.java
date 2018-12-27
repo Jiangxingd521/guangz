@@ -30,9 +30,6 @@ public interface ILSerWarehouseGoodsOutInfoService extends IService<LSerWarehous
 
     int getOrderOutBoxCount(Long orderId);
 
-    int getOrderOutBoxCountByCondition(QueryGoodsPutCondition condition);
-
     List<GoodsPutOutVo> findWarehouseGoodsPutOutVoByCondition(QueryGoodsPutCondition condition);
-
 
 }

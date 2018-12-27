@@ -96,7 +96,6 @@ public class OrderController extends BaseController {
         }
     }
 
-
     @GetMapping("getOrderDetailList")
     public Map<String, Object> getOrderDetailList(
             @RequestHeader("Authorization") String userToken,
@@ -112,23 +111,6 @@ public class OrderController extends BaseController {
             return WebResult.failure(DELETE_ERROR.getInfo()).toMap();
         }
     }
-    //备份用
-    @GetMapping("getOrderDetailListBack")
-    public Map<String, Object> getOrderDetailListBack(
-            @RequestHeader("Authorization") String userToken,
-            QueryOrderCondition condition
-    ) {
-        try {
-            Long operateUserId = getBaseUserInfo(userToken).getId();
-            condition.setUserId(operateUserId);
-            List<OrderDetailVo> listVo = detailsService.findOrderDetailVoList(condition);
-            return WebResult.success().put("listVo", listVo).toMap();
-        } catch (Exception e) {
-            LOGGER.error(e.getMessage(), e);
-            return WebResult.failure(DELETE_ERROR.getInfo()).toMap();
-        }
-    }
-
 
     @PostMapping("addDetails")
     public Map<String, Object> addDetails(
@@ -175,5 +157,22 @@ public class OrderController extends BaseController {
         }
     }
 
+    /**
+     * 通过订单id查询SaleOrderVo
+     * @param orderId
+     * @return
+     */
+    @GetMapping("showSaleOrder/{orderId}")
+    public Map<String,Object> showSaleOrder(
+            @PathVariable("orderId") Long orderId
+    ){
+        try {
+            SaleOrderVo vo = infoService.getSaleOrderVoByOrderId(orderId);
+            return WebResult.success().put("dataVo", vo).toMap();
+        } catch (Exception e) {
+            LOGGER.error(e.getMessage(), e);
+            return WebResult.failure(DATA_ERROR.getInfo()).toMap();
+        }
+    }
 
 }

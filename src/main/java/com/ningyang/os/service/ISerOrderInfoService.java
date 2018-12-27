@@ -27,12 +27,12 @@ public interface ISerOrderInfoService extends IService<SerOrderInfo> {
 
     List<SaleOrderVo> findSaleOrderVoListByCondition(QueryOrderCondition condition);
 
-    int getOrderBoxCount(Long orderId);
-
     int getOrderBoxCount(QueryGoodsPutCondition condition);
 
     boolean apiWareHouseAdd(ApiWarehouseSaleOrderCommand command);
 
     List<SaleOrderVo> findOrderCompleteListByCondition(QueryOrderCondition condition);
+
+    SaleOrderVo getSaleOrderVoByOrderId(Long orderId);
 
 }
