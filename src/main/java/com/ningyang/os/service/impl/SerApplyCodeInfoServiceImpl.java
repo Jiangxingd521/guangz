@@ -38,7 +38,7 @@ public class SerApplyCodeInfoServiceImpl extends ServiceImpl<SerApplyCodeInfoMap
         for (ApplyCodeVo vo : listVoTemp) {
             vo.setCreateTimeStr(timeToStr(vo.getCreateTime()));
         }
-        int total = baseMapper.selectApplyCodeVoPageCountByCondition(condition);
+        Long total = baseMapper.selectApplyCodeVoPageCountByCondition(condition);
         pageVo.setRecords(listVoTemp);
         pageVo.setTotal(total);
         pageVo.setSize(condition.getPage());

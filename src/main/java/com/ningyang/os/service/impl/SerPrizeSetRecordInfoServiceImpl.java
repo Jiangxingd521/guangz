@@ -10,8 +10,10 @@ import com.ningyang.os.action.output.vo.web.serve.SaleOrderVo;
 import com.ningyang.os.dao.SerPrizeSetRecordInfoMapper;
 import com.ningyang.os.pojo.SerPrizeRecodeInfo;
 import com.ningyang.os.pojo.SerPrizeSetRecordInfo;
+import com.ningyang.os.pojo.SerWarehouseGoodsInfo;
 import com.ningyang.os.service.ISerPrizeRecodeInfoService;
 import com.ningyang.os.service.ISerPrizeSetRecordInfoService;
+import com.ningyang.os.service.ISerWarehouseGoodsInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -35,6 +37,8 @@ public class SerPrizeSetRecordInfoServiceImpl extends ServiceImpl<SerPrizeSetRec
 
     @Autowired
     private ISerPrizeRecodeInfoService recodeInfoService;
+    @Autowired
+    private ISerWarehouseGoodsInfoService warehouseGoodsInfoService;
 
 
     @Override
@@ -45,8 +49,11 @@ public class SerPrizeSetRecordInfoServiceImpl extends ServiceImpl<SerPrizeSetRec
             vo.setPrizeStartDateStr(dateToDate(vo.getPrizeStartDate()));
             vo.setPrizeEndDateStr(dateToDate(vo.getPrizeEndDate()));
             vo.setCreateTimeStr(dateToDate(vo.getCreateTime()));
+            //某个产品的当前库存总量
+            int count = warehouseGoodsInfoService.count(new QueryWrapper<SerWarehouseGoodsInfo>().eq("goods_state",2));
+            vo.setWarehouseGoodCount(Long.valueOf(count));
         }
-        int total = baseMapper.selectPrizeSetRecordVoPageCountByCondition(condition);
+        Long total = baseMapper.selectPrizeSetRecordVoPageCountByCondition(condition);
         pageVo.setRecords(listVoTemp);
         pageVo.setTotal(total);
         pageVo.setSize(condition.getPage());

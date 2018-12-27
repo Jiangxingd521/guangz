@@ -7,7 +7,7 @@ package com.ningyang.os.action.output.vo.web.serve;
  */
 public class PrizeSetLogVo {
 
-    private Long recorId;
+    private Long recodeId;
 
     private String prizeSetName;
 
@@ -19,12 +19,12 @@ public class PrizeSetLogVo {
 
     private int prizeState;
 
-    public Long getRecorId() {
-        return recorId;
+    public Long getRecodeId() {
+        return recodeId;
     }
 
-    public void setRecorId(Long recorId) {
-        this.recorId = recorId;
+    public void setRecodeId(Long recodeId) {
+        this.recodeId = recodeId;
     }
 
     public String getPrizeSetName() {

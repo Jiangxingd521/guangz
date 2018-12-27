@@ -36,7 +36,7 @@ public class SerDealerInfoServiceImpl extends ServiceImpl<SerDealerInfoMapper, S
     public Page<DealerVo> findDealerVoPageByCondition(QueryDealerCondition condition) {
         Page<DealerVo> pageVo = new Page<>();
         List<DealerVo> listVoTemp = baseMapper.selectDealerVoPageByCondition(condition);
-        int total = baseMapper.selectDealerVoPageCountByCondition(condition);
+        Long total = baseMapper.selectDealerVoPageCountByCondition(condition);
         for (DealerVo vo : listVoTemp) {
             List<String> regionList = dealerRegionInfoService.getDealerRegionList(vo.getDealerId());
             vo.setRegionList(regionList);

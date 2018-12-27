@@ -19,7 +19,7 @@ public interface SerApplyCodeInfoMapper extends BaseMapper<SerApplyCodeInfo> {
 
     List<ApplyCodeVo> selectApplyCodeVoPageByCondition(QueryCodeCondition condition);
 
-    int selectApplyCodeVoPageCountByCondition(QueryCodeCondition condition);
+    Long selectApplyCodeVoPageCountByCondition(QueryCodeCondition condition);
 
 
 }

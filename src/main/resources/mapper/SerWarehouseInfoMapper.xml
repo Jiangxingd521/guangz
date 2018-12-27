@@ -28,7 +28,7 @@
 
     <select id="selectWarehouseVoPageCountByCondition"
             parameterType="com.ningyang.os.action.input.condition.serve.QueryWarehouseCondition"
-            resultType="int"
+            resultType="Long"
     >
         select count(1) from t_ser_warehouse_info a
         where 1 = 1

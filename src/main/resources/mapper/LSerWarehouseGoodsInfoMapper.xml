@@ -37,7 +37,7 @@
 
     <select id="selectGoodsPutInVoPageCountByCondition"
             parameterType="com.ningyang.os.action.input.condition.serve.QueryGoodsPutCondition"
-            resultType="int"
+            resultType="Long"
     >
         select COUNT(DISTINCT (a.warehouse_in_no)) from l_ser_warehouse_goods_info a
     </select>

@@ -62,7 +62,7 @@
             parameterType="com.ningyang.os.action.input.condition.serve.QueryPrizeCondition"
             resultType="com.ningyang.os.action.output.vo.web.serve.PrizeSetLogVo"
     >
-        select a.prize_recor_id as recorId,a.prize_set_name,b.product_name,d.prize_type_name,e.user_name,a.prize_state
+        select a.prize_recode_id as recodeId,a.prize_set_name,b.product_name,d.prize_type_name,e.user_name,a.prize_state
         from t_ser_prize_recode_info a
                  left join t_ser_brand_series_product_info b on a.prod_id = b.id
                  left join t_ser_prize_set_info c on a.prize_set_id = c.prize_set_id
@@ -75,7 +75,7 @@
 
     <select id="selectPrizeSetLogVoPageCountByCondition"
             parameterType="com.ningyang.os.action.input.condition.serve.QueryPrizeCondition"
-            resultType="int"
+            resultType="Long"
     >
         select count(1) from t_ser_prize_recode_info a
     </select>
@@ -100,7 +100,7 @@
 
     <select id="selectPrizeTicketLogVoPageCountByCondition"
             parameterType="com.ningyang.os.action.input.condition.serve.QueryPrizeCondition"
-            resultType="int"
+            resultType="Long"
     >
         select count(1)
         from t_ser_prize_recode_info a

@@ -100,7 +100,7 @@
 
     <select id="selectProductVoPageCountByCondition"
             parameterType="com.ningyang.os.action.input.condition.base.QueryBrandSeriesProductCondition"
-            resultType="int"
+            resultType="Long"
     >
         select count(1) from t_ser_brand_series_product_info a where 1=1
         <if test="productState!=null">

@@ -19,7 +19,7 @@ public interface SysRoleInfoMapper extends BaseMapper<SysRoleInfo> {
 
     List<SysRoleVo> selectRoleVoPageByCondition(QueryRoleCondition condition);
 
-    int selectRoleVoPageCountByCondition(QueryRoleCondition condition);
+    Long selectRoleVoPageCountByCondition(QueryRoleCondition condition);
 
     List<SysRoleVo> selectRoleVoByCondition(QueryRoleCondition condition);
 

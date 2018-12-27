@@ -79,7 +79,7 @@ public class SysUserInfoServiceImpl extends ServiceImpl<SysUserInfoMapper, SysUs
             condition.setUserFlag(0);
         }
         List<SysUserVo> listVoTemp = baseMapper.selectSysUserVoPageByCondition(condition);
-        int total = baseMapper.selectSysUserVoPageCountByCondition(condition);
+        Long total = baseMapper.selectSysUserVoPageCountByCondition(condition);
         pageVo.setRecords(listVoTemp);
         pageVo.setTotal(total);
         pageVo.setSize(condition.getPage());

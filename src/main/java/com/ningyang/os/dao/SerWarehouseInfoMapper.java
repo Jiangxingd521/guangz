@@ -20,7 +20,7 @@ public interface SerWarehouseInfoMapper extends BaseMapper<SerWarehouseInfo> {
 
     List<WarehouseVo> selectWarehouseVoPageByCondition(QueryWarehouseCondition condition);
 
-    int selectWarehouseVoPageCountByCondition(QueryWarehouseCondition condition);
+    Long selectWarehouseVoPageCountByCondition(QueryWarehouseCondition condition);
 
     List<WarehousePersonVo> selectWarehousePersonVoByCondition();
 

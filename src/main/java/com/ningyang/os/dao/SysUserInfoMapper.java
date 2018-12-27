@@ -21,6 +21,6 @@ public interface SysUserInfoMapper extends BaseMapper<SysUserInfo> {
 
     List<SysUserVo> selectSysUserVoPageByCondition(QueryUserCondition condition);
 
-    int selectSysUserVoPageCountByCondition(QueryUserCondition condition);
+    Long selectSysUserVoPageCountByCondition(QueryUserCondition condition);
 
 }

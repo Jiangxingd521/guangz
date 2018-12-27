@@ -20,11 +20,11 @@ public interface SerPrizeRecodeInfoMapper extends BaseMapper<SerPrizeRecodeInfo>
 
     List<PrizeSetLogVo> selectPrizeSetLogVoPageByCondition(QueryPrizeCondition condition);
 
-    int selectPrizeSetLogVoPageCountByCondition(QueryPrizeCondition condition);
+    Long selectPrizeSetLogVoPageCountByCondition(QueryPrizeCondition condition);
 
     boolean insertBatch(List<SerPrizeRecodeInfo> listData);
 
     List<PrizeTicketLogVo> selectPrizeTicketLogVoPageByCondition(QueryPrizeCondition condition);
 
-    int selectPrizeTicketLogVoPageCountByCondition(QueryPrizeCondition condition);
+    Long selectPrizeTicketLogVoPageCountByCondition(QueryPrizeCondition condition);
 }

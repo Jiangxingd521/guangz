@@ -19,6 +19,6 @@ public interface LCodeImportFileInfoMapper extends BaseMapper<LCodeImportFileInf
 
     List<ImportCodeVo> selectImportCodeVoPageByCondition(QueryApplyCodeCondition condition);
 
-    int selectImportCodeVoPageCountByCondition(QueryApplyCodeCondition condition);
+    Long selectImportCodeVoPageCountByCondition(QueryApplyCodeCondition condition);
 
 }

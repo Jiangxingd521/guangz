@@ -51,7 +51,7 @@
 
     <select id="selectOrderPurchaseVoPageCountByCondition"
             parameterType="com.ningyang.os.action.input.condition.serve.QueryOrderCondition"
-            resultType="int"
+            resultType="Long"
     >
         select count(1) from t_ser_purchase_order_info a
         left join t_ser_dealer_info b on a.dealer_id = b.id

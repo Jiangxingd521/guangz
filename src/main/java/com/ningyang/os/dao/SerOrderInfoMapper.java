@@ -19,7 +19,7 @@ public interface SerOrderInfoMapper extends BaseMapper<SerOrderInfo> {
 
     List<SaleOrderVo> selectSaleOrderVoPageByCondition(QueryOrderCondition condition);
 
-    int selectSaleOrderVoPageCountByCondition(QueryOrderCondition condition);
+    Long selectSaleOrderVoPageCountByCondition(QueryOrderCondition condition);
 
     List<SaleOrderVo> selectSaleOrderVoListByCondition(QueryOrderCondition condition);
 

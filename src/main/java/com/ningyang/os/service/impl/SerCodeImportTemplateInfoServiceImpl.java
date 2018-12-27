@@ -39,7 +39,7 @@ public class SerCodeImportTemplateInfoServiceImpl extends ServiceImpl<SerCodeImp
     public Page<CodeImportTemplateVo> findCodeImportVoPageByCondition(QueryCodeCondition condition) {
         Page<CodeImportTemplateVo> pageVo = new Page<>();
         List<CodeImportTemplateVo> listVoTemp = baseMapper.selectCodeImportVoPageByCondition(condition);
-        int total = baseMapper.selectCodeImportVoPageCountByCondition(condition);
+        Long total = baseMapper.selectCodeImportVoPageCountByCondition(condition);
         pageVo.setRecords(listVoTemp);
         pageVo.setTotal(total);
         pageVo.setSize(condition.getPage());

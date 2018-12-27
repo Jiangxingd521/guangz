@@ -31,7 +31,7 @@ public class MemberInfoServiceImpl extends ServiceImpl<MemberInfoMapper, MemberI
         for (MemberInfoVo vo : listVoTemp) {
             vo.setCreateTimeStr(timeToStr(vo.getCreateTime()));
         }
-        int total = baseMapper.selectMemberInfoVoPageCountByCondition(condition);
+        Long total = baseMapper.selectMemberInfoVoPageCountByCondition(condition);
         pageVo.setRecords(listVoTemp);
         pageVo.setTotal(total);
         pageVo.setSize(condition.getPage());

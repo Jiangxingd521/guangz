@@ -19,7 +19,7 @@ public interface SerDealerInfoMapper extends BaseMapper<SerDealerInfo> {
 
     List<DealerVo> selectDealerVoPageByCondition(QueryDealerCondition condition);
 
-    int selectDealerVoPageCountByCondition(QueryDealerCondition condition);
+    Long selectDealerVoPageCountByCondition(QueryDealerCondition condition);
 
     List<DealerVo> selectDealerVoListByCondition();
 }

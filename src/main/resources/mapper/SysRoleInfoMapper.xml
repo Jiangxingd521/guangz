@@ -23,7 +23,7 @@
 
     <select id="selectRoleVoPageCountByCondition"
             parameterType="com.ningyang.os.action.input.condition.base.QueryRoleCondition"
-            resultType="int"
+            resultType="Long"
     >
         SELECT COUNT(1) FROM t_sys_role_info
     </select>

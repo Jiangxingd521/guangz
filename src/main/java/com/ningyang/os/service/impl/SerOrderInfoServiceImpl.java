@@ -59,7 +59,7 @@ public class SerOrderInfoServiceImpl extends ServiceImpl<SerOrderInfoMapper, Ser
             vo.setProductNumber(boxCount);
         }
 
-        int total = baseMapper.selectSaleOrderVoPageCountByCondition(condition);
+        Long total = baseMapper.selectSaleOrderVoPageCountByCondition(condition);
         pageVo.setRecords(listVoTemp);
         pageVo.setTotal(total);
         pageVo.setSize(condition.getPage());

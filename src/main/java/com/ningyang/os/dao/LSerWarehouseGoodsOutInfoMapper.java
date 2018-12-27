@@ -19,7 +19,7 @@ public interface LSerWarehouseGoodsOutInfoMapper extends BaseMapper<LSerWarehous
 
     List<GoodsPutOutVo> selectGoodsPutOutVoPageByCondition(QueryGoodsPutCondition condition);
 
-    int selectGoodsPutOutVoPageCountByCondition(QueryGoodsPutCondition condition);
+    Long selectGoodsPutOutVoPageCountByCondition(QueryGoodsPutCondition condition);
 
     List<GoodsPutOutVo> selectGoodsPutOutVoByCondition(QueryGoodsPutCondition condition);
 

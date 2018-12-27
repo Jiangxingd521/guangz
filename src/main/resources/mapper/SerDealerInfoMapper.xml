@@ -42,7 +42,7 @@
 
     <select id="selectDealerVoPageCountByCondition"
             parameterType="com.ningyang.os.action.input.condition.serve.QueryDealerCondition"
-            resultType="int"
+            resultType="Long"
     >
         select count(1) from t_ser_dealer_info a
         where 1 = 1 and a.dealer_state = 0

@@ -34,7 +34,7 @@
 
     <select id="selectImportCodeVoPageCountByCondition"
             parameterType="com.ningyang.os.action.input.condition.serve.QueryApplyCodeCondition"
-            resultType="int"
+            resultType="Long"
     >
         select count(1)
         from l_code_import_file_info a

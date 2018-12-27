@@ -41,6 +41,14 @@ public class PrizeSetRecordVo {
     //经销商
     private Long dealerId;
 
+    private Long brandId;
+
+    private Long seriesId;
+
+    private Long productId;
+
+    //当前库存总量
+    private Long warehouseGoodCount;
 
     public Long getRecordId() {
         return recordId;
@@ -168,5 +176,37 @@ public class PrizeSetRecordVo {
 
     public void setDealerId(Long dealerId) {
         this.dealerId = dealerId;
+    }
+
+    public Long getBrandId() {
+        return brandId;
+    }
+
+    public void setBrandId(Long brandId) {
+        this.brandId = brandId;
+    }
+
+    public Long getSeriesId() {
+        return seriesId;
+    }
+
+    public void setSeriesId(Long seriesId) {
+        this.seriesId = seriesId;
+    }
+
+    public Long getProductId() {
+        return productId;
+    }
+
+    public void setProductId(Long productId) {
+        this.productId = productId;
+    }
+
+    public Long getWarehouseGoodCount() {
+        return warehouseGoodCount;
+    }
+
+    public void setWarehouseGoodCount(Long warehouseGoodCount) {
+        this.warehouseGoodCount = warehouseGoodCount;
     }
 }

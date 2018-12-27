@@ -29,7 +29,7 @@ public class SerBrandSeriesInfoServiceImpl extends ServiceImpl<SerBrandSeriesInf
     public Page<SeriesVo> findSeriesVoPageByCondition(QueryBrandSeriesProductCondition condition) {
         Page<SeriesVo> pageVo = new Page<>();
         List<SeriesVo> listVoTemp = baseMapper.selectSeriesVoPageByCondition(condition);
-        int total = baseMapper.selectSeriesVoPageCountByCondition(condition);
+        Long total = baseMapper.selectSeriesVoPageCountByCondition(condition);
         pageVo.setRecords(listVoTemp);
         pageVo.setTotal(total);
         pageVo.setSize(condition.getPage());

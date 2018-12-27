@@ -39,7 +39,7 @@
 
     <select id="selectApplyCodeVoPageCountByCondition"
             parameterType="com.ningyang.os.action.input.condition.base.QueryCodeCondition"
-            resultType="int"
+            resultType="Long"
     >
         select count(1) from t_ser_apply_code_info a where 1=1
         <if test="applyCodeState!=null">

@@ -33,7 +33,7 @@ public class SysRoleInfoServiceImpl extends ServiceImpl<SysRoleInfoMapper, SysRo
             condition.setPage(condition.getCurrentPage());
         }
         List<SysRoleVo> listVoTemp = baseMapper.selectRoleVoPageByCondition(condition);
-        int total = baseMapper.selectRoleVoPageCountByCondition(condition);
+        Long total = baseMapper.selectRoleVoPageCountByCondition(condition);
         pageVo.setRecords(listVoTemp);
         pageVo.setTotal(total);
         pageVo.setSize(condition.getPage());

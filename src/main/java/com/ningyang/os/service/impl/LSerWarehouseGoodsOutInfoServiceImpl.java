@@ -373,7 +373,7 @@ public class LSerWarehouseGoodsOutInfoServiceImpl extends ServiceImpl<LSerWareho
 
             vo.setOrderBoxCount(orderBoxCount);
         }
-        int total = baseMapper.selectGoodsPutOutVoPageCountByCondition(condition);
+        Long total = baseMapper.selectGoodsPutOutVoPageCountByCondition(condition);
         pageVo.setRecords(listVoTemp);
         pageVo.setTotal(total);
         pageVo.setSize(condition.getPage());

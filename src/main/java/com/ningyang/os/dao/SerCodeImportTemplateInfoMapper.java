@@ -22,7 +22,7 @@ public interface SerCodeImportTemplateInfoMapper extends BaseMapper<SerCodeImpor
 
     List<CodeImportTemplateVo> selectCodeImportVoPageByCondition(QueryCodeCondition condition);
 
-    int selectCodeImportVoPageCountByCondition(QueryCodeCondition condition);
+    Long selectCodeImportVoPageCountByCondition(QueryCodeCondition condition);
 
     CodeImportTemplateVo selectCodeImportTemplateVo(Long templateId);
 }

@@ -19,6 +19,6 @@ public interface SerPrizeSetRecordInfoMapper extends BaseMapper<SerPrizeSetRecor
 
     List<PrizeSetRecordVo> selectPrizeSetRecordVoPageByCondition(QueryPrizeCondition condition);
 
-    int selectPrizeSetRecordVoPageCountByCondition(QueryPrizeCondition condition);
+    Long selectPrizeSetRecordVoPageCountByCondition(QueryPrizeCondition condition);
 
 }

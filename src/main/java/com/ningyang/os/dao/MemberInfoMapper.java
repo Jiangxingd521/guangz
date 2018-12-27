@@ -19,6 +19,6 @@ public interface MemberInfoMapper extends BaseMapper<MemberInfo> {
 
     List<MemberInfoVo> selectMemberInfoVoPageByCondition(QueryMemberCondition condition);
 
-    int selectMemberInfoVoPageCountByCondition(QueryMemberCondition condition);
+    Long selectMemberInfoVoPageCountByCondition(QueryMemberCondition condition);
 
 }
