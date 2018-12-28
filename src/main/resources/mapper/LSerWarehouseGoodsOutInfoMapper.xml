@@ -9,7 +9,7 @@
         <result column="warehouse_id" property="warehouseId"/>
         <result column="box_no" property="boxNo"/>
         <result column="product_id" property="productId"/>
-        <result column="goods_id" property="goodsId"/>
+        <result column="dealer_id" property="dealerId"/>
         <result column="user_id" property="userId"/>
         <result column="goods_out_time" property="goodsOutTime"/>
         <result column="create_time" property="createTime"/>

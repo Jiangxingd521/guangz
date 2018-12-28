@@ -202,8 +202,6 @@ public class SerOrderInfoServiceImpl extends ServiceImpl<SerOrderInfoMapper, Ser
             //已出货数量
             int outBoxCount = outInfoService.getOrderOutBoxCount(vo.getOrderId());
             vo.setOutBoxCount(outBoxCount);
-            //查询具体订单内容
-            condition.setOrderId(vo.getOrderId());
             //出库明细
             QueryGoodsPutCondition putCondition = new QueryGoodsPutCondition();
             putCondition.setOrderId(vo.getOrderId());

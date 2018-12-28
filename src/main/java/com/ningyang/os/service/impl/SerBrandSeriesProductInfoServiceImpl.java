@@ -22,7 +22,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import static com.sun.deploy.util.StringUtils.join;
+import static org.apache.commons.lang3.StringUtils.join;
 
 /**
  * <p>

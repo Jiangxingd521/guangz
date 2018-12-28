@@ -49,6 +49,10 @@ public class LSerWarehouseGoodsOutInfoServiceImpl extends ServiceImpl<LSerWareho
     @Override
     public Map<String, Object> add(ApiWarehousePutOutCommand command) {
         Map<String, Object> map = new HashMap<>();
+        //订单信息
+        SerOrderInfo orderInfo = orderInfoService.getById(command.getOrderId());
+        //订单经销商
+        Long dealerId = orderInfo.getDealerId();
         //订单箱数
         QueryGoodsPutCondition condition = new QueryGoodsPutCondition();
         condition.setOrderId(command.getOrderId());
@@ -202,6 +206,7 @@ public class LSerWarehouseGoodsOutInfoServiceImpl extends ServiceImpl<LSerWareho
                         info.setOrderId(command.getOrderId());
                         info.setWarehouseId(command.getWarehouseId());
                         info.setBoxNo(boxNo);
+                        info.setDealerId(dealerId);
                         SerGoodsInfo goodsInfo = goodsInfoService.getOne(new QueryWrapper<SerGoodsInfo>()
                                 .eq("M5",boxNo));
                         info.setProductId(goodsInfo.getBrandSeriesProductId());
@@ -217,7 +222,8 @@ public class LSerWarehouseGoodsOutInfoServiceImpl extends ServiceImpl<LSerWareho
                     );
                     boolean flag;
                     //订单箱数
-                    int orderBoxCountTemp = orderInfoService.getOrderBoxCount(condition);
+//                    int orderBoxCountTemp = orderInfoService.getOrderBoxCount(condition);
+                    int orderBoxCountTemp = orderBoxCount;
                     //已出箱数
                     int outBoxCountTemp = getOrderOutBoxCount(command.getOrderId());
                     //扫描到的箱数+已出货箱数
@@ -226,7 +232,6 @@ public class LSerWarehouseGoodsOutInfoServiceImpl extends ServiceImpl<LSerWareho
                         flag = saveBatch(listTemp);
                         if(flag){
                             //更改订单状态
-                            SerOrderInfo orderInfo = orderInfoService.getById(command.getOrderId());
                             orderInfo.setOrderState(3);
                             orderInfo.setUpdateTime(new Date());
                             orderInfoService.updateById(orderInfo);
@@ -241,7 +246,6 @@ public class LSerWarehouseGoodsOutInfoServiceImpl extends ServiceImpl<LSerWareho
                         flag = saveBatch(listTemp);
                         if(flag){
                             //更改订单状态
-                            SerOrderInfo orderInfo = orderInfoService.getById(command.getOrderId());
                             orderInfo.setOrderState(4);
                             orderInfo.setUpdateTime(new Date());
                             orderInfoService.updateById(orderInfo);
@@ -256,7 +260,6 @@ public class LSerWarehouseGoodsOutInfoServiceImpl extends ServiceImpl<LSerWareho
                         flag = saveBatch(listTemp);
                         if(flag){
                             //更改订单状态
-                            SerOrderInfo orderInfo = orderInfoService.getById(command.getOrderId());
                             orderInfo.setOrderState(3);
                             orderInfo.setUpdateTime(new Date());
                             orderInfoService.updateById(orderInfo);
@@ -276,6 +279,7 @@ public class LSerWarehouseGoodsOutInfoServiceImpl extends ServiceImpl<LSerWareho
                     info.setOrderId(command.getOrderId());
                     info.setWarehouseId(command.getWarehouseId());
                     info.setBoxNo(boxNo);
+                    info.setDealerId(dealerId);
                     SerGoodsInfo goodsInfo = goodsInfoService.getOne(new QueryWrapper<SerGoodsInfo>()
                             .eq("M5",boxNo));
                     info.setProductId(goodsInfo.getBrandSeriesProductId());
@@ -291,7 +295,8 @@ public class LSerWarehouseGoodsOutInfoServiceImpl extends ServiceImpl<LSerWareho
                 );
                 boolean flag;
                 //订单箱数
-                int orderBoxCountTemp = orderInfoService.getOrderBoxCount(condition);
+//                int orderBoxCountTemp = orderInfoService.getOrderBoxCount(condition);
+                int orderBoxCountTemp = orderBoxCount;
                 //已出箱数
                 int outBoxCountTemp = getOrderOutBoxCount(command.getOrderId());
 
@@ -299,7 +304,6 @@ public class LSerWarehouseGoodsOutInfoServiceImpl extends ServiceImpl<LSerWareho
                     flag = saveBatch(listTemp);
                     if(flag){
                         //更改订单状态
-                        SerOrderInfo orderInfo = orderInfoService.getById(command.getOrderId());
                         orderInfo.setOrderState(3);
                         orderInfo.setUpdateTime(new Date());
                         orderInfoService.updateById(orderInfo);
@@ -314,7 +318,6 @@ public class LSerWarehouseGoodsOutInfoServiceImpl extends ServiceImpl<LSerWareho
                     flag = saveBatch(listTemp);
                     if(flag){
                         //更改订单状态
-                        SerOrderInfo orderInfo = orderInfoService.getById(command.getOrderId());
                         orderInfo.setOrderState(4);
                         orderInfo.setUpdateTime(new Date());
                         orderInfoService.updateById(orderInfo);
@@ -329,7 +332,6 @@ public class LSerWarehouseGoodsOutInfoServiceImpl extends ServiceImpl<LSerWareho
                     flag = saveBatch(listTemp);
                     if(flag){
                         //更改订单状态
-                        SerOrderInfo orderInfo = orderInfoService.getById(command.getOrderId());
                         orderInfo.setOrderState(4);
                         orderInfo.setUpdateTime(new Date());
                         orderInfoService.updateById(orderInfo);
@@ -344,7 +346,6 @@ public class LSerWarehouseGoodsOutInfoServiceImpl extends ServiceImpl<LSerWareho
                     flag = saveBatch(listTemp);
                     if(flag){
                         //更改订单状态
-                        SerOrderInfo orderInfo = orderInfoService.getById(command.getOrderId());
                         orderInfo.setOrderState(3);
                         orderInfo.setUpdateTime(new Date());
                         orderInfoService.updateById(orderInfo);

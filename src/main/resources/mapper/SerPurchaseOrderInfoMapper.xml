@@ -35,7 +35,7 @@
                 left join t_ser_dealer_info b on a.dealer_id = b.id
 				left join t_sys_user_info c on a.user_id = c.id
 				left join t_sys_user_info d on a.financial_id = d.id
-        WHERE 1 =1
+        WHERE 1 = 1
         <if test="orderState!=null">
             and a.order_state = #{orderState}
         </if>
@@ -65,6 +65,32 @@
             and b.dealer_name like CONCAT('%',#{dealerName},'%')
         </if>
         order by a.create_time desc
+    </select>
+
+    <select id="selectOrderPurchaseVoListByCondition"
+            parameterType="com.ningyang.os.action.input.condition.serve.QueryOrderCondition"
+            resultType="com.ningyang.os.action.output.vo.web.serve.OrderPurchaseVo"
+    >
+        select a.id as purchaseId,a.order_no,a.dealer_id,b.dealer_name,a.order_state,c.user_name as createUserName,
+        d.user_name as financialUserName,a.order_remark as remark,a.create_time as orderCreateTime
+        from t_ser_purchase_order_info a
+                left join t_ser_dealer_info b on a.dealer_id = b.id
+				left join t_sys_user_info c on a.user_id = c.id
+				left join t_sys_user_info d on a.financial_id = d.id
+        WHERE 1 = 1 and a.order_state = 2 or a.order_state = 3
+        order by a.create_time desc;
+    </select>
+
+    <select id="selectOrderCompleteListByCondition"
+            resultType="com.ningyang.os.action.output.vo.web.serve.OrderPurchaseVo"
+    >
+        select a.id as purchaseId,a.order_no,a.dealer_id,b.dealer_name,a.order_state,c.user_name as createUserName,
+        d.user_name as financialUserName,a.order_remark as remark,a.create_time as orderCreateTime
+        from t_ser_purchase_order_info a
+                left join t_ser_dealer_info b on a.dealer_id = b.id
+				left join t_sys_user_info c on a.user_id = c.id
+				left join t_sys_user_info d on a.financial_id = d.id
+        WHERE 1 = 1 and a.order_state = 4 order by a.create_time desc
     </select>
 
 </mapper>

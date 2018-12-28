@@ -1,5 +1,6 @@
 package com.ningyang.os.controller.api.app;
 
+import com.ningyang.os.action.input.command.api.ApiWarehouseOrderReturnPutInCommand;
 import com.ningyang.os.action.input.command.api.ApiWarehousePutInCommand;
 import com.ningyang.os.action.input.command.api.ApiWarehousePutOutCommand;
 import com.ningyang.os.action.input.command.api.ApiWarehouseSaleOrderCommand;
@@ -10,6 +11,7 @@ import com.ningyang.os.action.output.vo.api.ApiBrandSeriesProductVo;
 import com.ningyang.os.action.output.vo.api.ApiProductVo;
 import com.ningyang.os.action.output.vo.api.ApiWarehouseGoodsVo;
 import com.ningyang.os.action.output.vo.web.serve.DealerVo;
+import com.ningyang.os.action.output.vo.web.serve.OrderPurchaseVo;
 import com.ningyang.os.action.output.vo.web.serve.SaleOrderVo;
 import com.ningyang.os.action.output.vo.web.serve.WarehouseVo;
 import com.ningyang.os.action.utils.WebResult;
@@ -57,6 +59,8 @@ public class ApiWareHouseController extends BaseController {
     private ISerDealerInfoService dealerInfoService;
     @Autowired
     private ISerBrandSeriesProductInfoService productInfoService;
+    @Autowired
+    private ISerPurchaseOrderInfoService purchaseOrderInfoService;
 
 
     @ApiOperation(value = "仓库列表")
@@ -83,10 +87,8 @@ public class ApiWareHouseController extends BaseController {
         }
     }
 
-
     @ApiOperation(value = "入库")
     @ApiImplicitParams({
-            @ApiImplicitParam(name = "sourceType", value = "入库来源（0：生产入库，1：换货入库，2：退货入库，3：换仓入库）", paramType = "query"),
             @ApiImplicitParam(name = "warehouseId", value = "仓库Id", required = true, paramType = "query"),
             @ApiImplicitParam(name = "boxCode", value = "箱码", required = true, paramType = "query", allowMultiple = true),
             @ApiImplicitParam(name = "remark", value = "入库备注", paramType = "query")
@@ -119,7 +121,6 @@ public class ApiWareHouseController extends BaseController {
         }
     }
 
-
     @ApiOperation(value = "销售订单列表")
     @GetMapping("getOrderSaleList")
     public Map<String, Object> getOrderSaleList(
@@ -142,7 +143,6 @@ public class ApiWareHouseController extends BaseController {
             return WebResult.failure(API_REQUEST_ERROR.getInfo()).toMap();
         }
     }
-
 
     @ApiOperation(value = "出库")
     @ApiImplicitParams({
@@ -178,7 +178,6 @@ public class ApiWareHouseController extends BaseController {
         }
     }
 
-
     @ApiOperation(value = "经销商列表")
     @GetMapping("getDealerList")
     public Map<String, Object> getDealerList(
@@ -201,7 +200,6 @@ public class ApiWareHouseController extends BaseController {
         }
     }
 
-
     @ApiOperation(value = "品牌系列商品列表")
     @GetMapping("getBrandSeriesProductList")
     public Map<String, Object> getBrandSeriesProductList(
@@ -223,7 +221,6 @@ public class ApiWareHouseController extends BaseController {
             return WebResult.failure(API_REQUEST_ERROR.getInfo()).toMap();
         }
     }
-
 
     @ApiOperation(value = "创建销售订单")
     @PostMapping("addOrder")
@@ -251,7 +248,6 @@ public class ApiWareHouseController extends BaseController {
         }
     }
 
-
     @ApiOperation(value = "所有系列产品")
     @GetMapping("getProductList")
     public Map<String,Object> getProductList(
@@ -273,7 +269,6 @@ public class ApiWareHouseController extends BaseController {
             return WebResult.failure(API_REQUEST_ERROR.getInfo()).toMap();
         }
     }
-
 
     @ApiOperation(value = "库存查询")
     @ApiImplicitParam(name = "productName", value = "系列产品名称", required = true, paramType = "query")
@@ -299,8 +294,7 @@ public class ApiWareHouseController extends BaseController {
         }
     }
 
-
-    @ApiOperation(value = "已完成订单")
+    @ApiOperation(value = "已完成销售订单")
     @GetMapping("getOrderCompleteList")
     public Map<String,Object> getOrderCompleteList(
             @RequestHeader("Authorization") String userToken,
@@ -324,5 +318,85 @@ public class ApiWareHouseController extends BaseController {
         }
     }
 
+    @ApiOperation(value = "退货订单列表")
+    @GetMapping("getOrderReturnList")
+    public Map<String,Object> getOrderReturnList(
+            @RequestHeader("Authorization") String userToken,
+            HttpServletResponse response
+    ){
+        try {
+            SysUserInfo loginUser = getBaseUserInfo(userToken);
+            if (loginUser != null) {
+                QueryOrderCondition condition = new QueryOrderCondition();
+                List<OrderPurchaseVo> listVo = purchaseOrderInfoService.findOrderPurchaseVoListByCondition(condition);
+                Map<String, Object> map = new HashMap<>();
+                map.put("listVo", listVo);
+                return WebResult.success().put("data", map).toMap();
+            }
+            response.setStatus(300);
+            return WebResult.failure(PERMISSION_ERROR.getInfo()).toMap();
+        } catch (Exception e) {
+            LOGGER.error(e.getMessage(), e);
+            return WebResult.failure(API_REQUEST_ERROR.getInfo()).toMap();
+        }
+    }
+
+    @ApiOperation(value = "退货入库")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "warehouseId", value = "仓库Id", required = true, paramType = "query"),
+            @ApiImplicitParam(name = "boxCode", value = "箱码", required = true, paramType = "query", allowMultiple = true),
+            @ApiImplicitParam(name = "remark", value = "入库备注", paramType = "query")
+    })
+    @PostMapping("orderReturnPutIn")
+    public Map<String,Object> orderReturnPutIn(
+            @RequestHeader("Authorization") String userToken,
+            ApiWarehouseOrderReturnPutInCommand command,
+            HttpServletResponse response
+    ){
+        try {
+            SysUserInfo loginUser = getBaseUserInfo(userToken);
+            if (loginUser != null) {
+                command.setUserId(loginUser.getId());
+                Map<String, Object> saveMap = putInService.orderReturn(command);
+                boolean flag = (boolean) saveMap.get("saveFlag");
+                List<LSerWarehouseGoodsInfo> unSaveList = (List<LSerWarehouseGoodsInfo>) saveMap.get("unSaveFlag");
+                Map<String, Object> map = new HashMap<>();
+                map.put("unSaveList", unSaveList);
+                if (flag) {
+                    return WebResult.success().put("data", map).toMap();
+                }
+                return WebResult.failure(PUTIN_WAREHOUSE_ERROR.getInfo()).put("data", map).toMap();
+            }
+            response.setStatus(300);
+            return WebResult.failure(PERMISSION_ERROR.getInfo()).toMap();
+        } catch (Exception e) {
+            LOGGER.error(e.getMessage(), e);
+            return WebResult.failure(API_REQUEST_ERROR.getInfo()).toMap();
+        }
+    }
+
+    @ApiOperation(value = "已完成退货订单")
+    @GetMapping("getOrderReturnCompleteList")
+    public Map<String,Object> getOrderReturnCompleteList(
+            @RequestHeader("Authorization") String userToken,
+            HttpServletResponse response
+    ){
+        try {
+            SysUserInfo loginUser = getBaseUserInfo(userToken);
+            if (loginUser != null) {
+                QueryOrderCondition condition = new QueryOrderCondition();
+                condition.setOrderState(4);
+                List<OrderPurchaseVo> listVo = purchaseOrderInfoService.findOrderCompleteListByCondition(condition);
+                Map<String,Object> map = new HashMap<>();
+                map.put("listVo",listVo);
+                return WebResult.success().put("data",map).toMap();
+            }
+            response.setStatus(300);
+            return WebResult.failure(PERMISSION_ERROR.getInfo()).toMap();
+        } catch (Exception e) {
+            LOGGER.error(e.getMessage(), e);
+            return WebResult.failure(API_REQUEST_ERROR.getInfo()).toMap();
+        }
+    }
 
 }

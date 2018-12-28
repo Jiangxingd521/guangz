@@ -21,4 +21,7 @@ public interface SerPurchaseOrderInfoMapper extends BaseMapper<SerPurchaseOrderI
 
     Long selectOrderPurchaseVoPageCountByCondition(QueryOrderCondition condition);
 
+    List<OrderPurchaseVo> selectOrderPurchaseVoListByCondition(QueryOrderCondition condition);
+
+    List<OrderPurchaseVo> selectOrderCompleteListByCondition();
 }

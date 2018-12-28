@@ -7,7 +7,7 @@
         <id column="id" property="id"/>
         <result column="source_type" property="sourceType"/>
         <result column="warehouse_id" property="warehouseId"/>
-        <result column="goods_id" property="goodsId"/>
+        <result column="purchase_id" property="purchaseId"/>
         <result column="product_id" property="productId"/>
         <result column="box_no" property="boxNo"/>
         <result column="warehouse_in_no" property="warehouseInNo"/>
@@ -89,6 +89,10 @@
         left join t_ser_brand_info f on e.brand_id = f.id
         where b.goods_state=1 and a.warehouse_id = #{warehouseId}
         GROUP BY a.product_id,d.product_name,e.series_name,f.brand_name
+    </select>
+
+    <select id="getOrderInBoxCount" parameterType="Long" resultType="int">
+        select count(1) from l_ser_warehouse_goods_info a where a.source_type=1 and a.product_id = #{productId}
     </select>
 
 </mapper>

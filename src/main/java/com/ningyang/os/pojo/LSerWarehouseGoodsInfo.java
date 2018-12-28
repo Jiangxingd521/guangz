@@ -25,7 +25,7 @@ public class LSerWarehouseGoodsInfo extends Model<LSerWarehouseGoodsInfo> {
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;
     /**
-     * 入库来源（0：生产入库，1：换货入库，2：退货入库，3：换仓入库）
+     * 入库来源（0：生产入库，1：退货入库）
      */
     @TableField("source_type")
     private Integer SourceType;
@@ -35,10 +35,10 @@ public class LSerWarehouseGoodsInfo extends Model<LSerWarehouseGoodsInfo> {
     @TableField("warehouse_id")
     private Long warehouseId;
     /**
-     * 商品id
+     * 退货订单id
      */
-    @TableField("goods_id")
-    private Long goodsId;
+    @TableField("purchase_id")
+    private Long purchaseId;
     /**
      * 产品系列id
      */
@@ -104,12 +104,12 @@ public class LSerWarehouseGoodsInfo extends Model<LSerWarehouseGoodsInfo> {
         this.warehouseId = warehouseId;
     }
 
-    public Long getGoodsId() {
-        return goodsId;
+    public Long getPurchaseId() {
+        return purchaseId;
     }
 
-    public void setGoodsId(Long goodsId) {
-        this.goodsId = goodsId;
+    public void setPurchaseId(Long purchaseId) {
+        this.purchaseId = purchaseId;
     }
 
     public Long getProductId() {
@@ -186,7 +186,7 @@ public class LSerWarehouseGoodsInfo extends Model<LSerWarehouseGoodsInfo> {
         return "LSerWarehouseGoodsInfo{" +
                 "id=" + id +
                 ", warehouseId=" + warehouseId +
-                ", goodsId=" + goodsId +
+                ", purchaseId=" + purchaseId +
                 ", boxNo=" + boxNo +
                 ", warehouseInNo=" + warehouseInNo +
                 ", userId=" + userId +

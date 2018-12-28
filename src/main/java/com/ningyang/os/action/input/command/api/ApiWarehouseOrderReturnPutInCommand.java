@@ -3,9 +3,11 @@ package com.ningyang.os.action.input.command.api;
 /**
  * @Author： kaider
  * @Date：2018/11/27 10:39
- * @描述：商品入库
+ * @描述：商品退货入库
  */
-public class ApiWarehousePutInCommand {
+public class ApiWarehouseOrderReturnPutInCommand {
+    //退货订单id
+    private Long purchaseId;
     //仓库
     private Long warehouseId;
     //操作人
@@ -14,6 +16,14 @@ public class ApiWarehousePutInCommand {
     private String remark;
     //箱码
     private String[] boxCode;
+
+    public Long getPurchaseId() {
+        return purchaseId;
+    }
+
+    public void setPurchaseId(Long purchaseId) {
+        this.purchaseId = purchaseId;
+    }
 
     public Long getWarehouseId() {
         return warehouseId;

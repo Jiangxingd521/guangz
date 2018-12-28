@@ -1,9 +1,9 @@
 package com.ningyang.os.dao;
 
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.ningyang.os.action.input.condition.serve.QueryPrizeCondition;
 import com.ningyang.os.action.output.vo.web.serve.PrizeSetRecordVo;
 import com.ningyang.os.pojo.SerPrizeSetRecordInfo;
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 import java.util.List;
 

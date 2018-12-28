@@ -45,10 +45,10 @@ public class LSerWarehouseGoodsOutInfo extends Model<LSerWarehouseGoodsOutInfo> 
     @TableField("product_id")
     private Long productId;
     /**
-     * 商品id
+     * 经销商id
      */
-    @TableField("goods_id")
-    private Long goodsId;
+    @TableField("dealer_id")
+    private Long dealerId;
     /**
      * 操作人
      */
@@ -111,12 +111,12 @@ public class LSerWarehouseGoodsOutInfo extends Model<LSerWarehouseGoodsOutInfo> 
         this.productId = productId;
     }
 
-    public Long getGoodsId() {
-        return goodsId;
+    public Long getDealerId() {
+        return dealerId;
     }
 
-    public void setGoodsId(Long goodsId) {
-        this.goodsId = goodsId;
+    public void setDealerId(Long dealerId) {
+        this.dealerId = dealerId;
     }
 
     public Long getUserId() {
@@ -164,7 +164,7 @@ public class LSerWarehouseGoodsOutInfo extends Model<LSerWarehouseGoodsOutInfo> 
                 ", warehouseId=" + warehouseId +
                 ", boxNo=" + boxNo +
                 ", productId=" + productId +
-                ", goodsId=" + goodsId +
+                ", dealerId=" + dealerId +
                 ", userId=" + userId +
                 ", goodsOutTime=" + goodsOutTime +
                 ", createTime=" + createTime +

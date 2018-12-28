@@ -1,5 +1,6 @@
 package com.ningyang.os.action.output.vo.web.serve;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -16,16 +17,14 @@ public class OrderPurchaseVo {
     private Long dealerId;
     //经销商
     private String dealerName;
+    //数量（箱）
+    private int productNumber;
     //联系人
     private String personName;
     //联系人电话
     private String personMobile;
     //退货备注
     private String remark;
-    //订单详情
-    private List<OrderDetailVo> detailList;
-    //数量（箱）
-    private int productNumber;
     //接收到的箱数
     private int receiveBoxNumber;
     //创建人
@@ -34,6 +33,18 @@ public class OrderPurchaseVo {
     private String financialUserName;
     //订单状态
     private int orderState;
+    //订单时间
+    private Date orderCreateTime;
+
+    private String orderCreateTimeStr;
+    //完成时间
+    private Date orderCompleteTime;
+
+    private String orderCompleteTimeStr;
+    //订单详情
+    private List<OrderDetailVo> detailList;
+    //收货完成后的详情
+    private List<GoodsPutInVo> warehouseDetailList;
 
     public Long getPurchaseId() {
         return purchaseId;
@@ -67,6 +78,14 @@ public class OrderPurchaseVo {
         this.dealerName = dealerName;
     }
 
+    public int getProductNumber() {
+        return productNumber;
+    }
+
+    public void setProductNumber(int productNumber) {
+        this.productNumber = productNumber;
+    }
+
     public String getPersonName() {
         return personName;
     }
@@ -89,22 +108,6 @@ public class OrderPurchaseVo {
 
     public void setRemark(String remark) {
         this.remark = remark;
-    }
-
-    public List<OrderDetailVo> getDetailList() {
-        return detailList;
-    }
-
-    public void setDetailList(List<OrderDetailVo> detailList) {
-        this.detailList = detailList;
-    }
-
-    public int getProductNumber() {
-        return productNumber;
-    }
-
-    public void setProductNumber(int productNumber) {
-        this.productNumber = productNumber;
     }
 
     public int getReceiveBoxNumber() {
@@ -137,5 +140,53 @@ public class OrderPurchaseVo {
 
     public void setOrderState(int orderState) {
         this.orderState = orderState;
+    }
+
+    public Date getOrderCreateTime() {
+        return orderCreateTime;
+    }
+
+    public void setOrderCreateTime(Date orderCreateTime) {
+        this.orderCreateTime = orderCreateTime;
+    }
+
+    public String getOrderCreateTimeStr() {
+        return orderCreateTimeStr;
+    }
+
+    public void setOrderCreateTimeStr(String orderCreateTimeStr) {
+        this.orderCreateTimeStr = orderCreateTimeStr;
+    }
+
+    public Date getOrderCompleteTime() {
+        return orderCompleteTime;
+    }
+
+    public void setOrderCompleteTime(Date orderCompleteTime) {
+        this.orderCompleteTime = orderCompleteTime;
+    }
+
+    public String getOrderCompleteTimeStr() {
+        return orderCompleteTimeStr;
+    }
+
+    public void setOrderCompleteTimeStr(String orderCompleteTimeStr) {
+        this.orderCompleteTimeStr = orderCompleteTimeStr;
+    }
+
+    public List<OrderDetailVo> getDetailList() {
+        return detailList;
+    }
+
+    public void setDetailList(List<OrderDetailVo> detailList) {
+        this.detailList = detailList;
+    }
+
+    public List<GoodsPutInVo> getWarehouseDetailList() {
+        return warehouseDetailList;
+    }
+
+    public void setWarehouseDetailList(List<GoodsPutInVo> warehouseDetailList) {
+        this.warehouseDetailList = warehouseDetailList;
     }
 }

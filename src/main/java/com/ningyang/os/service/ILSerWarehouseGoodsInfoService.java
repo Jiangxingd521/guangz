@@ -2,6 +2,7 @@ package com.ningyang.os.service;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.ningyang.os.action.input.command.api.ApiWarehouseOrderReturnPutInCommand;
 import com.ningyang.os.action.input.command.api.ApiWarehousePutInCommand;
 import com.ningyang.os.action.input.condition.serve.QueryGoodsPutCondition;
 import com.ningyang.os.action.output.vo.api.ApiWarehouseGoodsVo;
@@ -31,4 +32,8 @@ public interface ILSerWarehouseGoodsInfoService extends IService<LSerWarehouseGo
     List<ApiWarehouseGoodsVo> findApiWarehouseGoodsVo(String productName);
 
     List<WarehouseInventoryVo> findWarehouseInventoryVoById(Long warehouseId);
+
+    Map<String, Object> orderReturn(ApiWarehouseOrderReturnPutInCommand command);
+
+    int getOrderInBoxCount(Long purchaseId);
 }
