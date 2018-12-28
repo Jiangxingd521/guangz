@@ -437,4 +437,9 @@ public class LSerWarehouseGoodsInfoServiceImpl extends ServiceImpl<LSerWarehouse
     public int getOrderInBoxCount(Long purchaseId) {
         return baseMapper.getOrderInBoxCount(purchaseId);
     }
+
+    @Override
+    public List<GoodsPutInVo> findGoodsPutInVoByCondition(QueryGoodsPutCondition condition) {
+        return baseMapper.selectGoodsPutInVoByCondition(condition);
+    }
 }

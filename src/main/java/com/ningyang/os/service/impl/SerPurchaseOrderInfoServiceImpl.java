@@ -162,9 +162,7 @@ public class SerPurchaseOrderInfoServiceImpl extends ServiceImpl<SerPurchaseOrde
             //入库明细
             QueryGoodsPutCondition putCondition = new QueryGoodsPutCondition();
             putCondition.setPurchaseId(vo.getPurchaseId());
-            // FIXME: 2018-12-28 序列2
-//            List<GoodsPutInVo> warehouseDetailList = putInService.findWarehouseGoodsPutOutVoByCondition(putCondition);
-            List<GoodsPutInVo> warehouseDetailList = new ArrayList<>();
+            List<GoodsPutInVo> warehouseDetailList = putInService.findGoodsPutInVoByCondition(putCondition);
             vo.setWarehouseDetailList(warehouseDetailList);
         }
         return listTemp;

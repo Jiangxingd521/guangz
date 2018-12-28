@@ -33,4 +33,6 @@ public interface LSerWarehouseGoodsInfoMapper extends BaseMapper<LSerWarehouseGo
     List<WarehouseInventoryVo> selectWarehouseInventoryVoById(Long warehouseId);
 
     int getOrderInBoxCount(Long purchaseId);
+
+    List<GoodsPutInVo> selectGoodsPutInVoByCondition(QueryGoodsPutCondition condition);
 }

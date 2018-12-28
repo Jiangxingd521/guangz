@@ -36,4 +36,7 @@ public interface ILSerWarehouseGoodsInfoService extends IService<LSerWarehouseGo
     Map<String, Object> orderReturn(ApiWarehouseOrderReturnPutInCommand command);
 
     int getOrderInBoxCount(Long purchaseId);
+
+    List<GoodsPutInVo> findGoodsPutInVoByCondition(QueryGoodsPutCondition condition);
+
 }

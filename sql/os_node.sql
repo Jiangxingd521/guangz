@@ -11,7 +11,7 @@
  Target Server Version : 50721
  File Encoding         : 65001
 
- Date: 25/12/2018 18:06:54
+ Date: 28/12/2018 16:47:19
 */
 
 SET NAMES utf8mb4;
@@ -116,9 +116,9 @@ COMMIT;
 DROP TABLE IF EXISTS `l_ser_warehouse_goods_info`;
 CREATE TABLE `l_ser_warehouse_goods_info` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `source_type` int(255) DEFAULT NULL COMMENT '入库来源（0：生产入库，1：换货入库，2：退货入库，3：换仓入库）',
+  `source_type` int(255) DEFAULT NULL COMMENT '入库来源（0：生产入库，1：退货入库）',
   `warehouse_id` bigint(20) DEFAULT NULL COMMENT '仓库id',
-  `goods_id` bigint(20) DEFAULT NULL COMMENT '商品id',
+  `purchase_id` bigint(20) DEFAULT NULL COMMENT '退货订单id',
   `product_id` bigint(20) DEFAULT NULL COMMENT '产品系列id',
   `box_no` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '箱码',
   `warehouse_in_no` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '入库单号',
@@ -129,9 +129,7 @@ CREATE TABLE `l_ser_warehouse_goods_info` (
   `update_time` datetime DEFAULT NULL COMMENT '修改时间',
   PRIMARY KEY (`id`) USING BTREE,
   KEY `warehouse_id` (`warehouse_id`) USING BTREE,
-  KEY `goods_id` (`goods_id`) USING BTREE,
-  CONSTRAINT `l_ser_warehouse_goods_info_ibfk_1` FOREIGN KEY (`warehouse_id`) REFERENCES `t_ser_warehouse_info` (`id`),
-  CONSTRAINT `l_ser_warehouse_goods_info_ibfk_2` FOREIGN KEY (`goods_id`) REFERENCES `t_ser_goods_info` (`id`)
+  CONSTRAINT `l_ser_warehouse_goods_info_ibfk_1` FOREIGN KEY (`warehouse_id`) REFERENCES `t_ser_warehouse_info` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='商品入库记录日志';
 
 -- ----------------------------
@@ -175,7 +173,7 @@ CREATE TABLE `l_ser_warehouse_goods_out_info` (
   `warehouse_id` bigint(20) DEFAULT NULL COMMENT '仓库id',
   `box_no` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '箱码',
   `product_id` bigint(20) DEFAULT NULL COMMENT '产品id',
-  `goods_id` bigint(20) DEFAULT NULL COMMENT '商品id',
+  `dealer_id` bigint(20) DEFAULT NULL COMMENT '经销商id',
   `user_id` bigint(20) DEFAULT NULL COMMENT '操作人',
   `goods_out_time` datetime DEFAULT NULL COMMENT '出库时间',
   `create_time` datetime DEFAULT NULL COMMENT '创建时间',
@@ -187,17 +185,17 @@ CREATE TABLE `l_ser_warehouse_goods_out_info` (
 -- Records of l_ser_warehouse_goods_out_info
 -- ----------------------------
 BEGIN;
-INSERT INTO `l_ser_warehouse_goods_out_info` VALUES (6, 12, NULL, '6000000818852820', 14, NULL, 3, '2018-12-14 15:26:49', '2018-12-14 15:26:49', '2018-12-14 15:26:49');
-INSERT INTO `l_ser_warehouse_goods_out_info` VALUES (7, 12, NULL, '3000001522724679', 14, NULL, 3, '2018-12-14 16:32:55', '2018-12-14 16:32:55', '2018-12-14 16:32:55');
-INSERT INTO `l_ser_warehouse_goods_out_info` VALUES (8, 12, NULL, '4000000474173888', 14, NULL, 3, '2018-12-14 16:32:55', '2018-12-14 16:32:55', '2018-12-14 16:32:55');
-INSERT INTO `l_ser_warehouse_goods_out_info` VALUES (16, 17, NULL, 'http://www.headingtech.com/center/tz/6/3ea5c051d3594ad5b068968213f66686/12', 15, NULL, 3, '2018-12-20 21:25:26', '2018-12-20 21:25:26', '2018-12-20 21:25:26');
-INSERT INTO `l_ser_warehouse_goods_out_info` VALUES (17, 17, NULL, '6000001029535476', 15, NULL, 3, '2018-12-20 21:26:41', '2018-12-20 21:26:41', '2018-12-20 21:26:41');
-INSERT INTO `l_ser_warehouse_goods_out_info` VALUES (18, 15, NULL, 'http://www.headingtech.com/center/tz/6/5385728252a74a9a92833c91646b7323/12', 15, NULL, 3, '2018-12-20 21:28:01', '2018-12-20 21:28:01', '2018-12-20 21:28:01');
-INSERT INTO `l_ser_warehouse_goods_out_info` VALUES (19, 19, NULL, '1000000438780073', 15, NULL, 3, '2018-12-20 21:43:57', '2018-12-20 21:43:57', '2018-12-20 21:43:57');
-INSERT INTO `l_ser_warehouse_goods_out_info` VALUES (20, 19, NULL, '5000000654704004', 14, NULL, 3, '2018-12-20 21:44:48', '2018-12-20 21:44:48', '2018-12-20 21:44:48');
-INSERT INTO `l_ser_warehouse_goods_out_info` VALUES (21, 19, NULL, '5000001385342886', 14, NULL, 3, '2018-12-20 21:44:48', '2018-12-20 21:44:48', '2018-12-20 21:44:48');
-INSERT INTO `l_ser_warehouse_goods_out_info` VALUES (22, 19, NULL, '6000002045836394', 15, NULL, 3, '2018-12-20 21:47:01', '2018-12-20 21:47:01', '2018-12-20 21:47:01');
-INSERT INTO `l_ser_warehouse_goods_out_info` VALUES (23, 21, NULL, '2000001708313186', 15, NULL, 3, '2018-12-21 04:24:19', '2018-12-21 04:24:19', '2018-12-21 04:24:19');
+INSERT INTO `l_ser_warehouse_goods_out_info` VALUES (6, 12, NULL, '6000000818852820', 14, 9, 3, '2018-12-14 15:26:49', '2018-12-14 15:26:49', '2018-12-14 15:26:49');
+INSERT INTO `l_ser_warehouse_goods_out_info` VALUES (7, 12, NULL, '3000001522724679', 14, 9, 3, '2018-12-14 16:32:55', '2018-12-14 16:32:55', '2018-12-14 16:32:55');
+INSERT INTO `l_ser_warehouse_goods_out_info` VALUES (8, 12, NULL, '4000000474173888', 14, 9, 3, '2018-12-14 16:32:55', '2018-12-14 16:32:55', '2018-12-14 16:32:55');
+INSERT INTO `l_ser_warehouse_goods_out_info` VALUES (16, 17, NULL, 'http://www.headingtech.com/center/tz/6/3ea5c051d3594ad5b068968213f66686/12', 15, 8, 3, '2018-12-20 21:25:26', '2018-12-20 21:25:26', '2018-12-20 21:25:26');
+INSERT INTO `l_ser_warehouse_goods_out_info` VALUES (17, 17, NULL, '6000001029535476', 15, 8, 3, '2018-12-20 21:26:41', '2018-12-20 21:26:41', '2018-12-20 21:26:41');
+INSERT INTO `l_ser_warehouse_goods_out_info` VALUES (18, 15, NULL, 'http://www.headingtech.com/center/tz/6/5385728252a74a9a92833c91646b7323/12', 15, 9, 3, '2018-12-20 21:28:01', '2018-12-20 21:28:01', '2018-12-20 21:28:01');
+INSERT INTO `l_ser_warehouse_goods_out_info` VALUES (19, 19, NULL, '1000000438780073', 15, 1, 3, '2018-12-20 21:43:57', '2018-12-20 21:43:57', '2018-12-20 21:43:57');
+INSERT INTO `l_ser_warehouse_goods_out_info` VALUES (20, 19, NULL, '5000000654704004', 14, 1, 3, '2018-12-20 21:44:48', '2018-12-20 21:44:48', '2018-12-20 21:44:48');
+INSERT INTO `l_ser_warehouse_goods_out_info` VALUES (21, 19, NULL, '5000001385342886', 14, 1, 3, '2018-12-20 21:44:48', '2018-12-20 21:44:48', '2018-12-20 21:44:48');
+INSERT INTO `l_ser_warehouse_goods_out_info` VALUES (22, 19, NULL, '6000002045836394', 15, 1, 3, '2018-12-20 21:47:01', '2018-12-20 21:47:01', '2018-12-20 21:47:01');
+INSERT INTO `l_ser_warehouse_goods_out_info` VALUES (23, 21, NULL, '2000001708313186', 15, 3, 3, '2018-12-21 04:24:19', '2018-12-21 04:24:19', '2018-12-21 04:24:19');
 COMMIT;
 
 -- ----------------------------
@@ -4693,7 +4691,7 @@ CREATE TABLE `t_ser_code_import_temp_info` (
   `creat_time` datetime DEFAULT NULL COMMENT '创建时间',
   `orderno` int(11) DEFAULT NULL COMMENT '排序用',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=315 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='溯源码导入临时表';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='溯源码导入临时表';
 
 -- ----------------------------
 -- Table structure for t_ser_code_import_template_info
@@ -5139,24 +5137,24 @@ CREATE TABLE `t_ser_order_info` (
 BEGIN;
 INSERT INTO `t_ser_order_info` VALUES (1, '20181129125419', 1, NULL, NULL, NULL, NULL, '7', 2, '备注1', 2, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-11-29 12:54:19', '2018-11-29 12:55:08');
 INSERT INTO `t_ser_order_info` VALUES (2, '20181129132946', 1, NULL, NULL, NULL, NULL, '7', 2, '214sad', 2, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-11-29 13:29:47', '2018-11-29 14:34:59');
-INSERT INTO `t_ser_order_info` VALUES (3, '20181203215346', 2, NULL, NULL, NULL, NULL, NULL, 2, NULL, 2, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-12-03 21:53:46', '2018-12-03 21:55:11');
-INSERT INTO `t_ser_order_info` VALUES (4, '20181203223116', 2, NULL, NULL, NULL, NULL, NULL, 2, NULL, 2, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-12-03 22:31:16', '2018-12-03 22:31:32');
-INSERT INTO `t_ser_order_info` VALUES (5, '20181207135716', 7, NULL, NULL, NULL, NULL, NULL, 3, NULL, 2, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-12-07 13:57:16', '2018-12-07 14:12:39');
-INSERT INTO `t_ser_order_info` VALUES (6, '20181211150838', 1, NULL, NULL, NULL, NULL, NULL, 2, NULL, 6, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-12-11 15:08:38', '2018-12-11 15:08:40');
-INSERT INTO `t_ser_order_info` VALUES (7, '20181212173757', 9, NULL, NULL, NULL, NULL, NULL, 3, NULL, 7, 7, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-12-12 17:37:57', '2018-12-13 10:22:13');
-INSERT INTO `t_ser_order_info` VALUES (8, '20181213105426', 2, NULL, NULL, NULL, NULL, NULL, 2, NULL, 3, 7, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-12-13 10:54:26', '2018-12-13 11:21:03');
-INSERT INTO `t_ser_order_info` VALUES (9, '20181213131356', 1, NULL, NULL, NULL, NULL, NULL, 2, NULL, 3, 7, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-12-13 13:13:56', '2018-12-14 14:38:56');
-INSERT INTO `t_ser_order_info` VALUES (10, '20181213131600', 1, NULL, NULL, NULL, NULL, NULL, 2, NULL, 3, 7, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-12-13 13:16:00', '2018-12-14 14:38:55');
-INSERT INTO `t_ser_order_info` VALUES (11, '20181213173930', 9, NULL, NULL, NULL, NULL, NULL, 2, NULL, 7, 7, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-12-13 17:39:30', '2018-12-13 17:39:33');
-INSERT INTO `t_ser_order_info` VALUES (12, '20181214152400', 9, NULL, NULL, NULL, NULL, NULL, 4, NULL, 7, 7, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-12-14 15:24:00', '2018-12-14 16:32:55');
-INSERT INTO `t_ser_order_info` VALUES (14, '20181218162929', 2, NULL, NULL, NULL, NULL, NULL, 2, NULL, 8, 5, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-12-18 16:29:29', '2018-12-18 17:13:07');
-INSERT INTO `t_ser_order_info` VALUES (15, '20181220205333', 9, NULL, NULL, NULL, NULL, NULL, 4, NULL, 2, 2, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-12-20 06:53:33', '2018-12-20 21:28:01');
-INSERT INTO `t_ser_order_info` VALUES (16, '20181220211959', 1, NULL, NULL, NULL, NULL, NULL, 2, NULL, 2, 2, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-12-20 07:19:59', '2018-12-20 07:22:20');
-INSERT INTO `t_ser_order_info` VALUES (17, '20181221101733', 8, NULL, NULL, NULL, NULL, NULL, 4, NULL, 2, 2, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-12-20 20:17:33', '2018-12-20 21:26:41');
-INSERT INTO `t_ser_order_info` VALUES (18, '20181221103328', 9, NULL, NULL, NULL, NULL, NULL, 3, NULL, 3, 2, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-12-20 20:33:28', '2018-12-20 20:41:50');
-INSERT INTO `t_ser_order_info` VALUES (19, '20181221114308', 1, NULL, NULL, NULL, NULL, NULL, 4, NULL, 3, 2, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-12-20 21:43:08', '2018-12-20 21:47:01');
-INSERT INTO `t_ser_order_info` VALUES (20, '20181221145327', 3, NULL, NULL, NULL, NULL, NULL, 2, NULL, 3, 2, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-12-21 00:53:27', '2018-12-21 01:03:14');
-INSERT INTO `t_ser_order_info` VALUES (21, '20181221181709', 3, NULL, NULL, NULL, NULL, NULL, 3, NULL, 3, 2, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-12-21 04:17:09', '2018-12-21 04:24:20');
+INSERT INTO `t_ser_order_info` VALUES (3, '20181203215346', 2, NULL, NULL, NULL, NULL, NULL, 2, '1', 2, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-12-03 21:53:46', '2018-12-03 21:55:11');
+INSERT INTO `t_ser_order_info` VALUES (4, '20181203223116', 2, NULL, NULL, NULL, NULL, NULL, 2, '2', 2, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-12-03 22:31:16', '2018-12-03 22:31:32');
+INSERT INTO `t_ser_order_info` VALUES (5, '20181207135716', 7, NULL, NULL, NULL, NULL, NULL, 3, '3', 2, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-12-07 13:57:16', '2018-12-07 14:12:39');
+INSERT INTO `t_ser_order_info` VALUES (6, '20181211150838', 1, NULL, NULL, NULL, NULL, NULL, 2, '4', 6, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-12-11 15:08:38', '2018-12-11 15:08:40');
+INSERT INTO `t_ser_order_info` VALUES (7, '20181212173757', 9, NULL, NULL, NULL, NULL, NULL, 3, '5', 7, 7, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-12-12 17:37:57', '2018-12-13 10:22:13');
+INSERT INTO `t_ser_order_info` VALUES (8, '20181213105426', 2, NULL, NULL, NULL, NULL, NULL, 2, '6', 3, 7, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-12-13 10:54:26', '2018-12-13 11:21:03');
+INSERT INTO `t_ser_order_info` VALUES (9, '20181213131356', 1, NULL, NULL, NULL, NULL, NULL, 2, '7', 3, 7, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-12-13 13:13:56', '2018-12-14 14:38:56');
+INSERT INTO `t_ser_order_info` VALUES (10, '20181213131600', 1, NULL, NULL, NULL, NULL, NULL, 2, '8', 3, 7, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-12-13 13:16:00', '2018-12-14 14:38:55');
+INSERT INTO `t_ser_order_info` VALUES (11, '20181213173930', 9, NULL, NULL, NULL, NULL, NULL, 2, '9', 7, 7, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-12-13 17:39:30', '2018-12-13 17:39:33');
+INSERT INTO `t_ser_order_info` VALUES (12, '20181214152400', 9, NULL, NULL, NULL, NULL, NULL, 4, '10', 7, 7, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-12-14 15:24:00', '2018-12-14 16:32:55');
+INSERT INTO `t_ser_order_info` VALUES (14, '20181218162929', 2, NULL, NULL, NULL, NULL, NULL, 2, '11', 8, 5, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-12-18 16:29:29', '2018-12-18 17:13:07');
+INSERT INTO `t_ser_order_info` VALUES (15, '20181220205333', 9, NULL, NULL, NULL, NULL, NULL, 4, '12', 2, 2, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-12-20 06:53:33', '2018-12-20 21:28:01');
+INSERT INTO `t_ser_order_info` VALUES (16, '20181220211959', 1, NULL, NULL, NULL, NULL, NULL, 2, '13', 2, 2, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-12-20 07:19:59', '2018-12-20 07:22:20');
+INSERT INTO `t_ser_order_info` VALUES (17, '20181221101733', 8, NULL, NULL, NULL, NULL, NULL, 4, '14', 2, 2, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-12-20 20:17:33', '2018-12-20 21:26:41');
+INSERT INTO `t_ser_order_info` VALUES (18, '20181221103328', 9, NULL, NULL, NULL, NULL, NULL, 3, '15', 3, 2, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-12-20 20:33:28', '2018-12-20 20:41:50');
+INSERT INTO `t_ser_order_info` VALUES (19, '20181221114308', 1, NULL, NULL, NULL, NULL, NULL, 4, '16', 3, 2, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-12-20 21:43:08', '2018-12-20 21:47:01');
+INSERT INTO `t_ser_order_info` VALUES (20, '20181221145327', 3, NULL, NULL, NULL, NULL, NULL, 2, '17', 3, 2, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-12-21 00:53:27', '2018-12-21 01:03:14');
+INSERT INTO `t_ser_order_info` VALUES (21, '20181221181709', 3, NULL, NULL, NULL, NULL, NULL, 3, '18', 3, 2, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-12-21 04:17:09', '2018-12-21 04:24:20');
 COMMIT;
 
 -- ----------------------------
@@ -5240,7 +5238,7 @@ CREATE TABLE `t_ser_prize_manager_info` (
 -- Records of t_ser_prize_manager_info
 -- ----------------------------
 BEGIN;
-INSERT INTO `t_ser_prize_manager_info` VALUES (1, 1, '现金红包', '现金红包', '扫码获取现金红包', 2, 0, NULL, NULL, NULL, 'HB', NULL, NULL, NULL, '2018-11-30 11:25:59', '2018-12-03 10:14:45');
+INSERT INTO `t_ser_prize_manager_info` VALUES (1, 1, '现金红包', '现金红包', '扫码获取现金红包', 2, 0, NULL, NULL, NULL, 'HB', NULL, NULL, NULL, '2018-11-30 11:25:59', '2018-12-27 00:46:13');
 INSERT INTO `t_ser_prize_manager_info` VALUES (2, 2, '获得积分', '扫码获得积分', '扫码获得积分', 2, 0, NULL, NULL, NULL, 'PT', NULL, NULL, NULL, '2018-11-30 11:26:09', '2018-12-03 10:14:45');
 INSERT INTO `t_ser_prize_manager_info` VALUES (5, 1, '今晚最后一次测试', '庆祝今晚测试通过！', NULL, 2, 0, NULL, NULL, NULL, 'HB', NULL, NULL, NULL, '2018-12-03 22:51:12', '2018-12-03 22:59:21');
 INSERT INTO `t_ser_prize_manager_info` VALUES (6, 1, '菊花', '1', '111', 2, 0, NULL, NULL, NULL, 'HB', NULL, NULL, NULL, '2018-12-07 13:58:55', '2018-12-07 13:58:55');
@@ -5291,7 +5289,7 @@ CREATE TABLE `t_ser_prize_recode_info` (
   `update_time` datetime DEFAULT NULL COMMENT '修改时间',
   PRIMARY KEY (`prize_recode_id`) USING BTREE,
   UNIQUE KEY `pr_code` (`product_code`(255)) USING BTREE COMMENT '商品溯源码'
-) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='奖项记录（布奖、兑奖）';
+) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='奖项记录（布奖、兑奖）';
 
 -- ----------------------------
 -- Records of t_ser_prize_recode_info
@@ -5299,7 +5297,6 @@ CREATE TABLE `t_ser_prize_recode_info` (
 BEGIN;
 INSERT INTO `t_ser_prize_recode_info` VALUES (15, NULL, '20181203223116', NULL, 'http://www.headingtech.com/center/tz/6/5c2eb70380d74ad8a363f51a452e8b58/12', NULL, 4, NULL, '测试红包！', 7, 1, 3, NULL, 1.31, NULL, 1, 1, NULL, NULL, 1, NULL, '2018-12-03 23:00:55', '', '2018-12-03 00:00:00', '2019-01-09 00:00:00', 2, NULL, NULL, NULL, NULL, 'HB', NULL, NULL, NULL, '2018-12-03 22:51:59', '2018-12-03 22:51:59');
 INSERT INTO `t_ser_prize_recode_info` VALUES (16, NULL, '20181203223116', NULL, 'http://www.headingtech.com/center/tz/6/9e6a100d140a4786bab4888f1ceca00a/12', NULL, 4, NULL, '测试红包！', 7, 1, 3, NULL, 0.00, NULL, 1, 1, NULL, NULL, 1, NULL, '2018-12-03 22:59:28', '', '2018-12-03 00:00:00', '2019-01-09 00:00:00', 2, NULL, NULL, NULL, NULL, 'HB', NULL, NULL, NULL, '2018-12-03 22:51:59', '2018-12-03 22:51:59');
-INSERT INTO `t_ser_prize_recode_info` VALUES (17, NULL, '20181129125419', NULL, '', NULL, 3, NULL, '狗年过年大奖', NULL, 1, 76, NULL, NULL, NULL, 1, 1, NULL, NULL, 1, NULL, NULL, NULL, '2018-12-04 00:00:00', '2019-01-10 00:00:00', 2, NULL, NULL, NULL, NULL, 'wxhb', NULL, NULL, NULL, '2018-12-04 16:46:53', '2018-12-04 16:46:53');
 INSERT INTO `t_ser_prize_recode_info` VALUES (21, NULL, '20181207135716', NULL, 'http://www.headingtech.com/center/tz/6/19a6df8062124df0aaaf5acda946e1a4/12', NULL, 5, NULL, '抽红包', 12, 1, 347, NULL, 1.61, NULL, 1, 1, NULL, NULL, 1, NULL, NULL, NULL, '2018-12-07 00:00:00', '2019-01-01 00:00:00', 2, NULL, NULL, NULL, NULL, 'HB', NULL, NULL, NULL, '2018-12-07 14:34:00', '2018-12-07 14:34:00');
 INSERT INTO `t_ser_prize_recode_info` VALUES (22, NULL, '20181207135716', NULL, 'http://www.headingtech.com/center/tz/6/cc104e91c5bc448c974ac9909640e01f/12', NULL, 5, NULL, '抽红包', 12, 1, 347, NULL, 0.00, NULL, 1, 1, NULL, NULL, 1, NULL, NULL, NULL, '2018-12-07 00:00:00', '2019-01-01 00:00:00', 2, NULL, NULL, NULL, NULL, 'HB', NULL, NULL, NULL, '2018-12-07 14:34:00', '2018-12-07 14:34:00');
 INSERT INTO `t_ser_prize_recode_info` VALUES (23, NULL, '20181214152400', NULL, 'http://www.headingtech.com/center/tz/6/d4bc9cc762bc44eeb7fe8aab16ef4099/12', NULL, 9, NULL, '海之蓝布奖', 14, 1, NULL, NULL, 10.00, NULL, 2, 2, NULL, NULL, 1, NULL, NULL, NULL, '2018-12-14 00:00:00', '2019-01-09 00:00:00', 7, NULL, NULL, NULL, NULL, 'HB', NULL, NULL, NULL, '2018-12-14 16:36:57', '2018-12-14 16:36:57');
@@ -5363,7 +5360,7 @@ INSERT INTO `t_ser_prize_set_info` VALUES (5, 6, '抽红包', 12, 1, 347, 1, 1.0
 INSERT INTO `t_ser_prize_set_info` VALUES (6, 5, '123123', NULL, 1, NULL, 0, 1.00, 5.00, 0, 0, 2, 1, 0, 0, '2018-12-11 00:00:00', '2018-12-13 00:00:00', 2, 1, NULL, NULL, NULL, 'HB', NULL, NULL, NULL, '2018-12-11 11:24:44', '2018-12-21 01:30:49');
 INSERT INTO `t_ser_prize_set_info` VALUES (7, 7, '测试', NULL, 1, NULL, 0, 22.00, 22.00, 0, 0, 2, 2, 0, 0, '2018-12-11 00:00:00', '2018-12-14 00:00:00', 2, 1, NULL, NULL, NULL, 'HB', NULL, NULL, NULL, '2018-12-11 15:07:13', '2018-12-21 01:30:52');
 INSERT INTO `t_ser_prize_set_info` VALUES (8, 1, '测试布奖2018-12-14', NULL, 1, NULL, 0, NULL, NULL, 0, 0, 1, 1, 0, 0, '2018-12-14 00:00:00', '2018-12-26 00:00:00', 2, 1, NULL, NULL, NULL, 'HB', NULL, NULL, NULL, '2018-12-14 14:52:37', '2018-12-21 01:30:55');
-INSERT INTO `t_ser_prize_set_info` VALUES (9, 1, '海之蓝布奖', NULL, 1, NULL, 0, 10.00, 10.00, 0, 0, 2, 2, 0, 0, '2018-12-14 00:00:00', '2019-01-09 00:00:00', 7, 0, NULL, NULL, NULL, 'HB', NULL, NULL, NULL, '2018-12-14 16:36:30', '2018-12-14 16:36:30');
+INSERT INTO `t_ser_prize_set_info` VALUES (9, 1, '海之蓝布奖', NULL, 1, NULL, 0, 10.00, 10.00, 0, 0, 2, 2, 0, 0, '2018-12-14 00:00:00', '2019-01-09 00:00:00', 2, 0, NULL, NULL, NULL, 'HB', NULL, NULL, NULL, '2018-12-14 16:36:30', '2018-12-27 00:46:06');
 INSERT INTO `t_ser_prize_set_info` VALUES (10, 1, '测试布奖随机', NULL, 5, NULL, 0, NULL, NULL, 0, 0, 2, 1, 0, 0, '2018-12-19 10:00:00', '2018-12-28 10:00:00', 2, 0, NULL, NULL, NULL, 'HB', NULL, NULL, NULL, '2018-12-20 07:23:56', '2018-12-20 07:23:56');
 INSERT INTO `t_ser_prize_set_info` VALUES (11, 8, '2019春节大奖', NULL, 5, NULL, 0, NULL, NULL, 0, 0, 2, 1, 0, 0, '2018-12-20 10:00:00', '2019-01-09 10:00:00', 2, 0, NULL, NULL, NULL, 'HB', NULL, NULL, NULL, '2018-12-21 03:53:00', '2018-12-21 03:53:00');
 COMMIT;
@@ -5389,7 +5386,7 @@ CREATE TABLE `t_ser_prize_set_record_info` (
   `create_time` datetime DEFAULT NULL COMMENT '创建时间',
   `update_time` datetime DEFAULT NULL COMMENT '修改时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='奖项设定操作记录';
 
 -- ----------------------------
 -- Records of t_ser_prize_set_record_info
@@ -5397,11 +5394,11 @@ CREATE TABLE `t_ser_prize_set_record_info` (
 BEGIN;
 INSERT INTO `t_ser_prize_set_record_info` VALUES (1, 19, '20181221114308', NULL, NULL, NULL, NULL, 2, 0, 0, '1cfc42f273ad4501a26a35091d667597', 0, 2, '2018-12-25 03:03:31', '2018-12-25 03:03:31');
 INSERT INTO `t_ser_prize_set_record_info` VALUES (2, 15, '20181220205333', NULL, NULL, NULL, NULL, 2, 0, 0, '93fa660bdced45e69874c74a16e635e6', 0, 2, '2018-12-25 03:03:31', '2018-12-25 03:03:31');
-INSERT INTO `t_ser_prize_set_record_info` VALUES (3, 19, '20181221114308', NULL, NULL, NULL, NULL, 5, 0, 0, 'c46a045e2da34116ae4416ccdf8e19b4', NULL, 2, '2018-12-25 03:26:41', '2018-12-25 03:26:41');
+INSERT INTO `t_ser_prize_set_record_info` VALUES (3, 19, '20181221114308', NULL, NULL, NULL, NULL, 5, 0, 1, 'c46a045e2da34116ae4416ccdf8e19b4', NULL, 2, '2018-12-25 03:26:41', '2018-12-27 01:28:26');
 INSERT INTO `t_ser_prize_set_record_info` VALUES (4, 17, '20181221101733', NULL, NULL, NULL, NULL, 5, 0, 0, '31728cf0c7d14963a3060837f20b3a46', 0, 2, '2018-12-25 03:26:41', '2018-12-25 03:26:41');
 INSERT INTO `t_ser_prize_set_record_info` VALUES (5, 15, '20181220205333', NULL, NULL, NULL, NULL, 5, 0, 0, '282bb71b08ba469eb7646c7567b45125', NULL, 2, '2018-12-25 03:26:41', '2018-12-25 03:26:41');
 INSERT INTO `t_ser_prize_set_record_info` VALUES (6, 12, '20181214152400', NULL, NULL, NULL, NULL, 5, 0, 0, '6ed96b3cb7674587802a91c3ae15fae9', 0, 2, '2018-12-25 03:26:41', '2018-12-25 03:26:41');
-INSERT INTO `t_ser_prize_set_record_info` VALUES (7, NULL, NULL, 6, 6, 13, NULL, 9, 1, 0, '0c338c9f3ae447ebbd20fd50f696127b', 0, 2, '2018-12-25 03:52:16', '2018-12-25 03:52:16');
+INSERT INTO `t_ser_prize_set_record_info` VALUES (7, NULL, NULL, 6, 6, 13, NULL, 9, 1, 1, '0c338c9f3ae447ebbd20fd50f696127b', 0, 2, '2018-12-25 03:52:16', '2018-12-27 01:27:39');
 COMMIT;
 
 -- ----------------------------
@@ -5447,7 +5444,7 @@ CREATE TABLE `t_ser_purchase_order_info` (
   `dealer_id` bigint(255) DEFAULT NULL COMMENT '经销商id',
   `order_no` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '退货订单号',
   `order_remark` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '退货原因',
-  `order_state` int(255) DEFAULT NULL COMMENT '订单状态（0：备单，1：确认订单，2：待收货）',
+  `order_state` int(255) DEFAULT NULL COMMENT '订单状态（0：备单，1：确认订单，2：待收货，3：收货未完成，4：已完成）',
   `product_number` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '数量',
   `financial_id` bigint(20) DEFAULT NULL COMMENT '财务',
   `user_id` bigint(20) DEFAULT NULL COMMENT '创建人',
@@ -5462,7 +5459,7 @@ CREATE TABLE `t_ser_purchase_order_info` (
   `create_time` datetime DEFAULT NULL COMMENT '创建时间',
   `update_time` datetime DEFAULT NULL COMMENT '修改时间',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='商品退货订单';
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='商品退货订单';
 
 -- ----------------------------
 -- Records of t_ser_purchase_order_info
@@ -5473,6 +5470,7 @@ INSERT INTO `t_ser_purchase_order_info` VALUES (6, 1, '20181212134219', NULL, 2,
 INSERT INTO `t_ser_purchase_order_info` VALUES (7, 2, '20181212134221', '就是要退货', 2, NULL, 7, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-12-12 13:42:21', '2018-12-13 11:21:15');
 INSERT INTO `t_ser_purchase_order_info` VALUES (8, 1, '20181219141732', NULL, 2, NULL, 2, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-12-19 00:17:32', '2018-12-19 00:17:35');
 INSERT INTO `t_ser_purchase_order_info` VALUES (9, 1, '20181220210606', NULL, 2, NULL, 2, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-12-20 07:06:06', '2018-12-20 07:06:18');
+INSERT INTO `t_ser_purchase_order_info` VALUES (10, 3, '20181228093243', NULL, 0, NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-12-27 19:32:43', '2018-12-27 19:32:43');
 COMMIT;
 
 -- ----------------------------
@@ -5499,7 +5497,7 @@ CREATE TABLE `t_ser_purchase_order_info_details` (
   `create_time` datetime DEFAULT NULL,
   `update_time` datetime DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='退货订单商品明细';
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='退货订单商品明细';
 
 -- ----------------------------
 -- Records of t_ser_purchase_order_info_details
@@ -5510,6 +5508,8 @@ INSERT INTO `t_ser_purchase_order_info_details` VALUES (12, 1, 9, 5, NULL, NULL,
 INSERT INTO `t_ser_purchase_order_info_details` VALUES (14, 6, 5, 1, NULL, NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-12-12 13:42:19', '2018-12-12 13:42:19');
 INSERT INTO `t_ser_purchase_order_info_details` VALUES (16, 8, 13, 1, NULL, NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-12-19 00:17:32', '2018-12-19 00:17:32');
 INSERT INTO `t_ser_purchase_order_info_details` VALUES (18, 9, 13, 1, NULL, NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-12-20 07:06:10', '2018-12-20 07:06:10');
+INSERT INTO `t_ser_purchase_order_info_details` VALUES (21, 10, 13, 2, NULL, NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-12-27 19:32:43', '2018-12-27 19:32:43');
+INSERT INTO `t_ser_purchase_order_info_details` VALUES (22, 10, 15, 3, NULL, NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-12-27 19:32:43', '2018-12-27 19:32:43');
 COMMIT;
 
 -- ----------------------------
@@ -9276,7 +9276,7 @@ CREATE TABLE `t_sys_role_info` (
 -- Records of t_sys_role_info
 -- ----------------------------
 BEGIN;
-INSERT INTO `t_sys_role_info` VALUES (1, '超级管理员', 0, 1, '2018-09-28 14:37:36', '2018-12-25 04:01:31');
+INSERT INTO `t_sys_role_info` VALUES (1, '超级管理员', 0, 1, '2018-09-28 14:37:36', '2018-12-25 21:51:26');
 INSERT INTO `t_sys_role_info` VALUES (2, '系统管理员', 0, 0, '2018-09-28 14:38:05', '2018-12-25 04:01:43');
 INSERT INTO `t_sys_role_info` VALUES (3, '产品管理员', 0, 0, '2018-10-04 22:43:38', '2018-12-25 04:01:47');
 INSERT INTO `t_sys_role_info` VALUES (4, '仓库管理员', 0, 0, '2018-11-15 12:51:54', '2018-12-18 17:05:11');

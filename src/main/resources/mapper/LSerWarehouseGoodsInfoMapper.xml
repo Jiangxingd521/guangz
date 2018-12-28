@@ -95,4 +95,22 @@
         select count(1) from l_ser_warehouse_goods_info a where a.source_type=1 and a.product_id = #{productId}
     </select>
 
+    <select id="selectGoodsPutInVoByCondition"
+            parameterType="com.ningyang.os.action.input.condition.serve.QueryGoodsPutCondition"
+            resultType="com.ningyang.os.action.output.vo.web.serve.GoodsPutInVo"
+    >
+        select b.warehouse_name,f.brand_name,e.series_name,d.product_name,
+               c.user_name,a.create_time,COUNT( DISTINCT a.box_no ) AS boxCount
+        from l_ser_warehouse_goods_info a
+                left join t_ser_warehouse_info b on a.warehouse_id = b.id
+                left join t_sys_user_info c on a.user_id = c.id
+                left join t_ser_brand_series_product_info d on a.product_id = d.id
+                left join t_ser_brand_series_info e on e.id = d.series_id
+                left join t_ser_brand_info f on e.brand_id = f.id
+				where a.source_type=1 and a.product_id = #{purchaseId}
+	    group by b.warehouse_name,f.brand_name,e.series_name,d.product_name,c.user_name,a.create_time
+	    ORDER BY a.create_time desc
+    </select>
+
+
 </mapper>
