@@ -399,4 +399,30 @@ public class ApiWareHouseController extends BaseController {
         }
     }
 
+    @ApiOperation(value = "创建退货订单")
+    @PostMapping("addOrderReturn")
+    public Map<String,Object> addOrderReturn(
+            @RequestHeader("Authorization") String userToken,
+            @RequestBody ApiWarehouseSaleOrderCommand command,
+            HttpServletResponse response
+    ){
+        try {
+            SysUserInfo loginUser = getBaseUserInfo(userToken);
+            if (loginUser != null) {
+                command.setCreateUserId(loginUser.getId());
+                //仓管提供的订单数据
+                boolean flag = purchaseOrderInfoService.apiWareHouseAdd(command);
+                if(flag){
+                    return WebResult.success().toMap();
+                }
+                return WebResult.failure(OPERATING_ERROR.getInfo()).toMap();
+            }
+            response.setStatus(300);
+            return WebResult.failure(PERMISSION_ERROR.getInfo()).toMap();
+        } catch (Exception e) {
+            LOGGER.error(e.getMessage(), e);
+            return WebResult.failure(API_REQUEST_ERROR.getInfo()).toMap();
+        }
+    }
+
 }

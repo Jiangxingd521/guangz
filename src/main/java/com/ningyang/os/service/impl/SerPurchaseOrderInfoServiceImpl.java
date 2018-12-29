@@ -3,12 +3,15 @@ package com.ningyang.os.service.impl;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.ningyang.os.action.input.command.api.ApiWarehouseOrderDetailCommand;
+import com.ningyang.os.action.input.command.api.ApiWarehouseSaleOrderCommand;
 import com.ningyang.os.action.input.command.web.serve.OrderPurchaseCommand;
 import com.ningyang.os.action.input.condition.serve.QueryGoodsPutCondition;
 import com.ningyang.os.action.input.condition.serve.QueryOrderCondition;
 import com.ningyang.os.action.output.vo.web.serve.*;
 import com.ningyang.os.dao.SerPurchaseOrderInfoMapper;
 import com.ningyang.os.pojo.LSerWarehouseGoodsInfo;
+import com.ningyang.os.pojo.SerOrderInfoDetails;
 import com.ningyang.os.pojo.SerPurchaseOrderInfo;
 import com.ningyang.os.pojo.SerPurchaseOrderInfoDetails;
 import com.ningyang.os.service.ILSerWarehouseGoodsInfoService;
@@ -174,5 +177,33 @@ public class SerPurchaseOrderInfoServiceImpl extends ServiceImpl<SerPurchaseOrde
         orderCondition.setPurchaseId(condition.getPurchaseId());
         orderCondition.setProductId(condition.getProductId());
         return detailsService.boxCount(orderCondition);
+    }
+
+    @Override
+    public boolean apiWareHouseAdd(ApiWarehouseSaleOrderCommand command) {
+        SerPurchaseOrderInfo info = new SerPurchaseOrderInfo();
+        info.setDealerId(command.getDealerId());
+        info.setOrderNo(getOrderNum());
+        info.setOrderState(1);
+        info.setOrderRemark(command.getRemark());
+        info.setUserId(command.getCreateUserId());
+        info.setCreateTime(new Date());
+        info.setUpdateTime(new Date());
+        boolean flag = save(info);
+        if(command.getDetailList().size()>0){
+            List<SerPurchaseOrderInfoDetails> detailsList = new ArrayList<>();
+            for(ApiWarehouseOrderDetailCommand detailCommand : command.getDetailList()){
+                SerPurchaseOrderInfoDetails details = new SerPurchaseOrderInfoDetails();
+                details.setPurchaseId(info.getId());
+                details.setBoxNumber(detailCommand.getBoxNumber());
+                details.setUserId(command.getCreateUserId());
+                details.setProductId(detailCommand.getProductId());
+                details.setCreateTime(new Date());
+                details.setUpdateTime(new Date());
+                detailsList.add(details);
+            }
+            detailsService.saveBatch(detailsList);
+        }
+        return flag;
     }
 }
