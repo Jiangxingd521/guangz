@@ -47,7 +47,7 @@ public class SerPrizeRecodeInfoServiceImpl extends ServiceImpl<SerPrizeRecodeInf
     public Page<PrizeSetLogVo> findPrizeSetLogVoPageByCondition(QueryPrizeCondition condition) {
         Page<PrizeSetLogVo> pageVo = new Page<>();
         List<PrizeSetLogVo> listVoTemp = baseMapper.selectPrizeSetLogVoPageByCondition(condition);
-        Long total = baseMapper.selectPrizeSetLogVoPageCountByCondition(condition);
+        long total = baseMapper.selectPrizeSetLogVoPageCountByCondition(condition);
         pageVo.setRecords(listVoTemp);
         pageVo.setTotal(total);
         pageVo.setSize(condition.getPage());
@@ -302,7 +302,7 @@ public class SerPrizeRecodeInfoServiceImpl extends ServiceImpl<SerPrizeRecodeInf
         for (PrizeTicketLogVo vo : listVoTemp) {
             vo.setTicketTimeStr(timeToStr(vo.getTicketTime()));
         }
-        Long total = baseMapper.selectPrizeTicketLogVoPageCountByCondition(condition);
+        long total = baseMapper.selectPrizeTicketLogVoPageCountByCondition(condition);
         pageVo.setRecords(listVoTemp);
         pageVo.setTotal(total);
         pageVo.setSize(condition.getPage());

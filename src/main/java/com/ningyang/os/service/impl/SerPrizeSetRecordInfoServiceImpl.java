@@ -53,7 +53,7 @@ public class SerPrizeSetRecordInfoServiceImpl extends ServiceImpl<SerPrizeSetRec
             int count = warehouseGoodsInfoService.count(new QueryWrapper<SerWarehouseGoodsInfo>().eq("goods_state",2));
             vo.setWarehouseGoodCount(Long.valueOf(count));
         }
-        Long total = baseMapper.selectPrizeSetRecordVoPageCountByCondition(condition);
+        long total = baseMapper.selectPrizeSetRecordVoPageCountByCondition(condition);
         pageVo.setRecords(listVoTemp);
         pageVo.setTotal(total);
         pageVo.setSize(condition.getPage());

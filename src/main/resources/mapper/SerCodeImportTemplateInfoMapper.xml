@@ -80,7 +80,7 @@
 
     <select id="selectCodeImportVoPageCountByCondition"
             parameterType="com.ningyang.os.action.input.condition.base.QueryCodeCondition"
-            resultType="Long"
+            resultType="long"
     >
         select count(1)
         from t_ser_code_import_template_info a

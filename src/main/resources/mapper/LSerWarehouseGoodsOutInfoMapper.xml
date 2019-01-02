@@ -35,7 +35,7 @@
 
     <select id="selectGoodsPutOutVoPageCountByCondition"
             parameterType="com.ningyang.os.action.input.condition.serve.QueryGoodsPutCondition"
-            resultType="Long"
+            resultType="long"
     >
         select count(1) from (
           select a.order_id,d.brand_name,c.series_name,b.product_name,a.goods_out_time,f.dealer_name,e.order_no

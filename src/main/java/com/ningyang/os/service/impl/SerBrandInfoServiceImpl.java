@@ -57,7 +57,7 @@ public class SerBrandInfoServiceImpl extends ServiceImpl<SerBrandInfoMapper, Ser
             }
             vo.setLogoFile(fileList);
         }
-        Long total = baseMapper.selectBrandVoPageCountByCondition(condition);
+        long total = baseMapper.selectBrandVoPageCountByCondition(condition);
         pageVo.setRecords(listVoTemp);
         pageVo.setTotal(total);
         pageVo.setSize(condition.getPage());

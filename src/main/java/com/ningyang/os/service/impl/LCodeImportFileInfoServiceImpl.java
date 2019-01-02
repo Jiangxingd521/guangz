@@ -32,7 +32,7 @@ public class LCodeImportFileInfoServiceImpl extends ServiceImpl<LCodeImportFileI
     public Page<ImportCodeVo> findImportCodeVoPageByCondition(QueryApplyCodeCondition condition) {
         Page<ImportCodeVo> pageVo = new Page<>();
         List<ImportCodeVo> listVoTemp = baseMapper.selectImportCodeVoPageByCondition(condition);
-        Long total = baseMapper.selectImportCodeVoPageCountByCondition(condition);
+        long total = baseMapper.selectImportCodeVoPageCountByCondition(condition);
         for (ImportCodeVo vo : listVoTemp) {
             vo.setCreateTimeStr(timeToStr(vo.getCreateTime()));
         }

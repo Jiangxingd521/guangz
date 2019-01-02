@@ -75,7 +75,7 @@
 
     <select id="selectPrizeSetLogVoPageCountByCondition"
             parameterType="com.ningyang.os.action.input.condition.serve.QueryPrizeCondition"
-            resultType="Long"
+            resultType="long"
     >
         select count(1) from t_ser_prize_recode_info a
     </select>
@@ -100,7 +100,7 @@
 
     <select id="selectPrizeTicketLogVoPageCountByCondition"
             parameterType="com.ningyang.os.action.input.condition.serve.QueryPrizeCondition"
-            resultType="Long"
+            resultType="long"
     >
         select count(1)
         from t_ser_prize_recode_info a

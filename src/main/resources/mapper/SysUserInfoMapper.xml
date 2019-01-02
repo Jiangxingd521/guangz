@@ -65,7 +65,7 @@
 
     <select id="selectSysUserVoPageCountByCondition"
             parameterType="com.ningyang.os.action.input.condition.base.QueryUserCondition"
-            resultType="Long"
+            resultType="long"
     >
         SELECT COUNT(1) FROM t_sys_user_info a WHERE 1=1
         <if test="username!=null">

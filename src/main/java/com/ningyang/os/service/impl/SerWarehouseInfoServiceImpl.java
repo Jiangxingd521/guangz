@@ -49,7 +49,7 @@ public class SerWarehouseInfoServiceImpl extends ServiceImpl<SerWarehouseInfoMap
                     .eq("warehouse_id",vo.getWarehouseId()).eq("goods_state",1));
             vo.setUsedTotalInventory(boxCount);
         }
-        Long total = baseMapper.selectWarehouseVoPageCountByCondition(condition);
+        long total = baseMapper.selectWarehouseVoPageCountByCondition(condition);
         pageVo.setRecords(listVoTemp);
         pageVo.setTotal(total);
         pageVo.setSize(condition.getPage());

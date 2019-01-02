@@ -87,7 +87,7 @@ public class SerBrandSeriesProductInfoServiceImpl extends ServiceImpl<SerBrandSe
             }
             vo.setProductFileList(fileList);*/
         }
-        Long total = baseMapper.selectProductVoPageCountByCondition(condition);
+        long total = baseMapper.selectProductVoPageCountByCondition(condition);
         pageVo.setRecords(listVoTemp);
         pageVo.setTotal(total);
         pageVo.setSize(condition.getPage());

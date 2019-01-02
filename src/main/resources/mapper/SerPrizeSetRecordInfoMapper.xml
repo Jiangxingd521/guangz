@@ -43,7 +43,7 @@
 
     <select id="selectPrizeSetRecordVoPageCountByCondition"
             parameterType="com.ningyang.os.action.input.condition.serve.QueryPrizeCondition"
-            resultType="Long"
+            resultType="long"
     >
         select count(*) from t_ser_prize_set_record_info a
         where 1=1

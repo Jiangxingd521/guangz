@@ -49,7 +49,7 @@ public class SerPrizeSetInfoServiceImpl extends ServiceImpl<SerPrizeSetInfoMappe
                 vo.setRegionList(regionList);
             }
         }
-        Long total = baseMapper.selectPrizeSetVoListPageCountByCondition(condition);
+        long total = baseMapper.selectPrizeSetVoListPageCountByCondition(condition);
         pageVo.setRecords(listTemp);
         pageVo.setTotal(total);
         pageVo.setSize(condition.getPage());

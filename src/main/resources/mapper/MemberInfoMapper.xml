@@ -48,7 +48,7 @@
 
     <select id="selectMemberInfoVoPageCountByCondition"
             parameterType="com.ningyang.os.action.input.condition.serve.QueryMemberCondition"
-            resultType="Long"
+            resultType="long"
     >
         select count(1) from t_member_info
     </select>

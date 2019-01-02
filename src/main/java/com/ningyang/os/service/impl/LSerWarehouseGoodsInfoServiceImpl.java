@@ -112,7 +112,7 @@ public class LSerWarehouseGoodsInfoServiceImpl extends ServiceImpl<LSerWarehouse
         for (GoodsPutInVo vo : listVoTemp) {
             vo.setCreateTimeStr(timeToStr(vo.getCreateTime()));
         }
-        Long total = baseMapper.selectGoodsPutInVoPageCountByCondition(condition);
+        long total = baseMapper.selectGoodsPutInVoPageCountByCondition(condition);
         pageVo.setRecords(listVoTemp);
         pageVo.setTotal(total);
         pageVo.setSize(condition.getPage());
