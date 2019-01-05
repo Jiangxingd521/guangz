@@ -50,6 +50,7 @@
         <if test="typeState!=null">
           and a.idata1 = #{typeState}
         </if>
+        order by a.create_time desc
     </select>
 
     <select id="selectPrizeSetVoListPageByCondition"
@@ -68,6 +69,7 @@
         <if test="typeState!=null">
             and a.idata1 = #{typeState}
         </if>
+        order by a.create_time desc
         limit #{page},#{limit}
     </select>
 
@@ -79,6 +81,7 @@
         <if test="typeState!=null">
             and a.idata1 = #{typeState}
         </if>
+        order by a.create_time desc
     </select>
 
     <select id="selectPrizeSetVoById"

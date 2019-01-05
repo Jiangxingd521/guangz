@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.ningyang.os.action.input.command.web.serve.PrizeSetCommand;
 import com.ningyang.os.action.input.condition.serve.QueryPrizeCondition;
+import com.ningyang.os.action.output.vo.web.serve.PrizeManagerVo;
 import com.ningyang.os.action.output.vo.web.serve.PrizeSetVo;
 import com.ningyang.os.dao.SerPrizeSetInfoMapper;
 import com.ningyang.os.pojo.SerPrizeManagerInfo;
@@ -14,6 +15,7 @@ import com.ningyang.os.service.ISysBaseRegionInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 
@@ -40,6 +42,15 @@ public class SerPrizeSetInfoServiceImpl extends ServiceImpl<SerPrizeSetInfoMappe
         Page<PrizeSetVo> pageVo = new Page<>();
         List<PrizeSetVo> listTemp = baseMapper.selectPrizeSetVoListPageByCondition(condition);
         for (PrizeSetVo vo : listTemp) {
+            //金额
+            BigDecimal money = new BigDecimal(vo.getMoney()!=null?vo.getMoney():"0").divide(new BigDecimal(100));
+            BigDecimal moneyEnd = new BigDecimal(vo.getMoneyEnd()!=null?vo.getMoneyEnd():"0").divide(new BigDecimal(100));
+            vo.setMoney(money.toString());
+            vo.setMoneyEnd(moneyEnd.toString());
+            //奖项类型
+            PrizeManagerVo managerVo = managerInfoService.findPrizeManagerVoById(vo.getManagerId());
+            vo.setPrizeManager(managerVo);
+            //开始结束布奖日期
             Date[] prizeDate = {vo.getPrizeStartDate(), vo.getPrizeEndDate()};
             vo.setPrizeDate(prizeDate);
             vo.setPrizeStartDateStr(dateToDate(vo.getPrizeStartDate()));
@@ -61,6 +72,14 @@ public class SerPrizeSetInfoServiceImpl extends ServiceImpl<SerPrizeSetInfoMappe
     public List<PrizeSetVo> findPrizeSetVoListByCondition(QueryPrizeCondition condition) {
         List<PrizeSetVo> listTemp = baseMapper.selectPrizeSetVoListByCondition(condition);
         for (PrizeSetVo vo : listTemp) {
+            BigDecimal money = new BigDecimal(vo.getMoney()).divide(new BigDecimal(100));
+            BigDecimal moneyEnd = new BigDecimal(vo.getMoneyEnd()).divide(new BigDecimal(100));
+            vo.setMoney(money.toString());
+            vo.setMoneyEnd(moneyEnd.toString());
+            //奖项类型
+            PrizeManagerVo managerVo = managerInfoService.findPrizeManagerVoById(vo.getManagerId());
+            vo.setPrizeManager(managerVo);
+
             Date[] prizeDate = {vo.getPrizeStartDate(), vo.getPrizeEndDate()};
             vo.setPrizeDate(prizeDate);
             vo.setPrizeStartDateStr(dateToDate(vo.getPrizeStartDate()));
@@ -84,8 +103,8 @@ public class SerPrizeSetInfoServiceImpl extends ServiceImpl<SerPrizeSetInfoMappe
             info.setMemberType(command.getMemberType());
             info.setRegionId(command.getRegionId());
             info.setPrizeQuantity(command.getPrizeQuantity());
-            info.setMoney(command.getMoney());
-            info.setMoneyEnd(command.getMoneyEnd());
+            info.setMoney(command.getMoney().multiply(new BigDecimal(100)));
+            info.setMoneyEnd(command.getMoneyEnd().multiply(new BigDecimal(100)));
             info.setPonit(command.getPonit());
             info.setPointEnd(command.getPointEnd());
             info.setPrizeSetType(command.getPrizeSetType());
@@ -108,8 +127,8 @@ public class SerPrizeSetInfoServiceImpl extends ServiceImpl<SerPrizeSetInfoMappe
             info.setMemberType(command.getMemberType());
             info.setRegionId(command.getRegionId());
             info.setPrizeQuantity(command.getPrizeQuantity());
-            info.setMoney(command.getMoney());
-            info.setMoneyEnd(command.getMoneyEnd());
+            info.setMoney(command.getMoney().multiply(new BigDecimal(100)));
+            info.setMoneyEnd(command.getMoneyEnd().multiply(new BigDecimal(100)));
             info.setPonit(command.getPonit());
             info.setPointEnd(command.getPointEnd());
             info.setPrizeSetType(command.getPrizeSetType());
@@ -132,6 +151,16 @@ public class SerPrizeSetInfoServiceImpl extends ServiceImpl<SerPrizeSetInfoMappe
     @Override
     public PrizeSetVo findPrizeSetVoById(Long prizeSetId) {
         PrizeSetVo vo = baseMapper.selectPrizeSetVoById(prizeSetId);
+        BigDecimal money = new BigDecimal(vo.getMoney()).divide(new BigDecimal(100));
+        BigDecimal moneyEnd = new BigDecimal(vo.getMoneyEnd()).divide(new BigDecimal(100));
+
+        vo.setMoney(money.toString());
+        vo.setMoneyEnd(moneyEnd.toString());
+
+        //奖项类型
+        PrizeManagerVo managerVo = managerInfoService.findPrizeManagerVoById(vo.getManagerId());
+        vo.setPrizeManager(managerVo);
+
         Date[] prizeDate = {vo.getPrizeStartDate(), vo.getPrizeEndDate()};
         vo.setPrizeDate(prizeDate);
         vo.setPrizeStartDateStr(dateToDate(vo.getPrizeStartDate()));

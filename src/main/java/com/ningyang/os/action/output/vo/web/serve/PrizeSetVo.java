@@ -60,6 +60,8 @@ public class PrizeSetVo {
 
     private String userName;
 
+    private PrizeManagerVo prizeManager;
+
     public Long getPrizeSetId() {
         return prizeSetId;
     }
@@ -258,5 +260,13 @@ public class PrizeSetVo {
 
     public void setUserName(String userName) {
         this.userName = userName;
+    }
+
+    public PrizeManagerVo getPrizeManager() {
+        return prizeManager;
+    }
+
+    public void setPrizeManager(PrizeManagerVo prizeManager) {
+        this.prizeManager = prizeManager;
     }
 }

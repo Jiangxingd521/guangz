@@ -19,4 +19,5 @@ public interface SerPrizeManagerInfoMapper extends BaseMapper<SerPrizeManagerInf
 
     List<PrizeManagerVo> selectPrizeManagerVoListByCondition(QueryPrizeCondition condition);
 
+    PrizeManagerVo selectPrizeManagerVoById(Long Id);
 }

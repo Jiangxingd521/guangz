@@ -66,4 +66,8 @@ public class SerPrizeManagerInfoServiceImpl extends ServiceImpl<SerPrizeManagerI
         return flag;
     }
 
+    @Override
+    public PrizeManagerVo findPrizeManagerVoById(Long managerId) {
+        return baseMapper.selectPrizeManagerVoById(managerId);
+    }
 }

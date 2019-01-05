@@ -22,4 +22,5 @@ public interface ISerPrizeManagerInfoService extends IService<SerPrizeManagerInf
 
     boolean addOrUpdate(PrizeManagerCommand command, Long userId);
 
+    PrizeManagerVo findPrizeManagerVoById(Long managerId);
 }
