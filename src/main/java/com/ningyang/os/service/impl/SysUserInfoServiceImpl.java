@@ -55,7 +55,7 @@ public class SysUserInfoServiceImpl extends ServiceImpl<SysUserInfoMapper, SysUs
         List<String> roles = new ArrayList<>();
         List<UserRoleDto> roleList = userRoleMapper.selectByUserId(userId);
         for (UserRoleDto roleDto : roleList) {
-            String role = String.valueOf(roleDto.getId());
+            String role = String.valueOf(roleDto.getRoleId());
             roles.add(role);
         }
         dto.setRoles(roles);
@@ -68,11 +68,6 @@ public class SysUserInfoServiceImpl extends ServiceImpl<SysUserInfoMapper, SysUs
     @Override
     public Page<SysUserVo> findSysUserVoPageByCondition(QueryUserCondition condition) {
         Page<SysUserVo> pageVo = new Page<>();
-        if (condition.getPage() == -10 || condition.getPage() == 0) {
-            condition.setPage(1);
-        } else {
-            condition.setPage(condition.getCurrentPage());
-        }
         if (condition.getPid().equals("1")) {
             condition.setUserFlag(1);
         } else {
