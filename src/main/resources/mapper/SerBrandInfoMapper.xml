@@ -29,7 +29,7 @@
         <if test="brandState!=null">
             and a.brand_state = #{brandState}
         </if>
-        order by a.brand_sort
+        order by a.create_time
     </select>
 
     <select id="selectBrandVoPageByCondition"
@@ -45,7 +45,7 @@
         <if test="brandState!=null">
             and a.brand_state = #{brandState}
         </if>
-        order by a.brand_sort
+        order by a.create_time
         limit #{page},#{limit}
     </select>
 
@@ -57,6 +57,6 @@
         <if test="brandState!=null">
             and a.brand_state = #{brandState}
         </if>
-        order by a.brand_sort
+        order by a.create_time
     </select>
 </mapper>

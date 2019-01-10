@@ -38,7 +38,7 @@
         <if test="purchaseId!=null">
             and a.purchase_id = #{purchaseId}
             <if test="orderSaleFlag!=0">
-                or a.purchase_id=-1 and a.user_id = #{userId}
+                and a.user_id = #{userId} or a.purchase_id=-1
             </if>
         </if>
         group by a.purchase_id,a.product_id,a.user_id,
@@ -58,7 +58,7 @@
         <if test="purchaseId!=null">
             and a.purchase_id = #{purchaseId}
             <if test="orderSaleFlag!=0">
-                or a.purchase_id=-1 and a.user_id = #{userId}
+                and a.user_id = #{userId} or a.purchase_id=-1
             </if>
         </if>
         and a.product_id = #{productId}

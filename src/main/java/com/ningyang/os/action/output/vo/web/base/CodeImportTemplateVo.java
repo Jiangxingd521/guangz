@@ -19,6 +19,10 @@ public class CodeImportTemplateVo {
 
     private String brandName;
 
+    private Long brandId;
+
+    private Long seriesId;
+
     private Long leftCodeType;
 
     private Long leftCodeId;
@@ -135,5 +139,21 @@ public class CodeImportTemplateVo {
 
     public void setTemplateState(int templateState) {
         this.templateState = templateState;
+    }
+
+    public Long getBrandId() {
+        return brandId;
+    }
+
+    public void setBrandId(Long brandId) {
+        this.brandId = brandId;
+    }
+
+    public Long getSeriesId() {
+        return seriesId;
+    }
+
+    public void setSeriesId(Long seriesId) {
+        this.seriesId = seriesId;
     }
 }
