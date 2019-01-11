@@ -1,6 +1,7 @@
 package com.ningyang.os;
 
 import org.mybatis.spring.annotation.MapperScan;
+import org.springframework.boot.Banner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
@@ -20,6 +21,10 @@ public class NodeOsApplication extends SpringBootServletInitializer {
     }
 
     public static void main(String[] args) {
-        SpringApplication.run(NodeOsApplication.class, args);
+        SpringApplication sb = new SpringApplication(NodeOsApplication.class);
+        sb.setBannerMode(Banner.Mode.OFF);
+        sb.run(args);
     }
+
+
 }
