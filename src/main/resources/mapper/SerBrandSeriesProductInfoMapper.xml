@@ -55,7 +55,10 @@
         select a.code_id,b.code_name
         from t_ser_brand_series_product_code_info a
                  left join t_ser_code_type3_info b on a.code_id = b.id
-        where a.product_id = #{productId}
+        where 1=1
+        <if test="productId!=null">
+           and a.product_id = #{productId}
+        </if>
     </select>
 
     <select id="selectSeriesProductVoByCondition"
@@ -63,7 +66,10 @@
             resultType="com.ningyang.os.action.output.vo.web.base.SeriesProductVo"
     >
         select a.id as productId,a.product_name from t_ser_brand_series_product_info a
-        where a.product_state=0 and a.series_id = #{seriesId}
+        where a.product_state=0
+        <if test="seriesId!=null">
+            and a.series_id = #{seriesId}
+        </if>
     </select>
 
     <select id="selectApiProductVoList" resultType="com.ningyang.os.action.output.vo.api.ApiProductVo">
