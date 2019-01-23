@@ -1,10 +1,13 @@
 package com.ningyang.os.action.input.command.api;
 
+import lombok.Data;
+
 /**
  * @Author： kaider
  * @Date：2018/11/27 10:39
  * @描述：商品入库
  */
+@Data
 public class ApiWarehousePutInCommand {
     //仓库
     private Long warehouseId;
@@ -14,36 +17,4 @@ public class ApiWarehousePutInCommand {
     private String remark;
     //箱码
     private String[] boxCode;
-
-    public Long getWarehouseId() {
-        return warehouseId;
-    }
-
-    public void setWarehouseId(Long warehouseId) {
-        this.warehouseId = warehouseId;
-    }
-
-    public Long getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Long userId) {
-        this.userId = userId;
-    }
-
-    public String getRemark() {
-        return remark;
-    }
-
-    public void setRemark(String remark) {
-        this.remark = remark;
-    }
-
-    public String[] getBoxCode() {
-        return boxCode;
-    }
-
-    public void setBoxCode(String[] boxCode) {
-        this.boxCode = boxCode;
-    }
 }

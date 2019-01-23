@@ -1,10 +1,13 @@
 package com.ningyang.os.action.input.command.web.serve;
 
+import lombok.Data;
+
 /**
  * @Author： kaider
  * @Date：2018/11/28 14:36
  * @描述：订单详情
  */
+@Data
 public class OrderDetailsCommand {
     //操作人
     private Long userId;
@@ -16,44 +19,4 @@ public class OrderDetailsCommand {
     private Long orderId;
     //退货订单id
     private Long purchaseId;
-
-    public Long getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Long userId) {
-        this.userId = userId;
-    }
-
-    public Long getProductId() {
-        return productId;
-    }
-
-    public void setProductId(Long productId) {
-        this.productId = productId;
-    }
-
-    public int getBoxNumber() {
-        return boxNumber;
-    }
-
-    public void setBoxNumber(int boxNumber) {
-        this.boxNumber = boxNumber;
-    }
-
-    public Long getOrderId() {
-        return orderId;
-    }
-
-    public void setOrderId(Long orderId) {
-        this.orderId = orderId;
-    }
-
-    public Long getPurchaseId() {
-        return purchaseId;
-    }
-
-    public void setPurchaseId(Long purchaseId) {
-        this.purchaseId = purchaseId;
-    }
 }

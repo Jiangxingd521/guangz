@@ -11,10 +11,11 @@ package com.ningyang.os.wechat.service.impl;
 import com.ningyang.os.wechat.data.*;
 import com.ningyang.os.wechat.service.WechatService;
 import com.ningyang.os.wechat.timer.WechatTimer;
-import com.ningyang.os.wechat.utils.HttpUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
+
+import static cn.hutool.http.HttpUtil.get;
 
 
 /**
@@ -37,7 +38,7 @@ public class WechatServiceImpl implements WechatService {
                 .replace("SECRET", ＷechatConfig.appsecret).replace("CODE", code);
         System.out.println("Oauth2Url:" + Oauth2Url);
 
-        String result = HttpUtil.get(Oauth2Url, null);
+        String result = get(Oauth2Url);
 
         LOGGER.error(result);
         System.out.println("result:" + result);
@@ -53,7 +54,7 @@ public class WechatServiceImpl implements WechatService {
     @Override
     public Message<AccessToken> getWechatAccessToken() {
         String accessTokenURL = ＷechatConfig.WECHAT_ACCESS_TOKEN.replace("APPID", ＷechatConfig.appid).replaceAll("APPSECRET", ＷechatConfig.appsecret);
-        String result = HttpUtil.get(accessTokenURL, null);
+        String result = get(accessTokenURL);
         System.out.println("code====" + result);
         LOGGER.error(result);
         return Message.wechatMessage(result, AccessToken.class);
@@ -62,7 +63,7 @@ public class WechatServiceImpl implements WechatService {
     @Override
     public Message<WechatJsToken> getWechatJsToken(String accessToken) {
         String jsTokenURL = ＷechatConfig.WECHAT_JS_TOKEN.replace("ACCESS_TOKEN", accessToken);
-        String result = HttpUtil.get(jsTokenURL, null);
+        String result = get(jsTokenURL);
         LOGGER.error(result);
         return Message.wechatMessage(result, WechatJsToken.class);
     }
@@ -98,7 +99,7 @@ public class WechatServiceImpl implements WechatService {
     @Override
     public String getWXUserInfo(String ACCESS_TOKEN, String OPENID) {
         String WXUserInfoURL = ＷechatConfig.WX_USER_INFO.replace("ACCESS_TOKEN", ACCESS_TOKEN).replace("OPENID", OPENID);
-        String result = HttpUtil.get(WXUserInfoURL, null);
+        String result = get(WXUserInfoURL);
         return result;
     }
 
@@ -128,7 +129,7 @@ public class WechatServiceImpl implements WechatService {
     @Override
     public Message<AccessToken> getWechatAccessToken(String appId, String appSecret) {
         String accessTokenURL = ＷechatConfig.WECHAT_ACCESS_TOKEN.replace("APPID", appId).replaceAll("APPSECRET", appSecret);
-        String result = HttpUtil.get(accessTokenURL, null);
+        String result = get(accessTokenURL);
         LOGGER.error(result);
         return Message.wechatMessage(result, AccessToken.class);
     }

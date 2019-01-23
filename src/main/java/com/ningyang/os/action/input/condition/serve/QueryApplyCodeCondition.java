@@ -1,14 +1,15 @@
 package com.ningyang.os.action.input.condition.serve;
 
 import com.ningyang.os.action.input.condition.common.BaseCondition;
+import lombok.Data;
 
 /**
  * @Author： kaider
  * @Date：2018/11/21 10:11
  * @描述：溯源码申请
  */
+@Data
 public class QueryApplyCodeCondition extends BaseCondition {
-
     //模板表名
     private String tableName;
     //溯源码订单
@@ -17,57 +18,8 @@ public class QueryApplyCodeCondition extends BaseCondition {
     private Integer codeType;
     //溯源码内容
     private String codeContent;
-
     //种类
     private String codeTypeName;
     //位置
     private String codePositionTypeName;
-
-    public String getTableName() {
-        return tableName;
-    }
-
-    public void setTableName(String tableName) {
-        this.tableName = tableName;
-    }
-
-    public String getCodeOrder() {
-        return codeOrder;
-    }
-
-    public void setCodeOrder(String codeOrder) {
-        this.codeOrder = codeOrder;
-    }
-
-    public Integer getCodeType() {
-        return codeType;
-    }
-
-    public void setCodeType(Integer codeType) {
-        this.codeType = codeType;
-    }
-
-    public String getCodeContent() {
-        return codeContent;
-    }
-
-    public void setCodeContent(String codeContent) {
-        this.codeContent = codeContent;
-    }
-
-    public String getCodeTypeName() {
-        return codeTypeName;
-    }
-
-    public void setCodeTypeName(String codeTypeName) {
-        this.codeTypeName = codeTypeName;
-    }
-
-    public String getCodePositionTypeName() {
-        return codePositionTypeName;
-    }
-
-    public void setCodePositionTypeName(String codePositionTypeName) {
-        this.codePositionTypeName = codePositionTypeName;
-    }
 }

@@ -1,5 +1,7 @@
 package com.ningyang.os.action.output.vo.api;
 
+import lombok.Data;
+
 import java.util.List;
 
 /**
@@ -7,6 +9,7 @@ import java.util.List;
  * @Date：2018/12/12 16:04
  * @描述：仓库商品信息
  */
+@Data
 public class ApiWarehouseGoodsVo {
     //品牌
     private String brandName;
@@ -22,60 +25,4 @@ public class ApiWarehouseGoodsVo {
     private int boxCount;
     //具体列表
     private List<ApiWarehouseGoodsInfoVo> goodsInfoVoList;
-
-    public String getBrandName() {
-        return brandName;
-    }
-
-    public void setBrandName(String brandName) {
-        this.brandName = brandName;
-    }
-
-    public String getSeriesName() {
-        return seriesName;
-    }
-
-    public void setSeriesName(String seriesName) {
-        this.seriesName = seriesName;
-    }
-
-    public String getProductName() {
-        return productName;
-    }
-
-    public void setProductName(String productName) {
-        this.productName = productName;
-    }
-
-    public Long getProductId() {
-        return productId;
-    }
-
-    public void setProductId(Long productId) {
-        this.productId = productId;
-    }
-
-    public String getWarehouseName() {
-        return warehouseName;
-    }
-
-    public void setWarehouseName(String warehouseName) {
-        this.warehouseName = warehouseName;
-    }
-
-    public int getBoxCount() {
-        return boxCount;
-    }
-
-    public void setBoxCount(int boxCount) {
-        this.boxCount = boxCount;
-    }
-
-    public List<ApiWarehouseGoodsInfoVo> getGoodsInfoVoList() {
-        return goodsInfoVoList;
-    }
-
-    public void setGoodsInfoVoList(List<ApiWarehouseGoodsInfoVo> goodsInfoVoList) {
-        this.goodsInfoVoList = goodsInfoVoList;
-    }
 }
