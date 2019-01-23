@@ -37,6 +37,7 @@
         <commons-codec-version>1.9</commons-codec-version>
         <easypoi-version>3.3.0</easypoi-version>
         <httpclient.version>4.5.1</httpclient.version>
+        <lombok-version>1.18.4</lombok-version>
     </properties>
 
     <dependencies>
@@ -204,6 +205,13 @@
             <groupId>cn.afterturn</groupId>
             <artifactId>easypoi-annotation</artifactId>
             <version>${easypoi-version}</version>
+        </dependency>
+
+        <!-- lombok -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok-version}</version>
         </dependency>
 
         <dependency>
