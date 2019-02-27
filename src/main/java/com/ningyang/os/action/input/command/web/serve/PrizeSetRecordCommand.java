@@ -1,6 +1,7 @@
 package com.ningyang.os.action.input.command.web.serve;
 
 import com.ningyang.os.action.output.vo.web.serve.SaleOrderVo;
+import lombok.Data;
 
 import java.util.List;
 
@@ -9,6 +10,7 @@ import java.util.List;
  * @Date：2018/11/30 16:06
  * @描述：布奖操作
  */
+@Data
 public class PrizeSetRecordCommand {
     //布奖操作id
     private Long recordId;
@@ -26,69 +28,4 @@ public class PrizeSetRecordCommand {
     private int prizeSetType;
     //当前奖项设置的状态（0：有效，1：无效）
     private int prizeSetState;
-
-    public Long getRecordId() {
-        return recordId;
-    }
-
-    public void setRecordId(Long recordId) {
-        this.recordId = recordId;
-    }
-
-    public List<SaleOrderVo> getSaleOrderVoList() {
-        return saleOrderVoList;
-    }
-
-    public void setSaleOrderVoList(List<SaleOrderVo> saleOrderVoList) {
-        this.saleOrderVoList = saleOrderVoList;
-    }
-
-    public Long getBrandId() {
-        return brandId;
-    }
-
-    public void setBrandId(Long brandId) {
-        this.brandId = brandId;
-    }
-
-    public Long getSeriesId() {
-        return seriesId;
-    }
-
-    public void setSeriesId(Long seriesId) {
-        this.seriesId = seriesId;
-    }
-
-    public Long getProductId() {
-        return productId;
-    }
-
-    public void setProductId(Long productId) {
-        this.productId = productId;
-    }
-
-    public Long getPrizeSetId() {
-        return prizeSetId;
-    }
-
-    public void setPrizeSetId(Long prizeSetId) {
-        this.prizeSetId = prizeSetId;
-    }
-
-    public int getPrizeSetType() {
-        return prizeSetType;
-    }
-
-    public void setPrizeSetType(int prizeSetType) {
-        this.prizeSetType = prizeSetType;
-    }
-
-    public int getPrizeSetState() {
-        return prizeSetState;
-    }
-
-    public void setPrizeSetState(int prizeSetState) {
-        this.prizeSetState = prizeSetState;
-    }
-
 }

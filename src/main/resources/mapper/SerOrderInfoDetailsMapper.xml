@@ -24,14 +24,14 @@
         left join t_ser_brand_series_info c on b.series_id=c.id
         left join t_ser_brand_info d on c.brand_id=d.id
         where 1=1
+        <if test="productId!=null">
+            and a.product_id = #{productId}
+        </if>
         <if test="orderId!=null">
             and a.order_id = #{orderId}
             <if test="orderSaleFlag!=0">
-                or a.order_id=-1 and a.user_id = #{userId}
+                and a.user_id = #{userId} or a.order_id=-1
             </if>
-        </if>
-        <if test="productId!=null">
-            and a.product_id = #{productId}
         </if>
         group by a.order_id,a.product_id,a.user_id,d.brand_name,
         c.series_name,b.product_name,b.sales_price
@@ -43,13 +43,15 @@
     >
         select sum(a.box_number) from t_ser_order_info_details a
         where 1=1
+        <if test="productId!=null">
+            and a.product_id = #{productId}
+        </if>
         <if test="orderId!=null">
             and a.order_id = #{orderId}
             <if test="orderSaleFlag!=0">
-                or a.order_id=-1 and a.user_id = #{userId}
+                and a.user_id = #{userId} or a.order_id=-1
             </if>
         </if>
-        and a.product_id = #{productId}
     </select>
 
     <delete id="deleteOrderByNull">

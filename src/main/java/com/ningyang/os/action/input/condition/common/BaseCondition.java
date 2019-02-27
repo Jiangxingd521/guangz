@@ -1,5 +1,8 @@
 package com.ningyang.os.action.input.condition.common;
 
+import lombok.Data;
+import lombok.Setter;
+
 import java.io.Serializable;
 
 /**
@@ -7,6 +10,7 @@ import java.io.Serializable;
  * @Date：2018/08/30 17:22
  * @描述：
  */
+@Data
 public class BaseCondition implements Serializable {
     //页数
     private int page = 0;
@@ -29,16 +33,8 @@ public class BaseCondition implements Serializable {
         return (page - 1) * limit;
     }
 
-    public void setPage(int page) {
-        this.page = page;
-    }
-
     public int getLimit() {
         return limit;
-    }
-
-    public void setLimit(int limit) {
-        this.limit = limit;
     }
 
     public Integer getCurrentPage() {

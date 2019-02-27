@@ -1,5 +1,7 @@
 package com.ningyang.os.action.output.vo.web.serve;
 
+import lombok.Data;
+
 import java.util.Date;
 
 /**
@@ -7,6 +9,7 @@ import java.util.Date;
  * @Date：2018/11/15 16:18
  * @描述：溯源码申请
  */
+@Data
 public class ApplyCodeVo {
 
     private Long applyId;
@@ -36,116 +39,4 @@ public class ApplyCodeVo {
     private Date createTime;
 
     private String createTimeStr;
-
-    public Long getApplyId() {
-        return applyId;
-    }
-
-    public void setApplyId(Long applyId) {
-        this.applyId = applyId;
-    }
-
-    public String getCodeOrder() {
-        return codeOrder;
-    }
-
-    public void setCodeOrder(String codeOrder) {
-        this.codeOrder = codeOrder;
-    }
-
-    public Long getCodeType() {
-        return codeType;
-    }
-
-    public void setCodeType(Long codeType) {
-        this.codeType = codeType;
-    }
-
-    public String getCodeTypeName() {
-        return codeTypeName;
-    }
-
-    public void setCodeTypeName(String codeTypeName) {
-        this.codeTypeName = codeTypeName;
-    }
-
-    public Long getCodePosition() {
-        return codePosition;
-    }
-
-    public void setCodePosition(Long codePosition) {
-        this.codePosition = codePosition;
-    }
-
-    public String getCodePositionName() {
-        return codePositionName;
-    }
-
-    public void setCodePositionName(String codePositionName) {
-        this.codePositionName = codePositionName;
-    }
-
-    public Long getCodePositionType() {
-        return codePositionType;
-    }
-
-    public void setCodePositionType(Long codePositionType) {
-        this.codePositionType = codePositionType;
-    }
-
-    public String getCodePositionTypeName() {
-        return codePositionTypeName;
-    }
-
-    public void setCodePositionTypeName(String codePositionTypeName) {
-        this.codePositionTypeName = codePositionTypeName;
-    }
-
-    public String getApplyUserName() {
-        return applyUserName;
-    }
-
-    public void setApplyUserName(String applyUserName) {
-        this.applyUserName = applyUserName;
-    }
-
-    public int getApplyCount() {
-        return applyCount;
-    }
-
-    public void setApplyCount(int applyCount) {
-        this.applyCount = applyCount;
-    }
-
-    public int getApplyState() {
-        return applyState;
-    }
-
-    public void setApplyState(int applyState) {
-        this.applyState = applyState;
-    }
-
-    public String getTableName() {
-        return tableName;
-    }
-
-    public void setTableName(String tableName) {
-        this.tableName = tableName;
-    }
-
-    public Date getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
-    }
-
-    public String getCreateTimeStr() {
-        return createTimeStr;
-    }
-
-    public void setCreateTimeStr(String createTimeStr) {
-        this.createTimeStr = createTimeStr;
-    }
 }

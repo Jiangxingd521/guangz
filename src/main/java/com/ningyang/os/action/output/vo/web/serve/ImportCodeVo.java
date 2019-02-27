@@ -1,5 +1,7 @@
 package com.ningyang.os.action.output.vo.web.serve;
 
+import lombok.Data;
+
 import java.util.Date;
 
 /**
@@ -7,6 +9,7 @@ import java.util.Date;
  * @Date：2018/11/22 16:27
  * @描述：导入溯源码数据
  */
+@Data
 public class ImportCodeVo {
 
     private Long logId;
@@ -30,92 +33,4 @@ public class ImportCodeVo {
     private Date createTime;
     //上传时间
     private String createTimeStr;
-
-    public Long getLogId() {
-        return logId;
-    }
-
-    public void setLogId(Long logId) {
-        this.logId = logId;
-    }
-
-    public String getFileName() {
-        return fileName;
-    }
-
-    public void setFileName(String fileName) {
-        this.fileName = fileName;
-    }
-
-    public String getUploadOrder() {
-        return uploadOrder;
-    }
-
-    public void setUploadOrder(String uploadOrder) {
-        this.uploadOrder = uploadOrder;
-    }
-
-    public int getCodeCount() {
-        return codeCount;
-    }
-
-    public void setCodeCount(int codeCount) {
-        this.codeCount = codeCount;
-    }
-
-    public String getUserName() {
-        return userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
-
-    public String getBrandName() {
-        return brandName;
-    }
-
-    public void setBrandName(String brandName) {
-        this.brandName = brandName;
-    }
-
-    public String getSeriesName() {
-        return seriesName;
-    }
-
-    public void setSeriesName(String seriesName) {
-        this.seriesName = seriesName;
-    }
-
-    public String getProductName() {
-        return productName;
-    }
-
-    public void setProductName(String productName) {
-        this.productName = productName;
-    }
-
-    public String getTemplateName() {
-        return templateName;
-    }
-
-    public void setTemplateName(String templateName) {
-        this.templateName = templateName;
-    }
-
-    public Date getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
-    }
-
-    public String getCreateTimeStr() {
-        return createTimeStr;
-    }
-
-    public void setCreateTimeStr(String createTimeStr) {
-        this.createTimeStr = createTimeStr;
-    }
 }

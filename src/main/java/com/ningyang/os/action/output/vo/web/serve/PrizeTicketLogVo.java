@@ -1,5 +1,7 @@
 package com.ningyang.os.action.output.vo.web.serve;
 
+import lombok.Data;
+
 import java.util.Date;
 
 /**
@@ -7,6 +9,7 @@ import java.util.Date;
  * @Date：2018/12/04 10:29
  * @描述：兑奖记录
  */
+@Data
 public class PrizeTicketLogVo {
     //产品名称
     private String productName;
@@ -22,60 +25,4 @@ public class PrizeTicketLogVo {
     private Date ticketTime;
 
     private String ticketTimeStr;
-
-    public String getProductName() {
-        return productName;
-    }
-
-    public void setProductName(String productName) {
-        this.productName = productName;
-    }
-
-    public String getPrizeSetName() {
-        return prizeSetName;
-    }
-
-    public void setPrizeSetName(String prizeSetName) {
-        this.prizeSetName = prizeSetName;
-    }
-
-    public String getPrizeTypeName() {
-        return prizeTypeName;
-    }
-
-    public void setPrizeTypeName(String prizeTypeName) {
-        this.prizeTypeName = prizeTypeName;
-    }
-
-    public String getDealerName() {
-        return dealerName;
-    }
-
-    public void setDealerName(String dealerName) {
-        this.dealerName = dealerName;
-    }
-
-    public String getOrderNo() {
-        return orderNo;
-    }
-
-    public void setOrderNo(String orderNo) {
-        this.orderNo = orderNo;
-    }
-
-    public Date getTicketTime() {
-        return ticketTime;
-    }
-
-    public void setTicketTime(Date ticketTime) {
-        this.ticketTime = ticketTime;
-    }
-
-    public String getTicketTimeStr() {
-        return ticketTimeStr;
-    }
-
-    public void setTicketTimeStr(String ticketTimeStr) {
-        this.ticketTimeStr = ticketTimeStr;
-    }
 }

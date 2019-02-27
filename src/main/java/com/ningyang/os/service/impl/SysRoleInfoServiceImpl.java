@@ -27,11 +27,6 @@ public class SysRoleInfoServiceImpl extends ServiceImpl<SysRoleInfoMapper, SysRo
     @Override
     public Page<SysRoleVo> findRoleVoPageByCondition(QueryRoleCondition condition) {
         Page<SysRoleVo> pageVo = new Page<>();
-        if (condition.getPage() == -10 || condition.getPage() == 0) {
-            condition.setPage(1);
-        } else {
-            condition.setPage(condition.getCurrentPage());
-        }
         List<SysRoleVo> listVoTemp = baseMapper.selectRoleVoPageByCondition(condition);
         long total = baseMapper.selectRoleVoPageCountByCondition(condition);
         pageVo.setRecords(listVoTemp);

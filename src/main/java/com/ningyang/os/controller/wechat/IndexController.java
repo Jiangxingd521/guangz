@@ -127,7 +127,7 @@ public class IndexController {
             } else if (message.getType() == Message.Type.success) {
                 openid = message.getContent().getOpenid();
                 session.setAttribute("openid", openid);
-                MemberInfo memberInfo = (MemberInfo) iMemberInfoService.getObj(new QueryWrapper<MemberInfo>()
+                MemberInfo memberInfo = iMemberInfoService.getOne(new QueryWrapper<MemberInfo>()
                         .eq("open_id", message.getContent().getOpenid()));
                 if (memberInfo == null) {
                     memberInfo = this.getUserInfo(message.getContent().getOpenid());

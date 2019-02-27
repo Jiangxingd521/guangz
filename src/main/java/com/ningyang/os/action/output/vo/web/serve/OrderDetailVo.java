@@ -1,10 +1,13 @@
 package com.ningyang.os.action.output.vo.web.serve;
 
+import lombok.Data;
+
 /**
  * @Author： kaider
  * @Date：2018/11/28 15:06
  * @描述：订单详情
  */
+@Data
 public class OrderDetailVo {
     //订单id
     private Long orderId;
@@ -23,76 +26,4 @@ public class OrderDetailVo {
     private int detailState;
     //订单销售状态（0：未完成，1：已完成）
     private int saleState;
-
-    public Long getOrderId() {
-        return orderId;
-    }
-
-    public void setOrderId(Long orderId) {
-        this.orderId = orderId;
-    }
-
-    public String getBrandName() {
-        return brandName;
-    }
-
-    public void setBrandName(String brandName) {
-        this.brandName = brandName;
-    }
-
-    public String getSeriesName() {
-        return seriesName;
-    }
-
-    public void setSeriesName(String seriesName) {
-        this.seriesName = seriesName;
-    }
-
-    public Long getProductId() {
-        return productId;
-    }
-
-    public void setProductId(Long productId) {
-        this.productId = productId;
-    }
-
-    public String getProductName() {
-        return productName;
-    }
-
-    public void setProductName(String productName) {
-        this.productName = productName;
-    }
-
-    public String getSalesPrice() {
-        return salesPrice;
-    }
-
-    public void setSalesPrice(String salesPrice) {
-        this.salesPrice = salesPrice;
-    }
-
-    public int getBoxNumber() {
-        return boxNumber;
-    }
-
-    public void setBoxNumber(int boxNumber) {
-        this.boxNumber = boxNumber;
-    }
-
-    public int getDetailState() {
-        return detailState;
-    }
-
-    public void setDetailState(int detailState) {
-        this.detailState = detailState;
-    }
-
-    public int getSaleState() {
-        return saleState;
-    }
-
-    public void setSaleState(int saleState) {
-        this.saleState = saleState;
-    }
 }

@@ -45,7 +45,6 @@ mybatisPlus:
       id-type: auto
       field-strategy: ignored
       column-like: true
-    refresh: true
     banner: false
   configuration:
     mapUnderscoreToCamelCase: true
@@ -60,8 +59,9 @@ logging:
 
 os-config:
   default-password: 12345678
-  default-templateUrl: http://www.headingtech.com/center/tz/
+#  default-templateUrl: http://www.headingtech.com/center/tz/
+  default-templateUrl: http://115.29.233.241/center/tz/
 #  default-centerUrl: http://localhost:8083/center/
-  default-centerUrl: http://www.headingtech.com/center/
+  default-centerUrl: http://115.29.233.241/center/
   default-qrcode-template-table: t_ser_apply_code_dateTemplate
   default-qrcode-template-file-path: /Users/kaider/temp/WorkLog/qrcode/
