@@ -187,7 +187,7 @@ public class IndexController {
 
         MemberScanning memberScanning = iMemberScanningService.getOne(new QueryWrapper<MemberScanning>()
                 .eq("sdata1", ip)
-                .eq("product_code", source)
+                .eq("pr_code", source)
                 .eq("open_id", openid));
 
         if (memberScanning == null) {
