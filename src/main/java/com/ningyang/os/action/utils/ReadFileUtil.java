@@ -65,6 +65,9 @@ public class ReadFileUtil {
 
         for (String lineTxt : groupList) {
             ReadFileBackData dto = new ReadFileBackData();
+            if(lineTxt.trim().equals("")){
+                continue;
+            }
             String[] group = lineTxt.split(",");
             dto.setLData(group[0]);
             dto.setRData(group[1]);
