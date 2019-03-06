@@ -141,6 +141,8 @@ public class IndexController {
 
             }
         }
+        SerGoodsInfo goodsInfo = serGoodsInfoService.getOne(new QueryWrapper<SerGoodsInfo>().eq("m1", source));
+
         /**抽奖*/
         if (/*StringUtils.isNotEmpty(openid)&&*/prizeRecodeId != null) {
             SerPrizeRecodeInfo prizeRecodeInfo = serPrizeRecodeInfoService.getById(prizeRecodeId);
@@ -148,11 +150,13 @@ public class IndexController {
             prizeRecodeInfo.setCashTime(new Date());
             prizeRecodeInfo.setOpenId(openid);
             serPrizeRecodeInfoService.updateById(prizeRecodeInfo);
+            SerGoodsInfo updateGoodsInfo=goodsInfo;
+            updateGoodsInfo.setGoodsState(3);//设置产品失效
+            serGoodsInfoService.updateById(updateGoodsInfo);
 
         }
 
         //读取读取商品信息  获取产品状态
-        SerGoodsInfo goodsInfo = serGoodsInfoService.getOne(new QueryWrapper<SerGoodsInfo>().eq("m1", source));
         //读取产品数据
         //读取布奖记录
         SerPrizeRecodeInfo prizeRecodeInfo = serPrizeRecodeInfoService.getOne(new QueryWrapper<SerPrizeRecodeInfo>()
@@ -183,7 +187,7 @@ public class IndexController {
 
         MemberScanning memberScanning = iMemberScanningService.getOne(new QueryWrapper<MemberScanning>()
                 .eq("sdata1", ip)
-                .eq("product_code", source)
+                .eq("pr_code", source)
                 .eq("open_id", openid));
 
         if (memberScanning == null) {
