@@ -39,4 +39,22 @@ public class ApplyCodeVo {
     private Date createTime;
 
     private String createTimeStr;
+
+    /**
+     * 模板id--溯源码发放简化版使用
+     */
+    private Long codeTemplateId;
+
+    /**
+     * 业务类型 正常业务0 简化版业务1
+     */
+    private Long businessTypeId;
+
+    /**
+     * 申请订单-简化版。表示那两笔订单是同一个申请下的数据。
+     */
+    private String codeOrderSimplified;
+
+    //模板名称
+    private String templateName;
 }

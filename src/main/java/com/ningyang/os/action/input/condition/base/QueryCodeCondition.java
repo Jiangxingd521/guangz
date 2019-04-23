@@ -22,4 +22,8 @@ public class QueryCodeCondition extends BaseCondition {
     private String seriesName;
     //品牌
     private String brandName;
+    //申请编号
+    private String codeOrder;
+    //申请订单-简化版。表示那两笔订单是同一个申请下的数据。
+    private String codeOrderSimplified;
 }

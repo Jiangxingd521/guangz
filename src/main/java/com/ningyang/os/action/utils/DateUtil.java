@@ -12,6 +12,10 @@ public class DateUtil {
      */
     public static final String dtLong = "yyyyMMddHHmmss";
     /**
+     * 年月日时分秒(无下划线) yyyyMMddHHmmss
+     */
+    public static final String dtLong1 = "yyyyMMddHHmmssSSS";
+    /**
      * 完整时间 yyyy-MM-dd HH:mm:ss
      */
     public static final String simple = "yyyy-MM-dd HH:mm:ss";
@@ -100,6 +104,17 @@ public class DateUtil {
     public static String getOrderNum() {
         Date date = new Date();
         DateFormat df = new SimpleDateFormat(dtLong);
+        return df.format(date);
+    }
+
+    /**
+     * 返回系统当前时间-精确到毫秒,作为一个唯一的订单编号
+     *
+     * @return 以yyyyMMddHHmmssSSS为格式的当前系统时间
+     */
+    public static String getOrderNum1() {
+        Date date = new Date();
+        DateFormat df = new SimpleDateFormat(dtLong1);
         return df.format(date);
     }
 

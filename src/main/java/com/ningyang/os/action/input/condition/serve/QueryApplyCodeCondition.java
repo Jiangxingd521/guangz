@@ -22,4 +22,6 @@ public class QueryApplyCodeCondition extends BaseCondition {
     private String codeTypeName;
     //位置
     private String codePositionTypeName;
+    //溯源码订单(简化版)
+    private String codeOrderSimplified;
 }

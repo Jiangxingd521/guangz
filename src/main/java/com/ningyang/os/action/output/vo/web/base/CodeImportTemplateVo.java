@@ -39,4 +39,6 @@ public class CodeImportTemplateVo {
     private String templateRemark;
 
     private int templateState;
+
+    private String rightCodeNum;
 }
