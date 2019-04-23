@@ -30,10 +30,12 @@
         from t_member_type_info a
         left join t_member_point_rule b on a.type_rule_id=b.id
         left join t_sys_user_info c on a.user_id=c.id
-        where 1=1
+        where 1=1 and a.idata2=0
         <if test="typeState!=null">
             and a.idata1 = #{typeState}
         </if>
     </select>
-
+    <update id="deleteMemberType" parameterType="java.lang.Long">
+        update  t_member_type_info t set t.idata2=1 where t.id=#{typeId}
+    </update>
 </mapper>

@@ -1,6 +1,8 @@
 package com.ningyang.os.pojo;
 
+import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
 
@@ -37,7 +39,9 @@ public class MemberPointRule extends Model<MemberPointRule> {
     private Integer idata2;
     private Integer idata3;
     private Integer idata4;
-    private String sdata1;
+    //删除标识 0为未删除 1为已删除
+    @TableField("sdata1")
+    private Integer sdata1;
     private String sdata2;
     private String sdata3;
     private String sdata4;
@@ -111,11 +115,11 @@ public class MemberPointRule extends Model<MemberPointRule> {
         this.idata4 = idata4;
     }
 
-    public String getSdata1() {
+    public Integer getSdata1() {
         return sdata1;
     }
 
-    public void setSdata1(String sdata1) {
+    public void setSdata1(Integer sdata1) {
         this.sdata1 = sdata1;
     }
 

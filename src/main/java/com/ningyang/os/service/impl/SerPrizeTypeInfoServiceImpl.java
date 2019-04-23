@@ -1,5 +1,6 @@
 package com.ningyang.os.service.impl;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.ningyang.os.action.input.command.web.serve.PrizeTypeCommand;
 import com.ningyang.os.action.input.condition.serve.QueryPrizeCondition;
@@ -24,8 +25,21 @@ import java.util.List;
 public class SerPrizeTypeInfoServiceImpl extends ServiceImpl<SerPrizeTypeInfoMapper, SerPrizeTypeInfo> implements ISerPrizeTypeInfoService {
 
     @Override
-    public List<PrizeTypeVo> findPrizeTypeVoListByCondition(QueryPrizeCondition condition) {
-        return baseMapper.selectPrizeTypeVoListByCondition(condition);
+    public Page<PrizeTypeVo> selectPrizeTypeVoPageByCondition(QueryPrizeCondition condition) {
+        Page<PrizeTypeVo> pageVo = new Page<>();
+        List<PrizeTypeVo> ptoList=baseMapper.selectPrizeTypeVoPageByCondition(condition);
+        long total = baseMapper.selectPrizeTypeVoListByConditionCount(condition);
+        pageVo.setRecords(ptoList);
+        pageVo.setTotal(total);
+        pageVo.setSize(condition.getPage());
+        pageVo.setCurrent(condition.getLimit());
+        return pageVo;
+    }
+
+    @Override
+    public List<PrizeTypeVo> selectPrizeTypeVoListByCondition(QueryPrizeCondition condition) {
+        List<PrizeTypeVo> ptoList=baseMapper.selectPrizeTypeVoListByCondition(condition);
+        return ptoList;
     }
 
     @Override
@@ -53,4 +67,6 @@ public class SerPrizeTypeInfoServiceImpl extends ServiceImpl<SerPrizeTypeInfoMap
         }
         return flag;
     }
+
+
 }

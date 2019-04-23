@@ -17,6 +17,7 @@ import java.util.List;
  */
 public interface SerPrizeTypeInfoMapper extends BaseMapper<SerPrizeTypeInfo> {
 
+    List<PrizeTypeVo> selectPrizeTypeVoPageByCondition(QueryPrizeCondition condition);
     List<PrizeTypeVo> selectPrizeTypeVoListByCondition(QueryPrizeCondition condition);
-
+    Long selectPrizeTypeVoListByConditionCount(QueryPrizeCondition condition);
 }

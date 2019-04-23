@@ -27,4 +27,8 @@ public interface ISerDealerInfoService extends IService<SerDealerInfo> {
     List<DealerVo> findDealerVoListByCondition();
 
     boolean checkDealerCode(DealerCommand command);
+
+    boolean isOrderInformation(Long dealerId);
+
+    boolean deleteDealer(Long dealerId);
 }

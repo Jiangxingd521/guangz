@@ -22,12 +22,11 @@
             resultType="com.ningyang.os.action.output.vo.web.serve.DealerVo"
     >
         select a.id as dealerId,a.dealer_name,a.person_name,a.person_mobile,a.social_code,
-               a.dealer_address as address,a.dealer_state,a.dealer_remark
+        a.dealer_address as address,a.dealer_state,a.dealer_remark,a.idata1 as typeState,a.idata2 as dealerType
         from t_ser_dealer_info a
-                 left join t_sys_base_region_info b on a.region_id = b.id
+        left join t_sys_base_region_info b on a.region_id = b.id
         where 1 = 1
-          and a.dealer_state = 0
-
+        and a.dealer_state = 0 and a.idata2 = 0
         <if test="dealerName!=null and dealerName!=''">
             and a.dealer_name like CONCAT('%',#{dealerName},'%')
         </if>
@@ -45,7 +44,7 @@
             resultType="long"
     >
         select count(1) from t_ser_dealer_info a
-        where 1 = 1 and a.dealer_state = 0
+        where 1 = 1 and a.dealer_state = 0 and a.idata2 = 0
         <if test="dealerName!=null and dealerName!=''">
             and a.dealer_name like CONCAT('%',#{dealerName},'%')
         </if>
@@ -61,11 +60,18 @@
             resultType="com.ningyang.os.action.output.vo.web.serve.DealerVo"
     >
         select a.id  as dealerId,a.dealer_name,a.person_name,a.person_mobile,a.social_code,
-               a.dealer_address as address,a.dealer_state,a.dealer_remark
+               a.dealer_address as address,a.dealer_state,a.dealer_remark,a.idata1 as typeState
         from t_ser_dealer_info a
                  left join t_sys_base_region_info b on a.region_id = b.id
         where 1 = 1
-          and a.dealer_state = 0
+          and a.dealer_state = 0 and a.idata1=0
     </select>
-
+    <select id="isOrderInformation"
+            resultType="java.lang.Integer"
+    >
+    select  count(*) from t_ser_order_info t where t.dealer_id=#{dealerId}
+    </select>
+    <update id="deleteDealer" parameterType="java.lang.Long">
+       update  t_ser_dealer_info t set t.idata2=1 where t.id=#{dealerId}
+    </update>
 </mapper>

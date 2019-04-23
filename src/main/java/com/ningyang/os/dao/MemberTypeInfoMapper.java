@@ -19,4 +19,5 @@ public interface MemberTypeInfoMapper extends BaseMapper<MemberTypeInfo> {
 
     List<MemberTypeVo> selectMemberTypeVoListByCondition(QueryMemberCondition condition);
 
+    Integer deleteMemberType(Long typeId);
 }

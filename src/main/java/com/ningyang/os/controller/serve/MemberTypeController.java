@@ -11,6 +11,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -44,7 +45,19 @@ public class MemberTypeController extends BaseController {
             return WebResult.failure(DATA_ERROR.getInfo()).toMap();
         }
     }
-
+    @DeleteMapping("deleteMemberType/{typeId}")
+    public Map<String, Object> deleteMemberType(@PathVariable("typeId")Long typeId) {
+        try{
+            Boolean flag=infoService.deleteMemberType(typeId);
+            if (flag){
+                return WebResult.success().toMap();
+            }
+            return WebResult.failure("").toMap();
+        }catch (Exception e){
+            LOGGER.error(e.getMessage(), e);
+            return WebResult.failure("").toMap();
+        }
+    }
     @PostMapping("addOrUpdate")
     public Map<String, Object> addOrUpdate(
             @RequestHeader("Authorization") String userToken,

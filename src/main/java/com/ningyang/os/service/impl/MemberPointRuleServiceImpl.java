@@ -44,6 +44,8 @@ public class MemberPointRuleServiceImpl extends ServiceImpl<MemberPointRuleMappe
             info.setRuleType(command.getRuleName());
             info.setRuleValue(command.getRuleValue());
             info.setIdata1(0);
+            //删除标识 0为未删除 1为已删除
+            info.setSdata1(0);
             info.setUserId(userId);
             info.setCreateTime(new Date());
             info.setUpdateTime(new Date());
@@ -51,4 +53,21 @@ public class MemberPointRuleServiceImpl extends ServiceImpl<MemberPointRuleMappe
         }
         return flag;
     }
+
+    @Override
+    public boolean getListfindName(String ruleName,Long ruleId) {
+        int i=baseMapper.getListfindName(ruleName,ruleId);
+        if (ruleId!=0){
+            return i!=1;
+        }
+            return i>0;
+    }
+
+    @Override
+    public boolean deletePointRuleById(Long ruleId) {
+        int i=baseMapper.deletePointRuleById(ruleId);
+
+        return i>0;
+    }
+
 }

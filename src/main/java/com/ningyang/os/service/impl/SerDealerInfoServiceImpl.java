@@ -62,6 +62,8 @@ public class SerDealerInfoServiceImpl extends ServiceImpl<SerDealerInfoMapper, S
             info.setDealerAddress(command.getAddress());
             info.setDealerRemark(command.getDealerRemark());
             info.setDealerState(command.getDealerState());
+            info.setIdata1(command.getTypeState());
+            info.setIdata2(command.getDealerType());
             info.setUpdateTime(new Date());
             flag1 = updateById(info);
         } else {
@@ -73,6 +75,8 @@ public class SerDealerInfoServiceImpl extends ServiceImpl<SerDealerInfoMapper, S
             info.setDealerAddress(command.getAddress());
             info.setDealerRemark(command.getDealerRemark());
             info.setDealerState(0);
+            info.setIdata1(0);
+            info.setIdata2(0);
             info.setCreateTime(new Date());
             info.setUpdateTime(new Date());
             flag1 = save(info);
@@ -97,7 +101,18 @@ public class SerDealerInfoServiceImpl extends ServiceImpl<SerDealerInfoMapper, S
 
     @Override
     public boolean checkDealerCode(DealerCommand command) {
-        int dealerCodeCount = count(new QueryWrapper<SerDealerInfo>().eq("social_code", command.getSocialCode()));
+        int dealerCodeCount = count(new QueryWrapper<SerDealerInfo>().eq("social_code", command.getSocialCode()).eq("idata2",0));
         return dealerCodeCount > 0 ? false : true;
+    }
+
+    @Override
+    public boolean isOrderInformation(Long dealerId) {
+
+        return baseMapper.isOrderInformation(dealerId)>0;
+    }
+
+    @Override
+    public boolean deleteDealer(Long dealerId) {
+        return baseMapper.deleteDealer(dealerId)>0;
     }
 }

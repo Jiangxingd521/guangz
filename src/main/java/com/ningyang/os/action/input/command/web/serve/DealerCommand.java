@@ -28,4 +28,8 @@ public class DealerCommand {
     private int dealerState;
     //备注
     private String dealerRemark;
+    //经销商状态(0:启用,1:禁用)
+    private int typeState=0;
+    //经销商删除状态（0：未删除，1：已删除）
+    private int dealerType;
 }

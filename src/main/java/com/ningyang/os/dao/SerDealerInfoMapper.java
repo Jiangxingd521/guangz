@@ -22,4 +22,8 @@ public interface SerDealerInfoMapper extends BaseMapper<SerDealerInfo> {
     Long selectDealerVoPageCountByCondition(QueryDealerCondition condition);
 
     List<DealerVo> selectDealerVoListByCondition();
+
+    Integer isOrderInformation(Long dealerId);
+
+    Integer deleteDealer(Long dealerId);
 }

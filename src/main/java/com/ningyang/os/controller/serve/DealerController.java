@@ -93,5 +93,41 @@ public class DealerController {
             return WebResult.failure(OPERATING_ERROR.getInfo()).toMap();
         }
     }
+    /**
+     * 校验该经销商是否有订单信息
+     *
+     * @return
+     */
+    @DeleteMapping ("isOrderInformation/{dealerId}")
+    public Map<String, Object> isOrderInformation(@PathVariable("dealerId") Long dealerId) {
+        try {
+            boolean flag = infoService.isOrderInformation(dealerId);
+            if (flag) {
+                return WebResult.failure("").toMap();
+            }
+            return WebResult.success().toMap();
+        } catch (Exception e) {
+            LOGGER.error(e.getMessage(), e);
+            return WebResult.failure(OPERATING_ERROR.getInfo()).toMap();
+        }
+    }
 
+    /**
+     *
+     *  删除经销商状态dealerId(1为已删除)
+     * @return
+     */
+    @DeleteMapping ("deleteDealer/{dealerId}")
+    public Map<String, Object> deleteDealer(@PathVariable("dealerId") Long dealerId) {
+        try {
+            boolean flag = infoService.deleteDealer(dealerId);
+            if (flag) {
+                return WebResult.success().toMap();
+            }
+            return WebResult.failure("").toMap();
+        } catch (Exception e) {
+            LOGGER.error(e.getMessage(), e);
+            return WebResult.failure(OPERATING_ERROR.getInfo()).toMap();
+        }
+    }
 }

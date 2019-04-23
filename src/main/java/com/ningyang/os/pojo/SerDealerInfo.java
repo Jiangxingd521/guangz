@@ -74,6 +74,25 @@ public class SerDealerInfo extends Model<SerDealerInfo> {
      */
     @TableField("update_time")
     private Date updateTime;
+    //经销商状态（0：启用，1：禁用）
+    private int idata1;
+
+    public int getIdata1() {
+        return idata1;
+    }
+
+    public void setIdata1(int idata1) {
+        this.idata1 = idata1;
+    }
+    private int idata2;
+
+    public int getIdata2() {
+        return idata2;
+    }
+
+    public void setIdata2(int idata2) {
+        this.idata2 = idata2;
+    }
 
     public Long getId() {
         return id;
@@ -176,12 +195,13 @@ public class SerDealerInfo extends Model<SerDealerInfo> {
                 ", personName='" + personName + '\'' +
                 ", personMobile='" + personMobile + '\'' +
                 ", dealerState=" + dealerState +
-                ", regionId='" + regionId + '\'' +
+                ", regionId=" + regionId +
                 ", dealerAddress='" + dealerAddress + '\'' +
                 ", socialCode='" + socialCode + '\'' +
                 ", dealerRemark='" + dealerRemark + '\'' +
                 ", createTime=" + createTime +
                 ", updateTime=" + updateTime +
+                ", idata1=" + idata1 +
                 '}';
     }
 }

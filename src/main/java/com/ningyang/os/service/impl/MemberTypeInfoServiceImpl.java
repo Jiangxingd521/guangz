@@ -47,10 +47,17 @@ public class MemberTypeInfoServiceImpl extends ServiceImpl<MemberTypeInfoMapper,
             info.setTypeQuanty(command.getTypeQuanty());
             info.setUserId(userId);
             info.setIdata1(0);
+            //删除标记  0为可用 1为不可用
+            info.setIdata2(0);
             info.setCreateTime(new Date());
             info.setUpdateTime(new Date());
             flag = save(info);
         }
         return flag;
+    }
+
+    @Override
+    public boolean deleteMemberType(Long typeId) {
+        return baseMapper.deleteMemberType(typeId)>0;
     }
 }

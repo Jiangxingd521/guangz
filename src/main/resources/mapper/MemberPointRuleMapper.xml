@@ -24,12 +24,20 @@
             parameterType="com.ningyang.os.action.input.condition.serve.QueryMemberCondition"
             resultType="com.ningyang.os.action.output.vo.web.serve.MemberPointRuleVo"
     >
-        select a.id as ruleId,a.rule_type as ruleName,a.rule_value,b.user_name,a.iData1 as ruleState
+        select a.id as ruleId,a.rule_type as ruleName,a.rule_value,b.user_name,a.iData1 as ruleState,a.sdata1 as rule_deleteid
         from t_member_point_rule a left join t_sys_user_info b on a.user_id = b.id
-        where 1=1
+        where 1=1 and  a.sdata1 = 0
         <if test="ruleState!=null">
             and a.iData1 = #{ruleState}
         </if>
     </select>
-
+    <select id="getListfindName"  resultType="java.lang.Integer">
+    select  count(*)  from t_member_point_rule t where t.sdata1=0 and t.rule_type = #{ruleName}
+    <if test="ruleId!=0">
+        or t.id= #{ruleId}
+    </if>
+    </select>
+    <update id="deletePointRuleById" parameterType="java.lang.Long">
+    update t_member_point_rule set sdata1=1 where id=#{ruleId}
+    </update>
 </mapper>

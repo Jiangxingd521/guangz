@@ -36,6 +36,7 @@ public class MemberPointRuleController extends BaseController {
             QueryMemberCondition condition
     ) {
         try {
+
             List<MemberPointRuleVo> listVo = infoService.findMemberPointRuleVoListByCondition(condition);
             return WebResult.success().put("listVo", listVo).toMap();
         } catch (Exception e) {
@@ -44,6 +45,34 @@ public class MemberPointRuleController extends BaseController {
         }
     }
 
+    @GetMapping("getListfindName")
+    public Map<String, Object> getListfindName(String ruleName,Long ruleID) {
+        try {
+            System.out.println(ruleID+"-----------");
+            if (!infoService.getListfindName(ruleName,ruleID)) {
+                return WebResult.success().toMap();
+            }
+            return WebResult.failure("用户名已存在").toMap();
+        } catch (Exception e) {
+            LOGGER.error(e.getMessage(), e);
+            return WebResult.failure(DATA_ERROR.getInfo()).toMap();
+        }
+    }
+    @DeleteMapping("deletePointRuleById/{RuleId}")
+    public Map<String, Object> deletePointRuleById(
+            @PathVariable("RuleId") Long RuleId
+    ) {
+        try {
+            boolean flag = infoService.deletePointRuleById(RuleId);
+            if (flag) {
+                return WebResult.success().toMap();
+            }
+            return WebResult.failure("").toMap();
+        } catch (Exception e) {
+            LOGGER.error(e.getMessage(), e);
+            return WebResult.failure("").toMap();
+        }
+    }
     @PostMapping("addOrUpdate")
     public Map<String, Object> addOrUpdate(
             @RequestHeader("Authorization") String userToken,

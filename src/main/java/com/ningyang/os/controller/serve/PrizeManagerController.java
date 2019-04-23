@@ -1,5 +1,6 @@
 package com.ningyang.os.controller.serve;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.ningyang.os.action.input.command.web.serve.PrizeManagerCommand;
 import com.ningyang.os.action.input.condition.serve.QueryPrizeCondition;
 import com.ningyang.os.action.output.vo.web.serve.PrizeManagerVo;
@@ -44,7 +45,18 @@ public class PrizeManagerController extends BaseController {
             return WebResult.failure(DATA_ERROR.getInfo()).toMap();
         }
     }
-
+    @GetMapping("getPageList")
+    public Map<String, Object> getPageList(
+            QueryPrizeCondition condition
+    ) {
+        try {
+            Page<PrizeManagerVo> pageVo = infoService.findPrizeManagerVoPageByCondition(condition);
+            return WebResult.success().put("pageVo", pageVo).toMap();
+        } catch (Exception e) {
+            LOGGER.error(e.getMessage(), e);
+            return WebResult.failure(DATA_ERROR.getInfo()).toMap();
+        }
+    }
 
     @PostMapping("addOrUpdate")
     public Map<String, Object> addOrUpdate(

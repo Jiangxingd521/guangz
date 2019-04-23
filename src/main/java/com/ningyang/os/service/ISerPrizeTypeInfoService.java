@@ -1,5 +1,6 @@
 package com.ningyang.os.service;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.ningyang.os.action.input.command.web.serve.PrizeTypeCommand;
 import com.ningyang.os.action.input.condition.serve.QueryPrizeCondition;
@@ -18,8 +19,8 @@ import java.util.List;
  */
 public interface ISerPrizeTypeInfoService extends IService<SerPrizeTypeInfo> {
 
-    List<PrizeTypeVo> findPrizeTypeVoListByCondition(QueryPrizeCondition condition);
-
+    Page<PrizeTypeVo> selectPrizeTypeVoPageByCondition(QueryPrizeCondition condition);
+    List<PrizeTypeVo> selectPrizeTypeVoListByCondition(QueryPrizeCondition condition);
     boolean addOrUpdate(PrizeTypeCommand command, Long userId);
 
 }

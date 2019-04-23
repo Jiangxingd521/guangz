@@ -19,4 +19,14 @@ public class MemberPointRuleCommand {
     private Long userId;
 
     private int ruleState = 0;
+    //删除标识 0为未删除 1为已删除
+    private int sdata1=0;
+
+    public int getSdata1() {
+        return sdata1;
+    }
+
+    public void setSdata1(int sdata1) {
+        this.sdata1 = sdata1;
+    }
 }

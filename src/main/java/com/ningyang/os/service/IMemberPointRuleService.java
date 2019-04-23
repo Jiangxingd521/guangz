@@ -22,4 +22,7 @@ public interface IMemberPointRuleService extends IService<MemberPointRule> {
 
     boolean addOrUpdate(MemberPointRuleCommand command, Long userId);
 
+    boolean getListfindName(String ruleName,Long ruleId);
+
+    boolean deletePointRuleById(Long ruleId);
 }

@@ -1,33 +1,26 @@
 package com.ningyang.os;
 
 import com.alibaba.fastjson.JSONObject;
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.ningyang.os.action.config.SystemConfig;
-import com.ningyang.os.action.input.command.api.ApiWarehousePutOutCommand;
-import com.ningyang.os.action.input.condition.serve.QueryApplyCodeCondition;
-import com.ningyang.os.action.input.condition.serve.QueryGoodsPutCondition;
-import com.ningyang.os.action.output.vo.web.serve.GoodsPutOutVo;
+import com.ningyang.os.action.input.condition.serve.QueryDealerCondition;
 import com.ningyang.os.action.utils.ReadFileBackData;
-import com.ningyang.os.action.utils.WebResult;
-import com.ningyang.os.dao.SerApplyCodeTableInfoMapper;
-import com.ningyang.os.pojo.*;
-import com.ningyang.os.service.*;
-import org.apache.commons.lang3.StringUtils;
+import com.ningyang.os.service.ILSerWarehouseGoodsInfoService;
+import com.ningyang.os.service.ISerGoodsInfoService;
+import com.ningyang.os.service.ISerOrderInfoDetailsService;
+import org.apache.poi.util.IOUtils;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.mock.web.MockMultipartFile;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.web.multipart.MultipartFile;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
-import java.math.BigDecimal;
-import java.util.*;
-import java.util.stream.Collectors;
+import java.util.List;
 
-import static com.ningyang.os.action.utils.RandomUtil.randomArray;
-import static com.ningyang.os.action.utils.RandomUtil.randomCommon;
+import static com.ningyang.os.action.utils.ReadFileUtil.returnReadFileData;
 import static com.ningyang.os.action.utils.UuidUtil.generateUUID;
 
 @RunWith(SpringRunner.class)
@@ -57,6 +50,14 @@ public class NodeOsApplicationTests {
     private ISerOrderInfoDetailsService detailsService;
     @Autowired
     private ILSerWarehouseGoodsInfoService putInService;
+/*    @Autowired
+    private SysUserInfoMapper userInfoMapper;
+    @Test
+    public  void test(){
+        QueryUserCondition condition=new QueryUserCondition();
+        Long a= userInfoMapper.selectSysUserVoPageCountByCondition(condition);
+        System.out.println(a);
+    }*/
 
     @Test
     public void contextLoads() {
@@ -299,4 +300,24 @@ public class NodeOsApplicationTests {
         return outInfoService.findGoodsPutOutVoByCondition(condition);
     }*/
 
+    @Test
+    public void test1() {
+        try {
+            File file = new File("/Users/kaider/temp/WorkLog/qrcode/aaa.txt");
+            FileInputStream input = new FileInputStream(file);
+            MultipartFile multipartFile =new MockMultipartFile("file", file.getName(), "text/plain", IOUtils.toByteArray(input));
+            List<ReadFileBackData> fileList = returnReadFileData(multipartFile);
+            System.out.println(JSONObject.toJSONString(fileList));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+
+
+
+
 }
+
+

@@ -22,4 +22,5 @@ public interface IMemberTypeInfoService extends IService<MemberTypeInfo> {
 
     boolean addOrUpdate(MemberTypeCommand command, Long userId);
 
+    boolean deleteMemberType(Long typeId);
 }
