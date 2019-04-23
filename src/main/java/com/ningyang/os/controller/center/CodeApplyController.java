@@ -168,6 +168,20 @@ public class CodeApplyController extends BaseController {
                 boolean applyFlag = infoService.updateApplyState(command);
                 if (applyFlag) {
                     tableInfoService.addCodeFlag(command.getCodeFlag());
+
+                    //add by suntao 处理简化版数据信息
+                    QueryCodeCondition codeCondition = new QueryCodeCondition();
+                    codeCondition.setCodeOrder(command.getCodeOrder());
+
+                    //根据订单编码，获取申请信息，判断是否是简化版业务
+                    List<ApplyCodeVo> applyCodeCommandList = infoService.findApplyCodeVoListByCondition(codeCondition);
+                    if (!applyCodeCommandList.isEmpty()) {
+                        ApplyCodeVo applyCodeVo = applyCodeCommandList.get(0);
+                        if (applyCodeVo.getBusinessTypeId() == 1 && StringUtils.isNotBlank(applyCodeVo.getCodeOrderSimplified())) {
+                            this.addApplyCodeRalations(applyCodeVo.getCodeOrderSimplified(), command);
+                        }
+                    }
+
                     return WebResult.success().toMap();
                 }
                 return WebResult.failure(EDIT_ERROR.getInfo()).toMap();

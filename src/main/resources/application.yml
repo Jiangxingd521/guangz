@@ -1,5 +1,5 @@
 server:
-  port: 9082
+  port: 8082
   servlet:
     context-path: /os_node
 spring:
