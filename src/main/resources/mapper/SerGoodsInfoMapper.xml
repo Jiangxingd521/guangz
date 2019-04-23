@@ -36,4 +36,16 @@
         <result column="update_time" property="updateTime"/>
     </resultMap>
 
+    <select id="selectGoodsInfoVoByCondition"
+            parameterType="com.ningyang.os.action.input.condition.serve.QueryGoodsCondition"
+            resultType="com.ningyang.os.action.output.vo.web.serve.GoodsInfoVo"
+    >
+        select a.M1 m1,a.M2 m2
+        from t_ser_goods_info a
+        where 1=1
+        <if test="m2!=null">
+            and a.M2 = #{m2}
+        </if>
+    </select>
+
 </mapper>

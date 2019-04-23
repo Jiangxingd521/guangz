@@ -49,6 +49,7 @@ public class SerApplyCodeInfo extends Model<SerApplyCodeInfo> {
      */
     @TableField("code_position_type_id")
     private Long codePositionTypeId;
+
     /**
      * 申请数量
      */
@@ -74,6 +75,24 @@ public class SerApplyCodeInfo extends Model<SerApplyCodeInfo> {
      */
     @TableField("update_time")
     private Date updateTime;
+
+    /**
+     * 模板id--溯源码发放简化版使用
+     */
+    @TableField("code_template_id")
+    private Long codeTemplateId;
+
+    /**
+     * 业务类型 正常业务0 简化版业务1
+     */
+    @TableField("business_type_id")
+    private Long businessTypeId;
+
+    /**
+     * 申请订单-简化版。表示那两笔订单是同一个申请下的数据。
+     */
+    @TableField("code_order_simplified")
+    private String codeOrderSimplified;
 
     public Long getId() {
         return id;
@@ -168,6 +187,30 @@ public class SerApplyCodeInfo extends Model<SerApplyCodeInfo> {
         return this.id;
     }
 
+    public Long getCodeTemplateId() {
+        return codeTemplateId;
+    }
+
+    public void setCodeTemplateId(Long codeTemplateId) {
+        this.codeTemplateId = codeTemplateId;
+    }
+
+    public Long getBusinessTypeId() {
+        return businessTypeId;
+    }
+
+    public void setBusinessTypeId(Long businessTypeId) {
+        this.businessTypeId = businessTypeId;
+    }
+
+    public String getCodeOrderSimplified() {
+        return codeOrderSimplified;
+    }
+
+    public void setCodeOrderSimplified(String codeOrderSimplified) {
+        this.codeOrderSimplified = codeOrderSimplified;
+    }
+
     @Override
     public String toString() {
         return "SerApplyCodeInfo{" +
@@ -180,6 +223,9 @@ public class SerApplyCodeInfo extends Model<SerApplyCodeInfo> {
                 ", applyCount=" + applyCount +
                 ", applyState=" + applyState +
                 ", codeTableName='" + codeTableName +
+                ", codeTemplateId='" + codeTemplateId +
+                ", businessTypeId='" + businessTypeId +
+                ", codeOrderSimplified='" + codeOrderSimplified +
                 ", createTime=" + createTime +
                 ", updateTime=" + updateTime +
                 '}';

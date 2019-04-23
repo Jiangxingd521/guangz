@@ -70,6 +70,12 @@ public class SerCodeImportTemplateInfo extends Model<SerCodeImportTemplateInfo> 
     @TableField("update_time")
     private Date updateTime;
 
+    /**
+     * 右码数量
+     */
+    @TableField("right_code_num")
+    private Integer rightCodeNum;
+
 
     public Long getId() {
         return id;
@@ -156,6 +162,14 @@ public class SerCodeImportTemplateInfo extends Model<SerCodeImportTemplateInfo> 
         return this.id;
     }
 
+    public Integer getRightCodeNum() {
+        return rightCodeNum;
+    }
+
+    public void setRightCodeNum(Integer rightCodeNum) {
+        this.rightCodeNum = rightCodeNum;
+    }
+
     @Override
     public String toString() {
         return "SerCodeImportTemplateInfo{" +
@@ -169,6 +183,7 @@ public class SerCodeImportTemplateInfo extends Model<SerCodeImportTemplateInfo> 
                 ", templateState=" + templateState +
                 ", createTime=" + createTime +
                 ", updateTime=" + updateTime +
+                ", rightCodeNum=" + rightCodeNum +
                 "}";
     }
 }

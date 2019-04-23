@@ -75,4 +75,29 @@ public class SerApplyCodeInfoServiceImpl extends ServiceImpl<SerApplyCodeInfoMap
         info.setUpdateTime(new Date());
         return updateById(info);
     }
+    @Override
+    public List<ApplyCodeVo> findApplyCodeVoListByCondition(QueryCodeCondition condition) {
+        List<ApplyCodeVo> listVoTemp = baseMapper.selectApplyCodeVoListByCondition(condition);
+        return listVoTemp;
+    }
+
+    /**
+     * 溯源码发放（简化版）分页查询
+     * @param condition
+     * @return
+     */
+    @Override
+    public Page<ApplyCodeVo> findApplyCodeVoSimplifiedPageByCondition(QueryCodeCondition condition) {
+        Page<ApplyCodeVo> pageVo = new Page<>();
+        List<ApplyCodeVo> listVoTemp = baseMapper.selectApplyCodeVoSimplifiedPageByCondition(condition);
+        for (ApplyCodeVo vo : listVoTemp) {
+            vo.setCreateTimeStr(timeToStr(vo.getCreateTime()));
+        }
+        long total = baseMapper.selectApplyCodeVoSimplifiedPageCountByCondition(condition);
+        pageVo.setRecords(listVoTemp);
+        pageVo.setTotal(total);
+        pageVo.setSize(condition.getPage());
+        pageVo.setCurrent(condition.getLimit());
+        return pageVo;
+    }
 }

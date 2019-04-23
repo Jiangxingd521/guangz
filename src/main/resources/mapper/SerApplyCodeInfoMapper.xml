@@ -15,6 +15,9 @@
         <result column="code_table_name" property="codeTableName"/>
         <result column="create_time" property="createTime"/>
         <result column="update_time" property="updateTime"/>
+        <result column="business_type_id" property="businessTypeId"/>
+        <result column="code_template_id" property="codeTemplateId"/>
+        <result column="code_order_simplified" property="codeOrderSimplified"/>
     </resultMap>
 
     <select id="selectApplyCodeVoPageByCondition"
@@ -30,6 +33,7 @@
         left join t_ser_code_type2_info d on a.code_type_id = d.id
         left join t_ser_code_type3_info e on a.code_position_type_id = e.id
         where 1=1
+        and (a.business_type_id='0' or a.business_type_id is null)
         <if test="applyCodeState!=null">
             and a.apply_state = #{applyCodeState}
         </if>
@@ -46,6 +50,73 @@
             and a.apply_state = #{applyCodeState}
         </if>
         order by a.create_time desc
+    </select>
+
+    <!--根据条件查询溯源码申请信息，返回list列表-->
+    <select id="selectApplyCodeVoListByCondition"
+            parameterType="com.ningyang.os.action.input.condition.base.QueryCodeCondition"
+            resultType="com.ningyang.os.action.output.vo.web.serve.ApplyCodeVo"
+    >
+        select a.id as applyId,a.code_position_id as codePosition,c.code_name as codePositionName,
+        a.code_type_id as codeType,a.code_table_name as tableName,d.code_name as codeTypeName,
+        a.code_position_type_id as codePositionType,e.code_name as codePositionTypeName,
+        a.apply_count,a.apply_state,a.create_time,b.user_name as applyUserName,a.code_order,a.business_type_id,a.code_template_id,a.code_order_simplified
+        from t_ser_apply_code_info a left join t_sys_user_info b on a.apply_user_id=b.id
+        left join t_ser_code_type1_info c on a.code_position_id = c.id
+        left join t_ser_code_type2_info d on a.code_type_id = d.id
+        left join t_ser_code_type3_info e on a.code_position_type_id = e.id
+        where 1=1
+        <if test="codeOrder!=null">
+            and a.code_order = #{codeOrder}
+        </if>
+        <if test="codeOrderSimplified!=null">
+            and a.code_order_simplified = #{codeOrderSimplified}
+        </if>
+        order by a.create_time desc
+    </select>
+
+    <select id="selectApplyCodeVoSimplifiedPageByCondition"
+            parameterType="com.ningyang.os.action.input.condition.base.QueryCodeCondition"
+            resultType="com.ningyang.os.action.output.vo.web.serve.ApplyCodeVo"
+    >
+        select a.code_order_simplified,d.code_name as codeTypeName,f.template_name templateName,min(a.apply_count) applyCount,b.user_name as applyUserName,
+        a.create_time,a.apply_state,a.code_type_id as codeType
+        from t_ser_apply_code_info a left join t_sys_user_info b on a.apply_user_id=b.id
+        left join t_ser_code_type1_info c on a.code_position_id = c.id
+        left join t_ser_code_type2_info d on a.code_type_id = d.id
+        left join t_ser_code_type3_info e on a.code_position_type_id = e.id
+        left join t_ser_code_import_template_info f on a.code_template_id=f.id
+        where 1=1
+        and a.business_type_id='1'
+        <if test="applyCodeState!=null">
+            and a.apply_state = #{applyCodeState}
+        </if>
+        group by a.code_order_simplified,d.code_name,f.template_name,b.user_name,a.create_time,a.apply_state,a.code_type_id
+        order by a.create_time desc
+        limit #{page},#{limit}
+    </select>
+
+    <select id="selectApplyCodeVoSimplifiedPageCountByCondition"
+            parameterType="com.ningyang.os.action.input.condition.base.QueryCodeCondition"
+            resultType="long"
+    >
+        select count(1) from (
+
+        select a.code_order_simplified,d.code_name as codeTypeName,f.template_name templateName,min(a.apply_count) applyCount,b.user_name as applyUserName,
+        a.create_time,a.apply_state
+        from t_ser_apply_code_info a left join t_sys_user_info b on a.apply_user_id=b.id
+        left join t_ser_code_type1_info c on a.code_position_id = c.id
+        left join t_ser_code_type2_info d on a.code_type_id = d.id
+        left join t_ser_code_type3_info e on a.code_position_type_id = e.id
+        left join t_ser_code_import_template_info f on a.code_template_id=f.id
+        where 1=1
+        and a.business_type_id='1'
+        <if test="applyCodeState!=null">
+            and a.apply_state = #{applyCodeState}
+        </if>
+        group by a.code_order_simplified,d.code_name,f.template_name,b.user_name,a.create_time,a.apply_state
+
+        ) aa
     </select>
 
 

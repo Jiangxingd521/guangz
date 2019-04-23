@@ -7,6 +7,8 @@ import com.ningyang.os.action.input.condition.base.QueryCodeCondition;
 import com.ningyang.os.action.output.vo.web.base.CodeImportTemplateVo;
 import com.ningyang.os.pojo.SerCodeImportTemplateInfo;
 
+import java.util.List;
+
 
 /**
  * <p>
@@ -23,4 +25,6 @@ public interface ISerCodeImportTemplateInfoService extends IService<SerCodeImpor
     boolean addOrUpdate(CodeImportTemplateCommand command);
 
     CodeImportTemplateVo findCodeImportTemplateVo(Long templateId);
+
+    List<CodeImportTemplateVo> findCodeImportTemplateVoList();
 }

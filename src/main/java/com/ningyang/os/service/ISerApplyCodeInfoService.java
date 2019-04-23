@@ -8,6 +8,8 @@ import com.ningyang.os.action.input.condition.base.QueryCodeCondition;
 import com.ningyang.os.action.output.vo.web.serve.ApplyCodeVo;
 import com.ningyang.os.pojo.SerApplyCodeInfo;
 
+import java.util.List;
+
 /**
  * <p>
  * 溯源码申请 服务类
@@ -23,4 +25,8 @@ public interface ISerApplyCodeInfoService extends IService<SerApplyCodeInfo> {
     boolean add(ApplyCodeCommand command);
 
     boolean updateApplyState(CenterCodeCommand command);
+
+    public List<ApplyCodeVo> findApplyCodeVoListByCondition(QueryCodeCondition codeCondition);
+
+    public Page<ApplyCodeVo> findApplyCodeVoSimplifiedPageByCondition(QueryCodeCondition condition);
 }

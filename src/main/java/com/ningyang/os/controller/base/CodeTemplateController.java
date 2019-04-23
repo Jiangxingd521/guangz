@@ -11,6 +11,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Map;
 
 import static com.ningyang.os.action.enums.SystemErrorEnum.DATA_ERROR;
@@ -57,6 +58,16 @@ public class CodeTemplateController {
         } catch (Exception e) {
             LOGGER.error(e.getMessage(), e);
             return WebResult.failure(OPERATING_ERROR.getInfo()).toMap();
+        }
+    }
+    @GetMapping("findCodeImportTemplateVoList")
+    public Map<String, Object> getCodeTemplateList() {
+        try {
+            List<CodeImportTemplateVo> listVo = infoService.findCodeImportTemplateVoList();
+            return WebResult.success().put("listVo", listVo).toMap();
+        } catch (Exception e) {
+            LOGGER.error(e.getMessage(), e);
+            return WebResult.failure(DATA_ERROR.getInfo()).toMap();
         }
     }
 

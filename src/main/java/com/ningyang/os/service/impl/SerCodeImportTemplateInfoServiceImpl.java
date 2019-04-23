@@ -97,8 +97,20 @@ public class SerCodeImportTemplateInfoServiceImpl extends ServiceImpl<SerCodeImp
     private String getTemplateName(Long productId,Long leftCodeId, Long rightCodeId){
         BrandSeriesProductNameVo vo = productInfoService.findBrandSeriesProductNameVo(productId);
         String leftName = codeType3InfoService.getById(leftCodeId).getCodeName();
-        String rightName = codeType3InfoService.getById(rightCodeId).getCodeName();
-        String templateName = vo.getBrandName()+'-'+vo.getSeriesName()+'-'+vo.getProductName()+'-'+leftName+'-'+rightName;
-        return templateName;
+
+        if(rightCodeId == null || rightCodeId < 0 ){
+            String templateName = vo.getBrandName()+'-'+vo.getSeriesName()+'-'+vo.getProductName()+'-'+leftName;
+            return templateName;
+        } else {
+            String rightName = codeType3InfoService.getById(rightCodeId).getCodeName();
+            String templateName = vo.getBrandName()+'-'+vo.getSeriesName()+'-'+vo.getProductName()+'-'+leftName+'-'+rightName;
+            return templateName;
+        }
+    }
+
+    @Override
+    public List<CodeImportTemplateVo> findCodeImportTemplateVoList() {
+        List<CodeImportTemplateVo> listVoTemp = baseMapper.selectCodeImportTemplateVoList();
+        return listVoTemp;
     }
 }
