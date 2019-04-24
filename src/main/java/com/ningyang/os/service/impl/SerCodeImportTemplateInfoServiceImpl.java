@@ -66,6 +66,7 @@ public class SerCodeImportTemplateInfoServiceImpl extends ServiceImpl<SerCodeImp
             info.setRightCodeTypeId(command.getRightCodeId());
             info.setTemplateRemark(command.getTemplateRemark());
             info.setTemplateState(command.getTemplateState());
+            info.setRightCodeNum(command.getRightCodeNum());
             info.setUpdateTime(new Date());
             flag = updateById(info);
         } else {

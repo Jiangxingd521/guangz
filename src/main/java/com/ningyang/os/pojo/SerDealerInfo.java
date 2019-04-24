@@ -84,6 +84,7 @@ public class SerDealerInfo extends Model<SerDealerInfo> {
     public void setIdata1(int idata1) {
         this.idata1 = idata1;
     }
+    //经销商删除状态（0：启用，1：禁用）
     private int idata2;
 
     public int getIdata2() {

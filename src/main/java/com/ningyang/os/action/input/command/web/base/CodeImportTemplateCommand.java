@@ -25,4 +25,6 @@ public class CodeImportTemplateCommand {
     private String templateRemark;
 
     private int templateState;
+    //右码数量
+    private int rightCodeNum;
 }
